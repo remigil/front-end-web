@@ -1,605 +1,250 @@
-<!-- Slider
-================================================== -->
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
-<!-- Revolution Slider -->
-<div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="classicslider1" style="margin:0px auto;background-color:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
-    <!-- 5.0.7 auto mode -->
-    <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
-        <!-- <div id="rev_slider_4_1" class="rev_slider home fullwidthabanner" style="display:none;" data-version="5.0.7"> -->
-        <ul>
+        <div class="carousel-inner" role="listbox">
 
-            <!-- Slide  -->
-            <li data-index="rs-4" data-transition="fade" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-
-                <!-- Background -->
-                <img src="<?php echo base_url(); ?>assets/fe/hero.png" alt="" data-bgposition="center buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
-
-                <!-- Caption-->
-                <!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
-					id="slide-2-layer-2" 
-					data-x="['center','center','center','center']" data-hoffset="['0']" 
-					data-y="['middle','middle','middle','middle']" data-voffset="['0']" 
-					data-width="['640','640', 640','420','320']"
-					data-height="auto"
-					data-whitespace="nowrap"
-					data-transform_idle="o:1;"	
-					data-transform_in="y:0;opacity:0;s:1000;e:Power2.easeOutExpo;s:400;e:Power2.easeOutExpo" 
-					data-transform_out="" 
-					data-mask_in="x:0px;y:[20%];s:inherit;e:inherit;" 
-					data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-					data-start="1000" 
-					data-responsive_offset="on">
-
-					 
-					<div class="R_title margin-bottom-15"
-					id="slide-2-layer-3"
-					data-x="['center','center','center','center']"
-					data-hoffset="['0','0','0','0']"
-					data-y="['middle','middle','middle','middle']"
-					data-voffset="['-40','-40','-20','-80']"
-					data-fontsize="['42','36', '32','36','22']"
-					data-lineheight="['70','60','60','45','35']"
-					data-width="['640','640', 640','420','320']"
-					data-height="none" data-whitespace="normal"
-					data-transform_idle="o:1;"
-					data-transform_in="y:-50px;sX:2;sY:2;opacity:0;s:1000;e:Power4.easeOut;"
-					data-transform_out="opacity:0;s:300;"
-					data-start="600"
-					data-splitin="none"
-					data-splitout="none"
-					data-basealign="slide"
-					data-responsive_offset="off"
-					data-responsive="off"
-					style="z-index: 6; color: #fff; letter-spacing: 0px; font-weight: 600; ">Streamline Your Business</div>
-
-					<div class="caption-text">Proactively envisioned multimedia based on expertise cross-media growth strategies. Pontificate installed base portals after maintainable products.</div>
-					<a href="#" class="button medium">Read More</a>
-				</div> -->
-
-            </li>
-            <!-- Slide  -->
-            <li data-index="rs-3" data-transition="fade" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-
-                <!-- Background -->
-                <img src="<?php echo base_url(); ?>assets/fe/banner-home2.jpeg" alt="" data-bgposition="center buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
-
-                <!-- Caption-->
-                <!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
-					id="slide-2-layer-2" 
-					data-x="['center','center','center','center']" data-hoffset="['0']" 
-					data-y="['middle','middle','middle','middle']" data-voffset="['0']" 
-					data-width="['640','640', 640','420','320']"
-					data-height="auto"
-					data-whitespace="nowrap"
-					data-transform_idle="o:1;"	
-					data-transform_in="y:0;opacity:0;s:1000;e:Power2.easeOutExpo;s:400;e:Power2.easeOutExpo" 
-					data-transform_out="" 
-					data-mask_in="x:0px;y:[20%];s:inherit;e:inherit;" 
-					data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-					data-start="1000" 
-					data-responsive_offset="on">
-
-					 
-					<div class="R_title margin-bottom-15"
-					id="slide-2-layer-3"
-					data-x="['center','center','center','center']"
-					data-hoffset="['0','0','0','0']"
-					data-y="['middle','middle','middle','middle']"
-					data-voffset="['-40','-40','-20','-80']"
-					data-fontsize="['42','36', '32','36','22']"
-					data-lineheight="['70','60','60','45','35']"
-					data-width="['640','640', 640','420','320']"
-					data-height="none" data-whitespace="normal"
-					data-transform_idle="o:1;"
-					data-transform_in="y:-50px;sX:2;sY:2;opacity:0;s:1000;e:Power4.easeOut;"
-					data-transform_out="opacity:0;s:300;"
-					data-start="600"
-					data-splitin="none"
-					data-splitout="none"
-					data-basealign="slide"
-					data-responsive_offset="off"
-					data-responsive="off"
-					style="z-index: 6; color: #fff; letter-spacing: 0px; font-weight: 600; ">Streamline Your Business</div>
-
-					<div class="caption-text">Proactively envisioned multimedia based on expertise cross-media growth strategies. Pontificate installed base portals after maintainable products.</div>
-					<a href="#" class="button medium">Read More</a>
-				</div> -->
-
-            </li>
-            <!-- Slide  -->
-            <li data-index="rs-2" data-transition="fade" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-
-                <!-- Background -->
-                <img src="<?php echo base_url(); ?>assets/fe/banner-home7.jpg" alt="" data-bgposition="bottom buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
-
-                <!-- Caption-->
-                <!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
-					id="slide-2-layer-2" 
-					data-x="['center','center','center','center']" data-hoffset="['0']" 
-					data-y="['middle','middle','middle','middle']" data-voffset="['0']" 
-					data-width="['640','640', 640','420','320']"
-					data-height="auto"
-					data-whitespace="nowrap"
-					data-transform_idle="o:1;"	
-					data-transform_in="y:0;opacity:0;s:1000;e:Power2.easeOutExpo;s:400;e:Power2.easeOutExpo" 
-					data-transform_out="" 
-					data-mask_in="x:0px;y:[20%];s:inherit;e:inherit;" 
-					data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-					data-start="1000" 
-					data-responsive_offset="on">
-
-					 
-					<div class="R_title margin-bottom-15"
-					id="slide-2-layer-3"
-					data-x="['center','center','center','center']"
-					data-hoffset="['0','0','0','0']"
-					data-y="['middle','middle','middle','middle']"
-					data-voffset="['-40','-40','-20','-80']"
-					data-fontsize="['42','36', '32','36','22']"
-					data-lineheight="['70','60','60','45','35']"
-					data-width="['640','640', 640','420','320']"
-					data-height="none" data-whitespace="normal"
-					data-transform_idle="o:1;"
-					data-transform_in="y:-50px;sX:2;sY:2;opacity:0;s:1000;e:Power4.easeOut;"
-					data-transform_out="opacity:0;s:300;"
-					data-start="600"
-					data-splitin="none"
-					data-splitout="none"
-					data-basealign="slide"
-					data-responsive_offset="off"
-					data-responsive="off"
-					style="z-index: 6; color: #fff; letter-spacing: 0px; font-weight: 600; ">Streamline Your Business</div>
-
-					<div class="caption-text">Proactively envisioned multimedia based on expertise cross-media growth strategies. Pontificate installed base portals after maintainable products.</div>
-					<a href="#" class="button medium">Read More</a>
-				</div> -->
-
-            </li>
-            <!-- Slide  -->
-            <li data-index="rs-1" data-transition="fade" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-
-                <!-- Background -->
-                <img src="<?php echo base_url(); ?>assets/fe/banner-home4.jpeg" alt="" data-bgposition="center bottom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
-
-                <!-- Caption-->
-                <!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
-					id="slide-2-layer-2" 
-					data-x="['center','center','center','center']" data-hoffset="['0']" 
-					data-y="['middle','middle','middle','middle']" data-voffset="['0']" 
-					data-width="['640','640', 640','420','320']"
-					data-height="auto"
-					data-whitespace="nowrap"
-					data-transform_idle="o:1;"	
-					data-transform_in="y:0;opacity:0;s:1000;e:Power2.easeOutExpo;s:400;e:Power2.easeOutExpo" 
-					data-transform_out="" 
-					data-mask_in="x:0px;y:[20%];s:inherit;e:inherit;" 
-					data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-					data-start="1000" 
-					data-responsive_offset="on">
-
-					 
-					<div class="R_title margin-bottom-15"
-					id="slide-2-layer-3"
-					data-x="['center','center','center','center']"
-					data-hoffset="['0','0','0','0']"
-					data-y="['middle','middle','middle','middle']"
-					data-voffset="['-40','-40','-20','-80']"
-					data-fontsize="['42','36', '32','36','22']"
-					data-lineheight="['70','60','60','45','35']"
-					data-width="['640','640', 640','420','320']"
-					data-height="none" data-whitespace="normal"
-					data-transform_idle="o:1;"
-					data-transform_in="y:-50px;sX:2;sY:2;opacity:0;s:1000;e:Power4.easeOut;"
-					data-transform_out="opacity:0;s:300;"
-					data-start="600"
-					data-splitin="none"
-					data-splitout="none"
-					data-basealign="slide"
-					data-responsive_offset="off"
-					data-responsive="off"
-					style="z-index: 6; color: #fff; letter-spacing: 0px; font-weight: 600; ">Streamline Your Business</div>
-
-					<div class="caption-text">Proactively envisioned multimedia based on expertise cross-media growth strategies. Pontificate installed base portals after maintainable products.</div>
-					<a href="#" class="button medium">Read More</a>
-				</div> -->
-
-            </li>
-
-        </ul>
-        <div class="tp-static-layers"></div>
-
-    </div>
-</div>
-<!-- Revolution Slider / End -->
-
-
-<!-- Content
-================================================== -->
-
-<!-- Container -->
-<div class="container-fluid margin-top-30">
-    <div class="row">
-
-        <!-- <div class="col-md-6">
-			<h3 class="headline centered margin-bottom-35 margin-top-50">www.k3i.korlantas.polri.go.id</h3>
-		</div> -->
-        <div class="col-md-12 px-5">
-            <div class="container-fluid mb-3 px-5">
-                <h1 class="text-center mb-5"><a href="<?= base_url() ?>"><b>www.k3i.korlantas.polri.go.id</b></a></h1>
-                <span class="centered margin-bottom-35 margin-top-50 text-center">
-                    <p style="font-size: 25px;"> merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. Dalam hal ini, pemerintahan di Indonesia beserta institusi lainnya seperti kami Korlantas Polri bekerja untuk memastikan bahwa setiap rakyat di seluruh tanah air harus dapat merasakan kehadiran pelayanan pemerintahan di bidang LLAJ yang diselenggarakan oleh Polri sebagai salah satu pemangku kepentingan sesuai amanat Undang-Undang No.22 Tahun 2009 tentang LLAJ.</p>
-                </span>
-
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(assets/fe/slider-1.png)">
+            <div class="carousel-container">
+              <div class="carousel-content">
+				<img src="<?= base_url()?>assets/logo-nav.png" alt="">
+                <h2 class="animate__animated animate__fadeInDown">Selamat Datang di <span>Portal K3I Korlantas Polri</span></h2>
+                <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;"><b>www.k3i.korlantas.polri.go.id</b> merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. Dalam hal ini, pemerintahan di Indonesia beserta institusi lainnya seperti kami Korlantas Polri bekerja untuk memastikan bahwa setiap rakyat di seluruh tanah air harus dapat merasakan kehadiran pelayanan pemerintahan di bidang LLAJ yang diselenggarakan oleh Polri sebagai salah satu pemangku kepentingan sesuai amanat Undang-Undang No.22 Tahun 2009 tentang LLAJ.</p>
+                <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a>
+              </div>
             </div>
-        </div>
+          </div>
 
-        <div class="col-md-12">
-
-
-
-
-            <div id="map" style="height: 500px;"></div>
-        </div>
-
-        <div class="col-md-12">
-            <h3 class="headline centered margin-bottom-45 margin-top-50">
-                STATISTIK NASIONAL
-            </h3>
-        </div>
-
-
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-            <div class="row">
-                <div class="col-md-3 ">
-                    <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" target="_blank" class="img-box" data-background-image="<?php echo base_url(); ?>assets/fe/kecelakaan.png">
-                        <div class="img-box-content visible">
-                            <h2 class="fw-bolder" style="color: white; font-size:45px;" id="lakalantas"></h2>
-                            <h4>Kecelakaan Lalu Lintas </h4>
-                            <!-- <p style="color: white">Data Kecelakaan</br></p> -->
-                            <!-- <a href="<?php echo base_url() ?>home">Selengkapnya</a> -->
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 ">
-                    <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" target="_blank" class="img-box" data-background-image="<?php echo base_url(); ?>assets/fe/mobil_crash.png">
-                        <div class="img-box-content visible">
-                            <h2 class="fw-bolder" style="color: white; font-size:45px;" id="motor"></h2>
-                            <h4>Kendaraan Bermotor </h4>
-                            <!-- <p style="color: white">Data Ranmor</br></p> -->
-                            <!-- <a href="<?php echo base_url() ?>home">Selengkapnya</a> -->
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 ">
-                    <a href="https://dakgargakkum.com/dashboard" target="_blank" class="img-box" data-background-image="<?php echo base_url(); ?>assets/fe/pelanggaran.png">
-                        <div class="img-box-content visible">
-                            <h2 class="fw-bolder" style="color: white; font-size:45px;" id="garlantas"></h2>
-                            <h4>Pelanggaran Lalu Lintas </h4>
-                            <!-- <p style="color: white">Data Pelanggaran</br></p> -->
-                            <!-- <a href="<?php echo base_url() ?>home">Selengkapnya</a> -->
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 ">
-                    <a href="#" class="img-box" data-background-image="<?php echo base_url(); ?>assets/fe/sim.jpg">
-                        <div class=" img-box-content visible">
-                            <h2 class="fw-bolder" style="color: white; font-size:45px;" id="sim"></h2>
-                            <h4>Jumlah SIM </h4>
-                            <!-- <p style="color: white">Data SIM</br></p> -->
-                            <!-- <a href="<?php echo base_url() ?>home">Selengkapnya</a> -->
-                        </div>
-                    </a>
-                </div>
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url(assets/fe/banner-home2.jpeg)">
+            <div class="carousel-container">
+              <div class="carousel-content">
+			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
+                <h2 class="animate__animated fanimate__adeInDown">Mari Tertib <span>Berlalu Lintas</span></h2>
+                <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;">Dengan anda Tertib berlalu lintas anda sudah menyelamatkan diri sendiri, Penumpang dan Orang lain dijalan</p>
+                <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a> -->
+              </div>
             </div>
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-    <div class="container-fluid">
-        <div class="col-md-12">
-            <div class="margin-bottom-45 margin-top-50">
-                <h3 class="headline centered ">
-                    LAYANAN ONLINE TERINTEGRASI
-                </h3>
+          </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-2 align-self-center">
-                                <a href="https://samsatdigital.id/"><img src="<?php echo base_url(); ?>assets/fe/client/SIGNAL.png" alt=""></a>
-
-                            </div>
-                            <div class="col-md-10">
-                                <h4><a href="https://samsatdigital.id/">SIGNAL (Samsat Digital Nasional)</a></h4>
-                                <p style="text-align:justify;">SIGNAL adalah samsat digital nasional, sebuah aplikasi untuk memudahkan masyarakat membayar pajak kendaraan bermotor secara aman dan mudah</p>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-2 align-self-center">
-                                <a href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/SINAR.png" alt=""></a>
-
-                            </div>
-                            <div class="col-md-10">
-                                <h4><a href="https://www.digitalkorlantas.id/">SINAR (SIM Nasional Presisi)</a></h4>
-                                <p style="text-align:justify;">SINAR adalah Sistem perpanjangan SIM secara online yang dapat dimanfaatkan masyarakat untuk mendapatkan pelayanan yang lebih optimal</p>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-2 align-self-center">
-                                <a href="https://siminternasional.korlantas.polri.go.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="" width="115px"></a>
-
-                            </div>
-                            <div class="col-md-10">
-                                <h4><a href="https://siminternasional.korlantas.polri.go.id/">SIM Internasional</a></h4>
-                                <p style="text-align:justify;">Pelayanan SIM Internasional Korlantas Polri merupakan portal pendaftaran dan penerbitan SIM Internasional secara online bagi seluruh warga negara Indonesia yang akan mengemudikan kendaraan bermotor di luar negeri.</p>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-2 align-self-center">
-                                <a href="https://korlantas.polri.go.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="" width="115px"></a>
-                                <a href="https://ntmcpolri.info/"><img src="<?php echo base_url(); ?>assets/fe/client/NTMC1.png" alt=""></a>
-
-                            </div>
-                            <div class="col-md-10">
-                                <h4><a href="#">Website Korlantas & NTMC</a></h4>
-                                <p style="text-align:justify;">Website Korlantas & NTMC adalah pusat kendali informasi & komunikasi yang mengintegrasikan sistem informasi di ke lima pemangku kepentingan bidang lalu lintas (Polri, Kementerian PU Perhubungan, Perindustrian, & Riset Teknologi)</p>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url(assets/fe/banner-home3.jpeg)">
+            <div class="carousel-container">
+              <div class="carousel-content">
+			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
+                <h2 class="animate__animated animate__fadeInDown">Mari Tertib <span>Berlalu Lintas</span></h2>
+                <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;">Utamakan Keselamatan, selalu patuhi rambu rambu lalu lintas dan gunakan sabuk keselamatan serta tidak menggunakan Hp saat berkendara, segera jika lelah & mengantuk</p>
+                <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a> -->
+              </div>
             </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="carousel-item" style="background-image: url(assets/fe/banner-home4.jpeg)">
+            <div class="carousel-container">
+              <div class="carousel-content">
+			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
+                <h2 class="animate__animated animate__fadeInDown">Mari Patuhi <span>Protokol Kesehatan</span></h2>
+                <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;">Mencuci Tangan, Memakai Masker, Menjaga Jarak, Menjauhi Kerumunan dan Mengurangi Mobilitas (5M)</p>
+                <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a> -->
+              </div>
+            </div>
+          </div>
+
         </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
     </div>
-
-
-    <div class="container">
-        <div class="col-md-12">
-            <h3 class="headline centered margin-bottom-45 margin-top-50">
-                BERITA TERUPDATE
-            </h3>
-        </div>
-        <div class="col-md-12">
-            <div class="simple-slick-carousel dots-nav">
-                <?php foreach ($databerita as $data) : ?>
-                    <div class="card" style="width: 18rem;">
-                        <img src="<?= url_api() ?>news/<?= $data['picture'] ?>" class="card-img-top" alt="..." height="250px">
-                        <div class="card-body bg-light rounded">
-                            <a href="<?= $data['link']?>" target="_blank">
-                                <h5 class="card-title fw-bold text-justify"><?=$data['title']; ?></h5>
-                            </a>
-                            <button class="btn btn-info active"><?= $data['category_news'][0]['name_category_news'] ?></button>
-                            <hr>
-                            <p class="card-text text-justify"><?= substr($data['content'], 0, 250) . '. . . <a href="'. $data['link'] .'" class="btn btn-primary" target="_blank">Selengkapnya</a>' ?></p>
-
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-                <!-- <div class="card shadow" style="width: 18rem;">
-				<img src="<?= base_url() ?>assets/fe/beritafix1.jpg" class="card-img-top" alt="..." height="250px">
-				<div class="card-body shadow bg-light">
-					<a href="https://korlantas.polri.go.id/news/pengamanan-pengawalan-delegasi-ktt-g20-dinilai-berhasil-kakorlantas-berkat-kekompakan-kolaborasi-kerjasama-tni-polri/"><h5 class="card-title fw-bold text-justify">Pengamanan Pengawalan Delegasi KTT G20 Dinilai Berhasil, Kakorlantas: Berkat Kekompakan Kolaborasi & Kerjasama TNI-Polri</h5></a>
-					<hr>
-					<p class="card-text text-justify">Kepolisian Negara Republik Indonesia (Polri) konsisten melakukan pengamanan dalam perhelatan Konferensi Tingkat Tinggi (KTT) G20 di Provinsi Bali. Dalam hal ini, Polri sebagai institusi keamanan negara menerapkan sistem pengamanan di berbagai sektor, salah satunya lalu lintas.</p>
-					<a href="https://korlantas.polri.go.id/news/pengamanan-pengawalan-delegasi-ktt-g20-dinilai-berhasil-kakorlantas-berkat-kekompakan-kolaborasi-kerjasama-tni-polri/" class="btn btn-primary">Selengkapnya</a>
-				</div>
+	<div class="row">
+		
+		<div class="col-md-2">
+			<div class="container-fluid">
+				<h4 class="text-white p-2">Informasi Terkini</h4>
 			</div>
-			<div class="card" style="width: 18rem;">
-				<img src="<?= base_url() ?>assets/fe/beritafix2.jpg" class="card-img-top" alt="..." height="250px">
-				<div class="card-body bg-light rounded">
-					<a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/"><h5 class="card-title fw-bold text-justify">Kepala Negara G20 Bergerak Pulang, Warga Diminta Cari Jalur Alternatif</h5></a>
-					<hr>
-					<p class="card-text text-justify">Polri siap melaksanakan pengamanan dan pengawalan kepulangan kepala negara dan delegasi Konferensi Tingkat Tinggi (KTT) G20 mulai hari ini, Rabu (16/11/2022).</p>
-					<a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/" class="btn btn-primary">Selengkapnya</a>
-				</div>
+
+		</div>
+		<div class="col-md-10">
+				<marquee behavior="" direction="" style="color: white; background-color:#073888;" class="p-2">SELAMAT DATANG DI PORTAL PUSAT KENDALI KOORDINASI KOMUNIKASI DAN INFORMASI KORLANTAS POLRI</marquee>
+
+		</div>
+	</div>
+
+</section><!-- End Hero -->
+<main id="main">
+
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services">
+			
+      <div class="container">
+			<div class="section-title">
+          <h2>Statistik Nasional</h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+        </div>
+
+        <div class="row gy-4">
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
+            <div class="service-item position-relative">
+              <div class="icon text-center"><i class="bi bi-activity icon"></i></div>
+              <h4><a href="" class="stretched-link fs-5">Kecelakaan Lalu Lintas</a></h4>
+              <h1 id="lakalantas" class="text-center"></h1>
+            </div>
+          </div><!-- End Service Item -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
+            <div class="service-item position-relative">
+              <div class="icon text-center"><i class="bi bi-activity icon"></i></div>
+              <h4><a href="" class="stretched-link fs-5">Pelanggaran Lalu Lintas</a></h4>
+              <h1 id="garlantas" class="text-center"></h1>
+            </div>
+          </div><!-- End Service Item -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
+            <div class="service-item position-relative">
+              <div class="icon text-center"><i class="bi bi-activity icon"></i></div>
+              <h4><a href="" class="stretched-link fs-5">Kendaraan Bermotor</a></h4>
+              <h1 id="motor" class="text-center"></h1>
+            </div>
+          </div><!-- End Service Item -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
+            <div class="service-item position-relative">
+              <div class="icon text-center"><i class="bi bi-activity icon"></i></div>
+              <h4><a href="" class="stretched-link fs-5">SIM Nasional</a></h4>
+              <h1 id="sim" class="text-center"></h1>
+            </div>
+          </div><!-- End Service Item -->
+
+          
+
+        </div>
+
+      </div>
+    </section><!-- End Featured Services Section -->
+
+
+		<section id="map-polda" class="map-polda">
+			<div class="section-title">
+				<h2>Peta Polda Se-Indonesia</h2>
+				<!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
 			</div>
-			<div class="card" style="width: 18rem;">
-				<img src="<?= base_url() ?>assets/fe/beritafix3.jpg" class="card-img-top" alt="..." height="250px">
-				<div class="card-body bg-light rounded">
-					<a href="https://korlantas.polri.go.id/news/antisipasi-gangguan-kamseltibcarlantas-satlantas-polres-melawi-perbaiki-jalan-provinsi-yang-rusak/"><h5 class="card-title fw-bold text-justify">Antisipasi Gangguan Kamseltibcarlantas, Satlantas Polres Melawi Perbaiki Jalan Provinsi yang Rusak</h5></a>
-					<hr>
-					<p class="card-text text-justify">Aksi perbaikan dan penimbunan jalan provinsi yang ada di kilometer 1 Nanga Pinoh dilakukan oleh Satuan Lalu Lintas (Satlantas) Kepolisian Resort (Polres) Melawi. Hal itu dilakukan sebagai upaya mencegah terjadinya kecelakaan lalu lintas kendaraan yang melintas.</p>
-					<a href="https://korlantas.polri.go.id/news/antisipasi-gangguan-kamseltibcarlantas-satlantas-polres-melawi-perbaiki-jalan-provinsi-yang-rusak/" class="btn btn-primary">Selengkapnya</a>
-				</div>
+
+			<div class="container">
+				<div id="map" style="height: 500px;"></div>
 			</div>
-			<div class="card" style="width: 18rem;">
-				<img src="<?= base_url() ?>assets/fe/beritafix4.jpg" class="card-img-top" alt="..." height="250px">
-				<div class="card-body bg-light rounded">
-					<a href="https://korlantas.polri.go.id/news/satlantas-polres-sigi-sediakan-pelatihan-uji-sim-gratis/"><h5 class="card-title fw-bold text-justify">Satlantas Polres Sigi Sediakan Pelatihan Uji SIM Gratis</h5></a>
-					<hr>
-					<p class="card-text text-justify">Satuan Lalu Lintas Polres Sigi memberikan bimbingan belajar alias Bimbel tanpa biaya kepada masyarakat untuk mempermudah warga mendapatkan Surat Izin Mengemudi alias SIM.</p>
-					<a href="https://korlantas.polri.go.id/news/satlantas-polres-sigi-sediakan-pelatihan-uji-sim-gratis/" class="btn btn-primary">Selengkapnya</a>
-				</div>
-			</div> -->
 
-            </div>
+		</section>
+
+		<!-- ======= berita Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Berita Terkini</h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
-        <div class="col-md-12 margin-bottom-50 margin-top-50">
-            <div class="style-1">
 
-                <!-- Tabs Navigation -->
-                <ul class="tabs-nav">
-                    <li class="active"><a href="#tab1b">News Flash NTMC</a></li>
-                    <li><a href="#tab2b">NTMC Channel</a></li>
-
-                </ul>
-
-                <!-- Tabs Content -->
-                <div class="tabs-container">
-                    <div class="tab-content" id="tab1b">
-                        <!-- <img src="<?php echo base_url(); ?>assets/fe/banner.png" alt=""> -->
-                        <div class="row margin-top-20">
-                            <div class="col-md-8 border-end shadows">
-                                <iframe width="740" height="450" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
-                                    <div class="col-md-12">
-                                        <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhr68Y7Q3pYszu3xwwGGEWo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZiRhVpxCG_GIkU8qIDuVsoL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhPvc90jNW4o-6KH6gLSLm9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-content" id="tab2b">
-                        <!-- <img src="<?php echo base_url(); ?>assets/fe/banner.png" alt=""> -->
-                        <div class="row margin-top-20">
-                            <div class="col-md-8">
-                                <iframe width="740" height="450" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287MG9mUCeRI2TMD1rGZgKew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
-                                    <div class="col-md-12">
-                                        <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287WCl8x8yRe5PSd3VROvZ4Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx285qn30iKm-V_u7wr-gOlj7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287PYIAGDdyjY67kvhZBUN_x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
+        <div class="clients-slider swiper">
+          <div class="swiper-wrapper align-items-center text-center">
+						<?php foreach ($databerita as $data) : ?>
+							<div class="swiper-slide">
+								<div class="card m-5" style="width: 18rem;">
+									<img src="<?= url_api() ?>news/<?= $data['picture'] ?>" class="card-img-top" alt="...">
+									<div class="card-body">
+										<h5 class="card-title"><?=$data['title']; ?></h5>
+										<p class="card-text"><?= substr($data['content'], 0, 250) . '. . .'?></p>
+										<a href="#" class="btn btn-primary">Go somewhere</a>
+									</div>
+								</div>
+							</div>
+						<?php endforeach; ?>
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
-    </div>
+
+      </div>
+    </section><!-- End berita Section -->
 
 
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container">
 
-
-
-    <div class="col-md-12 margin-bottom-50 margin-top-50">
-        <div class="row">
-            <div class="col-md-4">
-                <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px; position: static; visibility: visible; width: 100%; height: 400px; display: block; flex-grow: 3;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/NTMCLantasPolri?dnt=false&amp;embedId=twitter-widget-0&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
-            </div>
-            <div class="col-md-4">
-                <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 400px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/TMCPoldaMetro?dnt=false&amp;embedId=twitter-widget-1&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
-            </div>
-            <div class="col-md-4">
-                <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 400px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/KemenkesRI?dnt=false&amp;embedId=twitter-widget-2&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
-            </div>
+        <div class="section-title">
+          <h2>Aplikasi Korlantas Terintegrasi</h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
-    </div>
 
-    <div class="fullwidth border-top margin-top-40 margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
-        <!-- Logo Carousel -->
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-md-12">
-                    <h3 class="headline centered margin-bottom-40 margin-top-10">APLIKASI KORLANTAS TERINTEGRASI</h3>
-                </div>
-
-                <!-- Carousel -->
-                <div class="col-md-12">
-                    <div class="logo-slick-carousel dot-navigation">
-
-                        <div class="item">
-                            <a target="_blank" href="http://103.154.174.55/#/pages/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/big data.png" alt=""></a>
-                            <p>Big Data</p>
-                        </div>
-
-                        <div class="item">
-                            <a target="_blank" href="http://k3i.korlantas.polri.go.id/cctv/"><img src="<?php echo base_url(); ?>assets/fe/client/cctv.png" alt=""></a>
-                            <p>CCTV</p>
-                        </div>
-
-                        <div class="item">
-                            <a target="_blank" href="https://k3i.korlantas.polri.go.id/dis/"><img src="<?php echo base_url(); ?>assets/fe/client/dis.png" alt=""></a>
-                            <p>DIS</p>
-                        </div>
-
-                        <div class="item">
-                            <a target="_blank" href="http://dakgargakkum.com/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/e-tilang.png" alt=""></a>
-                            <p>E-TILANG</p>
-                        </div>
-
-                        <div class="item">
-                            <a target="_blank" href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php"><img src="<?php echo base_url(); ?>assets/fe/client/Eri.png" alt=""></a>
-                            <p>ERI</p>
-                        </div>
-
-                        <div class="item">
-                            <a target="_blank" href="https://maps.korlantas.polri.go.id/portal/home/"><img src="<?php echo base_url(); ?>assets/fe/client/intan.png" alt=""></a>
-                            <p>INTAN</p>
-                        </div>
-
-                        <div class="item">
-                            <a target="_blank" href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#"><img src="<?php echo base_url(); ?>assets/fe/client/irsms.png" alt=""></a>
-                            <p>IRSMS</p>
-                        </div>
-
-                        <div class="item">
-                            <a target="_blank" href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt=""></a>
-                            <p>Korlantas</p>
-                        </div>
-
-                        <div class="item">
-                            <a target="_blank" href="https://1500669.com/"><img src="<?php echo base_url(); ?>assets/fe/client/NTMC.png" alt=""></a>
-                            <p>NTMC</p>
-                        </div>
-
-                        <div class="item">
-                            <a target="_blank" href="https://rasirosakorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/rarirosa.png" alt=""></a>
-                            <p>RASIROSA</p>
-                        </div>
-
-                        <div class="item">
-                            <a target="_blank" href="http://sbstkorlantas.net/korlantas/"><img src="<?php echo base_url(); ?>assets/fe/client/SBST.png" alt=""></a>
-                            <p>SBST</p>
-                        </div>
-
-                        <div class="item">
-                            <a target="_blank" href="http://sislapops.com/home"><img src="<?php echo base_url(); ?>assets/fe/client/Sislapops.png" alt=""></a>
-                            <p>SISLAPOPS</p>
-                        </div>
-
-
-                    </div>
-                </div>
-                <!-- Carousel / End -->
-
-            </div>
+        <div class="clients-slider swiper">
+          <div class="swiper-wrapper align-items-center text-center">
+            <div class="swiper-slide">
+							<a target="_blank" href="http://103.154.174.55/#/pages/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/big data.png" alt="" width="100%"></a>
+              <p>Big Data</p>
+						</div>
+            <div class="swiper-slide">
+							<a target="_blank" href="http://k3i.korlantas.polri.go.id/cctv/"><img src="<?php echo base_url(); ?>assets/fe/client/cctv.png" alt="" width="100%"></a>
+              <p>CCTV</p>
+						</div>
+            <div class="swiper-slide">
+							<a target="_blank" href="https://k3i.korlantas.polri.go.id/dis/"><img src="<?php echo base_url(); ?>assets/fe/client/dis.png" alt="" width="100%"></a>
+              <p>DIS</p>
+						</div>
+            <div class="swiper-slide">
+							<a target="_blank" href="http://dakgargakkum.com/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/e-tilang.png" alt="" width="100%"></a>
+              <p>E-TILANG</p>
+						</div>
+            <div class="swiper-slide">
+							<a target="_blank" href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php"><img src="<?php echo base_url(); ?>assets/fe/client/Eri.png" alt="" width="100%"></a>
+              <p>ERI</p>
+						</div>
+            <div class="swiper-slide">
+							<a target="_blank" href="https://maps.korlantas.polri.go.id/portal/home/"><img src="<?php echo base_url(); ?>assets/fe/client/intan.png" alt="" width="100%"></a>
+              <p>INTAN</p>
+						</div>
+            <div class="swiper-slide">
+							<a target="_blank" href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#"><img src="<?php echo base_url(); ?>assets/fe/client/irsms.png" alt="" width="100%"></a>
+              <p>IRSMS</p>
+						</div>
+            <div class="swiper-slide">
+							<a target="_blank" href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="" width="100%"></a>
+              <p>Korlantas</p>
+						</div>
+            <div class="swiper-slide">
+							<a target="_blank" href="https://1500669.com/"><img src="<?php echo base_url(); ?>assets/fe/client/NTMC.png" alt="" width="100%"></a>
+              <p>NTMC</p>
+						</div>
+            <div class="swiper-slide">
+							<a target="_blank" href="https://rasirosakorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/rarirosa.png" alt="" width="100%"></a>
+              <p>RASIROSA</p>
+						</div>
+            <div class="swiper-slide">
+							<a target="_blank" href="http://sbstkorlantas.net/korlantas/"><img src="<?php echo base_url(); ?>assets/fe/client/SBST.png" alt="" width="100%"></a>
+              <p>SBST</p>
+						</div>
+            <div class="swiper-slide">
+							<a target="_blank" href="http://sislapops.com/home"><img src="<?php echo base_url(); ?>assets/fe/client/Sislapops.png" alt="" width="100%"></a>
+              <p>SISLAPOPS</p>
+						</div>
+            
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
-        <!-- Logo Carousel / End -->
-    </div>
 
+      </div>
+    </section><!-- End Clients Section -->
 
+  </main><!-- End #main -->
 
-
-
-</div>
-<!-- Container / End -->
-
-
-
-
-<script src="https://cdn.socket.io/4.5.3/socket.io.min.js"></script>
+	<script src="https://cdn.socket.io/4.5.3/socket.io.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/admin/bataspolda/data/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1.js"></script>
 <script>
     let app_url = '<%-app_url%>'

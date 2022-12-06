@@ -1,19 +1,20 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-	<!-- Basic Page Needs
-	================================================== -->
-	<title><?php echo $title ?></title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title><?= $title?></title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-	<!-- CSS
-	================================================== -->
-	<link href="<?php echo base_url(); ?>assets/admin/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="<?php echo base_url();?>assets/fe/css/style.css">
-	<link rel="stylesheet" href="<?php echo base_url();?>assets/fe/css/main-color.css" id="colors">
-	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
+  <!-- Favicons -->
+  <link href="<?= base_url()?>assets/logo-k3i.png" rel="icon">
+  <!-- <link href="<?= base_url()?>assets/fe/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
@@ -26,13 +27,15 @@
 
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
-	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 
-	
+  <!-- Vendor CSS Files -->
+  <link href="<?= base_url()?>assets/fe/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="<?= base_url()?>assets/fe/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= base_url()?>assets/fe/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?= base_url()?>assets/fe/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?= base_url()?>assets/fe/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="<?= base_url()?>assets/fe/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-
-	<!-- Scripts
-	================================================== -->
 	<script data-cfasync="false" src="<?php echo base_url();?>assets/fe/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/jquery-migrate-3.1.0.min.js"></script>
@@ -45,144 +48,11 @@
 	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/counterup.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/tooltips.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/custom.js"></script>
+	
 
+  <!-- Template Main CSS File -->
+  <link href="<?= base_url()?>assets/fe/css/style.css" rel="stylesheet">
 
-
-
-	<!-- REVOLUTION SLIDER SCRIPT -->
-	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/themepunch.tools.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/themepunch.revolution.min.js"></script>
-
-	<script type="text/javascript">
-		var tpj=jQuery;			
-		var revapi4;
-		tpj(document).ready(function() {
-			if(tpj("#rev_slider_4_1").revolution == undefined){
-				revslider_showDoubleJqueryError("#rev_slider_4_1");
-			}else{
-				revapi4 = tpj("#rev_slider_4_1").show().revolution({
-					sliderType:"standard",
-					jsFileLocation:"<?php echo base_url();?>assets/fe/scripts/",
-					sliderLayout:"auto",
-					dottedOverlay:"none",
-					delay:9000,
-					navigation: {
-						keyboardNavigation:"off",
-						keyboard_direction: "horizontal",
-						mouseScrollNavigation:"off",
-						onHoverStop:"on",
-						touch:{
-							touchenabled:"on",
-							swipe_threshold: 75,
-							swipe_min_touches: 1,
-							swipe_direction: "horizontal",
-							drag_block_vertical: false
-						}
-						,
-						arrows: {
-							style:"zeus",
-							enable:true,
-							hide_onmobile:true,
-							hide_under:600,
-							hide_onleave:true,
-							hide_delay:200,
-							hide_delay_mobile:1200,
-							tmp:'<div class="tp-title-wrap"></div>',
-							left: {
-								h_align:"left",
-								v_align:"center",
-								h_offset:40,
-								v_offset:0
-							},
-							right: {
-								h_align:"right",
-								v_align:"center",
-								h_offset:40,
-								v_offset:0
-							}
-						}
-						,
-						bullets: {
-					enable:false,
-					hide_onmobile:true,
-					hide_under:600,
-					style:"hermes",
-					hide_onleave:true,
-					hide_delay:200,
-					hide_delay_mobile:1200,
-					direction:"horizontal",
-					h_align:"center",
-					v_align:"bottom",
-					h_offset:0,
-					v_offset:32,
-					space:5,
-					tmp:''
-						}
-					},
-					viewPort: {
-						enable:true,
-						outof:"pause",
-						visible_area:"80%"
-				},
-				responsiveLevels:[1200,992,768,480],
-				visibilityLevels:[1200,992,768,480],
-				gridwidth:[1180,1024,778,480],
-				gridheight:[640,500,400,300],
-				lazyType:"none",
-				parallax: {
-					type:"mouse",
-					origo:"slidercenter",
-					speed:2000,
-					levels:[2,3,4,5,6,7,12,16,10,25,47,48,49,50,51,55],
-					type:"mouse",
-				},
-				shadow:0,
-				spinner:"off",
-				stopLoop:"off",
-				stopAfterLoops:-1,
-				stopAtSlide:-1,
-				shuffle:"off",
-				autoHeight:"off",
-				hideThumbsOnMobile:"off",
-				hideSliderAtLimit:0,
-				hideCaptionAtLimit:0,
-				hideAllCaptionAtLilmit:0,
-				debugMode:false,
-				fallbacks: {
-					simplifyAll:"off",
-					nextSlideOnWindowFocus:"off",
-					disableFocusListener:false,
-				}
-			});
-			}
-		});	/*ready*/
-	</script>	
-
-
-	<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
-		(Load Extensions only on Local File Systems ! 
-		The following part can be removed on Server for On Demand Loading) -->	
-	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/extensions/revolution.extension.actions.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/extensions/revolution.extension.carousel.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/extensions/revolution.extension.kenburn.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/extensions/revolution.extension.layeranimation.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/extensions/revolution.extension.migration.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/extensions/revolution.extension.navigation.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/extensions/revolution.extension.parallax.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/extensions/revolution.extension.slideanims.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/extensions/revolution.extension.video.min.js"></script>
-
-
-
-
-	<!-- Style Switcher
-	================================================== -->
-	<script src="<?php echo base_url();?>assets/fe/scripts/switcher.js"></script>
-
-
-
-	 <!-- Leaflet -->
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
@@ -198,327 +68,282 @@
             data: csfrData
         });
     </script>
-
-
 </head>
 
-<body class="transparent-header">
+<body>
 
-<!-- Wrapper -->
-<div id="wrapper">
-
-<!-- Header Container
-================================================== -->
-<header id="header-container">
-
-	<!-- Header -->
-	<div id="header" style="background-color:#073888 ; border-bottom: 15px solid red; border-image:url(assets/fe/border-nav.jpg) 30 round">
-		<div class="container-fluid">
-			
-				<div class="container-fluid align-middle">
-			
-			<!-- Left Side Content -->
-			<div class="left-side" style="margin-right: 25px;">
-				
-				<a href="<?php echo base_url()?>home"><img src="<?php echo base_url(); ?>assets/main-logo3.png" alt="" width="170px"></a> 
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <p style="margin: 0; color:white;"><?php echo format_indoHari(date('Y-m-d')) ?></p>
+      </div>
+      <!-- <div class="contact-info d-none d-md-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+      </div> -->
+      <div class="social-links d-none d-md-flex align-items-center">
+	  	<div class="input-group">
+			<input type="text" class="form-control" placeholder="Masukan kata kunci" aria-label="Recipient's username" aria-describedby="basic-addon2">
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="button">Cari</button>
 			</div>
-			<!-- Left Side Content / End -->
-
-
-			<!-- Right Side Content / End -->
-			<div class="right-side mt-4" >
-
-				<!-- Mobile Navigation -->
-				<div class="mmenu-trigger">
-					<button class="hamburger hamburger--collapse" type="button">
-						<span class="hamburger-box">
-							<span class="hamburger-inner"></span>
-						</span>
-					</button>
-				</div>
-
-				<!-- Main Navigation -->
-				<nav id="navigation" class="style-1">
-					<ul id="responsive mt-5">
-
-						<li><a class="current" href="<?php echo base_url()?>home" style="background-color: white;">&nbsp;<i class="im im-icon-Home" style="color: black; font-weight:bolder;"></i></a></li>
-						
-						<li><a  href="#"><b class="text-white">PROFIL</b> </a>
-							<ul>
-								<li><a href="<?= base_url()?>sambutan">Sambutan</a></li>
-								<li><a href="<?= base_url()?>struktur_organisasi">Struktur Organisasi</a></li>
-								<li><a href="<?= base_url()?>profil_pejabat">Profil Pejabat</a></li>
-								<li><a href="<?= base_url()?>visi_misi">Visi dan Misi</a></li>
-								<li><a href="<?= base_url()?>tugas_fungsi">Tugas dan Fungsi</a></li>
-								<!-- <li><a href="<?= base_url()?>organisasi_tatakerja">Organisasi dan Tata Kerja</a></li> -->
-								<li><a href="<?= base_url()?>sejarah">Sejarah POLANTAS</a></li>
-							</ul>
-						</li>
-
-						<!-- <li><a href="#">SATKER MABES</a>
-							<div class="mega-menu mobile-styles two-columns">
-
-									<div class="mega-menu-section">
-										<ul>
-											<li class="mega-menu-headline">KORLANTAS</li>
-											<li><a href="<?= base_url()?>ditgakkum_front"><i class="sl sl-icon-user"></i> DITGAKUM</a></li>
-											<li><a href="<?= base_url()?>ditregident_front"><i class="sl sl-icon-check"></i> DITREGIDENT</a></li>
-											<li><a href="<?= base_url()?>ditkamsel_front"><i class="sl sl-icon-plus"></i> DITKAMSEL</a></li>
-											<li><a href="<?= base_url()?>bagrenmin_front"><i class="sl sl-icon-docs"></i> BAGRENMIN</a></li>
-											<li><a href="<?= base_url()?>bagops_front"><i class="sl sl-icon-docs"></i> BAGOPS</a></li>
-											<li><a href="<?= base_url()?>bagtik_front"><i class="sl sl-icon-docs"></i> BAGTIK</a></li>
-										</ul>
-									</div>
-		
-									<div class="mega-menu-section">
-										<ul>
-											<li class="mega-menu-headline">FUNGSI LAINNYA</li>
-											<li><a href="<?= base_url()?>baharkam"><i class="sl sl-icon-envelope-open"></i> BAHARKAM</a></li>
-											<li><a href="<?= base_url()?>asops"><i class="sl sl-icon-hourglass"></i> ASOPS</a></li>
-											<li><a href="<?= base_url()?>divtik"><i class="sl sl-icon-close"></i> DIVTIK</a></li>
-											<li><a href="<?= base_url()?>bareskrim"><i class="sl sl-icon-equalizer"></i> BARESKIM</a></li>
-											<li><a href="<?= base_url()?>divhumas"><i class="sl sl-icon-equalizer"></i> DIVHUMAS</a></li>
-											<li><a href="<?= base_url()?>itwasum"><i class="sl sl-icon-equalizer"></i> ITWASUM</a></li>
-										</ul>
-									</div> 
-									
-							</div>
-						</li> -->
-
-						<li><a href="#"><b class="text-white">PUBLIKASI</b></a>
-							<ul>
-								<li><a href="<?= base_url()?>konferensi_pers">Konfersi Pers</a></li>
-								<li><a href="<?= base_url()?>kegiatan_kakor">Kegiatan Kakorlantas</a></li>
-								<!-- <li><a href="<?= base_url()?>riset_media">Riset Media Center NTMC</a></li> -->
-								<li><a href="<?= base_url()?>kegiatan_khusus">Kegiatan Khusus (PAM PPKM)</a></li> 
-							</ul>
-						</li>
- 
-
-						<li><a href="#"><b class="text-white">PUSTAKA</b></a>
-							<ul>
-								<li><a href="<?= base_url()?>informasi_setiap_saat">Informasi Setiap Saat</a></li>
-								<li><a href="<?= base_url()?>informasi_berkala">Informasi Berkala</a></li>
-								<li><a href="<?= base_url()?>informasi_serta_merta">Informasi Serta Merta</a></li>
-								<li><a href="<?= base_url()?>undang_undang">UU dan Peraturan</a></li> 
-							</ul>
-						</li>
- 
-
-						<!-- <li><a href="#">MEDIA UPDATE</a>
-							<ul>
-								<li><a href="<?= base_url()?>berita_ppkm">Update Berita PPKM</a></li>
-								<li><a href="<?= base_url()?>berita_kecelakaan">Update Berita Kecelakaan Lalulintas</a></li>
-								<li><a href="<?= base_url()?>berita_pelanggaran">Update Berita Pelanggaran Lalulintas</a></li>
-								<li><a href="<?= base_url()?>berita_kemacetan">Update Berita Kemacetan Lalulintas</a></li>
-								<li><a href="<?= base_url()?>berita_satpas">Update Berita Satpas</a></li>
-								<li><a href="<?= base_url()?>berita_etle">Update Berita ETLE</a></li>
-								<li><a href="<?= base_url()?>berita_kontijensi">Update Berita Kontijensi (Penanganan Covid-19)</a></li> 
-							</ul>
-						</li> -->
-
-						<li><a href="#"><b class="text-white">KONTAK KAMI</b></a>
-							<ul>
-								<!-- <li><a href="<?= base_url()?>layanan_chatbot">Layanan Chatbot k3i Korlantas</a></li> -->
-								<li><a href="<?= base_url()?>survey_kepuasan">Survey Kepuasan</a></li>
-								<li><a href="<?= base_url()?>layanan_pengaduan">Layanan Pengaduan</a></li>
-								<li><a href="<?= base_url()?>contact_center">Contact Center NTMC</a></li> 
-							</ul>
-						</li>
-
-						<!-- <li><a href="#">LAIN - LAIN</a>
-							<ul>
-								<li><a href="<?= base_url()?>cctv_streaming">CCTV Streaming</a></li>
-								<li><a href="<?= base_url()?>link_pengecekan_etle">Link Pengecekan Status ETLE</a></li>
-								<li><a href="https://etle-pmj.info/id">Link Pengecekan Status ETLE</a></li>
-								<li><a href="<?= base_url()?>link_layanan_polisiku">Link ke Layanan Polisiku</a></li>
-								<li><a href="https://polri.go.id/polisiku">Link ke Layanan Polisiku</a></li>
-								<li><a href="<?= base_url()?>link_tvradio_polri">Link ke TV-RADIO POLRI</a></li> 
-								<li><a href="https://tvradio.polri.go.id/">Link ke TV-RADIO POLRI</a></li> 
-							</ul>
-						</li> -->
-						<li><a href="#"><b class="text-white">DOWNLOAD APP</b></a>
-							<ul>
-								<li>Scan QR Code untuk download ⬇️</li>
-								<!-- <li><img src="<?= base_url()?>assets/logo-k3i.png" alt=""></li>  -->
-								<li><a href="www.qr-code-generator.com/" border="0" style="cursor:default" rel="nofollow"></a><img src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1h_I1QIn8rZVOEBGdtCDcwmwkUGye2MzI%2Fview%3Fusp%3Dsharing&chs=180x180&choe=UTF-8&chld=L|2"></li> 
-								<li><a href="https://play.google.com/" style="padding: 0 !important; " target="_blank"><img src="<?= base_url()?>assets/fe/get-googleplay.png" alt="" width="100%" ></a></li> 
-								<li><a href="https://www.apple.com/id/app-store/" style="padding: 0 !important; " target="_blank"><img src="<?= base_url()?>assets/fe/get-appstore.png" alt="" width="100%" ></a></li> 
-							</ul>
-						</li>
-						
-					</ul>
-				</nav>
-				
-				
-				<div class="clearfix">
-					<div class="row justify-content-end">
-						<p class="text-end text-white fs-1 mb-0 mt-2" style="width:fit-content ;"><?php echo format_indoHari(date('Y-m-d')) ?></p>
-						
-					</div>
-				</div>
-				<!-- Main Navigation / End -->
-				
-				
-			</div>
-			<!-- Right Side Content / End -->
- 
-
-				</div>
-			
 		</div>
-	</div>
-	<img src="<?= base_url()?>assets/fe/border-nav.svg" alt="" width="100%" height="20px" style="margin-top: 101px; object-fit:cover">
-	<!-- Header / End -->
+        <a href="https://twitter.com/K3IKorlantas" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/K3I-Korlantas-105187678596891" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/k3ikorlantaspolri/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg" class="youtube"><i class="bi bi-youtube"></i></i></a>
+      </div>
+    </div>
+  </section>
 
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center p-5" style="border-bottom: 10px solid red; border-image:url(assets/fe/border-nav.jpg) 30 round">
+    <div class="container d-flex justify-content-between align-items-center" >
+
+      <div class="logo">
+        <!-- <h1><a href="index.html">Eterna</a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.html"><img src="<?= base_url()?>assets/fe/brand-header.png" alt="" class="img-fluid" ></a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+		<li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
+            <ul> 
+				<li><a href="<?= base_url()?>sambutan">Sambutan</a></li>
+				<li><a href="<?= base_url()?>struktur_organisasi">Struktur Organisasi</a></li>
+				<li><a href="<?= base_url()?>profil_pejabat">Profil Pejabat</a></li>
+				<li><a href="<?= base_url()?>visi_misi">Visi dan Misi</a></li>
+				<li><a href="<?= base_url()?>tugas_fungsi">Tugas dan Fungsi</a></li>
+				<!-- <li><a href="<?= base_url()?>organisasi_tatakerja">Organisasi dan Tata Kerja</a></li> -->
+				<li><a href="<?= base_url()?>sejarah">Sejarah POLANTAS</a></li>
+            </ul>
+        </li>
+		<li class="dropdown megamenu"><a href="#"><span>Satker Mabes</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li>
+				<h5>Korlantas</h5>
+				<hr width="80%">
+			  	<a href="<?= base_url()?>ditgakkum_front">DITGAKUM</a>
+				<a href="<?= base_url()?>ditregident_front">DITREGIDENT</a>
+                <a href="<?= base_url()?>ditkamsel_front">DITKAMSEL</a>
+				<a href="<?= base_url()?>bagrenmin_front">BAGRENMIN</a>
+				<a href="<?= base_url()?>bagops_front">BAGOPS</a>
+				<a href="<?= base_url()?>bagtik_front">BAGTIK</a>
+              </li>
+              <li>
+				<h5>Fungsi Lainnya</h5>
+				<hr width="80%">
+			  	<a href="<?= base_url()?>baharkam">BAHARKAM</a>
+				<a href="<?= base_url()?>asops">ASOPS</a>
+                <a href="<?= base_url()?>divtik">DIVTIK</a>
+				<a href="<?= base_url()?>bareskrim">BARESKIM</a>
+				<a href="<?= base_url()?>divhumas">DIVHUMAS</a>
+				<a href="<?= base_url()?>itwasum">ITWASUM</a>
+              </li>
+              
+            </ul>
+          </li>
+		<li class="dropdown megamenu"><a href="#"><span>stakeholder</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li>
+			  	<a href="<?= base_url()?>kemendagri">KEMENDAGRI</a>
+				<a href="<?= base_url()?>kemenhub">KEMENHUB</a>
+                <a href="<?= base_url()?>kemenkes">KEMENKES</a>
+				<a href="<?= base_url()?>kemenpupr">KEMENPERIN</a>
+				<a href="<?= base_url()?>kemenpupr">KEMENPUPR</a>
+				<a href="<?= base_url()?>badan_riset">BADAN RISET DAN INOVASI NASIONAL</a>
+				<a href="<?= base_url()?>kemenkeu">KEMENKEU</a>
+              </li>
+              <li>
+			  	<a href="<?= base_url()?>kemendikbud">KEMENDIKBUD</a>
+				<a href="<?= base_url()?>kemenhan">KEMENHAN</a>
+                <a href="<?= base_url()?>ditjen_bina">DITJEN BINA WARGA</a>
+				<a href="<?= base_url()?>dukcapil">DUKCAPIL</a>
+				<a href="<?= base_url()?>jasa_raharja">PT JASA RAHARJA</a>
+				<a href="<?= base_url()?>jasa_marga">JASA MARGA</a>
+              </li>
+			  <li>
+			  	<a href="<?= base_url()?>mabes_tni">MABES TNI</a>
+				<a href="<?= base_url()?>satgas_covid">SATGAS COVID</a>
+                <a href="<?= base_url()?>bmkg">BMKG</a>
+				<a href="<?= base_url()?>bnn">BNN</a>
+				<a href="<?= base_url()?>bnpb">BNPB</a>
+				<a href="<?= base_url()?>bnpt">BNPT</a>
+				<a href="<?= base_url()?>bps">BPS</a>
+			  </li>
+              
+            </ul>
+          </li>
+		
+          
+          
+          <li class="dropdown"><a href="#"><span>Publikasi</span> <i class="bi bi-chevron-down"></i></a>
+            <ul> 
+				<li><a href="<?= base_url()?>konferensi_pers">Konfersi Pers</a></li>
+				<li><a href="<?= base_url()?>kegiatan_kakor">Kegiatan Kakorlantas</a></li>
+				<!-- <li><a href="<?= base_url()?>riset_media">Riset Media Center NTMC</a></li> -->
+				<li><a href="<?= base_url()?>kegiatan_khusus">Kegiatan Khusus (PAM PPKM)</a></li> 
+            </ul>
+        </li>
+		<li class="dropdown"><a href="#"><span>Pustaka</span> <i class="bi bi-chevron-down"></i></a>
+            <ul> 
+				<li><a href="<?= base_url()?>informasi_setiap_saat">Informasi Setiap Saat</a></li>
+				<li><a href="<?= base_url()?>informasi_berkala">Informasi Berkala</a></li>
+				<li><a href="<?= base_url()?>informasi_serta_merta">Informasi Serta Merta</a></li>
+				<li><a href="<?= base_url()?>undang_undang">UU dan Peraturan</a></li> 
+            </ul>
+        </li>
+		<li class="dropdown"><a href="#"><span>Kontak Kami</span> <i class="bi bi-chevron-down"></i></a>
+            <ul> 
+				<li><a href="<?= base_url()?>survey_kepuasan">Survey Kepuasan</a></li>
+				<li><a href="<?= base_url()?>layanan_pengaduan">Layanan Pengaduan</a></li>
+				<li><a href="<?= base_url()?>https://ccntmc.1500669.com/">Contact Center NTMC</a></li> 
+            </ul>
+        </li>
+		<li class="dropdown"><a href="#"><span>Lain-lain</span> <i class="bi bi-chevron-down"></i></a>
+            <ul> 
+				<li><a href="<?= base_url()?>cctv_streaming">CCTV Streaming</a></li>
+				<li><a href="https://etle-pmj.info/id">Link Pengecekan Status ETLE</a></li>
+				<li><a href="https://polri.go.id/polisiku">Link ke Layanan Polisiku</a></li>
+				<li><a href="https://tvradio.polri.go.id/">Link ke TV-RADIO POLRI</a></li> 
+            </ul>
+        </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
 	
-</header>
-<div class="clearfix"></div>
-<!-- Header Container / End -->
-
-
-
+</header><!-- End Header -->
 	
 	
 		<?php echo $contents ?> 
 	
 	
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
 
+    <!-- <div class="footer-newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> -->
 
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
 
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
 
-<!-- Footer
-================================================== -->
-<div id="footer" class="dark">
-	<!-- Main -->
-	<div class="container">
-		<div class="row">
-			<!-- <div class="col-md-5">
-				<p style="color: white;">Peta Ke Korlantas Polri </p> 
-				<div style="background-color: white; border: 1px solid black; border-radius: 10px;">
-					<h5 class="headline centered margin-top-20" style="font-weight: bold;">Dapatkan arah Transportasi Umum ke Kantor Pusat Kendali Koordinasi Komunikasi dan Informasi Korlantas Polri</h5>
-					<iframe allowtransparency="true" class="" src="https://widgets.moovit.com/ws/fp/CF1755A1AD0C1795E0530100007F9822/4255280?metroId=2044&amp;lang=in" style="height: 319px;" width="100%" frameborder="0"></iframe>
-				</div>
-			</div>
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
 
-			<div class="col-md-3">
-				<h4>Tentang Korlantas</h4>
-				<ul class="footer-links">
-					<li><a href="<?= base_url()?>struktur_organisasi">Struktur Organisasi</a></li>
-					<li><a href="<?= base_url()?>profil_pejabat">Profil Pejabat</a></li>
-					<li><a href="<?= base_url()?>visi_misi">Visi dan Misi</a></li>
-					<li><a href="<?= base_url()?>sejarah">Sejarah Porlantas</a></li>
-					<li><a href="#">Sitemap</a></li> 
-				</ul> 
-				<div class="clearfix"></div>
-			</div>		
-			<div class="col-md-4">
-				<h4>Layanan</h4>  
-				<ul class="footer-links"> 
-					<li><a href="#">SIGNAL (Samsat Digital Nasional)</a></li>
-					<li><a href="#">SINAR (SIM Nasional Presisi)</a></li>
-					<li><a href="#">SIM Internasional</a></li>
-					<li><a href="#">NTMC</a></li>
-					<li><a href="#">IRSMS</a></li>
-					<li><a href="#">E-TILANG</a></li>
-					<li><a href="#">ERI</a></li>
-				</ul>
-				<div class="clearfix"></div>
-			</div>	 -->
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
 
-			<div class="col-md-3">
-				<h4>Info Kontak</h4>
-				<div class="text-widget">
-					<span>
-						Pusat Kendali, Koordinasi, Komunikasi dan Informasi Korlantas Polri
-						Jl. MT Haryono Kav. 37 – 38,
-						Jakarta 12770
-						Call Center : 1-500-669
-						SMS center : 9119
-					</span>
-				</div>
+          <div class="col-lg-2 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022<br>
+              United States <br><br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
 
-			</div>
+          </div>
 
-			<div class="col-md-3"> 
-				<h4>Social Media</h4>
-				<ul class="social-icons margin-top-20">
-					<li><a class="facebook" href="https://web.facebook.com/pusatk3ikorlantaspolri/"><i class="icon-facebook"></i></a></li>
-					<li><a class="twitter" href="https://twitter.com/K3IKorlantas"><i class="icon-twitter"></i></a></li>
-					<li><a class="instagram" href="https://www.instagram.com/k3ikorlantaspolri/"><i class="icon-instagram"></i></a></li>
-					<li><a class="youtube" href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg"><i class="icon-youtube"></i></a></li>
-				</ul>
-			</div>
+          <div class="col-lg-2 col-md-6 footer-info">
+            <h3>About Eterna</h3>
+            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+		  
+          <div class="col-lg-2 col-md-6 footer-info">
+            <h3>About Eterna</h3>
+            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
 
-			<div class="col-md-6"> 
-				<h4>Layanan Aplikasi Contact Center NTMC Polri</h4>
-				<img src="<?php echo base_url();?>assets/fe/contactntmc.png" alt="" style="border-radius: 10px;">
-			</div>
+        </div>
+      </div>
+    </div>
 
-		</div>
-		
-		<!-- Copyright -->
-		<div class="row">
-			<div class="col-md-12">
-				<div class="copyrights">
-					<img src="<?php echo base_url();?>assets/logo-k3i.png" alt="" width="50"> <br>
-					Korps Lalu Lintas Kepolisian Negara Republik Indonesia <br>
-					© 2021 Pusat Kendali, Koordinasi, Komunikasi, dan Informasi Korlantas Polri</div>
-			</div>
-		</div>
+    <div class="container">
+      <div class="copyright">
+	  	Korps Lalu Lintas Kepolisian Negara Republik Indonesia <br>
+		© 2022 Pusat Kendali, Koordinasi, Komunikasi, dan Informasi Korlantas Polri</div>
+      </div>
+      
+    </div>
+  </footer><!-- End Footer -->
 
-	</div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-</div>
-<!-- Footer / End -->
+  <!-- Vendor JS Files -->
+  <script src="<?= base_url()?>assets/fe/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="<?= base_url()?>assets/fe/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= base_url()?>assets/fe/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="<?= base_url()?>assets/fe/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="<?= base_url()?>assets/fe/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="<?= base_url()?>assets/fe/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="<?= base_url()?>assets/fe/vendor/php-email-form/validate.js"></script>
 
-
-<!-- Back To Top Button -->
-<div id="backtotop"><a href="#"></a></div>
-
-
-</div>
-<!-- Wrapper / End -->
-
-
-
-
-<div id="style-switcher">
-	<h2>Color Switcher <a href="#"><i class="sl sl-icon-settings"></i></a></h2>
 	
-	<div>
-		<ul class="colors" id="color1">
-			<li><a href="#" class="main" title="Main"></a></li>
-			<li><a href="#" class="blue" title="Blue"></a></li>
-			<li><a href="#" class="green" title="Green"></a></li>
-			<li><a href="#" class="orange" title="Orange"></a></li>
-			<li><a href="#" class="navy" title="Navy"></a></li>
-			<li><a href="#" class="yellow" title="Yellow"></a></li>
-			<li><a href="#" class="peach" title="Peach"></a></li>
-			<li><a href="#" class="beige" title="Beige"></a></li>
-			<li><a href="#" class="purple" title="Purple"></a></li>
-			<li><a href="#" class="celadon" title="Celadon"></a></li>
-			<li><a href="#" class="red" title="Red"></a></li>
-			<li><a href="#" class="brown" title="Brown"></a></li>
-			<li><a href="#" class="cherry" title="Cherry"></a></li>
-			<li><a href="#" class="cyan" title="Cyan"></a></li>
-			<li><a href="#" class="gray" title="Gray"></a></li>
-			<li><a href="#" class="olive" title="Olive"></a></li>
-		</ul>
-	</div>
-		
-</div>
-<!-- Style Switcher / End -->
 
-<!-- Vendor JS Files -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/aos/aos.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- Template Main JS File -->
+  <script src="<?= base_url()?>assets/fe/js/main.js"></script>
 
-<!-- Leaflet -->
+	<!-- Leaflet -->
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 <script src="<?php echo base_url(); ?>assets/admin/js/leaflet.markercluster.js"></script>
 <script src="<?php echo base_url(); ?>assets/admin/js/Control.Geocoder.js"></script>
@@ -535,7 +360,6 @@
 <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> -->
-
 
 </body>
 
