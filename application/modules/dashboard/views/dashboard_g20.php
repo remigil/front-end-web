@@ -105,11 +105,20 @@
                         </div>
     
     
-                        
+                        <div class="cat radiusDisplay" style="margin-left: 10px;"> 
+                            <div class="btn-group">
+                                <label>
+                                <input type="checkbox" value="radius" name="filter" id="radiusDisplay"><span><i class="fa fas fa-vector-square"></i> Radius</span>
+                                </label>
+                                <button id="radiusFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
                         <div class="cat clusterDisplay" style="margin-left: 10px;"> 
                             <div class="btn-group">
                                 <label>
-                                <input checked type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><i class="fa fas fa-vector-square"></i> Cluster</span>
+                                <input type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><i class="fa fas fa-vector-square"></i> Cluster</span>
                                 </label>
                                 <button id="clusterFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -333,16 +342,16 @@
                                         <span>Black Spot</span>
                                     </div>
                                     <div class="col-md-6">
+                                        <input type="checkbox" name="filter" value="radius" id="radius" class="form-input" >  
+                                        <span>Radius</span> 
+                                    </div>
+                                    <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="cluster" id="cluster" class="form-input" >  
                                         <span>Cluster</span> 
                                     </div> 
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="gpsId" id="gpsId" class="form-input" >  
                                         <span>Kendaraan Listrik</span> 
-                                    </div> 
-                                    <div class="col-md-6">
-                                        <input type="checkbox" name="filter" value="troublespot" id="troublespot" class="form-input" >  
-                                        <span>Trouble Spot</span> 
                                     </div>   
                                     <div class="col-md-12 mt-3" id="menuKategori">
                                         <p style="font-size: 17px;">Fasilitas Umum Kategori</p> 
@@ -611,6 +620,7 @@
                                     <option value="3">Penjagaan</option> 
                                     <option value="4">Pengaturan</option> 
                                     <option value="5">Penutupan</option>
+                                    <option value="6">Jalur</option>
                                 </select>
                                 <label class="labelmui">Subjek</label>
                             </div>
@@ -1045,6 +1055,19 @@
     </div>
 </div>
 
+
+<div class="modal right fade" id="myModalRadiusDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelRadiusDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelRadiusDisplay">Radius</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalRadiusDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalRadiusDisplay" style="width: 550px;">  
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal right fade" id="myModalClusterDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelClusterDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -1219,6 +1242,7 @@
     var markerLaporan = new Array(); 
     var markerFasum = new Array();
     var markerFasumKhusus = new Array();
+    var markerRadius = new Array(); 
     var markerCluster = new Array(); 
     var routingJadwal = new Array();
 
@@ -5925,6 +5949,12 @@
             }
             markerCluster = new Array(); 
 
+            for (let i = 0; i < markerRadius.length; i++) { 
+                // fasumKhususRadiusGroup.removeLayer(markerRadius[i]);
+                mapContainer.removeLayer(markerRadius[i]);
+            }
+            markerRadius = new Array(); 
+
             for (let i = 0; i < markerPolres.length; i++) {
                 mapContainer.removeLayer(markerPolres[i]);
             }
@@ -5978,6 +6008,7 @@
                     // var ressFasumKhusus = result['data']['fasum_khusus'];
                     ressFasumKhusus = result['data']['fasum_khusus'];
 
+                    var ressRadius = result['data']['radius']; 
                     var ressCluster = result['data']['cluster']; 
                     var ressSchedule = result['data']['jadwal_kegiatan'];
                     var ressOperasi = result['data']['operasi'];
@@ -7450,6 +7481,102 @@
 
                     }
 
+                    if(ressRadius && ressRadius.length > 0){  
+                        var logoMarker = '';
+                        var logoBody = '';
+                        $('#openModalRadiusDisplay').html(`
+                            <table id="datatableRadiusOnDisplay" class="table dt-responsive w-100">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Radius</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalRadiusDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countRadiusDisplay = 0;
+                        var listRadiusDisplay = '';
+                        $('#totalRadiusDisplay').html(ressRadius.length);
+
+                        for (let i = 0; i < ressRadius.length; i++) {  
+                            countRadiusDisplay += 1;
+                            listRadiusDisplay += `
+                                <tr>
+                                    <td>${countRadiusDisplay}</td>
+                                    <td><a href="<?= base_url()?>masterdata/Fasilitasumum/radius" target="_blank">${ressRadius[i].fasum_name}</a></td> 
+                                    <td>${ressRadius[i].fasum_radius} Kilometer</td> 
+                                    <td>
+                                        <a class="btn" style="margin-top: -10px;"  
+                                            id="flyToMapFilterRadius${countRadiusDisplay}"
+                                            data-cord="${ressRadius[i].fasum_lat},${ressRadius[i].fasum_lng}" 
+                                            href="javascript:void(0)">
+                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                        </a> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#isiModalRadiusDisplay').html(listRadiusDisplay); 
+
+                                var latitudeRadius = parseFloat(ressRadius[i].fasum_lat);
+                                var longitudeRadius = parseFloat(ressRadius[i].fasum_lng); 
+                                var set = ressRadius[i].fasum_radius != null ? ressRadius[i].fasum_radius : 1 ;
+                                markerRadius[i] = L.circle([latitudeRadius,longitudeRadius], 1000*set, {
+                                            color: 'yellow',
+                                            fillColor: '#f03',
+                                            weight: 2,
+                                            fillOpacity: 0.2
+                                        }).bindPopup(`
+                                        <div class="text-center" style="width: 400px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="row mt-3"> 
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>${ressRadius[i].fasum_name}</h5> 
+                                                    <span>- ${ressRadius[i].category_fasum.name_category_fasum} : ${set} Kilometer-</span>
+                                                </div>
+                                                
+                                                <div class="col-md-12 col-12 mt-2">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12 text-start">
+                                                            <p style="font-size: 12px;font-weight: bold;">Akomodasi</p>  
+                                                            <p style="font-size: 12px; margin-top: -13px;">${ressRadius[i].fasum_description.replace(/\n/g, "<br />")}</p>
+                                                        </div>  
+                                                         
+                                                    </div> 
+                                                </div>   
+                                            </div>
+                                        </div> 
+                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer); 
+                        }
+
+                       
+                        for (let i = 0; i < countRadiusDisplay; i++) { 
+                            $(`#flyToMapFilterRadius${i+1}`).on("click", function (e) {  
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);  
+                                mapContainer.flyTo([latitude, longitude], 14); 
+                            });
+                        }
+                        $('#datatableRadiusOnDisplay').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });  
+                    }
+
                     if(ressCluster && ressCluster.length > 0){  
                         var logoMarker = '';
                         var logoBody = '';
@@ -8019,6 +8146,14 @@
                 $("#satPasDisplay").val();
             }
 
+
+            if($("#radius").is(':checked')){ 
+                $("#radiusDisplay").prop('checked', true); 
+                // $("#myModalRadiusDisplay").modal('show');
+            }else{
+                $("#radiusDisplay").prop('checked', false); 
+                $("#radiusDisplay").val();
+            }
             if($("#cluster").is(':checked')){ 
                 $("#clusterDisplay").prop('checked', true); 
                 // $("#myModalClusterDisplay").modal('show');
@@ -8026,6 +8161,7 @@
                 $("#clusterDisplay").prop('checked', false); 
                 $("#clusterDisplay").val();
             }
+
             if($("#jadwal").is(':checked')){ 
                 $("#kegiatanDisplay").prop('checked', true); 
                 // $("#myModalJadwalDisplay").modal('show');
@@ -8215,6 +8351,19 @@
             }
             serverSideFilter();
         });
+
+        $("#radiusDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                openDisplay = this.value; 
+                $("#radius").prop('checked', true); 
+                $("#myModalRadiusDisplay").modal('show');
+            }else{
+                openDisplay = '';
+                $("#radius").prop('checked', false); 
+                $("#radius").val();
+            }
+            serverSideFilter();
+        });
         $("#clusterDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 openDisplay = this.value; 
@@ -8270,6 +8419,9 @@
         $("#jadwalFilterModal").on("click", function (e) {   
             $("#myModalJadwalDisplay").modal('show');
         }); 
+        $("#radiusFilterModal").on("click", function (e) {   
+            $("#myModalClusterDisplay").modal('show');
+        }); 
         $("#clusterFilterModal").on("click", function (e) {   
             $("#myModalClusterDisplay").modal('show');
         }); 
@@ -8315,6 +8467,8 @@
                     $("#myModalPetugasDisplay").modal('show');
                 }else if(openDisplay == 'fasum_khusus'){
                     $("#myModalFasumKhususDisplay").modal('show');
+                }else if(openDisplay == 'radius'){
+                    $("#myModalRadiusDisplay").modal('show');
                 }else if(openDisplay == 'cluster'){
                     $("#myModalClusterDisplay").modal('show');
                 }else if(openDisplay == 'jadwal_kegiatan'){

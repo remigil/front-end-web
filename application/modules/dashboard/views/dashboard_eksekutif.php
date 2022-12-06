@@ -103,6 +103,17 @@
                                 </button>
                             </div>
                         </div>
+
+                        <div class="cat radiusDisplay" style="margin-left: 10px; display:none">
+                            <div class="btn-group">
+                                <label>
+                                    <input checked type="checkbox" value="radius" name="filter" id="radiusDisplay"><span><i class="fa fas fa-vector-square"></i> Radius</span>
+                                </label>
+                                <button id="radiusFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
                         <div class="cat clusterDisplay" style="margin-left: 10px; display:none">
                             <div class="btn-group">
                                 <label>
@@ -268,6 +279,10 @@
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="fasum_khusus" id="fasum_khusus" class="form-input">
                                         <span>Fasilitas Khusus</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="filter" value="radius" id="radius" class="form-input">
+                                        <span>Radius</span>
                                     </div>
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="cluster" id="cluster" class="form-input">
@@ -998,6 +1013,19 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="openModalFasumKhususDisplay" style="width: 550px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal right fade" id="myModalRadiusDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelRadiusDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelRadiusDisplay">Radius</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalRadiusDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalRadiusDisplay" style="width: 550px;">
             </div>
         </div>
     </div>
