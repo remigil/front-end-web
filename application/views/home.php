@@ -95,31 +95,31 @@
 
         <div class="row gy-4">
 
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
+          <div class="col-xl-3 col-md-6" data-aos="zoom-out">
             <div class="service-item position-relative">
               <div class="icon text-center"><i class="bi bi-activity icon"></i></div>
-              <h4><a href="" class="stretched-link fs-5">Kecelakaan Lalu Lintas</a></h4>
+              <h4 class="text-center"><a href="" class="stretched-link fs-5">Kecelakaan Lalu Lintas</a></h4>
               <h1 id="lakalantas" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
+          <div class="col-xl-3 col-md-6" data-aos="zoom-out">
             <div class="service-item position-relative">
               <div class="icon text-center"><i class="bi bi-activity icon"></i></div>
-              <h4><a href="" class="stretched-link fs-5">Pelanggaran Lalu Lintas</a></h4>
+              <h4 class="text-center"><a href="" class="stretched-link fs-5">Pelanggaran Lalu Lintas</a></h4>
               <h1 id="garlantas" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
+          <div class="col-xl-3 col-md-6" data-aos="zoom-out">
             <div class="service-item position-relative">
               <div class="icon text-center"><i class="bi bi-activity icon"></i></div>
-              <h4><a href="" class="stretched-link fs-5">Kendaraan Bermotor</a></h4>
+              <h4 class="text-center"><a href="" class="stretched-link fs-5">Kendaraan Bermotor</a></h4>
               <h1 id="motor" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
+          <div class="col-xl-3 col-md-6" data-aos="zoom-out">
             <div class="service-item position-relative">
               <div class="icon text-center"><i class="bi bi-activity icon"></i></div>
-              <h4><a href="" class="stretched-link fs-5">SIM Nasional</a></h4>
+              <h4 class="text-center"><a href="" class="stretched-link fs-5">SIM Nasional</a></h4>
               <h1 id="sim" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
@@ -241,6 +241,24 @@
 
       </div>
     </section><!-- End Clients Section -->
+
+		<section>
+			<div class="container">
+		<div class="col-md-12 margin-bottom-50 margin-top-50">
+        <div class="row">
+            <div class="col-md-4">
+                <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px; position: static; visibility: visible; width: 100%; height: 400px; display: block; flex-grow: 3;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/NTMCLantasPolri?dnt=false&amp;embedId=twitter-widget-0&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
+            </div>
+            <div class="col-md-4">
+                <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 400px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/TMCPoldaMetro?dnt=false&amp;embedId=twitter-widget-1&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
+            </div>
+            <div class="col-md-4">
+                <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 400px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/KemenkesRI?dnt=false&amp;embedId=twitter-widget-2&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+		</div>
+		</section>
 
   </main><!-- End #main -->
 
