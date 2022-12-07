@@ -58,8 +58,33 @@ class Fasilitasumum extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = ''; 
  
-        $page_content["title"] = "Cluster";
+        $page_content["title"] = "Radius";
         $page_content["page"] = "masterdata/G20/fasum_radius_view";
+
+        $getCategory = guzzle_request('GET', 'category_fasum', [
+            'headers' => $headers
+        ]);
+        if($getCategory['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
+        $data['getCategory'] = $getCategory['data']['data'];
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function cluster()
+    {
+		$headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = ''; 
+ 
+        $page_content["title"] = "Cluster";
+        $page_content["page"] = "masterdata/G20/fasum_cluster_view";
 
         $getCategory = guzzle_request('GET', 'category_fasum', [
             'headers' => $headers

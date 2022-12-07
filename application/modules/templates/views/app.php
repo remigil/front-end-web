@@ -808,8 +808,16 @@
                                 <p style="font-size:10px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
                                 <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:10px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
                             <?php } else { ?>
-                                <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                                <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:red; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> K3I KORLANTAS POLRI</span> </h4>
+                                <?php if ($this->session->userdata['role'] == 'G20') { ?>
+                                    <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Operasi</p>
+                                <?php } else { ?>
+                                    <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
+                                <?php } ?>
+                                <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:red; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> K3I KORLANTAS POLRI
+                                        <?php if ($this->session->userdata['role'] == 'G20') { ?>
+                                            - <span>Operasi <?= $this->session->userdata['name_operation'] ?></span>
+                                        <?php } ?>
+                                    </span> </h4>
 
                             <?php } ?>
                         </div>
@@ -902,9 +910,7 @@
                             <?php } else { ?>
                                 <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo $this->session->userdata['full_name']; ?></span>
-                                <?php if ($this->session->userdata['role'] == 'G20') { ?>
-                                    <span><?= $this->session->userdata['name_operation'] ?></span>
-                                <?php } ?>
+
                             <?php } ?>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
@@ -962,7 +968,11 @@
                                         <span data-key="t-authentication">Uraian Kegiatan</span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
-                                        <li><a href="<?php echo base_url(); ?>operasi/renpam/operasi" data-key="t-login">Operasi Puri Agung</a></li>
+                                        <li><a href="<?php echo base_url(); ?>operasi/renpam/operasi" data-key="t-login">Operasi
+                                                <?php if ($this->session->userdata['role'] == 'G20') { ?>
+                                                    <span> <?= $this->session->userdata['name_operation'] ?></span>
+                                                <?php } ?>
+                                            </a></li>
                                         <li><a href="<?php echo base_url(); ?>operasi/renpam/harian" data-key="t-login">Tidak Terjadwal</a></li>
                                         <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Keseluruhan</a></li>
                                     </ul>
@@ -1097,7 +1107,8 @@
                                         <li><a href="<?php echo base_url('masterdata/kepemilikan'); ?>" data-key="t-read-email">Kepemilikan Kendaraan</a></li>
                                         <li><a href="<?php echo base_url('masterdata/bahan_bakar'); ?>" data-key="t-read-email">Bahan Bakar Kendaraan</a></li>
                                         <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Khusus</a></li>
-                                        <li><a href="<?php echo base_url('masterdata/Fasilitasumum/radius'); ?>" data-key="t-read-email">Cluster</a></li>
+                                        <li><a href="<?php echo base_url('masterdata/Fasilitasumum/radius'); ?>" data-key="t-read-email">Radius</a></li>
+                                        <li><a href="<?php echo base_url('masterdata/Fasilitasumum/cluster'); ?>" data-key="t-read-email">Cluster</a></li>
                                         <li><a href="<?php echo base_url('masterdata/Fasilitasumum/restArea'); ?>" data-key="t-read-email">Rest Area</a></li>
                                         <li><a href="<?php echo base_url('masterdata/Fasilitasumum/posPam'); ?>" data-key="t-read-email">POS PAM</a></li>
                                         <li><a href="<?php echo base_url('masterdata/Fasilitasumum/satPas'); ?>" data-key="t-read-email">SATPAS</a></li>
