@@ -3,7 +3,7 @@
         <div class="col-md-8 align-self-center">
             <div id="nama">
                 <div style="display: flex;">
-                    <h3><a href="<?= base_url('executive/Polda_executive/' . $data['id']) ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i>|</a></h3>
+                    <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i>|</a></h3>
                     &nbsp;&nbsp; <h3 style="text-transform: uppercase; color:#007DD8;"> SUBGAKKUM POLDA <?= $data['poldaid']['name_polda']; ?> </h3>
 
                 </div>

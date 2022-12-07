@@ -975,7 +975,13 @@ class Dashboard extends MY_Controller
         // $data["page"] = "dashboard/dashboard_eksekutif";
         // $this->load->view('dashboard/dashboard_eksekutif', $data);
     }
+    public function getDetailPolda()
+    {
+        $id = $this->input->post('id');
+        $data = $this->m_dashboard->get_Poldaid($id);
 
+        echo json_encode($data);
+    }
 
     public function getPolda()
     {

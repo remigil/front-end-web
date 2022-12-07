@@ -801,7 +801,7 @@
                             <i class="fa fa-fw fa-bars"></i>
                         </button>
                     <?php } ?>
-                    <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri') { ?>
+                    <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri' || $this->session->userdata['role'] == 'Kapolda') { ?>
                         <div>
                             <?php $mobile = detect_mobile();
                             if ($mobile === true) { ?>
@@ -822,14 +822,14 @@
                             <?php } ?>
                         </div>
 
-                    <?php } else if ($this->uri->segment(1) == "dashboard") { ?>
-                        <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+                        <!-- <?php } else if ($this->uri->segment(1) == "dashboard") { ?>
+                        <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'Kapolda') { ?>
                             <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:black"><?php echo $title; ?></h5>
                         <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                             <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
                             <h4 style="display: flex;align-items: center;margin-left: -230px;margin-top: 5px; color:red; font-family:MortendBold; font-size:18px; margin-top:22px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> K3I KORLANTAS POLRI</span> </h4>
 
-                        <?php } ?>
+                        <?php } ?> -->
 
                     <?php } else { ?>
                         <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
@@ -1578,7 +1578,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url(); ?>" target="_blank">
+                                    <a href="<?= base_url('executive/Polda_executive/statistik_polda/' . $this->session->userdata['polda_id']); ?>">
                                         <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <!-- <span class="" data-key="t-dashboard">Statistik Polda&nbsp;<?= $this->session->userdata['polda']; ?></span> -->
                                         <span data-key="t-authentication" style="color: white;">Statistik Polda&nbsp;<?= $this->session->userdata['polda']; ?></span>
@@ -1593,37 +1593,37 @@
                                     <ul class="sub-menu" aria-expanded="false">
 
                                         <li>
-                                            <a href="<?php echo base_url('ditgakkum'); ?>" data-key="t-login">
+                                            <a href="<?= base_url('ditgakkum/subditgakkum/' . $this->session->userdata['polda_id']); ?>" data-key="t-login">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">SUBGAKKUM</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url('ditregident'); ?>" data-key="t-login">
+                                            <a href="<?= base_url('ditregident/subditregident/' . $this->session->userdata['polda_id']); ?>" data-key="t-login">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">SUBREGIDENT</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url('ditkamsel'); ?>" data-key="t-register">
+                                            <a href="<?= base_url('ditkamsel/subditkamsel/' . $this->session->userdata['polda_id']); ?>" data-key="t-register">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">SUBKAMSEL</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url('bagrenmin'); ?>" data-key="t-register">
+                                            <a href="<?= base_url('bagrenmin/subbagrenmin/' . $this->session->userdata['polda_id']); ?>" data-key="t-register">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">SUBBAGRENMIN</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url('bagops'); ?>" data-key="t-register">
+                                            <a href="<?= base_url('bagops/subbagops/' . $this->session->userdata['polda_id']); ?>" data-key="t-register">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">SUBBAGOPS</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url('bagtik'); ?>" data-key="t-register">
+                                            <a href="<?= base_url('bagtik/subbagtik/' . $this->session->userdata['polda_id']); ?>" data-key="t-register">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">SUBBAGTIK</span>
                                             </a>

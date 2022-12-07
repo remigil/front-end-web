@@ -44,18 +44,18 @@
                                 <h4 class="mb-0 text-white">Subsatker Polda</h4>
                             </button>
                             <div class="dropdown-menu" style="width: 100%; z-index: 10000;">
-                                <a class="dropdown-item fs-4" href="#">Subditgakkum Polda</a>
+                                <!-- <a class="dropdown-item fs-4" href="#">Subditgakkum Polda</a>
                                 <a class="dropdown-item fs-4" href="#">Subditregident Polda</a>
                                 <a class="dropdown-item fs-4" href="#">Subdikamsel Polda</a>
                                 <a class="dropdown-item fs-4" href="#">Subbagrenmin Polda</a>
                                 <a class="dropdown-item fs-4" href="#">Subbagops Polda</a>
-                                <a class="dropdown-item fs-4" href="#">Subbagtik Polda</a>
-                                <!-- <a class="dropdown-item fs-4" href="../../ditgakkum/subditgakkum/<?= $data['id']; ?>">Subditgakkum Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subbagtik Polda</a> -->
+                                <a class="dropdown-item fs-4" href="../../ditgakkum/subditgakkum/<?= $data['id']; ?>">Subditgakkum Polda</a>
                                 <a class="dropdown-item fs-4" href="../../ditregident/subdiregident/<?= $data['id']; ?>">Subditregident Polda</a>
                                 <a class="dropdown-item fs-4" href="../../ditkamsel/subditkamsel/<?= $data['id']; ?>">Subdikamsel Polda</a>
                                 <a class="dropdown-item fs-4" href="../../bagrenim/subbagrenmin/<?= $data['id']; ?>">Subbagrenmin Polda</a>
                                 <a class="dropdown-item fs-4" href="../../bagops/subbagops/<?= $data['id']; ?>">Subbagops Polda</a>
-                                <a class="dropdown-item fs-4" href="../../bagtik/subbagtik/<?= $data['id']; ?>">Subbagtik Polda</a> -->
+                                <a class="dropdown-item fs-4" href="../../bagtik/subbagtik/<?= $data['id']; ?>">Subbagtik Polda</a>
                             </div>
                         </div>
                     </div>
@@ -350,7 +350,7 @@
                                         <div class="col-md-6">
                                             <input checked type="checkbox" name="filter" value="gpsId" id="gpsId" class="form-input">
                                             <span>Kendaraan Listrik</span>
-                                        </div> 
+                                        </div>
                                         <div class="col-md-12 mt-3" id="menuKategori">
                                             <p style="font-size: 17px;">Fasilitas Umum Kategori</p>
                                             <div class="row">
@@ -1238,7 +1238,7 @@
         var markerCCTV = new Array();
         var markerSamsat = new Array();
         var markerTroubleSpot = new Array();
-    var markerBlankSpot = new Array();
+        var markerBlankSpot = new Array();
 
         var markerLaporanPanic = new Array();
         var markerLaporan = new Array();
@@ -1256,7 +1256,7 @@
         var routingJadwalRenpam4 = new Array();
 
         var routingTroubleSpot = new Array();
-    var routingBlankSpot = new Array();
+        var routingBlankSpot = new Array();
 
         var routingRenpam = new Array();
         var routingRenpam1 = new Array();
@@ -1337,7 +1337,7 @@
                     $('#garlantas').html(`<span class="fs-6">${result.garlantas}</span class="fs-6">`);
                     $('#lakalantas').html(`<span class="fs-6">${result.lakalantas}</span class="fs-6">`);
                     $('#logo').html(`<img src="<?= url_api() . 'polda/logo/' ?>${ressPolda.logo_polda}" alt="img-polda" width="50px">`);
-                    $('#nama').html(`<span class="fs-3 fw-bold" style="color:#007DD8 ; text-transform:uppercase;">Ditlantas Polda ${ressPolda.name_polda}</span>`);
+                    $('#nama').html(`<span class="fs-3 fw-bold" style="color:#007DD8 ; text-transform:uppercase;">Ditlantas ${ressPolda.name_polda}</span>`);
                     $('#namaditgakkum').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditgakkum Polda ${ressPolda.name_polda}</h4>`);
                     $('#namaditkamsel').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditkamsel Polda ${ressPolda.name_polda}</h4>`);
                     $('#namaditregident').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditregident Polda ${ressPolda.name_polda}</h4>`);
@@ -5851,7 +5851,7 @@
                         markerTroubleSpot = new Array();
                         for (let i = 0; i < markerBlankSpot.length; i++) {
                             // mapContainer.removeLayer(markerBlankSpot[i]);
-                            if(markerBlankSpot[i]){
+                            if (markerBlankSpot[i]) {
                                 blankSpotClusterGroup.removeLayer(markerBlankSpot[i]);
                             }
                         }
@@ -5923,7 +5923,7 @@
                                 // var ressFasumKhusus = result['data']['fasum_khusus'];
                                 ressFasumKhusus = result['data']['fasum_khusus'];
 
-                                var ressCluster = result['data']['cluster']; 
+                                var ressCluster = result['data']['cluster'];
                                 var ressSchedule = result['data']['jadwal_kegiatan'];
                                 var ressOperasi = result['data']['operasi'];
                                 console.log(result['data']);
@@ -6521,11 +6521,11 @@
                                         var checkedBlankSpot1 = [];
 
                                         for (let i = 0; i < filterBlankSpot.length; i++) {
-                                            countBlankSpotDisplay += 1; 
+                                            countBlankSpotDisplay += 1;
                                             countlistBlankSpot += 1;
                                             id = i;
 
-                                            if(filterBlankSpot[i].route == null){
+                                            if (filterBlankSpot[i].route == null) {
                                                 listBlankSpotDisplay += `
                                                     <tr>
                                                         <td>${countBlankSpotDisplay}</td>
@@ -6543,9 +6543,9 @@
                                                     </tr>
                                                 `;
                                                 $('#isiModalBlankSpotDisplay').html(listBlankSpotDisplay);
-                                                
+
                                                 var latitudeBlankSpot = parseFloat(filterBlankSpot[i].latitude);
-                                                var longitudeBlankSpot = parseFloat(filterBlankSpot[i].longitude); 
+                                                var longitudeBlankSpot = parseFloat(filterBlankSpot[i].longitude);
                                                 troubleSpotClusterGroup.addLayer(markerBlankSpot[i] = L.marker([latitudeBlankSpot, longitudeBlankSpot], {
                                                     icon: L.divIcon({
                                                         // className: 'location-pin',
@@ -6569,8 +6569,8 @@
                                                     minWidth: 100,
                                                     maxWidth: 560,
                                                     width: 400
-                                                })); 
-                                            }else{
+                                                }));
+                                            } else {
                                                 listBlankSpotDisplay += `
                                                     <tr>
                                                         <td>${countBlankSpotDisplay}</td>
@@ -6586,8 +6586,8 @@
                                                     </tr>
                                                 `;
                                                 $('#isiModalBlankSpotDisplay').html(listBlankSpotDisplay);
-                                                
-                                                
+
+
                                                 checkedBlankSpot1.push({
                                                     reporter_name: filterBlankSpot[i]['reporter_name'],
                                                     checked: 0,
@@ -6597,7 +6597,7 @@
 
                                         for (let i = 0; i < countlistBlankSpot; i++) {
                                             $(`#listTsDisplay${i+1}`).on("change", function(e) {
-                                                
+
                                                 var cordRute = $(this).data('cord');
                                                 if (cordRute != null && cordRute[0]['latLng'] != null) {
                                                     if ($(this).is(':checked')) {
@@ -6630,7 +6630,7 @@
                                                                     //         draggable: this.draggableWaypoints,
                                                                     //     },
                                                                     //     marker = L.marker(wp.latLng);
-                
+
                                                                     // return marker;
                                                                 }
                                                             },
@@ -7367,7 +7367,7 @@
 
                                         }
                                     }
-                                } 
+                                }
 
                                 if (ressSchedule && ressSchedule.length > 0) {
                                     var filterSchedule = ressSchedule.filter(function(e) {
@@ -7697,7 +7697,7 @@
                         }
                         serverSideFilter();
                     });
-                    
+
                     $("#poldaDisplay").on("change", function(e) {
                         if ($(this).is(':checked')) {
                             openDisplay = this.value;
