@@ -1572,7 +1572,7 @@
 
                             <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                                 <li>
-                                    <a href="<?= base_url('dashboard'); ?>" target="_blank">
+                                    <a href="<?= base_url('dashboard'); ?>">
                                         <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span class="" data-key="t-dashboard">Beranda</span>
                                     </a>
