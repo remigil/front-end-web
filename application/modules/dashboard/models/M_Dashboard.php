@@ -29,6 +29,7 @@ class M_dashboard extends CI_Model
 
     public function garlantas_topPolda()
     {
+        // asd
         // Top Polda Garlantas
         $topPolda = guzzle_request(
             'GET',
