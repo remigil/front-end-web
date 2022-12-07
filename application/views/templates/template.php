@@ -35,6 +35,7 @@
   <link href="<?= base_url()?>assets/fe/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="<?= base_url()?>assets/fe/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="<?= base_url()?>assets/fe/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+	<script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
 
 	<script data-cfasync="false" src="<?php echo base_url();?>assets/fe/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/jquery-3.4.1.min.js"></script>
@@ -104,7 +105,7 @@
       <div class="logo">
         <!-- <h1><a href="index.html">Eterna</a></h1> -->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="index.html"><img src="<?= base_url()?>assets/fe/brand-header.png" alt="" class="img-fluid" ></a>
+        <a href="<?= base_url()?>home"><img src="<?= base_url()?>assets/fe/brand-header.png" alt="" class="img-fluid" ></a>
       </div>
 
       <nav id="navbar" class="navbar">
@@ -245,74 +246,73 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+          <div class="col-md-4 footer-links">
+						<div class="container" style="background-color: white; color:black; border: 1px solid black; border-radius: 10px;">
+							<h6 class="headline centered text-center mt-3">Dapatkan arah Transportasi Umum ke Kantor Pusat Kendali Koordinasi Komunikasi dan Informasi Korlantas Polri</h6>
+							<iframe allowtransparency="true" class="" src="https://widgets.moovit.com/ws/fp/CF1755A1AD0C1795E0530100007F9822/4255280?metroId=2044&amp;lang=in" style="height: 319px;" width="100%" frameborder="0"></iframe>
+						</div>
+          </div>
+
+          <div class="col-md-2 footer-links">
+            <h4>Dasar Hukum / Referensi</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Undang Undang Republik Indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Peraturan Pemerintah Republik indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">peraturan Presiden Republik Indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Peraturan Kepolisian Negara Republik Indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Peraturan Kepala Polisi Negara Republik Indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Peraturan kepala Korps Lalu Lintas POLRI</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Peraturan Lain-lain</a></li>
+            </ul>
+						<!-- <img src="<?= base_url()?>assets/fe/contactntmc.png" alt=""> -->
+          </div>
+
+          <div class="col-md-2 footer-links">
+            <h4>Tentang korlantas</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Struktur Organisasi</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Profil Pejabat</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Visi dan Misi</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Sejarah POLANTAS</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Sitemap</a></li>
             </ul>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
+          <div class="col-md-2 footer-contact">
+            <h4>Info Kontak</h4>
+						<p>Pusat Kendali, Koordinasi, Komunikasi dan Informasi Korlantas Polri</p>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+							Jl. MT Haryono Kav. 37 – 38, <br>
+              Jakarta 12770<br>
+              <br>
+              <strong>Call Center:</strong> 1-500-669<br>
+              <strong>SMS Center:</strong> 9119<br>
+              <strong>WA Center:</strong> 0851-7155-2928<br>
             </p>
 
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-info">
-            <h3>About Eterna</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <div class="col-md-2 footer-info">
+            <h3>Sosial Media K3I</h3>
+            <!-- <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p> -->
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="https://twitter.com/K3IKorlantas" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="https://www.facebook.com/K3I-Korlantas-105187678596891" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/k3ikorlantaspolri/" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg" class="youtube"><i class="bx bxl-youtube"></i></a>
+            </div><br><br>
+						<h3>Sosial Media NTMC</h3>
+            <!-- <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p> -->
+            <div class="social-links mt-3">
+              <a href="https://twitter.com/NTMC_Info" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="https://id-id.facebook.com/NTMCPOLRI/" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/ntmc_polri/?hl=id" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.youtube.com/c/NTMCChannel" class="youtube"><i class="bx bxl-youtube"></i></a>
             </div>
+						
           </div>
 		  
-          <div class="col-lg-2 col-md-6 footer-info">
-            <h3>About Eterna</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
+          
 
         </div>
       </div>

@@ -124,12 +124,13 @@ class Home extends MX_Controller {
         $getSim = guzzle_request('GET', 'sim/daily', [
             // 'headers' => $headers
         ]);
-        $getSim = $getSim["data"]["rows"];
+        $getSim = $getSim["data"];
+		// var_dump($getSim);die;
 
         $totalsim = 0;
-        for ($i = 0; $i < count($getSim); $i++) {
-            $totalsim += $getSim[$i]['total'];
-        }
+        // for ($i = 0; $i < count($getSim); $i++) {
+        //     $totalsim += $getSim[$i]['total'];
+        // }
 
         $data = [
             'garlantas' => number_format($totalgarlantas, 0, '', '.'),

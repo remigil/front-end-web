@@ -904,14 +904,131 @@ section {
 }
 
 .clients .swiper-slide img {
-  opacity: 0.5;
+  /* opacity: 0.5; */
   transition: 0.3s;
-  filter: grayscale(100);
+  /* filter: grayscale(100); */
 }
 
 .clients .swiper-slide img:hover {
   filter: none;
-  opacity: 1;
+  /* opacity: 1; */
+	opacity: 0.5;
+}
+
+/*--------------------------------------------------------------
+# Blog
+--------------------------------------------------------------*/
+.blog-area {
+  height: auto;
+  width: 100%;
+}
+
+.blog-text h4 a {
+  color: #444;
+  text-decoration: none;
+}
+
+.blog-text h4 {
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.blog-btn {
+  border-bottom: 1px dotted #444;
+  color: #444;
+  text-decoration: none;
+}
+
+.blog-btn {
+  border-bottom: 1px dotted #444;
+  color: #444;
+  display: inline-block;
+  padding: 0 1px 5px 0;
+  position: relative;
+  text-decoration: none;
+}
+
+.blog-btn {
+  position: relative;
+}
+
+.blog-btn::after {
+  content: "\f178";
+  font-family: fontawesome;
+  position: absolute;
+  right: -20px;
+  top: 1px;
+  transition: all 0.3s ease 0s;
+}
+
+.blog-btn:hover::after {
+  right: -30px;
+}
+
+.blog-btn:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.blog_meta span.date_type i {
+  margin-left: 5px;
+}
+
+.blog-meta span.comments-type {
+  margin-left: 5px;
+}
+
+.blog-meta span i {
+  padding-right: 10px;
+}
+
+.blog-content .blog-meta {
+  border-bottom: 1px dotted #333;
+}
+
+.blog-meta {
+  border-bottom: 1px dotted #fff;
+  padding: 10px 0;
+}
+
+.comments-type>a,
+.date-type,
+.blog-meta span.comments-type {
+  color: #333;
+  letter-spacing: 1px;
+  margin-right: 5px;
+}
+
+.blog-meta .comments-type i {
+  padding-right: 0 !important;
+}
+
+.blog-content-right .comments-type>a,
+.blog-content-right .date-type,
+.blog-content-right .blog-meta span.comments-type,
+.blog-content-right .blog-text p {
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.single-blog .ready-btn {
+  border: 1px solid #444;
+  border-radius: 30px;
+  color: #444;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.4s ease 0s;
+}
+
+.single-blog .ready-btn:hover {
+  border: 1px solid #448cff;
+  color: #448cff;
 }
 
 /*--------------------------------------------------------------
@@ -1761,7 +1878,7 @@ section {
 }
 
 .blog .entry .entry-footer a:hover {
-  color: #e96b56;
+  color: #448cff;
 }
 
 .blog .entry .entry-footer .cats {
@@ -1870,7 +1987,7 @@ section {
 }
 
 .blog .blog-comments .comment h5 a:hover {
-  color: #e96b56;
+  color: #448cff;
 }
 
 .blog .blog-comments .comment h5 .reply {
@@ -2175,14 +2292,14 @@ section {
   font-size: 16px;
   padding: 0 30px;
   margin: 3px;
-  background: #e96b56;
+  background: #448cff;
   color: #fff;
   transition: 0.3s;
   border-radius: 50px;
 }
 
 #footer .footer-newsletter form input[type=submit]:hover {
-  background: #e6573f;
+  background: #448cff;
 }
 
 #footer .footer-top {
@@ -2228,7 +2345,7 @@ section {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #e96b56;
+  background: #448cff;
   color: #fff;
   text-decoration: none;
 }
@@ -2254,7 +2371,7 @@ section {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #ec7f6d;
+  color: #448cff;
   font-size: 18px;
   line-height: 1;
 }
@@ -2277,7 +2394,7 @@ section {
 }
 
 #footer .footer-top .footer-links ul a:hover {
-  color: #e96b56;
+  color: #448cff;
 }
 
 #footer .footer-top .footer-contact {

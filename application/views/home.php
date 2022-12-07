@@ -97,28 +97,31 @@
 
           <div class="col-xl-3 col-md-6" data-aos="zoom-out">
             <div class="service-item position-relative">
-              <div class="icon text-center"><i class="bi bi-activity icon"></i></div>
+              <div class="icon text-center"><iconify-icon icon="bxs:car-crash" width="50"></iconify-icon></div>
               <h4 class="text-center"><a href="" class="stretched-link fs-5">Kecelakaan Lalu Lintas</a></h4>
               <h1 id="lakalantas" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6" data-aos="zoom-out">
             <div class="service-item position-relative">
-              <div class="icon text-center"><i class="bi bi-activity icon"></i></div>
+              <div class="icon text-center"><iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon></div>
               <h4 class="text-center"><a href="" class="stretched-link fs-5">Pelanggaran Lalu Lintas</a></h4>
               <h1 id="garlantas" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6" data-aos="zoom-out">
             <div class="service-item position-relative">
-              <div class="icon text-center"><i class="bi bi-activity icon"></i></div>
+              <div class="icon text-center">
+				<iconify-icon icon="mdi:car-multiple" width="50"></iconify-icon>
+				<iconify-icon icon="mdi:atv" width="50"></iconify-icon>
+			</div>
               <h4 class="text-center"><a href="" class="stretched-link fs-5">Kendaraan Bermotor</a></h4>
               <h1 id="motor" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6" data-aos="zoom-out">
             <div class="service-item position-relative">
-              <div class="icon text-center"><i class="bi bi-activity icon"></i></div>
+              <div class="icon text-center"><iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon></div>
               <h4 class="text-center"><a href="" class="stretched-link fs-5">SIM Nasional</a></h4>
               <h1 id="sim" class="text-center"></h1>
             </div>
@@ -144,35 +147,67 @@
 
 		</section>
 
-		<!-- ======= berita Section ======= -->
-    <section id="clients" class="clients">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Berita Terkini</h2>
-          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
-        </div>
-
-        <div class="clients-slider swiper">
-          <div class="swiper-wrapper align-items-center text-center">
+		<!-- ======= Blog Section ======= -->`
+		<section id="blog" class="blog-area">
+    		<div class="blog-inner area-padding">
+        		<div class="blog-overly"></div>
+        		<div class="container ">
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="section-title">
+							<h2>Berita Terkini</h2>
+							<a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a>
+							<!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+						</div>
+						</div>
+					</div>
+					<div class="row slides-3 swiper">
+					<div class="swiper-wrapper">
+						<!-- Start Left Blog -->
 						<?php foreach ($databerita as $data) : ?>
-							<div class="swiper-slide">
-								<div class="card m-5" style="width: 18rem;">
-									<img src="<?= url_api() ?>news/<?= $data['picture'] ?>" class="card-img-top" alt="...">
-									<div class="card-body">
-										<h5 class="card-title"><?=$data['title']; ?></h5>
-										<p class="card-text"><?= substr($data['content'], 0, 250) . '. . .'?></p>
-										<a href="#" class="btn btn-primary">Go somewhere</a>
-									</div>
-								</div>
+						<div class="swiper-slide col-md-4 col-sm-4 col-xs-12 m-3">
+						<div class="single-blog">
+							<div class="single-blog-img">
+							<a href="blog.html">
+								<img src="<?= url_api() ?>news/<?= $data['picture'] ?>" alt="" width="100%" height="300px">
+							</a>
 							</div>
+							<div class="blog-meta">
+							<span class="comments-type">
+								<i class="fa fa-comment-o"></i>
+								<a href="#"><?= $data['category_news'][0]['name_category_news'] ?></a>
+							</span>
+							<span class="date-type">
+								<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+							</span>
+							</div>
+							<div class="blog-text">
+							<h4 style="text-align:justify ;">
+								<a href="<?= $data['link']?>"><?=$data['title']; ?></a>
+							</h4>
+							<p style="text-align:justify ;">
+							<?= substr($data['content'], 0, 250) . '. . .' ?>
+							</p>
+							</div>
+							<span>
+							<a href="<?= $data['link']?>" class="ready-btn">Baca Selengkapnya</a>
+							</span>
+						</div>
+						<!-- Start single blog -->
+						</div>
+						<!-- End Left Blog-->
 						<?php endforeach; ?>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
+						
+					</div>
+					</div>
+        		</div>
+			</div>
+		</section><!-- End Blog Section -->
 
-      </div>
-    </section><!-- End berita Section -->
+		<section id="youtube-channel" class="youtube-channel">
+			
+
+		</section>
 
 
     <!-- ======= Clients Section ======= -->
