@@ -97,6 +97,19 @@ class Polda extends MY_Controller
 					'name' => 'phone_polda',
 					'contents' => $input['phone_polda'],
 				],
+
+				[
+					'name' => 'facebook',
+					'contents' => $input['facebook'],
+				],
+				[
+					'name' => 'twitter',
+					'contents' => $input['twitter'],
+				],
+				[
+					'name' => 'youtube',
+					'contents' => $input['youtube'],
+				],
 				
                 
             ];
@@ -134,9 +147,24 @@ class Polda extends MY_Controller
 						'name' => 'phone_polda',
 						'contents' => $input['phone_polda'],
 					],
+				[
+					'name' => 'facebook',
+					'contents' => $input['facebook'],
+				],
+				[
+					'name' => 'twitter',
+					'contents' => $input['twitter'],
+				],
+				[
+					'name' => 'youtube',
+					'contents' => $input['youtube'],
+				],
 	
 				];
-			} 
+		}
+
+
+		
 
 			$data = guzzle_request('POST', 'polda/add', [ 
 				'multipart' => $dummy, 
@@ -262,6 +290,18 @@ class Polda extends MY_Controller
 					'name' => 'phone_polda',
 					'contents' => $input['phone_polda'],
 				],
+				[
+					'name' => 'facebook',
+					'contents' => $input['facebook'],
+				],
+				[
+					'name' => 'twitter',
+					'contents' => $input['twitter'],
+				],
+				[
+					'name' => 'youtube',
+					'contents' => $input['youtube'],
+				],
 				
                 
             ];
@@ -300,6 +340,18 @@ class Polda extends MY_Controller
 						'name' => 'phone_polda',
 						'contents' => $input['phone_polda'],
 					],
+				[
+					'name' => 'facebook',
+					'contents' => $input['facebook'],
+				],
+				[
+					'name' => 'twitter',
+					'contents' => $input['twitter'],
+				],
+				[
+					'name' => 'youtube',
+					'contents' => $input['youtube'],
+				],
 	
 				];
 			}
