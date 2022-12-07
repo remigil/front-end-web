@@ -7,65 +7,6 @@
 </div> -->
 
 <div class="container-fluid">
-    <div class="card mt-2 p-1 shadow" style="border-radius:36px !important;">
-        <div class="row m-2">
-            <div class="col-sm-6 col-md-6 align-self-center">
-                <div class="row">
-                    <div class="col-md-2 d-flex">
-                        <img src="<?= url_api() . 'polda/logo/' . $data['poldaid']['logo_polda']; ?>" alt="img-polda" width="80px">
-                        <div id="logo"></div>
-                    </div>
-                    <div class="col-md-10 align-self-center">
-                        <h2 style="color:#007DD8 ; text-transform:uppercase;">Ditlanstas <?= $data['poldaid']['name_polda']; ?></h2>
-                        <p>Today is <?= date('l, j F Y') ?></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-6">
-                <div class="row m-2">
-                    <!-- <a href="<?php echo base_url('executive/Polda_executive/statistik_polda/' . $data['id']); ?>" class="text-center "><button class="btn btn-primary fs-6 fw-bold" style="width: 100%;">Statistik Polda</button></a> -->
-
-                    <div class="col-md-6 col-sm-6 col-xl-6 align-self-center ">
-                        <a href="<?php echo base_url('executive/Polda_executive/statistik_polda/' . $data['poldaid']['id']); ?>" class="text-center ">
-                            <div class="card p-1 mt-2 mb-2  bg-primary" style="border-radius: 20px !important; border-color:#D9D9D9">
-                                <div class="card-body p-1 ">
-                                    <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                        <div class="col-md-12">
-                                            <h4 class="mb-0 text-white">Statistik Polda</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xl-6 align-self-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle fs-6 fw-bold bg-primary" data-toggle="dropdown" aria-expanded="false" style="width: 100%; padding:0 4vw 0 4vw;  border-radius: 20px !important; border-color:#D9D9D9; height:95px; ">
-                                <!-- Subsatker Polda -->
-                                <h4 class="mb-0 text-white">Subsatker Polda</h4>
-                            </button>
-                            <div class="dropdown-menu" style="width: 100%; z-index: 10000;">
-                                <!-- <a class="dropdown-item fs-4" href="#">Subditgakkum Polda</a>
-                                <a class="dropdown-item fs-4" href="#">Subditregident Polda</a>
-                                <a class="dropdown-item fs-4" href="#">Subdikamsel Polda</a>
-                                <a class="dropdown-item fs-4" href="#">Subbagrenmin Polda</a>
-                                <a class="dropdown-item fs-4" href="#">Subbagops Polda</a>
-                                <a class="dropdown-item fs-4" href="#">Subbagtik Polda</a> -->
-                                <a class="dropdown-item fs-4" href="<?= base_url('ditgakkum/subditgakkum/' . $data['poldaid']['id']) ?>">Subgakkum Polda</a>
-                                <a class="dropdown-item fs-4" href="<?= base_url('ditregident/subdiregident/' . $data['poldaid']['id']) ?>">Subregident Polda</a>
-                                <a class="dropdown-item fs-4" href="<?= base_url('ditkamsel/subditkamsel/' . $data['poldaid']['id']) ?>">Subkamsel Polda</a>
-                                <a class="dropdown-item fs-4" href="<?= base_url('bagrenim/subbagrenmin/' . $data['poldaid']['id']) ?>">Subbagrenmin Polda</a>
-                                <a class="dropdown-item fs-4" href="<?= base_url('bagops/subbagops/' . $data['poldaid']['id']) ?>">Subbagops Polda</a>
-                                <a class="dropdown-item fs-4" href="<?= base_url('bagtik/subbagtik/' . $data['poldaid']['id']) ?>">Subbagtik Polda</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
 
     <div class="row mt-3">
         <div class="col-md-12">
