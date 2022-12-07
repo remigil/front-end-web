@@ -721,7 +721,7 @@
     <?php echo $css ?>
 </head>
 
-<body oncontextmenu="return false" <?php if ($this->uri->segment(1) == 'statistik_nasional' && $this->uri->segment(2) == '') { ?> style="background-image: radial-gradient(#013F9F 10.63%, #0087c4 101.04%); " <?php } else { ?> style="background-color: #f5f3f4;" <?php } ?>>
+<body oncontextmenu="return false" <?php if (($this->uri->segment(1) == 'statistik_nasional' && $this->uri->segment(2) == '') || ($this->uri->segment(3) == 'statistik_polda' && $this->uri->segment(2) == 'Polda_executive')) { ?> style="background-image: radial-gradient(#013F9F 10.63%, #0087c4 101.04%); " <?php } else { ?> style="background-color: #f5f3f4;" <?php } ?>>
     <div id="overlay">
         <div class="loading">
             <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>

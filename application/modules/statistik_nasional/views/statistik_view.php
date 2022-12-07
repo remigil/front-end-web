@@ -413,7 +413,8 @@
                                             <span class="fw-bold">Data Keseluruhan</span>
                                             <br>
                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subkerma"></span>
-                                            <span class="float-start m-0 p-0 ms-2 fw-bold" style="font-size: 18px;">0</span>
+                                            <span class="float-start m-0 p-0 fw-bold" style="font-size: 18px;">0</span>
+                                            <!-- <span class="float-start m-0 p-0 ms-2 fw-bold" style="font-size: 18px;">0</span> -->
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
