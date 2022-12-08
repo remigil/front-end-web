@@ -1,31 +1,15 @@
-<!-- <div class="head_content" style="background-image: url('assets/fe/hero.png'); background-size:cover;"></div> -->
-
-</div>
 <!-- ======= Breadcrumbs ======= -->
-    <div class="pagebreadcrumbs">
-    	<div class="d-flex align-items-center">
-        <div class="container position-relative">
-        	<div class="row d-flex justify-content-center">
-            <div class="col-lg-6 text-center">
-            	<h2><?= $headline?></h2>
-            	
-            </div>
-        	</div>
-        </div>
-    	</div>
-    	<nav>
-        <div class="container-fluid" >
-        <div class="container-fluid" >
-        <div class="container-fluid" >
-        	<ol style="list-style: none;">
-            <li><a href="<?= base_url()?>home" class="home">Home</a></li>
-            <li><?= $breadcrumb?></li>
-        	</ol>
-        </div>
-        </div>
-        </div>
-    	</nav>
-    </div><!-- End Breadcrumbs -->
+<section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="<?= base_url()?>home">Home</a></li>
+          <li><?= $breadcrumb?></li>
+        </ol>
+        <h2><?= $headline?></h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
 
 
 <!-- Content
@@ -45,13 +29,13 @@
 			</div>
 		</div>
 		<div class="col-md-6">
-			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">Visi Korlantas Polri</h4>
+			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; ">Visi Korlantas Polri</h4>
 			<p class="text-break" style="text-align:justify ;">
 			Polisi Lalu Lintas (Polantas) Indonesia adalah mewujudkan pelayanan kamseltibcarlantas yang prima dan unggul melalui penegakan hukum yang tegas, adil, dan humanis; dalam rangka meningkatkan kesadaran dan kepatuhan berlalu lintas, serta terjalinnya sinergi polisional yang proaktif, dalam rangka memantapkan situasi keamanan dalam negeri.
 			</p>
 		</div>
 		<div class="col-md-6">
-			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">Misi Korlantas Polri</h4>
+			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; ">Misi Korlantas Polri</h4>
 			<p class="text-break">
 				<ol style="text-align:justify ;">
 					<li>Memelihara dan mewujudkan pelayanan keamanan, keselamatan, ketertiban dan kelancaran lalu lintas yang prima dan unggul secara cepat, tepat, efisien, transparan dan akuntabel.</li>

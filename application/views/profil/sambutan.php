@@ -3,7 +3,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="<?= base_url()?>home">Home</a></li>
           <li><?= $breadcrumb?></li>
         </ol>
         <h2><?= $headline?></h2>

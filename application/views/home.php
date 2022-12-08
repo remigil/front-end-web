@@ -95,22 +95,22 @@
 
         <div class="row gy-4">
 
-          <div class="col-xl-3 col-md-6" data-aos="zoom-out">
-            <div class="service-item position-relative">
+          <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
+            <div class="service-item position-relative" style="background-color: #FFE0E0; border-radius:10px;">
               <div class="icon text-center"><iconify-icon icon="bxs:car-crash" width="50"></iconify-icon></div>
               <h4 class="text-center"><a href="" class="stretched-link fs-5">Kecelakaan Lalu Lintas</a></h4>
               <h1 id="lakalantas" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
-          <div class="col-xl-3 col-md-6" data-aos="zoom-out">
-            <div class="service-item position-relative">
+          <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
+            <div class="service-item position-relative" style="background-color: #FBFFE0; border-radius:10px;">
               <div class="icon text-center"><iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon></div>
               <h4 class="text-center"><a href="" class="stretched-link fs-5">Pelanggaran Lalu Lintas</a></h4>
               <h1 id="garlantas" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
-          <div class="col-xl-3 col-md-6" data-aos="zoom-out">
-            <div class="service-item position-relative">
+          <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
+            <div class="service-item position-relative" style="background-color: #E0FFE3; border-radius:10px;">
               <div class="icon text-center">
 				<iconify-icon icon="mdi:car-multiple" width="50"></iconify-icon>
 				<iconify-icon icon="mdi:atv" width="50"></iconify-icon>
@@ -119,8 +119,8 @@
               <h1 id="motor" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
-          <div class="col-xl-3 col-md-6" data-aos="zoom-out">
-            <div class="service-item position-relative">
+          <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
+            <div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
               <div class="icon text-center"><iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon></div>
               <h4 class="text-center"><a href="" class="stretched-link fs-5">SIM Nasional</a></h4>
               <h1 id="sim" class="text-center"></h1>
@@ -168,7 +168,7 @@
 						<div class="swiper-slide col-md-4 col-sm-4 col-xs-12 m-3">
 						<div class="single-blog">
 							<div class="single-blog-img">
-							<a href="blog.html">
+							<a href="<?= $data['link']?>" target="_blank">
 								<img src="<?= url_api() ?>news/<?= $data['picture'] ?>" alt="" width="100%" height="300px">
 							</a>
 							</div>
@@ -183,14 +183,14 @@
 							</div>
 							<div class="blog-text">
 							<h4 style="text-align:justify ;">
-								<a href="<?= $data['link']?>"><?=$data['title']; ?></a>
+								<a href="<?= $data['link']?>" target="_blank"><?=$data['title']; ?></a>
 							</h4>
 							<p style="text-align:justify ;">
 							<?= substr($data['content'], 0, 250) . '. . .' ?>
 							</p>
 							</div>
 							<span>
-							<a href="<?= $data['link']?>" class="ready-btn">Baca Selengkapnya</a>
+							<a href="<?= $data['link']?>" class="ready-btn" target="_blank">Baca Selengkapnya</a>
 							</span>
 						</div>
 						<!-- Start single blog -->
@@ -204,10 +204,97 @@
 			</div>
 		</section><!-- End Blog Section -->
 
-		<section id="youtube-channel" class="youtube-channel">
-			
+		
 
-		</section>
+		<!-- ======= Constructions Section ======= -->
+		<section id="constructions" class="constructions">
+      <div class="container" data-aos="fade-up">
+
+	  <div class="section-title">
+							<h2>Layanan Online Korlantas Terintegrasi</h2>
+							<!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a> -->
+							<!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+						</div>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-5">
+                	<div class="card-bg" style="background-image: url(assets/fe/slider-1.png);">
+						<a href="https://samsatdigital.id/"><img src="<?= base_url()?>assets/fe/client/SIGNAL.png" alt="" width="100%"></a>
+					</div>
+                </div>
+                <div class="col-xl-7 d-flex align-items-center">
+                  <div class="card-body">
+                    <a href="https://samsatdigital.id/"><h4 class="card-title">SIGNAL (Samsat Digital Nasional)</h4></a>
+                    <p>SIGNAL adalah samsat digital nasional, sebuah aplikasi untuk memudahkan masyarakat membayar pajak kendaraan bermotor secara aman dan mudah</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-5">
+				<div class="card-bg " style="background-image: url(assets/fe/slider-1.png);">
+						<a href="https://www.digitalkorlantas.id/"><img src="<?= base_url()?>assets/fe/client/SINAR.png" alt="" width="100%"></a>
+					</div>
+                </div>
+                <div class="col-xl-7 d-flex align-items-center">
+                  <div class="card-body">
+                    <a href="https://www.digitalkorlantas.id/"><h4 class="card-title">SINAR (SIM Nasional Presisi)</h4></a>
+                    <p>SINAR adalah Sistem perpanjangan SIM secara online yang dapat dimanfaatkan masyarakat untuk mendapatkan pelayanan yang lebih optimal</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-5">
+				<div class="card-bg " style="background-image: url(assets/fe/slider-1.png);">
+						<a href="https://siminternasional.korlantas.polri.go.id/"><img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="100%"></a>
+					</div>
+                </div>
+                <div class="col-xl-7 d-flex align-items-center">
+                  <div class="card-body">
+                    <a href="https://siminternasional.korlantas.polri.go.id/"><h4 class="card-title">SIM Internasional</h4></a>
+                    <p>Pelayanan SIM Internasional Korlantas Polri merupakan portal pendaftaran dan penerbitan SIM Internasional secara online bagi seluruh warga negara Indonesia yang akan mengemudikan kendaraan bermotor di luar negeri.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-5">
+				<div class="card-bg " style="background-image: url(assets/fe/slider-1.png);">
+						<a href="https://korlantas.polri.go.id/" ><img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="50%" class="d-block mx-auto"></a>
+						<a href="https://ntmcpolri.info/"><img src="<?= base_url()?>assets/fe/client/ntmc1.png" alt="" width="50%" class="d-block mx-auto"></a>
+					</div>
+                </div>
+                <div class="col-xl-7 d-flex align-items-center">
+                  <div class="card-body">
+                    <a href="#"><h4 class="card-title">Website  Korlantas & NTMC </h4></a>
+                    <p>Website Korlantas & NTMC adalah pusat kendali informasi & komunikasi yang mengintegrasikan sistem informasi di ke lima pemangku kepentingan bidang lalu lintas (Polri, Kementerian PU, Perhubungan, Perindustrian, & Riset Teknologi)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+        </div>
+
+      </div>
+    </section><!-- End Constructions Section -->
 
 
     <!-- ======= Clients Section ======= -->
@@ -277,23 +364,96 @@
       </div>
     </section><!-- End Clients Section -->
 
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+				<div class="section-title">
+          <h2>Media Sosial</h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+        </div>
+
+            <!-- Tabs -->
+            <ul class="nav nav-pills mb-3">
+              <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">NEWS FLASH</a></li>
+              <li><a class="nav-link" data-bs-toggle="pill" href="#tab2">NTMC CHANNEL</a></li>
+              
+            </ul><!-- End Tabs -->
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+
+              <div class="tab-pane fade show active" id="tab1">
+
+							<div class="row margin-top-20">
+                            <div class="col-md-8 border-end shadows">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+                                    <div class="col-md-12">
+                                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhr68Y7Q3pYszu3xwwGGEWo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZiRhVpxCG_GIkU8qIDuVsoL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhPvc90jNW4o-6KH6gLSLm9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+              </div><!-- End Tab 1 Content -->
+
+              <div class="tab-pane fade show" id="tab2">
+
+							<div class="row margin-top-20">
+                            <div class="col-md-8">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287MG9mUCeRI2TMD1rGZgKew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+                                    <div class="col-md-12">
+                                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287WCl8x8yRe5PSd3VROvZ4Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx285qn30iKm-V_u7wr-gOlj7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287PYIAGDdyjY67kvhZBUN_x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+              </div><!-- End Tab 2 Content -->
+
+            </div>
+
+						<img src="<?= base_url()?>assets/fe/contactntmc.png" alt="" width="100%">
+      </div>
+    </section><!-- End About Section -->
+		
+
 		<section>
 			<div class="container">
 		<div class="col-md-12 margin-bottom-50 margin-top-50">
         <div class="row">
             <div class="col-md-4">
-                <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px; position: static; visibility: visible; width: 100%; height: 400px; display: block; flex-grow: 3;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/NTMCLantasPolri?dnt=false&amp;embedId=twitter-widget-0&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
+                <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px; position: static; visibility: visible; width: 100%; height: 600px; display: block; flex-grow: 3;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/NTMCLantasPolri?dnt=false&amp;embedId=twitter-widget-0&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
             </div>
             <div class="col-md-4">
-                <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 400px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/TMCPoldaMetro?dnt=false&amp;embedId=twitter-widget-1&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
+                <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 600px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/TMCPoldaMetro?dnt=false&amp;embedId=twitter-widget-1&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
             </div>
             <div class="col-md-4">
-                <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 400px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/KemenkesRI?dnt=false&amp;embedId=twitter-widget-2&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
+                <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 600px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/KemenkesRI?dnt=false&amp;embedId=twitter-widget-2&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
             </div>
         </div>
     </div>
 		</div>
 		</section>
+		
 
   </main><!-- End #main -->
 
