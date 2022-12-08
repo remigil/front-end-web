@@ -39,7 +39,7 @@
                     <span class="fs-4 fw-bold text-white text-uppercase">Ditgakkum</span>
                 </div>
                 <div class="col-md-12">
-                    <a href="<?= base_url('statistik_nasional/Lakalantas'); ?>" style="hover:red;">
+                    <a href="<?= base_url('statistik_nasional/Lakalantas'); ?>">
                         <div class="card" style="border-color: #10627a;  border-radius: 20px !important; background-color:#10627a">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
@@ -57,6 +57,9 @@
                                         <!-- <i class='bx bxs-car-crash ms-n2' style="font-size: 40px; color: #ffffff;"></i> -->
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
@@ -82,10 +85,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer text-center" style="border-color: #cb2e3f;  border-radius: 0 0 20px 20px  !important; background-color:#167794;">
+                                <span class="text-white fw-bold fs-5"> Selengkapnya</span>
+                            </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-12">
+                <div class=" col-md-12">
                     <a href="<?= base_url('statistik_nasional/Turjagwali'); ?>">
                         <div class="card" style="border-color: #ca3fd8;  border-radius: 20px !important; background-color:#ca3fd8">
                             <div class="card-body">
@@ -104,6 +110,9 @@
                                         <!-- <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
@@ -128,6 +137,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -141,7 +153,6 @@
                         <div class="card" style="border-color: #f3478f;  border-radius: 20px !important; background-color:#f3478f">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="font-size: 40px; height: 80px;">
-
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> SIM</span>
@@ -156,6 +167,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -164,7 +178,6 @@
                         <div class="card" style="border-color: #48c0f4;  border-radius: 20px !important; background-color:#48c0f4">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="font-size: 40px; height: 80px;">
-
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> BPKB</span>
@@ -179,6 +192,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -187,7 +203,6 @@
                         <div class="card" style="border-color: #f4af48;  border-radius: 20px !important; background-color:#f4af48">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="font-size: 40px; height: 80px;">
-
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> STNK</span>
@@ -202,6 +217,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -210,7 +228,6 @@
                         <div class="card" style="border-color: #f34799;  border-radius: 20px !important; background-color:#f34799">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="font-size: 40px; height: 80px;">
-
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> FASMAT SBST</span>
@@ -225,6 +242,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -238,7 +258,6 @@
                         <div class="card" style="border-color: #7b113f;  border-radius: 20px !important; background-color:#7b113f">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
-
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> DIKMAS</span>
@@ -253,6 +272,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -261,7 +283,6 @@
                         <div class="card" style="border-color: #e2ab1d;  border-radius: 20px !important; background-color:#e2ab1d">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
-
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> JEMENOPSREK</span>
@@ -276,6 +297,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -284,7 +308,6 @@
                         <div class="card" style="border-color: #7b113f;  border-radius: 20px !important; background-color:#7b113f">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
-
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> CEGAH</span>
@@ -299,6 +322,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -307,7 +333,6 @@
                         <div class="card" style="border-color: #36c602;  border-radius: 20px !important; background-color:#36c602">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
-
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> AUDIT</span>
@@ -321,6 +346,9 @@
                                         <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
@@ -350,6 +378,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -359,7 +390,6 @@
                         <div class="card" style="border-color: #9d2cf8;  border-radius: 20px !important; background-color:#9d2cf8">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
-
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold">BAGOPS</span>
@@ -374,6 +404,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -383,7 +416,6 @@
                         <div class="card" style="border-color: #f14924;  border-radius: 20px !important; background-color:#f14924">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
-
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold">BAGTIK</span>
@@ -398,6 +430,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -407,7 +442,6 @@
                         <div class="card" style="border-color: #484848;  border-radius: 20px !important; background-color:#484848">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
-
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold">Data Keseluruhan</span>
@@ -423,317 +457,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- <div class="row">
-                
-                <div class="col-md-3">
-                    <a href="<?= base_url('statistik_nasional/Ranmor'); ?>">
-                        <div class="card" style="border-color: #10627a;  border-radius: 20px !important; background-color:#10627a">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-2 align-self-center">
-                                        <img src="<?= base_url() ?>assets/dashboard/icon-ranmor.svg" alt="ranmor" width="60px">
-                                    </div>
-                                    <div class="col-md-10"> float-start
-                                        <span class="fs-5 float-start" style="color:#ffffff;">
-                                            <span class="fw-bold"> Kendaraan </span>Bermotor
-                                        </span>
-                                        <br><br> float-start
-                                        <span class="fs-6 fw-bold" style="color:#ffffff;" id="motor"></span>
-                                    </div>
-                                </div>
+                            <div class="card-footer text-center" style="border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
                 </div>
-    
-            </div> -->
-
-            <!-- <div class="row">
-                 <div class="col-md-3">
-                     <a href="<?= base_url('statistik_nasional/Sim'); ?>">
-                         <div class="card" style="border-color: #f3478f;  border-radius: 20px !important; background-color:#f3478f">
-                             <div class="card-body">
-                                 <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-
-                                     <div class="col-md-10 float-start">
-                                         <p class="fs-5 float-start" style="color:#ffffff;">
-                                             Total<span class="fw-bold"> SIM</span>
-                                             </br>
-                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="sim"></span>
-                                             <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsim"></span>
-                                         </p>
-                                     </div>
-                                     <div class=" col-md-2">
-                                         <img src="<?= base_url('assets/icon/dashboard/SIM.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-
-                 <div class="col-md-3">
-                     <a href="<?= base_url('statistik_nasional/Bpkb'); ?>">
-                         <div class="card" style="border-color: #48c0f4;  border-radius: 20px !important; background-color:#48c0f4">
-                             <div class="card-body">
-                                 <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-
-                                     <div class="col-md-10 float-start">
-                                         <p class="fs-5 float-start" style="color:#ffffff;">
-                                             <span class="fw-bold">Total BPKB</span>
-                                             <br>
-                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="bpkb"></span>
-                                             <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailbpkb"></span>
-                                         </p>
-                                     </div>
-                                     <div class=" col-md-2">
-                                         <img src="<?= base_url('assets/icon/dashboard/BPKB.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-
-                 <div class="col-md-3">
-                     <a href="<?= base_url('statistik_nasional/Stnk'); ?>">
-                         <div class="card" style="border-color: #f4af48;  border-radius: 20px !important; background-color:#f4af48">
-                             <div class="card-body">
-                                 <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-
-                                     <div class="col-md-10 float-start">
-                                         <p class="fs-5 float-start" style="color:#ffffff;">
-                                             <span class="fw-bold">Total STNK</span>
-                                             <br>
-                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="stnk"></span>
-                                             <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailstnk"></span>
-                                         </p>
-                                     </div>
-                                     <div class=" col-md-2">
-                                         <img src="<?= base_url('assets/icon/dashboard/STNK.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-
-                 <div class="col-md-3">
-                     <a href="<?= base_url('statistik_nasional/Sbst'); ?>">
-                         <div class="card" style="border-color: #f34799;  border-radius: 20px !important; background-color:#f34799">
-                             <div class="card-body">
-                                 <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-
-                                     <div class="col-md-10 float-start">
-                                         <p class="fs-5 float-start" style="color:#ffffff;">
-                                             <span class="fw-bold">Total FASMAT SBST</span>
-                                             <br>
-                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="sbst"></span>
-                                             <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsbst"></span>
-                                         </p>
-                                     </div>
-                                     <div class=" col-md-2">
-                                         <img src="<?= base_url('assets/icon/dashboard/FASMAT_SBST.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-             </div>
-
-             <div class="row">
-                 <div class="col-md-3">
-                     <a href="<?= base_url('statistik_nasional/Dikmas'); ?>">
-                         <div class="card" style="border-color: #7b113f;  border-radius: 20px !important; background-color:#7b113f">
-                             <div class="card-body">
-                                 <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-
-                                     <div class="col-md-10 float-start">
-                                         <p class="fs-5 float-start" style="color:#ffffff;">
-                                             <span class="fw-bold">Total DIKMAS</span>
-                                             <br>
-                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="dikmas"></span>
-                                             <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detaildikmas"></span>
-                                         </p>
-                                     </div>
-                                     <div class=" col-md-2">
-                                         <img src="<?= base_url('assets/icon/dashboard/DIKMAS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-
-                 <div class="col-md-3">
-                     <a href="<?= base_url('statistik_nasional/Jemenopsrek'); ?>">
-                         <div class="card" style="border-color: #e2ab1d;  border-radius: 20px !important; background-color:#e2ab1d">
-                             <div class="card-body">
-                                 <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-
-                                     <div class="col-md-10 float-start">
-                                         <p class="fs-5 float-start" style="color:#ffffff;">
-                                             <span class="fw-bold">Total JEMENOPSREK</span>
-                                             <br>
-                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="jemenopsrek"></span>
-                                             <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailjemenopsrek"></span>
-                                         </p>
-                                     </div>
-                                     <div class=" col-md-2">
-                                         <img src="<?= base_url('assets/icon/dashboard/JEMENOPSREK.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-
-                 <div class="col-md-3">
-                     <a href="<?= base_url('statistik_nasional/Cegah'); ?>">
-                         <div class="card" style="border-color: #7b113f;  border-radius: 20px !important; background-color:#7b113f">
-                             <div class="card-body">
-                                 <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-
-                                     <div class="col-md-10 float-start">
-                                         <p class="fs-5 float-start" style="color:#ffffff;">
-                                             <span class="fw-bold">Total CEGAH</span>
-                                             <br>
-                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="cegah"></span>
-                                             <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailcegah"></span>
-                                         </p>
-                                     </div>
-                                     <div class=" col-md-2">
-                                         <img src="<?= base_url('assets/icon/dashboard/CEGAH.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-
-                 <div class="col-md-3">
-                     <a href="<?= base_url('statistik_nasional/Audit'); ?>">
-                         <div class="card" style="border-color: #36c602;  border-radius: 20px !important; background-color:#36c602">
-                             <div class="card-body">
-                                 <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-
-                                     <div class="col-md-10 float-start">
-                                         <p class="fs-5 float-start" style="color:#ffffff;">
-                                             <span class="fw-bold">Total AUDIT</span>
-                                             <br>
-                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="audit"></span>
-                                             <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailaudit"></span>
-                                         </p>
-                                     </div>
-                                     <div class=" col-md-2">
-                                         <img src="<?= base_url('assets/icon/dashboard/AUDIT.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-             </div>
-
-             <div class="row">
-                 <div class="col-md-3">
-                     <a href="<?= base_url('statistik_nasional/Subrenop'); ?>">
-                         <div class="card" style="border-color: #33c36c;  border-radius: 20px !important; background-color:#33c36c">
-                             <div class="card-body">
-                                 <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                     <div class="col-md-10 float-start">
-                                         <p class="fs-5 float-start" style="color:#ffffff;">
-                                             <span class="fw-bold">Total SUBBAG RENOP</span>
-                                             <br>
-                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subrenop"></span>
-                                             <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubrenop"></span>
-                                         </p>
-                                     </div>
-                                     <div class=" col-md-2">
-                                         <img src="<?= base_url('assets/icon/dashboard/SUBBAG_RENOP.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-
-                 <div class="col-md-3">
-                     <a href="<?= base_url('statistik_nasional/Subdalops'); ?>">
-                         <div class="card" style="border-color: #9d2cf8;  border-radius: 20px !important; background-color:#9d2cf8">
-                             <div class="card-body">
-                                 <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-
-                                     <div class="col-md-10 float-start">
-                                         <p class="fs-5 float-start" style="color:#ffffff;">
-                                             <span class="fw-bold">Total SUBBAG DALOPS</span>
-                                             <br>
-                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subdalops"></span>
-                                             <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubdalops"></span>
-                                         </p>
-                                     </div>
-                                     <div class=" col-md-2">
-                                         <img src="<?= base_url('assets/icon/dashboard/SUBBAG_DALOPS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-
-                 <div class="col-md-3">
-                     <a href="<?= base_url('statistik_nasional/Subkerma'); ?>">
-                         <div class="card" style="border-color: #f14924;  border-radius: 20px !important; background-color:#f14924">
-                             <div class="card-body">
-                                 <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-
-                                     <div class="col-md-10 float-start">
-                                         <p class="fs-5 float-start" style="color:#ffffff;">
-                                             <span class="fw-bold">Total SUBBAG KERMA</span>
-                                             <br>
-                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subkerma"></span>
-                                             <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubkerma"></span>
-                                         </p>
-                                     </div>
-                                     <div class=" col-md-2">
-                                         <img src="<?= base_url('assets/icon/dashboard/SUBBAG_KERMA.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-
-                 <div class="col-md-3">
-                     <a href="<?= base_url('statistik_nasional/Subanev'); ?>">
-                         <div class="card" style="border-color: #3263c2;  border-radius: 20px !important; background-color:#3263c2">
-                             <div class="card-body">
-                                 <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-
-                                     <div class="col-md-10 float-start">
-                                         <p class="fs-5 float-start" style="color:#ffffff;">
-                                             <span class="fw-bold">Total SUBBAG ANEV</span>
-                                             <br>
-                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subanev"></span>
-                                             <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubanev"></span>
-                                         </p>
-                                     </div>
-                                     <div class=" col-md-2">
-                                         <img src="<?= base_url('assets/icon/dashboard/SUBBAG_ANEV.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-             </div> -->
-
-
+            </div>
         </div>
     </div>
 

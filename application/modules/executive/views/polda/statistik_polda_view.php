@@ -58,6 +58,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer">
+                                Card footer
+                            </div>
                         </div>
                     </a>
                 </div>

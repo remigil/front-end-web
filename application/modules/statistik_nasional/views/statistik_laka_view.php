@@ -40,6 +40,7 @@
                                      </div>
                                  </div>
                              </div>
+
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
@@ -284,7 +285,6 @@
                                  <div class="col-md-2">
                                      <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                                  </div>
-
                              </div>
                          </div>
                      </div>

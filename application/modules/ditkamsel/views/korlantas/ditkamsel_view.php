@@ -477,7 +477,7 @@
                             $('#titledikmaslantasday').html(`<h4 class="card-title mb-0 text-uppercase">DATA DIKMAS HARIAN</h4>`);
                             $('#titlejemenopsrekday').html(`<h4 class="card-title mb-0 text-uppercase">DATA JEMENOPSREK HARIAN</h4>`);
                             $('#titlecegahday').html(`<h4 class="card-title mb-0 text-uppercase">DATA CEGAH & TINDAK HARIAN</h4>`);
-                            $('#titleauditday').html(`<h4 class="card-title mb-0 text-uppercase">DATA & INSPEKSI HARIAN</h4>`);
+                            $('#titleauditday').html(`<h4 class="card-title mb-0 text-uppercase">DATA AUDIT & INSPEKSI HARIAN</h4>`);
 
                             var ditkamseldikmaslantasday = {
                                 series: [{
@@ -1172,7 +1172,7 @@
                             $('#titledikmaslantasmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA DIKMAS BULANAN</h4>`);
                             $('#titlejemenopsrekmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA JEMENOPSREK BULANAN</h4>`);
                             $('#titlecegahmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA CEGAH & TINDAK BULANAN</h4>`);
-                            $('#titleauditmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA & INSPEKSI BULANAN</h4>`);
+                            $('#titleauditmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA AUDIT & INSPEKSI BULANAN</h4>`);
 
                             var ditkamseldikmaslantasmonth = {
                                 series: [{
@@ -2102,7 +2102,7 @@
                             $('#titledikmaslantasyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA DIKMAS TAHUNAN</h4>`);
                             $('#titlejemenopsrekyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA JEMENOPSREK TAHUNAN</h4>`);
                             $('#titlecegahyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA CEGAH & TINDAK TAHUNAN</h4>`);
-                            $('#titleaudityear').html(`<h4 class="card-title mb-0 text-uppercase">DATA & INSPEKSI TAHUNAN</h4>`);
+                            $('#titleaudityear').html(`<h4 class="card-title mb-0 text-uppercase">DATA AUDIT & INSPEKSI TAHUNAN</h4>`);
 
                             var ditkamseldikmaslantasyear = {
                                 series: [{

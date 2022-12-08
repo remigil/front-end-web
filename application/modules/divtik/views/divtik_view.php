@@ -564,12 +564,23 @@
 </script>
 
 <script>
-    getStatistik();
+    var date = new Date();
 
-    function getStatistik() {
+    var today = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
+    date.setDate(date.getDate() - 6);
+    var lastday = '2022-11-16';
+
+    getStatistik(today, lastday);
+
+    function getStatistik(today, lastday) {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>statistik_nasional/getStatistik",
+            url: "<?= base_url(); ?>statistik_nasional/getStatistikDivtik",
+            data: {
+                startDate: lastday,
+                endDate: today,
+                filter: 'day'
+            },
             dataType: "JSON",
             success: function(result) {
                 $("#overlay").fadeOut(300);
@@ -640,23 +651,7 @@
     }
 
 
-    getStatistik();
 
-    function getStatistik() {
-        $.ajax({
-            type: "POST",
-            url: "<?php echo base_url(); ?>statistik_nasional/getStatistik",
-            dataType: "JSON",
-            success: function(result) {
-                $("#overlay").fadeOut(300);
-
-                $('#lakalantas').html(`<span class="fs-4" >${result.lakalantas}</span >`);
-                $('#garlantas').html(`<span class="fs-4" >${result.garlantas}</span >`);
-                $('#motor').html(`<span class="fs-4" >${result.motor}</span>`);
-                $('#turjagwali').html(`<span class="fs-4" >${result.turjagwali}</span >`);
-            }
-        })
-    }
 
 
     getTurjagwali();

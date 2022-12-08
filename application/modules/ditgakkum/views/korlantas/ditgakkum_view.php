@@ -182,11 +182,29 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlewalpjrday"></div>
+                                            <div id="titlelakalantasday"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartdaya">
+                                                <div id="chartdayd">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="shadow-sm mt-5">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div id="titlegarlantasday"></div>
+                                        </div>
+                                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                                            <div class="main-chart">
+                                                <div id="chartdayc">
                                                 </div>
                                             </div>
                                         </div>
@@ -216,28 +234,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlegarlantasday"></div>
+                                            <div id="titlewalpjrday"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartdayc">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="shadow-sm mt-5">
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <div id="titlelakalantasday"></div>
-                                        </div>
-                                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                            <div class="main-chart">
-                                                <div id="chartdayd">
+                                                <div id="chartdaya">
                                                 </div>
                                             </div>
                                         </div>
@@ -252,28 +253,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlewalpjrmonth"></div>
+                                            <div id="titlelakalantasmonth"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartmontha">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="shadow-sm mt-5">
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <div id="titletatibmonth"></div>
-                                        </div>
-                                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                            <div class="main-chart">
-                                                <div id="chartmonthb">
+                                                <div id="chartmonthd">
                                                 </div>
                                             </div>
                                         </div>
@@ -303,11 +287,28 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlelakalantasmonth"></div>
+                                            <div id="titletatibmonth"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartmonthd">
+                                                <div id="chartmonthb">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="shadow-sm mt-5">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div id="titlewalpjrmonth"></div>
+                                        </div>
+                                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                                            <div class="main-chart">
+                                                <div id="chartmontha">
                                                 </div>
                                             </div>
                                         </div>
@@ -323,28 +324,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlewalpjryear"></div>
+                                            <div id="titlelakalantasyear"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartyeara">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="shadow-sm mt-5">
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <div id="titletatibyear"></div>
-                                        </div>
-                                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                            <div class="main-chart">
-                                                <div id="chartyearb">
+                                                <div id="chartyeard">
                                                 </div>
                                             </div>
                                         </div>
@@ -374,11 +358,28 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlelakalantasyear"></div>
+                                            <div id="titletatibyear"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartyeard">
+                                                <div id="chartyearb">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="shadow-sm mt-5">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div id="titlewalpjryear"></div>
+                                        </div>
+                                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                                            <div class="main-chart">
+                                                <div id="chartyeara">
                                                 </div>
                                             </div>
                                         </div>
@@ -484,7 +485,7 @@
                             let lakalantas = result.data.lakalantas
                             $('#titlewalpjrday').html(`<h4 class="card-title mb-0 text-uppercase">DATA WAL & PJR HARIAN</h4>`);
                             $('#titletatibday').html(`<h4 class="card-title mb-0 text-uppercase">DATA TATIB HARIAN</h4>`);
-                            $('#titlegarlantasday').html(`<h4 class="card-title mb-0 text-uppercase">DATA DAKGAR HARIAN</h4>`);
+                            $('#titlegarlantasday').html(`<h4 class="card-title mb-0 text-uppercase">DATA GARLANTAS HARIAN</h4>`);
                             $('#titlelakalantasday').html(`<h4 class="card-title mb-0 text-uppercase">DATA LAKA HARIAN</h4>`);
 
                             var ditgakkumwalpjrday = {
@@ -1179,7 +1180,7 @@
                             let lakalantas = result.data.lakalantas
                             $('#titlewalpjrmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA WAL & PJR BULANAN</h4>`);
                             $('#titletatibmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA TATIB BULANAN</h4>`);
-                            $('#titlegarlantasmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA DAKGAR BULANAN</h4>`);
+                            $('#titlegarlantasmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA GARLANTAS BULANAN</h4>`);
                             $('#titlelakalantasmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA LAKA BULANAN</h4>`);
 
                             var ditgakkumwalpjr = {
@@ -2109,7 +2110,7 @@
                             let lakalantas = result.data.lakalantas
                             $('#titlewalpjryear').html(`<h4 class="card-title mb-0 text-uppercase">DATA WAL & PJR TAHUNAN</h4>`);
                             $('#titletatibyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA TATIB TAHUNAN</h4>`);
-                            $('#titlegarlantasyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA DAKGAR TAHUNAN</h4>`);
+                            $('#titlegarlantasyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA GARLANTAS TAHUNAN</h4>`);
                             $('#titlelakalantasyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA LAKA TAHUNAN</h4>`);
 
                             var ditgakkumwalpjryear = {

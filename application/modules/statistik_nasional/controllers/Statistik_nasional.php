@@ -32,10 +32,49 @@ class Statistik_nasional extends MY_Controller
         $data = $this->m_berita->get_datatables($postData);
         echo json_encode($data);
     }
+    public function getStatistikDivtik()
+    {
+        // var_dump($this->input->post());
+        // die;
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input      = $this->input->post();
+        // echo json_encode($input);
+        // die;
+
+        $getGakkum = guzzle_request('GET', 'ditgakkum/daily?filter=true&start_date=' . $input['startDate'] . '&end_date=' . $input['endDate'] . '', [
+            'headers' => $headers
+        ]);
+        $getGakkum = $getGakkum["data"];
 
 
+        $totalmotor = 0;
+        $totalgarlantas = 0;
+        $totallakalantas = 0;
+        $totalturjagwali = 0;
+        for ($i = 0; $i < count($getGakkum); $i++) {
+            $totalgarlantas += $getGakkum[$i]['garlantas'];
+            $totallakalantas += $getGakkum[$i]['lakalantas'];
+            $totalturjagwali += $getGakkum[$i]['turjagwali'];
+        }
+        $data = [
+            'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
+            'garlantas' => number_format($totalgarlantas, 0, '', '.'),
+            'turjagwali' => number_format($totalturjagwali, 0, '', '.'),
+            'motor' =>  number_format($totalmotor, 0, '', '.'),
+
+
+
+        ];
+
+        echo json_encode($data);
+    }
     public function getStatistik()
     {
+        var_dump($this->input->post());
+        die;
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
