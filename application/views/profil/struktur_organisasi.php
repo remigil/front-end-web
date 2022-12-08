@@ -1,31 +1,15 @@
-<!-- <div class="head_content" style="background-image: url('assets/fe/hero.png'); background-size:cover;"></div> -->
-
-</div>
 <!-- ======= Breadcrumbs ======= -->
-    <div class="pagebreadcrumbs">
-    	<div class="d-flex align-items-center">
-        <div class="container position-relative">
-        	<div class="row d-flex justify-content-center">
-            <div class="col-lg-6 text-center">
-            	<h2><?= $headline?></h2>
-            	
-            </div>
-        	</div>
-        </div>
-    	</div>
-    	<nav>
-        <div class="container-fluid" >
-        <div class="container-fluid" >
-        <div class="container-fluid" >
-        	<ol style="list-style: none;">
-            <li><a href="<?= base_url()?>home" class="home">Home</a></li>
-            <li><?= $breadcrumb?></li>
-        	</ol>
-        </div>
-        </div>
-        </div>
-    	</nav>
-    </div><!-- End Breadcrumbs -->
+<section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="<?= base_url()?>home">Home</a></li>
+          <li><?= $breadcrumb?></li>
+        </ol>
+        <h2><?= $headline?></h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
 
 
 <!-- Content
@@ -48,7 +32,7 @@
 		<div class="col-md-12">
 			<div class="row">
 				<div class="col-md-6">
-				<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">Tugas Korlantas Polri</h4>
+				<h4 class="text-center m-2 p-2" style="background-color: #003A91; color:white; border-radius:10px;">Tugas Korlantas Polri</h4>
 				<p class="text-break" style="text-align:justify ;">
 					<ol style="text-align: justify;">
 						<li>Membina dan menyelenggarakan fungsi lalu lintas yang meliputi pendidikan masyarakat, penegakan hukum, pengkajian masalah lalu lintas, registrasi dan identifikasi pengemudi dan kendaraan bermotor serta patroli jalan raya;</li>
@@ -61,7 +45,7 @@
 				</p>
 				</div>
 				<div class="col-md-6">
-				<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">Fungsi Korlantas Polri</h4>
+				<h4 class="text-center m-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; ">Fungsi Korlantas Polri</h4>
 				<p class="text-break" style="text-align:justify ;">
 					<ol style="text-align: justify;">
 						<li>Penyusunan kebijakan strategis yang berkaitan dengan peran dan fungsi polisi lalu lintas, perumusan dan atau pengembangan sistem dan metode termasuk petunjuk pelaksanaan fungsi lalu lintas, membangun kemitraan dan kerjasama baik dalam maupun luar negeri, serta menyelenggarakan koordinasi dengan pemangku kepentingan lainnya di bidang lalu lintas;</li>
