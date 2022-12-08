@@ -271,6 +271,10 @@ class Fasilitasumum extends MY_Controller
                     'name' => 'fasum_close_time',
                     'contents' => $input['jamTutup'],
                 ], 
+				[
+                    'name' => 'fasum_geoJson',
+                    'contents' => $input['drawer'],
+                ],
             ];
         } else {
             $dummy = [
@@ -317,6 +321,10 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'fasum_close_time',
                     'contents' => $input['jamTutup'],
+                ],
+				[
+                    'name' => 'fasum_geoJson',
+                    'contents' => $input['drawer'],
                 ],
 			];
         }
