@@ -73,8 +73,7 @@ class Statistik_nasional extends MY_Controller
     }
     public function getStatistik()
     {
-        var_dump($this->input->post());
-        die;
+
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
