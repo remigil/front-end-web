@@ -29,13 +29,13 @@
 			</div>
 		</div>
 		<div class="col-md-6">
-			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">Visi Korlantas Polri</h4>
+			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; ">Visi Korlantas Polri</h4>
 			<p class="text-break" style="text-align:justify ;">
 			Polisi Lalu Lintas (Polantas) Indonesia adalah mewujudkan pelayanan kamseltibcarlantas yang prima dan unggul melalui penegakan hukum yang tegas, adil, dan humanis; dalam rangka meningkatkan kesadaran dan kepatuhan berlalu lintas, serta terjalinnya sinergi polisional yang proaktif, dalam rangka memantapkan situasi keamanan dalam negeri.
 			</p>
 		</div>
 		<div class="col-md-6">
-			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">Misi Korlantas Polri</h4>
+			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; ">Misi Korlantas Polri</h4>
 			<p class="text-break">
 				<ol style="text-align:justify ;">
 					<li>Memelihara dan mewujudkan pelayanan keamanan, keselamatan, ketertiban dan kelancaran lalu lintas yang prima dan unggul secara cepat, tepat, efisien, transparan dan akuntabel.</li>

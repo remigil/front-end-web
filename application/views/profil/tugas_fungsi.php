@@ -11,33 +11,27 @@
       </div>
     </section><!-- End Breadcrumbs -->
 
+	<section id="about" class="about">
+      <div class="container" data-aos="fade-up">
 
-<!-- Content
-================================================== -->
+            <!-- Tabs -->
+            <ul class="nav nav-pills mb-3">
+              <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">Korlantas Polri</a></li>
+              <li><a class="nav-link" data-bs-toggle="pill" href="#tab2">Ditkamsel</a></li>
+              <li><a class="nav-link" data-bs-toggle="pill" href="#tab3">Ditgakkum</a></li>
+              <li><a class="nav-link" data-bs-toggle="pill" href="#tab4">Ditregident</a></li>
+              <li><a class="nav-link" data-bs-toggle="pill" href="#tab5">Bagops</a></li>
+              <li><a class="nav-link" data-bs-toggle="pill" href="#tab6">Bagrenmin</a></li>
+              <li><a class="nav-link" data-bs-toggle="pill" href="#tab7">Bagtik</a></li>
+              
+            </ul><!-- End Tabs -->
 
-<!-- Container -->
-<div class="container-fluid margin-top-30">
-<div class="container-fluid">
-<div class="container-fluid">
-	
-	<!-- Tabs Navigation -->
-	<ul class="tabs-nav">
-			<li class="active"><a href="#tab1b">KORLANTAS POLRI</a></li>
-			<li><a href="#tab2b">DITKAMSEL</a></li>
-			<li><a href="#tab3b">DITGAKKUM</a></li>
-			<li><a href="#tab4b">DITREGIDENT</a></li>
-			<li><a href="#tab5b">BAGOPS</a></li>
-			<li><a href="#tab6b">BAGRENMIN</a></li>
-			<li><a href="#tab7b">BAGTIK</a></li>
-	</ul>
+            <!-- Tab Content -->
+            <div class="tab-content">
 
-	<!-- Tabs Content -->
-	<div class="tabs-container">
-
-		<!-- KORLANTAS -->
-		<div class="tab-content" id="tab1b">
-			<div class="row">
-				<div class="col-md-8">
+              <div class="tab-pane fade show active" id="tab1">
+			  <div class="row">
+				<div class="col-md-7">
 					<div class="row">
 						<div class="col-md-12">
 							<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">KORLANTAS POLRI BERTUGAS</h4>
@@ -66,7 +60,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<div class="row">
 						<div class="col-md-12">
 							<iframe width="100%" height="350" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZiRhVpxCG_GIkU8qIDuVsoL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -80,12 +74,11 @@
 				</div>
 				
 			</div>
-		</div>
-		
-		<!-- DITKAMSEL -->
-		<div class="tab-content" id="tab2b">
-			<div class="row">
-				<div class="col-md-8">
+              </div><!-- End Tab 1 Content -->
+			  
+              <div class="tab-pane fade show" id="tab2">
+			  <div class="row">
+				<div class="col-md-7">
 					<div class="row">
 						<div class="col-md-12">
 						<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">DITKAMSEL BERTUGAS</h4>
@@ -111,7 +104,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<div class="row">
 						<div class="col-md-12">
 						<iframe width="100%" height="350" src="https://www.youtube.com/embed/Ryp4UsZPvkE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -124,12 +117,11 @@
 				
 				
 			</div>
-		</div> 
+              </div><!-- End Tab 2 Content -->
 
-		<!-- DITGAKKUM -->
-		<div class="tab-content" id="tab3b">
-			<div class="row">
-				<div class="col-md-8">
+              <div class="tab-pane fade show" id="tab3">
+			  <div class="row">
+				<div class="col-md-7">
 					<div class="row">
 						<div class="col-md-12">
 						<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">DITGAKKUM BERTUGAS</h4>
@@ -154,7 +146,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<div class="row">
 						<div class="col-md-12">
 					
@@ -170,12 +162,11 @@
 				
 				
 			</div>
-		</div>
+              </div><!-- End Tab 3 Content -->
 
-		<!-- DITREGIDENT -->
-		<div class="tab-content" id="tab4b">
-			<div class="row">
-				<div class="col-md-8">
+              <div class="tab-pane fade show" id="tab4">
+			  <div class="row">
+				<div class="col-md-7">
 					<div class="row">
 						<div class="col-md-12">
 						<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">DITREGIDENT BERTUGAS</h4>
@@ -203,7 +194,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<div class="row">
 						<div class="col-md-12">
 					
@@ -218,12 +209,11 @@
 				
 				
 			</div>
-		</div>
+              </div><!-- End Tab 4 Content -->
 
-		<!-- BAGOPS -->
-		<div class="tab-content" id="tab5b">
-			<div class="row">
-				<div class="col-md-8">
+              <div class="tab-pane fade show" id="tab5">
+			  <div class="row">
+				<div class="col-md-7">
 					<div class="row">
 						<div class="col-md-12">
 						<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">BAGOPS BERTUGAS</h4>
@@ -249,7 +239,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<div class="row">
 						<div class="col-md-12">
 					
@@ -264,12 +254,11 @@
 				
 				
 			</div>
-		</div>
+              </div><!-- End Tab 5 Content -->
 
-		<!-- BAGRENMIN -->
-		<div class="tab-content" id="tab6b">
-			<div class="row">
-				<div class="col-md-8">
+              <div class="tab-pane fade show" id="tab6">
+			  <div class="row">
+				<div class="col-md-7">
 					<div class="row">
 						<div class="col-md-12">
 						<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">BAGRENMIN BERTUGAS</h4>
@@ -289,7 +278,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<div class="row">
 						<div class="col-md-12">
 					
@@ -302,12 +291,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+              </div><!-- End Tab 6 Content -->
 
-		<!-- BAGTIK -->
-		<div class="tab-content" id="tab7b">
-			<div class="row">
-				<div class="col-md-8">
+              <div class="tab-pane fade show" id="tab7">
+			  <div class="row">
+				<div class="col-md-7">
 					<div class="row">
 						<div class="col-md-12">
 						<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">BAGTIK BERTUGAS</h4>
@@ -333,7 +321,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<div class="row">
 						<div class="col-md-12">
 					
@@ -346,71 +334,10 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-</div>
-</div>
-</div>
-<!-- Container / End -->
+              </div><!-- End Tab 7 Content -->
 
-  
+            </div>
 
 
-
-
-<script>
-    $(document).ready(function() { 
-        var initialCenter = [-2.548926, 118.0148634];
-        var initialZoom = 5;
-        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        }); 
-
-        // StART MAP SECTION
-        var mapContainer = L.map('map', {
-            maxZoom: 20,
-            minZoom: 1,
-            zoomSnap: 0.25,
-            zoomControl: false,
-            layers: [googleStreet]
-        }).setView(initialCenter, initialZoom);  
-
-
-        var icon = L.icon({
-            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-            iconSize: [80, 80], // size of the icon
-        });
-                        
-                        
-        var baseMaps = {
-            "Google Map Street": googleStreet,
-            "Google Map Satelite": googleSatelite,
-            "Google Map Hybrid": googleHybrid,
-            "Google Map Terrain": googleTerrain,
-        };
-        var overlayMaps = {};
-        // L.control.layers(baseMaps, overlayMaps, {
-        //     position: 'bottomleft'
-        // }).addTo(mapContainer);
-        // L.control.zoom({
-        //     position: 'bottomright'
-        // }).addTo(mapContainer);
-    });
-</script>
+      </div>
+    </section><!-- End About Section -->
