@@ -1603,22 +1603,103 @@ class Statistik_executive extends MY_Controller
             ]
         ]);
 
-        $baru = 0;
-        $perpanjangan = 0;
+
+        $totalDay = 0;
+        $totalMonth = 0;
+        $totalYear = 0;
+
+        $ybaru_a = 0;
+        $ybaru_c = 0;
+        $ybaru_d = 0;
+        $yperpanjangan_a = 0;
+        $yperpanjangan_au = 0;
+        $yperpanjangan_c = 0;
+        $yperpanjangan_c1 = 0;
+        $yperpanjangan_c2 = 0;
+        $yperpanjangan_d = 0;
+        $yperpanjangan_d1 = 0;
+        $yperpanjangan_b1 = 0;
+        $yperpanjangan_b1u = 0;
+        $yperpanjangan_b2 = 0;
+        $yperpanjangan_b2u = 0;
+        $ypeningkatan_au = 0;
+        $ypeningkatan_b1 = 0;
+        $ypeningkatan_b1u = 0;
+        $ypeningkatan_b2 = 0;
+        $ypeningkatan_b2u = 0;
+
         foreach ($thisYear['data'] as $key) {
-            $baru += $key['baru'];
-            $perpanjangan += $key['perpanjangan'];
+            $ybaru_a += $key['baru_a'];
+            $ybaru_c += $key['baru_c'];
+            $ybaru_d += $key['baru_d'];
+            $yperpanjangan_a += $key['perpanjangan_a'];
+            $yperpanjangan_au += $key['perpanjangan_au'];
+            $yperpanjangan_c += $key['perpanjangan_c'];
+            $yperpanjangan_c1 += $key['perpanjangan_c1'];
+            $yperpanjangan_c2 += $key['perpanjangan_c2'];
+            $yperpanjangan_d += $key['perpanjangan_d'];
+            $yperpanjangan_d1 += $key['perpanjangan_d1'];
+            $yperpanjangan_b1 += $key['perpanjangan_b1'];
+            $yperpanjangan_b1u += $key['perpanjangan_b1u'];
+            $yperpanjangan_b2 += $key['perpanjangan_b2'];
+            $yperpanjangan_b2u += $key['perpanjangan_b2u'];
+            $ypeningkatan_au += $key['peningkatan_au'];
+            $ypeningkatan_b1 += $key['peningkatan_b1'];
+            $ypeningkatan_b1u += $key['peningkatan_b1u'];
+            $ypeningkatan_b2 += $key['peningkatan_b2'];
+            $ypeningkatan_b2u += $key['peningkatan_b2u'];
         }
 
         $data['thisYear'] = [
-            'baru' => $baru,
-            'perpanjangan' => $perpanjangan,
+            'ybaru_a' => $ybaru_a,
+            'ybaru_c' => $ybaru_c,
+            'ybaru_d' => $ybaru_d,
+            'yperpanjangan_a' => $yperpanjangan_a,
+            'yperpanjangan_au' => $yperpanjangan_au,
+            'yperpanjangan_c' => $yperpanjangan_c,
+            'yperpanjangan_c1' => $yperpanjangan_c1,
+            'yperpanjangan_c2' => $yperpanjangan_c2,
+            'yperpanjangan_d' => $yperpanjangan_d,
+            'yperpanjangan_d1' => $yperpanjangan_d1,
+            'yperpanjangan_b1' => $yperpanjangan_b1,
+            'yperpanjangan_b1u' => $yperpanjangan_b1u,
+            'yperpanjangan_b2' => $yperpanjangan_b2,
+            'yperpanjangan_b2u' => $yperpanjangan_b2u,
+            'ypeningkatan_au' => $ypeningkatan_au,
+            'ypeningkatan_b1' => $ypeningkatan_b1,
+            'ypeningkatan_b1u' => $ypeningkatan_b1u,
+            'ypeningkatan_b2' => $ypeningkatan_b2,
+            'ypeningkatan_b2u' => $ypeningkatan_b2u,
+            'date' => date("Y", strtotime($firstDay)),
         ];
 
+        $dataDay = array_values($thisDay['data'][0]);
+        array_pop($dataDay);
+        $dataMonth = array_values($thisMonth['data'][0]);
+        array_pop($dataMonth);
+        $dataYear = array_values($data['thisYear']);
+        array_pop($dataYear);
+
+
+
+        for ($i = 0; $i < count($dataDay); $i++) {
+            $totalDay += $dataDay[$i];
+        }
+        for ($i = 0; $i < count($dataMonth); $i++) {
+            $totalMonth += $dataMonth[$i];
+        }
+        for ($i = 0; $i < count($dataYear); $i++) {
+            $totalYear += $dataYear[$i];
+        }
+
         $data['simDate'] = [
-            'thisDay' => $thisDay['data'],
-            'thisMonth' => $thisMonth['data'],
-            'thisYear' => $data['thisYear']
+            'thisDay' => $totalDay,
+            'detailsthisDay' => $thisDay['data'][0],
+            'thisMonth' => $totalMonth,
+            'detailsthisMonth' => $thisMonth['data'][0],
+            'thisYear' => $totalYear,
+            'detailsthisYear' => $data['thisYear'],
+            // 'thisYear' => $data['thisYear']
         ];
 
         echo json_encode($data['simDate']);

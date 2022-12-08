@@ -99,7 +99,7 @@
 
                                     <div class="col-md-10 float-start">
                                         <span class="fs-5 float-start" style="color:#ffffff;">
-                                            <span class="fw-bold"> Turjagwali</span>
+                                            <span class="fw-bold"> TURJAGWALI</span>
                                             </br>
                                             <span class="fs-5 fw-bold float-start" style="color:#ffffff;" id="turjagwali"></span>
                                             <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailturjagwali"></p>

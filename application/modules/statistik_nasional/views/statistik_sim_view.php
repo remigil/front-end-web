@@ -22,11 +22,21 @@
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Harian</h4>
+                                         <h4 class="mb-0 ms-3">Hari Ini</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="simThisDay"></h1>
                                          <p class="text-center mb-0">Sim</p>
+                                     </div>
+                                     <div class="col-md-12 ms-3">
+                                         <div class="row">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background:#007DD8; height:40px; border-radius:20px 0 20px 20; ">
+                                                 <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalDay">
+                                                     Detail
+                                                 </button>
+                                             </div>
+
+                                         </div>
                                      </div>
                                  </div>
                              </div>
@@ -37,7 +47,7 @@
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Bulanan</h4>
+                                         <h4 class="mb-0 ms-3">Bulan Ini</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="simThisMonth"></h1>
@@ -52,7 +62,7 @@
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Tahunan</h4>
+                                         <h4 class="mb-0 ms-3">Tahun Ini</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="simThisYear"></h1>
@@ -69,6 +79,53 @@
  </div>
 
 
+ <div class="modal fade" id="ModalDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Detail Sim Hari Ini</h5>
+                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+             </div>
+             <div class="modal-body">
+                 <div class="row">
+                     <div class="col-md-3">
+                         <span>Baru</span> <br>
+                         <span>A : <span id="simbarua"></span></span> <br>
+                         <span>C : <span id="simbaruc"></span></span><br>
+                         <span>D : <span id="simbarud"></span></span><br>
+                     </div>
+                     <div class="col-md-3">
+                         <span>Perpanjangan</span> <br>
+                         <span>A : <span id="simperpanjangana"></span></span> <br>
+                         <span>AU : <span id="simperpanjanganau"></span></span> <br>
+                         <span>C : <span id="simperpanjanganb1"></span></span><br>
+                         <span>C1 : <span id="simperpanjanganb1u"></span></span><br>
+                         <span>C2 : <span id="simperpanjanganb2"></span></span><br>
+                         <span>D : <span id="simperpanjanganb2u"></span></span><br>
+                         <span>D1 : <span id="simperpanjanganc"></span></span><br>
+                         <span>B1 : <span id="simperpanjanganc1"></span></span><br>
+                         <span>B1U : <span id="simperpanjanganc2"></span></span><br>
+                         <span>B2 : <span id="simperpanjangand"></span></span><br>
+                         <span>B2U : <span id="simperpanjangand1"></span></span><br>
+                     </div>
+                     <div class="col-md-3">
+                         <span>Peningkatan</span> <br>
+                         <span>AU : <span id="simpeningkatanau"></span></span> <br>
+                         <span>B1 : <span id="simpeningkatanb1"></span></span><br>
+                         <span>B1U : <span id="simpeningkatanb1u"></span></span><br>
+                         <span>B2 : <span id="simpeningkatanb2"></span></span><br>
+                         <span>B2U : <span id="simpeningkatanb2u"></span></span><br>
+                     </div>
+                 </div>
+             </div>
+             <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+         </div>
+     </div>
+ </div>
  <?php $mobile = detect_mobile();
     if ($mobile === true) { ?>
      <div class="filter mb-5" style=" height:125px;">
@@ -124,12 +181,34 @@
                                  <h5>Ranking Polda Data Sim Tertinggi <?= date('d M Y'); ?></h5>
                                  <div class="card shadow-sm">
                                      <table class="table table-bordered table-hover" id="tableSimDay">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Baru</th>
-                                                 <th scope="col">Perpanjangan</th>
+                                         <thead style="background-color:#007DD8; color:#fff; ">
+                                             <tr>
+                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
+                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="3" scope="col">Baru</th>
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
+                                             </tr>
+                                             <tr>
+                                                 <th style="text-align: center;" scope="col">A</th>
+                                                 <th style="text-align: center;" scope="col">C</th>
+                                                 <th style="text-align: center;" scope="col">D</th>
+                                                 <th style="text-align: center;" scope="col">A</th>
+                                                 <th style="text-align: center;" scope="col">AU</th>
+                                                 <th style="text-align: center;" scope="col">C</th>
+                                                 <th style="text-align: center;" scope="col">C1</th>
+                                                 <th style="text-align: center;" scope="col">C2</th>
+                                                 <th style="text-align: center;" scope="col">D</th>
+                                                 <th style="text-align: center;" scope="col">D1</th>
+                                                 <th style="text-align: center;" scope="col">B1</th>
+                                                 <th style="text-align: center;" scope="col">B1U</th>
+                                                 <th style="text-align: center;" scope="col">B2</th>
+                                                 <th style="text-align: center;" scope="col">B2U</th>
+                                                 <th style="text-align: center;" scope="col">AU</th>
+                                                 <th style="text-align: center;" scope="col">B1</th>
+                                                 <th style="text-align: center;" scope="col">B1U</th>
+                                                 <th style="text-align: center;" scope="col">B2</th>
+                                                 <th style="text-align: center;" scope="col">B2U</th>
                                              </tr>
                                          </thead>
                                          <tbody id="tbody-simDay">
@@ -145,12 +224,34 @@
                                  <h5>Ranking Polda Data Sim Tertinggi <?= date('M Y'); ?></h5>
                                  <div class="card shadow-sm">
                                      <table class="table table-bordered table-hover" id="tableSimMonth">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Baru</th>
-                                                 <th scope="col">Perpanjangan</th>
+                                         <thead style="background-color:#007DD8; color:#fff; ">
+                                             <tr>
+                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
+                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="3" scope="col">Baru</th>
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
+                                             </tr>
+                                             <tr>
+                                                 <th style="text-align: center;" scope="col">A</th>
+                                                 <th style="text-align: center;" scope="col">C</th>
+                                                 <th style="text-align: center;" scope="col">D</th>
+                                                 <th style="text-align: center;" scope="col">A</th>
+                                                 <th style="text-align: center;" scope="col">AU</th>
+                                                 <th style="text-align: center;" scope="col">C</th>
+                                                 <th style="text-align: center;" scope="col">C1</th>
+                                                 <th style="text-align: center;" scope="col">C2</th>
+                                                 <th style="text-align: center;" scope="col">D</th>
+                                                 <th style="text-align: center;" scope="col">D1</th>
+                                                 <th style="text-align: center;" scope="col">B1</th>
+                                                 <th style="text-align: center;" scope="col">B1U</th>
+                                                 <th style="text-align: center;" scope="col">B2</th>
+                                                 <th style="text-align: center;" scope="col">B2U</th>
+                                                 <th style="text-align: center;" scope="col">AU</th>
+                                                 <th style="text-align: center;" scope="col">B1</th>
+                                                 <th style="text-align: center;" scope="col">B1U</th>
+                                                 <th style="text-align: center;" scope="col">B2</th>
+                                                 <th style="text-align: center;" scope="col">B2U</th>
                                              </tr>
                                          </thead>
                                          <tbody id="tbody-simMonth">
@@ -166,12 +267,34 @@
                                  <h5>Ranking Polda Data Sim Tertinggi <?= date('Y'); ?></h5>
                                  <div class="card shadow-sm">
                                      <table class="table table-bordered table-hover" id="tableSimYear">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Baru</th>
-                                                 <th scope="col">Perpanjangan</th>
+                                         <thead style="background-color:#007DD8; color:#fff; ">
+                                             <tr>
+                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
+                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="3" scope="col">Baru</th>
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
+                                             </tr>
+                                             <tr>
+                                                 <th style="text-align: center;" scope="col">A</th>
+                                                 <th style="text-align: center;" scope="col">C</th>
+                                                 <th style="text-align: center;" scope="col">D</th>
+                                                 <th style="text-align: center;" scope="col">A</th>
+                                                 <th style="text-align: center;" scope="col">AU</th>
+                                                 <th style="text-align: center;" scope="col">C</th>
+                                                 <th style="text-align: center;" scope="col">C1</th>
+                                                 <th style="text-align: center;" scope="col">C2</th>
+                                                 <th style="text-align: center;" scope="col">D</th>
+                                                 <th style="text-align: center;" scope="col">D1</th>
+                                                 <th style="text-align: center;" scope="col">B1</th>
+                                                 <th style="text-align: center;" scope="col">B1U</th>
+                                                 <th style="text-align: center;" scope="col">B2</th>
+                                                 <th style="text-align: center;" scope="col">B2U</th>
+                                                 <th style="text-align: center;" scope="col">AU</th>
+                                                 <th style="text-align: center;" scope="col">B1</th>
+                                                 <th style="text-align: center;" scope="col">B1U</th>
+                                                 <th style="text-align: center;" scope="col">B2</th>
+                                                 <th style="text-align: center;" scope="col">B2U</th>
                                              </tr>
                                          </thead>
                                          <tbody id="tbody-simYear">
@@ -388,7 +511,7 @@
          topSimMonth(firstDayMonth, lastDayMonth);
          topSimYear(firstDay, lastDay)
 
-         ditregident_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
+         sim_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
          SimlineChart(seven_daysAgo, yesterday)
          jam();
      })
@@ -508,10 +631,10 @@
      })
 
 
-     function ditregident_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+     function sim_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDitregidentDate",
+             url: "<?= base_url(); ?>executive/statistik_executive/getSimDate",
              dataType: "JSON",
              data: {
                  yesterday,
@@ -522,9 +645,28 @@
              },
              success: function(result) {
                  $("#overlay").fadeOut(300);
-                 $('#simThisDay').text(result.thisDay[0].sim)
-                 $('#simThisMonth').text(result.thisMonth[0].sim)
-                 $('#simThisYear').text(result.thisYear.sim)
+                 $('#simThisDay').text(result.thisDay)
+                 $('#simThisMonth').text(result.thisMonth)
+                 $('#simThisYear').text(result.thisYear)
+                 $('#simbarua').text(result.detailsthisDay.baru_a)
+                 $('#simbaruc').text(result.detailsthisDay.baru_c)
+                 $('#simbarud').text(result.detailsthisDay.baru_d)
+                 $('#simperpanjangana').text(result.detailsthisDay.perpanjangan_a)
+                 $('#simperpanjanganau').text(result.detailsthisDay.perpanjangan_au)
+                 $('#simperpanjanganb1').text(result.detailsthisDay.perpanjangan_b1)
+                 $('#simperpanjanganb1u').text(result.detailsthisDay.perpanjangan_b1u)
+                 $('#simperpanjanganb2').text(result.detailsthisDay.perpanjangan_b2)
+                 $('#simperpanjanganb2u').text(result.detailsthisDay.perpanjangan_b2u)
+                 $('#simperpanjanganc').text(result.detailsthisDay.perpanjangan_c)
+                 $('#simperpanjanganc1').text(result.detailsthisDay.perpanjangan_c1)
+                 $('#simperpanjanganc2').text(result.detailsthisDay.perpanjangan_c2)
+                 $('#simperpanjangand').text(result.detailsthisDay.perpanjangan_d)
+                 $('#simperpanjangand1').text(result.detailsthisDay.perpanjangan_d1)
+                 $('#simpeningkatanau').text(result.detailsthisDay.peningkatan_au)
+                 $('#simpeningkatanb1').text(result.detailsthisDay.peningkatan_b1)
+                 $('#simpeningkatanb1u').text(result.detailsthisDay.peningkatan_b1u)
+                 $('#simpeningkatanb2').text(result.detailsthisDay.peningkatan_b2)
+                 $('#simpeningkatanb2u').text(result.detailsthisDay.peningkatan_b2u)
 
              }
          })
@@ -807,8 +949,25 @@
                      table += `<tr class="text-center"> 
                         <td>  ${no}  </td> 
                         <td>  ${result[i].name_polda}  </td> 
-                        <td>  ${result[i].baru}  </td> 
-                        <td>  ${result[i].perpanjangan}  </td>  
+                        <td>  ${result[i].baru_a}  </td> 
+                        <td>  ${result[i].baru_c}  </td> 
+                        <td>  ${result[i].baru_d}  </td> 
+                        <td>  ${result[i].perpanjangan_a}  </td>  
+                        <td>  ${result[i].perpanjangan_au}  </td>  
+                        <td>  ${result[i].perpanjangan_c}  </td>  
+                        <td>  ${result[i].perpanjangan_c1}  </td>  
+                        <td>  ${result[i].perpanjangan_c2}  </td>  
+                        <td>  ${result[i].perpanjangan_d}  </td>  
+                        <td>  ${result[i].perpanjangan_d1}  </td>  
+                        <td>  ${result[i].perpanjangan_b1}  </td>  
+                        <td>  ${result[i].perpanjangan_b1u}  </td>  
+                        <td>  ${result[i].perpanjangan_b2}  </td>  
+                        <td>  ${result[i].perpanjangan_b2u}  </td>  
+                        <td>  ${result[i].peningkatan_au}  </td>  
+                        <td>  ${result[i].peningkatan_b1}  </td>  
+                        <td>  ${result[i].peningkatan_b1u}  </td>  
+                        <td>  ${result[i].peningkatan_b2}  </td>  
+                        <td>  ${result[i].peningkatan_b2u}  </td>  
                         </tr>`
                  }
                  $('#tbody-simDay').html(table);
@@ -851,11 +1010,28 @@
                      let x = parseInt(i)
                      let no = x + 1
                      table += `<tr class="text-center"> 
-                            <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].baru}  </td> 
-                            <td>  ${result[i].perpanjangan}  </td> 
-                            </tr>`
+                     <td>  ${no}  </td> 
+                        <td>  ${result[i].name_polda}  </td> 
+                        <td>  ${result[i].baru_a}  </td> 
+                        <td>  ${result[i].baru_c}  </td> 
+                        <td>  ${result[i].baru_d}  </td> 
+                        <td>  ${result[i].perpanjangan_a}  </td>  
+                        <td>  ${result[i].perpanjangan_au}  </td>  
+                        <td>  ${result[i].perpanjangan_c}  </td>  
+                        <td>  ${result[i].perpanjangan_c1}  </td>  
+                        <td>  ${result[i].perpanjangan_c2}  </td>  
+                        <td>  ${result[i].perpanjangan_d}  </td>  
+                        <td>  ${result[i].perpanjangan_d1}  </td>  
+                        <td>  ${result[i].perpanjangan_b1}  </td>  
+                        <td>  ${result[i].perpanjangan_b1u}  </td>  
+                        <td>  ${result[i].perpanjangan_b2}  </td>  
+                        <td>  ${result[i].perpanjangan_b2u}  </td>  
+                        <td>  ${result[i].peningkatan_au}  </td>  
+                        <td>  ${result[i].peningkatan_b1}  </td>  
+                        <td>  ${result[i].peningkatan_b1u}  </td>  
+                        <td>  ${result[i].peningkatan_b2}  </td>  
+                        <td>  ${result[i].peningkatan_b2u}  </td>  
+                        </tr>`
                  }
                  $('#tbody-simMonth').html(table);
                  <?php $mobile = detect_mobile();
@@ -897,11 +1073,28 @@
                      let x = parseInt(i)
                      let no = x + 1
                      table += `<tr class="text-center"> 
-                            <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].baru}  </td> 
-                            <td>  ${result[i].perpanjangan}  </td> 
-                            </tr>`
+                        <td>  ${no}  </td> 
+                        <td>  ${result[i].name_polda}  </td> 
+                        <td>  ${result[i].baru_a}  </td> 
+                        <td>  ${result[i].baru_c}  </td> 
+                        <td>  ${result[i].baru_d}  </td> 
+                        <td>  ${result[i].perpanjangan_a}  </td>  
+                        <td>  ${result[i].perpanjangan_au}  </td>  
+                        <td>  ${result[i].perpanjangan_c}  </td>  
+                        <td>  ${result[i].perpanjangan_c1}  </td>  
+                        <td>  ${result[i].perpanjangan_c2}  </td>  
+                        <td>  ${result[i].perpanjangan_d}  </td>  
+                        <td>  ${result[i].perpanjangan_d1}  </td>  
+                        <td>  ${result[i].perpanjangan_b1}  </td>  
+                        <td>  ${result[i].perpanjangan_b1u}  </td>  
+                        <td>  ${result[i].perpanjangan_b2}  </td>  
+                        <td>  ${result[i].perpanjangan_b2u}  </td>  
+                        <td>  ${result[i].peningkatan_au}  </td>  
+                        <td>  ${result[i].peningkatan_b1}  </td>  
+                        <td>  ${result[i].peningkatan_b1u}  </td>  
+                        <td>  ${result[i].peningkatan_b2}  </td>  
+                        <td>  ${result[i].peningkatan_b2u}  </td>  
+                        </tr>`
                  }
                  $('#tbody-simYear').html(table);
                  <?php $mobile = detect_mobile();
