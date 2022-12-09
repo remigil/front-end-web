@@ -107,9 +107,26 @@ class Tripon extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
-        // $data['lakalantas'] = '123';
 
-        $url = 'count-trip-on/jenis_kendaraan';
+
+        $filter = $this->input->post('filter');
+        $time = $this->input->post('time');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+
+        $start_time = $this->input->post('start_time');
+        $end_time = $this->input->post('end_time');
+
+
+
+
+        if ($time == 'true') {
+            $url = 'count-trip-on/jenis_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '';
+        } else {
+            $url = 'count-trip-on/jenis_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '';
+        }
+
         $getTripon = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
@@ -137,10 +154,29 @@ class Tripon extends MY_Controller
         // $data['lakalantas'] = '123';
 
         $limit = $this->input->post('limit');
-        $url = 'count-trip-on/prov_tripon?topTripon=true&limit=' . $limit . '';
+        $filter = $this->input->post('filter');
+        $time = $this->input->post('time');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+
+        $start_time = $this->input->post('start_time');
+        $end_time = $this->input->post('end_time');
+
+
+
+
+        if ($time == 'true') {
+            $url = 'count-trip-on/prov_tripon?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '&limit=' . $limit . '&topTripon=true';
+        } else {
+            $url = 'count-trip-on/prov_tripon?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&limit=' . $limit . '&topTripon=true';
+        }
+
+
         $getTripon = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
+
 
         foreach ($getTripon['data'] as $key) {
             $kedatangan[] = $key['kedatangan'];

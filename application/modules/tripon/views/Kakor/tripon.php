@@ -43,7 +43,7 @@
 
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
                     <h5>TOP DATA PERJALANAN PER PROVINSI</h5>
@@ -69,7 +69,9 @@
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="row">
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
@@ -291,21 +293,123 @@
 
         });
 
-
+        let filter = true;
+        let time = true;
+        let topTripon = true;
         let limit = $('#limit_showData').val()
+        let start_time = moment().format('H:00:00');
+        let end_time = moment().add(3, 'hours').format('H:00:00')
+        let start_date = moment().format('YYYY-MM-DD');
+        let end_date = moment().format('YYYY-MM-DD');
 
 
-        getPieTripOn();
-        getChartProv(limit);
+        getPieTripOn(filter, time, start_time, end_time, start_date, end_date);
+        getChartProv(filter, time, start_time, end_time, start_date, end_date, limit);
 
     });
 
-    function getChartProv(limit) {
+
+    $("[name=filter]").on("change", function(e) {
+
+        var tanggal;
+        var isitype = 'day';
+        let filter = true;
+        let time = true;
+
+        const date = new Date();
+        let limit = $('#limit_showData').val()
+
+
+        let today = moment().format('YYYY-MM-DD');
+        let start_time = moment().format('H:00:00');
+        let end_time = moment().add(3, 'hours').format('H:00:00')
+
+        let start_week = moment().clone().startOf('week').format('YYYY-MM-DD')
+        let end_week = moment().clone().endOf('week').format('YYYY-MM-DD')
+
+
+        let start_month = moment().startOf('month').format('YYYY-MM-DD')
+        let end_month = moment().endOf('month').format('YYYY-MM-DD');
+
+        let start_year = moment().startOf('year').format('YYYY-MM-DD')
+        let end_year = moment().endOf('year').format('YYYY-MM-DD');
+
+        if (this.value == 'now') {
+            getChartProv(filter, time, start_time, end_time, today, today, limit);
+            getPieTripOn(filter, time, start_time, end_time, today, today);
+        } else if (this.value == 'today') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, today, today, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, today, today);
+        } else if (this.value == 'week') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_week, end_week, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+        } else if (this.value == 'month') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_month, end_month, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+        } else if (this.value == 'year') {
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_year, end_year, limit);
+        }
+        // //  console.log(tanggal);
+        // // console.log(tanggal[0]);
+        // getStatistik();
+    });
+
+
+    $('#limit_showData').on('change', function() {
+        let filter = true;
+        let time = true;
+        var limit = $('#limit_showData').val();
+        var type_filter = $("[name=filter]:checked").val();
+
+        let today = moment().format('YYYY-MM-DD');
+        let start_time = moment().format('H:00:00');
+        let end_time = moment().add(3, 'hours').format('H:00:00')
+
+        let start_week = moment().clone().startOf('week').format('YYYY-MM-DD')
+        let end_week = moment().clone().endOf('week').format('YYYY-MM-DD')
+
+
+        let start_month = moment().startOf('month').format('YYYY-MM-DD')
+        let end_month = moment().endOf('month').format('YYYY-MM-DD');
+
+        let start_year = moment().startOf('year').format('YYYY-MM-DD')
+        let end_year = moment().endOf('year').format('YYYY-MM-DD');
+
+        if (type_filter == 'now') {
+            getChartProv(filter, time, start_time, end_time, today, today, limit);
+            getPieTripOn(filter, time, start_time, end_time, today, today);
+        } else if (type_filter == 'today') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, today, today, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, today, today);
+        } else if (type_filter == 'week') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_week, end_week, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+        } else if (type_filter == 'month') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_month, end_month, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+        } else if (type_filter == 'year') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_year, end_year, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+        }
+
+        console.log(type_filter)
+
+    })
+
+
+    function getChartProv(filter = null, time = null, start_time = null, end_time = null, start_date = null, end_date = null, limit = null) {
         $.ajax({
             url: "<?= base_url() ?>tripon/tripon_prov",
             type: 'POST',
             data: {
-                limit
+                limit,
+                filter,
+                time,
+                start_date,
+                end_date,
+                start_time,
+                end_time
             },
             dataType: "JSON",
             success: function(results) {
@@ -385,12 +489,21 @@
         })
     }
 
-    function getPieTripOn() {
+    function getPieTripOn(filter = null, time = null, start_time = null, end_time = null, start_date = null, end_date = null) {
         $.ajax({
             url: "<?= base_url() ?>tripon/getTipe_Kendaraan",
             type: 'POST',
+            data: {
+                filter,
+                time,
+                start_date,
+                end_date,
+                start_time,
+                end_time
+            },
             dataType: "JSON",
             success: function(results) {
+                $("#chart3").html(`<div id="chartkendaraan"></div>`);
                 var options_tripon_kendaraan = {
                     series: results.jumlah,
                     chart: {
@@ -411,157 +524,9 @@
                     }]
                 };
 
-                var tripon_kendaraan = new ApexCharts(document.querySelector("#chart3"), options_tripon_kendaraan);
+                var tripon_kendaraan = new ApexCharts(document.querySelector("#chartkendaraan"), options_tripon_kendaraan);
                 tripon_kendaraan.render();
             }
         })
-    }
-
-
-
-    $('#limit_showData').on('change', function() {
-        let filter = 0
-        var limit = $('#limit_showData').val();
-        $.ajax({
-            url: "<?= base_url() ?>tripon/tripon_prov",
-            type: 'POST',
-            data: {
-                limit
-            },
-            dataType: "JSON",
-            success: function(results) {
-                $("#chart4").html(`<div id="chartprov"></div>`);
-                var keberangkatan = {
-                    series: [{
-                        name: 'Keberangkatan',
-                        type: 'column',
-                        data: results.keberangkatan,
-                        color: "#003A91",
-                    }, {
-                        name: 'Kedatangan',
-                        data: results.kedatangan,
-                        type: "column",
-                        color: "#CB2D3E",
-                    }],
-                    chart: {
-                        type: 'line',
-                        height: 380
-                    },
-                    tooltip: {
-                        fixed: {
-                            enabled: true
-                        }
-                    },
-                    plotOptions: {
-                        bar: {
-                            horizontal: false,
-                            columnWidth: '55%',
-                            endingShape: 'circle',
-                            dataLabels: {
-                                position: 'top'
-                            }
-                        },
-                    },
-                    dataLabels: {
-                        enabled: true,
-                        style: {
-                            colors: ['#333']
-                        },
-                        offsetY: -15
-                    },
-                    stroke: {
-                        show: true,
-                        width: 2,
-                        colors: ['transparent']
-                    },
-                    xaxis: {
-                        categories: results.provinsi,
-                    },
-                    yaxis: [{
-                        axisTicks: {
-                            show: false,
-                        },
-                        axisBorder: {
-                            show: false,
-                            color: '#008FFB'
-                        },
-                        labels: {
-                            style: {
-                                colors: '#008FFB',
-                            }
-                        },
-
-
-                    }, ],
-
-                    fill: {
-                        opacity: 1
-                    },
-
-                };
-
-                var keberangkatan2 = new ApexCharts(document.querySelector("#chartprov"), keberangkatan);
-                keberangkatan2.render();
-            }
-        })
-
-    })
-
-
-    $("[name=filter]").on("change", function(e) {
-
-        var tanggal;
-        var isitype = 'day';
-
-        if (this.value == 'day') {
-            tanggal = [moment().format('YYYY-MM-DD'), moment().format('YYYY-MM-DD')];
-            isitype = 'day';
-        } else if (this.value == 'month') {
-            tanggal = [moment().startOf('month').format('YYYY-MM-DD'), moment().endOf('month').format('YYYY-MM-DD')];
-            isitype = 'month';
-        } else if (this.value == 'year') {
-            tanggal = [moment().startOf('year').format('YYYY-MM-DD'), moment().endOf('year').format('YYYY-MM-DD')];
-            isitype = 'year';
-        }
-        // //  console.log(tanggal);
-        // // console.log(tanggal[0]);
-        // getStatistik();
-    });
-
-    function BtnFilter() {
-        $('#FilterTripOn').html(`<div class="card">
-        <div class="card-body">
-            <table class="table table-bordered text-center fw-bold">
-                <thead class="table-primary">
-                    <tr>
-                        <th>Kota Awal</th>
-                        <th>Kota Tujuan</th>
-                        <th>Jumlah TripOn Terdaftar</th>
-                        <th>Jumlah Penumpang Terdaftar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Bogor</td>
-                        <td>Bandung</td>
-                        <td>1230</td>
-                        <td>123</td>
-                    </tr>
-                    <tr>
-                        <td>Bandung</td>
-                        <td>Bogor</td>
-                        <td>123</td>
-                        <td>1230</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Total</td>
-                        <td>1353</td>
-                        <td>1353</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-        `)
     }
 </script>
