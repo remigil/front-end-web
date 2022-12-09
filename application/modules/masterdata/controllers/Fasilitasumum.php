@@ -475,6 +475,18 @@ class Fasilitasumum extends MY_Controller
             echo json_encode($res);
             die;
         }
+
+        if(isset($input['drawer'])){
+            $drawer = $input['drawer'];
+        }else{
+            $drawer = null;
+        }
+
+        if(isset($input['fasum_routeEdit'])){
+            $fasum_route = $input['fasum_routeEdit'];
+        }else{
+            $fasum_route = null;
+        }
         
         if($_FILES['photo']['name'] != null){ 
             $path = $_FILES['photo']['tmp_name'];
@@ -529,6 +541,14 @@ class Fasilitasumum extends MY_Controller
                     'name' => 'fasum_close_time',
                     'contents' => $input['jamTutup'],
                 ], 
+				[
+                    'name' => 'fasum_geoJson',
+                    'contents' => $drawer,
+                ],
+				[
+                    'name' => 'route',
+                    'contents' => $fasum_route,
+                ],
             ];
         } else {
             $dummy = [
@@ -575,6 +595,14 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'fasum_close_time',
                     'contents' => $input['jamTutup'],
+                ],
+				[
+                    'name' => 'fasum_geoJson',
+                    'contents' => $drawer,
+                ],
+				[
+                    'name' => 'route',
+                    'contents' => $fasum_route,
                 ],
 			];
         }

@@ -91,7 +91,7 @@
                         <div id="mapG20Kegiatan" style="height: 500px"></div>
                     </div>
                     <div class="col-md-12 mt-3">
-                        <textarea name="fasum_route" id="fasum_route" cols="30" rows="30"></textarea>
+                        <textarea hidden name="fasum_route" id="fasum_route" cols="30" rows="30"></textarea>
                     </div>
 					<div class="row mt-3">
                         <div class="col-md-12">
@@ -295,8 +295,11 @@
                         </div>
                     </div>
                     <div class="col-md-12 mt-3">
-                            <div id="mapEdit" style="height: 400px"></div>
-                        </div>
+                        <div id="mapEdit" style="height: 500px"></div>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <textarea hidden name="fasum_routeEdit" id="fasum_routeEdit" cols="30" rows="30"></textarea>
+                    </div>
 					<div class="row mt-3">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
@@ -347,6 +350,10 @@
     let arrayWaypointUtama = [];
     var routeAlternativeUtama;
     var routingAlternativeUtama;
+
+    let arrayWaypointUtamaEdit = [];
+    var routeAlternativeUtamaEdit;
+    var routingAlternativeUtamaEdit;
 
 	$(document).ready(function() {
         $('.dropify').dropify();
@@ -487,6 +494,7 @@
 
             routeAlternativeUtama = L.Routing.control({
                 waypoints: arrayWaypointUtama,
+                draggableWaypoints: false,
                 router: new L.Routing.osrmv1({
                     language: 'en',
                     profile: 'car'
@@ -697,7 +705,7 @@
     
 
 
-    
+
 	// map pada form edit
 	$(document).ready(function() {
 
@@ -726,7 +734,7 @@
         });
 
         // StART MAP SECTION
-        var mapContainer = L.map('mapEdit', {
+        var mapContainerEdit = L.map('mapEdit', {
             maxZoom: 20,
             minZoom: 1,
             zoomSnap: 0.25,
@@ -743,10 +751,10 @@
         var overlayMaps = {};
         L.control.layers(baseMaps, overlayMaps, {
             position: 'topright'
-        }).addTo(mapContainer);
+        }).addTo(mapContainerEdit);
         L.control.zoom({
             position: 'bottomleft'
-        }).addTo(mapContainer);
+        }).addTo(mapContainerEdit);
 
 
 
@@ -755,96 +763,133 @@
         
 		
 		$('#myModalEdit').on('shown.bs.modal', function() {
-            mapContainer.invalidateSize();
+            mapContainerEdit.invalidateSize();
 
             let countlist = 0;
             let list = ""; 
-            $('[name=address]').on("change", function (e) {
-                // console.log(this.value);
-                $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
-                    console.log(ress);  
-                    countlist = 0;
-                    list = "";
-                    ress.forEach(el => {
-                        countlist += 1;
-                        list += `<a class="list-group-item" 
-                        id="list${countlist}"   
-                        data-alamat="${el.display_name}"
-                        data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
-                        $('#listAddressEdit').html(list); 
-                    });  
+            // $('[name=address]').on("change", function (e) {
+            //     // console.log(this.value);
+            //     $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
+            //         console.log(ress);  
+            //         countlist = 0;
+            //         list = "";
+            //         ress.forEach(el => {
+            //             countlist += 1;
+            //             list += `<a class="list-group-item" 
+            //             id="list${countlist}"   
+            //             data-alamat="${el.display_name}"
+            //             data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+            //             $('#listAddressEdit').html(list); 
+            //         });  
 
-                    if(list == ""){
-                        countlist = 0;
-                        list = "";
-                        $('#listAddressEdit').html(list); 
-                    }
+            //         if(list == ""){
+            //             countlist = 0;
+            //             list = "";
+            //             $('#listAddressEdit').html(list); 
+            //         }
 
                     
-                    for (let i = 0; i < ress.length; i++){ 
-                        $(`#list${i+1}`).click(function(){  
-                            var latlong =  $(this).data('cords').split(',');
-                            var latitude = parseFloat(latlong[0]);
-                            var longitude = parseFloat(latlong[1]); 
+            //         for (let i = 0; i < ress.length; i++){ 
+            //             $(`#list${i+1}`).click(function(){  
+            //                 var latlong =  $(this).data('cords').split(',');
+            //                 var latitude = parseFloat(latlong[0]);
+            //                 var longitude = parseFloat(latlong[1]); 
 
-							$("[name=latitude]").val(latitude);
-							$("[name=longitude]").val(longitude);
+			// 				$("[name=latitude]").val(latitude);
+			// 				$("[name=longitude]").val(longitude);
 
-                            console.log({a:latitude, b:longitude});
-                            $('[name=address]').val($(this).data('alamat'));
-                            $('[name=cordinateEdit]').val($(this).data('cords'));
-                            mapContainer.flyTo([latitude, longitude], 17);  
-                            list = "";
-                            $('#listAddressEdit').html(list);   
-                            $('#listAddressEdit').hide(); 
-                        });
-                    }
+            //                 console.log({a:latitude, b:longitude});
+            //                 $('[name=address]').val($(this).data('alamat'));
+            //                 $('[name=cordinateEdit]').val($(this).data('cords'));
+            //                 mapContainerEdit.flyTo([latitude, longitude], 17);  
+            //                 list = "";
+            //                 $('#listAddressEdit').html(list);   
+            //                 $('#listAddressEdit').hide(); 
+            //             });
+            //         }
+            //     });
+
+            // });
+
+
+            // $('[name=cordinateEdit]').on("change", function (e) {
+
+            //     var cordLatLong =  this.value.split(','); 
+            //     var cordLat = parseFloat(cordLatLong[0]); 
+            //     var corLong = parseFloat(cordLatLong[1]); 
+
+            //     // console.log({a:cordLat, b:corLong});
+
+            //     $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
+            //         $('[name=address]').val(data['display_name']); 
+            //         mapContainerEdit.flyTo([cordLat, corLong], 17);  
+            //     }); 
+            // });
+
+
+            // mapContainerEdit.on("dragend", function (e) {
+
+            //     var corLat = mapContainer.getCenter()['lat'];
+            //     var corLng = mapContainer.getCenter()['lng'];
+            //     var cord = `${corLat},${corLng}`;
+
+			// 	$("[name=latitude]").val(corLat);
+			// 	$("[name=longitude]").val(corLng);
+            //     $('[name=cordinateEdit]').val(cord);
+
+            //     $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+
+            //         $('[name=address]').val(data['display_name']); 
+
+            //     }); 
+
+            // });
+
+
+
+            routeAlternativeUtamaEdit = L.Routing.control({
+                waypoints: arrayWaypointUtamaEdit,
+                draggableWaypoints: false,
+                router: new L.Routing.osrmv1({
+                    language: 'en',
+                    profile: 'car'
+                }),
+                geocoder: L.Control.Geocoder.nominatim({})
+            }).addTo(mapContainerEdit);
+
+            function createButton(label, container) {
+                var btn = L.DomUtil.create('button', '', container);
+                btn.setAttribute('type', 'button');
+                btn.innerHTML = label;
+                return btn;
+            }
+
+            mapContainerEdit.on('click', function(e) {
+                var container = L.DomUtil.create('div'),
+                    startBtn = createButton('Start from this location', container),
+                    destBtn = createButton('Go to this location', container);
+
+                L.DomEvent.on(startBtn, 'click', function() {
+
+                    routeAlternativeUtamaEdit.spliceWaypoints(0, 1, e.latlng);
+                    mapContainerEdit.closePopup();
                 });
+                L.DomEvent.on(destBtn, 'click', function() {
 
-            });
+                    routeAlternativeUtamaEdit.spliceWaypoints(routeAlternativeUtamaEdit.getWaypoints().length - 1, 1, e.latlng);
+                    mapContainerEdit.closePopup();
 
-
-            $('[name=cordinateEdit]').on("change", function (e) {
-
-                var cordLatLong =  this.value.split(','); 
-                var cordLat = parseFloat(cordLatLong[0]); 
-                var corLong = parseFloat(cordLatLong[1]); 
-
-                // console.log({a:cordLat, b:corLong});
-
-                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-                    $('[name=address]').val(data['display_name']); 
-                    mapContainer.flyTo([cordLat, corLong], 17);  
-                }); 
-            });
-
-
-            mapContainer.on("dragend", function (e) {
-
-                var corLat = mapContainer.getCenter()['lat'];
-                var corLng = mapContainer.getCenter()['lng'];
-                var cord = `${corLat},${corLng}`;
-
-				$("[name=latitude]").val(corLat);
-				$("[name=longitude]").val(corLng);
-                $('[name=cordinateEdit]').val(cord);
-
-                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
-
-                    $('[name=address]').val(data['display_name']); 
-
-                }); 
-
+                    routingAlternativeUtamaEdit = routeAlternativeUtamaEdit.getWaypoints();
+                    $('#fasum_routeEdit').val(JSON.stringify(routingAlternativeUtamaEdit));
+                });
+                L.popup()
+                .setContent(container)
+                .setLatLng(e.latlng)
+                .openOn(mapContainerEdit); 
             });
 			
 
-        });
-
-		var latlong11 =  $('[name=cordinateEdit]').val().split(',');
-        var latitude11 = parseFloat(latlong11[0]);
-        var longitude11 = parseFloat(latlong11[1]); 
-        mapContainer.flyTo([latitude11, longitude11], 17);
-
+        }); 
 	});
 
     function detail(id) {
@@ -940,10 +985,10 @@
                 $('.UbahFasum,#photo').val(results.fasum_logo)
                 $('.UbahFasum,#jamBuka').val(results.fasum_open_time)
                 $('.UbahFasum,#jamTutup').val(results.fasum_close_time)
-					 
-			 
-    
-                
+              
+                $('.UbahFasum,#fasum_routeEdit').val(JSON.stringify(results.route)) 
+                arrayWaypointUtamaEdit = results.route;
+                // console.log(arrayWaypointUtamaEdit);
             }
         })
     }
@@ -992,6 +1037,8 @@
 
     $('#btn_edit').on('click', function(e) {
         e.preventDefault()
+
+        $('#fasum_routeEdit').val(JSON.stringify(routingAlternativeUtamaEdit));
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
             url: '<?= base_url() ?>masterdata/Fasilitasumum/updateFasum',
