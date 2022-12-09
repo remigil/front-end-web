@@ -1,188 +1,88 @@
-<!-- <div class="head_content" style="background-image: url('assets/fe/hero.png');"> -->
-
-</div>
 <!-- ======= Breadcrumbs ======= -->
-    <div class="pagebreadcrumbs">
-    	<div class="d-flex align-items-center">
-        <div class="container position-relative">
-        	<div class="row d-flex justify-content-center">
-            <div class="col-lg-6 text-center">
-            	<h2><?= $headline?></h2>
-            	
-            </div>
-        	</div>
+<section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="<?= base_url()?>home">Home</a></li>
+          <li><?= $breadcrumb?></li>
+        </ol>
+        <h2><?= $headline?></h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+	<!-- ======= Events Section ======= -->
+    <section id="events" class="events">
+      <div class="container" data-aos="fade-up">
+
+	  <p class="text-center">Pemberlakuan Pembatasan Kegiatan Masyarakat (disingkat dengan PPKM) adalah kebijakan Pemerintah Indonesia sejak awal tahun 2021 untuk menangani pandemi Covid-19 di Indonesia. Sebelum pelaksanaan PPKM, pemerintah telah melaksanakan pembatasan sosial berskala besar (PSBB) yang berlangsung di sejumlah wilayah di Indonesia. PPKM berlangsung di beberapa wilayah yang menjadi titik penyebaran infeksi Covid-19, yakni di Pulau Jawa dan Bali. <br>
+	Pemerintah Indonesia pertama kali menerapkan PPKM pada tanggal 11 hingga 25 Januari 2021. PPKM selama dua pekan ini dilaksanakan berdasarkan Instruksi Menteri Dalam Negeri (Mendagri) Nomor 1 Tahun 2021 dan diberlakukan di wilayah Jawa dan Bali. Sebelumnya, pada tahun 2020, sejumlah daerah telah menerapkan pembatasan sosial berskala besar (PSBB) untuk mencegah meluasnya penyebaran Covid-19.</p>
+		
+
+	  <div class="section-title">
+          <h2>Kegiatan PPKM Korlantas Polri</h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
-    	</div>
-    	<nav>
-        <div class="container-fluid" >
-        <div class="container-fluid" >
-        <div class="container-fluid" >
-        	<ol style="list-style: none;">
-            <li><a href="<?= base_url()?>home">Home</a></li>
-            <li><?= $breadcrumb?></li>
-        	</ol>
+
+        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide event-item d-flex flex-column justify-content-center">
+			<iframe width="100%" height="200px" src="https://www.youtube.com/embed/0EC5JSqR6V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+            </div><!-- End Event item -->
+
+            <div class="swiper-slide event-item d-flex flex-column justify-content-center">
+			<iframe width="100%" height="200px" src="https://www.youtube.com/embed/tFRjKFDs-o4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div><!-- End Event item -->
+
+            <div class="swiper-slide event-item d-flex flex-column justify-content-center">
+			<iframe width="100%" height="200px" src="https://www.youtube.com/embed/wZSjEWd-5l4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div><!-- End Event item -->
+
+            <div class="swiper-slide event-item d-flex flex-column justify-content-center">
+			<iframe width="100%" height="200px" src="https://www.youtube.com/embed/WfKyAPTteSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div><!-- End Event item -->
+
+            <div class="swiper-slide event-item d-flex flex-column justify-content-center">
+			<iframe width="100%" height="200px" src="https://www.youtube.com/embed/a8SHcFDJ6mE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div><!-- End Event item -->
+
+
+          </div>
+          <div class="swiper-pagination"></div>
+
+	  <div class="section-title mt-5">
+          <h2>Kegiatan PPKM Ditlantas Jajaran</h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
+
+        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide event-item d-flex flex-column justify-content-center">
+			<iframe width="100%" height="200" src="https://www.youtube.com/embed/pNikHU9wy60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+            </div><!-- End Event item -->
+
+            <div class="swiper-slide event-item d-flex flex-column justify-content-center">
+			<iframe width="100%" height="200" src="https://www.youtube.com/embed/a5tA_3OlUEc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div><!-- End Event item -->
+
+            <div class="swiper-slide event-item d-flex flex-column justify-content-center">
+			<iframe width="100%" height="200" src="https://www.youtube.com/embed/ZawN50oUQ64" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div><!-- End Event item -->
+
+            <div class="swiper-slide event-item d-flex flex-column justify-content-center">
+			<iframe width="100%" height="200" src="https://www.youtube.com/embed/Ex3ISKFfdZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div><!-- End Event item -->
+
+            <div class="swiper-slide event-item d-flex flex-column justify-content-center">
+			<iframe width="100%" height="200" src="https://www.youtube.com/embed/YZdzdyAnv0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div><!-- End Event item -->
+
+
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
-        </div>
-    	</nav>
-    </div><!-- End Breadcrumbs -->
 
-
-<!-- Content
-================================================== -->
-
-<!-- Container -->
-
-<!-- ======= Contact Section ======= -->
-<div class="container-fluid">
-<div class="container-fluid">
-<div class="container-fluid">
-
-	<p class="text-center">Pemberlakuan Pembatasan Kegiatan Masyarakat (disingkat dengan PPKM) adalah kebijakan Pemerintah Indonesia sejak awal tahun 2021 untuk menangani pandemi Covid-19 di Indonesia. Sebelum pelaksanaan PPKM, pemerintah telah melaksanakan pembatasan sosial berskala besar (PSBB) yang berlangsung di sejumlah wilayah di Indonesia. PPKM berlangsung di beberapa wilayah yang menjadi titik penyebaran infeksi Covid-19, yakni di Pulau Jawa dan Bali. <br>
-	Pemerintah Indonesia pertama kali menerapkan PPKM pada tanggal 11 hingga 25 Januari 2021. PPKM selama dua pekan ini dilaksanakan berdasarkan Instruksi Menteri Dalam Negeri (Mendagri) Nomor 1 Tahun 2021 dan diberlakukan di wilayah Jawa dan Bali. Sebelumnya, pada tahun 2020, sejumlah daerah telah menerapkan pembatasan sosial berskala besar (PSBB) untuk mencegah meluasnya penyebaran Covid-19.
-
-	</p>
-
-	<div class="fullwidth border-top margin-top-40 margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
-        <!-- YT Carousel -->
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-md-12">
-                    <h3 class="headline centered margin-bottom-40 margin-top-10">Kegiatan PPKM Korlantas Polri</h3>
-                </div>
-                
-                <!-- Carousel -->
-                <div class="col-md-12">
-					<div style="overflow-x: auto;overflow-y:hidden; white-space:nowrap; scrollbar-width: thin;" class="carousel">
-					
-							<iframe width="550" height="320" src="https://www.youtube.com/embed/0EC5JSqR6V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-						
-								
-							<iframe width="550" height="320" src="https://www.youtube.com/embed/tFRjKFDs-o4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-								
-							<iframe width="550" height="320" src="https://www.youtube.com/embed/wZSjEWd-5l4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-								
-							<iframe width="550" height="320" src="https://www.youtube.com/embed/WfKyAPTteSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-								
-							<iframe width="550" height="320" src="https://www.youtube.com/embed/a8SHcFDJ6mE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-						
-					</div>
-                </div>
-                <!-- Carousel / End -->
-
-            </div>
-        </div>
-        <!-- Logo Carousel / End -->
-    </div>
-
-	<div class="fullwidth border-top margin-top-40 margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
-        <!-- YT Carousel -->
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-md-12">
-                    <h3 class="headline centered margin-bottom-40 margin-top-10">Kegiatan PPKM Ditlantas Jajaran</h3>
-                </div>
-                
-                <!-- Carousel -->
-                <div class="col-md-12">
-					<div style="overflow-x: auto;overflow-y:hidden; white-space:nowrap; scrollbar-width: thin;" class="carousel">
-					
-							<iframe width="550" height="320" src="https://www.youtube.com/embed/pNikHU9wy60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-						
-								
-							<iframe width="550" height="320" src="https://www.youtube.com/embed/a5tA_3OlUEc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-								
-							<iframe width="550" height="320" src="https://www.youtube.com/embed/ZawN50oUQ64" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-								
-							<iframe width="550" height="320" src="https://www.youtube.com/embed/Ex3ISKFfdZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-								
-							<iframe width="550" height="320" src="https://www.youtube.com/embed/YZdzdyAnv0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-						
-					</div>
-                </div>
-                <!-- Carousel / End -->
-
-            </div>
-        </div>
-        <!-- Logo Carousel / End -->
-    </div>
-
-	
-</div>
-</div>
-</div>
-<!-- Container / End -->
-
-  
-
-
-
-
-<script>
-    $(document).ready(function() { 
-        var initialCenter = [-2.548926, 118.0148634];
-        var initialZoom = 5;
-        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        }); 
-
-        // StART MAP SECTION
-        var mapContainer = L.map('map', {
-            maxZoom: 20,
-            minZoom: 1,
-            zoomSnap: 0.25,
-            zoomControl: false,
-            layers: [googleStreet]
-        }).setView(initialCenter, initialZoom);  
-
-
-        var icon = L.icon({
-            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-            iconSize: [80, 80], // size of the icon
-        });
-                        
-                        
-        var baseMaps = {
-            "Google Map Street": googleStreet,
-            "Google Map Satelite": googleSatelite,
-            "Google Map Hybrid": googleHybrid,
-            "Google Map Terrain": googleTerrain,
-        };
-        var overlayMaps = {};
-        // L.control.layers(baseMaps, overlayMaps, {
-        //     position: 'bottomleft'
-        // }).addTo(mapContainer);
-        // L.control.zoom({
-        //     position: 'bottomright'
-        // }).addTo(mapContainer);
-    });
-
-	
-</script>
+      </div>
+    </section><!-- End Events Section -->

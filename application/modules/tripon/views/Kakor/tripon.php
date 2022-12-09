@@ -8,36 +8,38 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <div class="card" style="display:none ;">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-3 ">
-                    <label for="waktu" class="form-label"> Waktu</label>
-                    <input class="form-control" type="date" name="waktu" id="waktu">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="grid-example" style="background-color:transparent">
+                <div class="cat">
+                    <label>
+                        <input checked type="radio" value="now" name="filter" id="nowDisplay"><span> Saat ini</span>
+                    </label>
                 </div>
-                <div class="col-md-3 ">
-                    <label class="form-label">Kendaraan</label>
-                    <select name="type_vehicle" class="form-select" style="width:100%" id="type_name" required>
-                        <option selected value="">Pilih Jenis Kendaraan</option>
-                        <?php
-                        foreach ($data['getVehicle'] as $row) : ?>
-                            <option value="<?php echo $row['id']; ?>"><?php echo $row['type_name']; ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                <div class="cat">
+                    <label>
+                        <input type="radio" value="today" name="filter" id="todayDisplay"><span> Hari ini</span>
+                    </label>
                 </div>
-                <div class="col-md-3 ">
-                    <label class="form-label">Titik</label>
-                    <select class="form-select">
-                        <option>Titik Kemacetan</option>
-                        <option>Large Kemacetan</option>
-                        <option>Small Kemacetan</option>
-                    </select>
+                <div class="cat">
+                    <label>
+                        <input type="radio" value="week" name="filter" id="weekDisplay"><span> Minggu ini</span>
+                    </label>
+                </div>
+                <div class="cat">
+                    <label>
+                        <input type="radio" value="month" name="filter" id="monthDisplay"><span> Bulan ini</span>
+                    </label>
+                </div>
+                <div class="cat">
+                    <label>
+                        <input type="radio" value="year" name="filter" id="yearDisplay"><span> Tahun ini</span>
+                    </label>
                 </div>
             </div>
-            <div style="height: 450px;" class="mt-3" id="mapG20Dashboard"></div>
-            <button class=" mt-3 btn btn-primary float-end"> Tampilkan </button>
         </div>
     </div>
+
 
 
     <div class="row">
@@ -121,6 +123,8 @@
                 <thead>
                     <tr class="text-center">
                         <th>No</th>
+                        <th>Tanggal Perjalanan</th>
+                        <th>Waktu Perjalanan</th>
                         <th>Nama Pengemudi</th>
                         <th>Nomor Registrasi</th>
                         <th>Jumlah Penumpang</th>
@@ -128,8 +132,6 @@
                         <th>Model Kendaraan</th>
                         <th>Lokasi Asal</th>
                         <th>Lokasi Tujuan</th>
-
-                        <!-- <th>Penumpang</th> -->
                         <th>Informasi Lebih Lanjut</th>
                     </tr>
                 </thead>
@@ -226,28 +228,44 @@
             columns: [
 
                 {
-                    data: 'id'
+                    data: 'id',
+                    "width": '2%'
+                },
+                {
+                    data: 'date_departure',
+                    "width": '2%'
+                },
+                {
+                    data: 'time_departure',
+                    "width": '2%'
                 },
                 {
                     data: 'person_name',
+                    "width": '5%'
                 },
                 {
-                    data: 'no_vehicle'
+                    data: 'no_vehicle',
+                    "width": '5%'
                 },
                 {
-                    data: 'passanger'
+                    data: 'passanger',
+                    "width": '2%'
                 },
                 {
-                    data: 'type_vehicle'
+                    data: 'type_vehicle',
+                    "width": '5%'
                 },
                 {
-                    data: 'brand_vehicle'
+                    data: 'brand_vehicle',
+                    "width": '5%'
                 },
                 {
-                    data: 'location_start'
+                    data: 'location_start',
+                    "width": '5%'
                 },
                 {
-                    data: 'location_end'
+                    data: 'location_end',
+                    "width": '5%'
                 },
 
                 // {
@@ -261,7 +279,7 @@
             ],
 
             order: [
-                [0, "ASC"]
+                [0, "DESC"]
             ],
 
             drawCallback: function(settings) {
@@ -400,6 +418,7 @@
     }
 
 
+
     $('#limit_showData').on('change', function() {
         let filter = 0
         var limit = $('#limit_showData').val();
@@ -487,6 +506,27 @@
         })
 
     })
+
+
+    $("[name=filter]").on("change", function(e) {
+
+        var tanggal;
+        var isitype = 'day';
+
+        if (this.value == 'day') {
+            tanggal = [moment().format('YYYY-MM-DD'), moment().format('YYYY-MM-DD')];
+            isitype = 'day';
+        } else if (this.value == 'month') {
+            tanggal = [moment().startOf('month').format('YYYY-MM-DD'), moment().endOf('month').format('YYYY-MM-DD')];
+            isitype = 'month';
+        } else if (this.value == 'year') {
+            tanggal = [moment().startOf('year').format('YYYY-MM-DD'), moment().endOf('year').format('YYYY-MM-DD')];
+            isitype = 'year';
+        }
+        // //  console.log(tanggal);
+        // // console.log(tanggal[0]);
+        // getStatistik();
+    });
 
     function BtnFilter() {
         $('#FilterTripOn').html(`<div class="card">

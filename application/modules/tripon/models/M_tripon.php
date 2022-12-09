@@ -16,8 +16,7 @@ class M_tripon extends CI_Model {
 
     }
 
-    public function get_datatables($postData=null)
-
+    public function get_datatables($postData = null)
     {   
 
         $draw = $postData['draw']; 
@@ -97,11 +96,12 @@ class M_tripon extends CI_Model {
 
 
         // $url_trip_on = 'trip_on';
-        $url_trip_on = 'trip_on?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
+        http: //localhost:3020/v1/trip_on/list_tripon?order=departure_date&orderDirection=desc
+        $url = 'trip_on/list_tripon?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
         // $url_passanger_trip_on = 'passanger_trip_on?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
-        
 
-        $result = guzzle_request('GET', $url_trip_on,  [
+
+        $result = guzzle_request('GET', $url,  [
 
             'headers' => [
 
@@ -118,12 +118,10 @@ class M_tripon extends CI_Model {
         // var_dump($asd);die;
 
 
-
-
         $no=1;
-        foreach ($result['data']['rows'] as $field) { 
-		// foreach  ($result['data']['data'] as $field) { 
-            
+        foreach ($result['data']['data'] as $field) {
+            // foreach  ($result['data']['data'] as $field) { 
+
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
@@ -131,6 +129,9 @@ class M_tripon extends CI_Model {
             $row ['no_vehicle']	= $field["public_vehicle"]['no_vehicle'];
             $row ['type_vehicle']	= $field['type_vehicle']['type_name'];
             $row['passanger'] = count($field['passenger_trip_ons']);
+            $row['date_departure'] = date($field['departure_date']);
+            $row['time_departure'] = date($field['departure_time']);
+
 
             if ($field['type_vehicle']['type_name'] == 'Motor') {
                 $row['brand_vehicle']    = 'Sepeda Motor';
