@@ -147,7 +147,7 @@
 
 		</section>
 
-		<!-- ======= Blog Section ======= -->`
+		<!-- ======= Blog Section ======= -->
 		<section id="blog" class="blog-area">
     		<div class="blog-inner area-padding">
         		<div class="blog-overly"></div>
