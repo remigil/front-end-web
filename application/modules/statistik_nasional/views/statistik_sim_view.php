@@ -35,7 +35,6 @@
                                                      Detail
                                                  </button>
                                              </div>
-
                                          </div>
                                      </div>
                                  </div>
@@ -53,6 +52,15 @@
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="simThisMonth"></h1>
                                          <p class="text-center mb-0">Sim</p>
                                      </div>
+                                     <div class="col-md-12 ms-3">
+                                         <div class="row">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background:#007DD8; height:40px; border-radius:20px 0 20px 20; ">
+                                                 <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalMonth">
+                                                     Detail
+                                                 </button>
+                                             </div>
+                                         </div>
+                                     </div>
                                  </div>
                              </div>
                          </div>
@@ -67,6 +75,15 @@
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="simThisYear"></h1>
                                          <p class="text-center mb-0">Sim</p>
+                                     </div>
+                                     <div class="col-md-12 ms-3">
+                                         <div class="row">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background:#007DD8; height:40px; border-radius:20px 0 20px 20; ">
+                                                 <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalYear">
+                                                     Detail
+                                                 </button>
+                                             </div>
+                                         </div>
                                      </div>
                                  </div>
                              </div>
@@ -92,31 +109,126 @@
                  <div class="row">
                      <div class="col-md-3">
                          <span>Baru</span> <br>
-                         <span>A : <span id="simbarua"></span></span> <br>
-                         <span>C : <span id="simbaruc"></span></span><br>
-                         <span>D : <span id="simbarud"></span></span><br>
+                         <span>A : <span id="daysimbarua"></span></span> <br>
+                         <span>C : <span id="daysimbaruc"></span></span><br>
+                         <span>D : <span id="daysimbarud"></span></span><br>
                      </div>
                      <div class="col-md-3">
                          <span>Perpanjangan</span> <br>
-                         <span>A : <span id="simperpanjangana"></span></span> <br>
-                         <span>AU : <span id="simperpanjanganau"></span></span> <br>
-                         <span>C : <span id="simperpanjanganb1"></span></span><br>
-                         <span>C1 : <span id="simperpanjanganb1u"></span></span><br>
-                         <span>C2 : <span id="simperpanjanganb2"></span></span><br>
-                         <span>D : <span id="simperpanjanganb2u"></span></span><br>
-                         <span>D1 : <span id="simperpanjanganc"></span></span><br>
-                         <span>B1 : <span id="simperpanjanganc1"></span></span><br>
-                         <span>B1U : <span id="simperpanjanganc2"></span></span><br>
-                         <span>B2 : <span id="simperpanjangand"></span></span><br>
-                         <span>B2U : <span id="simperpanjangand1"></span></span><br>
+                         <span>A : <span id="daysimperpanjangana"></span></span> <br>
+                         <span>AU : <span id="daysimperpanjanganau"></span></span> <br>
+                         <span>C : <span id="daysimperpanjanganb1"></span></span><br>
+                         <span>C1 : <span id="daysimperpanjanganb1u"></span></span><br>
+                         <span>C2 : <span id="daysimperpanjanganb2"></span></span><br>
+                         <span>D : <span id="daysimperpanjanganb2u"></span></span><br>
+                         <span>D1 : <span id="daysimperpanjanganc"></span></span><br>
+                         <span>B1 : <span id="daysimperpanjanganc1"></span></span><br>
+                         <span>B1U : <span id="daysimperpanjanganc2"></span></span><br>
+                         <span>B2 : <span id="daysimperpanjangand"></span></span><br>
+                         <span>B2U : <span id="daysimperpanjangand1"></span></span><br>
                      </div>
                      <div class="col-md-3">
                          <span>Peningkatan</span> <br>
-                         <span>AU : <span id="simpeningkatanau"></span></span> <br>
-                         <span>B1 : <span id="simpeningkatanb1"></span></span><br>
-                         <span>B1U : <span id="simpeningkatanb1u"></span></span><br>
-                         <span>B2 : <span id="simpeningkatanb2"></span></span><br>
-                         <span>B2U : <span id="simpeningkatanb2u"></span></span><br>
+                         <span>AU : <span id="daysimpeningkatanau"></span></span> <br>
+                         <span>B1 : <span id="daysimpeningkatanb1"></span></span><br>
+                         <span>B1U : <span id="daysimpeningkatanb1u"></span></span><br>
+                         <span>B2 : <span id="daysimpeningkatanb2"></span></span><br>
+                         <span>B2U : <span id="daysimpeningkatanb2u"></span></span><br>
+                     </div>
+                 </div>
+             </div>
+             <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+         </div>
+     </div>
+ </div>
+
+ <div class="modal fade" id="ModalMonth" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Detail Sim Bulan Ini</h5>
+                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+             </div>
+             <div class="modal-body">
+                 <div class="row">
+                     <div class="col-md-3">
+                         <span>Baru</span> <br>
+                         <span>A : <span id="monthsimbarua"></span></span> <br>
+                         <span>C : <span id="monthsimbaruc"></span></span><br>
+                         <span>D : <span id="monthsimbarud"></span></span><br>
+                     </div>
+                     <div class="col-md-3">
+                         <span>Perpanjangan</span> <br>
+                         <span>A : <span id="monthsimperpanjangana"></span></span> <br>
+                         <span>AU : <span id="monthsimperpanjanganau"></span></span> <br>
+                         <span>C : <span id="monthsimperpanjanganb1"></span></span><br>
+                         <span>C1 : <span id="monthsimperpanjanganb1u"></span></span><br>
+                         <span>C2 : <span id="monthsimperpanjanganb2"></span></span><br>
+                         <span>D : <span id="monthsimperpanjanganb2u"></span></span><br>
+                         <span>D1 : <span id="monthsimperpanjanganc"></span></span><br>
+                         <span>B1 : <span id="monthsimperpanjanganc1"></span></span><br>
+                         <span>B1U : <span id="monthsimperpanjanganc2"></span></span><br>
+                         <span>B2 : <span id="monthsimperpanjangand"></span></span><br>
+                         <span>B2U : <span id="monthsimperpanjangand1"></span></span><br>
+                     </div>
+                     <div class="col-md-3">
+                         <span>Peningkatan</span> <br>
+                         <span>AU : <span id="monthsimpeningkatanau"></span></span> <br>
+                         <span>B1 : <span id="monthsimpeningkatanb1"></span></span><br>
+                         <span>B1U : <span id="monthsimpeningkatanb1u"></span></span><br>
+                         <span>B2 : <span id="monthsimpeningkatanb2"></span></span><br>
+                         <span>B2U : <span id="monthsimpeningkatanb2u"></span></span><br>
+                     </div>
+                 </div>
+             </div>
+             <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+         </div>
+     </div>
+ </div>
+ <div class="modal fade" id="ModalYear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Detail Sim Tahun Ini</h5>
+                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+             </div>
+             <div class="modal-body">
+                 <div class="row">
+                     <div class="col-md-3">
+                         <span>Baru</span> <br>
+                         <span>A : <span id="yearsimbarua"></span></span> <br>
+                         <span>C : <span id="yearsimbaruc"></span></span><br>
+                         <span>D : <span id="yearsimbarud"></span></span><br>
+                     </div>
+                     <div class="col-md-3">
+                         <span>Perpanjangan</span> <br>
+                         <span>A : <span id="yearsimperpanjangana"></span></span> <br>
+                         <span>AU : <span id="yearsimperpanjanganau"></span></span> <br>
+                         <span>C : <span id="yearsimperpanjanganb1"></span></span><br>
+                         <span>C1 : <span id="yearsimperpanjanganb1u"></span></span><br>
+                         <span>C2 : <span id="yearsimperpanjanganb2"></span></span><br>
+                         <span>D : <span id="yearsimperpanjanganb2u"></span></span><br>
+                         <span>D1 : <span id="yearsimperpanjanganc"></span></span><br>
+                         <span>B1 : <span id="yearsimperpanjanganc1"></span></span><br>
+                         <span>B1U : <span id="yearsimperpanjanganc2"></span></span><br>
+                         <span>B2 : <span id="yearsimperpanjangand"></span></span><br>
+                         <span>B2U : <span id="yearsimperpanjangand1"></span></span><br>
+                     </div>
+                     <div class="col-md-3">
+                         <span>Peningkatan</span> <br>
+                         <span>AU : <span id="yearsimpeningkatanau"></span></span> <br>
+                         <span>B1 : <span id="yearsimpeningkatanb1"></span></span><br>
+                         <span>B1U : <span id="yearsimpeningkatanb1u"></span></span><br>
+                         <span>B2 : <span id="yearsimpeningkatanb2"></span></span><br>
+                         <span>B2U : <span id="yearsimpeningkatanb2u"></span></span><br>
                      </div>
                  </div>
              </div>
@@ -644,29 +756,68 @@
                  lastDay
              },
              success: function(result) {
+                 console.log(result);
                  $("#overlay").fadeOut(300);
                  $('#simThisDay').text(result.thisDay)
                  $('#simThisMonth').text(result.thisMonth)
                  $('#simThisYear').text(result.thisYear)
-                 $('#simbarua').text(result.detailsthisDay.baru_a)
-                 $('#simbaruc').text(result.detailsthisDay.baru_c)
-                 $('#simbarud').text(result.detailsthisDay.baru_d)
-                 $('#simperpanjangana').text(result.detailsthisDay.perpanjangan_a)
-                 $('#simperpanjanganau').text(result.detailsthisDay.perpanjangan_au)
-                 $('#simperpanjanganb1').text(result.detailsthisDay.perpanjangan_b1)
-                 $('#simperpanjanganb1u').text(result.detailsthisDay.perpanjangan_b1u)
-                 $('#simperpanjanganb2').text(result.detailsthisDay.perpanjangan_b2)
-                 $('#simperpanjanganb2u').text(result.detailsthisDay.perpanjangan_b2u)
-                 $('#simperpanjanganc').text(result.detailsthisDay.perpanjangan_c)
-                 $('#simperpanjanganc1').text(result.detailsthisDay.perpanjangan_c1)
-                 $('#simperpanjanganc2').text(result.detailsthisDay.perpanjangan_c2)
-                 $('#simperpanjangand').text(result.detailsthisDay.perpanjangan_d)
-                 $('#simperpanjangand1').text(result.detailsthisDay.perpanjangan_d1)
-                 $('#simpeningkatanau').text(result.detailsthisDay.peningkatan_au)
-                 $('#simpeningkatanb1').text(result.detailsthisDay.peningkatan_b1)
-                 $('#simpeningkatanb1u').text(result.detailsthisDay.peningkatan_b1u)
-                 $('#simpeningkatanb2').text(result.detailsthisDay.peningkatan_b2)
-                 $('#simpeningkatanb2u').text(result.detailsthisDay.peningkatan_b2u)
+                 $('#daysimbarua').text(result.detailsthisDay.baru_a)
+                 $('#daysimbaruc').text(result.detailsthisDay.baru_c)
+                 $('#daysimbarud').text(result.detailsthisDay.baru_d)
+                 $('#daysimperpanjangana').text(result.detailsthisDay.perpanjangan_a)
+                 $('#daysimperpanjanganau').text(result.detailsthisDay.perpanjangan_au)
+                 $('#daysimperpanjanganb1').text(result.detailsthisDay.perpanjangan_b1)
+                 $('#daysimperpanjanganb1u').text(result.detailsthisDay.perpanjangan_b1u)
+                 $('#daysimperpanjanganb2').text(result.detailsthisDay.perpanjangan_b2)
+                 $('#daysimperpanjanganb2u').text(result.detailsthisDay.perpanjangan_b2u)
+                 $('#daysimperpanjanganc').text(result.detailsthisDay.perpanjangan_c)
+                 $('#daysimperpanjanganc1').text(result.detailsthisDay.perpanjangan_c1)
+                 $('#daysimperpanjanganc2').text(result.detailsthisDay.perpanjangan_c2)
+                 $('#daysimperpanjangand').text(result.detailsthisDay.perpanjangan_d)
+                 $('#daysimperpanjangand1').text(result.detailsthisDay.perpanjangan_d1)
+                 $('#daysimpeningkatanau').text(result.detailsthisDay.peningkatan_au)
+                 $('#daysimpeningkatanb1').text(result.detailsthisDay.peningkatan_b1)
+                 $('#daysimpeningkatanb1u').text(result.detailsthisDay.peningkatan_b1u)
+                 $('#daysimpeningkatanb2').text(result.detailsthisDay.peningkatan_b2)
+                 $('#daysimpeningkatanb2u').text(result.detailsthisDay.peningkatan_b2u)
+                 $('#monthsimbarua').text(result.detailsthisMonth.baru_a)
+                 $('#monthsimbaruc').text(result.detailsthisMonth.baru_c)
+                 $('#monthsimbarud').text(result.detailsthisMonth.baru_d)
+                 $('#monthsimperpanjangana').text(result.detailsthisMonth.perpanjangan_a)
+                 $('#monthsimperpanjanganau').text(result.detailsthisMonth.perpanjangan_au)
+                 $('#monthsimperpanjanganb1').text(result.detailsthisMonth.perpanjangan_b1)
+                 $('#monthsimperpanjanganb1u').text(result.detailsthisMonth.perpanjangan_b1u)
+                 $('#monthsimperpanjanganb2').text(result.detailsthisMonth.perpanjangan_b2)
+                 $('#monthsimperpanjanganb2u').text(result.detailsthisMonth.perpanjangan_b2u)
+                 $('#monthsimperpanjanganc').text(result.detailsthisMonth.perpanjangan_c)
+                 $('#monthsimperpanjanganc1').text(result.detailsthisMonth.perpanjangan_c1)
+                 $('#monthsimperpanjanganc2').text(result.detailsthisMonth.perpanjangan_c2)
+                 $('#monthsimperpanjangand').text(result.detailsthisMonth.perpanjangan_d)
+                 $('#monthsimperpanjangand1').text(result.detailsthisMonth.perpanjangan_d1)
+                 $('#monthsimpeningkatanau').text(result.detailsthisMonth.peningkatan_au)
+                 $('#monthsimpeningkatanb1').text(result.detailsthisMonth.peningkatan_b1)
+                 $('#monthsimpeningkatanb1u').text(result.detailsthisMonth.peningkatan_b1u)
+                 $('#monthsimpeningkatanb2').text(result.detailsthisMonth.peningkatan_b2)
+                 $('#monthsimpeningkatanb2u').text(result.detailsthisMonth.peningkatan_b2u)
+                 $('#yearsimbarua').text(result.detailsthisYear.baru_a)
+                 $('#yearsimbaruc').text(result.detailsthisYear.baru_c)
+                 $('#yearsimbarud').text(result.detailsthisYear.baru_d)
+                 $('#yearsimperpanjangana').text(result.detailsthisYear.perpanjangan_a)
+                 $('#yearsimperpanjanganau').text(result.detailsthisYear.perpanjangan_au)
+                 $('#yearsimperpanjanganb1').text(result.detailsthisYear.perpanjangan_b1)
+                 $('#yearsimperpanjanganb1u').text(result.detailsthisYear.perpanjangan_b1u)
+                 $('#yearsimperpanjanganb2').text(result.detailsthisYear.perpanjangan_b2)
+                 $('#yearsimperpanjanganb2u').text(result.detailsthisYear.perpanjangan_b2u)
+                 $('#yearsimperpanjanganc').text(result.detailsthisYear.perpanjangan_c)
+                 $('#yearsimperpanjanganc1').text(result.detailsthisYear.perpanjangan_c1)
+                 $('#yearsimperpanjanganc2').text(result.detailsthisYear.perpanjangan_c2)
+                 $('#yearsimperpanjangand').text(result.detailsthisYear.perpanjangan_d)
+                 $('#yearsimperpanjangand1').text(result.detailsthisYear.perpanjangan_d1)
+                 $('#yearsimpeningkatanau').text(result.detailsthisYear.peningkatan_au)
+                 $('#yearsimpeningkatanb1').text(result.detailsthisYear.peningkatan_b1)
+                 $('#yearsimpeningkatanb1u').text(result.detailsthisYear.peningkatan_b1u)
+                 $('#yearsimpeningkatanb2').text(result.detailsthisYear.peningkatan_b2)
+                 $('#yearsimpeningkatanb2u').text(result.detailsthisYear.peningkatan_b2u)
 
              }
          })
