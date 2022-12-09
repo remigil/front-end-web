@@ -174,6 +174,31 @@ class Fasilitasumum extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
+    public function jalur()
+    {
+		$headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = ''; 
+ 
+        $page_content["title"] = "Jalur";
+        $page_content["page"] = "masterdata/G20/jalur_view";
+
+        $getCategory = guzzle_request('GET', 'category_fasum', [
+            'headers' => $headers
+        ]);
+        if($getCategory['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
+        $data['getCategory'] = $getCategory['data']['data'];
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
 	public function getCategory($id){
 		$headers = [
             'Authorization' => $this->session->userdata['token'],
@@ -216,6 +241,18 @@ class Fasilitasumum extends MY_Controller
             );
             echo json_encode($res);
             die;
+        }
+
+        if(isset($input['drawer'])){
+            $drawer = $input['drawer'];
+        }else{
+            $drawer = null;
+        }
+
+        if(isset($input['fasum_route'])){
+            $fasum_route = $input['fasum_route'];
+        }else{
+            $fasum_route = null;
         }
 
         if($_FILES['photo']['name'] != null){ 
@@ -273,7 +310,11 @@ class Fasilitasumum extends MY_Controller
                 ], 
 				[
                     'name' => 'fasum_geoJson',
-                    'contents' => $input['drawer'],
+                    'contents' => $drawer,
+                ],
+				[
+                    'name' => 'route',
+                    'contents' => $fasum_route,
                 ],
             ];
         } else {
@@ -324,7 +365,11 @@ class Fasilitasumum extends MY_Controller
                 ],
 				[
                     'name' => 'fasum_geoJson',
-                    'contents' => $input['drawer'],
+                    'contents' => $drawer,
+                ],
+				[
+                    'name' => 'route',
+                    'contents' => $fasum_route,
                 ],
 			];
         }

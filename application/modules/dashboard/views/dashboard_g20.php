@@ -620,9 +620,7 @@
                                     <option value="3">Penjagaan</option> 
                                     <option value="4">Pengaturan</option> 
                                     <option value="5">Penutupan</option>
-                                    <option value="6">Jalur</option>
-                                    <option value="7">POSPAM</option>
-                                    <option value="8">POSYAN</option>
+                                    <option value="6">Jalur</option> 
                                 </select>
                                 <label class="labelmui">Subjek</label>
                             </div>
@@ -1392,7 +1390,7 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleHybrid, shpFile]
+            layers: [googleHybrid]
         }).setView(initialCenter, initialZoom); 
 
         var myRenderer = L.canvas({ padding: 0.5 });

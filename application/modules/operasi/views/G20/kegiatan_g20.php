@@ -13,8 +13,8 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 mb-3" style="display: flex;">  
-                    <input required class="form-control" type="date" id="startdate" name="startdate" value="2022-11-01"> &nbsp;&nbsp;<span style="margin-top: 7px;">To</span>&nbsp;&nbsp;
-                    <input required class="form-control" type="date" id="enddate" name="enddate" value="2022-11-20">
+                    <input required class="form-control" type="date" id="startdate" name="startdate" value="<?= date('Y-m-d')?>"> &nbsp;&nbsp;<span style="margin-top: 7px;">To</span>&nbsp;&nbsp;
+                    <input required class="form-control" type="date" id="enddate" name="enddate" value="<?= date('Y-m-d')?>">
                     &nbsp;&nbsp;<button class="btn btn-primary" id="searchtgl">Cari</button>
                 </div> 
             </div>
@@ -197,9 +197,7 @@
                                     <option value="3">Penjagaan</option> 
                                     <option value="4">Pengaturan</option> 
                                     <option value="5">Penutupan</option> 
-                                    <option value="6">Jalur</option>
-                                    <option value="7">POSPAM</option>
-                                    <option value="8">POSYAN</option>
+                                    <option value="6">Jalur</option> 
                                 </select>
                                 <!-- <label class="labelmui">Subjek</label> -->
                             </div>
