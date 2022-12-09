@@ -41,7 +41,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="cat polresDisplay" style="margin-left: 10px; ">
+                        <div class="cat polresDisplay" style="margin-left: 10px; display: none;">
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="polres" name="filter" id="polresDisplay"><span><i class="fa fas fa-vector-square"></i> Polres</span>
@@ -51,7 +51,17 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="cat jalurBeatDisplay" style="margin-left: 10px;"> 
+                        <div class="cat jalurDisplay" style="margin-left: 10px;"> 
+                            <div class="btn-group">
+                                <label>
+                                <input type="checkbox" value="jalur" name="filter" id="jalurDisplay"><span><i class="fa fas fa-route"></i> Jalur</span>
+                                </label>
+                                <button id="jalurFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cat jalurBeatDisplay" style="margin-left: 10px; display: none;"> 
                             <div class="btn-group">
                                 <label>
                                 <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-route"></i> Jalur Beat</span>
@@ -246,8 +256,8 @@
 
                 </div>
                 
-                <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
-                    <div style="width: 308px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: 0px;">
+                <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none; ">
+                    <div style="width: 308px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: -80px;">
                         <div style="margin-left: 0px;overflow-x: scroll;height: 435px;scrollbar-width: thin;position: relative; padding: 15px;">
                             <form class="form" method="POST" enctype="multipart/form-data"> 
                                 <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
@@ -266,7 +276,7 @@
                                         <input type="checkbox" name="filter" value="polda" id="polda" class="form-input">
                                         <span>Polda</span>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" display: none;>
                                         <input type="checkbox"  name="filter" value="polres" id="polres" class="form-input" >  
                                         <span>Polres</span> 
                                     </div> 
@@ -981,6 +991,19 @@
     </div>
 </div>
 
+
+<div class="modal right fade" id="myModalJalurDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelJalurDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelJalurDisplay">Jalur</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalJalurDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalJalurDisplay" style="width: 550px;">
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal right fade" id="myModalSamsatDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelSamsatDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -1247,6 +1270,7 @@
     var routingJadwal = new Array();
 
 
+    var markerJalur = new Array();
     var markerSamsat = new Array();
     var markerTroubleSpot = new Array();
     var markerBlankSpot = new Array();
@@ -1265,6 +1289,7 @@
 
     var routingTroubleSpot = new Array();
     var routingBlankSpot = new Array();
+    var routingJalur = new Array();
 
     var routingRenpam = new Array();
     var routingRenpam1 = new Array();
@@ -1279,7 +1304,7 @@
     var fasumKhususClusterGroup;
     var laporanClusterGroup;
     var panicClusterGroup;
- 
+  
     var samsatClusterGroup;
     var troubleSpotClusterGroup;
     var blankSpotClusterGroup;
@@ -6012,7 +6037,10 @@
                     var ressCluster = result['data']['cluster']; 
                     var ressSchedule = result['data']['jadwal_kegiatan'];
                     var ressOperasi = result['data']['operasi'];
-                    console.log(result['data']);
+
+                    var ressJalur = result['data']['jalur'];
+                    // console.log(result['data']);
+                    
 
                     if(ressTurjawali && ressTurjawali.length > 0){  
                         var filterTurjawali = ressTurjawali.filter(function (e) {
@@ -6394,6 +6422,129 @@
                                 },
                             });
                             mapContainer.addLayer(samsatClusterGroup);
+                        }
+                    }
+
+
+                    if (ressJalur && ressJalur.length > 0) {
+                        var filterJalur = ressJalur;
+
+                        if (filterJalur.length > 0) {
+                            $('#openModalJalurDisplay').html(`
+                                <table id="datatableJalurOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Keterangan</th>  
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalJalurDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+
+                            var countJalurDisplay = 0;
+                            var listJalurDisplay = '';
+                            $('#totalJalurDisplay').html(filterJalur.length);
+                            var countlistJalur = 0;
+                            var checkedJalur1 = [];
+
+                            for (let i = 0; i < filterJalur.length; i++) {
+                                countJalurDisplay += 1; 
+                                countlistJalur += 1;
+                                id = i; 
+                                 
+                                listJalurDisplay += `
+                                    <tr>
+                                        <td>${countJalurDisplay}</td>
+                                        <td>${filterJalur[i].fasum_name}</td> 
+                                        <td>${filterJalur[i].fasum_description}</td>  
+                                        <td>
+                                            <input type="checkbox" class="form-input checkTs" name="selectTs" 
+                                            id="listJlDisplay${countlistJalur}"  
+                                            data-name="${filterJalur[i]['fasum_name']}" 
+                                            data-cord='${JSON.stringify(filterJalur[i]['route'])}'> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $('#isiModalJalurDisplay').html(listJalurDisplay);
+                                
+                                
+                                checkedJalur1.push({
+                                    fasum_name: filterJalur[i]['fasum_name'],
+                                    checked: 0,
+                                });
+                                
+                            }
+
+                            for (let i = 0; i < countlistJalur; i++) {
+                                $(`#listJlDisplay${i+1}`).on("change", function(e) {
+                                    
+                                    var cordRute = $(this).data('cord');
+                                    if (cordRute != null && cordRute[0]['latLng'] != null) {
+                                        if ($(this).is(':checked')) {
+                                            routingJalur[i] = null;
+                                            routingJalur[i] = L.Routing.control({
+                                                show: false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: cordRute,
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{
+                                                        color: "#a50000",
+                                                        weight: 5,
+                                                        // className: 'animateRoute'
+                                                    }]
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        // return L.marker(wp.latLng);
+                                                    } else if (i === nWps - 1) {
+                                                        // return L.marker(wp.latLng);
+                                                    } else {
+                                                        // here change all the others
+                                                        // var options = {
+                                                        //         draggable: this.draggableWaypoints,
+                                                        //     },
+                                                        //     marker = L.marker(wp.latLng);
+    
+                                                        // return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer);
+                                            // mapContainer.addControl(routingJalur[i]); 
+                                        } else {
+                                            mapContainer.removeControl(routingJalur[i]);
+                                        }
+                                    }
+                                });
+                            }
+
+                            
+                            $('#datatableJalurOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            });
+                             
                         }
                     }
 
@@ -8101,6 +8252,15 @@
                 $("#samsatDisplay").prop('checked', false);
                 $("#samsatDisplay").val();
             }
+
+            if ($("#jalur").is(':checked')) {
+                $("#jalurDisplay").prop('checked', true);
+                // $("#myModalPanicDisplay").modal('show');
+            } else {
+                $("#jalurDisplay").prop('checked', false);
+                $("#jalurDisplay").val();
+            }
+
             if ($("#trouble_spot").is(':checked')) {
                 $("#trouble_spotDisplay").prop('checked', true);
                 // $("#myModalPanicDisplay").modal('show');
@@ -8263,6 +8423,20 @@
             }
             serverSideFilter();
         });
+
+        $("#jalurDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#jalur").prop('checked', true);
+                $("#myModalJalurDisplay").modal('show');
+            } else {
+                openDisplay = '';
+                $("#jalur").prop('checked', false);
+                $("#jalur").val();
+            }
+            serverSideFilter();
+        });
+        
         $("#trouble_spotDisplay").on("change", function(e) {
             if ($(this).is(':checked')) {
                 openDisplay = this.value;
@@ -8436,6 +8610,10 @@
         $("#samsatFilterModal").on("click", function(e) {
             $("#myModalSamsatDisplay").modal('show');
         }); 
+        $("#jalurFilterModal").on("click", function(e) {
+            $("#myModalJalurDisplay").modal('show');
+        }); 
+
         $("#troubleSpotFilterModal").on("click", function(e) {
             $("#myModalTroubleSpotDisplay").modal('show');
         });
@@ -8495,6 +8673,8 @@
                     $("#myModalPolresDisplay").modal('show');
                 } else if (openDisplay == 'polda') {
                     $("#myModalPoldaDisplay").modal('show');
+                } else if (openDisplay == 'jalur') {
+                    $("#myModalJalurDisplay").modal('show');
                 }    
             }else{
                 Swal.fire(
