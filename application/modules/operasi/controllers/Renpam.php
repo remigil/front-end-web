@@ -202,6 +202,12 @@ class Renpam extends MY_Controller
             $dummy['vips']    = json_encode($input['id_vip']);
         }
 
+        if (isset($input['cordinate'])) {
+            $dummy['coordinate_guarding']    = $input['cordinate'];
+        }else{
+            $dummy['coordinate_guarding']    = null;
+        }
+
         $dummy['total_vehicle']    = $input['total_vehicle'];
 
         $dummy['order_renpam']    = $input['order_renpam'];
@@ -275,6 +281,12 @@ class Renpam extends MY_Controller
 
         if (isset($input['id_vipR'])) {
             $dummy['vips']    = json_encode($input['id_vipR']);
+        }
+
+        if (isset($input['cordinateR'])) {
+            $dummy['coordinate_guarding']    = $input['cordinateR'];
+        }else{
+            $dummy['coordinate_guarding']    = null;
         }
 
         $dummy['total_vehicle']    = $input['total_vehicle'];
@@ -504,6 +516,12 @@ class Renpam extends MY_Controller
             $dummy['vips']    = json_encode($input['id_vip']);
         }else{
             $dummy['vips'] = [];
+        }
+
+        if (isset($input['cordinate'])) {
+            $dummy['coordinate_guarding']    = $input['cordinate'];
+        }else{
+            $dummy['coordinate_guarding']    = null;
         }
 
         $dummy['total_vehicle']    = $input['total_vehicle'];

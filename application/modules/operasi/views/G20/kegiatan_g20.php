@@ -135,7 +135,7 @@
             </div>
             <div class="modal-body"> 
                 <form class="formR" method="post" enctype="multipart/form-data"> 
-                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
+                    <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <input hidden name="schedule_id" id="schedule_id" class="form-control" type="text" > 
 
                     <div class="row">   
@@ -190,14 +190,14 @@
                         </div>
                         <div class="col-md-6"> 
                             <div class="material-selectfield mb-3">
-                                <select required name="subjekR" class="form-select" id="select2">
+                                <select name="subjekR" class="form-select" id="select2" required>
                                     <option selected value="">Pilih Subjek</option> 
                                     <option value="1">Patroli</option> 
                                     <option value="2">Pengawalan</option> 
                                     <option value="3">Penjagaan</option> 
                                     <option value="4">Pengaturan</option> 
                                     <option value="5">Penutupan</option> 
-                                    <option value="6">Jalur</option> 
+                                    <!-- <option value="6">Jalur</option>  -->
                                 </select>
                                 <!-- <label class="labelmui">Subjek</label> -->
                             </div>
@@ -244,26 +244,72 @@
                         <textarea hidden name="coordsAlternative1" id="coordsAlternative1" cols="5" rows="5"></textarea>
                         <textarea hidden name="coordsAlternative2" id="coordsAlternative2" cols="5" rows="5"></textarea>
                         <textarea hidden name="coordsAlternative3" id="coordsAlternative3" cols="5" rows="5"></textarea>
-                        <textarea hidden name="coordsAlternative4" id="coordsAlternative4" cols="5" rows="5"></textarea>
-
-                        
+                        <textarea hidden name="coordsAlternative4" id="coordsAlternative4" cols="5" rows="5"></textarea> 
                     </div>   
+
+                    <div class="col-md-6" style="display: none;"> 
+                        <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="cordinateR" id="cordinateR" placeholder="" type="text">
+                            <label class="labelmui">Coordinate</label>
+                        </div>
+                    </div>
 
                     
                     <div class="col-md-12 mt-3 float-end">
-                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: red" data-bs-toggle="modal" data-bs-target="#myModalUtama"> Rute Utama</a>
-                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #b935b9" data-bs-toggle="modal" data-bs-target="#myModal1"> Rute Alternative</a>
-                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: gray" data-bs-toggle="modal" data-bs-target="#myModal2"> Rute Escape</a>
-                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #000dda" data-bs-toggle="modal" data-bs-target="#myModal3"> Rute Masyarakat</a>
-                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #bdbd0b" data-bs-toggle="modal" data-bs-target="#myModal4"> Rute Umum</a>
+                        <div style="position: absolute;" id="btnRoute">
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: red" data-bs-toggle="modal" data-bs-target="#myModalUtama"> Rute Utama</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #b935b9" data-bs-toggle="modal" data-bs-target="#myModal1"> Rute Alternative</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: gray" data-bs-toggle="modal" data-bs-target="#myModal2"> Rute Escape</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #000dda" data-bs-toggle="modal" data-bs-target="#myModal3"> Rute Masyarakat</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #bdbd0b" data-bs-toggle="modal" data-bs-target="#myModal4"> Rute Umum</a>
+                        
+                            
+                        </div> 
+                        <div style="position: absolute;" id="1titikbtn">
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: red" data-bs-toggle="modal" data-bs-target="#myModal1Titik"> Tambah Titik Penjagaan</a>
+                        </div> 
                         <button class="btn btn-primary float-end" type="submit">Simpan</button>
-                    </div>
+                    </div> 
                 </form>
             </div>
         </div>
     </div>
 </div>
 
+
+<div class="modal fade" id="myModal1Titik" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel1Titik" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel1Titik">Tambah Titik Pengajagaan</h5>
+                <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body">  
+                <div class="row">   
+                    <div class="col-md-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="addressR" name="addressR"> 
+                            <label for="">Alamat</label>
+                        </div>
+                    </div>
+                    <div id="listAddressR" class="col-md-12"></div>
+                    
+                    <div class="col-md-12">
+                        <div id="mapG20Kegiatan1Titik" style="height: 500px">
+                            <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 46.5%;top: 37%;">
+                        </div> 
+                    </div>
+                </div>   
+
+                <div class="col-md-6 mt-3 float-end" >
+                    <button class="btn btn-primary float-end" id="submitAlternative1Titik" data-bs-toggle="modal" data-bs-target="#myModalR">Simpan</button>
+                    <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div> 
 
 <div class="modal fade" id="myModalUtama" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabelUtama" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -756,6 +802,9 @@
 
     let arrayWaypoint = []; 
     var obj = {}; 
+
+    $("#btnRoute").hide();
+    $('#1titikbtn').hide();
     $('#myModalR').on('shown.bs.modal', function() {
         // console.log(arrayWaypoint);
 
@@ -804,6 +853,17 @@
             classNames: {
                 containerOuter: 'choices select-choices',
             },
+        });
+
+        
+        $('[name=subjekR]').on('change', function(e) { 
+            if(this.value == '3'){
+                $("#btnRoute").hide();
+                $('#1titikbtn').show();
+            }else{
+                $("#btnRoute").show();
+                $('#1titikbtn').hide();
+            }
         });
         
 
@@ -1055,6 +1115,265 @@
     let arrayWaypoint2 = []; 
     let arrayWaypoint3 = []; 
     let arrayWaypoint4 = []; 
+
+
+
+    $('#myModal1Titik').on('shown.bs.modal', function() {    
+    
+        var initialCenter = [<?= $this->session->userdata['latlng_center']?>];
+        var initialZoom = <?= $this->session->userdata['zoom_level']?>;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainerRenpam1Titik = L.map('mapG20Kegiatan1Titik', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleHybrid]
+        }).setView(initialCenter, initialZoom);
+
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topleft'
+        }).addTo(mapContainerRenpam1Titik);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainerRenpam1Titik); 
+
+
+        mapContainerRenpam1Titik.invalidateSize(); 
+
+
+
+        let countlist = 0;
+        let list = ""; 
+        $('[name=addressR]').on("change", function (e) {
+            // console.log(this.value);
+            $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
+                console.log(ress);  
+                countlist = 0;
+                list = "";
+                ress.forEach(el => {
+                    countlist += 1;
+                    list += `<a class="list-group-item" 
+                    id="list${countlist}"   
+                    data-alamat="${el.display_name}"
+                    data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+                    $('#listAddressR').html(list); 
+                });  
+
+                if(list == ""){
+                    countlist = 0;
+                    list = "";
+                    $('#listAddressR').html(list); 
+                }
+                $('#listAddressR').show();  
+                
+                for (let i = 0; i < ress.length; i++){ 
+                    $(`#list${i+1}`).click(function(){  
+                        var latlong =  $(this).data('cords').split(',');
+                        var latitude = parseFloat(latlong[0]);
+                        var longitude = parseFloat(latlong[1]);  
+
+                        var arrayCord = {
+                            "lat": latitude,
+                            "lng": longitude
+                        };
+
+                        // console.log({a:latitude, b:longitude});
+                        $('[name=addressR]').val($(this).data('alamat'));
+                        // $('[name=cordinateR]').val($(this).data('cords'));
+                        $('[name=cordinateR]').val(JSON.stringify(arrayCord));
+
+                        mapContainerRenpam1Titik.flyTo([latitude, longitude], 17);  
+                        list = "";
+                        $('#listAddressR').html(list); 
+                        $('#listAddressR').hide();   
+                    });
+                }
+            });
+
+        });
+
+
+        $('[name=cordinateR]').on("change", function (e) {
+
+            var cordLatLong =  this.value.split(','); 
+            var cordLat = parseFloat(cordLatLong[0]); 
+            var corLong = parseFloat(cordLatLong[1]); 
+
+            // console.log({a:cordLat, b:corLong});
+
+            $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
+                $('[name=addressR]').val(data['display_name']); 
+                mapContainerRenpam1Titik.flyTo([cordLat, corLong], 17);  
+            }); 
+        });
+
+
+        mapContainerRenpam1Titik.on("dragend", function (e) {
+
+            var corLat = mapContainerRenpam1Titik.getCenter()['lat'];
+            var corLng = mapContainerRenpam1Titik.getCenter()['lng'];
+            var cord = `${corLat},${corLng}`; 
+            
+            var arrayCord = {
+                "lat": corLat,
+                "lng": corLng
+            };
+
+            $('[name=cordinateR]').val(JSON.stringify(arrayCord));
+
+            $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+
+                $('[name=addressR]').val(data['display_name']); 
+
+            }); 
+
+        });
+        
+
+
+        for (let i = 0; i < ressFasumKhusus.length; i++) { 
+            
+            var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
+            var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
+            L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                // className: 'location-pin',
+                html: `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                iconSize: [5, 5],
+                iconAnchor: [5, 10]
+                // iconAnchor: [10, 33]
+                }) }).bindPopup(`
+                    <div class="text-center" style="width: 300px;"> 
+                        <div class="row mt-3">
+                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                <div class="avatar-xl me-3">
+                                    <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-12 mt-3">
+                                <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
+                            </div>
+                            
+                            <div class="col-md-12 col-12 mt-2">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_address}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_phone}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
+                                    </div>
+                                </div> 
+                            </div>   
+                        </div>
+                    </div> 
+            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainerRenpam1Titik);  
+        }
+
+
+        // var routeAlternative1Titik = L.Routing.control({
+        //     waypoints: arrayWaypoint1Titik,
+        //     router: new L.Routing.osrmv1({
+        //         language: 'en',
+        //         profile: 'car'
+        //     }),
+        //     geocoder: L.Control.Geocoder.nominatim({})
+        // }).addTo(mapContainerRenpam1Titik);
+
+
+        // function createButton(label, container) { 
+        //     var btn = L.DomUtil.create('button', '', container);
+        //     btn.setAttribute('type', 'button');
+        //     btn.innerHTML = label;
+        //     return btn;
+        // }
+
+        // mapContainerRenpam1Titik.on('click', function(e) {  
+        //     var container = L.DomUtil.create('div'),
+        //         startBtn = createButton('Start from this location', container), 
+        //         destBtn = createButton('Go to this location', container);
+
+        //     L.DomEvent.on(startBtn, 'click', function() {  
+
+        //         routeAlternative1Titik.spliceWaypoints(0, 1, e.latlng);
+        //         mapContainerRenpam1Titik.closePopup();
+        //     }); 
+        //     L.DomEvent.on(destBtn, 'click', function() { 
+
+        //         routeAlternative1Titik.spliceWaypoints(routeAlternative1Titik.getWaypoints().length - 1, 1, e.latlng);
+        //         mapContainerRenpam1Titik.closePopup();
+        //     });
+        //     L.popup()
+        //         .setContent(container)
+        //         .setLatLng(e.latlng)
+        //         .openOn(mapContainerRenpam1Titik);
+
+            
+        // }); 
+
+        $("#submitAlternative1Titik").on('click', function(e){ 
+            // routingAlternative1Titik = routeAlternative1Titik.getWaypoints();
+            // $('#ruteawalR').val(JSON.stringify(routingAlternative1Titik));  
+            // $("#myModal1").modal('hide');
+        });
+    });
 
 
     $('#myModalUtama').on('shown.bs.modal', function() {    
