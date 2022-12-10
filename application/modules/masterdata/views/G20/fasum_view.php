@@ -11,23 +11,42 @@
     <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahFasum">Tambah Fasilitas Khusus</button>
     <div class="card">
 
-        <div class="card-body">
+        <div class="card-body row">
 
-            <table id="datatable" class="table dt-responsive w-100">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Fasum</th>
-                        <!-- <th>Jenis Fasum</th> -->
-                        <th>Alamat</th>
-                        <th>Kontak</th>
-                        <th>Jam Operasional</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                
-            </table>
-
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <select name="filterJenis" id="filterJenis" class="form-select" aria-label="Floating label select" style="width:100%" required> 
+                       
+                        <option selected value="9">Fasilitas Khusus</option>
+                        <option value="22">Gereja</option>
+                        <option value="23">Terminal</option>
+                        <option value="24">Pelabuhan</option>
+                        <option value="25">Stasiun KA</option> 
+                        <option value="26">Pasar</option> 
+                        <option value="27">Obyek Wisata</option>
+                        <option value="28">Obyek Ganti THN</option>  
+                    </select>
+                    <!-- <label for="filterJenis">Kategori Peraturan</label> -->
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <table id="datatable" class="table dt-responsive w-100">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Fasum</th>
+                            <!-- <th>Jenis Fasum</th> -->
+                            <th>Alamat</th>
+                            <th>Kontak</th>
+                            <th>Jam Operasional</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -49,13 +68,32 @@
 						<div class="col-md-12 mb-3"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
                         </div>
+                        
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <select required name="jenisFasum" id="jenisFasum" class="form-select">
+                                    <option selected value="">Pilih Kategori Fasum</option>
+                                    <option value="9">Fasilitas Khusus</option>
+                                    <option value="22">Gereja</option>
+                                    <option value="23">Terminal</option>
+                                    <option value="24">Pelabuhan</option>
+                                    <option value="25">Stasiun KA</option> 
+                                    <option value="26">Pasar</option> 
+                                    <option value="27">Obyek Wisata</option>
+                                    <option value="28">Obyek Ganti THN</option>  
+                                </select> 
+                            </div> 
+                        </div>
+
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" placeholder="nama fasum" name="namaFasum">
                                 <label for="namaFasum">Nama Fasilitas Khusus</label>
                             </div>
                         </div>
-                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="9" name="jenisFasum"> 
+                        <!-- <input hidden type="text" class="form-control" placeholder="nama fasum" value="9" name="jenisFasum">  -->
+
+
 						<input hidden type="text" class="kilometres" name="kilometres" placeholder="15" value="0" />
 
                         <div class="col-md-6">
@@ -253,13 +291,33 @@
 						<div class="col-md-12 mb-3" id="fotoEdit"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/>
                         </div>
+                        
+
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <select required name="jenisFasum" id="jenisFasum" class="form-select">
+                                    <option selected value="">Pilih Kategori Fasum</option>
+                                    <option value="9">Fasilitas Khusus</option>
+                                    <option value="22">Gereja</option>
+                                    <option value="23">Terminal</option>
+                                    <option value="24">Pelabuhan</option>
+                                    <option value="25">Stasiun KA</option> 
+                                    <option value="26">Pasar</option> 
+                                    <option value="27">Obyek Wisata</option>
+                                    <option value="28">Obyek Ganti THN</option>  
+                                </select> 
+                            </div> 
+                        </div>
+
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="namaFasum" name="namaFasum">
                                 <label for="">Nama Fasilitas Khusus</label>
                             </div>
                         </div>
-                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="9" name="jenisFasum"> 
+                        <!-- <input hidden type="text" class="form-control" placeholder="nama fasum" value="9" name="jenisFasum">  -->
+
+
                         <input hidden type="text" class="kilometres" name="kilometres" placeholder="15" value="0" />
 
 
@@ -347,6 +405,16 @@
 	$(document).ready(function() {
         $('.dropify').dropify();
 
+        new Choices('#filterJenis', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });  
+
 		$('[name=cordinate]').val('-1.5707209, 115.4875168');
         var initialCenter = [-1.5707209, 115.4875168];
         var initialZoom = 5;
@@ -398,6 +466,19 @@
             mapContainer.invalidateSize();
 
             $('.dropify').dropify(); 
+
+            new Choices('#jenisFasum', {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            });   
+
+             
+            
 
             let countlist = 0;
             let list = ""; 
@@ -526,7 +607,7 @@
 
                     // data.filterStatus = $('[name=status]').val();
 
-                    data.filterCateg = '9';
+                    data.filterCateg = $('[name=filterJenis]').val();
 
                     // data.filterPocName = $('[name=group_poc_name]').val();
 
@@ -597,6 +678,11 @@
             }
 
 
+        });
+
+        $("#filterJenis").on('change', function(e) {
+            // alert(this.value);
+            userDataTable.draw();
         });
 
 			
