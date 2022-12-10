@@ -6467,6 +6467,7 @@
                                             <input type="checkbox" class="form-input checkTs" name="selectTs" 
                                             id="listJlDisplay${countlistJalur}"  
                                             data-name="${filterJalur[i]['fasum_name']}" 
+                                            data-warna="${filterJalur[i]['fasum_color']}" 
                                             data-cord='${JSON.stringify(filterJalur[i]['route'])}'> 
                                         </td>
                                     </tr>
@@ -6499,7 +6500,7 @@
                                                 }),
                                                 lineOptions: {
                                                     styles: [{
-                                                        color: "#a50000",
+                                                        color: `${$(this).data('warna')}`,
                                                         weight: 5,
                                                         // className: 'animateRoute'
                                                     }]

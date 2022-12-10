@@ -21,7 +21,7 @@
                         <!-- <th>Jenis Fasum</th> -->
                         <!-- <th>Alamat</th> -->
                         <!-- <th>Kontak</th> -->
-                        <!-- <th>Jam Operasional</th> -->
+                        <th>Warna</th>
                         <th>Keterangan</th>
                         <th>Aksi</th>
                     </tr>
@@ -50,10 +50,16 @@
 						<div class="col-md-12 mb-3" style="display: none;"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" placeholder="nama fasum" name="namaFasum">
                                 <label for="namaFasum">Nama Jalur</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="nama fasum" name="fasum_color" id="fasum_color">
+                                <label for="namaFasum">Warna Jalur</label>
                             </div>
                         </div>
                         <input hidden type="text" class="form-control" placeholder="nama fasum" value="12" name="jenisFasum"> 
@@ -255,10 +261,16 @@
 						<div class="col-md-12 mb-3"  style="display: none;" id="fotoEdit"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="namaFasum" name="namaFasum">
                                 <label for="">Nama Jalur</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="nama fasum" name="fasum_color" id="fasum_color">
+                                <label for="namaFasum">Warna Jalur</label>
                             </div>
                         </div>
                         <input hidden type="text" class="form-control" placeholder="nama fasum" value="12" name="jenisFasum"> 
@@ -355,6 +367,7 @@
     var routeAlternativeUtamaEdit;
     var routingAlternativeUtamaEdit;
 
+    var mapContainerEdit;
 	$(document).ready(function() {
         $('.dropify').dropify();
 
@@ -632,6 +645,9 @@
                 //     data: 'jam_operasional',
                 //     orderable: false
                 // },
+                {
+                    data: 'fasum_color'
+                },
 				{
                     data: 'fasum_description'
                 },
@@ -734,7 +750,7 @@
         });
 
         // StART MAP SECTION
-        var mapContainerEdit = L.map('mapEdit', {
+        mapContainerEdit = L.map('mapEdit', {
             maxZoom: 20,
             minZoom: 1,
             zoomSnap: 0.25,
@@ -762,134 +778,7 @@
 
         
 		
-		$('#myModalEdit').on('shown.bs.modal', function() {
-            mapContainerEdit.invalidateSize();
-
-            let countlist = 0;
-            let list = ""; 
-            // $('[name=address]').on("change", function (e) {
-            //     // console.log(this.value);
-            //     $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
-            //         console.log(ress);  
-            //         countlist = 0;
-            //         list = "";
-            //         ress.forEach(el => {
-            //             countlist += 1;
-            //             list += `<a class="list-group-item" 
-            //             id="list${countlist}"   
-            //             data-alamat="${el.display_name}"
-            //             data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
-            //             $('#listAddressEdit').html(list); 
-            //         });  
-
-            //         if(list == ""){
-            //             countlist = 0;
-            //             list = "";
-            //             $('#listAddressEdit').html(list); 
-            //         }
-
-                    
-            //         for (let i = 0; i < ress.length; i++){ 
-            //             $(`#list${i+1}`).click(function(){  
-            //                 var latlong =  $(this).data('cords').split(',');
-            //                 var latitude = parseFloat(latlong[0]);
-            //                 var longitude = parseFloat(latlong[1]); 
-
-			// 				$("[name=latitude]").val(latitude);
-			// 				$("[name=longitude]").val(longitude);
-
-            //                 console.log({a:latitude, b:longitude});
-            //                 $('[name=address]').val($(this).data('alamat'));
-            //                 $('[name=cordinateEdit]').val($(this).data('cords'));
-            //                 mapContainerEdit.flyTo([latitude, longitude], 17);  
-            //                 list = "";
-            //                 $('#listAddressEdit').html(list);   
-            //                 $('#listAddressEdit').hide(); 
-            //             });
-            //         }
-            //     });
-
-            // });
-
-
-            // $('[name=cordinateEdit]').on("change", function (e) {
-
-            //     var cordLatLong =  this.value.split(','); 
-            //     var cordLat = parseFloat(cordLatLong[0]); 
-            //     var corLong = parseFloat(cordLatLong[1]); 
-
-            //     // console.log({a:cordLat, b:corLong});
-
-            //     $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-            //         $('[name=address]').val(data['display_name']); 
-            //         mapContainerEdit.flyTo([cordLat, corLong], 17);  
-            //     }); 
-            // });
-
-
-            // mapContainerEdit.on("dragend", function (e) {
-
-            //     var corLat = mapContainer.getCenter()['lat'];
-            //     var corLng = mapContainer.getCenter()['lng'];
-            //     var cord = `${corLat},${corLng}`;
-
-			// 	$("[name=latitude]").val(corLat);
-			// 	$("[name=longitude]").val(corLng);
-            //     $('[name=cordinateEdit]').val(cord);
-
-            //     $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
-
-            //         $('[name=address]').val(data['display_name']); 
-
-            //     }); 
-
-            // });
-
-
-
-            routeAlternativeUtamaEdit = L.Routing.control({
-                waypoints: arrayWaypointUtamaEdit,
-                draggableWaypoints: false,
-                router: new L.Routing.osrmv1({
-                    language: 'en',
-                    profile: 'car'
-                }),
-                geocoder: L.Control.Geocoder.nominatim({})
-            }).addTo(mapContainerEdit);
-
-            function createButton(label, container) {
-                var btn = L.DomUtil.create('button', '', container);
-                btn.setAttribute('type', 'button');
-                btn.innerHTML = label;
-                return btn;
-            }
-
-            mapContainerEdit.on('click', function(e) {
-                var container = L.DomUtil.create('div'),
-                    startBtn = createButton('Start from this location', container),
-                    destBtn = createButton('Go to this location', container);
-
-                L.DomEvent.on(startBtn, 'click', function() {
-
-                    routeAlternativeUtamaEdit.spliceWaypoints(0, 1, e.latlng);
-                    mapContainerEdit.closePopup();
-                });
-                L.DomEvent.on(destBtn, 'click', function() {
-
-                    routeAlternativeUtamaEdit.spliceWaypoints(routeAlternativeUtamaEdit.getWaypoints().length - 1, 1, e.latlng);
-                    mapContainerEdit.closePopup();
-
-                    routingAlternativeUtamaEdit = routeAlternativeUtamaEdit.getWaypoints();
-                    $('#fasum_routeEdit').val(JSON.stringify(routingAlternativeUtamaEdit));
-                });
-                L.popup()
-                .setContent(container)
-                .setLatLng(e.latlng)
-                .openOn(mapContainerEdit); 
-            });
-			
-
-        }); 
+		
 	});
 
     function detail(id) {
@@ -939,6 +828,7 @@
     }
 
     function detailEdit(id) { 
+        $("#overlay").fadeIn(300);   
         $.ajax({
             url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
             type: 'POST',
@@ -947,7 +837,7 @@
             },
             dataType: 'JSON',
             success: function(results) {
-				console.log(results);
+				// console.log(results);
 
                 var fotoFas = '';
                 if(results.fasum_logo != null){
@@ -985,13 +875,146 @@
                 $('.UbahFasum,#photo').val(results.fasum_logo)
                 $('.UbahFasum,#jamBuka').val(results.fasum_open_time)
                 $('.UbahFasum,#jamTutup').val(results.fasum_close_time)
+                $('.UbahFasum,#fasum_color').val(results.fasum_color)
               
                 $('.UbahFasum,#fasum_routeEdit').val(JSON.stringify(results.route)) 
                 arrayWaypointUtamaEdit = results.route;
                 // console.log(arrayWaypointUtamaEdit);
+                $("#overlay").fadeOut(300);   
+                $("#myModalEdit").modal('show');
             }
         })
     }
+
+
+    $('#myModalEdit').on('shown.bs.modal', function() {
+        mapContainerEdit.invalidateSize();
+
+        let countlist = 0;
+        let list = ""; 
+        // $('[name=address]').on("change", function (e) {
+        //     // console.log(this.value);
+        //     $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
+        //         console.log(ress);  
+        //         countlist = 0;
+        //         list = "";
+        //         ress.forEach(el => {
+        //             countlist += 1;
+        //             list += `<a class="list-group-item" 
+        //             id="list${countlist}"   
+        //             data-alamat="${el.display_name}"
+        //             data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+        //             $('#listAddressEdit').html(list); 
+        //         });  
+
+        //         if(list == ""){
+        //             countlist = 0;
+        //             list = "";
+        //             $('#listAddressEdit').html(list); 
+        //         }
+
+                
+        //         for (let i = 0; i < ress.length; i++){ 
+        //             $(`#list${i+1}`).click(function(){  
+        //                 var latlong =  $(this).data('cords').split(',');
+        //                 var latitude = parseFloat(latlong[0]);
+        //                 var longitude = parseFloat(latlong[1]); 
+
+        // 				$("[name=latitude]").val(latitude);
+        // 				$("[name=longitude]").val(longitude);
+
+        //                 console.log({a:latitude, b:longitude});
+        //                 $('[name=address]').val($(this).data('alamat'));
+        //                 $('[name=cordinateEdit]').val($(this).data('cords'));
+        //                 mapContainerEdit.flyTo([latitude, longitude], 17);  
+        //                 list = "";
+        //                 $('#listAddressEdit').html(list);   
+        //                 $('#listAddressEdit').hide(); 
+        //             });
+        //         }
+        //     });
+
+        // });
+
+
+        // $('[name=cordinateEdit]').on("change", function (e) {
+
+        //     var cordLatLong =  this.value.split(','); 
+        //     var cordLat = parseFloat(cordLatLong[0]); 
+        //     var corLong = parseFloat(cordLatLong[1]); 
+
+        //     // console.log({a:cordLat, b:corLong});
+
+        //     $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
+        //         $('[name=address]').val(data['display_name']); 
+        //         mapContainerEdit.flyTo([cordLat, corLong], 17);  
+        //     }); 
+        // });
+
+
+        // mapContainerEdit.on("dragend", function (e) {
+
+        //     var corLat = mapContainer.getCenter()['lat'];
+        //     var corLng = mapContainer.getCenter()['lng'];
+        //     var cord = `${corLat},${corLng}`;
+
+        // 	$("[name=latitude]").val(corLat);
+        // 	$("[name=longitude]").val(corLng);
+        //     $('[name=cordinateEdit]').val(cord);
+
+        //     $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+
+        //         $('[name=address]').val(data['display_name']); 
+
+        //     }); 
+
+        // });
+
+        console.log(arrayWaypointUtamaEdit);
+
+        routeAlternativeUtamaEdit = L.Routing.control({
+            waypoints: arrayWaypointUtamaEdit,
+            draggableWaypoints: false,
+            router: new L.Routing.osrmv1({
+                language: 'en',
+                profile: 'car'
+            }),
+            geocoder: L.Control.Geocoder.nominatim({})
+        }).addTo(mapContainerEdit);
+
+        function createButton(label, container) {
+            var btn = L.DomUtil.create('button', '', container);
+            btn.setAttribute('type', 'button');
+            btn.innerHTML = label;
+            return btn;
+        }
+
+        mapContainerEdit.on('click', function(e) {
+            var container = L.DomUtil.create('div'),
+                startBtn = createButton('Start from this location', container),
+                destBtn = createButton('Go to this location', container);
+
+            L.DomEvent.on(startBtn, 'click', function() {
+
+                routeAlternativeUtamaEdit.spliceWaypoints(0, 1, e.latlng);
+                mapContainerEdit.closePopup();
+            });
+            L.DomEvent.on(destBtn, 'click', function() {
+
+                routeAlternativeUtamaEdit.spliceWaypoints(routeAlternativeUtamaEdit.getWaypoints().length - 1, 1, e.latlng);
+                mapContainerEdit.closePopup();
+
+                routingAlternativeUtamaEdit = routeAlternativeUtamaEdit.getWaypoints();
+                $('#fasum_routeEdit').val(JSON.stringify(routingAlternativeUtamaEdit));
+            });
+            L.popup()
+            .setContent(container)
+            .setLatLng(e.latlng)
+            .openOn(mapContainerEdit); 
+        });
+        
+
+    }); 
 
     function hapus(id) {
         Swal.fire({

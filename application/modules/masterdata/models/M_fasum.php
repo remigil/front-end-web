@@ -120,6 +120,7 @@ class M_fasum extends CI_Model
             $row['category_fasum'] 		= $field['category_fasum']['name_category_fasum'];
             $row['fasum_address']       		= $field['fasum_address'];
             $row['fasum_phone']       	= $field['fasum_phone'];
+            $row['fasum_color']       	= $field['fasum_color'];
             $row['fasum_description']       	= $field['fasum_description'];
             $row['jam_operasional']     = $field['fasum_open_time']."-".$field['fasum_close_time'];
             $row['action']         = '   
@@ -127,7 +128,7 @@ class M_fasum extends CI_Model
 			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailFasum">
 			    <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
             </button>
-            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahFasum">
+            <button style="background-color:transparent ; border:none"  onclick="detailEdit(`' . $field['id'] . '`)" >
                 <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
             </button>
             <button style="background-color:transparent ; border:none" id="HapusPolda" onclick="hapus(`' . $field['id'] . '`)">

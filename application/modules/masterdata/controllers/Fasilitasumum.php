@@ -255,6 +255,12 @@ class Fasilitasumum extends MY_Controller
             $fasum_route = null;
         }
 
+        if(isset($input['fasum_color'])){
+            $fasum_color = $input['fasum_color'];
+        }else{
+            $fasum_color = null;
+        }
+
         if($_FILES['photo']['name'] != null){ 
             $path = $_FILES['photo']['tmp_name'];
             $filename = $_FILES['photo']['name'];
@@ -316,6 +322,10 @@ class Fasilitasumum extends MY_Controller
                     'name' => 'route',
                     'contents' => $fasum_route,
                 ],
+				[
+                    'name' => 'fasum_color',
+                    'contents' => $fasum_color,
+                ],
             ];
         } else {
             $dummy = [
@@ -370,6 +380,10 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'route',
                     'contents' => $fasum_route,
+                ],
+				[
+                    'name' => 'fasum_color',
+                    'contents' => $fasum_color,
                 ],
 			];
         }
@@ -487,6 +501,12 @@ class Fasilitasumum extends MY_Controller
         }else{
             $fasum_route = null;
         }
+
+        if(isset($input['fasum_color'])){
+            $fasum_color = $input['fasum_color'];
+        }else{
+            $fasum_color = null;
+        }
         
         if($_FILES['photo']['name'] != null){ 
             $path = $_FILES['photo']['tmp_name'];
@@ -549,6 +569,10 @@ class Fasilitasumum extends MY_Controller
                     'name' => 'route',
                     'contents' => $fasum_route,
                 ],
+				[
+                    'name' => 'fasum_color',
+                    'contents' => $fasum_color,
+                ],
             ];
         } else {
             $dummy = [
@@ -603,6 +627,10 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'route',
                     'contents' => $fasum_route,
+                ],
+				[
+                    'name' => 'fasum_color',
+                    'contents' => $fasum_color,
                 ],
 			];
         }
