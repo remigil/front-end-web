@@ -131,6 +131,9 @@ class M_tripon extends CI_Model {
             $row['passanger'] = count($field['passenger_trip_ons']);
             $row['date_departure'] = date($field['departure_date']);
             $row['time_departure'] = date($field['departure_time']);
+            $row['distance'] = $field['distance'];
+            $row['duration'] = $field['duration'];
+
 
 
             if ($field['type_vehicle']['type_name'] == 'Motor') {
