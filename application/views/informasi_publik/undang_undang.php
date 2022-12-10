@@ -1,31 +1,15 @@
-<!-- <div class="head_content" style="background-image: url('assets/fe/hero.png');"> -->
-
-</div>
 <!-- ======= Breadcrumbs ======= -->
-    <div class="pagebreadcrumbs">
-    	<div class="d-flex align-items-center">
-        <div class="container position-relative">
-        	<div class="row d-flex justify-content-center">
-            <div class="col-lg-6 text-center">
-            	<h2><?= $headline?></h2>
-            	
-            </div>
-        	</div>
-        </div>
-    	</div>
-    	<nav>
-        <div class="container-fluid" >
-        <div class="container-fluid" >
-        <div class="container-fluid" >
-        	<ol style="list-style: none;">
-            <li><a href="<?= base_url()?>home">Home</a></li>
-            <li><?= $breadcrumb?></li>
-        	</ol>
-        </div>
-        </div>
-        </div>
-    	</nav>
-    </div><!-- End Breadcrumbs -->
+<section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="<?= base_url()?>home">Home</a></li>
+          <li><?= $breadcrumb?></li>
+        </ol>
+        <h2><?= $headline?></h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
 
 
 <!-- Content
@@ -34,11 +18,10 @@
 <!-- Container -->
 
 <!-- ======= Contact Section ======= -->
-<div class="container-fluid mb-5 mt-5">
-<div class="container-fluid">
-<div class="container-fluid">
 
-<div class="page">
+<div class="container">
+
+	<div class="page">
     
 	<!-- <h3>Undang-undang</h3> -->
     <!-- <div class="card">
@@ -207,7 +190,7 @@
 
 	<h3 style="color: blue;">PERATURAN PRESIDEN REPUBLIK INDONESIA
 
-</h3>
+	</h3>
 	<hr>
     <div class="card">
 
@@ -488,8 +471,7 @@
 
 	
 </div>
-</div>
-</div>
+
 <!-- Container / End -->
 
   

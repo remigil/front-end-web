@@ -89,12 +89,12 @@
 			<div class="input-group-append">
 				<button class="btn btn-outline-secondary" type="button">Cari</button>
 			</div>
-		</div>
-        <a href="https://twitter.com/K3IKorlantas" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="https://www.facebook.com/K3I-Korlantas-105187678596891" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/k3ikorlantaspolri/" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg" class="youtube"><i class="bi bi-youtube"></i></i></a>
-      </div>
+		<!-- </div>
+        <a href="https://twitter.com/K3IKorlantas" ><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/K3I-Korlantas-105187678596891" ><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/k3ikorlantaspolri/" ><i class="bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg" ><i class="bi bi-youtube"></i></i></a>
+      </div> -->
     </div>
   </section>
 
@@ -126,7 +126,7 @@
               <li>
 				<h5>Korlantas</h5>
 				<hr width="80%">
-			  	<a href="<?= base_url()?>ditgakkum_front">DITGAKUM</a>
+			  	<a href="<?= base_url()?>ditgakkum_front">DITGAKKUM</a>
 				<a href="<?= base_url()?>ditregident_front">DITREGIDENT</a>
                 <a href="<?= base_url()?>ditkamsel_front">DITKAMSEL</a>
 				<a href="<?= base_url()?>bagrenmin_front">BAGRENMIN</a>
@@ -296,18 +296,18 @@
             <h3>Sosial Media K3I</h3>
             <!-- <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p> -->
             <div class="social-links mt-3">
-              <a href="https://twitter.com/K3IKorlantas" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="https://www.facebook.com/K3I-Korlantas-105187678596891" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="https://www.instagram.com/k3ikorlantaspolri/" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg" class="youtube"><i class="bx bxl-youtube"></i></a>
+              <a href="https://twitter.com/K3IKorlantas" ><i class="bx bxl-twitter"></i></a>
+              <a href="https://www.facebook.com/K3I-Korlantas-105187678596891" ><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/k3ikorlantaspolri/" ><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg" ><i class="bx bxl-youtube"></i></a>
             </div><br><br>
 						<h3>Sosial Media NTMC</h3>
             <!-- <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p> -->
             <div class="social-links mt-3">
-              <a href="https://twitter.com/NTMC_Info" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="https://id-id.facebook.com/NTMCPOLRI/" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="https://www.instagram.com/ntmc_polri/?hl=id" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="https://www.youtube.com/c/NTMCChannel" class="youtube"><i class="bx bxl-youtube"></i></a>
+              <a href="https://twitter.com/NTMC_Info" ><i class="bx bxl-twitter"></i></a>
+              <a href="https://id-id.facebook.com/NTMCPOLRI/" ><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/ntmc_polri/?hl=id" ><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.youtube.com/c/NTMCChannel" ><i class="bx bxl-youtube"></i></a>
             </div>
 						
           </div>
