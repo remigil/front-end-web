@@ -202,11 +202,88 @@
              </div>
              <div class="modal-body">
                  <div class="row">
-                     <div class="col-md-3">
+                     <table class="table table-bordered table-hover">
+                         <thead style="background-color:#007DD8; color:#fff; ">
+                             <tr>
+                                 <th style="text-align: center; vertical-align: middle;" colspan="3" scope="col">Baru</th>
+                             </tr>
+                             <tr>
+                                 <th style="text-align: center;" scope="col">A</th>
+                                 <th style="text-align: center;" scope="col">C</th>
+                                 <th style="text-align: center;" scope="col">D</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr>
+                                 <td style="text-align: center;"><span id="yearsimbarua"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimbaruc"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimbarud"></span></td>
+                             </tr>
+                         </tbody>
+                     </table>
+                     <table class="table table-bordered table-hover">
+                         <thead style="background-color:#007DD8; color:#fff; ">
+                             <tr>
+                                 <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
+                             </tr>
+                             <tr>
+                                 <th style="text-align: center;" scope="col">A</th>
+                                 <th style="text-align: center;" scope="col">AU</th>
+                                 <th style="text-align: center;" scope="col">B1</th>
+                                 <th style="text-align: center;" scope="col">B1U</th>
+                                 <th style="text-align: center;" scope="col">B2</th>
+                                 <th style="text-align: center;" scope="col">B2U</th>
+                                 <th style="text-align: center;" scope="col">C</th>
+                                 <th style="text-align: center;" scope="col">C1</th>
+                                 <th style="text-align: center;" scope="col">C2</th>
+                                 <th style="text-align: center;" scope="col">D</th>
+                                 <th style="text-align: center;" scope="col">D1</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr>
+                                 <td style="text-align: center;"><span id="yearsimperpanjangana"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimperpanjanganau"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimperpanjanganb1"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimperpanjanganb1u"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimperpanjanganb2"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimperpanjanganb2u"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimperpanjanganc"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimperpanjanganc1"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimperpanjanganc2"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimperpanjangand"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimperpanjangand1"></span></td>
+                             </tr>
+                         </tbody>
+                     </table>
+                     <table class="table table-bordered table-hover">
+                         <thead style="background-color:#007DD8; color:#fff; ">
+                             <tr>
+                                 <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
+                             </tr>
+                             <tr>
+                                 <th style="text-align: center;" scope="col">AU</th>
+                                 <th style="text-align: center;" scope="col">B1</th>
+                                 <th style="text-align: center;" scope="col">B1U</th>
+                                 <th style="text-align: center;" scope="col">B2</th>
+                                 <th style="text-align: center;" scope="col">B2U</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr>
+                                 <td style="text-align: center;"><span id="yearsimpeningkatanau"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimpeningkatanb1"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimpeningkatanb1u"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimpeningkatanb2"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimpeningkatanb2u"></span></td>
+                             </tr>
+                         </tbody>
+                     </table>
+                     <!-- <div class="col-md-3">
                          <span>Baru</span> <br>
-                         <span>A : <span id="yearsimbarua"></span></span> <br>
-                         <span>C : <span id="yearsimbaruc"></span></span><br>
-                         <span>D : <span id="yearsimbarud"></span></span><br>
+                         <span>A : </span> <br>
+                         <span>C : </span><br>
+                         <span>D : </span><br>
                      </div>
                      <div class="col-md-3">
                          <span>Perpanjangan</span> <br>
@@ -229,7 +306,7 @@
                          <span>B1U : <span id="yearsimpeningkatanb1u"></span></span><br>
                          <span>B2 : <span id="yearsimpeningkatanb2"></span></span><br>
                          <span>B2U : <span id="yearsimpeningkatanb2u"></span></span><br>
-                     </div>
+                     </div> -->
                  </div>
              </div>
              <!-- <div class="modal-footer">
