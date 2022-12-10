@@ -1822,6 +1822,81 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Recent Blog Posts
+--------------------------------------------------------------*/
+.recent-blog-posts .post-box {
+  transition: 0.3s;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.recent-blog-posts .post-box .post-img {
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+}
+
+.recent-blog-posts .post-box .post-img img {
+  transition: 0.5s;
+}
+
+.recent-blog-posts .post-box .meta {
+  margin-top: 15px;
+}
+
+.recent-blog-posts .post-box .meta .post-date {
+  font-size: 15px;
+  font-weight: 400;
+  color: #0ea2bd;
+}
+
+.recent-blog-posts .post-box .meta .post-author {
+  font-size: 15px;
+  font-weight: 400;
+  color: #485664;
+}
+
+.recent-blog-posts .post-box .post-title {
+  font-size: 24px;
+  color: #485664;
+  font-weight: 700;
+  margin: 15px 0 0 0;
+  position: relative;
+  transition: 0.3s;
+}
+
+.recent-blog-posts .post-box p {
+  margin: 15px 0 0 0;
+  color: rgba(58, 71, 83, 0.7);
+}
+
+.recent-blog-posts .post-box .readmore {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  line-height: 1;
+  transition: 0.3s;
+  margin-top: 15px;
+}
+
+.recent-blog-posts .post-box .readmore i {
+  line-height: 0;
+  margin-left: 4px;
+  font-size: 18px;
+}
+
+.recent-blog-posts .post-box:hover .post-title {
+  color: #0ea2bd;
+}
+
+.recent-blog-posts .post-box:hover .post-img img {
+  transform: scale(1.1);
+}
+
+/*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
 .features .nav-tabs {
@@ -3035,7 +3110,7 @@ section {
 }
 
 .blog .entry .entry-title a:hover {
-  color: #e96b56;
+  color: #073888;
 }
 
 .blog .entry .entry-meta {
@@ -3080,7 +3155,7 @@ section {
 
 .blog .entry .entry-content .read-more a {
   display: inline-block;
-  background: #e96b56;
+  background: #073888;
   color: #fff;
   padding: 6px 20px;
   transition: 0.3s;
@@ -3089,7 +3164,7 @@ section {
 }
 
 .blog .entry .entry-content .read-more a:hover {
-  background: #ec7f6d;
+  background: #448cff;
 }
 
 .blog .entry .entry-content h3 {
@@ -3299,7 +3374,7 @@ section {
 
 .blog .blog-comments .reply-form input:focus {
   box-shadow: none;
-  border-color: #f5bab0;
+  border-color: #073888;
 }
 
 .blog .blog-comments .reply-form textarea {
@@ -3354,7 +3429,7 @@ section {
 
 .blog .blog-pagination li.active,
 .blog .blog-pagination li:hover {
-  background: #e96b56;
+  background: #073888;
 }
 
 .blog .blog-pagination li.active a,
@@ -3405,7 +3480,7 @@ section {
   font-size: 16px;
   padding: 0 15px;
   margin: -1px;
-  background: #e96b56;
+  background: #073888;
   color: #fff;
   transition: 0.3s;
   border-radius: 0 4px 4px 0;
@@ -3417,7 +3492,7 @@ section {
 }
 
 .blog .sidebar .search-form form button:hover {
-  background: #eb7b68;
+  background: #448cff;
 }
 
 .blog .sidebar .categories ul {
@@ -3465,7 +3540,7 @@ section {
 }
 
 .blog .sidebar .recent-posts h4 a:hover {
-  color: #e96b56;
+  color: #073888;
 }
 
 .blog .sidebar .recent-posts time {
@@ -3501,8 +3576,8 @@ section {
 
 .blog .sidebar .tags ul a:hover {
   color: #fff;
-  border: 1px solid #e96b56;
-  background: #e96b56;
+  border: 1px solid #073888;
+  background: #073888;
 }
 
 .blog .sidebar .tags ul a span {
