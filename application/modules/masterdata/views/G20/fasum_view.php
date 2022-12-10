@@ -918,6 +918,7 @@
     }
 
     function detailEdit(id) { 
+        $("#overlay").fadeIn(300); 
         $.ajax({
             url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
             type: 'POST',
@@ -964,9 +965,12 @@
                 $('.UbahFasum,#photo').val(results.fasum_logo)
                 $('.UbahFasum,#jamBuka').val(results.fasum_open_time)
                 $('.UbahFasum,#jamTutup').val(results.fasum_close_time)
+
+ 
 					 
 			 
-    
+                $("#overlay").fadeOut(300);   
+                $("#myModalEdit").modal('show');
                 
             }
         })

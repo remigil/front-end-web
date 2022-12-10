@@ -6035,6 +6035,8 @@
                     // var ressFasumKhusus = result['data']['fasum_khusus'];
                     ressFasumKhusus = result['data']['fasum_khusus'];
 
+                    console.log(ressFasumKhusus);
+
                     var ressRadius = result['data']['radius']; 
                     var ressCluster = result['data']['cluster']; 
                     var ressSchedule = result['data']['jadwal_kegiatan'];

@@ -832,6 +832,7 @@
     }
 
     function detailEdit(id) { 
+        $("#overlay").fadeIn(300);   
         $.ajax({
             url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
             type: 'POST',
@@ -881,7 +882,8 @@
 					 
 			 
     
-                
+                $("#overlay").fadeOut(300);   
+                $("#myModalEdit").modal('show');
             }
         })
     }
