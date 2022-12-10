@@ -107,9 +107,26 @@ class Tripon extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
-        // $data['lakalantas'] = '123';
 
-        $url = 'count-trip-on/jenis_kendaraan';
+
+        $filter = $this->input->post('filter');
+        $time = $this->input->post('time');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+
+        $start_time = $this->input->post('start_time');
+        $end_time = $this->input->post('end_time');
+
+
+
+
+        if ($time == 'true') {
+            $url = 'count-trip-on/jenis_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '';
+        } else {
+            $url = 'count-trip-on/jenis_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '';
+        }
+
         $getTripon = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
@@ -137,10 +154,29 @@ class Tripon extends MY_Controller
         // $data['lakalantas'] = '123';
 
         $limit = $this->input->post('limit');
-        $url = 'count-trip-on/prov_tripon?topTripon=true&limit=' . $limit . '';
+        $filter = $this->input->post('filter');
+        $time = $this->input->post('time');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+
+        $start_time = $this->input->post('start_time');
+        $end_time = $this->input->post('end_time');
+
+
+
+
+        if ($time == 'true') {
+            $url = 'count-trip-on/prov_tripon?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '&limit=' . $limit . '&topTripon=true';
+        } else {
+            $url = 'count-trip-on/prov_tripon?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&limit=' . $limit . '&topTripon=true';
+        }
+
+
         $getTripon = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
+
 
         foreach ($getTripon['data'] as $key) {
             $kedatangan[] = $key['kedatangan'];
@@ -152,6 +188,99 @@ class Tripon extends MY_Controller
             'kedatangan' => $kedatangan,
             'keberangkatan' => $keberangkatan,
             'provinsi' => $provinsi
+        ];
+
+        echo json_encode($data['tripOn']);
+    }
+
+    public function getStatistik()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        $filter = $this->input->post('filter');
+        $time = $this->input->post('time');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+
+        $start_time = $this->input->post('start_time');
+        $end_time = $this->input->post('end_time');
+
+        $start_prov = $this->input->post('start_prov');
+        $end_prov =  $this->input->post('end_prov');
+
+
+        if ($time == 'true') {
+            $url = 'count-trip-on/filter?start_prov=' . $start_prov . '&end_prov=' . $end_prov . '&start_date=' . $start_date . '&end_date=' . $end_date . '&filter=' . $filter . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '';
+        } else {
+            $url = 'count-trip-on/filter?start_prov=' . $start_prov . '&end_prov=' . $end_prov . '&start_date=' . $start_date . '&end_date=' . $end_date . '&filter=' . $filter . '';
+        }
+
+
+        $getTripon = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        $jumlah_tripon = count($getTripon['data']);
+        $jumlah_kendaraan = count($getTripon['data']);
+        $jumlah_kedatangan = count($getTripon['data']);
+        $jumlah_keberangkatan = count($getTripon['data']);
+
+        $jumlah_penumpang = 0;
+        foreach ($getTripon['data'] as $key) {
+            $jumlah_penumpang += count($key['passenger_trip_ons']);
+        }
+
+        echo json_encode([
+            'jumlah_tripon' => $jumlah_tripon,
+            'jumlah_kendaraan' => $jumlah_kendaraan,
+            'jumlah_kedatangan' => $jumlah_kedatangan,
+            'jumlah_keberangkatan' => $jumlah_keberangkatan,
+            'jumlah_penumpang' => $jumlah_penumpang
+        ]);
+    }
+
+    public function getModelKendaraan()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+
+        $filter = $this->input->post('filter');
+        $time = $this->input->post('time');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+
+        $start_time = $this->input->post('start_time');
+        $end_time = $this->input->post('end_time');
+
+
+
+
+        if ($time == 'true') {
+            $url = 'count-trip-on/model_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '';
+        } else {
+            $url = 'count-trip-on/model_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '';
+        }
+
+        $getTripon = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        $jumlah = array();
+
+        foreach ($getTripon['data'] as $key) {
+            $type[] = $key['brand'];
+            $jumlah[] = $key['jumlah'];
+        }
+
+        $data['tripOn'] = [
+            'type' => $type,
+            'jumlah' => $jumlah
         ];
 
         echo json_encode($data['tripOn']);

@@ -8,50 +8,61 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <div class="row">
+
+    <div class="row align-items-center justify-content-between mb-2">
         <div class="col-md-4">
-            <div class="grid-example" style="background-color:transparent">
-                <div class="cat">
-                    <label>
-                        <input checked type="radio" value="now" name="filter" id="nowDisplay"><span> Saat ini</span>
-                    </label>
-                </div>
-                <div class="cat">
-                    <label>
-                        <input type="radio" value="today" name="filter" id="todayDisplay"><span> Hari ini</span>
-                    </label>
-                </div>
-                <div class="cat">
-                    <label>
-                        <input type="radio" value="week" name="filter" id="weekDisplay"><span> Minggu ini</span>
-                    </label>
-                </div>
-                <div class="cat">
-                    <label>
-                        <input type="radio" value="month" name="filter" id="monthDisplay"><span> Bulan ini</span>
-                    </label>
-                </div>
-                <div class="cat">
-                    <label>
-                        <input type="radio" value="year" name="filter" id="yearDisplay"><span> Tahun ini</span>
-                    </label>
-                </div>
+            <h3>Filter Data Trip On</h3>
+            <div class="cat" style="padding: 0;margin:0">
+                <label>
+                    <input checked type="radio" value="now" name="filter" id="nowDisplay"><span> Saat ini</span>
+                </label>
             </div>
+            <div class="cat" style="padding: 0;margin:0">
+                <label>
+                    <input type="radio" value="today" name="filter" id="todayDisplay"><span> Hari ini</span>
+                </label>
+            </div>
+            <div class="cat" style="padding: 0;margin:0">
+                <label>
+                    <input type="radio" value="week" name="filter" id="weekDisplay"><span> Minggu ini</span>
+                </label>
+            </div>
+            <div class="cat" style="padding: 0;margin:0">
+                <label>
+                    <input type="radio" value="month" name="filter" id="monthDisplay"><span> Bulan ini</span>
+                </label>
+            </div>
+            <div class="cat" style="padding: 0;margin:0">
+                <label>
+                    <input type="radio" value="year" name="filter" id="yearDisplay"><span> Tahun ini</span>
+                </label>
+            </div>
+        </div>
+        <div class="col-md-8 float-right">
+            <button type="button" class="btn btn-primary btn-lg" id="jml_tripon"></button>
+            <button type="button" class="btn btn-primary btn-lg" id="jml_penumpang"></button>
+            <button type="button" class="btn btn-primary btn-lg" id="jml_kendaraan"></button>
+            <button type="button" class="btn btn-primary btn-lg" id="jml_keberangkatan"></button>
+            <button type="button" class="btn btn-primary btn-lg" id="jml_kedatangan"></button>
         </div>
     </div>
 
 
+    <div class="row">
+
+    </div>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
-                    <h5>TOP DATA PERJALANAN PER PROVINSI</h5>
+                    <h5>DATA KEBERANGKATAN PER PROVINSI</h5>
                     <div class="row align-items-center">
                         <div class="col-md-2">
                             <select class="form-control" id="limit_showData">
+                                <option value="34" selected>Semua</option>
                                 <option value="3">3</option>
-                                <option value="5" selected>5</option>
+                                <option value="5">5</option>
                                 <option value="7">7</option>
                                 <option value="10">10</option>
                             </select>
@@ -69,7 +80,23 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
+                    <h5>DATA KEDATANGAN PER PROVINSI</h5>
+                </div>
+                <div class="card-body m-0 p-0">
+                    <div class="main-chart">
+                        <div id="chart5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="row">
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
@@ -79,6 +106,19 @@
                 <div class="card-body m-0 p-0">
                     <div class="main-chart">
                         <div id="chart3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
+                    <h5>DATA TRIPON</h5>
+                    <p class="fw-bold" style="text-transform:capitalize">Per Model Kendaraan</p>
+                </div>
+                <div class="card-body m-0 p-0">
+                    <div class="main-chart">
+                        <div id="chart6"></div>
                     </div>
                 </div>
             </div>
@@ -118,6 +158,9 @@
 
 
     <div class="card">
+        <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
+            <h5>DATA SELURUH TRIPON</h5>
+        </div>
         <div class="card-body">
             <table id="dataTable" class="table table-striped dt-responsive  nowrap w-100">
                 <thead>
@@ -125,6 +168,8 @@
                         <th>No</th>
                         <th>Tanggal Perjalanan</th>
                         <th>Waktu Perjalanan</th>
+                        <th>Jarak (KM)</th>
+                        <th>Durasi Perjalanan</th>
                         <th>Nama Pengemudi</th>
                         <th>Nomor Registrasi</th>
                         <th>Jumlah Penumpang</th>
@@ -148,7 +193,7 @@
 <script>
     $(document).ready(function() {
         $('.dropify').dropify();
-
+        $("#overlay").fadeIn(300);
         userDataTable = $('#dataTable').DataTable({
 
             responsive: true,
@@ -240,6 +285,14 @@
                     "width": '2%'
                 },
                 {
+                    data: 'distance',
+                    "width": '5%'
+                },
+                {
+                    data: 'duration',
+                    "width": '5%'
+                },
+                {
                     data: 'person_name',
                     "width": '5%'
                 },
@@ -291,39 +344,167 @@
 
         });
 
-
+        let filter = true;
+        let time = true;
+        let topTripon = true;
         let limit = $('#limit_showData').val()
+        let start_time = moment().format('H:00:00');
+        let end_time = moment().add(3, 'hours').format('H:00:00')
+        let start_date = moment().format('YYYY-MM-DD');
+        let end_date = moment().format('YYYY-MM-DD');
 
 
-        getPieTripOn();
-        getChartProv(limit);
+        getPieTripOn(filter, time, start_time, end_time, start_date, end_date);
+        getChartProv(filter, time, start_time, end_time, start_date, end_date, limit);
+        getStatistikTripOn(filter, time, start_time, end_time, start_date, end_date)
+        getModelKendaraan(filter, time, start_time, end_time, start_date, end_date)
+
 
     });
 
-    function getChartProv(limit) {
+
+    $("[name=filter]").on("change", function(e) {
+
+        var tanggal;
+        var isitype = 'day';
+        let filter = true;
+        let time = true;
+
+        const date = new Date();
+        let limit = $('#limit_showData').val()
+
+
+        let today = moment().format('YYYY-MM-DD');
+        let start_time = moment().format('H:00:00');
+        let end_time = moment().add(3, 'hours').format('H:00:00')
+
+        let start_week = moment().clone().startOf('week').format('YYYY-MM-DD')
+        let end_week = moment().clone().endOf('week').format('YYYY-MM-DD')
+
+
+        let start_month = moment().startOf('month').format('YYYY-MM-DD')
+        let end_month = moment().endOf('month').format('YYYY-MM-DD');
+
+        let start_year = moment().startOf('year').format('YYYY-MM-DD')
+        let end_year = moment().endOf('year').format('YYYY-MM-DD');
+
+        if (this.value == 'now') {
+            getChartProv(filter, time, start_time, end_time, today, today, limit);
+            getPieTripOn(filter, time, start_time, end_time, today, today);
+            getStatistikTripOn(filter, time, start_time, end_time, today, today);
+            getModelKendaraan(filter, time, start_time, end_time, today, today);
+
+        } else if (this.value == 'today') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, today, today, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, today, today);
+            getStatistikTripOn(filter, time = false, start_time = null, end_time = null, today, today);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, today, today);
+
+
+        } else if (this.value == 'week') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_week, end_week, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+            getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+
+
+        } else if (this.value == 'month') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_month, end_month, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+            getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+
+
+
+        } else if (this.value == 'year') {
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+            getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_year, end_year, limit);
+        }
+        // //  console.log(tanggal);
+        // // console.log(tanggal[0]);
+        // getStatistik();
+    });
+
+
+    $('#limit_showData').on('change', function() {
+
+        let filter = true;
+        let time = true;
+        var limit = $('#limit_showData').val();
+        var type_filter = $("[name=filter]:checked").val();
+
+        let today = moment().format('YYYY-MM-DD');
+        let start_time = moment().format('H:00:00');
+        let end_time = moment().add(3, 'hours').format('H:00:00')
+
+        let start_week = moment().clone().startOf('week').format('YYYY-MM-DD')
+        let end_week = moment().clone().endOf('week').format('YYYY-MM-DD')
+
+
+        let start_month = moment().startOf('month').format('YYYY-MM-DD')
+        let end_month = moment().endOf('month').format('YYYY-MM-DD');
+
+        let start_year = moment().startOf('year').format('YYYY-MM-DD')
+        let end_year = moment().endOf('year').format('YYYY-MM-DD');
+
+        if (type_filter == 'now') {
+            getChartProv(filter, time, start_time, end_time, today, today, limit);
+            getPieTripOn(filter, time, start_time, end_time, today, today);
+            getStatistikTripOn(filter, time, start_time, end_time, today, today);
+            getModelKendaraan(filter, time, start_time, end_time, today, today);
+        } else if (type_filter == 'today') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, today, today, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, today, today);
+            getStatistikTripOn(filter, time = false, start_time = null, end_time = null, today, today);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, today, today);
+        } else if (type_filter == 'week') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_week, end_week, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+            getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+        } else if (type_filter == 'month') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_month, end_month, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+            getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+        } else if (type_filter == 'year') {
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_year, end_year, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+            getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+        }
+
+    })
+
+
+    function getChartProv(filter = null, time = null, start_time = null, end_time = null, start_date = null, end_date = null, limit = null) {
         $.ajax({
             url: "<?= base_url() ?>tripon/tripon_prov",
             type: 'POST',
             data: {
-                limit
+                limit,
+                filter,
+                time,
+                start_date,
+                end_date,
+                start_time,
+                end_time
             },
             dataType: "JSON",
             success: function(results) {
-                $("#chart4").html(`<div id="chartprov"></div>`);
+                $("#chart4").html(`<div id="keberangkatan"></div>`);
+                $("#chart5").html(`<div id="kedatangan"></div>`);
                 var keberangkatan = {
                     series: [{
                         name: 'Keberangkatan',
-                        type: 'column',
                         data: results.keberangkatan,
                         color: "#003A91",
-                    }, {
-                        name: 'Kedatangan',
-                        data: results.kedatangan,
-                        type: "column",
-                        color: "#CB2D3E",
                     }],
                     chart: {
-                        type: 'line',
+                        type: 'bar',
                         height: 380
                     },
                     tooltip: {
@@ -334,7 +515,7 @@
                     plotOptions: {
                         bar: {
                             horizontal: false,
-                            columnWidth: '55%',
+                            columnWidth: '40%',
                             endingShape: 'circle',
                             dataLabels: {
                                 position: 'top'
@@ -355,23 +536,24 @@
                     },
                     xaxis: {
                         categories: results.provinsi,
-                    },
-                    yaxis: [{
-                        axisTicks: {
-                            show: false,
-                        },
-                        axisBorder: {
-                            show: false,
-                            color: '#008FFB'
-                        },
                         labels: {
+                            show: true,
+                            rotate: -45,
+                            rotateAlways: false,
+                            hideOverlappingLabels: true,
+                            showDuplicates: false,
+                            trim: false,
+                            minHeight: undefined,
+                            maxHeight: 120,
                             style: {
-                                colors: '#008FFB',
-                            }
+                                // color: '#000000',
+                                fontSize: '12px',
+                                fontFamily: 'Helvetica, Arial, sans-serif',
+                                fontWeight: 'bold',
+                                cssClass: 'apexcharts-xaxis-label',
+                            },
                         },
-
-
-                    }, ],
+                    },
 
                     fill: {
                         opacity: 1
@@ -379,18 +561,97 @@
 
                 };
 
-                var keberangkatan2 = new ApexCharts(document.querySelector("#chartprov"), keberangkatan);
+                var keberangkatan2 = new ApexCharts(document.querySelector("#keberangkatan"), keberangkatan);
                 keberangkatan2.render();
+
+
+
+                var kedatangan = {
+                    series: [{
+                        name: 'Kedatangan',
+                        data: results.kedatangan,
+                        color: "#CB2D3E",
+                    }],
+                    chart: {
+                        type: 'bar',
+                        height: 380
+                    },
+                    tooltip: {
+                        fixed: {
+                            enabled: true
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '40%',
+                            endingShape: 'circle',
+                            dataLabels: {
+                                position: 'top'
+                            }
+                        },
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        style: {
+                            colors: ['#333']
+                        },
+                        offsetY: -15
+                    },
+                    stroke: {
+                        show: true,
+                        width: 2,
+                        colors: ['transparent']
+                    },
+                    xaxis: {
+                        categories: results.provinsi,
+                        labels: {
+                            show: true,
+                            rotate: -45,
+                            rotateAlways: false,
+                            hideOverlappingLabels: true,
+                            showDuplicates: false,
+                            trim: false,
+                            minHeight: undefined,
+                            maxHeight: 120,
+                            style: {
+                                // color: '#000000',
+                                fontSize: '12px',
+                                fontFamily: 'Helvetica, Arial, sans-serif',
+                                fontWeight: 'bold',
+                                cssClass: 'apexcharts-xaxis-label',
+                            },
+                        },
+                    },
+
+                    fill: {
+                        opacity: 1
+                    },
+
+                };
+
+                var kedatangan2 = new ApexCharts(document.querySelector("#kedatangan"), kedatangan);
+                kedatangan2.render();
             }
         })
     }
 
-    function getPieTripOn() {
+    function getPieTripOn(filter = null, time = null, start_time = null, end_time = null, start_date = null, end_date = null) {
+
         $.ajax({
             url: "<?= base_url() ?>tripon/getTipe_Kendaraan",
             type: 'POST',
+            data: {
+                filter,
+                time,
+                start_date,
+                end_date,
+                start_time,
+                end_time
+            },
             dataType: "JSON",
             success: function(results) {
+                $("#chart3").html(`<div id="chartkendaraan"></div>`);
                 var options_tripon_kendaraan = {
                     series: results.jumlah,
                     chart: {
@@ -411,157 +672,86 @@
                     }]
                 };
 
-                var tripon_kendaraan = new ApexCharts(document.querySelector("#chart3"), options_tripon_kendaraan);
+                var tripon_kendaraan = new ApexCharts(document.querySelector("#chartkendaraan"), options_tripon_kendaraan);
                 tripon_kendaraan.render();
             }
         })
     }
 
 
-
-    $('#limit_showData').on('change', function() {
-        let filter = 0
-        var limit = $('#limit_showData').val();
+    function getStatistikTripOn(filter = null, time = null, start_time = null, end_time = null, start_date = null, end_date = null) {
         $.ajax({
-            url: "<?= base_url() ?>tripon/tripon_prov",
+            url: "<?= base_url() ?>tripon/getStatistik",
             type: 'POST',
             data: {
-                limit
+                filter,
+                time,
+                start_date,
+                end_date,
+                start_time,
+                end_time
             },
             dataType: "JSON",
             success: function(results) {
-                $("#chart4").html(`<div id="chartprov"></div>`);
-                var keberangkatan = {
+                $('#jml_tripon').text(`Jumlah Tripon : ${results.jumlah_tripon}`)
+                $('#jml_penumpang').text(`Jumlah Penumpang : ${results.jumlah_penumpang}`)
+                $('#jml_kendaraan').text(`Jumlah Kendaraan : ${results.jumlah_kendaraan}`)
+                $('#jml_kedatangan').text(`Kedatangan : ${results.jumlah_kedatangan}`)
+                $('#jml_keberangkatan').text(`keberangkatan : ${results.jumlah_keberangkatan}`)
+            }
+        })
+    }
+
+
+    function getModelKendaraan(filter = null, time = null, start_time = null, end_time = null, start_date = null, end_date = null) {
+        $.ajax({
+            url: "<?= base_url() ?>tripon/getModelKendaraan",
+            type: 'POST',
+            data: {
+                filter,
+                time,
+                start_date,
+                end_date,
+                start_time,
+                end_time
+            },
+            dataType: "JSON",
+            success: function(results) {
+                $("#chart6").html(`<div id="modelkendaraan"></div>`);
+                var options = {
                     series: [{
-                        name: 'Keberangkatan',
-                        type: 'column',
-                        data: results.keberangkatan,
-                        color: "#003A91",
-                    }, {
-                        name: 'Kedatangan',
-                        data: results.kedatangan,
-                        type: "column",
-                        color: "#CB2D3E",
+                        name: 'Jumlah model kendaraan',
+                        data: results.jumlah
                     }],
                     chart: {
-                        type: 'line',
-                        height: 380
-                    },
-                    tooltip: {
-                        fixed: {
-                            enabled: true
-                        }
+                        type: 'bar',
+                        height: 370
                     },
                     plotOptions: {
                         bar: {
-                            horizontal: false,
-                            columnWidth: '55%',
-                            endingShape: 'circle',
-                            dataLabels: {
-                                position: 'top'
-                            }
-                        },
+                            borderRadius: 4,
+                            horizontal: true,
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
                     },
                     dataLabels: {
                         enabled: true,
                         style: {
-                            colors: ['#333']
+                            colors: ['#ffffff']
                         },
-                        offsetY: -15
-                    },
-                    stroke: {
-                        show: true,
-                        width: 2,
-                        colors: ['transparent']
+                        offsetY: 0,
+                        offsetX: -15
                     },
                     xaxis: {
-                        categories: results.provinsi,
-                    },
-                    yaxis: [{
-                        axisTicks: {
-                            show: false,
-                        },
-                        axisBorder: {
-                            show: false,
-                            color: '#008FFB'
-                        },
-                        labels: {
-                            style: {
-                                colors: '#008FFB',
-                            }
-                        },
-
-
-                    }, ],
-
-                    fill: {
-                        opacity: 1
-                    },
-
+                        categories: results.type
+                    }
                 };
 
-                var keberangkatan2 = new ApexCharts(document.querySelector("#chartprov"), keberangkatan);
-                keberangkatan2.render();
+                var chart = new ApexCharts(document.querySelector("#modelkendaraan"), options);
+                chart.render();
             }
         })
-
-    })
-
-
-    $("[name=filter]").on("change", function(e) {
-
-        var tanggal;
-        var isitype = 'day';
-
-        if (this.value == 'day') {
-            tanggal = [moment().format('YYYY-MM-DD'), moment().format('YYYY-MM-DD')];
-            isitype = 'day';
-        } else if (this.value == 'month') {
-            tanggal = [moment().startOf('month').format('YYYY-MM-DD'), moment().endOf('month').format('YYYY-MM-DD')];
-            isitype = 'month';
-        } else if (this.value == 'year') {
-            tanggal = [moment().startOf('year').format('YYYY-MM-DD'), moment().endOf('year').format('YYYY-MM-DD')];
-            isitype = 'year';
-        }
-        // //  console.log(tanggal);
-        // // console.log(tanggal[0]);
-        // getStatistik();
-    });
-
-    function BtnFilter() {
-        $('#FilterTripOn').html(`<div class="card">
-        <div class="card-body">
-            <table class="table table-bordered text-center fw-bold">
-                <thead class="table-primary">
-                    <tr>
-                        <th>Kota Awal</th>
-                        <th>Kota Tujuan</th>
-                        <th>Jumlah TripOn Terdaftar</th>
-                        <th>Jumlah Penumpang Terdaftar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Bogor</td>
-                        <td>Bandung</td>
-                        <td>1230</td>
-                        <td>123</td>
-                    </tr>
-                    <tr>
-                        <td>Bandung</td>
-                        <td>Bogor</td>
-                        <td>123</td>
-                        <td>1230</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Total</td>
-                        <td>1353</td>
-                        <td>1353</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-        `)
     }
 </script>

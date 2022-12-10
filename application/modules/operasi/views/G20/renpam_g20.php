@@ -99,16 +99,14 @@
                         </div>
                         <div class="col-md-6">
                             <div class="material-selectfield mb-3">
-                                <select name="subjek" id="select" class="form-select">
+                                <select required name="subjek" id="select" class="form-select">
                                     <option selected value="">Pilih Subjek</option>
                                     <option value="1">Patroli</option>
                                     <option value="2">Pengawalan</option>
                                     <option value="3">Penjagaan</option>
                                     <option value="4">Pengaturan</option>
                                     <option value="5">Penutupan</option>
-                                    <option value="6">Jalur</option>
-                                    <option value="7">POSPAM</option>
-                                    <option value="8">POSYAN</option>
+                                    <!-- <option value="6">Jalur</option>  -->
                                 </select>
                                 <!-- <label class="labelmui">Subjek</label> -->
                             </div> 
@@ -165,11 +163,13 @@
                     </div>
 
                     <div class="col-md-12 mt-3 float-end">
-                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: red" data-bs-toggle="modal" data-bs-target="#myModalUtama"> Rute Utama</a>
-                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #b935b9" data-bs-toggle="modal" data-bs-target="#myModal1"> Rute Alternative</a>
-                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: gray" data-bs-toggle="modal" data-bs-target="#myModal2"> Rute Escape</a>
-                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #000dda" data-bs-toggle="modal" data-bs-target="#myModal3"> Rute Masyarakat</a>
-                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #bdbd0b" data-bs-toggle="modal" data-bs-target="#myModal4"> Rute Umum</a>
+                        <div style="position: absolute;" id="btnRoute">
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: red" data-bs-toggle="modal" data-bs-target="#myModalUtama"> Rute Utama</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #b935b9" data-bs-toggle="modal" data-bs-target="#myModal1"> Rute Alternative</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: gray" data-bs-toggle="modal" data-bs-target="#myModal2"> Rute Escape</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #000dda" data-bs-toggle="modal" data-bs-target="#myModal3"> Rute Masyarakat</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #bdbd0b" data-bs-toggle="modal" data-bs-target="#myModal4"> Rute Umum</a>
+                        </div>
                         <button class="btn btn-primary float-end" type="submit">Simpan</button>
                     </div>
                 </form>
@@ -533,7 +533,9 @@
         let arrayWaypoint = [];
         var obj = {};
         $('#myModal').on('shown.bs.modal', function() {
-            console.log(arrayWaypoint);
+            // console.log(arrayWaypoint);
+
+            $("#btnRoute").hide();
 
             $('#startTime').clockpicker({
                 autoclose: true
@@ -561,6 +563,14 @@
                     containerOuter: 'choices select-choices',
                 },
             }); 
+
+            $('[name=subjek]').on('change', function(e) { 
+                if(this.value == '6' || this.value == '7' || this.value == '8'){
+                    $("#btnRoute").hide();
+                }else{
+                    $("#btnRoute").show();
+                }
+            });
         });
 
         $(".form").submit(function(e) {

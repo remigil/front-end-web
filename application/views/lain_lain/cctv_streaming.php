@@ -1,84 +1,68 @@
-<!-- Page -->
-<!-- <div class="kotak" style="border-style:solid ;"> -->
-<nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
-    <ol class="breadcrumb shadow-sm">
-        <li class="breadcrumb-item"><a href="#">Data <?= $title; ?></a></li>
-        <li class="breadcrumb-item active fw-bold" aria-current="page">Daftar <?= $title; ?></li>
-    </ol>
-</nav>
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
 
-<div class="row align-items-center">
-    <div class="col-md-6">
-        <div class="mb-3">
-            <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target="#addModal">Tambah CCTV</button>
-        </div>
-    </div>
+        <ol>
+          <li><a href="<?= base_url()?>home">Home</a></li>
+          <li><?= $breadcrumb?></li>
+        </ol>
+        <h2><?= $headline?></h2>
 
-    <div class="col-md-6">
-        <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
-            <div>
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link " href="<?php echo base_url()?>masterdata/cctv" data-bs-toggle="tooltip" data-bs-placement="top" title="List"><i class="bx bx-list-ul"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo base_url()?>masterdata/cctv/thumbnail" data-bs-toggle="tooltip" data-bs-placement="top" title="Grid"><i class="bx bx-grid-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="<?php echo base_url()?>masterdata/cctv/fullscreen" data-bs-toggle="tooltip" data-bs-placement="top" title="FullScreen"><i class="bx bx bx-fullscreen"></i></a>
-                    </li>
-                </ul>
-            </div> 
-        </div> 
-    </div>
+      </div>
+    </section><!-- End Breadcrumbs -->
 
-    <div class="col-md-6">
-        <div class="form-floating mb-3">
-           
-            <select class="form-select" name="kategoriFilter" style="height: 50px;">
-                <option selected value="">Pilih Kategori CCTV</option>
-                <option value="CCTV MAINROAD">CCTV MAINROAD</option>
-                <option value="CCTV GERBANG">CCTV GERBANG</option>
-                <option value="CCTV RAMP">CCTV RAMP</option>
-                <option value="CCTV ETHLE">CCTV ETHLE</option>
-                <option value="BALISATUDATA">BALI SATU DATA</option>
-                <option value="CCTV">CCTV</option> 
-            </select>
-            <label for="kategoriFilter">Filter CCTV</label>
-        </div>
-    </div>
+	<div class="container">
 
-    <div class="col-md-6">
-        <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
-            <div>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" name="searchFilter" placeholder="Search" style="height: 50px;">
-                    <label for="searchFilter">Search</label>
-                </div>
-            </div> 
-        </div> 
-    </div>
-    
-
-</div>
-<!-- end row -->
- 
-<div class="row" id="listCCTV"></div>
-
-<div class="row">
-    <input hidden type="text" name="halaman" id="halaman" value="1">
-    <div class="col-md-6">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item" id="backHalaman"><a class="page-link" href="javascript:void(0);">Kembali</a></li>
-                <!-- <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li> -->
-                <li class="page-item" id="nextHalaman"><a class="page-link" href="javascript:void(0);">Selanjutnya</a></li>
-            </ul>
-        </nav>
-    </div>
-</div>
+		<div class="row align-items-center">
+		
+			<div class="col-md-6">
+				<div class="form-floating mb-3">
+				   
+					<select class="form-select" name="kategoriFilter" style="height: 50px;">
+						<option selected value="">Pilih Kategori CCTV</option>
+						<option value="CCTV MAINROAD">CCTV MAINROAD</option>
+						<option value="CCTV GERBANG">CCTV GERBANG</option>
+						<option value="CCTV RAMP">CCTV RAMP</option>
+						<option value="CCTV ETHLE">CCTV ETHLE</option>
+						<option value="BALISATUDATA">BALI SATU DATA</option>
+						<option value="CCTV">CCTV</option> 
+					</select>
+					<label for="kategoriFilter">Filter CCTV</label>
+				</div>
+			</div>
+		
+			<div class="col-md-6">
+				<div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+					<div>
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" name="searchFilter" placeholder="Search" style="height: 50px;">
+							<label for="searchFilter">Search</label>
+						</div>
+					</div> 
+				</div> 
+			</div>
+			
+		
+		</div>
+		<!-- end row -->
+		 
+		<div class="row" id="listCCTV"></div>
+		
+		<div class="row">
+			<input hidden type="text" name="halaman" id="halaman" value="1">
+			<div class="col-md-6">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+						<li class="page-item" id="backHalaman"><a class="page-link" href="javascript:void(0);">Kembali</a></li>
+						<!-- <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+						<li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+						<li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li> -->
+						<li class="page-item" id="nextHalaman"><a class="page-link" href="javascript:void(0);">Selanjutnya</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
  
 <script>
     $(document).ready(function() { 

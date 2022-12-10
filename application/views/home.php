@@ -20,7 +20,7 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background-image: url(assets/fe/banner-home2.jpeg)">
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-home1.jpeg)">
             <div class="carousel-container">
               <div class="carousel-content">
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
@@ -32,7 +32,7 @@
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background-image: url(assets/fe/banner-home3.jpeg)">
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-home2.jpeg)">
             <div class="carousel-container">
               <div class="carousel-content">
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
@@ -147,62 +147,59 @@
 
 		</section>
 
-		<!-- ======= Blog Section ======= -->
-		<section id="blog" class="blog-area">
-    		<div class="blog-inner area-padding">
-        		<div class="blog-overly"></div>
-        		<div class="container ">
-					<div class="row">
-						<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="section-title">
+		
+
+		<!-- ======= Recent Blog Posts Section ======= -->
+    <section id="recent-blog-posts" class="recent-blog-posts">
+
+      <div class="container" data-aos="fade-up">
+
+			<div class="section-title">
 							<h2>Berita Terkini</h2>
-							<a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a>
+							
 							<!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
 						</div>
+
+        <div class="row">
+
+				<?php 
+						$i=0;
+						foreach ( $databerita as $data) : 
+							if (++$i == 4) break;?>
+
+          <div class="col-lg-4 mt-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="post-box">
+              <div class="post-img"><img width="500" src="<?= url_api() ?>news/<?= $data['picture'] ?>" class="img-fluid"></div>
+              <div class="meta">
+                <span class="post-date"><?= $data['category_news'][0]['name_category_news'] ?></span>
+                <span class="post-author"> / Korlantas Polri</span>
+              </div>
+              <h3 class="post-title"><?=$data['title']; ?></h3>
+              <p><?= substr($data['content'], 0, 250) . '. . .' ?></p>
+              <a href="berita_front/detailberita/<?= $data['id']?>" class="readmore stretched-link"><span>Baca Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+					<?php endforeach; ?>
+
+          
+
+        </div>
+
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<a href="<?= base_url()?>berita_front"><button class="btn btn-lg btn-primary mt-5" style="width: 100%;">Lihat Berita Lainnya</button></a>
+
 						</div>
 					</div>
-					<div class="row slides-3 swiper">
-					<div class="swiper-wrapper">
-						<!-- Start Left Blog -->
-						<?php foreach ($databerita as $data) : ?>
-						<div class="swiper-slide col-md-4 col-sm-4 col-xs-12 m-3">
-						<div class="single-blog">
-							<div class="single-blog-img">
-							<a href="<?= $data['link']?>" target="_blank">
-								<img src="<?= url_api() ?>news/<?= $data['picture'] ?>" alt="" width="100%" height="300px">
-							</a>
-							</div>
-							<div class="blog-meta">
-							<span class="comments-type">
-								<i class="fa fa-comment-o"></i>
-								<a href="#"><?= $data['category_news'][0]['name_category_news'] ?></a>
-							</span>
-							<span class="date-type">
-								<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-							</span>
-							</div>
-							<div class="blog-text">
-							<h4 style="text-align:justify ;">
-								<a href="<?= $data['link']?>" target="_blank"><?=$data['title']; ?></a>
-							</h4>
-							<p style="text-align:justify ;">
-							<?= substr($data['content'], 0, 250) . '. . .' ?>
-							</p>
-							</div>
-							<span>
-							<a href="<?= $data['link']?>" class="ready-btn" target="_blank">Baca Selengkapnya</a>
-							</span>
-						</div>
-						<!-- Start single blog -->
-						</div>
-						<!-- End Left Blog-->
-						<?php endforeach; ?>
-						
-					</div>
-					</div>
-        		</div>
-			</div>
-		</section><!-- End Blog Section -->
+				</div>
+
+      </div>
+
+    </section><!-- End Recent Blog Posts Section -->
+
+		
 
 		
 

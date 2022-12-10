@@ -768,7 +768,7 @@
 
     function detailEdit(id) { 
        
-
+        $("#overlay").fadeIn(300);    
         $.ajax({
             url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
             type: 'POST',
@@ -1043,7 +1043,8 @@
                 var longitude11 = parseFloat(latlong11[1]); 
                 mapContainer.flyTo([latitude11, longitude11], 17);
 
-					  
+                $("#overlay").fadeOut(300);   
+                $("#myModalEdit").modal('show');
             }
         })
     }
