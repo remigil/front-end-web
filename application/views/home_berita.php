@@ -33,7 +33,7 @@
               </div>
 
               <h2 class="entry-title">
-                <a href="blog-single.html"><?=$data['title']; ?></a>
+                <a href="berita_front/detailberita/<?= $data['id']?>"><?=$data['title']; ?></a>
               </h2>
 
               <div class="entry-meta">
@@ -49,7 +49,7 @@
 				<?= substr($data['content'], 0, 250) . '. . .' ?>
                 </p>
                 <div class="read-more">
-                  <a href="<?= $data['link']?>">Baca Selengkapnya</a>
+                  <a href="berita_front/detailberita/<?= $data['id']?>">Baca Selengkapnya</a>
                 </div>
               </div>
 
@@ -77,35 +77,19 @@
 
               <h3 class="sidebar-title">Recent Posts</h3>
               <div class="sidebar-item recent-posts">
+			  <?php 
+						$i=0;
+						foreach ( $databerita as $data) : 
+							if (++$i == 4) break;?>
                 <div class="post-item clearfix">
-                  <img src="assets/img/blog/blog-recent-1.jpg" alt="">
-                  <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
+                  <img src="<?= url_api() ?>news/<?= $data['picture'] ?>" alt="">
+                  <h4><a href="berita_front/detailberita<?=$data['id']; ?>"><?=$data['title']; ?></a></h4>
+                  <time datetime="2020-01-01"><?=$data['updated_at']; ?></time>
                 </div>
 
-                <div class="post-item clearfix">
-                  <img src="assets/img/blog/blog-recent-2.jpg" alt="">
-                  <h4><a href="blog-single.html">Quidem autem et impedit</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
+				<?php endforeach; ?>
 
-                <div class="post-item clearfix">
-                  <img src="assets/img/blog/blog-recent-3.jpg" alt="">
-                  <h4><a href="blog-single.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-
-                <div class="post-item clearfix">
-                  <img src="assets/img/blog/blog-recent-4.jpg" alt="">
-                  <h4><a href="blog-single.html">Laborum corporis quo dara net para</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-
-                <div class="post-item clearfix">
-                  <img src="assets/img/blog/blog-recent-5.jpg" alt="">
-                  <h4><a href="blog-single.html">Et dolores corrupti quae illo quod dolor</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
+                
 
               </div><!-- End sidebar recent posts-->
 

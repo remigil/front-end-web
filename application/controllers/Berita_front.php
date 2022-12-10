@@ -45,7 +45,7 @@ class Berita_front extends MX_Controller {
         $this->template->load('templates/template','home_berita', $data);
 	}
 
-	public function detailBerita()
+	public function detailBerita($id)
     {
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash(); 
@@ -61,8 +61,20 @@ class Berita_front extends MX_Controller {
                 $news[] = $k;
             }
         }
+        // var_dump($databerita['getBerita']);die;
 
-		$data["databerita"] = $news;
+
+        $data["databerita"] = $news;
+
+		$getDetail = guzzle_request('GET', 'news/getIdweb/' . $id . '', [
+            // 'headers' => $headers
+        ]);
+		
+        $data['getDetail'] = $getDetail['data']['data'];
+		// var_dump($data['getDetail']);die;
+
+
+        
 
 		$this->template->load('templates/template','detail_berita', $data);
     }

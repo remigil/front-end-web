@@ -176,7 +176,7 @@
               </div>
               <h3 class="post-title"><?=$data['title']; ?></h3>
               <p><?= substr($data['content'], 0, 250) . '. . .' ?></p>
-              <a href="<?= $data['link']?>" class="readmore stretched-link"><span>Baca Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+              <a href="berita_front/detailberita/<?= $data['id']?>" class="readmore stretched-link"><span>Baca Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
