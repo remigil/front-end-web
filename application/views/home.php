@@ -20,7 +20,7 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background-image: url(assets/fe/banner-home2.jpeg)">
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-home1.jpeg)">
             <div class="carousel-container">
               <div class="carousel-content">
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
@@ -32,7 +32,7 @@
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background-image: url(assets/fe/banner-home3.jpeg)">
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-home2.jpeg)">
             <div class="carousel-container">
               <div class="carousel-content">
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
