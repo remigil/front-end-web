@@ -110,6 +110,19 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
+                    <h5>DATA TRIPON</h5>
+                    <p class="fw-bold" style="text-transform:capitalize">Per Model Kendaraan</p>
+                </div>
+                <div class="card-body m-0 p-0">
+                    <div class="main-chart">
+                        <div id="chart6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="card" style="display: none;">
@@ -145,6 +158,9 @@
 
 
     <div class="card">
+        <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
+            <h5>DATA SELURUH TRIPON</h5>
+        </div>
         <div class="card-body">
             <table id="dataTable" class="table table-striped dt-responsive  nowrap w-100">
                 <thead>
@@ -341,6 +357,8 @@
         getPieTripOn(filter, time, start_time, end_time, start_date, end_date);
         getChartProv(filter, time, start_time, end_time, start_date, end_date, limit);
         getStatistikTripOn(filter, time, start_time, end_time, start_date, end_date)
+        getModelKendaraan(filter, time, start_time, end_time, start_date, end_date)
+
 
     });
 
@@ -374,25 +392,35 @@
             getChartProv(filter, time, start_time, end_time, today, today, limit);
             getPieTripOn(filter, time, start_time, end_time, today, today);
             getStatistikTripOn(filter, time, start_time, end_time, today, today);
+            getModelKendaraan(filter, time, start_time, end_time, today, today);
+
         } else if (this.value == 'today') {
             getChartProv(filter, time = false, start_time = null, end_time = null, today, today, limit);
             getPieTripOn(filter, time = false, start_time = null, end_time = null, today, today);
             getStatistikTripOn(filter, time = false, start_time = null, end_time = null, today, today);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, today, today);
+
 
         } else if (this.value == 'week') {
             getChartProv(filter, time = false, start_time = null, end_time = null, start_week, end_week, limit);
             getPieTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
             getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+
 
         } else if (this.value == 'month') {
             getChartProv(filter, time = false, start_time = null, end_time = null, start_month, end_month, limit);
             getPieTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
             getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+
 
 
         } else if (this.value == 'year') {
             getPieTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
             getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+
             getChartProv(filter, time = false, start_time = null, end_time = null, start_year, end_year, limit);
         }
         // //  console.log(tanggal);
@@ -426,27 +454,27 @@
             getChartProv(filter, time, start_time, end_time, today, today, limit);
             getPieTripOn(filter, time, start_time, end_time, today, today);
             getStatistikTripOn(filter, time, start_time, end_time, today, today);
-
+            getModelKendaraan(filter, time, start_time, end_time, today, today);
         } else if (type_filter == 'today') {
             getChartProv(filter, time = false, start_time = null, end_time = null, today, today, limit);
             getPieTripOn(filter, time = false, start_time = null, end_time = null, today, today);
             getStatistikTripOn(filter, time = false, start_time = null, end_time = null, today, today);
-
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, today, today);
         } else if (type_filter == 'week') {
             getChartProv(filter, time = false, start_time = null, end_time = null, start_week, end_week, limit);
             getPieTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
             getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
-
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_week, end_week);
         } else if (type_filter == 'month') {
             getChartProv(filter, time = false, start_time = null, end_time = null, start_month, end_month, limit);
             getPieTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
             getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
-
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_month, end_month);
         } else if (type_filter == 'year') {
             getChartProv(filter, time = false, start_time = null, end_time = null, start_year, end_year, limit);
             getPieTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
             getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
-
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_year, end_year);
         }
 
     })
@@ -670,6 +698,59 @@
                 $('#jml_kendaraan').text(`Jumlah Kendaraan : ${results.jumlah_kendaraan}`)
                 $('#jml_kedatangan').text(`Kedatangan : ${results.jumlah_kedatangan}`)
                 $('#jml_keberangkatan').text(`keberangkatan : ${results.jumlah_keberangkatan}`)
+            }
+        })
+    }
+
+
+    function getModelKendaraan(filter = null, time = null, start_time = null, end_time = null, start_date = null, end_date = null) {
+        $.ajax({
+            url: "<?= base_url() ?>tripon/getModelKendaraan",
+            type: 'POST',
+            data: {
+                filter,
+                time,
+                start_date,
+                end_date,
+                start_time,
+                end_time
+            },
+            dataType: "JSON",
+            success: function(results) {
+                $("#chart6").html(`<div id="modelkendaraan"></div>`);
+                var options = {
+                    series: [{
+                        name: 'Jumlah model kendaraan',
+                        data: results.jumlah
+                    }],
+                    chart: {
+                        type: 'bar',
+                        height: 370
+                    },
+                    plotOptions: {
+                        bar: {
+                            borderRadius: 4,
+                            horizontal: true,
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        style: {
+                            colors: ['#ffffff']
+                        },
+                        offsetY: 0,
+                        offsetX: -15
+                    },
+                    xaxis: {
+                        categories: results.type
+                    }
+                };
+
+                var chart = new ApexCharts(document.querySelector("#modelkendaraan"), options);
+                chart.render();
             }
         })
     }

@@ -241,4 +241,48 @@ class Tripon extends MY_Controller
             'jumlah_penumpang' => $jumlah_penumpang
         ]);
     }
+
+    public function getModelKendaraan()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+
+        $filter = $this->input->post('filter');
+        $time = $this->input->post('time');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+
+        $start_time = $this->input->post('start_time');
+        $end_time = $this->input->post('end_time');
+
+
+
+
+        if ($time == 'true') {
+            $url = 'count-trip-on/model_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '';
+        } else {
+            $url = 'count-trip-on/model_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '';
+        }
+
+        $getTripon = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        $jumlah = array();
+
+        foreach ($getTripon['data'] as $key) {
+            $type[] = $key['brand'];
+            $jumlah[] = $key['jumlah'];
+        }
+
+        $data['tripOn'] = [
+            'type' => $type,
+            'jumlah' => $jumlah
+        ];
+
+        echo json_encode($data['tripOn']);
+    }
 }

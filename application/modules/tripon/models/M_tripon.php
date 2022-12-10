@@ -133,14 +133,7 @@ class M_tripon extends CI_Model {
             $row['time_departure'] = date($field['departure_time']);
             $row['distance'] = $field['distance'];
             $row['duration'] = $field['duration'];
-
-
-
-            if ($field['type_vehicle']['type_name'] == 'Motor') {
-                $row['brand_vehicle']    = 'Sepeda Motor';
-            } else if ($field['type_vehicle']['type_name'] == 'Mobil') {
-                $row['brand_vehicle']    = 'SUV';
-            }
+            $row['brand_vehicle']    = $field['brand_vehicle']['brand_name'];
             $row['location_start'] = $field['district_start'] . ' , ' . $field['province_start'];
             $row['location_end'] = $field['district_end'] . ' , ' . $field['province_end'];
 
