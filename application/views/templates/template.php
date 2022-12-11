@@ -112,13 +112,13 @@
         <ul>
 		<li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
-				<li><a href="<?= base_url()?>sambutan">Sambutan</a></li>
-				<li><a href="<?= base_url()?>struktur_organisasi">Struktur Organisasi</a></li>
-				<li><a href="<?= base_url()?>profil_pejabat">Profil Pejabat</a></li>
-				<li><a href="<?= base_url()?>visi_misi">Visi dan Misi</a></li>
-				<li><a href="<?= base_url()?>tugas_fungsi">Tugas dan Fungsi</a></li>
+				<li><a href="<?= base_url()?>profil/sambutan">Sambutan</a></li>
+				<li><a href="<?= base_url()?>profil/struktur_organisasi">Struktur Organisasi</a></li>
+				<li><a href="<?= base_url()?>profil/profil_pejabat">Profil Pejabat</a></li>
+				<li><a href="<?= base_url()?>profil/visi_misi">Visi dan Misi</a></li>
+				<li><a href="<?= base_url()?>profil/tugas_fungsi">Tugas dan Fungsi</a></li>
 				<!-- <li><a href="<?= base_url()?>organisasi_tatakerja">Organisasi dan Tata Kerja</a></li> -->
-				<li><a href="<?= base_url()?>sejarah">Sejarah POLANTAS</a></li>
+				<li><a href="<?= base_url()?>profil/sejarah">Sejarah POLANTAS</a></li>
             </ul>
         </li>
 		<li class="dropdown megamenu"><a href="#"><span>Satker Mabes</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -126,22 +126,23 @@
               <li>
 				<h5>Korlantas</h5>
 				<hr width="80%">
-			  	<a href="<?= base_url()?>ditgakkum_front">DITGAKKUM</a>
-				<a href="<?= base_url()?>ditregident_front">DITREGIDENT</a>
-                <a href="<?= base_url()?>ditkamsel_front">DITKAMSEL</a>
-				<a href="<?= base_url()?>bagrenmin_front">BAGRENMIN</a>
-				<a href="<?= base_url()?>bagops_front">BAGOPS</a>
-				<a href="<?= base_url()?>bagtik_front">BAGTIK</a>
+			  	<a href="<?= base_url()?>satker/ditgakkum">DITGAKKUM</a>
+				<a href="<?= base_url()?>satker/ditregident">DITREGIDENT</a>
+                <a href="<?= base_url()?>satker/ditkamsel">DITKAMSEL</a>
+				<a href="<?= base_url()?>satker/bagrenmin">BAGRENMIN</a>
+				<a href="<?= base_url()?>satker/bagops">BAGOPS</a>
+				<a href="<?= base_url()?>satker/bagtik">BAGTIK</a>
               </li>
               <li>
+								
 				<h5>Fungsi Lainnya</h5>
 				<hr width="80%">
-			  	<a href="<?= base_url()?>baharkam">BAHARKAM</a>
-				<a href="<?= base_url()?>asops">ASOPS</a>
-                <a href="<?= base_url()?>divtik">DIVTIK</a>
-				<a href="<?= base_url()?>bareskrim">BARESKIM</a>
-				<a href="<?= base_url()?>divhumas">DIVHUMAS</a>
-				<a href="<?= base_url()?>itwasum">ITWASUM</a>
+			  				<a href="<?= base_url()?>satker/baharkam">BAHARKAM</a>
+								<a href="<?= base_url()?>satker/asops">ASOPS</a>		
+                <a href="<?= base_url()?>satker/divtik">DIVTIK</a>
+								<a href="<?= base_url()?>satker/bareskrim">BARESKIM</a>
+								<a href="<?= base_url()?>satker/divhumas">DIVHUMAS</a>
+								<a href="<?= base_url()?>satker/itwasum">ITWASUM</a>
               </li>
               
             </ul>
@@ -149,30 +150,30 @@
 		<li class="dropdown megamenu"><a href="#"><span>stakeholder</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li>
-			  	<a href="<?= base_url()?>kemendagri">KEMENDAGRI</a>
-				<a href="<?= base_url()?>kemenhub">KEMENHUB</a>
-                <a href="<?= base_url()?>kemenkes">KEMENKES</a>
-				<a href="<?= base_url()?>kemenpupr">KEMENPERIN</a>
-				<a href="<?= base_url()?>kemenpupr">KEMENPUPR</a>
-				<a href="<?= base_url()?>badan_riset">BADAN RISET DAN INOVASI NASIONAL</a>
-				<a href="<?= base_url()?>kemenkeu">KEMENKEU</a>
+			  	<a href="<?= base_url()?>stakeholder/kemendagri">KEMENDAGRI</a>
+				<a href="<?= base_url()?>stakeholder/kemenhub">KEMENHUB</a>
+                <a href="<?= base_url()?>stakeholder/kemenkes">KEMENKES</a>
+				<a href="<?= base_url()?>stakeholder/kemenperin">KEMENPERIN</a>
+				<a href="<?= base_url()?>stakeholder/kemenpupr">KEMENPUPR</a>
+				<a href="<?= base_url()?>stakeholder/badan_riset">BADAN RISET DAN INOVASI NASIONAL</a>
+				<a href="<?= base_url()?>stakeholder/kemenkeu">KEMENKEU</a>
               </li>
               <li>
-			  	<a href="<?= base_url()?>kemendikbud">KEMENDIKBUD</a>
-				<a href="<?= base_url()?>kemenhan">KEMENHAN</a>
-                <a href="<?= base_url()?>ditjen_bina">DITJEN BINA WARGA</a>
-				<a href="<?= base_url()?>dukcapil">DUKCAPIL</a>
-				<a href="<?= base_url()?>jasa_raharja">PT JASA RAHARJA</a>
-				<a href="<?= base_url()?>jasa_marga">JASA MARGA</a>
+			  	<a href="<?= base_url()?>stakeholder/kemendikbud">KEMENDIKBUD</a>
+				<a href="<?= base_url()?>stakeholder/kemenhan">KEMENHAN</a>
+                <a href="<?= base_url()?>stakeholder/bina_warga">DITJEN BINA WARGA</a>
+				<a href="<?= base_url()?>stakeholder/dukcapil">DUKCAPIL</a>
+				<a href="<?= base_url()?>stakeholder/jasa_raharja">PT JASA RAHARJA</a>
+				<a href="<?= base_url()?>stakeholder/jasa_marga">JASA MARGA</a>
               </li>
 			  <li>
-			  	<a href="<?= base_url()?>mabes_tni">MABES TNI</a>
-				<a href="<?= base_url()?>satgas_covid">SATGAS COVID</a>
-                <a href="<?= base_url()?>bmkg">BMKG</a>
-				<a href="<?= base_url()?>bnn">BNN</a>
-				<a href="<?= base_url()?>bnpb">BNPB</a>
-				<a href="<?= base_url()?>bnpt">BNPT</a>
-				<a href="<?= base_url()?>bps">BPS</a>
+			  	<a href="<?= base_url()?>stakeholder/mabes_tni">MABES TNI</a>
+				<a href="<?= base_url()?>stakeholder/satgas_covid">SATGAS COVID</a>
+                <a href="<?= base_url()?>stakeholder/bmkg">BMKG</a>
+				<a href="<?= base_url()?>stakeholder/bnn">BNN</a>
+				<a href="<?= base_url()?>stakeholder/bnpb">BNPB</a>
+				<a href="<?= base_url()?>stakeholder/bnpt">BNPT</a>
+				<a href="<?= base_url()?>stakeholder/bps">BPS</a>
 			  </li>
               
             </ul>
@@ -182,24 +183,24 @@
           
           <li class="dropdown"><a href="#"><span>Publikasi</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
-				<li><a href="<?= base_url()?>konferensi_pers">Konfersi Pers</a></li>
-				<li><a href="<?= base_url()?>kegiatan_kakor">Kegiatan Kakorlantas</a></li>
+				<li><a href="<?= base_url()?>publikasi/konferensi_pers">Konfersi Pers</a></li>
+				<li><a href="<?= base_url()?>publikasi/kegiatan_kakor">Kegiatan Kakorlantas</a></li>
 				<!-- <li><a href="<?= base_url()?>riset_media">Riset Media Center NTMC</a></li> -->
-				<li><a href="<?= base_url()?>kegiatan_khusus">Kegiatan Khusus (PAM PPKM)</a></li> 
+				<li><a href="<?= base_url()?>publikasi/kegiatan_khusus">Kegiatan Khusus (PAM PPKM)</a></li> 
             </ul>
         </li>
 		<li class="dropdown"><a href="#"><span>Pustaka</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
-				<li><a href="<?= base_url()?>informasi_setiap_saat">Informasi Setiap Saat</a></li>
-				<li><a href="<?= base_url()?>informasi_berkala">Informasi Berkala</a></li>
-				<li><a href="<?= base_url()?>informasi_serta_merta">Informasi Serta Merta</a></li>
-				<li><a href="<?= base_url()?>undang_undang">UU dan Peraturan</a></li> 
+				<li><a href="<?= base_url()?>pustaka/informasi_setiap_saat">Informasi Setiap Saat</a></li>
+				<li><a href="<?= base_url()?>pustaka/informasi_berkala">Informasi Berkala</a></li>
+				<li><a href="<?= base_url()?>pustaka/informasi_serta_merta">Informasi Serta Merta</a></li>
+				<li><a href="<?= base_url()?>pustaka/undang_undang">UU dan Peraturan</a></li> 
             </ul>
         </li>
 		<li class="dropdown"><a href="#"><span>Kontak Kami</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
-				<li><a href="<?= base_url()?>survey_kepuasan">Survey Kepuasan</a></li>
-				<li><a href="<?= base_url()?>layanan_pengaduan">Layanan Pengaduan</a></li>
+				<li><a href="<?= base_url()?>kontak/survey_kepuasan">Survey Kepuasan</a></li>
+				<li><a href="<?= base_url()?>kontak/layanan_pengaduan">Layanan Pengaduan</a></li>
 				<li><a href="<?= base_url()?>https://ccntmc.1500669.com/">Contact Center NTMC</a></li> 
             </ul>
         </li>

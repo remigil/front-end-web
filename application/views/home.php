@@ -533,6 +533,7 @@
 							</div>
 
 							<div class="col-md-12 mt-3">
+							<a href=<?= base_url('Ditlantas_polda/');?>${ressData[i].id}><button class="btn btn-primary float-start">ini halaman</button></a>   
 								<a href=${ressData[i].website} target="_blank"><button class="btn btn-primary float-end">Selengkapnya</button></a>   
 							</div>
 							</div>

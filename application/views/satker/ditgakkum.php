@@ -79,7 +79,7 @@
             </div>
           </div><!-- End Service Item -->
 
-          
+
 
         </div>
 
@@ -91,7 +91,10 @@
 		<div class="container">
 	<!-- Dokumen Peraturan Satker -->
 	<div class="col-md-12">
-				<h3 style="text-transform:uppercase ;">Dokumen Peraturan</h3>
+	<div class="section-title">
+          <h2>Dokumen Peraturan </h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+        </div>
 				<div class="card">
 					<div class="card-body">
 						<table id="datatable" class="table dt-responsive w-100 table-striped">
