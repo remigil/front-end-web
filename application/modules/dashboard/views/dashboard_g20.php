@@ -138,7 +138,7 @@
         
                         <div class="cat gpsIdDisplay" style="margin-left: 10px;">  
                             <label>
-                                <input type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan Listrik</span>
+                                <input type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan</span>
                             </label>  
                         </div>
         
@@ -230,7 +230,7 @@
                             </div>
                         </div>
     
-                        <div class="cat posPamDisplay" style="margin-left: 10px; display: none;">
+                        <div class="cat posPamDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="pos_pam" name="filter" id="posPamDisplay"><span><i class="mdi mdi-chat-alert"></i> POS PAM</span>
@@ -239,7 +239,7 @@
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
                                 </button>
                             </div>
-                        </div>
+                        </div> 
     
                         <div class="cat satPasDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
@@ -361,7 +361,7 @@
                                     </div> 
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="gpsId" id="gpsId" class="form-input" >  
-                                        <span>Kendaraan Listrik</span> 
+                                        <span>Kendaraan</span> 
                                     </div>   
                                     <div class="col-md-12 mt-3" id="menuKategori">
                                         <p style="font-size: 17px;">Fasilitas Umum Kategori</p> 
@@ -6528,8 +6528,8 @@
                                     <div class="col-md-6">
                                         <b style="font-size: 14px; text-transform: capitalize;">${filterJalur[i].fasum_name}</b> 
                                     </div> 
-                                    <div class="col-md-6">
-                                        <b style="height: 10px; color: ${filterJalur[i].fasum_color}""> ___________________________________ </b>
+                                    <div class="col-md-6"> 
+                                        <div style="height: 10px;background-color: ${filterJalur[i].fasum_color}; margin-top: 8px;" ></div>
                                     </div>
                                 `;
                                 $('#isiLegendJalur').html(listIsiLegenJalur); 
