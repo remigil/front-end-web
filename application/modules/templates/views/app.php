@@ -725,6 +725,13 @@
             margin-left: 50px;
         }
 
+        .sidenav2 .judul {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 27px; 
+        }
+
         @media screen and (max-height: 450px) {
             .sidenav2 {
                 padding-top: 15px;
