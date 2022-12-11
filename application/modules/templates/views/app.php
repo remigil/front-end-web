@@ -93,7 +93,7 @@
 
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 
-    <style>
+    <style> 
         @font-face {
             font-family: 'MortendBold';
             src: url("<?= base_url('assets/fe/font/MortendBold.otf'); ?>");
@@ -685,6 +685,49 @@
 
         .aneh:hover {
             background-color: #003a91;
+        }
+
+
+
+        .sidenav2 {
+        height: 35%;
+        width: 0;
+        position: absolute;
+        z-index: 999;
+        bottom: 0px;
+        left: 0px;
+        background-color: white;
+        border-radius: 0px 50px 0px 0px;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 70px; 
+        scrollbar-width: thin;
+        }
+
+        .sidenav2 a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+        }
+
+        .sidenav2 a:hover {
+        color: #f1f1f1;
+        }
+
+        .sidenav2 .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+        .sidenav2 {padding-top: 15px;}
+        .sidenav2 a {font-size: 18px;}
         }
     </style>
 

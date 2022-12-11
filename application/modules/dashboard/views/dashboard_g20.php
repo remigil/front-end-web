@@ -440,11 +440,42 @@
             
         </div>
         <div id="mapG20Dashboard">
-        <div style="bottom: 10px;left: 10px;position: absolute;z-index: 999;/*! text-align: end; */"> 
-            <img src="<?= base_url()?>assets/legenda_web.png" style="width: 12vw;"/>
+            <div style="bottom: 0px;position: absolute;z-index: 999;background-color: #f5f3f4;border-radius: 0px 50px 0px 0px;padding: 20px;"> 
+                <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; <b style="font-size:18px;">Lihat Legenda</b></span>
+            </div>
+            <div id="mySidenav" class="sidenav2" >
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOneLegenda">
+                            <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneLegenda" aria-expanded="true" aria-controls="collapseOneLegenda">
+                            Legend Fasum Khusus
+                            </button>
+                        </h2>
+                        <div id="collapseOneLegenda" class="accordion-collapse collapse show" aria-labelledby="headingOneLegenda" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="row" style="margin: 10px;" id="isiLegendFasum"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwoLegenda">
+                            <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoLegenda" aria-expanded="false" aria-controls="collapseTwoLegenda">
+                            Legend Jalur
+                            </button>
+                        </h2>
+                        <div id="collapseTwoLegenda" class="accordion-collapse collapse" aria-labelledby="headingTwoLegenda" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                            <div class="row" style="margin: 10px;" id="isiLegendJalur"></div>
+                            </div>
+                        </div>
+                    </div> 
+                </div><!-- end accordion --> 
             </div>
         </div>
     </div>
+    
     <!-- <div class="col-md-12 mt-3"> 
         <div class="card">
             <div class="card-body">
@@ -469,7 +500,9 @@
     </div> -->
 </div>
 
- 
+
+
+
 <!-- Modal -->
 <div class="modal right fade" id="myModalFilter" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -6035,7 +6068,7 @@
                     // var ressFasumKhusus = result['data']['fasum_khusus'];
                     ressFasumKhusus = result['data']['fasum_khusus'];
 
-                    console.log(ressFasumKhusus);
+                    // console.log(ressFasumKhusus);
 
                     var ressRadius = result['data']['radius']; 
                     var ressCluster = result['data']['cluster']; 
@@ -6434,6 +6467,12 @@
                         var filterJalur = ressJalur;
 
                         if (filterJalur.length > 0) {
+
+
+                            var countIsiLegenJalur = 0;
+                            var listIsiLegenJalur = '';  
+                            
+
                             $('#openModalJalurDisplay').html(`
                                 <table id="datatableJalurOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                     <thead>
@@ -6481,6 +6520,19 @@
                                     fasum_name: filterJalur[i]['fasum_name'],
                                     checked: 0,
                                 });
+
+
+
+                               
+                                listIsiLegenJalur += `
+                                    <div class="col-md-6">
+                                        <b style="font-size: 14px; text-transform: capitalize;">${filterJalur[i].fasum_name}</b> 
+                                    </div> 
+                                    <div class="col-md-6">
+                                        <b style="height: 10px; color: ${filterJalur[i].fasum_color}""> ___________________________________ </b>
+                                    </div>
+                                `;
+                                $('#isiLegendJalur').html(listIsiLegenJalur); 
                                 
                             }
 
@@ -7807,6 +7859,62 @@
                     }
 
                     if(ressFasumKhusus && ressFasumKhusus.length > 0){  
+                        var countIsiLegen = 0;
+                        var listIsiLegen = ''; 
+                        var arrayGroupBy = new Array();
+
+                        const groupByCategory = ressFasumKhusus.reduce((group, product) => {
+                            const { fasum_type , fasum_logo } = product;
+
+                            group[fasum_logo] = group[fasum_logo] ?? [];
+                            group[fasum_logo].push(product); 
+ 
+                            return group;
+                        }, {});
+                        var dataArrayGroup = Object.keys(groupByCategory)
+                        console.log(Object.keys(groupByCategory));
+
+
+                        listIsiLegen += `
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/troublespot.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">trouble spot</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/blackspot.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">black spot</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/POSPAM.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">POSPAM</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/POSYAN.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">POSYAN</b>
+                                </div> 
+                            </div> 
+                        `;
+                        for (let i = 0; i < dataArrayGroup.length; i++) {  
+                            countIsiLegen += 1;
+                            listIsiLegen += `
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo url_api();?>fasum_khusus/${dataArrayGroup[i]}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">${dataArrayGroup[i].replace('.png', "")}</b>
+                                    </div> 
+                                </div> 
+                            `;
+                            $('#isiLegendFasum').html(listIsiLegen); 
+                        }
+
+
                         $('#openModalFasumKhususDisplay').html(`
                             <table id="datatableFasumKhususOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
@@ -7845,6 +7953,9 @@
                                 </tr>
                             `;
                             $('#isiModalFasumKhususDisplay').html(listFasumKhususDisplay); 
+
+                            
+                            
 
                             if(ressFasumKhusus[i].fasum_type == 1){
                                 logoMarker = `hotel.png`;
@@ -8768,6 +8879,7 @@
                                             var checkboxJadwal = "";
                                             var nameJadwalRenpam = [];
                                             var typeJadwalRenpam = [];
+                                            var idJadwalRenpam = [];
                                             var awalJadwalRenpam = [];
                                             var akhirJadwalRenpam = [];
 
@@ -8775,6 +8887,7 @@
                                             var nameRenpam = [];
                                             var dummyName = [];
                                             var dummyType = [];
+                                            var dummyidJadwal = [];
                                             var dummyAwal = [];
                                             var dummyAkhir = [];
         
@@ -8817,6 +8930,7 @@
                                                 $(`#totalCategJadwal${ress[m]['id']}`).html(ressJadwalId.length);
                                                 dummyName = [];
                                                 dummyType = [];
+                                                dummyidJadwal = [];
                                                 dummyAwal = [];
                                                 dummyAkhir = [];
         
@@ -8884,11 +8998,13 @@
 
                                                         dummyName.push(sortUrutanRenpam[i]['name_renpam']);
                                                         dummyType.push(sortUrutanRenpam[i]['type_renpam']);
+                                                        dummyidJadwal.push(sortUrutanRenpam[i]['schedule_id']);
                                                         dummyAwal.push(sortUrutanRenpam[i]['awal_renpam']);
                                                         dummyAkhir.push(sortUrutanRenpam[i]['akhir_renpam']);
         
                                                         nameJadwalRenpam[countlist] = dummyName;
                                                         typeJadwalRenpam[countlist] = dummyType; 
+                                                        idJadwalRenpam[countlist] = dummyidJadwal; 
                                                         awalJadwalRenpam[countlist] = dummyAwal; 
                                                         akhirJadwalRenpam[countlist] = dummyAkhir; 
 
@@ -9592,7 +9708,8 @@
                                                         console.log({a:namaRen ,b:warna});
 
 
-        
+                                                        
+                                                        
                                                         var typeRenpam = typeJadwalRenpam[i+1][ii];
                                                         if(typeRenpam == 3){ //penjagaan
                                                             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
@@ -9634,13 +9751,20 @@
         
                                                         if(typeRenpam == 3){
                                                             
-                                                            // console.log(dummyJadwalRenpamTitik[i+1][ii]);
+                                                            var iconMarkerPengjagaan = '';
+                                                            var id_jadwal = idJadwalRenpam[i+1][ii];
+                                                            if(id_jadwal == '88'){
+                                                                iconMarkerPengjagaan = `<img src="<?= base_url('assets/icon/POSPAM.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`;
+                                                            }else{
+                                                                iconMarkerPengjagaan = `<img src="<?= base_url('assets/icon/POSYAN.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`;
+                                                            }
+
                                                             if($(this).is(':checked')){  
                                                                 markerTitikGlobal[[i+1][ii]] = L.marker([dummyJadwalRenpamTitik[i+1][ii]['lat'], dummyJadwalRenpamTitik[i+1][ii]['lng']], {
                                                                                         renderer: myRenderer,
                                                                                         icon: L.divIcon({
                                                                                         // className: 'location-pin',
-                                                                                        html: `<img src="<?= base_url('assets/icon/gpsId.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
+                                                                                        html: iconMarkerPengjagaan,
                                                                                         iconSize: [5, 5],
                                                                                         iconAnchor: [5, 10]
                                                                                         })
@@ -12639,6 +12763,15 @@
             });
 
         } 
+
+
+        function openNav() { 
+            document.getElementById("mySidenav").style.width = "50%"; 
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
 
     
 </script> 
