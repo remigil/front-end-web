@@ -7776,31 +7776,8 @@
                                 var latitudeCluster = parseFloat(ressCluster[i].fasum_lat);
                                 var longitudeCluster = parseFloat(ressCluster[i].fasum_lng); 
                                 var set = ressCluster[i].fasum_radius != null ? ressCluster[i].fasum_radius : 1 ;
-                                markerCluster[i] = L.circle([latitudeCluster,longitudeCluster], 1000*set, {
-                                            color: 'yellow',
-                                            fillColor: '#f03',
-                                            weight: 2,
-                                            fillOpacity: 0.2
-                                        }).bindPopup(`
-                                        <div class="text-center" style="width: 400px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row mt-3"> 
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <h5>${ressCluster[i].fasum_name}</h5> 
-                                                    <span>- ${ressCluster[i].category_fasum.name_category_fasum} : ${set} Kilometer-</span>
-                                                </div>
-                                                
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12 text-start">
-                                                            <p style="font-size: 12px;font-weight: bold;">Akomodasi</p>  
-                                                            <p style="font-size: 12px; margin-top: -13px;">${ressCluster[i].fasum_description.replace(/\n/g, "<br />")}</p>
-                                                        </div>  
-                                                         
-                                                    </div> 
-                                                </div>   
-                                            </div>
-                                        </div> 
-                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer); 
+
+                                markerCluster[i] = L.geoJSON(ressCluster[i].fasum_geoJson).addTo(mapContainer);
                         }
 
                        
@@ -7809,7 +7786,7 @@
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]);  
-                                mapContainer.flyTo([latitude, longitude], 14); 
+                                mapContainer.flyTo([latitude, longitude], 9); 
                             });
                         }
                         $('#datatableClusterOnDisplay').DataTable({
