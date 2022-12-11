@@ -230,7 +230,7 @@
                             </div>
                         </div>
     
-                        <div class="cat posPamDisplay" style="margin-left: 10px;">
+                        <div class="cat posPamDisplay" style="margin-left: 10px; display: none;">
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="pos_pam" name="filter" id="posPamDisplay"><span><i class="mdi mdi-chat-alert"></i> POS PAM</span>
@@ -330,7 +330,7 @@
                                         <input type="checkbox" name="filter" value="rest_area" id="rest_area" class="form-input" >  
                                         <span>Rest Area</span> 
                                     </div> 
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" style="display: none;">
                                         <input type="checkbox" name="filter" value="pos_pam" id="pos_pam" class="form-input" >  
                                         <span>POS PAM</span> 
                                     </div> 

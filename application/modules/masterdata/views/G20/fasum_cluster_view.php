@@ -72,6 +72,7 @@
                             </div>
                         </div>
                     </div>
+                    
 					<div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
@@ -90,10 +91,11 @@
                         </div>
                     </div>
                     <div class="col-md-12 mt-3">
-                            <div id="mapG20Kegiatan" style="height: 400px">
-                                <!-- <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;"> -->
-                            </div>
+                        <div id="mapG20Kegiatan" style="height: 400px">
+                            <!-- <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;"> -->
                         </div>
+                    </div>
+                    <textarea name="fasum_geoJson" id="fasum_geoJson" cols="50" rows="10"></textarea>
 					<div class="row mt-3">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
@@ -348,6 +350,9 @@
 
 <script>
 
+    var convertedData;
+    var featureGroup;
+
 	$(document).ready(function() {
         $( '[name=kontakFasum]' ).mask('000000000');
         $('.dropify').dropify();
@@ -465,18 +470,18 @@
             mapContainer.addControl(drawControl);
 
 
-            var featureGroup = new L.FeatureGroup();
+            featureGroup = new L.FeatureGroup();
             mapContainer.addLayer(featureGroup); 
 
             mapContainer.on('draw:created', function(e) {
-            var type = e.layerType,
-                layer = e.layer;
+                var type = e.layerType,
+                    layer = e.layer;
 
-            if (type === 'marker') {
-                layer.bindPopup('A popup!');
-            }
+                if (type === 'marker') {
+                    layer.bindPopup('A popup!');
+                }
 
-            featureGroup.addLayer(layer);
+                featureGroup.addLayer(layer);
             });
 
             $("#export").on("click", function (e) { 
@@ -484,15 +489,19 @@
                 var data = featureGroup.toGeoJSON();
 
                 // Stringify the GeoJson
-                var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+                convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+                $("#fasum_geoJson").val(JSON.stringify(data));
 
                 console.log(data);
                 
                 // Create export
                 document.getElementById('export').setAttribute('href', 'data:' + convertedData);
                 document.getElementById('export').setAttribute('download','data.geojson');
+
             }); 
 
+
+            
              
 
             let countlist = 0;
@@ -683,40 +692,50 @@
 
 			
 
-        $(".form").submit(function(e) {
-            $("#overlay").fadeIn(300);
-            e.preventDefault();
-            var formData = new FormData($('.form')[0]);
-            $.ajax({
-                url: "<?php echo base_url(); ?>masterdata/Fasilitasumum/store",
-                method: "POST",
-                data: formData,
-                dataType: 'JSON',
-                contentType: false,
-                processData: false,
-                success: function(data) {
-                    $("#overlay").fadeOut(300);
-                    if (data['status'] == true) {
-                        Swal.fire(
-                            `${data['message']}`,
-                            '',
-                            'success'
-                        ).then(function() {
-                            $(".TambahFasum").modal('hide');
-                            userDataTable.draw();
-                        });
-                    } else {
-                        Swal.fire(
-                            `${data['message']}`,
-                            '',
-                            'error'
-                        ).then(function() {});
-                    }
-                }
-            });
-        });
+        
     });
  
+
+    $(".form").submit(function(e) {
+        $("#overlay").fadeIn(300);
+        e.preventDefault();
+
+        // Extract GeoJson from featureGroup
+        var dataS = featureGroup.toGeoJSON();
+
+        // Stringify the GeoJson
+        // convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(dataS));
+        $("#fasum_geoJson").val(JSON.stringify(dataS));
+
+        var formData = new FormData($('.form')[0]);
+        $.ajax({
+            url: "<?php echo base_url(); ?>masterdata/Fasilitasumum/store",
+            method: "POST",
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                $("#overlay").fadeOut(300);
+                if (data['status'] == true) {
+                    Swal.fire(
+                        `${data['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        $(".TambahFasum").modal('hide');
+                        userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${data['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
+            }
+        }); 
+    });
 
     function detail(id) {
         $.ajax({
