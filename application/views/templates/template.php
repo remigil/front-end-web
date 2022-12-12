@@ -76,36 +76,55 @@
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
+      <!-- <div class="contact-info d-flex align-items-center">
+				
         <p style="margin: 0; color:white;"><?php echo format_indoHari(date('Y-m-d')) ?></p>
-      </div>
-      <!-- <div class="contact-info d-none d-md-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
       </div> -->
-      <div class="social-links d-none d-md-flex align-items-center">
-	  	<div class="input-group">
-			<input type="text" class="form-control" placeholder="Masukan kata kunci" aria-label="Recipient's username" aria-describedby="basic-addon2">
-			<div class="input-group-append">
-				<button class="btn btn-outline-secondary" type="button">Cari</button>
-			</div>
-		<!-- </div>
+			<div class="social-links d-flex align-items-center">
+				<!-- <div class="input-group">
+					<input type="text" class="form-control" placeholder="Masukan kata kunci" aria-label="Recipient's username" aria-describedby="basic-addon2">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button">Cari</button>
+					</div>
+				</div> -->
         <a href="https://twitter.com/K3IKorlantas" ><i class="bi bi-twitter"></i></a>
         <a href="https://www.facebook.com/K3I-Korlantas-105187678596891" ><i class="bi bi-facebook"></i></a>
         <a href="https://www.instagram.com/k3ikorlantaspolri/" ><i class="bi bi-instagram"></i></a>
         <a href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg" ><i class="bi bi-youtube"></i></i></a>
+      </div>
+			
+      <!-- <div class="contact-info d-none d-md-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
       </div> -->
+      <div class="contact-info social-links d-none d-md-flex align-items-center">
+			<!-- <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i> -->
+        <i class="bi bi-phone d-flex align-items-center"><span>1-500-669 </span></i>
+        <i class="bi bi-telephone d-flex align-items-center ms-4" style="margin-right: 20px;"><span>9119 </span></i>
+			<p style="margin: 0; color:white;"><?php echo format_indoHari(date('Y-m-d')) ?></p>
+				<!-- <div class="input-group">
+
+					<input type="text" class="form-control" placeholder="Masukan kata kunci" aria-label="Recipient's username" aria-describedby="basic-addon2" width="100px">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button">Cari</button>
+					</div>
+				</div> -->
+        <!-- <a href="https://twitter.com/K3IKorlantas" ><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/K3I-Korlantas-105187678596891" ><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/k3ikorlantaspolri/" ><i class="bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg" ><i class="bi bi-youtube"></i></i></a> -->
+      </div>
     </div>
   </section>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center p-5" style="border-bottom: 10px solid red; border-image:url(assets/fe/border-nav.jpg) 30 round">
+  <header id="header" class="d-flex align-items-center p-5" >
     <div class="container d-flex justify-content-between align-items-center" >
 
       <div class="logo">
         <!-- <h1><a href="index.html">Eterna</a></h1> -->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="<?= base_url()?>home"><img src="<?= base_url()?>assets/fe/brand-header.png" alt="" class="img-fluid" ></a>
+        <a href="<?= base_url()?>home"><img src="<?= base_url()?>assets/fe/HEADER_WEB_K3i.png" alt="" class="img-fluid" ></a>
       </div>
 
       <nav id="navbar" class="navbar">

@@ -3,7 +3,7 @@
     <div class="hero-container">
       <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
-        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+        <ol class="carousel-indicators mt-5" id="hero-carousel-indicators"></ol>
 
         <div class="carousel-inner" role="listbox">
 
@@ -14,7 +14,7 @@
 				<img src="<?= base_url()?>assets/logo-nav.png" alt="">
                 <h2 class="animate__animated animate__fadeInDown">Selamat Datang di <span>Portal K3I Korlantas Polri</span></h2>
                 <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;"><b>www.k3i.korlantas.polri.go.id</b> merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. Dalam hal ini, pemerintahan di Indonesia beserta institusi lainnya seperti kami Korlantas Polri bekerja untuk memastikan bahwa setiap rakyat di seluruh tanah air harus dapat merasakan kehadiran pelayanan pemerintahan di bidang LLAJ yang diselenggarakan oleh Polri sebagai salah satu pemangku kepentingan sesuai amanat Undang-Undang No.22 Tahun 2009 tentang LLAJ.</p>
-                <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a>
+                <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a> -->
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@
 		
 		<div class="col-md-2">
 			<div class="container-fluid">
-				<h4 class="text-white p-2">Informasi Terkini</h4>
+				<h4 class="text-black p-2">Informasi Terkini</h4>
 			</div>
 
 		</div>
