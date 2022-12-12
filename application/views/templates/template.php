@@ -161,7 +161,7 @@
               <li>
 			  	<a href="<?= base_url()?>stakeholder/kemendikbud">KEMENDIKBUD</a>
 				<a href="<?= base_url()?>stakeholder/kemenhan">KEMENHAN</a>
-                <a href="<?= base_url()?>stakeholder/bina_warga">DITJEN BINA WARGA</a>
+                <a href="<?= base_url()?>stakeholder/bina_marga">DITJEN BINA WARGA</a>
 				<a href="<?= base_url()?>stakeholder/dukcapil">DUKCAPIL</a>
 				<a href="<?= base_url()?>stakeholder/jasa_raharja">PT JASA RAHARJA</a>
 				<a href="<?= base_url()?>stakeholder/jasa_marga">JASA MARGA</a>
