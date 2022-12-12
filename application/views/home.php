@@ -275,7 +275,7 @@
                 <div class="col-xl-5">
 				<div class="card-bg " style="background-image: url(assets/fe/slider-1.png);">
 						<a href="https://korlantas.polri.go.id/" ><img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="50%" class="d-block mx-auto"></a>
-						<a href="https://ntmcpolri.info/"><img src="<?= base_url()?>assets/fe/client/ntmc1.png" alt="" width="50%" class="d-block mx-auto"></a>
+						<a href="https://ntmcpolri.info/"><img src="<?= base_url()?>assets/fe/client/ntmc_korlantas.png" alt="" width="50%" class="d-block mx-auto"></a>
 					</div>
                 </div>
                 <div class="col-xl-7 d-flex align-items-center">
