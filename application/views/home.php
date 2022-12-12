@@ -110,14 +110,14 @@
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
             <div class="service-item position-relative" style="background-color: #FFE0E0; border-radius:10px;">
               <div class="icon text-center"><iconify-icon icon="bxs:car-crash" width="50"></iconify-icon></div>
-              <h4 class="text-center"><a href="" class="stretched-link fs-5">Kecelakaan Lalu Lintas</a></h4>
+              <h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5">Kecelakaan Lalu Lintas</a></h4>
               <h1 id="lakalantas" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
             <div class="service-item position-relative" style="background-color: #FBFFE0; border-radius:10px;">
               <div class="icon text-center"><iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon></div>
-              <h4 class="text-center"><a href="" class="stretched-link fs-5">Pelanggaran Lalu Lintas</a></h4>
+              <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5">Pelanggaran Lalu Lintas</a></h4>
               <h1 id="garlantas" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
@@ -127,14 +127,14 @@
 				<iconify-icon icon="mdi:car-multiple" width="50"></iconify-icon>
 				<iconify-icon icon="mdi:atv" width="50"></iconify-icon>
 			</div>
-              <h4 class="text-center"><a href="" class="stretched-link fs-5">Kendaraan Bermotor</a></h4>
+              <h4 class="text-center"><a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" class="stretched-link fs-5">Kendaraan Bermotor</a></h4>
               <h1 id="motor" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
             <div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
               <div class="icon text-center"><iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon></div>
-              <h4 class="text-center"><a href="" class="stretched-link fs-5">SIM Nasional</a></h4>
+              <h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5">SIM Nasional</a></h4>
               <h1 id="sim" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
