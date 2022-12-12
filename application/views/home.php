@@ -32,7 +32,7 @@
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background-image: url(assets/fe/slider-home3.jpeg)">
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-home2.jpeg)">
             <div class="carousel-container">
               <div class="carousel-content">
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
@@ -57,6 +57,17 @@
 
           <!-- Slide 5 -->
           <div class="carousel-item" style="background-image: url(assets/fe/banner-home2.jpeg)">
+            <div class="carousel-container">
+              <div class="carousel-content">
+			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
+				<h2 class="animate__animated animate__fadeInDown">Mari Tertib <span>Berlalu Lintas</span></h2>
+                <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;">Utamakan Keselamatan, selalu patuhi rambu rambu lalu lintas dan gunakan sabuk keselamatan serta tidak menggunakan Hp saat berkendara, segera jika lelah & mengantuk</p>
+                <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a> -->
+              </div>
+            </div>
+          </div>
+          <!-- Slide 5 -->
+          <div class="carousel-item" style="background-image: url(assets/fe/beritafix2.jpg)">
             <div class="carousel-container">
               <div class="carousel-content">
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
@@ -122,21 +133,21 @@
         <div class="row gy-4">
 
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
-            <div class="service-item position-relative" style="background-color: #FFE0E0; border-radius:10px;">
+            <div class="service-item position-relative" style="background-color: #ff555b; border-radius:10px; color:#3b3b3b">
               <div class="icon text-center"><iconify-icon icon="bxs:car-crash" width="50"></iconify-icon></div>
               <h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5">Kecelakaan Lalu Lintas</a></h4>
               <h1 id="lakalantas" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
-            <div class="service-item position-relative" style="background-color: #FBFFE0; border-radius:10px;">
+            <div class="service-item position-relative" style="background-color: #fffd51; border-radius:10px;">
               <div class="icon text-center"><iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon></div>
               <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5">Pelanggaran Lalu Lintas</a></h4>
               <h1 id="garlantas" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
-            <div class="service-item position-relative" style="background-color: #E0FFE3; border-radius:10px;">
+            <div class="service-item position-relative" style="background-color: #40e48a; border-radius:10px;">
               <div class="icon text-center">
 				<iconify-icon icon="mdi:car-multiple" width="50"></iconify-icon>
 				<iconify-icon icon="mdi:atv" width="50"></iconify-icon>
@@ -146,7 +157,7 @@
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
-            <div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+            <div class="service-item position-relative" style="background-color: #5a8cff; border-radius:10px;">
               <div class="icon text-center"><iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon></div>
               <h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5">SIM Nasional</a></h4>
               <h1 id="sim" class="text-center"></h1>
