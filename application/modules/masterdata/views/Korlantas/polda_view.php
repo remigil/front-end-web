@@ -132,6 +132,13 @@
 
                     <div class="col-md-12">
                         <div class="form-floating mb-3">
+                            <input type="text" class="form-control" placeholder="nomor" id="instagram" name="instagram">
+                            <label for="">Instagram Polda</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" placeholder="nomor" name="phone_polda">
                             <label for="">Nomor Telepon Polda</label>
                         </div>
@@ -265,6 +272,14 @@
                                     <label for="">Twitter Polda</label>
                                 </div>
                             </div>
+
+                            <div class="col-md-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" placeholder="nomor" id="instagram" name="instagram">
+                                    <label for="">Instagram Polda</label>
+                                </div>
+                            </div>
+
                             <div class="col-md-12">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="phone_polda" placeholder="nomor" name="phone_polda">
@@ -878,6 +893,7 @@
                 $('.UbahPolda,#facebook').val(results.facebook)
                 $('.UbahPolda,#twitter').val(results.twitter)
                 $('.UbahPolda,#youtube').val(results.youtube)
+                $('.UbahPolda,#instagram').val(results.instagram)
             }
         })
     }
