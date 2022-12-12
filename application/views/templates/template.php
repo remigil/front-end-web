@@ -101,7 +101,8 @@
 			<!-- <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i> -->
         <i class="bi bi-phone d-flex align-items-center"><span>1-500-669 </span></i>
         <i class="bi bi-telephone d-flex align-items-center ms-4" style="margin-right: 20px;"><span>9119 </span></i>
-			<p style="margin: 0; color:white;"><?php echo format_indoHari(date('Y-m-d')) ?></p>
+        <i class="bi bi-calendar3 d-flex align-items-center ms-4" style="margin-right: 20px;"><span><?php echo format_indoHari(date('Y-m-d')) ?> </span></i>
+			
 				<!-- <div class="input-group">
 
 					<input type="text" class="form-control" placeholder="Masukan kata kunci" aria-label="Recipient's username" aria-describedby="basic-addon2" width="100px">
@@ -231,6 +232,21 @@
 				<li><a href="https://tvradio.polri.go.id/">Link ke TV-RADIO POLRI</a></li> 
             </ul>
         </li>
+		<li class="dropdown megamenu"><a href="#"><span><i class="bi bi-search fs-5" style="padding: 0;"></i></span> <i class="bi bi-chevron-down"></i></a>
+            <ul> 
+				<li>
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Masukan kata kunci" aria-label="Recipient's username" aria-describedby="basic-addon2">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button">Cari</button>
+					</div>
+				</div>
+				</li>
+				
+            </ul>
+        </li>
+				<li><a href="portfolio.html"></a></li>
+				<li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
