@@ -32,7 +32,7 @@
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background-image: url(assets/fe/slider-home2.jpeg)">
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-home3.jpeg)">
             <div class="carousel-container">
               <div class="carousel-content">
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
@@ -50,6 +50,18 @@
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
                 <h2 class="animate__animated animate__fadeInDown">Mari Patuhi <span>Protokol Kesehatan</span></h2>
                 <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;">Mencuci Tangan, Memakai Masker, Menjaga Jarak, Menjauhi Kerumunan dan Mengurangi Mobilitas (5M)</p>
+                <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="carousel-item" style="background-image: url(assets/fe/banner-home2.jpeg)">
+            <div class="carousel-container">
+              <div class="carousel-content">
+			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
+				<h2 class="animate__animated animate__fadeInDown">Mari Tertib <span>Berlalu Lintas</span></h2>
+                <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;">Utamakan Keselamatan, selalu patuhi rambu rambu lalu lintas dan gunakan sabuk keselamatan serta tidak menggunakan Hp saat berkendara, segera jika lelah & mengantuk</p>
                 <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a> -->
               </div>
             </div>
@@ -533,7 +545,7 @@
 							</div>
 
 							<div class="col-md-12 mt-3">
-							<a href=<?= base_url('Ditlantas_polda/');?>${ressData[i].id}><button class="btn btn-primary float-start">ini halaman</button></a>   
+							<a href=<?= base_url('Ditlantas_polda/');?>${ressData[i].id}><button class="btn btn-primary float-start">Halaman</button></a>   
 								<a href=${ressData[i].website} target="_blank"><button class="btn btn-primary float-end">Selengkapnya</button></a>   
 							</div>
 							</div>
