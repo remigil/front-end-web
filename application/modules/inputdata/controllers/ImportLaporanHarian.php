@@ -461,32 +461,39 @@ class ImportLaporanHarian extends MY_Controller
                                 $S = trim(trim($row['S']));
                                 $T = trim(trim($row['T']));
                                 $U = trim(trim($row['U']));
+                                $V = trim(trim($row['V']));
+                                $W = trim(trim($row['W']));
+                                $X = trim(trim($row['X']));
+
+
 
                                 $raws[] = array(
                                     'polda_id'=>$B,
                                     // 'polres_name'=>$B,
-                                    'date'=>$tanggal,
-
+                                    'date' => $tanggal,
                                     'baru_a' => $C,
                                     'baru_c' => $D,
-                                    'baru_d' => $E,
-                                    'perpanjangan_a' => $F,
-                                    'perpanjangan_au' => $G,
-                                    'perpanjangan_c' => $H,
-                                    'perpanjangan_c1' => $I,
-                                    'perpanjangan_c2' => $J,
-                                    'perpanjangan_d' => $K,
-                                    'perpanjangan_d1' => $L,
-                                    'perpanjangan_b1' => $M,
-                                    'perpanjangan_b1u' => $N,
-                                    'perpanjangan_b2' => $O,
-                                    'perpanjangan_b2u' => $P,
+                                    'baru_c1' => $E,
+                                    'baru_c2' => $F,
+                                    'baru_d' => $G,
+                                    'baru_d1' => $H,
+                                    'perpanjangan_a' => $I,
+                                    'perpanjangan_au' => $J,
+                                    'perpanjangan_c' => $K,
+                                    'perpanjangan_c1' => $L,
+                                    'perpanjangan_c2' => $M,
+                                    'perpanjangan_d' => $N,
+                                    'perpanjangan_d1' => $O,
+                                    'perpanjangan_b1' => $P,
+                                    'perpanjangan_b1u' => $Q,
+                                    'perpanjangan_b2' => $R,
+                                    'perpanjangan_b2u' => $S,
 
-                                    'peningkatan_au' => $Q,
-                                    'peningkatan_b1' => $R,
-                                    'peningkatan_b1u' => $S,
-                                    'peningkatan_b2' => $T,
-                                    'peningkatan_b2u' => $U,
+                                    'peningkatan_au' => $T,
+                                    'peningkatan_b1' => $U,
+                                    'peningkatan_b1u' => $V,
+                                    'peningkatan_b2' => $W,
+                                    'peningkatan_b2u' => $X,
                                 );
 
                             }else if($type==8) {
@@ -568,7 +575,6 @@ class ImportLaporanHarian extends MY_Controller
                 /**
                  * Send request parameter to api
                  */
-
 
               
                 $data = guzzle_request('POST', $url, [

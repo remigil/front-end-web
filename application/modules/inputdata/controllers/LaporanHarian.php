@@ -224,7 +224,11 @@ class LaporanHarian extends MY_Controller
                     'date' => $date,
                     'baru_a' => $this->input->post('baru_a')[$i],
                     'baru_c' => $this->input->post('baru_c')[$i],
+                    'baru_c1' => $this->input->post('baru_c1')[$i],
+                    'baru_c2' => $this->input->post('baru_c2')[$i],
                     'baru_d' => $this->input->post('baru_d')[$i],
+                    'baru_d1' => $this->input->post('baru_d1')[$i],
+
 
 
                     'perpanjangan_a' => $this->input->post('perpanjangan_a')[$i],
