@@ -127,7 +127,8 @@ class Home extends MX_Controller {
         $getSim = $getSim["data"];
 		// var_dump($getSim);die;
 
-        $totalsim = 0;
+        // $totalsim = 0;
+        $totalsim = 9570;
         // for ($i = 0; $i < count($getSim); $i++) {
         //     $totalsim += $getSim[$i]['total'];
         // }
