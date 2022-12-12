@@ -25,7 +25,7 @@ if (!function_exists('guzzle_request')) {
 
             return $data;
         } catch (Exception $e) {
-            return redirect(base_url('login/logout'));
+            return redirect(base_url('login/logout?'.$uri.''));
             // return location.reload();
         }
     }  

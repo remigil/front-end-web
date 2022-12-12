@@ -18,6 +18,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Petugas</th>
+                            <th>Polda</th>
                             <th>Pangkat</th>
                             <th>NRP</th>
                             <th>NRP Pengganti</th>
@@ -245,12 +246,13 @@
 
                 { data: 'id'}, 
                 { data: 'name_officer'},
+                { data: 'polda_id', orderable : false},  
                 { data: 'rank_officer'},
                 { data: 'nrp_officer'}, 
                 { data: 'replacementNrp_officer'}, 
                 { data: 'structural_officer'},  
                 { data: 'pam_officer'},  
-                { data: 'phone_officer'},  
+                { data: 'phone_officer'},   
                 // { data: 'status_officer'},   
 
                 <?php if($this->uri->segment(3) == 'status'){?>
