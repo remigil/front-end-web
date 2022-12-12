@@ -49,6 +49,12 @@ class Tripon extends MY_Controller
                 'Authorization' => $headers
             ]
         ]);
+
+        $getProv = guzzle_request('GET', 'wilayah/provinsi', [
+            'headers' => $headers
+        ]);
+        $data['getProv'] = $getProv['data']['data'];
+
         $data['getVehicle'] = $getVehicle['data']['data'];
 
         // var_dump($getVehicle);
@@ -92,10 +98,10 @@ class Tripon extends MY_Controller
         $getDetail = guzzle_request('GET', 'trip_on/getId/' . $id . '', [
             'headers' => $headers
         ]);
+
+       
         $data['getDetail'] = $getDetail['data'];
-        // var_dump($data['getDetail']);die;
-        // echo json_encode($data['getDetail']['data']);
-        // die;
+       
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
