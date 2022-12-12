@@ -222,8 +222,29 @@ class LaporanHarian extends MY_Controller
                 $object = (object) [
                     'polda_id' => $this->input->post('polda_id')[$i],
                     'date' => $date,
-                    'baru' => $this->input->post('baru')[$i],
-                    'perpanjangan' => $this->input->post('perpanjangan')[$i],
+                    'baru_a' => $this->input->post('baru_a')[$i],
+                    'baru_c' => $this->input->post('baru_c')[$i],
+                    'baru_d' => $this->input->post('baru_d')[$i],
+
+
+                    'perpanjangan_a' => $this->input->post('perpanjangan_a')[$i],
+                    'perpanjangan_au' => $this->input->post('perpanjangan_au')[$i],
+                    'perpanjangan_c' => $this->input->post('perpanjangan_c')[$i],
+                    'perpanjangan_c1' => $this->input->post('perpanjangan_c1')[$i],
+                    'perpanjangan_c2' => $this->input->post('perpanjangan_c2')[$i],
+                    'perpanjangan_d' => $this->input->post('perpanjangan_d')[$i],
+                    'perpanjangan_d1' => $this->input->post('perpanjangan_d1')[$i],
+                    'perpanjangan_b1' => $this->input->post('perpanjangan_b1')[$i],
+                    'perpanjangan_b1u' => $this->input->post('perpanjangan_b1u')[$i],
+                    'perpanjangan_b2' => $this->input->post('perpanjangan_b2')[$i],
+                    'perpanjangan_b2u' => $this->input->post('perpanjangan_b2u')[$i],
+
+                    'peningkatan_au' => $this->input->post('peningkatan_au')[$i],
+                    'peningkatan_b1' => $this->input->post('peningkatan_b1')[$i],
+                    'peningkatan_b1u' => $this->input->post('peningkatan_b1u')[$i],
+                    'peningkatan_b2' => $this->input->post('peningkatan_b2')[$i],
+                    'peningkatan_b2u' => $this->input->post('peningkatan_b2u')[$i]
+
                 ];
 
                 array_push($value, $object);
