@@ -61,6 +61,100 @@
                     </div>
                 </div>
             </form>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-harian-tab" data-toggle="pill" data-target="#pills-harian" type="button" role="tab" aria-controls="pills-harian" aria-selected="true">Harian</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-bulanan-tab" data-toggle="pill" data-target="#pills-bulanan" type="button" role="tab" aria-controls="pills-bulanan" aria-selected="false">Bulanan</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-tahunan-tab" data-toggle="pill" data-target="#pills-tahunan" type="button" role="tab" aria-controls="pills-tahunan" aria-selected="false">Tahunan</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-harian" role="tabpanel" aria-labelledby="pills-harian-tab">
+                            <h4>Laporan harian</h4>
+                            <table id="datatable" class="table dt-responsive" style="width: 60%;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Judul</th>
+                                        <th>Tanggal</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i = 1 ?>
+                                    <?php foreach ($data['laporanToday'] as $key) : ?>
+                                        <tr>
+                                            <td><?= $i ?></td>
+                                            <td><?= $key['judul'] ?></td>
+                                            <td><?= $key['date'] ?></td>
+                                            <td><a href="<?= ApiUrl() . $key['url'] ?>" class="btn btn-primary" download>Download laporan</a></td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="pills-bulanan" role="tabpanel" aria-labelledby="pills-bulanan-tab">
+                            <h4>Laporan Bulanan</h4>
+                            <table id="datatable" class="table dt-responsive" style="width: 60%;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Judul</th>
+                                        <th>Tanggal</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $j = 1 ?>
+                                    <?php foreach ($data['laporanMonth'] as $key) : ?>
+                                        <tr>
+                                            <td><?= $j ?></td>
+                                            <td><?= $key['judul'] ?></td>
+                                            <td><?= $key['date'] ?></td>
+                                            <td><a href="<?= ApiUrl() . $key['url'] ?>" class="btn btn-primary" download>Download laporan</a></td>
+                                        </tr>
+                                        <?php $j++; ?>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="pills-tahunan" role="tabpanel" aria-labelledby="pills-tahunan-tab">
+                            <h4>Laporan Tahunan</h4>
+                            <table id="datatable" class="table dt-responsive" style="width: 60%;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Judul</th>
+                                        <th>Tanggal</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $k = 1 ?>
+                                    <?php foreach ($data['laporanYear'] as $key) : ?>
+                                        <tr>
+                                            <td><?= $k ?></td>
+                                            <td><?= $key['judul'] ?></td>
+                                            <td><?= $key['date'] ?></td>
+                                            <td><a href="<?= ApiUrl() . $key['url'] ?>" class="btn btn-primary" download>Download laporan</a></td>
+                                        </tr>
+                                        <?php $k++; ?>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

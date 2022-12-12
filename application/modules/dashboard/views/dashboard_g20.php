@@ -138,7 +138,7 @@
         
                         <div class="cat gpsIdDisplay" style="margin-left: 10px;">  
                             <label>
-                                <input type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan Listrik</span>
+                                <input type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan</span>
                             </label>  
                         </div>
         
@@ -239,7 +239,18 @@
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
                                 </button>
                             </div>
-                        </div>
+                        </div> 
+
+                        <div class="cat posYanDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="pos_yan" name="filter" id="posYanDisplay"><span><i class="mdi mdi-chat-alert"></i> POS YAN</span>
+                                </label>
+                                <button id="posYanFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div> 
     
                         <div class="cat satPasDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
@@ -330,7 +341,7 @@
                                         <input type="checkbox" name="filter" value="rest_area" id="rest_area" class="form-input" >  
                                         <span>Rest Area</span> 
                                     </div> 
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" style="display: none;">
                                         <input type="checkbox" name="filter" value="pos_pam" id="pos_pam" class="form-input" >  
                                         <span>POS PAM</span> 
                                     </div> 
@@ -361,7 +372,7 @@
                                     </div> 
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="gpsId" id="gpsId" class="form-input" >  
-                                        <span>Kendaraan Listrik</span> 
+                                        <span>Kendaraan</span> 
                                     </div>   
                                     <div class="col-md-12 mt-3" id="menuKategori">
                                         <p style="font-size: 17px;">Fasilitas Umum Kategori</p> 
@@ -440,11 +451,49 @@
             
         </div>
         <div id="mapG20Dashboard">
-        <div style="bottom: 10px;left: 10px;position: absolute;z-index: 999;/*! text-align: end; */"> 
-            <img src="<?= base_url()?>assets/legenda_web.png" style="width: 12vw;"/>
+            <div style="bottom: 0px;position: absolute;z-index: 999;background-color: #f5f3f4;border-radius: 0px 50px 0px 0px;padding: 20px;"> 
+                <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; <b style="font-size:15px;">Lihat Legenda</b></span>
+            </div>
+            <div id="mySidenav" class="sidenav2" >
+              
+                <h5 class="judul">Legenda</h5>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+               
+        
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOneLegenda">
+                            <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneLegenda" aria-expanded="true" aria-controls="collapseOneLegenda">
+                            Fasum Khusus
+                            </button>
+                        </h2>
+                        <div id="collapseOneLegenda" class="accordion-collapse collapse show" aria-labelledby="headingOneLegenda" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="row" style="margin: 10px;" id="isiLegendFasum"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwoLegenda">
+                            <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoLegenda" aria-expanded="false" aria-controls="collapseTwoLegenda">
+                            Jalur
+                            </button>
+                        </h2>
+                        <div id="collapseTwoLegenda" class="accordion-collapse collapse" aria-labelledby="headingTwoLegenda" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="row" style="margin: 10px;" id="isiLegendJalur">
+                                    <div class="col-md-12" style="text-align: center;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">Mohon Untuk Aktifkan Jalur !</b> 
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div><!-- end accordion --> 
             </div>
         </div>
     </div>
+    
     <!-- <div class="col-md-12 mt-3"> 
         <div class="card">
             <div class="card-body">
@@ -469,7 +518,9 @@
     </div> -->
 </div>
 
- 
+
+
+
 <!-- Modal -->
 <div class="modal right fade" id="myModalFilter" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -1065,6 +1116,18 @@
         </div>
     </div>
 </div>
+<div class="modal right fade" id="myModalPosYanDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPosYanDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPosYanDisplay">POS YAN</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalPosYanDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalPosYanDisplay" style="width: 550px;">  
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal right fade" id="myModalSatPasDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelSatPasDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -1278,6 +1341,7 @@
     var markerBlankSpot = new Array();
     var markerRestArea = new Array();
     var markerPosPam = new Array();
+    var markerPosYan = new Array();
     var markerSatPas = new Array();
     var markerPolres = new Array();
     var markerPolda = new Array();
@@ -1312,6 +1376,7 @@
     var blankSpotClusterGroup;
     var restAreaClusterGroup;
     var posPamClusterGroup;
+    var posYanClusterGroup;
     var satPasClusterGroup;
 
     var userDataTable;
@@ -5817,7 +5882,17 @@
             iconCreateFunction: function(cluster) {
                 return new L.DivIcon({
                     html: `
-                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#a50000;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#420fd4;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
+        posYanClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#420fd4;text-align: center;margin-top: -1px;margin-left: -1px;">
                 <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
                 </div>`
                 });
@@ -5951,6 +6026,14 @@
             }
             markerPosPam = new Array();
 
+            for (let i = 0; i < markerPosYan.length; i++) {
+                // mapContainer.removeLayer(markerPosYan[i]);
+                if(markerPosYan[i]){
+                    posYanClusterGroup.removeLayer(markerPosYan[i]);
+                }
+            }
+            markerPosYan = new Array();
+
             for (let i = 0; i < markerSatPas.length; i++) {
                 // mapContainer.removeLayer(markerSatPas[i]);
                 if(markerSatPas[i]){
@@ -6027,6 +6110,8 @@
                     var ressBlankSpot = result['data']['blank_spot'];
                     var ressRestArea = result['data']['rest_area'];
                     var ressPosPam = result['data']['pos_pam'];
+                    var ressPosYan = result['data']['pos_yan'];
+
                     var ressSatPas = result['data']['sat_pas'];
 
                     var ressLAP = result['data']['titik_laporan'];
@@ -6035,7 +6120,7 @@
                     // var ressFasumKhusus = result['data']['fasum_khusus'];
                     ressFasumKhusus = result['data']['fasum_khusus'];
 
-                    console.log(ressFasumKhusus);
+                    // console.log(ressFasumKhusus);
 
                     var ressRadius = result['data']['radius']; 
                     var ressCluster = result['data']['cluster']; 
@@ -6434,6 +6519,12 @@
                         var filterJalur = ressJalur;
 
                         if (filterJalur.length > 0) {
+
+
+                            var countIsiLegenJalur = 0;
+                            var listIsiLegenJalur = '';  
+                            
+
                             $('#openModalJalurDisplay').html(`
                                 <table id="datatableJalurOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                     <thead>
@@ -6481,6 +6572,19 @@
                                     fasum_name: filterJalur[i]['fasum_name'],
                                     checked: 0,
                                 });
+
+
+
+                               
+                                listIsiLegenJalur += `
+                                    <div class="col-md-6">
+                                        <b style="font-size: 14px; text-transform: capitalize;">${filterJalur[i].fasum_name}</b> 
+                                    </div> 
+                                    <div class="col-md-6"> 
+                                        <div style="height: 10px;background-color: ${filterJalur[i].fasum_color}; margin-top: 8px;" ></div>
+                                    </div>
+                                `;
+                                $('#isiLegendJalur').html(listIsiLegenJalur); 
                                 
                             }
 
@@ -7061,12 +7165,13 @@
                             listPosPamDisplay += `
                                 <tr>
                                     <td>${countPosPamDisplay}</td>
-                                    <td><a href="<?= base_url()?>masterdata/Fasilitasumum" target="_blank">${ressPosPam[i].fasum_name}</a></td> 
-                                    <td>${ressPosPam[i].fasum_address}</td> 
+                                    <td><a href="<?= base_url()?>masterdata/Fasilitasumum" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
+                                    <td>${ressPosPam[i].note_kakor != null ? ressPosPam[i].note_kakor.replace(/\n/g, "<br />") : "-"}</td> 
                                     <td>
                                         <a class="btn" style="margin-top: -10px;"  
                                             id="flyToMapFilterPosPam${countPosPamDisplay}"
-                                            data-cord="${ressPosPam[i].fasum_lat},${ressPosPam[i].fasum_lng}" 
+                                            data-akun="${ressPosPam[i].accounts}"
+                                            data-cord="${ressPosPam[i].coordinate_guarding.lat},${ressPosPam[i].coordinate_guarding.lng}" 
                                             href="javascript:void(0)">
                                             <i style="color: #495057;" class="fa fas fa-eye"></i>
                                         </a> 
@@ -7076,60 +7181,39 @@
                             $('#isiModalPosPamDisplay').html(listPosPamDisplay); 
  
                             
-                                var latitudeFasum = parseFloat(ressPosPam[i].fasum_lat);
-                                var longitudeFasum = parseFloat(ressPosPam[i].fasum_lng); 
+                                var latitudeFasum = parseFloat(ressPosPam[i].coordinate_guarding.lat);
+                                var longitudeFasum = parseFloat(ressPosPam[i].coordinate_guarding.lng); 
                                 posPamClusterGroup.addLayer( markerPosPam[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
                                     // className: 'location-pin',
-                                    html: `<img src="<?php echo url_api();?>fasum_khusus/${ressPosPam[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                    html: `<img src="<?php echo base_url();?>assets/icon/POSPAM.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
                                     iconSize: [5, 5],
                                     iconAnchor: [5, 10]
                                     // iconAnchor: [10, 33]
                                     }) }).bindPopup(`
                                         <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row mt-3">
-                                                <div class="col-md-12 col-12" style="margin-left: 210px;margin-bottom: 10px;">
-                                                    <div class="avatar-xl me-3">
-                                                    <a href="javascript:void(0);"><img src="<?php echo url_api();?>fasum_khusus/${ressPosPam[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;"></a>
-                                                    </div>
-                                                </div>
+                                            <div class="row mt-3"> 
                                                 <div class="col-md-12 col-12 mt-3">
-                                                    <h5>${ressPosPam[i].fasum_name}</h5> 
-                                                    <span>- ${ressPosPam[i].category_fasum.name_category_fasum} -</span>
+                                                    <h5>${ressPosPam[i].name_renpam}</h5> 
+                                                    <span>- ${ressPosPam[i].schedule.activity} -</span>
                                                 </div>
                                                 
 
                                                 <div class="col-md-12 col-12 mt-2">
                                                     <div class="row text-start">
                                                         <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].fasum_description != null ? ressPosPam[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
+                                                            <p style="font-size: 12px;font-weight: bold;">Note</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].note_kakor != null ? ressPosPam[i].note_kakor.replace(/\n/g, "<br />") : "-"}</p>
                                                         </div> 
                                                     </div> 
                                                 </div>  
                                                 <div class="col-md-12 col-12 mt-2">
                                                     <div class="row text-start">
                                                         <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].fasum_address}</p>
+                                                            <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].date}</p>
                                                         </div> 
                                                     </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12"  style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].fasum_phone}</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].fasum_open_time != null ? ressPosPam[i].fasum_open_time : '00:00'} - ${ressPosPam[i].fasum_close_time != null ? ressPosPam[i].fasum_close_time : '00:00'} WITA</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>   
+                                                </div>    
                                             </div>
                                         </div> 
                                 `,{minWidth : 100,maxWidth : 900,width : 500})
@@ -7161,6 +7245,114 @@
                             },
                         }); 
                         mapContainer.addLayer(posPamClusterGroup);
+                    }
+
+                    if(ressPosYan && ressPosYan.length > 0){  
+                        $('#openModalPosYanDisplay').html(`
+                            <table id="datatablePosYanOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalPosYanDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countPosYanDisplay = 0;
+                        var listPosYanDisplay = '';
+                        $('#totalPosYanDisplay').html(ressPosYan.length);
+
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressPosYan.length; i++) {  
+                            countPosYanDisplay += 1;
+                            listPosYanDisplay += `
+                                <tr>
+                                    <td>${countPosYanDisplay}</td>
+                                    <td><a href="<?= base_url()?>masterdata/Fasilitasumum" target="_blank">${ressPosYan[i].name_renpam}</a></td> 
+                                    <td>${ressPosYan[i].note_kakor != null ? ressPosYan[i].note_kakor.replace(/\n/g, "<br />") : "-"}</td> 
+                                    <td>
+                                        <a class="btn" style="margin-top: -10px;"  
+                                            id="flyToMapFilterPosYan${countPosYanDisplay}"
+                                            data-akun="${ressPosYan[i].accounts}"
+                                            data-cord="${ressPosYan[i].coordinate_guarding.lat},${ressPosYan[i].coordinate_guarding.lng}" 
+                                            href="javascript:void(0)">
+                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                        </a> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#isiModalPosYanDisplay').html(listPosYanDisplay); 
+ 
+                            
+                                var latitudeFasum = parseFloat(ressPosYan[i].coordinate_guarding.lat);
+                                var longitudeFasum = parseFloat(ressPosYan[i].coordinate_guarding.lng); 
+                                posYanClusterGroup.addLayer( markerPosYan[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: `<img src="<?php echo base_url();?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                    }) }).bindPopup(`
+                                        <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="row mt-3"> 
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>${ressPosYan[i].name_renpam}</h5> 
+                                                    <span>- ${ressPosYan[i].schedule.activity} -</span>
+                                                </div>
+                                                
+
+                                                <div class="col-md-12 col-12 mt-2">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">Note</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].note_kakor != null ? ressPosYan[i].note_kakor.replace(/\n/g, "<br />") : "-"}</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12 mt-2">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].date}</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>    
+                                            </div>
+                                        </div> 
+                                `,{minWidth : 100,maxWidth : 900,width : 500})
+                                );  
+                        }
+
+                         
+                        for (let i = 0; i < countPosYanDisplay; i++) { 
+                            $(`#flyToMapFilterPosYan${i+1}`).on("click", function (e) {  
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);  
+                                mapContainer.flyTo([latitude, longitude], 17); 
+                            });
+                        }
+                        $('#datatablePosYanOnDisplay').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        }); 
+                        mapContainer.addLayer(posYanClusterGroup);
                     }
 
                     if(ressSatPas && ressSatPas.length > 0){  
@@ -7776,31 +7968,8 @@
                                 var latitudeCluster = parseFloat(ressCluster[i].fasum_lat);
                                 var longitudeCluster = parseFloat(ressCluster[i].fasum_lng); 
                                 var set = ressCluster[i].fasum_radius != null ? ressCluster[i].fasum_radius : 1 ;
-                                markerCluster[i] = L.circle([latitudeCluster,longitudeCluster], 1000*set, {
-                                            color: 'yellow',
-                                            fillColor: '#f03',
-                                            weight: 2,
-                                            fillOpacity: 0.2
-                                        }).bindPopup(`
-                                        <div class="text-center" style="width: 400px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row mt-3"> 
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <h5>${ressCluster[i].fasum_name}</h5> 
-                                                    <span>- ${ressCluster[i].category_fasum.name_category_fasum} : ${set} Kilometer-</span>
-                                                </div>
-                                                
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12 text-start">
-                                                            <p style="font-size: 12px;font-weight: bold;">Akomodasi</p>  
-                                                            <p style="font-size: 12px; margin-top: -13px;">${ressCluster[i].fasum_description.replace(/\n/g, "<br />")}</p>
-                                                        </div>  
-                                                         
-                                                    </div> 
-                                                </div>   
-                                            </div>
-                                        </div> 
-                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer); 
+
+                                markerCluster[i] = L.geoJSON(ressCluster[i].fasum_geoJson).addTo(mapContainer);
                         }
 
                        
@@ -7809,7 +7978,7 @@
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]);  
-                                mapContainer.flyTo([latitude, longitude], 14); 
+                                mapContainer.flyTo([latitude, longitude], 9); 
                             });
                         }
                         $('#datatableClusterOnDisplay').DataTable({
@@ -7830,6 +7999,64 @@
                     }
 
                     if(ressFasumKhusus && ressFasumKhusus.length > 0){  
+                        var countIsiLegen = 0;
+                        var listIsiLegen = ''; 
+                        var arrayGroupBy = new Array();
+
+                        const groupByCategory = ressFasumKhusus.reduce((group, product) => {
+                            const { fasum_type , fasum_logo } = product;
+
+                            group[fasum_logo] = group[fasum_logo] ?? [];
+                            group[fasum_logo].push(product); 
+ 
+                            return group;
+                        }, {});
+                        var dataArrayGroup = Object.keys(groupByCategory)
+                        // console.log(Object.keys(groupByCategory));
+
+
+                        listIsiLegen += `
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/troublespot.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">trouble spot</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/blackspot.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">black spot</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/POSPAM.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">POSPAM</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/POSYAN.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">POSYAN</b>
+                                </div> 
+                            </div> 
+                        `;
+                        for (let i = 0; i < dataArrayGroup.length; i++) {  
+                            if(dataArrayGroup[i] != "null"){
+                                countIsiLegen += 1;
+                                listIsiLegen += `
+                                    <div class="col-md-4">
+                                        <div style="display: flex;align-items: center;">
+                                            <img src="<?php echo url_api();?>fasum_khusus/${dataArrayGroup[i]}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                            <b style="font-size: 14px; text-transform: capitalize;">${dataArrayGroup[i].replace('.png', "")}</b>
+                                        </div> 
+                                    </div> 
+                                `;
+                                $('#isiLegendFasum').html(listIsiLegen); 
+                            }
+                        }
+
+
                         $('#openModalFasumKhususDisplay').html(`
                             <table id="datatableFasumKhususOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
@@ -7868,6 +8095,9 @@
                                 </tr>
                             `;
                             $('#isiModalFasumKhususDisplay').html(listFasumKhususDisplay); 
+
+                            
+                            
 
                             if(ressFasumKhusus[i].fasum_type == 1){
                                 logoMarker = `hotel.png`;
@@ -8296,6 +8526,13 @@
                 $("#posPamDisplay").val();
             }
 
+            if($("#pos_yan").is(':checked')){ 
+                $("#posYanDisplay").prop('checked', true);  
+            }else{
+                $("#posYanDisplay").prop('checked', false); 
+                $("#posYanDisplay").val();
+            }
+
             if ($("#polres").is(':checked')) {
                 $("#polresDisplay").prop('checked', true);
                 $("#myModalClusterDisplay").modal('show');
@@ -8493,6 +8730,19 @@
             serverSideFilter();
         }); 
 
+        $("#posYanDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                openDisplay = this.value; 
+                $("#pos_yan").prop('checked', true);  
+                $("#myModalPosYanDisplay").modal('show');
+            }else{
+                openDisplay = '';
+                $("#pos_yan").prop('checked', false); 
+                $("#pos_yan").val();
+            }
+            serverSideFilter();
+        }); 
+
         $("#satPasDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 openDisplay = this.value; 
@@ -8632,6 +8882,10 @@
         $("#posPamFilterModal").on("click", function (e) {   
             $("#myModalPosPamDisplay").modal('show');
         });  
+        $("#posYanFilterModal").on("click", function (e) {   
+            $("#myModalPosYanDisplay").modal('show');
+        });  
+
         $("#satPasFilterModal").on("click", function (e) {   
             $("#myModalSatPasDisplay").modal('show');
         }); 
@@ -8666,6 +8920,8 @@
                     $("#myModalJalurBeatDisplay").modal('show');
                 } else if(openDisplay == 'pos_pam'){
                     $("#myModalPosPamDisplay").modal('show');
+                } else if(openDisplay == 'pos_yan'){
+                    $("#myModalPosYanDisplay").modal('show');
                 } else if(openDisplay == 'sat_pas'){
                     $("#myModalSatPasDisplay").modal('show');
                 } else if(openDisplay == 'rest_area'){
@@ -8791,6 +9047,7 @@
                                             var checkboxJadwal = "";
                                             var nameJadwalRenpam = [];
                                             var typeJadwalRenpam = [];
+                                            var idJadwalRenpam = [];
                                             var awalJadwalRenpam = [];
                                             var akhirJadwalRenpam = [];
 
@@ -8798,6 +9055,7 @@
                                             var nameRenpam = [];
                                             var dummyName = [];
                                             var dummyType = [];
+                                            var dummyidJadwal = [];
                                             var dummyAwal = [];
                                             var dummyAkhir = [];
         
@@ -8840,6 +9098,7 @@
                                                 $(`#totalCategJadwal${ress[m]['id']}`).html(ressJadwalId.length);
                                                 dummyName = [];
                                                 dummyType = [];
+                                                dummyidJadwal = [];
                                                 dummyAwal = [];
                                                 dummyAkhir = [];
         
@@ -8907,11 +9166,13 @@
 
                                                         dummyName.push(sortUrutanRenpam[i]['name_renpam']);
                                                         dummyType.push(sortUrutanRenpam[i]['type_renpam']);
+                                                        dummyidJadwal.push(sortUrutanRenpam[i]['schedule_id']);
                                                         dummyAwal.push(sortUrutanRenpam[i]['awal_renpam']);
                                                         dummyAkhir.push(sortUrutanRenpam[i]['akhir_renpam']);
         
                                                         nameJadwalRenpam[countlist] = dummyName;
                                                         typeJadwalRenpam[countlist] = dummyType; 
+                                                        idJadwalRenpam[countlist] = dummyidJadwal; 
                                                         awalJadwalRenpam[countlist] = dummyAwal; 
                                                         akhirJadwalRenpam[countlist] = dummyAkhir; 
 
@@ -9615,7 +9876,8 @@
                                                         console.log({a:namaRen ,b:warna});
 
 
-        
+                                                        
+                                                        
                                                         var typeRenpam = typeJadwalRenpam[i+1][ii];
                                                         if(typeRenpam == 3){ //penjagaan
                                                             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
@@ -9657,13 +9919,20 @@
         
                                                         if(typeRenpam == 3){
                                                             
-                                                            // console.log(dummyJadwalRenpamTitik[i+1][ii]);
+                                                            var iconMarkerPengjagaan = '';
+                                                            var id_jadwal = idJadwalRenpam[i+1][ii];
+                                                            if(id_jadwal == '88'){
+                                                                iconMarkerPengjagaan = `<img src="<?= base_url('assets/icon/POSPAM.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`;
+                                                            }else{
+                                                                iconMarkerPengjagaan = `<img src="<?= base_url('assets/icon/POSYAN.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`;
+                                                            }
+
                                                             if($(this).is(':checked')){  
                                                                 markerTitikGlobal[[i+1][ii]] = L.marker([dummyJadwalRenpamTitik[i+1][ii]['lat'], dummyJadwalRenpamTitik[i+1][ii]['lng']], {
                                                                                         renderer: myRenderer,
                                                                                         icon: L.divIcon({
                                                                                         // className: 'location-pin',
-                                                                                        html: `<img src="<?= base_url('assets/icon/gpsId.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
+                                                                                        html: iconMarkerPengjagaan,
                                                                                         iconSize: [5, 5],
                                                                                         iconAnchor: [5, 10]
                                                                                         })
@@ -12662,6 +12931,15 @@
             });
 
         } 
+
+
+        function openNav() { 
+            document.getElementById("mySidenav").style.width = "50%"; 
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
 
     
 </script> 

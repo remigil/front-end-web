@@ -686,6 +686,61 @@
         .aneh:hover {
             background-color: #003a91;
         }
+
+
+
+        .sidenav2 {
+            height: 35%;
+            width: 0;
+            position: absolute;
+            z-index: 999;
+            bottom: 0px;
+            left: 0px;
+            background-color: white;
+            border-radius: 0px 50px 0px 0px;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 70px;
+            scrollbar-width: thin;
+        }
+
+        .sidenav2 a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav2 a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav2 .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 27px;
+            margin-left: 50px;
+        }
+
+        .sidenav2 .judul {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 27px; 
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav2 {
+                padding-top: 15px;
+            }
+
+            .sidenav2 a {
+                font-size: 18px;
+            }
+        }
     </style>
 
     <!-- JAVASCRIPT -->
@@ -1413,7 +1468,7 @@
                                                 <span data-key="t-dashboard" style="color: white;">Harian</span>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="<?php echo base_url('#'); ?>" data-key="t-login">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">Mingguan</span>
@@ -1436,7 +1491,7 @@
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">Tahunan</span>
                                             </a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </li>
                                 <li>
@@ -1449,24 +1504,24 @@
                                         <li>
                                             <a href="<?php echo base_url('laporan/laporan_anev'); ?>" data-key="t-login">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                <span data-key="t-dashboard" style="color: white;">Harian</span>
+                                                <span data-key="t-dashboard" style="color: white;">Kamseltibcarlantas</span>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="<?php echo base_url('#'); ?>" data-key="t-login">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">Mingguan</span>
                                             </a>
                                         </li>
-                                        <li>
-                                            <!-- <img src="<?= url_api(); ?>polda/logo/${ressData[i].logo_polda}" style="width:35px;"> -->
-                                            <!-- 'http://34.143.227.90:3020/v1/anev/getMonthly?mode=pdf-download&month=' . date('n') . '&year=2022' -->
-                                            <a href="<?= url_api('anev/getMonthly?mode=pdf-download&month=' . date('n') . '&year=' . date('Y')); ?>" data-key="t-register">
+                                        <li> -->
+                                        <!-- <img src="<?= url_api(); ?>polda/logo/${ressData[i].logo_polda}" style="width:35px;"> -->
+                                        <!-- 'http://34.143.227.90:3020/v1/anev/getMonthly?mode=pdf-download&month=' . date('n') . '&year=2022' -->
+                                        <!-- <a href="<?= url_api('anev/getMonthly?mode=pdf-download&month=' . date('n') . '&year=' . date('Y')); ?>" data-key="t-register">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">Bulanan</span>
                                             </a>
-                                        </li>
-                                        <li>
+                                        </li> -->
+                                        <!-- <li>
                                             <a href="<?php echo base_url('#'); ?>" data-key="t-register">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">Triwulan</span>
@@ -1477,7 +1532,7 @@
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">Tahunan</span>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="<?php echo base_url('laporan/Laporan_RisetNTMC'); ?>" data-key="t-register">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
@@ -2404,7 +2459,7 @@
 
 
             <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-            <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
             <script scr="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"></script>
             <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>

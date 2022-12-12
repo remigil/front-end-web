@@ -76,49 +76,69 @@
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
+      <!-- <div class="contact-info d-flex align-items-center">
+				
         <p style="margin: 0; color:white;"><?php echo format_indoHari(date('Y-m-d')) ?></p>
-      </div>
-      <!-- <div class="contact-info d-none d-md-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
       </div> -->
-      <div class="social-links d-none d-md-flex align-items-center">
-	  	<div class="input-group">
-			<input type="text" class="form-control" placeholder="Masukan kata kunci" aria-label="Recipient's username" aria-describedby="basic-addon2">
-			<div class="input-group-append">
-				<button class="btn btn-outline-secondary" type="button">Cari</button>
-			</div>
-		<!-- </div>
+			<div class="social-links d-flex align-items-center">
+				<!-- <div class="input-group">
+					<input type="text" class="form-control" placeholder="Masukan kata kunci" aria-label="Recipient's username" aria-describedby="basic-addon2">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button">Cari</button>
+					</div>
+				</div> -->
         <a href="https://twitter.com/K3IKorlantas" ><i class="bi bi-twitter"></i></a>
         <a href="https://www.facebook.com/K3I-Korlantas-105187678596891" ><i class="bi bi-facebook"></i></a>
         <a href="https://www.instagram.com/k3ikorlantaspolri/" ><i class="bi bi-instagram"></i></a>
         <a href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg" ><i class="bi bi-youtube"></i></i></a>
+      </div>
+			
+      <!-- <div class="contact-info d-none d-md-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
       </div> -->
+      <div class="contact-info social-links d-none d-md-flex align-items-center">
+			<!-- <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i> -->
+        <i class="bi bi-phone d-flex align-items-center"><span>1-500-669 </span></i>
+        <i class="bi bi-telephone d-flex align-items-center ms-4" style="margin-right: 20px;"><span>9119 </span></i>
+        <i class="bi bi-calendar3 d-flex align-items-center ms-4" style="margin-right: 20px;"><span><?php echo format_indoHari(date('Y-m-d')) ?> </span></i>
+			
+				<!-- <div class="input-group">
+
+					<input type="text" class="form-control" placeholder="Masukan kata kunci" aria-label="Recipient's username" aria-describedby="basic-addon2" width="100px">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button">Cari</button>
+					</div>
+				</div> -->
+        <!-- <a href="https://twitter.com/K3IKorlantas" ><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/K3I-Korlantas-105187678596891" ><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/k3ikorlantaspolri/" ><i class="bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg" ><i class="bi bi-youtube"></i></i></a> -->
+      </div>
     </div>
   </section>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center p-5" style="border-bottom: 10px solid red; border-image:url(assets/fe/border-nav.jpg) 30 round">
+  <header id="header" class="d-flex align-items-center p-5" >
     <div class="container d-flex justify-content-between align-items-center" >
 
       <div class="logo">
         <!-- <h1><a href="index.html">Eterna</a></h1> -->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="<?= base_url()?>home"><img src="<?= base_url()?>assets/fe/brand-header.png" alt="" class="img-fluid" ></a>
+        <a href="<?= base_url()?>home"><img src="<?= base_url()?>assets/fe/HEADER_WEB_K3i.png" alt="" class="img-fluid" ></a>
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
 		<li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
-				<li><a href="<?= base_url()?>sambutan">Sambutan</a></li>
-				<li><a href="<?= base_url()?>struktur_organisasi">Struktur Organisasi</a></li>
-				<li><a href="<?= base_url()?>profil_pejabat">Profil Pejabat</a></li>
-				<li><a href="<?= base_url()?>visi_misi">Visi dan Misi</a></li>
-				<li><a href="<?= base_url()?>tugas_fungsi">Tugas dan Fungsi</a></li>
+				<li><a href="<?= base_url()?>profil/sambutan">Sambutan</a></li>
+				<li><a href="<?= base_url()?>profil/struktur_organisasi">Struktur Organisasi</a></li>
+				<li><a href="<?= base_url()?>profil/profil_pejabat">Profil Pejabat</a></li>
+				<li><a href="<?= base_url()?>profil/visi_misi">Visi dan Misi</a></li>
+				<li><a href="<?= base_url()?>profil/tugas_fungsi">Tugas dan Fungsi</a></li>
 				<!-- <li><a href="<?= base_url()?>organisasi_tatakerja">Organisasi dan Tata Kerja</a></li> -->
-				<li><a href="<?= base_url()?>sejarah">Sejarah POLANTAS</a></li>
+				<li><a href="<?= base_url()?>profil/sejarah">Sejarah POLANTAS</a></li>
             </ul>
         </li>
 		<li class="dropdown megamenu"><a href="#"><span>Satker Mabes</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -126,22 +146,23 @@
               <li>
 				<h5>Korlantas</h5>
 				<hr width="80%">
-			  	<a href="<?= base_url()?>ditgakkum_front">DITGAKKUM</a>
-				<a href="<?= base_url()?>ditregident_front">DITREGIDENT</a>
-                <a href="<?= base_url()?>ditkamsel_front">DITKAMSEL</a>
-				<a href="<?= base_url()?>bagrenmin_front">BAGRENMIN</a>
-				<a href="<?= base_url()?>bagops_front">BAGOPS</a>
-				<a href="<?= base_url()?>bagtik_front">BAGTIK</a>
+			  	<a href="<?= base_url()?>satker/ditgakkum">DITGAKKUM</a>
+				<a href="<?= base_url()?>satker/ditregident">DITREGIDENT</a>
+                <a href="<?= base_url()?>satker/ditkamsel">DITKAMSEL</a>
+				<a href="<?= base_url()?>satker/bagrenmin">BAGRENMIN</a>
+				<a href="<?= base_url()?>satker/bagops">BAGOPS</a>
+				<a href="<?= base_url()?>satker/bagtik">BAGTIK</a>
               </li>
               <li>
+								
 				<h5>Fungsi Lainnya</h5>
 				<hr width="80%">
-			  	<a href="<?= base_url()?>baharkam">BAHARKAM</a>
-				<a href="<?= base_url()?>asops">ASOPS</a>
-                <a href="<?= base_url()?>divtik">DIVTIK</a>
-				<a href="<?= base_url()?>bareskrim">BARESKIM</a>
-				<a href="<?= base_url()?>divhumas">DIVHUMAS</a>
-				<a href="<?= base_url()?>itwasum">ITWASUM</a>
+			  				<a href="<?= base_url()?>satker/baharkam">BAHARKAM</a>
+								<a href="<?= base_url()?>satker/asops">ASOPS</a>		
+                <a href="<?= base_url()?>satker/divtik">DIVTIK</a>
+								<a href="<?= base_url()?>satker/bareskrim">BARESKIM</a>
+								<a href="<?= base_url()?>satker/divhumas">DIVHUMAS</a>
+								<a href="<?= base_url()?>satker/itwasum">ITWASUM</a>
               </li>
               
             </ul>
@@ -149,30 +170,30 @@
 		<li class="dropdown megamenu"><a href="#"><span>stakeholder</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li>
-			  	<a href="<?= base_url()?>kemendagri">KEMENDAGRI</a>
-				<a href="<?= base_url()?>kemenhub">KEMENHUB</a>
-                <a href="<?= base_url()?>kemenkes">KEMENKES</a>
-				<a href="<?= base_url()?>kemenpupr">KEMENPERIN</a>
-				<a href="<?= base_url()?>kemenpupr">KEMENPUPR</a>
-				<a href="<?= base_url()?>badan_riset">BADAN RISET DAN INOVASI NASIONAL</a>
-				<a href="<?= base_url()?>kemenkeu">KEMENKEU</a>
+			  	<a href="<?= base_url()?>stakeholder/kemendagri">KEMENDAGRI</a>
+				<a href="<?= base_url()?>stakeholder/kemenhub">KEMENHUB</a>
+                <a href="<?= base_url()?>stakeholder/kemenkes">KEMENKES</a>
+				<a href="<?= base_url()?>stakeholder/kemenperin">KEMENPERIN</a>
+				<a href="<?= base_url()?>stakeholder/kemenpupr">KEMENPUPR</a>
+				<a href="<?= base_url()?>stakeholder/badan_riset">BADAN RISET DAN INOVASI NASIONAL</a>
+				<a href="<?= base_url()?>stakeholder/kemenkeu">KEMENKEU</a>
               </li>
               <li>
-			  	<a href="<?= base_url()?>kemendikbud">KEMENDIKBUD</a>
-				<a href="<?= base_url()?>kemenhan">KEMENHAN</a>
-                <a href="<?= base_url()?>ditjen_bina">DITJEN BINA WARGA</a>
-				<a href="<?= base_url()?>dukcapil">DUKCAPIL</a>
-				<a href="<?= base_url()?>jasa_raharja">PT JASA RAHARJA</a>
-				<a href="<?= base_url()?>jasa_marga">JASA MARGA</a>
+			  	<a href="<?= base_url()?>stakeholder/kemendikbud">KEMENDIKBUD</a>
+				<a href="<?= base_url()?>stakeholder/kemenhan">KEMENHAN</a>
+                <a href="<?= base_url()?>stakeholder/bina_marga">DITJEN BINA WARGA</a>
+				<a href="<?= base_url()?>stakeholder/dukcapil">DUKCAPIL</a>
+				<a href="<?= base_url()?>stakeholder/jasa_raharja">PT JASA RAHARJA</a>
+				<a href="<?= base_url()?>stakeholder/jasa_marga">JASA MARGA</a>
               </li>
 			  <li>
-			  	<a href="<?= base_url()?>mabes_tni">MABES TNI</a>
-				<a href="<?= base_url()?>satgas_covid">SATGAS COVID</a>
-                <a href="<?= base_url()?>bmkg">BMKG</a>
-				<a href="<?= base_url()?>bnn">BNN</a>
-				<a href="<?= base_url()?>bnpb">BNPB</a>
-				<a href="<?= base_url()?>bnpt">BNPT</a>
-				<a href="<?= base_url()?>bps">BPS</a>
+			  	<a href="<?= base_url()?>stakeholder/mabes_tni">MABES TNI</a>
+				<a href="<?= base_url()?>stakeholder/satgas_covid">SATGAS COVID</a>
+                <a href="<?= base_url()?>stakeholder/bmkg">BMKG</a>
+				<a href="<?= base_url()?>stakeholder/bnn">BNN</a>
+				<a href="<?= base_url()?>stakeholder/bnpb">BNPB</a>
+				<a href="<?= base_url()?>stakeholder/bnpt">BNPT</a>
+				<a href="<?= base_url()?>stakeholder/bps">BPS</a>
 			  </li>
               
             </ul>
@@ -182,24 +203,24 @@
           
           <li class="dropdown"><a href="#"><span>Publikasi</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
-				<li><a href="<?= base_url()?>konferensi_pers">Konfersi Pers</a></li>
-				<li><a href="<?= base_url()?>kegiatan_kakor">Kegiatan Kakorlantas</a></li>
+				<li><a href="<?= base_url()?>publikasi/konferensi_pers">Konfersi Pers</a></li>
+				<li><a href="<?= base_url()?>publikasi/kegiatan_kakor">Kegiatan Kakorlantas</a></li>
 				<!-- <li><a href="<?= base_url()?>riset_media">Riset Media Center NTMC</a></li> -->
-				<li><a href="<?= base_url()?>kegiatan_khusus">Kegiatan Khusus (PAM PPKM)</a></li> 
+				<li><a href="<?= base_url()?>publikasi/kegiatan_khusus">Kegiatan Khusus (PAM PPKM)</a></li> 
             </ul>
         </li>
 		<li class="dropdown"><a href="#"><span>Pustaka</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
-				<li><a href="<?= base_url()?>informasi_setiap_saat">Informasi Setiap Saat</a></li>
-				<li><a href="<?= base_url()?>informasi_berkala">Informasi Berkala</a></li>
-				<li><a href="<?= base_url()?>informasi_serta_merta">Informasi Serta Merta</a></li>
-				<li><a href="<?= base_url()?>undang_undang">UU dan Peraturan</a></li> 
+				<li><a href="<?= base_url()?>pustaka/informasi_setiap_saat">Informasi Setiap Saat</a></li>
+				<li><a href="<?= base_url()?>pustaka/informasi_berkala">Informasi Berkala</a></li>
+				<li><a href="<?= base_url()?>pustaka/informasi_serta_merta">Informasi Serta Merta</a></li>
+				<li><a href="<?= base_url()?>pustaka/undang_undang">UU dan Peraturan</a></li> 
             </ul>
         </li>
 		<li class="dropdown"><a href="#"><span>Kontak Kami</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
-				<li><a href="<?= base_url()?>survey_kepuasan">Survey Kepuasan</a></li>
-				<li><a href="<?= base_url()?>layanan_pengaduan">Layanan Pengaduan</a></li>
+				<li><a href="<?= base_url()?>kontak/survey_kepuasan">Survey Kepuasan</a></li>
+				<li><a href="<?= base_url()?>kontak/layanan_pengaduan">Layanan Pengaduan</a></li>
 				<li><a href="<?= base_url()?>https://ccntmc.1500669.com/">Contact Center NTMC</a></li> 
             </ul>
         </li>
@@ -211,6 +232,21 @@
 				<li><a href="https://tvradio.polri.go.id/">Link ke TV-RADIO POLRI</a></li> 
             </ul>
         </li>
+		<li class="dropdown megamenu"><a href="#"><span><i class="bi bi-search fs-5" style="padding: 0;"></i></span> <i class="bi bi-chevron-down"></i></a>
+            <ul> 
+				<li>
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Masukan kata kunci" aria-label="Recipient's username" aria-describedby="basic-addon2">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button">Cari</button>
+					</div>
+				</div>
+				</li>
+				
+            </ul>
+        </li>
+				<li><a href="portfolio.html"></a></li>
+				<li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

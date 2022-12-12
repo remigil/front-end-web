@@ -110,6 +110,10 @@ class Polda extends MY_Controller
 					'name' => 'youtube',
 					'contents' => $input['youtube'],
 				],
+				[
+					'name' => 'instagram',
+					'contents' => $input['instagram'],
+				],
 				
                 
             ];
@@ -158,6 +162,10 @@ class Polda extends MY_Controller
 				[
 					'name' => 'youtube',
 					'contents' => $input['youtube'],
+				],
+				[
+					'name' => 'instagram',
+					'contents' => $input['instagram'],
 				],
 	
 				];
@@ -302,6 +310,10 @@ class Polda extends MY_Controller
 					'name' => 'youtube',
 					'contents' => $input['youtube'],
 				],
+				[
+					'name' => 'instagram',
+					'contents' => $input['instagram'],
+				],
 				
                 
             ];
@@ -351,6 +363,10 @@ class Polda extends MY_Controller
 				[
 					'name' => 'youtube',
 					'contents' => $input['youtube'],
+				],
+				[
+					'name' => 'instagram',
+					'contents' => $input['instagram'],
 				],
 	
 				];

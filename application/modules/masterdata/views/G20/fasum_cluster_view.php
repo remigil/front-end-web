@@ -49,7 +49,7 @@
 						<div class="col-md-12 mb-3" style="display:none;"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" placeholder="Nama Fasum Radius" name="namaFasum">
                                 <label for="namaFasum">Nama Cluster</label>
@@ -58,7 +58,7 @@
 
                         <input hidden type="text" class="form-control" placeholder="nama fasum" value="11" name="jenisFasum"> 
 						 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="display: none;">
                             <div class="form-floating mb-3"> 
                                 <input type="text" class="form-control" placeholder="Alamat" name="address">
                                 <label for="">Alamat</label>
@@ -72,28 +72,27 @@
                             </div>
                         </div>
                     </div>
-					<div class="row">
+                    
+					<div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="latitude" placeholder="latitude">
+                                <input type="text" class="form-control" name="latitude" id="latitude" placeholder="latitude">
                                 <label for="latitude">Latitude</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="longitude" placeholder="longitude">
+                                <input type="text" class="form-control" name="longitude" id="longitude" placeholder="longitude">
                                 <label for="longitude">Longitude</label>
                             </div>
-                        </div> 
-                        <div class="col-md-6">
-                            <div id="export" class="btn btn-primary">Export</div>
-                        </div>
+                        </div>  
                     </div>
                     <div class="col-md-12 mt-3">
-                            <div id="mapG20Kegiatan" style="height: 400px">
-                                <!-- <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;"> -->
-                            </div>
+                        <div id="mapG20Kegiatan" style="height: 400px">
+                            <!-- <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;"> -->
                         </div>
+                    </div>
+                    <textarea hidden name="fasum_geoJson" id="fasum_geoJson" cols="50" rows="10"></textarea>
 					<div class="row mt-3">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
@@ -136,7 +135,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn  btn-primary float-end">SIMPAN</button>
+                    <button type="submit" id="btn_add" class="btn  btn-primary float-end">SIMPAN</button>
                 </form>
             </div>
         </div>
@@ -152,7 +151,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-				<form action="" class="form">
+				<form action="" class="formDet">
                 <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
 				<div class="row">
 					    <div class="col-md-12 mb-3" style="display:none;" id="detailViewFoto"> 
@@ -165,23 +164,23 @@
                             </div>
                         </div>
                         
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="display: none;">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="address" name="address"> 
                                 <label for="">Alamat</label>
                             </div>
                         </div>
                     </div> 
-					<div class="row">
+					<div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="latitude" name="latitude">
+                                <input type="text" class="form-control" id="latitudeDet" name="latitude">
                                 <label for="latitude">Latitude</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="longitude" name="longitude">
+                                <input type="text" class="form-control" id="longitudeDet" name="longitude">
                                 <label for="longitude">Longitude</label>
                             </div>
                         </div>
@@ -240,13 +239,13 @@
             </div>
             <div class="modal-body">
 				<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
-				<input type="text" name="id"  id="id_fasum" type="text">
+                    <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
+                    <input hidden type="text" name="id"  id="id_fasum" type="text">
 				<div class="row">
 						<div class="col-md-12 mb-3" id="fotoEdit" style="display:none;"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="namaFasum" name="namaFasum">
                                 <label for="">Nama Fasilitas Khusus</label>
@@ -256,7 +255,7 @@
                         
 
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="display: none;">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="address" name="address"> 
                                 <label for="">Alamat</label>
@@ -271,32 +270,26 @@
                         </div>
                     </div>
                          
-					<div class="row">
+					<div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="latitude" name="latitude">
+                                <input type="text" class="form-control" id="latitudeEdit" name="latitude">
                                 <label for="latitude">Latitude</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="longitude" name="longitude">
+                                <input type="text" class="form-control" id="longitudeEdit" name="longitude">
                                 <label for="longitude">Longitude</label>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="longitude">Radius</label>
-                            <div class="form-floating mb-3" style="display: flex;">
-                                <input type="text" style="border: 0;width: 30px;" class="kilometres" name="kilometres" min="0" max="100" placeholder="15" />
-                                <input type="range" class="range" name="range" min="0" max="100" step="1" /> 
-                            </div>
-                        </div>
+                        </div> 
                     </div>
                     <div class="col-md-12 mt-3">
-                            <div id="mapEdit" style="height: 400px">
-                                 
-                            </div>
+                        <div id="mapEdit" style="height: 400px">
+                            <!-- <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;"> -->
                         </div>
+                    </div>
+                    <textarea hidden name="fasum_geoJson" id="fasum_geoJsonEdit" cols="50" rows="10"></textarea>
 					<div class="row mt-3">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
@@ -324,7 +317,7 @@
                         </div>
                     </div>
 					
-                    <div class="row">
+                    <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" value="00:00:00" class="form-control" id="jamBuka" name="jamBuka">
@@ -347,6 +340,9 @@
  
 
 <script>
+
+    var convertedData;
+    var featureGroup;
 
 	$(document).ready(function() {
         $( '[name=kontakFasum]' ).mask('000000000');
@@ -465,34 +461,38 @@
             mapContainer.addControl(drawControl);
 
 
-            var featureGroup = new L.FeatureGroup();
+            featureGroup = new L.FeatureGroup();
             mapContainer.addLayer(featureGroup); 
 
             mapContainer.on('draw:created', function(e) {
-            var type = e.layerType,
-                layer = e.layer;
+                var type = e.layerType,
+                    layer = e.layer;
 
-            if (type === 'marker') {
-                layer.bindPopup('A popup!');
-            }
+                if (type === 'marker') {
+                    layer.bindPopup('A popup!');
+                }
 
-            featureGroup.addLayer(layer);
+                featureGroup.addLayer(layer);
             });
 
-            $("#export").on("click", function (e) { 
-                // Extract GeoJson from featureGroup
-                var data = featureGroup.toGeoJSON();
+            // $("#export").on("click", function (e) { 
+            //     // Extract GeoJson from featureGroup
+            //     var data = featureGroup.toGeoJSON();
 
-                // Stringify the GeoJson
-                var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+            //     // Stringify the GeoJson
+            //     convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+            //     $("#fasum_geoJson").val(JSON.stringify(data));
 
-                console.log(data);
+            //     console.log(data);
                 
-                // Create export
-                document.getElementById('export').setAttribute('href', 'data:' + convertedData);
-                document.getElementById('export').setAttribute('download','data.geojson');
-            }); 
+            //     // Create export
+            //     document.getElementById('export').setAttribute('href', 'data:' + convertedData);
+            //     document.getElementById('export').setAttribute('download','data.geojson');
 
+            // }); 
+
+
+            
              
 
             let countlist = 0;
@@ -559,9 +559,72 @@
                     mapContainer.flyTo([cordLat, corLong], 17);  
                 }); 
             }); 
+
+
+            mapContainer.on("dragend", function (e) {
+
+                var corLat = mapContainer.getCenter()['lat'];
+                var corLng = mapContainer.getCenter()['lng'];
+                var cord = `${corLat},${corLng}`;
+
+                $("#latitude").val(corLat);
+                $("#longitude").val(corLng);
+                $('#cordinate').val(cord);
+
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+
+                    $('[name=address]').val(data['display_name']); 
+
+                }); 
+
+            });
+
+
+
+            // $(".form").submit(function(e) {
+            $('#btn_add').on('click', function(e) {
+                $("#overlay").fadeIn(300);
+                e.preventDefault();
+
+                // Extract GeoJson from featureGroup
+                var dataS = featureGroup.toGeoJSON();
+
+                // Stringify the GeoJson
+                // convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(dataS));
+                $("#fasum_geoJson").val(JSON.stringify(dataS));
+
+                var formData = new FormData($('.form')[0]);
+                $.ajax({
+                    url: "<?php echo base_url(); ?>masterdata/Fasilitasumum/store",
+                    method: "POST",
+                    data: formData,
+                    dataType: 'JSON',
+                    contentType: false,
+                    processData: false,
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                $(".TambahFasum").modal('hide');
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                }); 
+            });
  
         });
-
+        
 
 
         userDataTable = $('#datatable').DataTable({
@@ -679,44 +742,14 @@
             }
 
 
-        });
+        }); 
+        
 
-			
-
-        $(".form").submit(function(e) {
-            $("#overlay").fadeIn(300);
-            e.preventDefault();
-            var formData = new FormData($('.form')[0]);
-            $.ajax({
-                url: "<?php echo base_url(); ?>masterdata/Fasilitasumum/store",
-                method: "POST",
-                data: formData,
-                dataType: 'JSON',
-                contentType: false,
-                processData: false,
-                success: function(data) {
-                    $("#overlay").fadeOut(300);
-                    if (data['status'] == true) {
-                        Swal.fire(
-                            `${data['message']}`,
-                            '',
-                            'success'
-                        ).then(function() {
-                            $(".TambahFasum").modal('hide');
-                            userDataTable.draw();
-                        });
-                    } else {
-                        Swal.fire(
-                            `${data['message']}`,
-                            '',
-                            'error'
-                        ).then(function() {});
-                    }
-                }
-            });
-        });
+        
     });
+    
  
+
 
     function detail(id) {
         $.ajax({
@@ -861,53 +894,81 @@
                     position: 'bottomleft'
                 }).addTo(mapContainer); 
                 
-                let circles;
-                var marker;
+               
                 $('#myModalEdit').on('shown.bs.modal', function() {
                     mapContainer.invalidateSize();
 
                     $('[name=latitude]').val(results.fasum_lat);
                     $('[name=longitude]').val(results.fasum_lng);
+ 
 
-                    let set = 10; 
-                    
-                    
+                    var featureGroup = new L.FeatureGroup();
+                    mapContainer.addLayer(featureGroup);
 
-                    marker = L.marker(initialCenter, {
-                        draggable: true
-                    }).addTo(mapContainer);
-
-                    set = results.fasum_radius;
-
-                    circles = L.circle(initialCenter, 1000*set, {
-                        color: 'red',
-                        fillColor: '#f03',
-                        fillOpacity: 0.5
-                    }).addTo(mapContainer); 
-
-                    $('.range').on('input', function() {
-                        set = $(this).val();
-                        $('.kilometres').val(set);
-                      
+                    // define custom marker
+                    var MyCustomMarker = L.Icon.extend({
+                    options: {
+                        shadowUrl: null,
+                        iconAnchor: new L.Point(12, 12),
+                        iconSize: new L.Point(24, 24),
+                        iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Information_icon4_orange.svg'
+                    }
                     });
 
-                    $('.kilometres').on('input', function() {
-                        set = $(this).val();
-                        $('.range').val(set);
-                     
-                    });
+                    var drawPluginOptions = {
+                        position: 'bottomleft',
+                        draw: {
+                            polyline: {
+                                shapeOptions: {
+                                    color: '#f357a1',
+                                    weight: 10
+                                }
+                            },
+                            polygon: {
+                                allowIntersection: false, // Restricts shapes to simple polygons
+                                drawError: {
+                                    color: '#e1e100', // Color the shape will turn when intersects
+                                    message: '<strong>Polygon draw does not allow intersections!<strong> (allowIntersection: false)' // Message that will show when intersect
+                                },
+                                shapeOptions: {
+                                    color: '#bada55'
+                                }
+                            },
+                            circle: true, // Turns off this drawing tool
+                            rectangle: {
+                                shapeOptions: {
+                                    clickable: false
+                                }
+                            },
+                            marker: {
+                                icon: new MyCustomMarker()
+                            }
+                        },
+                        edit: {
+                            featureGroup: featureGroup, //REQUIRED!!
+                            remove: false
+                        }
+                    };
 
-                    
 
-                    $( ".range, .kilometres" ).on('input', function() {
-                        if(mapContainer.hasLayer(circles))
-                            mapContainer.removeLayer(circles);
 
-                        circles = L.circle(initialCenter, 1000*set, {
-                            color: 'red',
-                            fillColor: '#f03',
-                            fillOpacity: 0.5
-                        }).addTo(mapContainer);
+                    // Initialise the draw control and pass it the FeatureGroup of editable layers
+                    var drawControl = new L.Control.Draw(drawPluginOptions);
+                    mapContainer.addControl(drawControl);
+
+
+                    featureGroup = new L.FeatureGroup();
+                    mapContainer.addLayer(featureGroup); 
+
+                    mapContainer.on('draw:created', function(e) {
+                        var type = e.layerType,
+                            layer = e.layer;
+
+                        if (type === 'marker') {
+                            layer.bindPopup('A popup!');
+                        }
+
+                        featureGroup.addLayer(layer);
                     });
 
                     let countlist = 0;
@@ -950,41 +1011,9 @@
 
                                     initialCenter = [latitude, longitude]; 
 
-                                    if(mapContainer.hasLayer(circles)){ 
-                                        mapContainer.removeLayer(circles); 
-                                    }
-                                    if(mapContainer.hasLayer(marker)){ 
-                                        mapContainer.removeLayer(marker); 
-                                    }
+                                  
 
-                                    marker = L.marker(initialCenter, {
-                                        draggable: true
-                                    }).addTo(mapContainer);   
-                                    circles = L.circle(initialCenter, 1000*set, {
-                                        color: 'red',
-                                        fillColor: '#f03',
-                                        fillOpacity: 0.5
-                                    }).addTo(mapContainer); 
-
-                                    marker.on('dragend', function(e) { 
-                                        $('[name=latitude]').val(this.getLatLng().lat);
-                                        $('[name=longitude]').val(this.getLatLng().lng);
-
-                                        if(mapContainer.hasLayer(circles)){ 
-                                            mapContainer.removeLayer(circles);
-                                        }
-
-                                        initialCenter = [this.getLatLng().lat, this.getLatLng().lng]; 
-                                        circles = L.circle(initialCenter, 1000*set, {
-                                            color: 'red',
-                                            fillColor: '#f03',
-                                            fillOpacity: 0.5
-                                        }).addTo(mapContainer); 
-
-                                        $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${this.getLatLng().lat}&lon=${this.getLatLng().lng}`, function(data){
-                                            $('[name=address]').val(data['display_name']); 
-                                        }); 
-                                    });
+                                    
                                     
                                     list = "";
                                     $('#listAddressEdit').html(list);   
@@ -1011,25 +1040,65 @@
                     });
 
 
-                    marker.on('dragend', function(e) { 
-                        $('[name=latitude]').val(this.getLatLng().lat);
-                        $('[name=longitude]').val(this.getLatLng().lng);
-        
-                        if(mapContainer.hasLayer(circles)){ 
-                            mapContainer.removeLayer(circles);
-                        }
+                    mapContainer.on("dragend", function (e) {
 
-                        initialCenter = [this.getLatLng().lat, this.getLatLng().lng]; 
-                        circles = L.circle(initialCenter, 1000*set, {
-                            color: 'red',
-                            fillColor: '#f03',
-                            fillOpacity: 0.5
-                        }).addTo(mapContainer); 
+                        var corLat = mapContainer.getCenter()['lat'];
+                        var corLng = mapContainer.getCenter()['lng'];
+                        var cord = `${corLat},${corLng}`;
 
-                        $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${this.getLatLng().lat}&lon=${this.getLatLng().lng}`, function(data){
+                        $("#latitudeEdit").val(corLat);
+                        $("#longitudeEdit").val(corLng);
+                        $('#cordinateEdit').val(cord);
+
+                        $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+
                             $('[name=address]').val(data['display_name']); 
+
                         }); 
+
                     });
+
+
+                    $('#btn_edit').on('click', function(e) {
+                        e.preventDefault()
+
+                        var dataS = featureGroup.toGeoJSON();
+
+                        // Stringify the GeoJson
+                        // convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(dataS));
+                        $("#fasum_geoJsonEdit").val(JSON.stringify(dataS));
+
+                        var formData = new FormData($('#form_edit')[0]);
+                        $.ajax({
+                            url: '<?= base_url() ?>masterdata/Fasilitasumum/updateFasum',
+                            type: 'POST',
+                            data: formData,
+                            dataType: 'JSON',
+                            contentType: false,
+                            processData: false,
+                            success: function(results) {
+                                $("#overlay").fadeOut(300);
+                                if (results['status'] == true) {
+                                    Swal.fire(
+                                        `${results['message']}`,
+                                        '',
+                                        'success'
+                                    ).then(function() {
+                                        // $(".UbahFasum").modal('hide');
+                                        // userDataTable.draw();
+                                        $("#overlay").fadeIn(300);
+                                        location.reload(); 
+                                    });
+                                } else {
+                                    Swal.fire(
+                                        `${results['message']}`,
+                                        '',
+                                        'error'
+                                    ).then(function() {});
+                                }
+                            }
+                        })
+                    })
 
                 });
 
@@ -1093,39 +1162,7 @@
         })
     }
 
-    $('#btn_edit').on('click', function(e) {
-        e.preventDefault()
-        var formData = new FormData($('#form_edit')[0]);
-        $.ajax({
-            url: '<?= base_url() ?>masterdata/Fasilitasumum/updateFasum',
-            type: 'POST',
-            data: formData,
-            dataType: 'JSON',
-            contentType: false,
-            processData: false,
-            success: function(results) {
-                $("#overlay").fadeOut(300);
-                if (results['status'] == true) {
-                    Swal.fire(
-                        `${results['message']}`,
-                        '',
-                        'success'
-                    ).then(function() {
-                        // $(".UbahFasum").modal('hide');
-                        // userDataTable.draw();
-                        $("#overlay").fadeIn(300);
-                        location.reload(); 
-                    });
-                } else {
-                    Swal.fire(
-                        `${results['message']}`,
-                        '',
-                        'error'
-                    ).then(function() {});
-                }
-            }
-        })
-    })
+    
 
 	$('#btnTambah').on('click', function(e){
 		$('#form_tambah')[0].reset()

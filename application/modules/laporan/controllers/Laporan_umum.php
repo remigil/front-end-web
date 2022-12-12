@@ -37,13 +37,26 @@ class Laporan_umum extends MY_Controller
         }
 
 
+        $getLaporanHarian = guzzle_request('GET', 'laporan_harian/list_laporan_harian?kategori=1&limit=7', [
+            'headers' => $headers
+        ]);
+
+        $getLaporanBulanan = guzzle_request('GET', 'laporan_harian/list_laporan_harian?kategori=2&limit=7', [
+            'headers' => $headers
+        ]);
+
+        $getLaporanTahunan = guzzle_request('GET', 'laporan_harian/list_laporan_harian?kategori=3&limit=7', [
+            'headers' => $headers
+        ]);
 
         $getPolda = guzzle_request('GET', 'polda/', [
             'headers' => $headers
         ]);
 
         $data['polda'] = $getPolda['data']['data'];
-
+        $data['laporanToday'] = $getLaporanHarian['data'];
+        $data['laporanMonth'] = $getLaporanBulanan['data'];
+        $data['laporanYear'] = $getLaporanTahunan['data'];
     
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);

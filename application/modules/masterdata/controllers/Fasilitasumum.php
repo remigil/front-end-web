@@ -243,8 +243,16 @@ class Fasilitasumum extends MY_Controller
             die;
         }
 
-        if(isset($input['drawer'])){
-            $drawer = $input['drawer'];
+
+
+        if(isset($input['kilometres'])){
+            $kilometres = $input['kilometres'];
+        }else{
+            $kilometres = null;
+        }
+
+        if(isset($input['fasum_geoJson'])){
+            $drawer = $input['fasum_geoJson'];
         }else{
             $drawer = null;
         }
@@ -304,7 +312,7 @@ class Fasilitasumum extends MY_Controller
                 ],
 				[
                     'name' => 'fasum_radius',
-                    'contents' => $input['kilometres'],
+                    'contents' => $kilometres,
                 ],
 				[
                     'name' => 'fasum_open_time',
@@ -363,7 +371,7 @@ class Fasilitasumum extends MY_Controller
                 ],
 				[
                     'name' => 'fasum_radius',
-                    'contents' => $input['kilometres'],
+                    'contents' => $kilometres,
                 ],
 				[
                     'name' => 'fasum_open_time',
@@ -490,8 +498,14 @@ class Fasilitasumum extends MY_Controller
             die;
         }
 
-        if(isset($input['drawer'])){
-            $drawer = $input['drawer'];
+        if(isset($input['kilometres'])){
+            $kilometres = $input['kilometres'];
+        }else{
+            $kilometres = null;
+        }
+
+        if(isset($input['fasum_geoJson'])){
+            $drawer = $input['fasum_geoJson'];
         }else{
             $drawer = null;
         }
@@ -551,7 +565,7 @@ class Fasilitasumum extends MY_Controller
                 ],
 				[
                     'name' => 'fasum_radius',
-                    'contents' => $input['kilometres'],
+                    'contents' => $kilometres,
                 ],
 				[
                     'name' => 'fasum_open_time',
@@ -610,7 +624,7 @@ class Fasilitasumum extends MY_Controller
                 ],
 				[
                     'name' => 'fasum_radius',
-                    'contents' => $input['kilometres'],
+                    'contents' => $kilometres,
                 ],
 				[
                     'name' => 'fasum_open_time',
