@@ -562,14 +562,37 @@ class ImportLaporanHarian extends MY_Controller
                                 $C = trim(trim($row['C']));
                                 $D = trim(trim($row['D']));
                                 $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+                                $G = trim(trim($row['G']));
+                                $H = trim(trim($row['H']));
+                                $I = trim(trim($row['I']));
+                                $J = trim(trim($row['J']));
+                                $K = trim(trim($row['K']));
+                                $L = trim(trim($row['L']));
+                                $M = trim(trim($row['M']));
+                                $N = trim(trim($row['N']));
+                                $O = trim(trim($row['O']));
+                                $P = trim(trim($row['P']));
 
                                 $raws[] = array(
                                     'polda_id'=>$B,
                                     // 'polres_name'=>$B,
                                     'date'=>$tanggal,
-                                    'baru'=>$C,
-                                    'perpanjangan'=>$D,
-                                    'rubentina'=>$E
+                                    'bbn_1_r2' => $C,
+                                    'bbn_1_r4' => $D,
+                                    'perubahan_r2' => $E,
+                                    'perubahan_r4' => $F,
+                                    'perpanjangan_r2' => $G,
+                                    'perpanjangan_r4' => $H,
+                                    'mutasi_keluar_r2' => $I,
+                                    'mutasi_keluar_r4' => $J,
+                                    'mutasi_masuk_r2' => $K,
+                                    'mutasi_masuk_r4' => $L,
+                                    'pengsahan_r2' => $M,
+                                    'pengsahan_r4' => $N,
+                                    'samolnas_r2' => $O,
+                                    'samolnas_r4' => $P,
+                                    
                                 );
 
                             }

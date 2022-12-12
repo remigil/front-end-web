@@ -289,15 +289,29 @@ class LaporanHarian extends MY_Controller
                 $object = (object) [
                     'polda_id' => $this->input->post('polda_id')[$i],
                     'date' => $date,
-                    'baru' => $this->input->post('baru')[$i],
-                    'perpanjangan' => $this->input->post('perpanjangan')[$i],
-                    'rubentina' => $this->input->post('rubentina')[$i],
+                    'bbn_1_r2' => $this->input->post('bbn_1_r2')[$i],
+                    'bbn_1_r4' => $this->input->post('bbn_1_r4')[$i],
+                    'perubahan_r2' => $this->input->post('perubahan_r2')[$i],
+                    'perubahan_r4' => $this->input->post('perubahan_r4')[$i],
+                    'perpanjangan_r2' => $this->input->post('perpanjangan_r2')[$i],
+                    'perpanjangan_r4' => $this->input->post('perpanjangan_r4')[$i],
+                    'mutasi_keluar_r2' => $this->input->post('mutasi_keluar_r2')[$i],
+                    'mutasi_keluar_r4' => $this->input->post('mutasi_keluar_r4')[$i],
+                    'mutasi_masuk_r2' => $this->input->post('mutasi_masuk_r2')[$i],
+                    'mutasi_masuk_r4' => $this->input->post('mutasi_masuk_r4')[$i],
+                    'pengesahan_r2' => $this->input->post('pengesahan_r2')[$i],
+                    'pengesahan_r4' => $this->input->post('pengesahan_r4')[$i],
+                    'samolnas_r2' => $this->input->post('samolnas_r2')[$i],
+                    'samolnas_r4' => $this->input->post('samolnas_r4')[$i],
+
                 ];
 
                 array_push($value, $object);
             }
         }
 
+
+        
 
         $data = guzzle_request('POST', $url, [
             'json' => [
