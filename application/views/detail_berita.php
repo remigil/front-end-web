@@ -95,7 +95,7 @@
 							if (++$i == 4) break;?>
                 <div class="post-item clearfix">
                   <img src="<?= url_api() ?>news/<?= $data['picture'] ?>" alt="">
-                  <h4><a href="berita_front/detailberita/<?=$data['id']; ?>"><?=$data['title']; ?></a></h4>
+                  <h4><a href="<?=$data['id']; ?>"><?=$data['title']; ?></a></h4>
                   <time datetime="2020-01-01"><?=$data['updated_at']; ?></time>
                 </div>
 
