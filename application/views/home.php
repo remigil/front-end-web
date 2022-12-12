@@ -8,8 +8,8 @@
         <div class="carousel-inner" role="listbox">
 
           <!-- Slide 1 -->
-          <div class="carousel-item active" style="background-image: url(assets/fe/slider-1.png)">
-            <div class="carousel-container">
+          <div class="carousel-item active" style="background-image: url(assets/fe/slider-home6.png)">
+            <div class="carousel-container" style="top:0;">
               <div class="carousel-content">
 				<img src="<?= base_url()?>assets/logo-nav.png" alt="">
                 <h2 class="animate__animated animate__fadeInDown">Selamat Datang di <span>Portal K3I Korlantas Polri</span></h2>
@@ -20,7 +20,7 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background-image: url(assets/fe/slider-home1.jpeg)">
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-home5.jpg)">
             <div class="carousel-container">
               <div class="carousel-content">
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
@@ -66,6 +66,20 @@
               </div>
             </div>
           </div>
+
+          <!-- Slide 5 -->
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-home1.jpeg)">
+            <div class="carousel-container">
+              <div class="carousel-content">
+			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
+				<!-- <h2 class="animate__animated animate__fadeInDown">Mari Tertib <span>Berlalu Lintas</span></h2>
+                <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;">Utamakan Keselamatan, selalu patuhi rambu rambu lalu lintas dan gunakan sabuk keselamatan serta tidak menggunakan Hp saat berkendara, segera jika lelah & mengantuk</p> -->
+                <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a> -->
+              </div>
+            </div>
+          </div>
+
+          
 
         </div>
 
