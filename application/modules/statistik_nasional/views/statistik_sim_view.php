@@ -13,7 +13,7 @@
      <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
              <div class="col-sm-4 col-md-5 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">Sim <span style="color:#000;">Nasional</span></span> </h2>
+                 <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">Sim <span style="color:#000;">Nasional</span></span> </h2>
              </div>
              <div class="col-sm-8 col-md-7">
                  <div class="row m-2">
@@ -30,7 +30,7 @@
                                      </div>
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
-                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background:#007DD8; height:40px; border-radius:20px 0 20px 20; ">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
                                                  <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalDay">
                                                      Detail
                                                  </button>
@@ -54,7 +54,7 @@
                                      </div>
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
-                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background:#007DD8; height:40px; border-radius:20px 0 20px 20; ">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
                                                  <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalMonth">
                                                      Detail
                                                  </button>
@@ -78,7 +78,7 @@
                                      </div>
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
-                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background:#007DD8; height:40px; border-radius:20px 0 20px 20; ">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
                                                  <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalYear">
                                                      Detail
                                                  </button>
@@ -109,10 +109,10 @@
                  <div class="container">
                      <table class="table table-bordered table-hover">
                          <thead>
-                             <tr class="bg-primary text-white">
+                             <tr class="text-white" style="background-color: #0007D8;">
                                  <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="3" scope="col">Baru</th>
                              </tr>
-                             <tr style="background-color:#A6A6A6; color:#fff;">
+                             <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">C</th>
                                  <th style="text-align: center;" scope="col">D</th>
@@ -128,10 +128,10 @@
                      </table>
                      <table class="table table-bordered table-hover">
                          <thead>
-                             <tr class="bg-primary text-white">
+                             <tr class="text-white" style="background-color: #0007D8;">
                                  <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="11" scope="col">Perpanjangan</th>
                              </tr>
-                             <tr style="background-color:#A6A6A6; color:#fff; ">
+                             <tr style="background-color:#5150D8; color:#fff; ">
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">AU</th>
                                  <th style="text-align: center;" scope="col">B1</th>
@@ -163,10 +163,10 @@
                      </table>
                      <table class="table table-bordered table-hover">
                          <thead>
-                             <tr class="bg-primary text-white">
+                             <tr class="text-white" style="background-color: #0007D8;">
                                  <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="5" scope="col">Peningkatan</th>
                              </tr>
-                             <tr style="background-color:#A6A6A6; color:#fff;">
+                             <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">AU</th>
                                  <th style="text-align: center;" scope="col">B1</th>
                                  <th style="text-align: center;" scope="col">B1U</th>
@@ -206,10 +206,10 @@
                  <div class="container">
                      <table class="table table-bordered table-hover">
                          <thead>
-                             <tr class="bg-primary text-white">
+                             <tr class="text-white" style="background-color: #0007D8;">
                                  <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="3" scope="col">Baru</th>
                              </tr>
-                             <tr style="background-color:#A6A6A6; color:#fff;">
+                             <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">C</th>
                                  <th style="text-align: center;" scope="col">D</th>
@@ -225,10 +225,10 @@
                      </table>
                      <table class="table table-bordered table-hover">
                          <thead>
-                             <tr class="bg-primary text-white">
+                             <tr class="text-white" style="background-color: #0007D8;">
                                  <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="11" scope="col">Perpanjangan</th>
                              </tr>
-                             <tr style="background-color:#A6A6A6; color:#fff; ">
+                             <tr style="background-color:#5150D8; color:#fff; ">
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">AU</th>
                                  <th style="text-align: center;" scope="col">B1</th>
@@ -260,10 +260,10 @@
                      </table>
                      <table class="table table-bordered table-hover">
                          <thead>
-                             <tr class="bg-primary text-white">
+                             <tr class="text-white" style="background-color: #0007D8;">
                                  <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="5" scope="col">Peningkatan</th>
                              </tr>
-                             <tr style="background-color:#A6A6A6; color:#fff;">
+                             <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">AU</th>
                                  <th style="text-align: center;" scope="col">B1</th>
                                  <th style="text-align: center;" scope="col">B1U</th>
@@ -302,10 +302,10 @@
                  <div class="container">
                      <table class="table table-bordered table-hover">
                          <thead>
-                             <tr class="bg-primary text-white">
+                             <tr class="text-white" style="background-color: #0007D8;">
                                  <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="3" scope="col">Baru</th>
                              </tr>
-                             <tr style="background-color:#A6A6A6; color:#fff;">
+                             <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">C</th>
                                  <th style="text-align: center;" scope="col">D</th>
@@ -321,10 +321,10 @@
                      </table>
                      <table class="table table-bordered table-hover">
                          <thead>
-                             <tr class="bg-primary text-white">
+                             <tr class="text-white" style="background-color: #0007D8;">
                                  <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="11" scope="col">Perpanjangan</th>
                              </tr>
-                             <tr style="background-color:#A6A6A6; color:#fff; ">
+                             <tr style="background-color:#5150D8; color:#fff; ">
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">AU</th>
                                  <th style="text-align: center;" scope="col">B1</th>
@@ -356,10 +356,10 @@
                      </table>
                      <table class="table table-bordered table-hover">
                          <thead>
-                             <tr class="bg-primary text-white">
+                             <tr class="text-white" style="background-color: #0007D8;">
                                  <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="5" scope="col">Peningkatan</th>
                              </tr>
-                             <tr style="background-color:#A6A6A6; color:#fff;">
+                             <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">AU</th>
                                  <th style="text-align: center;" scope="col">B1</th>
                                  <th style="text-align: center;" scope="col">B1U</th>
@@ -440,15 +440,15 @@
                                  <h5>Ranking Polda Data Sim Tertinggi <?= date('d M Y'); ?></h5>
                                  <div class="card shadow-sm">
                                      <table class="table table-bordered table-hover" id="tableSimDay">
-                                         <thead style="background-color:#007DD8; color:#fff; ">
-                                             <tr>
+                                         <thead>
+                                             <tr class="text-white" style="background-color: #0007D8;">
                                                  <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
                                                  <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="3" scope="col">Baru</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
                                              </tr>
-                                             <tr>
+                                             <tr style="background-color:#5150D8; color:#fff; ">
                                                  <th style="text-align: center;" scope="col">A</th>
                                                  <th style="text-align: center;" scope="col">C</th>
                                                  <th style="text-align: center;" scope="col">D</th>
@@ -483,15 +483,15 @@
                                  <h5>Ranking Polda Data Sim Tertinggi <?= date('M Y'); ?></h5>
                                  <div class="card shadow-sm">
                                      <table class="table table-bordered table-hover" id="tableSimMonth">
-                                         <thead style="background-color:#007DD8; color:#fff; ">
-                                             <tr>
+                                         <thead>
+                                             <tr class="text-white" style="background-color: #0007D8;">
                                                  <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
                                                  <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="3" scope="col">Baru</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
                                              </tr>
-                                             <tr>
+                                             <tr style="background-color:#5150D8; color:#fff; ">
                                                  <th style="text-align: center;" scope="col">A</th>
                                                  <th style="text-align: center;" scope="col">C</th>
                                                  <th style="text-align: center;" scope="col">D</th>
@@ -526,15 +526,15 @@
                                  <h5>Ranking Polda Data Sim Tertinggi <?= date('Y'); ?></h5>
                                  <div class="card shadow-sm">
                                      <table class="table table-bordered table-hover" id="tableSimYear">
-                                         <thead style="background-color:#007DD8; color:#fff; ">
-                                             <tr>
+                                         <thead>
+                                             <tr class="text-white" style="background-color: #0007D8;">
                                                  <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
                                                  <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="3" scope="col">Baru</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
                                              </tr>
-                                             <tr>
+                                             <tr style="background-color:#5150D8; color:#fff; ">
                                                  <th style="text-align: center;" scope="col">A</th>
                                                  <th style="text-align: center;" scope="col">C</th>
                                                  <th style="text-align: center;" scope="col">D</th>
