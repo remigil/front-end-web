@@ -72,13 +72,7 @@ class Pustaka extends MX_Controller {
 		$data['breadcrumb'] = "uu dan peraturan";  
 		$data['headline'] = "UU DAN PERATURAN";  
 
-        $getUU = guzzle_request('GET', 'regulation_doc', [
-            // 'headers' => $headers
-        ]);
-		// var_dump($getUU);die;
-		$dataUU['getUU'] = $getUU['data'];
-
-		$data["dataUU"] = $dataUU;
+        
         
         $this->template->load('templates/template','informasi_publik/undang_undang', $data); 
         
