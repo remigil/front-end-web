@@ -508,14 +508,20 @@ class ImportLaporanHarian extends MY_Controller
                                 $C = trim(trim($row['C']));
                                 $D = trim(trim($row['D']));
                                 $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+                                $G = trim(trim($row['G']));
+
+
 
                                 $raws[] = array(
                                     'polda_id'=>$B,
                                     // 'polres_name'=>$B,
                                     'date'=>$tanggal,
-                                    'baru'=>$C,
-                                    'perpanjangan'=>$D,
-                                    'rubentina'=>$E
+                                    'bbn_1' => $C,
+                                    'bbn_2' => $D,
+                                    'mutasi_masuk' => $E,
+                                    'mutasi_keluar' => $F,
+                                    'perubahan_pergantian' => $G,
                                 );
 
                             }else if($type==9) {

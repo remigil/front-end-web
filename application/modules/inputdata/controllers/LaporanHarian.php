@@ -259,9 +259,11 @@ class LaporanHarian extends MY_Controller
                 $object = (object) [
                     'polda_id' => $this->input->post('polda_id')[$i],
                     'date' => $date,
-                    'baru' => $this->input->post('baru')[$i],
-                    'perpanjangan' => $this->input->post('perpanjangan')[$i],
-                    'rubentina' => $this->input->post('rubentina')[$i],
+                    'bbn_1' => $this->input->post('bbn_1')[$i],
+                    'bbn_2' => $this->input->post('bbn_2')[$i],
+                    'mutasi_masuk' => $this->input->post('mutasi_masuk')[$i],
+                    'mutasi_keluar' => $this->input->post('mutasi_keluar')[$i],
+                    'perubahan_pergantian' => $this->input->post('perubahan_pergantian')[$i],
                 ];
 
                 array_push($value, $object);
