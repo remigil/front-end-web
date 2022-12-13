@@ -22,12 +22,21 @@
                             <div class="card-body p-1">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
                                     <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Harian</h4>
+                                        <h4 class="mb-0 ms-3">Hari Ini</h4>
                                     </div>
                                     <div class="col-md-5 float-end">
                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="stnkThisDay"></h1>
                                         <p class="text-center mb-0">STNK</p>
                                     </div>
+                                    <div class="col-md-12 ms-3">
+                                        <div class="row">
+                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalDay">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -37,12 +46,21 @@
                             <div class="card-body p-1">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
                                     <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Bulanan</h4>
+                                        <h4 class="mb-0 ms-3">Bulan Ini</h4>
                                     </div>
                                     <div class="col-md-5 float-end">
                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="stnkThisMonth"></h1>
                                         <p class="text-center mb-0">STNK</p>
                                     </div>
+                                    <div class="col-md-12 ms-3">
+                                        <div class="row">
+                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalMonth">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -52,11 +70,20 @@
                             <div class="card-body p-1">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
                                     <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Tahunan</h4>
+                                        <h4 class="mb-0 ms-3">Tahun Ini</h4>
                                     </div>
                                     <div class="col-md-5 float-end">
                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="stnkThisYear"></h1>
                                         <p class="text-center mb-0">STNK</p>
+                                    </div>
+                                    <div class="col-md-12 ms-3">
+                                        <div class="row">
+                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalYear">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -64,6 +91,397 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="ModalDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class=" modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Surat Tanda Nomor Kendaraan (STNK) hari ini Seluruh Polda</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Bea Balik Nama</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff;">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="daybbnr2"></span></td>
+                                <td style="text-align: center;"><span id="daybbnr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Perubahan</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff; ">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="dayperubahanr2"></span></td>
+                                <td style="text-align: center;"><span id="dayperubahanr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="5" scope="col">Perpanjangan</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff;">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="dayperpanjanganr2"></span></td>
+                                <td style="text-align: center;"><span id="dayperpanjanganr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="4" scope="col">Mutasi</th>
+                            </tr>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:15px" colspan="2" scope="col">R2</th>
+                                <th style="text-align: center; vertical-align: middle; font-size:15px" colspan="2" scope="col">R4</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff;">
+                                <th style="text-align: center;" scope="col">Masuk</th>
+                                <th style="text-align: center;" scope="col">Keluar</th>
+                                <th style="text-align: center;" scope="col">Masuk</th>
+                                <th style="text-align: center;" scope="col">Keluar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="daymasukr2"></span></td>
+                                <td style="text-align: center;"><span id="daykeluarr2"></span></td>
+                                <td style="text-align: center;"><span id="daymasukr4"></span></td>
+                                <td style="text-align: center;"><span id="daykeluarr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Pengesahan</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff; ">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="daypengesahanr2"></span></td>
+                                <td style="text-align: center;"><span id="daypengesahanr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Samolnas</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff; ">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="daysamolnasr2"></span></td>
+                                <td style="text-align: center;"><span id="daysamolnasr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- <span class="fw-bold fs-5 text-danger"> * Data SIM diUpdate Setiap Bulan</span> -->
+            </div>
+            <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalMonth" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+    <div class=" modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Surat Tanda Nomor Kendaraan (STNK) bulan ini Seluruh Polda</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Bea Balik Nama</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff;">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="monthbbnr2"></span></td>
+                                <td style="text-align: center;"><span id="monthbbnr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Perubahan</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff; ">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="monthperubahanr2"></span></td>
+                                <td style="text-align: center;"><span id="monthperubahanr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="5" scope="col">Perpanjangan</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff;">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="monthperpanjanganr2"></span></td>
+                                <td style="text-align: center;"><span id="monthperpanjanganr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="4" scope="col">Mutasi</th>
+                            </tr>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:15px" colspan="2" scope="col">R2</th>
+                                <th style="text-align: center; vertical-align: middle; font-size:15px" colspan="2" scope="col">R4</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff;">
+                                <th style="text-align: center;" scope="col">Masuk</th>
+                                <th style="text-align: center;" scope="col">Keluar</th>
+                                <th style="text-align: center;" scope="col">Masuk</th>
+                                <th style="text-align: center;" scope="col">Keluar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="monthmasukr2"></span></td>
+                                <td style="text-align: center;"><span id="monthkeluarr2"></span></td>
+                                <td style="text-align: center;"><span id="monthmasukr4"></span></td>
+                                <td style="text-align: center;"><span id="monthkeluarr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Pengesahan</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff; ">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="monthpengesahanr2"></span></td>
+                                <td style="text-align: center;"><span id="monthpengesahanr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Samolnas</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff; ">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="monthsamolnasr2"></span></td>
+                                <td style="text-align: center;"><span id="monthsamolnasr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+        </div>
+    </div>
+</div>
+<div class="modal  fade" id="ModalYear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+    <div class=" modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Surat Tanda Nomor Kendaraan (STNK) tahun ini Seluruh Polda</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Bea Balik Nama</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff;">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="yearbbnr2"></span></td>
+                                <td style="text-align: center;"><span id="yearbbnr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Perubahan</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff; ">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="yearperubahanr2"></span></td>
+                                <td style="text-align: center;"><span id="yearperubahanr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="5" scope="col">Perpanjangan</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff;">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="yearperpanjanganr2"></span></td>
+                                <td style="text-align: center;"><span id="yearperpanjanganr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="4" scope="col">Mutasi</th>
+                            </tr>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:15px" colspan="2" scope="col">R2</th>
+                                <th style="text-align: center; vertical-align: middle; font-size:15px" colspan="2" scope="col">R4</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff;">
+                                <th style="text-align: center;" scope="col">Masuk</th>
+                                <th style="text-align: center;" scope="col">Keluar</th>
+                                <th style="text-align: center;" scope="col">Masuk</th>
+                                <th style="text-align: center;" scope="col">Keluar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="yearmasukr2"></span></td>
+                                <td style="text-align: center;"><span id="yearkeluarr2"></span></td>
+                                <td style="text-align: center;"><span id="yearmasukr4"></span></td>
+                                <td style="text-align: center;"><span id="yearkeluarr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Pengesahan</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff; ">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="yearpengesahanr2"></span></td>
+                                <td style="text-align: center;"><span id="yearpengesahanr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Samolnas</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff; ">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><span id="yearsamolnasr2"></span></td>
+                                <td style="text-align: center;"><span id="yearsamolnasr4"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
         </div>
     </div>
 </div>
@@ -124,14 +542,37 @@ if ($mobile === true) { ?>
                                 <h5>Ranking Polda Data STNK Tertinggi <?= date('d M Y'); ?></h5>
                                 <div class="card shadow-sm">
                                     <table class="table table-bordered table-hover" id="tableStnkDay">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Baru</th>
-                                                <th scope="col">Perpanjang</th>
-                                                <th scope="col">Rubentina</th>
-
+                                        <thead>
+                                            <tr class="text-white" style="background-color: #0007D8;">
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">No</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Polda</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Bea Balik Nama</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perubahan</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perpanjangan</th>
+                                                <th style="text-align: center; vertical-align: middle;" colspan="4" scope="col">Mutasi</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Pengesahan</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Samolnas</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Total</th>
+                                            </tr>
+                                            <tr class="text-white" style="background-color: #0007D8;">
+                                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R2</th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R4</th>
+                                            </tr>
+                                            <tr style="background-color:#5150D8; color:#fff; ">
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
+                                                <th style="text-align: center;" scope="col">Masuk</th>
+                                                <th style="text-align: center;" scope="col">Keluar</th>
+                                                <th style="text-align: center;" scope="col">Masuk</th>
+                                                <th style="text-align: center;" scope="col">Keluar</th>
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tbody-stnkDay">
@@ -147,13 +588,37 @@ if ($mobile === true) { ?>
                                 <h5>Ranking Polda Data STNK Tertinggi <?= date('M Y'); ?></h5>
                                 <div class="card shadow-sm">
                                     <table class="table table-bordered table-hover" id="tableStnkMonth">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Baru</th>
-                                                <th scope="col">Perpanjang</th>
-                                                <th scope="col">Rubentina</th>
+                                        <thead>
+                                            <tr class="text-white" style="background-color: #0007D8;">
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">No</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Polda</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Bea Balik Nama</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perubahan</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perpanjangan</th>
+                                                <th style="text-align: center; vertical-align: middle;" colspan="4" scope="col">Mutasi</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Pengesahan</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Samolnas</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Total</th>
+                                            </tr>
+                                            <tr class="text-white" style="background-color: #0007D8;">
+                                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R2</th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R4</th>
+                                            </tr>
+                                            <tr style="background-color:#5150D8; color:#fff; ">
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
+                                                <th style="text-align: center;" scope="col">Masuk</th>
+                                                <th style="text-align: center;" scope="col">Keluar</th>
+                                                <th style="text-align: center;" scope="col">Masuk</th>
+                                                <th style="text-align: center;" scope="col">Keluar</th>
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tbody-stnkMonth">
@@ -169,13 +634,37 @@ if ($mobile === true) { ?>
                                 <h5>Ranking Polda Data STNK Tertinggi <?= date('Y'); ?></h5>
                                 <div class="card shadow-sm">
                                     <table class="table table-bordered table-hover" id="tableStnkYear">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Baru</th>
-                                                <th scope="col">Perpanjang</th>
-                                                <th scope="col">Rubentina</th>
+                                        <thead>
+                                            <tr class="text-white" style="background-color: #0007D8;">
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">No</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Polda</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Bea Balik Nama</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perubahan</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perpanjangan</th>
+                                                <th style="text-align: center; vertical-align: middle;" colspan="4" scope="col">Mutasi</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Pengesahan</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Samolnas</th>
+                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Total</th>
+                                            </tr>
+                                            <tr class="text-white" style="background-color: #0007D8;">
+                                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R2</th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R4</th>
+                                            </tr>
+                                            <tr style="background-color:#5150D8; color:#fff; ">
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
+                                                <th style="text-align: center;" scope="col">Masuk</th>
+                                                <th style="text-align: center;" scope="col">Keluar</th>
+                                                <th style="text-align: center;" scope="col">Masuk</th>
+                                                <th style="text-align: center;" scope="col">Keluar</th>
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
+                                                <th style="text-align: center;" scope="col">R2</th>
+                                                <th style="text-align: center;" scope="col">R4</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tbody-stnkYear">
@@ -398,7 +887,7 @@ if ($mobile === true) { ?>
         topStnkMonth(firstDayMonth, lastDayMonth);
         topStnkYear(firstDay, lastDay)
 
-        ditregident_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
+        stnk_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
 
         StnklineChart(seven_daysAgo, yesterday)
         jam();
@@ -529,10 +1018,10 @@ if ($mobile === true) { ?>
     })
 
 
-    function ditregident_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+    function stnk_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>executive/statistik_executive/getDitregidentDate",
+            url: "<?php echo base_url(); ?>executive/statistik_executive/getStnkDate",
             dataType: "JSON",
             data: {
                 yesterday,
@@ -542,10 +1031,54 @@ if ($mobile === true) { ?>
                 lastDay
             },
             success: function(result) {
+                console.log(result.detailsthisDay.mutasi_keluar_r4);
                 $("#overlay").fadeOut(300);
-                $('#stnkThisDay').text(result.thisDay[0].stnk)
-                $('#stnkThisMonth').text(result.thisMonth[0].stnk)
-                $('#stnkThisYear').text(result.thisYear.stnk)
+                $('#stnkThisDay').text(result.thisDay)
+                $('#stnkThisMonth').text(result.thisMonth)
+                $('#stnkThisYear').text(result.thisYear)
+                $('#daybbnr2').text(result.detailsthisDay.bbn_1_r2)
+                $('#daybbnr4').text(result.detailsthisDay.bbn_1_r4)
+                $('#dayperubahanr2').text(result.detailsthisDay.perubahan_r2)
+                $('#dayperubahanr4').text(result.detailsthisDay.perubahan_r4)
+                $('#dayperpanjanganr2').text(result.detailsthisDay.perpanjangan_r2)
+                $('#dayperpanjanganr4').text(result.detailsthisDay.perpanjangan_r4)
+                $('#daymasukr2').text(result.detailsthisDay.mutasi_masuk_r2)
+                $('#daykeluarr2').text(result.detailsthisDay.mutasi_keluar_r2)
+                $('#daymasukr4').text(result.detailsthisDay.mutasi_masuk_r4)
+                $('#daykeluarr4').text(result.detailsthisDay.mutasi_keluar_r4)
+                $('#daypengesahanr2').text(result.detailsthisDay.pengesahan_r2)
+                $('#daypengesahanr4').text(result.detailsthisDay.pengesahan_r4)
+                $('#daysamolnasr2').text(result.detailsthisDay.samolnas_r2)
+                $('#daysamolnasr4').text(result.detailsthisDay.samolnas_r4)
+                $('#monthbbnr2').text(result.detailsthisMonth.bbn_1_r2)
+                $('#monthbbnr4').text(result.detailsthisMonth.bbn_1_r4)
+                $('#monthperubahanr2').text(result.detailsthisMonth.perubahan_r2)
+                $('#monthperubahanr4').text(result.detailsthisMonth.perubahan_r4)
+                $('#monthperpanjanganr2').text(result.detailsthisMonth.perpanjangan_r2)
+                $('#monthperpanjanganr4').text(result.detailsthisMonth.perpanjangan_r4)
+                $('#monthmasukr2').text(result.detailsthisMonth.mutasi_masuk_r2)
+                $('#monthkeluarr2').text(result.detailsthisMonth.mutasi_keluar_r2)
+                $('#monthmasukr4').text(result.detailsthisMonth.mutasi_masuk_r4)
+                $('#monthkeluarr4').text(result.detailsthisMonth.mutasi_keluar_r4)
+                $('#monthpengesahanr2').text(result.detailsthisMonth.pengesahan_r2)
+                $('#monthpengesahanr4').text(result.detailsthisMonth.pengesahan_r4)
+                $('#monthsamolnasr2').text(result.detailsthisMonth.samolnas_r2)
+                $('#monthsamolnasr4').text(result.detailsthisMonth.samolnas_r4)
+                $('#yearbbnr2').text(result.detailsthisYear.bbn_1_r2)
+                $('#yearbbnr4').text(result.detailsthisYear.bbn_1_r4)
+                $('#yearperubahanr2').text(result.detailsthisYear.perubahan_r2)
+                $('#yearperubahanr4').text(result.detailsthisYear.perubahan_r4)
+                $('#yearperpanjanganr2').text(result.detailsthisYear.perpanjangan_r2)
+                $('#yearperpanjanganr4').text(result.detailsthisYear.perpanjangan_r4)
+                $('#yearmasukr2').text(result.detailsthisYear.mutasi_masuk_r2)
+                $('#yearkeluarr2').text(result.detailsthisYear.mutasi_keluar_r2)
+                $('#yearmasukr4').text(result.detailsthisYear.mutasi_masuk_r4)
+                $('#yearkeluarr4').text(result.detailsthisYear.mutasi_keluar_r4)
+                $('#yearpengesahanr2').text(result.detailsthisYear.pengesahan_r2)
+                $('#yearpengesahanr4').text(result.detailsthisYear.pengesahan_r4)
+                $('#yearsamolnasr2').text(result.detailsthisYear.samolnas_r2)
+                $('#yearsamolnasr4').text(result.detailsthisYear.samolnas_r4)
+
 
             }
         })
@@ -832,9 +1365,21 @@ if ($mobile === true) { ?>
                     table += `<tr class="text-center"> 
                         <td>  ${no}  </td> 
                         <td>  ${result[i].name_polda}  </td> 
-                        <td>  ${result[i].baru}  </td> 
-                        <td>  ${result[i].perpanjangan}  </td> 
-                        <td>  ${result[i].rubentina}  </td>  
+                        <td>  ${result[i].bbn_1_r2}  </td> 
+                        <td>  ${result[i].bbn_1_r4}  </td> 
+                        <td>  ${result[i].perubahan_r2}  </td> 
+                        <td>  ${result[i].perubahan_r4}  </td> 
+                        <td>  ${result[i].perpanjangan_r2}  </td>  
+                        <td>  ${result[i].perpanjangan_r4}  </td>  
+                        <td>  ${result[i].mutasi_masuk_r2}  </td>  
+                        <td>  ${result[i].mutasi_keluar_r2}  </td>  
+                        <td>  ${result[i].mutasi_masuk_r4}  </td>  
+                        <td>  ${result[i].mutasi_keluar_r4}  </td>  
+                        <td>  ${result[i].pengesahan_r2}  </td>  
+                        <td>  ${result[i].pengesahan_r4}  </td>  
+                        <td>  ${result[i].samolnas_r2}  </td>  
+                        <td>  ${result[i].samolnas_r4}  </td>  
+                        <td>  ${result[i].total}  </td>  
                         </tr>`
                 }
                 $('#tbody-stnkDay').html(table);
@@ -879,9 +1424,21 @@ if ($mobile === true) { ?>
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
                                 <td>  ${result[i].name_polda}  </td> 
-                                <td>  ${result[i].baru}  </td> 
-                                <td>  ${result[i].perpanjangan}  </td> 
-                                <td>  ${result[i].rubentina}  </td> 
+                                <td>  ${result[i].bbn_1_r2}  </td> 
+                                <td>  ${result[i].bbn_1_r4}  </td> 
+                                <td>  ${result[i].perubahan_r2}  </td> 
+                                <td>  ${result[i].perubahan_r4}  </td> 
+                                <td>  ${result[i].perpanjangan_r2}  </td> 
+                                <td>  ${result[i].perpanjangan_r4}  </td> 
+                                <td>  ${result[i].mutasi_masuk_r2}  </td> 
+                                <td>  ${result[i].mutasi_keluar_r2}  </td> 
+                                <td>  ${result[i].mutasi_masuk_r4}  </td> 
+                                <td>  ${result[i].mutasi_keluar_r4}  </td> 
+                                <td>  ${result[i].pengesahan_r2}  </td> 
+                                <td>  ${result[i].pengesahan_r4}  </td> 
+                                <td>  ${result[i].samolnas_r2}  </td> 
+                                <td>  ${result[i].samolnas_r4}  </td> 
+                                <td>  ${result[i].total}  </td> 
                             </tr>`
                 }
                 $('#tbody-stnkMonth').html(table);
@@ -926,9 +1483,21 @@ if ($mobile === true) { ?>
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
                                 <td>  ${result[i].name_polda}  </td> 
-                                <td>  ${result[i].baru}  </td> 
-                                <td>  ${result[i].perpanjangan}  </td> 
-                                <td>  ${result[i].rubentina}  </td> 
+                                <td>  ${result[i].bbn_1_r2}  </td> 
+                                <td>  ${result[i].bbn_1_r4}  </td> 
+                                <td>  ${result[i].perubahan_r2}  </td> 
+                                <td>  ${result[i].perubahan_r4}  </td> 
+                                <td>  ${result[i].perpanjangan_r2}  </td> 
+                                <td>  ${result[i].perpanjangan_r4}  </td> 
+                                <td>  ${result[i].mutasi_masuk_r2}  </td> 
+                                <td>  ${result[i].mutasi_keluar_r2}  </td> 
+                                <td>  ${result[i].mutasi_masuk_r4}  </td> 
+                                <td>  ${result[i].mutasi_keluar_r4}  </td> 
+                                <td>  ${result[i].pengesahan_r2}  </td> 
+                                <td>  ${result[i].pengesahan_r4}  </td> 
+                                <td>  ${result[i].samolnas_r2}  </td> 
+                                <td>  ${result[i].samolnas_r4}  </td> 
+                                <td>  ${result[i].total}  </td> 
                             </tr>`
                 }
                 $('#tbody-stnkYear').html(table);

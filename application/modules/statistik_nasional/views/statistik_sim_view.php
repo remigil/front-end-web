@@ -100,7 +100,7 @@
      <div class="modal-dialog modal-lg" role="document">
          <div class="modal-content">
              <div class=" modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Detail Sim Hari Ini</h5>
+                 <h5 class="modal-title" id="exampleModalLabel">Detail Surat Izin Mengemudi (SIM) hari ini Seluruh Polda</h5>
                  <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
@@ -110,19 +110,25 @@
                      <table class="table table-bordered table-hover">
                          <thead>
                              <tr class="text-white" style="background-color: #0007D8;">
-                                 <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="3" scope="col">Baru</th>
+                                 <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="6" scope="col">Baru</th>
                              </tr>
                              <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">C</th>
+                                 <th style="text-align: center;" scope="col">CI</th>
+                                 <th style="text-align: center;" scope="col">CII</th>
                                  <th style="text-align: center;" scope="col">D</th>
+                                 <th style="text-align: center;" scope="col">DI</th>
                              </tr>
                          </thead>
                          <tbody>
                              <tr>
                                  <td style="text-align: center;"><span id="daysimbarua"></span></td>
                                  <td style="text-align: center;"><span id="daysimbaruc"></span></td>
+                                 <td style="text-align: center;"><span id="daysimbaruc1"></span></td>
+                                 <td style="text-align: center;"><span id="daysimbaruc2"></span></td>
                                  <td style="text-align: center;"><span id="daysimbarud"></span></td>
+                                 <td style="text-align: center;"><span id="daysimbarud1"></span></td>
                              </tr>
                          </tbody>
                      </table>
@@ -134,15 +140,15 @@
                              <tr style="background-color:#5150D8; color:#fff; ">
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">AU</th>
-                                 <th style="text-align: center;" scope="col">B1</th>
-                                 <th style="text-align: center;" scope="col">B1U</th>
-                                 <th style="text-align: center;" scope="col">B2</th>
-                                 <th style="text-align: center;" scope="col">B2U</th>
+                                 <th style="text-align: center;" scope="col">BI</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">BII</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
                                  <th style="text-align: center;" scope="col">C</th>
-                                 <th style="text-align: center;" scope="col">C1</th>
-                                 <th style="text-align: center;" scope="col">C2</th>
+                                 <th style="text-align: center;" scope="col">CI</th>
+                                 <th style="text-align: center;" scope="col">CII</th>
                                  <th style="text-align: center;" scope="col">D</th>
-                                 <th style="text-align: center;" scope="col">D1</th>
+                                 <th style="text-align: center;" scope="col">DII</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -168,10 +174,10 @@
                              </tr>
                              <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">AU</th>
-                                 <th style="text-align: center;" scope="col">B1</th>
-                                 <th style="text-align: center;" scope="col">B1U</th>
-                                 <th style="text-align: center;" scope="col">B2</th>
-                                 <th style="text-align: center;" scope="col">B2U</th>
+                                 <th style="text-align: center;" scope="col">BI</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">BII</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -185,6 +191,8 @@
                          </tbody>
                      </table>
                  </div>
+
+                 <span class="fw-bold fs-5 text-danger"> * Data SIM diUpdate Setiap Bulan</span>
              </div>
              <!-- <div class="modal-footer">
                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -197,7 +205,7 @@
      <div class=" modal-dialog modal-lg" role="document">
          <div class="modal-content">
              <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Detail Sim Bulan Ini</h5>
+                 <h5 class="modal-title" id="exampleModalLabel">Detail Surat Izin Mengemudi (SIM) bulan ini Seluruh Polda</h5>
                  <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
@@ -207,19 +215,25 @@
                      <table class="table table-bordered table-hover">
                          <thead>
                              <tr class="text-white" style="background-color: #0007D8;">
-                                 <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="3" scope="col">Baru</th>
+                                 <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="6" scope="col">Baru</th>
                              </tr>
                              <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">C</th>
+                                 <th style="text-align: center;" scope="col">CI</th>
+                                 <th style="text-align: center;" scope="col">CII</th>
                                  <th style="text-align: center;" scope="col">D</th>
+                                 <th style="text-align: center;" scope="col">DI</th>
                              </tr>
                          </thead>
                          <tbody>
                              <tr>
                                  <td style="text-align: center;"><span id="monthsimbarua"></span></td>
                                  <td style="text-align: center;"><span id="monthsimbaruc"></span></td>
+                                 <td style="text-align: center;"><span id="monthsimbaruc1"></span></td>
+                                 <td style="text-align: center;"><span id="monthsimbaruc2"></span></td>
                                  <td style="text-align: center;"><span id="monthsimbarud"></span></td>
+                                 <td style="text-align: center;"><span id="monthsimbarud1"></span></td>
                              </tr>
                          </tbody>
                      </table>
@@ -231,15 +245,15 @@
                              <tr style="background-color:#5150D8; color:#fff; ">
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">AU</th>
-                                 <th style="text-align: center;" scope="col">B1</th>
-                                 <th style="text-align: center;" scope="col">B1U</th>
-                                 <th style="text-align: center;" scope="col">B2</th>
-                                 <th style="text-align: center;" scope="col">B2U</th>
+                                 <th style="text-align: center;" scope="col">BI</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">BII</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
                                  <th style="text-align: center;" scope="col">C</th>
-                                 <th style="text-align: center;" scope="col">C1</th>
-                                 <th style="text-align: center;" scope="col">C2</th>
+                                 <th style="text-align: center;" scope="col">CI</th>
+                                 <th style="text-align: center;" scope="col">CII</th>
                                  <th style="text-align: center;" scope="col">D</th>
-                                 <th style="text-align: center;" scope="col">D1</th>
+                                 <th style="text-align: center;" scope="col">DII</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -265,10 +279,10 @@
                              </tr>
                              <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">AU</th>
-                                 <th style="text-align: center;" scope="col">B1</th>
-                                 <th style="text-align: center;" scope="col">B1U</th>
-                                 <th style="text-align: center;" scope="col">B2</th>
-                                 <th style="text-align: center;" scope="col">B2U</th>
+                                 <th style="text-align: center;" scope="col">BI</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">BII</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -293,7 +307,7 @@
      <div class=" modal-dialog modal-lg" role="document">
          <div class="modal-content">
              <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Detail Sim Tahun Ini</h5>
+                 <h5 class="modal-title" id="exampleModalLabel">Detail Surat Izin Mengemudi (SIM) tahun ini Seluruh Polda</h5>
                  <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
@@ -303,19 +317,25 @@
                      <table class="table table-bordered table-hover">
                          <thead>
                              <tr class="text-white" style="background-color: #0007D8;">
-                                 <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="3" scope="col">Baru</th>
+                                 <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="6" scope="col">Baru</th>
                              </tr>
                              <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">C</th>
+                                 <th style="text-align: center;" scope="col">CI</th>
+                                 <th style="text-align: center;" scope="col">CII</th>
                                  <th style="text-align: center;" scope="col">D</th>
+                                 <th style="text-align: center;" scope="col">DI</th>
                              </tr>
                          </thead>
                          <tbody>
                              <tr>
                                  <td style="text-align: center;"><span id="yearsimbarua"></span></td>
                                  <td style="text-align: center;"><span id="yearsimbaruc"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimbaruc1"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimbaruc2"></span></td>
                                  <td style="text-align: center;"><span id="yearsimbarud"></span></td>
+                                 <td style="text-align: center;"><span id="yearsimbarud1"></span></td>
                              </tr>
                          </tbody>
                      </table>
@@ -327,15 +347,15 @@
                              <tr style="background-color:#5150D8; color:#fff; ">
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">AU</th>
-                                 <th style="text-align: center;" scope="col">B1</th>
-                                 <th style="text-align: center;" scope="col">B1U</th>
-                                 <th style="text-align: center;" scope="col">B2</th>
-                                 <th style="text-align: center;" scope="col">B2U</th>
+                                 <th style="text-align: center;" scope="col">BI</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">BII</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
                                  <th style="text-align: center;" scope="col">C</th>
-                                 <th style="text-align: center;" scope="col">C1</th>
-                                 <th style="text-align: center;" scope="col">C2</th>
+                                 <th style="text-align: center;" scope="col">CI</th>
+                                 <th style="text-align: center;" scope="col">CII</th>
                                  <th style="text-align: center;" scope="col">D</th>
-                                 <th style="text-align: center;" scope="col">D1</th>
+                                 <th style="text-align: center;" scope="col">DII</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -361,10 +381,10 @@
                              </tr>
                              <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">AU</th>
-                                 <th style="text-align: center;" scope="col">B1</th>
-                                 <th style="text-align: center;" scope="col">B1U</th>
-                                 <th style="text-align: center;" scope="col">B2</th>
-                                 <th style="text-align: center;" scope="col">B2U</th>
+                                 <th style="text-align: center;" scope="col">BI</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">BII</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -444,30 +464,34 @@
                                              <tr class="text-white" style="background-color: #0007D8;">
                                                  <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
                                                  <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="3" scope="col">Baru</th>
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="6" scope="col">Baru</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
+                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Total</th>
                                              </tr>
                                              <tr style="background-color:#5150D8; color:#fff; ">
                                                  <th style="text-align: center;" scope="col">A</th>
                                                  <th style="text-align: center;" scope="col">C</th>
+                                                 <th style="text-align: center;" scope="col">CI</th>
+                                                 <th style="text-align: center;" scope="col">CII</th>
                                                  <th style="text-align: center;" scope="col">D</th>
+                                                 <th style="text-align: center;" scope="col">DI</th>
                                                  <th style="text-align: center;" scope="col">A</th>
                                                  <th style="text-align: center;" scope="col">AU</th>
                                                  <th style="text-align: center;" scope="col">C</th>
-                                                 <th style="text-align: center;" scope="col">C1</th>
-                                                 <th style="text-align: center;" scope="col">C2</th>
+                                                 <th style="text-align: center;" scope="col">CI</th>
+                                                 <th style="text-align: center;" scope="col">CII</th>
                                                  <th style="text-align: center;" scope="col">D</th>
-                                                 <th style="text-align: center;" scope="col">D1</th>
-                                                 <th style="text-align: center;" scope="col">B1</th>
-                                                 <th style="text-align: center;" scope="col">B1U</th>
-                                                 <th style="text-align: center;" scope="col">B2</th>
-                                                 <th style="text-align: center;" scope="col">B2U</th>
+                                                 <th style="text-align: center;" scope="col">DII</th>
+                                                 <th style="text-align: center;" scope="col">BI</th>
+                                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                                 <th style="text-align: center;" scope="col">BII</th>
+                                                 <th style="text-align: center;" scope="col">BIIU</th>
                                                  <th style="text-align: center;" scope="col">AU</th>
-                                                 <th style="text-align: center;" scope="col">B1</th>
-                                                 <th style="text-align: center;" scope="col">B1U</th>
-                                                 <th style="text-align: center;" scope="col">B2</th>
-                                                 <th style="text-align: center;" scope="col">B2U</th>
+                                                 <th style="text-align: center;" scope="col">BI</th>
+                                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                                 <th style="text-align: center;" scope="col">BII</th>
+                                                 <th style="text-align: center;" scope="col">BIIU</th>
                                              </tr>
                                          </thead>
                                          <tbody id="tbody-simDay">
@@ -487,30 +511,34 @@
                                              <tr class="text-white" style="background-color: #0007D8;">
                                                  <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
                                                  <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="3" scope="col">Baru</th>
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="6" scope="col">Baru</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
+                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Total</th>
                                              </tr>
                                              <tr style="background-color:#5150D8; color:#fff; ">
                                                  <th style="text-align: center;" scope="col">A</th>
                                                  <th style="text-align: center;" scope="col">C</th>
+                                                 <th style="text-align: center;" scope="col">CI</th>
+                                                 <th style="text-align: center;" scope="col">CII</th>
                                                  <th style="text-align: center;" scope="col">D</th>
+                                                 <th style="text-align: center;" scope="col">DI</th>
                                                  <th style="text-align: center;" scope="col">A</th>
                                                  <th style="text-align: center;" scope="col">AU</th>
                                                  <th style="text-align: center;" scope="col">C</th>
-                                                 <th style="text-align: center;" scope="col">C1</th>
-                                                 <th style="text-align: center;" scope="col">C2</th>
+                                                 <th style="text-align: center;" scope="col">CI</th>
+                                                 <th style="text-align: center;" scope="col">CII</th>
                                                  <th style="text-align: center;" scope="col">D</th>
-                                                 <th style="text-align: center;" scope="col">D1</th>
-                                                 <th style="text-align: center;" scope="col">B1</th>
-                                                 <th style="text-align: center;" scope="col">B1U</th>
-                                                 <th style="text-align: center;" scope="col">B2</th>
-                                                 <th style="text-align: center;" scope="col">B2U</th>
+                                                 <th style="text-align: center;" scope="col">DII</th>
+                                                 <th style="text-align: center;" scope="col">BI</th>
+                                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                                 <th style="text-align: center;" scope="col">BII</th>
+                                                 <th style="text-align: center;" scope="col">BIIU</th>
                                                  <th style="text-align: center;" scope="col">AU</th>
-                                                 <th style="text-align: center;" scope="col">B1</th>
-                                                 <th style="text-align: center;" scope="col">B1U</th>
-                                                 <th style="text-align: center;" scope="col">B2</th>
-                                                 <th style="text-align: center;" scope="col">B2U</th>
+                                                 <th style="text-align: center;" scope="col">BI</th>
+                                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                                 <th style="text-align: center;" scope="col">BII</th>
+                                                 <th style="text-align: center;" scope="col">BIIU</th>
                                              </tr>
                                          </thead>
                                          <tbody id="tbody-simMonth">
@@ -530,30 +558,34 @@
                                              <tr class="text-white" style="background-color: #0007D8;">
                                                  <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
                                                  <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="3" scope="col">Baru</th>
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="6" scope="col">Baru</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
                                                  <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
+                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Total</th>
                                              </tr>
                                              <tr style="background-color:#5150D8; color:#fff; ">
                                                  <th style="text-align: center;" scope="col">A</th>
                                                  <th style="text-align: center;" scope="col">C</th>
+                                                 <th style="text-align: center;" scope="col">CI</th>
+                                                 <th style="text-align: center;" scope="col">CII</th>
                                                  <th style="text-align: center;" scope="col">D</th>
+                                                 <th style="text-align: center;" scope="col">DI</th>
                                                  <th style="text-align: center;" scope="col">A</th>
                                                  <th style="text-align: center;" scope="col">AU</th>
                                                  <th style="text-align: center;" scope="col">C</th>
-                                                 <th style="text-align: center;" scope="col">C1</th>
-                                                 <th style="text-align: center;" scope="col">C2</th>
+                                                 <th style="text-align: center;" scope="col">CI</th>
+                                                 <th style="text-align: center;" scope="col">CII</th>
                                                  <th style="text-align: center;" scope="col">D</th>
-                                                 <th style="text-align: center;" scope="col">D1</th>
-                                                 <th style="text-align: center;" scope="col">B1</th>
-                                                 <th style="text-align: center;" scope="col">B1U</th>
-                                                 <th style="text-align: center;" scope="col">B2</th>
-                                                 <th style="text-align: center;" scope="col">B2U</th>
+                                                 <th style="text-align: center;" scope="col">DII</th>
+                                                 <th style="text-align: center;" scope="col">BI</th>
+                                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                                 <th style="text-align: center;" scope="col">BII</th>
+                                                 <th style="text-align: center;" scope="col">BIIU</th>
                                                  <th style="text-align: center;" scope="col">AU</th>
-                                                 <th style="text-align: center;" scope="col">B1</th>
-                                                 <th style="text-align: center;" scope="col">B1U</th>
-                                                 <th style="text-align: center;" scope="col">B2</th>
-                                                 <th style="text-align: center;" scope="col">B2U</th>
+                                                 <th style="text-align: center;" scope="col">BI</th>
+                                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                                 <th style="text-align: center;" scope="col">BII</th>
+                                                 <th style="text-align: center;" scope="col">BIIU</th>
                                              </tr>
                                          </thead>
                                          <tbody id="tbody-simYear">
@@ -910,7 +942,10 @@
                  $('#simThisYear').text(result.thisYear)
                  $('#daysimbarua').text(result.detailsthisDay.baru_a)
                  $('#daysimbaruc').text(result.detailsthisDay.baru_c)
+                 $('#daysimbaruc1').text(result.detailsthisDay.baru_c1)
+                 $('#daysimbaruc2').text(result.detailsthisDay.baru_c2)
                  $('#daysimbarud').text(result.detailsthisDay.baru_d)
+                 $('#daysimbarud1').text(result.detailsthisDay.baru_d1)
                  $('#daysimperpanjangana').text(result.detailsthisDay.perpanjangan_a)
                  $('#daysimperpanjanganau').text(result.detailsthisDay.perpanjangan_au)
                  $('#daysimperpanjanganb1').text(result.detailsthisDay.perpanjangan_b1)
@@ -929,7 +964,10 @@
                  $('#daysimpeningkatanb2u').text(result.detailsthisDay.peningkatan_b2u)
                  $('#monthsimbarua').text(result.detailsthisMonth.baru_a)
                  $('#monthsimbaruc').text(result.detailsthisMonth.baru_c)
+                 $('#monthsimbaruc1').text(result.detailsthisMonth.baru_c1)
+                 $('#monthsimbaruc2').text(result.detailsthisMonth.baru_c2)
                  $('#monthsimbarud').text(result.detailsthisMonth.baru_d)
+                 $('#monthsimbarud1').text(result.detailsthisMonth.baru_d1)
                  $('#monthsimperpanjangana').text(result.detailsthisMonth.perpanjangan_a)
                  $('#monthsimperpanjanganau').text(result.detailsthisMonth.perpanjangan_au)
                  $('#monthsimperpanjanganb1').text(result.detailsthisMonth.perpanjangan_b1)
@@ -948,7 +986,10 @@
                  $('#monthsimpeningkatanb2u').text(result.detailsthisMonth.peningkatan_b2u)
                  $('#yearsimbarua').text(result.detailsthisYear.baru_a)
                  $('#yearsimbaruc').text(result.detailsthisYear.baru_c)
+                 $('#yearsimbaruc1').text(result.detailsthisYear.baru_c1)
+                 $('#yearsimbaruc2').text(result.detailsthisYear.baru_c2)
                  $('#yearsimbarud').text(result.detailsthisYear.baru_d)
+                 $('#yearsimbarud1').text(result.detailsthisYear.baru_d1)
                  $('#yearsimperpanjangana').text(result.detailsthisYear.perpanjangan_a)
                  $('#yearsimperpanjanganau').text(result.detailsthisYear.perpanjangan_au)
                  $('#yearsimperpanjanganb1').text(result.detailsthisYear.perpanjangan_b1)
@@ -1240,6 +1281,7 @@
              success: function(result) {
                  $("#overlay").fadeOut(300);
                  var table = '';
+                 let total = 0;
                  let nf = new Intl.NumberFormat('en-US');
                  for (let i = 0; i < result.length; i++) {
                      let x = parseInt(i)
@@ -1249,7 +1291,10 @@
                         <td>  ${result[i].name_polda}  </td> 
                         <td>  ${result[i].baru_a}  </td> 
                         <td>  ${result[i].baru_c}  </td> 
+                        <td>  0  </td> 
+                        <td>  0  </td> 
                         <td>  ${result[i].baru_d}  </td> 
+                        <td>  0  </td> 
                         <td>  ${result[i].perpanjangan_a}  </td>  
                         <td>  ${result[i].perpanjangan_au}  </td>  
                         <td>  ${result[i].perpanjangan_c}  </td>  
@@ -1266,6 +1311,7 @@
                         <td>  ${result[i].peningkatan_b1u}  </td>  
                         <td>  ${result[i].peningkatan_b2}  </td>  
                         <td>  ${result[i].peningkatan_b2u}  </td>  
+                        <td>  ${result[i].total}  </td>  
                         </tr>`
                  }
                  $('#tbody-simDay').html(table);
@@ -1312,7 +1358,10 @@
                         <td>  ${result[i].name_polda}  </td> 
                         <td>  ${result[i].baru_a}  </td> 
                         <td>  ${result[i].baru_c}  </td> 
+                        <td>  0  </td> 
+                        <td>  0  </td> 
                         <td>  ${result[i].baru_d}  </td> 
+                        <td>  0  </td> 
                         <td>  ${result[i].perpanjangan_a}  </td>  
                         <td>  ${result[i].perpanjangan_au}  </td>  
                         <td>  ${result[i].perpanjangan_c}  </td>  
@@ -1329,6 +1378,7 @@
                         <td>  ${result[i].peningkatan_b1u}  </td>  
                         <td>  ${result[i].peningkatan_b2}  </td>  
                         <td>  ${result[i].peningkatan_b2u}  </td>  
+                        <td>  ${result[i].total}  </td>  
                         </tr>`
                  }
                  $('#tbody-simMonth').html(table);
@@ -1375,7 +1425,10 @@
                         <td>  ${result[i].name_polda}  </td> 
                         <td>  ${result[i].baru_a}  </td> 
                         <td>  ${result[i].baru_c}  </td> 
+                        <td>  0  </td> 
+                        <td>  0  </td> 
                         <td>  ${result[i].baru_d}  </td> 
+                        <td>  0  </td> 
                         <td>  ${result[i].perpanjangan_a}  </td>  
                         <td>  ${result[i].perpanjangan_au}  </td>  
                         <td>  ${result[i].perpanjangan_c}  </td>  
@@ -1392,6 +1445,7 @@
                         <td>  ${result[i].peningkatan_b1u}  </td>  
                         <td>  ${result[i].peningkatan_b2}  </td>  
                         <td>  ${result[i].peningkatan_b2u}  </td>  
+                        <td>  ${result[i].total}  </td>  
                         </tr>`
                  }
                  $('#tbody-simYear').html(table);
