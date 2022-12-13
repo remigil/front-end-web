@@ -868,7 +868,7 @@
                                     <img src="<?= url_api(); ?>logo/<?= $this->session->userdata['logo'] ?>" alt="" style="margin-left: -9px;" height="40">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?= url_api(); ?>logo/<?= $this->session->userdata['logo'] ?>" alt="" style="margin-left: 72px;" height="65">
+                                    <img src="<?= url_api(); ?>logo/<?= $this->session->userdata['logo'] ?>" alt="" style="margin-left: 22px;" height="65">
 
                                 </span>
                             </a>
@@ -878,7 +878,7 @@
                                     <img src="<?= url_api(); ?>logo/<?= $this->session->userdata['logo'] ?>" alt="" style="margin-left: -9px;" height="40">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?= url_api(); ?>logo/<?= $this->session->userdata['logo'] ?>" alt="" style="margin-left: 72px;" height="65">
+                                    <img src="<?= url_api(); ?>logo/<?= $this->session->userdata['logo'] ?>" alt="" style="margin-left: 22px;" height="65">
 
                                 </span>
                             </a>
