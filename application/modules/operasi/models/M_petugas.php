@@ -157,27 +157,40 @@ class M_petugas extends CI_Model {
     
                 $data[] = $row;
     
-            }
+            } 
 
-            $response = array(
-    
-                "draw" => intval($draw),
-    
-                "iTotalRecords" => $result['data']['recordsTotal'],
-    
-                "iTotalDisplayRecords" => $result['data']['recordsFiltered'],
-    
-                "aaData" => $data,
-    
-                "apa" => $postData
-    
+        }else{
+            $data[] = array(
+                "id" => 1,
+                "name_officer" => "Tidak ada data",
+                "polda_id" => "Tidak ada data",
+                "nrp_officer" => "Tidak ada data",
+                "replacementNrp_officer" => "Tidak ada data",
+                "rank_officer" => "Tidak ada data",
+                "structural_officer" => "Tidak ada data",
+                "pam_officer" => "Tidak ada data",
+                "phone_officer" => "Tidak ada data",
+                "status_officer" => "Tidak ada data",
+                "action" => ""
             );
-    
-    
-            return $response;
         }
 
+        $response = array(
+    
+            "draw" => intval($draw),
 
+            "iTotalRecords" => $result['data']['recordsTotal'],
+
+            "iTotalDisplayRecords" => $result['data']['recordsFiltered'],
+
+            "aaData" => $data,
+
+            "apa" => $postData
+
+        );
+
+
+        return $response;
 
     }
 
