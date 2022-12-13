@@ -327,6 +327,67 @@
             animation-delay: 1.1s;
         }
 
+
+        .location-pin2 img {
+        width: 26px;
+        height: 26px;
+        margin: -12px 0 0 -13px;
+        z-index: 10;
+        position: absolute;
+        border-radius: 50%;
+        background: #3f51b5;
+        }
+
+        .pin2 {
+        width: 30px;
+        height: 30px;
+        border-radius: 50% 50% 50% 0;
+        background: #3f51b5;
+        position: absolute;
+        transform: rotate(-45deg);
+        left: 50%;
+        top: 50%;
+        margin: -30px 0 0 -30px;
+        }
+
+        .pin2:after {
+        content: '';
+        width: 26px;
+        height: 26px;
+        margin: 2px 0 0 2px;
+        position: absolute;
+        border-radius: 50%;
+        }
+
+        .pulse2 {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        height: 14px;
+        width: 14px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: 7px 0px 0px -21.5px;
+        transform: rotateX(55deg);
+        z-index: -2;
+        }
+
+        .pulse2:after {
+        content: "";
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        margin: -16px 0 0 -13px;
+        animation: pulsate 2.5s ease-out;
+        animation-iteration-count: infinite;
+        opacity: 0;
+        background: rgba(94, 190, 255, 0.5);
+        box-shadow: 0 0 1px 2px #2d99d3;
+        animation-delay: 1.1s;
+        }
+
+
         .material-textfield {
             position: relative;
             margin: 1vh 2.7vh 3vh 2.7vh;

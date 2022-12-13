@@ -27,7 +27,8 @@
                         <option value="26">Pasar</option> 
                         <option value="27">Obyek Wisata</option>
                         <option value="28">Obyek Ganti THN</option>  
-                        <option value="29">Masjid</option>  
+                        <option value="29">Masjid</option>   
+                        <option value="30">Gerbang Tol</option>  
                     </select>
                     <!-- <label for="filterJenis">Kategori Peraturan</label> -->
                 </div>
@@ -82,7 +83,8 @@
                                     <option value="26">Pasar</option> 
                                     <option value="27">Obyek Wisata</option>
                                     <option value="28">Obyek Ganti THN</option> 
-                                    <option value="29">Masjid</option>   
+                                    <option value="29">Masjid</option>  
+                                    <option value="30">Gerbang Tol</option>   
                                 </select> 
                             </div> 
                         </div>
@@ -308,6 +310,7 @@
                                     <option value="27">Obyek Wisata</option>
                                     <option value="28">Obyek Ganti THN</option>  
                                     <option value="29">Masjid</option>  
+                                    <option value="30">Gerbang Tol</option>  
                                 </select> 
                             </div> 
                         </div>
