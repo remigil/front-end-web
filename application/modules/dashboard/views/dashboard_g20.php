@@ -64,7 +64,7 @@
                         <div class="cat gerbangtolDisplay" style="margin-left: 10px;"> 
                             <div class="btn-group">
                                 <label>
-                                <input type="checkbox" value="gerbang_tol" name="filter" id="gerbangtolDisplay"><span><i class="fa fas fa-route"></i> Gerbang Tol</span>
+                                <input type="checkbox" value="gerbang_tol" name="filter" id="gerbangtolDisplay"><span><i class="fa fas fa-torii-gate"></i> Gerbang Tol</span>
                                 </label>
                                 <button id="gerbangtolFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -5931,7 +5931,7 @@
                 return new L.DivIcon({
                     html: `
                 <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#420fd4;text-align: center;margin-top: -1px;margin-left: -1px;">
-                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="fa fas fa-torii-gate"></i>${cluster.getChildCount()}</b>
                 </div>`
                 });
             }
