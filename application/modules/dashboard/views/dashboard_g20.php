@@ -6704,7 +6704,12 @@
                                     var geoJson = $(this).data('geojson');
                                     if(geoJson || geoJson != null){
                                         if ($(this).is(':checked')) {
-                                            routingJalur[i] = L.geoJSON(geoJson).addTo(mapContainer);
+                                            routingJalur[i] = L.geoJSON(geoJson,{
+                                                style: {
+                                                    fillColor: "yellow",
+                                                    color: "yellow", 
+                                                }
+                                            }).addTo(mapContainer);
                                         } else {
                                             mapContainer.removeLayer(routingJalur[i]);
                                         }
