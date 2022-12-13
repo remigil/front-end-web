@@ -172,6 +172,16 @@
             },
         }); 
 
+        new Choices('#filterPolda', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });  
+
         var userDataTable = $('#datatable').DataTable({ 
 
             responsive: true, 
