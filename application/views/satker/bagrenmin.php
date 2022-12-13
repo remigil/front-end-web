@@ -1,27 +1,22 @@
-
-
 <!-- ======= Breadcrumbs ======= -->
-    <div class="pagebreadcrumbs">
-    	<nav>
-			<div class="container p-4" >
-				<ol style="list-style: none;">
-				<li><a href="<?= base_url()?>home">Home</a></li>
-				<li><?= $breadcrumb?></li>
-				</ol>
-			</div>
-    	</nav>
-		<div class="container">
+<section id="breadcrumbs" class="breadcrumbs">
+	<div class="container">
+		<ol>
+			<li><a href="<?= base_url() ?>home">Home</a></li>
+			<li><?= $breadcrumb ?></li>
+		</ol>
+		<div class="container mt-5">
 			<div class="row">
 				<div class="col-md-1 text-center">
-					<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="">
+					<img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="">
 				</div>
 				<div class="col-md-7">
-					<h3><?= $headline?></h3>
+					<h3><?= $headline ?></h3>
 					<hr>
-					<p>	
+					<p>
 						Informasi Lalu Lintas Indonesia on Korlantas Polri, Jl. MT Haryono Kav. 37-38 <br>
 						Call Center : 1-500-669 || SMS center : 9119<br>
-						Email: <a href="mailto:bagrenmin.korlantas@polri.go.id">bagrenmin.korlantas@polri.go.id</a> 
+						Email: <a href="mailto:bagrenmin.korlantas@polri.go.id">bagrenmin.korlantas@polri.go.id</a>
 					</p>
 				</div>
 				<div class="col-md-4">
@@ -35,95 +30,60 @@
 						<li><a class="youtube" href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg"><i class="icon-youtube"></i></a></li>
 					</ul>
 				</div>
-	
+
 			</div>
 
 		</div>
+
 	</div>
+</section><!-- End Breadcrumbs -->
 
-    </div><!-- End Breadcrumbs -->
+<!-- ======= Featured Services Section ======= -->
+<section id="featured-services" class="featured-services">
 
-
-<!-- Content
-================================================== -->
-
-<!-- Container -->
-<div class="container margin-top-30">
-
-	<!-- Layanan Aplikasi Satker -->
-	<div class="row">
-	<h3 style="text-transform:uppercase ;">Layanan Aplikasi <?= $breadcrumb?></h3>
-		<div class="col-md-3">
-			<a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/12/DATA-POLANTAS-SE-INDONESIA-JULI-2021.pdf" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
-				<div class="img-box-content visible">
-					<div class="row">
-						<div class="col-md-12">
-							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt=""  width="70px" height="70px">
-							<h5 style="color: white"><b>Data Polantas</b></h5>
-						</div>
-						<div class="col-md-12">
-							<p style="color: white; font-size:10px;">Data Polantas adalah sistem yang mendata penempatan dan penugasan anggota satuan lalu lintas di Indonesia</p>
-						</div>
-					</div>
-					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
-				</div>
-			</a>
+	<div class="container">
+		<div class="section-title">
+			<h2>Layanan Aplikasi <?= $breadcrumb ?></h2>
+			<!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
 		</div>
-		<div class="col-md-3">
-			<a href="https://djpb.kemenkeu.go.id/portal/id/unduh/aplikasi/162-aplikasi-simak.html" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
-				<div class="img-box-content visible">
-					<div class="row">
-						<div class="col-md-12">
-							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px">
-							<h5 style="color: white"><b>Sistem Logistik</b></h5>
 
-						</div>
-						<div class="col-md-12">
-							<p style="color: white; font-size:10px">Sistem Logistik merupakan sistem yang mendata kondisi dan kebutuhan logistik dari seluruh anggota satuan lalu lintas di Indonesia</p>
+		<div class="row gy-4">
 
-						</div>
-					</div>
-					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
+				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
+					<h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/12/DATA-POLANTAS-SE-INDONESIA-JULI-2021.pdf" class="stretched-link fs-5">Data Polantas</a></h4>
+					<p class="text-center">Data Polantas adalah sistem yang mendata penempatan dan penugasan anggota satuan lalu lintas di Indonesia</p>
 				</div>
-			</a>
-		</div>
-		<div class="col-md-3">
-			<a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/12/RENGAR-KORLANTAS-POLRI-T.A.-2022.pdf" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
-				<div class="img-box-content visible">
-					<div class="row">
-						<div class="col-md-12">
-							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px">
-							<h5 style="color: white"><b>REN GAR</b></h5>
-
-						</div>
-						<div class="col-md-12">
-							<p style="color: white; font-size:10px">Sistem RenGar adalah Sistem perencanaan anggaran yang memetakan kebutuhan Korlantas POLRI beserta pos anggarannya</p>
-
-						</div>
-					</div>
-					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+			</div><!-- End Service Item -->
+			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
+				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
+					<h4 class="text-center"><a href="https://djpb.kemenkeu.go.id/portal/id/unduh/aplikasi/162-aplikasi-simak.html" class="stretched-link fs-5">Sistem Logistik</a></h4>
+					<p class="text-center">Sistem Logistik merupakan sistem yang mendata kondisi dan kebutuhan logistik dari seluruh anggota satuan lalu lintas di Indonesia</p>
 				</div>
-			</a>
-		</div>
-		<div class="col-md-3">
-			<a href="http://lpse.polri.go.id/eproc4" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
-				<div class="img-box-content visible">
-					<div class="row">
-						<div class="col-md-12">
-							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px">
-							<h5 style="color: white"><b>BAG ADA</b></h5>
-
-						</div>
-						<div class="col-md-12">
-							<p style="color: white; font-size:10px">Suatu portal  Polri berisi sitem pengadaan barang atau jasa pemerintah termasuk system pengadaan barang atau jasa di lingkungan Korlantas Polri melalui system LPSE Polri.</p>
-
-						</div>
-					</div>
-					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+			</div><!-- End Service Item -->
+			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
+				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
+					<h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/12/RENGAR-KORLANTAS-POLRI-T.A.-2022.pdf" class="stretched-link fs-5">REN GAR</a></h4>
+					<p class="text-center">Sistem RenGar adalah Sistem perencanaan anggaran yang memetakan kebutuhan Korlantas POLRI beserta pos anggarannya</p>
 				</div>
-			</a>
+			</div><!-- End Service Item -->
+			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
+				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
+					<h4 class="text-center"><a href="http://lpse.polri.go.id/eproc4" class="stretched-link fs-5">BAG ADA</a></h4>
+					<p class="text-center">Suatu portal Polri berisi sitem pengadaan barang atau jasa pemerintah termasuk system pengadaan barang atau jasa di lingkungan Korlantas Polri melalui system LPSE Polri.</p>
+				</div>
+			</div><!-- End Service Item -->
 		</div>
-		
+
+	</div>
+</section><!-- End Featured Services Section -->
+
+<section>
+	<div class="container">
 		<!-- Dokumen Peraturan Satker -->
 		<div class="col-md-12">
 			<h3 style="text-transform:uppercase ;">Dokumen Peraturan</h3>
@@ -159,120 +119,65 @@
 			</div>
 		</div>
 	</div>
-	<hr>
+	</div>
+</section>
 
-	<!-- Media Channel -->
-	<div class="row">
-		<div class="col-md-12">
-			<h3 style="text-transform:uppercase ;">Media Channel</h3>
-			<img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
+<!-- ======= Events Section ======= -->
+<section id="events" class="events">
+	<div class="container" data-aos="fade-up">
+		<div class="section-title">
+			<h2>Media Channel</h2>
+			<!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
 		</div>
-		<div class="col-md-8">
-			<iframe width="760" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div> 
-		<div class="col-md-4">
-			<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
-				<div class="col-md-12">
-					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-				</div>
-				<div class="col-md-12">
-					<iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-				<div class="col-md-12">
-					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+		<div class="row margin-top-20">
+			<div class="col-md-8 border-end shadows">
+				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="col-md-4">
+				<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+					<div class="col-md-12">
+						<iframe width="100%" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="col-md-12">
+						<iframe width="100%" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="col-md-12">
+						<iframe width="100%" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
 				</div>
 			</div>
-		</div> 
-	</div>
-	<hr>
-
-	<!-- Dokumen Kegiatan Satker -->
-	<div class="row">
-		<div class="col-md-12">
-			<h3 style="text-transform:uppercase ;">Dokumen Kegiatan Ditgakkum Korlantas Polri</h3>
 		</div>
-		<div class="col-md-12" style="overflow-x: auto;overflow-y:hidden; white-space:nowrap; scrollbar-width: thin;">
-			<div class="content-carousel"  >
-				<a href="#">
-					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum1.jpg" alt="" width="360" height="200">
-				</a>
-				<a href="#">
-					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum2.jpg" alt="" width="360" height="200">
-				</a>
-				<a href="#">
-					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum3.jpg" alt="" width="360" height="200">
-				</a>
-				<a href="#">
-					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum4.jpg" alt="" width="360" height="200">
-				</a>
-				<a href="#">
-					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum5.jpg" alt="" width="360" height="200">
-				</a>
-			</div>
-        </div>
 	</div>
+</section><!-- End Events Section -->
 
-</div>
-<!-- Container / End -->
+<!-- ======= Gallery Section ======= -->
+<section id="gallery" class="gallery section-bg">
+	<div class="container" data-aos="fade-up">
 
-  
+		<div class="section-title">
+			<h2>Dokumen Kegiatan Bagrenmin Korlantas Polri</h2>
+			<!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+		</div>
 
-
-
-
-<script>
-    $(document).ready(function() { 
-        var initialCenter = [-2.548926, 118.0148634];
-        var initialZoom = 5;
-        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        }); 
-
-        // StART MAP SECTION
-        var mapContainer = L.map('map', {
-            maxZoom: 20,
-            minZoom: 1,
-            zoomSnap: 0.25,
-            zoomControl: false,
-            layers: [googleStreet]
-        }).setView(initialCenter, initialZoom);  
-
-
-        var icon = L.icon({
-            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-            iconSize: [80, 80], // size of the icon
-        });
-                        
-                        
-        var baseMaps = {
-            "Google Map Street": googleStreet,
-            "Google Map Satelite": googleSatelite,
-            "Google Map Hybrid": googleHybrid,
-            "Google Map Terrain": googleTerrain,
-        };
-        var overlayMaps = {};
-        // L.control.layers(baseMaps, overlayMaps, {
-        //     position: 'bottomleft'
-        // }).addTo(mapContainer);
-        // L.control.zoom({
-        //     position: 'bottomright'
-        // }).addTo(mapContainer);
-    });
-</script>
+		<div class="gallery-slider swiper">
+			<div class="swiper-wrapper align-items-center">
+				<div class="swiper-slide">
+					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagrenmin/bagrenmin1.jpg"><img src="<?= base_url() ?>assets/fe/bagrenmin/bagrenmin1.jpg" class="img-fluid" alt="" width="100%"></a>
+				</div>
+				<div class="swiper-slide">
+					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagrenmin/bagrenmin2.jpg"><img src="<?= base_url() ?>assets/fe/bagrenmin/bagrenmin2.jpg" class="img-fluid" alt="" width="100%"></a>
+				</div>
+				<div class="swiper-slide">
+					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagrenmin/bagrenmin3.jpg"><img src="<?= base_url() ?>assets/fe/bagrenmin/bagrenmin3.jpg" class="img-fluid" alt="" width="100%"></a>
+				</div>
+				<div class="swiper-slide">
+					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagrenmin/bagrenmin4.jpg"><img src="<?= base_url() ?>assets/fe/bagrenmin/bagrenmin4.jpg" class="img-fluid" alt="" width="100%"></a>
+				</div>
+				<div class="swiper-slide">
+					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagrenmin/bagrenmin5.jpg"><img src="<?= base_url() ?>assets/fe/bagrenmin/bagrenmin5.jpg" class="img-fluid" alt="" width="100%"></a>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+</section><!-- End Gallery Section -->

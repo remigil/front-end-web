@@ -222,8 +222,33 @@ class LaporanHarian extends MY_Controller
                 $object = (object) [
                     'polda_id' => $this->input->post('polda_id')[$i],
                     'date' => $date,
-                    'baru' => $this->input->post('baru')[$i],
-                    'perpanjangan' => $this->input->post('perpanjangan')[$i],
+                    'baru_a' => $this->input->post('baru_a')[$i],
+                    'baru_c' => $this->input->post('baru_c')[$i],
+                    'baru_c1' => $this->input->post('baru_c1')[$i],
+                    'baru_c2' => $this->input->post('baru_c2')[$i],
+                    'baru_d' => $this->input->post('baru_d')[$i],
+                    'baru_d1' => $this->input->post('baru_d1')[$i],
+
+
+
+                    'perpanjangan_a' => $this->input->post('perpanjangan_a')[$i],
+                    'perpanjangan_au' => $this->input->post('perpanjangan_au')[$i],
+                    'perpanjangan_c' => $this->input->post('perpanjangan_c')[$i],
+                    'perpanjangan_c1' => $this->input->post('perpanjangan_c1')[$i],
+                    'perpanjangan_c2' => $this->input->post('perpanjangan_c2')[$i],
+                    'perpanjangan_d' => $this->input->post('perpanjangan_d')[$i],
+                    'perpanjangan_d1' => $this->input->post('perpanjangan_d1')[$i],
+                    'perpanjangan_b1' => $this->input->post('perpanjangan_b1')[$i],
+                    'perpanjangan_b1u' => $this->input->post('perpanjangan_b1u')[$i],
+                    'perpanjangan_b2' => $this->input->post('perpanjangan_b2')[$i],
+                    'perpanjangan_b2u' => $this->input->post('perpanjangan_b2u')[$i],
+
+                    'peningkatan_au' => $this->input->post('peningkatan_au')[$i],
+                    'peningkatan_b1' => $this->input->post('peningkatan_b1')[$i],
+                    'peningkatan_b1u' => $this->input->post('peningkatan_b1u')[$i],
+                    'peningkatan_b2' => $this->input->post('peningkatan_b2')[$i],
+                    'peningkatan_b2u' => $this->input->post('peningkatan_b2u')[$i]
+
                 ];
 
                 array_push($value, $object);
@@ -234,9 +259,11 @@ class LaporanHarian extends MY_Controller
                 $object = (object) [
                     'polda_id' => $this->input->post('polda_id')[$i],
                     'date' => $date,
-                    'baru' => $this->input->post('baru')[$i],
-                    'perpanjangan' => $this->input->post('perpanjangan')[$i],
-                    'rubentina' => $this->input->post('rubentina')[$i],
+                    'bbn_1' => $this->input->post('bbn_1')[$i],
+                    'bbn_2' => $this->input->post('bbn_2')[$i],
+                    'mutasi_masuk' => $this->input->post('mutasi_masuk')[$i],
+                    'mutasi_keluar' => $this->input->post('mutasi_keluar')[$i],
+                    'perubahan_pergantian' => $this->input->post('perubahan_pergantian')[$i],
                 ];
 
                 array_push($value, $object);
@@ -262,15 +289,29 @@ class LaporanHarian extends MY_Controller
                 $object = (object) [
                     'polda_id' => $this->input->post('polda_id')[$i],
                     'date' => $date,
-                    'baru' => $this->input->post('baru')[$i],
-                    'perpanjangan' => $this->input->post('perpanjangan')[$i],
-                    'rubentina' => $this->input->post('rubentina')[$i],
+                    'bbn_1_r2' => $this->input->post('bbn_1_r2')[$i],
+                    'bbn_1_r4' => $this->input->post('bbn_1_r4')[$i],
+                    'perubahan_r2' => $this->input->post('perubahan_r2')[$i],
+                    'perubahan_r4' => $this->input->post('perubahan_r4')[$i],
+                    'perpanjangan_r2' => $this->input->post('perpanjangan_r2')[$i],
+                    'perpanjangan_r4' => $this->input->post('perpanjangan_r4')[$i],
+                    'mutasi_keluar_r2' => $this->input->post('mutasi_keluar_r2')[$i],
+                    'mutasi_keluar_r4' => $this->input->post('mutasi_keluar_r4')[$i],
+                    'mutasi_masuk_r2' => $this->input->post('mutasi_masuk_r2')[$i],
+                    'mutasi_masuk_r4' => $this->input->post('mutasi_masuk_r4')[$i],
+                    'pengesahan_r2' => $this->input->post('pengesahan_r2')[$i],
+                    'pengesahan_r4' => $this->input->post('pengesahan_r4')[$i],
+                    'samolnas_r2' => $this->input->post('samolnas_r2')[$i],
+                    'samolnas_r4' => $this->input->post('samolnas_r4')[$i],
+
                 ];
 
                 array_push($value, $object);
             }
         }
 
+
+        
 
         $data = guzzle_request('POST', $url, [
             'json' => [

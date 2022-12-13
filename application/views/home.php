@@ -3,24 +3,24 @@
     <div class="hero-container">
       <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
-        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+        <ol class="carousel-indicators mt-5" id="hero-carousel-indicators"></ol>
 
         <div class="carousel-inner" role="listbox">
 
           <!-- Slide 1 -->
-          <div class="carousel-item active" style="background-image: url(assets/fe/slider-1.png)">
-            <div class="carousel-container">
+          <div class="carousel-item active" style="background-image: url(assets/fe/slider-home6.png)">
+            <div class="carousel-container" style="top:0;">
               <div class="carousel-content">
 				<img src="<?= base_url()?>assets/logo-nav.png" alt="">
                 <h2 class="animate__animated animate__fadeInDown">Selamat Datang di <span>Portal K3I Korlantas Polri</span></h2>
                 <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;"><b>www.k3i.korlantas.polri.go.id</b> merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. Dalam hal ini, pemerintahan di Indonesia beserta institusi lainnya seperti kami Korlantas Polri bekerja untuk memastikan bahwa setiap rakyat di seluruh tanah air harus dapat merasakan kehadiran pelayanan pemerintahan di bidang LLAJ yang diselenggarakan oleh Polri sebagai salah satu pemangku kepentingan sesuai amanat Undang-Undang No.22 Tahun 2009 tentang LLAJ.</p>
-                <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a>
+                <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a> -->
               </div>
             </div>
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background-image: url(assets/fe/slider-home1.jpeg)">
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-home5.jpg)">
             <div class="carousel-container">
               <div class="carousel-content">
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
@@ -55,6 +55,43 @@
             </div>
           </div>
 
+          <!-- Slide 5 -->
+          <div class="carousel-item" style="background-image: url(assets/fe/banner-home2.jpeg)">
+            <div class="carousel-container">
+              <div class="carousel-content">
+			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
+				<h2 class="animate__animated animate__fadeInDown">Mari Tertib <span>Berlalu Lintas</span></h2>
+                <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;">Utamakan Keselamatan, selalu patuhi rambu rambu lalu lintas dan gunakan sabuk keselamatan serta tidak menggunakan Hp saat berkendara, segera jika lelah & mengantuk</p>
+                <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a> -->
+              </div>
+            </div>
+          </div>
+          <!-- Slide 5 -->
+          <div class="carousel-item" style="background-image: url(assets/fe/beritafix2.jpg)">
+            <div class="carousel-container">
+              <div class="carousel-content">
+			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
+				<h2 class="animate__animated animate__fadeInDown">Mari Tertib <span>Berlalu Lintas</span></h2>
+                <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;">Utamakan Keselamatan, selalu patuhi rambu rambu lalu lintas dan gunakan sabuk keselamatan serta tidak menggunakan Hp saat berkendara, segera jika lelah & mengantuk</p>
+                <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-home1.jpeg)">
+            <div class="carousel-container">
+              <div class="carousel-content">
+			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
+				<!-- <h2 class="animate__animated animate__fadeInDown">Mari Tertib <span>Berlalu Lintas</span></h2>
+                <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;">Utamakan Keselamatan, selalu patuhi rambu rambu lalu lintas dan gunakan sabuk keselamatan serta tidak menggunakan Hp saat berkendara, segera jika lelah & mengantuk</p> -->
+                <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a> -->
+              </div>
+            </div>
+          </div>
+
+          
+
         </div>
 
         <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
@@ -71,7 +108,7 @@
 		
 		<div class="col-md-2">
 			<div class="container-fluid">
-				<h4 class="text-white p-2">Informasi Terkini</h4>
+				<h4 class="text-black p-2">Informasi Terkini</h4>
 			</div>
 
 		</div>
@@ -96,33 +133,33 @@
         <div class="row gy-4">
 
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
-            <div class="service-item position-relative" style="background-color: #FFE0E0; border-radius:10px;">
+            <div class="service-item position-relative" style="background-color: #ff555b; border-radius:10px; color:#3b3b3b">
               <div class="icon text-center"><iconify-icon icon="bxs:car-crash" width="50"></iconify-icon></div>
-              <h4 class="text-center"><a href="" class="stretched-link fs-5">Kecelakaan Lalu Lintas</a></h4>
+              <h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5" style="color:#3b3b3b">Kecelakaan Lalu Lintas</a></h4>
               <h1 id="lakalantas" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
-            <div class="service-item position-relative" style="background-color: #FBFFE0; border-radius:10px;">
+            <div class="service-item position-relative" style="background-color: #fffd51; border-radius:10px; color:#3b3b3b">
               <div class="icon text-center"><iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon></div>
-              <h4 class="text-center"><a href="" class="stretched-link fs-5">Pelanggaran Lalu Lintas</a></h4>
+              <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5" style="color:#3b3b3b">Pelanggaran Lalu Lintas</a></h4>
               <h1 id="garlantas" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
-            <div class="service-item position-relative" style="background-color: #E0FFE3; border-radius:10px;">
+            <div class="service-item position-relative" style="background-color: #40e48a; border-radius:10px; color:#3b3b3b">
               <div class="icon text-center">
 				<iconify-icon icon="mdi:car-multiple" width="50"></iconify-icon>
 				<iconify-icon icon="mdi:atv" width="50"></iconify-icon>
 			</div>
-              <h4 class="text-center"><a href="" class="stretched-link fs-5">Kendaraan Bermotor</a></h4>
+              <h4 class="text-center"><a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" class="stretched-link fs-5" style="color:#3b3b3b">Kendaraan Bermotor</a></h4>
               <h1 id="motor" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
-            <div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+            <div class="service-item position-relative" style="background-color: #5a8cff; border-radius:10px; color:#3b3b3b">
               <div class="icon text-center"><iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon></div>
-              <h4 class="text-center"><a href="" class="stretched-link fs-5">SIM Nasional</a></h4>
+              <h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5" style="color:#3b3b3b">SIM Nasional</a></h4>
               <h1 id="sim" class="text-center"></h1>
             </div>
           </div><!-- End Service Item -->
@@ -533,7 +570,7 @@
 							</div>
 
 							<div class="col-md-12 mt-3">
-							<a href=<?= base_url('Ditlantas_polda/');?>${ressData[i].id}><button class="btn btn-primary float-start">ini halaman</button></a>   
+							<a href=<?= base_url('Ditlantas_polda/');?>${ressData[i].id}><button class="btn btn-primary float-start">Halaman</button></a>   
 								<a href=${ressData[i].website} target="_blank"><button class="btn btn-primary float-end">Selengkapnya</button></a>   
 							</div>
 							</div>
