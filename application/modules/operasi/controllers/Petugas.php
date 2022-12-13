@@ -46,6 +46,11 @@ class Petugas extends MY_Controller
         ]); 
         $data['getStructural'] = $getStructural['data']['data']; 
 
+        $getPolda = guzzle_request('GET', 'polda/getNoEncrypt', [  
+            'headers' => $headers 
+        ]); 
+        $data['getPolda'] = $getPolda['data']['data']; 
+
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }

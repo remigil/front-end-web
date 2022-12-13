@@ -12,27 +12,43 @@
     <div class="col-12">
 
         <div class="card mt-3">
-            <div class="card-body">
-                <table id="datatable" class="table dt-responsive w-100">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Petugas</th>
-                            <th>Polda</th>
-                            <th>Pangkat</th>
-                            <th>NRP</th>
-                            <th>NRP Pengganti</th>
-                            <th style="width:20% ;">Struktural</th>
-                            <th>Dalam PAM</th>
-                            <th>No. Handphone</th>
-                            <?php if($this->uri->segment(3) == 'status'){?>
-                                <th>Status Download</th>
-                                <th>Status Login</th>
-                            <?php } ?>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead> 
-                </table>
+            <div class="card-body row">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select name="filterPolda" id="filterPolda" class="form-select" aria-label="Floating label select" style="width:100%" required> 
+                        
+                            <option selected value="">Pilih Polda</option>
+                            <?php foreach($data['getPolda'] as $row): ?>
+                                <option value="<?php echo $row['id'];?>"><?php echo $row['name_polda'];?></option> 
+                            <?php endforeach; ?> 
+                        </select>
+                        <!-- <label for="filterPolda">Kategori Peraturan</label> -->
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <table id="datatable" class="table dt-responsive w-100">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Petugas</th>
+                                <th>Polda</th>
+                                <th>Pangkat</th>
+                                <th>NRP</th>
+                                <th>NRP Pengganti</th>
+                                <th style="width:20% ;">Struktural</th>
+                                <th>Dalam PAM</th>
+                                <th>No. Handphone</th>
+                                <?php if($this->uri->segment(3) == 'status'){?>
+                                    <th>Status Download</th>
+                                    <th>Status Login</th>
+                                <?php } ?>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead> 
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -205,7 +221,7 @@
 
                     // data.filterStatus = $('[name=status]').val();
 
-                    // data.filterName = $('[name=group_name]').val();
+                    data.filterPolda = $('[name=filterPolda]').val();
 
                     // data.filterPocName = $('[name=group_poc_name]').val();
 
@@ -272,7 +288,12 @@
             }   
 
         });   
-        
+
+        $("#filterPolda").on('change', function(e) {
+            // alert(this.value);
+            userDataTable.draw();
+        });
+
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
             e.preventDefault(); 

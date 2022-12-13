@@ -64,9 +64,9 @@ class M_petugas extends CI_Model {
 
         }  
 
-        if($$filter_polda != ""){
+        if($filter_polda != ""){
 
-            $polda_id = '&filter[]=polda_id&filterSearch[]='.$$filter_polda.'';
+            $polda_id = '&filter[]=polda_id&filterSearch[]='.$filter_polda.'';
 
         }else{
 
@@ -85,7 +85,7 @@ class M_petugas extends CI_Model {
         // } 
 
 
-        $url = 'officer?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'officer?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.''.$polda_id.'';
 
         $result = guzzle_request('GET', $url, [
 
@@ -99,80 +99,85 @@ class M_petugas extends CI_Model {
 
         $no=1;
 
-		foreach  ($result['data']['data'] as $field) { 
-            $row = array();   
-			// $row ['id']	=  $field['id']; 
-            $row ['id']	=  $no++; 
-            $row ['name_officer']	= $field['name_officer']; 
-            $row ['polda_id']	= $field['polda']['name_polda'];  
-            $row ['nrp_officer']	= $field['nrp_officer'];  
-            $row ['replacementNrp_officer']	= $field['replacementNrp_officer'] != null ? $field['replacementNrp_officer'] : '-';  
-            $row ['rank_officer']   	= $field['rank_officer'];
-            $row ['structural_officer']   	= $field['structural_officer'];  
-            $row ['pam_officer']   	= $field['pam_officer']; 
-            $row ['phone_officer']   	= $field['phone_officer']; 
-            if($field['status_officer'] == 1){
-                $row ['status_officer']   	= 'Active'; 
-            }else{
-                $row ['status_officer']   	= 'Inactive'; 
-            } 
-
-
-            if($filter_statusLog == 1){
-                $getStatusPetugasDownload = guzzle_request('GET', 'track-notif?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter%5B%5D=nrp_user&filterSearch%5B%5D='.$field['nrp_officer'].'', [
-                    'headers' => [ 
-                        'Authorization' => $this->session->userdata['token']  
-                    ]
-                ]);  
-                if(count($getStatusPetugasDownload['data']['data']) > 0){ 
-                    $row ['status_petugasdownload']   	= '<span class="badge rounded-pill bg-success" style="font-size: 10px;">Berhasil</span>';
+        
+        if(count($result['data']['data']) > 0){
+            
+            foreach  ($result['data']['data'] as $field) { 
+                $row = array();   
+                // $row ['id']	=  $field['id']; 
+                $row ['id']	=  $no++; 
+                $row ['name_officer']	= $field['name_officer']; 
+                $row ['polda_id']	= $field['polda']['name_polda'];  
+                $row ['nrp_officer']	= $field['nrp_officer'];  
+                $row ['replacementNrp_officer']	= $field['replacementNrp_officer'] != null ? $field['replacementNrp_officer'] : '-';  
+                $row ['rank_officer']   	= $field['rank_officer'];
+                $row ['structural_officer']   	= $field['structural_officer'];  
+                $row ['pam_officer']   	= $field['pam_officer']; 
+                $row ['phone_officer']   	= $field['phone_officer']; 
+                if($field['status_officer'] == 1){
+                    $row ['status_officer']   	= 'Active'; 
                 }else{
-                    $row ['status_petugasdownload']   	= '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Download</span>';
+                    $row ['status_officer']   	= 'Inactive'; 
+                } 
+    
+    
+                if($filter_statusLog == 1){
+                    $getStatusPetugasDownload = guzzle_request('GET', 'track-notif?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter%5B%5D=nrp_user&filterSearch%5B%5D='.$field['nrp_officer'].'', [
+                        'headers' => [ 
+                            'Authorization' => $this->session->userdata['token']  
+                        ]
+                    ]);  
+                    if(count($getStatusPetugasDownload['data']['data']) > 0){ 
+                        $row ['status_petugasdownload']   	= '<span class="badge rounded-pill bg-success" style="font-size: 10px;">Berhasil</span>';
+                    }else{
+                        $row ['status_petugasdownload']   	= '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Download</span>';
+                    }
+        
+        
+                    $getStatusLogin = guzzle_requestTracking('GET', 'getName?name_officer='.$field['name_officer'].'', [
+                        'headers' => [ 
+                            'Authorization' => $this->session->userdata['token']  
+                        ]
+                    ]);
+                    if($getStatusLogin['data'] != null){
+                        if($getStatusLogin['data']['status_login'] == 1){
+                            $stLogin = '<span class="badge rounded-pill bg-primary" style="font-size: 10px;">Aktif</span>';
+                        }else{
+                            $stLogin = '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Tidak Aktif</span>';
+                        }
+                        $row ['status_login']   	= $stLogin;
+                    }else{
+                        $row ['status_login']   	= '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Tidak Aktif</span>';
+                    } 
                 }
     
+                $row ['action']         = ' 
+                    <a href="'.base_url().'operasi/Petugas/Detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
+                '; 
     
-                $getStatusLogin = guzzle_requestTracking('GET', 'getName?name_officer='.$field['name_officer'].'', [
-                    'headers' => [ 
-                        'Authorization' => $this->session->userdata['token']  
-                    ]
-                ]);
-                if($getStatusLogin['data'] != null){
-                    if($getStatusLogin['data']['status_login'] == 1){
-                        $stLogin = '<span class="badge rounded-pill bg-primary" style="font-size: 10px;">Aktif</span>';
-                    }else{
-                        $stLogin = '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Tidak Aktif</span>';
-                    }
-                    $row ['status_login']   	= $stLogin;
-                }else{
-                    $row ['status_login']   	= '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Tidak Aktif</span>';
-                } 
+                $data[] = $row;
+    
             }
 
-            $row ['action']         = ' 
-                <a href="'.base_url().'operasi/Petugas/Detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
-            '; 
-
-            $data[] = $row;
-
+            $response = array(
+    
+                "draw" => intval($draw),
+    
+                "iTotalRecords" => $result['data']['recordsTotal'],
+    
+                "iTotalDisplayRecords" => $result['data']['recordsFiltered'],
+    
+                "aaData" => $data,
+    
+                "apa" => $postData
+    
+            );
+    
+    
+            return $response;
         }
 
 
-        $response = array(
-
-            "draw" => intval($draw),
-
-            "iTotalRecords" => $result['data']['recordsTotal'],
-
-            "iTotalDisplayRecords" => $result['data']['recordsFiltered'],
-
-            "aaData" => $data,
-
-            "apa" => $postData
-
-        );
-
-
-        return $response;
 
     }
 
