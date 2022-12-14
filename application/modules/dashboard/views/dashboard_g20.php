@@ -7241,90 +7241,96 @@
                         var logoMarker = '';
                         var logoBody = '';
                         for (let i = 0; i < ressPosPam.length; i++) {  
-                            countPosPamDisplay += 1;
-                            listPosPamDisplay += `
-                                <tr>
-                                    <td>${countPosPamDisplay}</td>
-                                    <td><a href="<?= base_url()?>masterdata/Fasilitasumum" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
-                                    <td>${ressPosPam[i].note_kakor != null ? ressPosPam[i].note_kakor.replace(/\n/g, "<br />") : "-"}</td> 
-                                    <td>
-                                        <a class="btn" style="margin-top: -10px;"  
-                                            id="flyToMapFilterPosPam${countPosPamDisplay}"
-                                            data-akun="${ressPosPam[i].accounts}"
-                                            data-cord="${ressPosPam[i].coordinate_guarding.lat},${ressPosPam[i].coordinate_guarding.lng}" 
-                                            href="javascript:void(0)">
-                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                        </a> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#isiModalPosPamDisplay').html(listPosPamDisplay); 
- 
-                            
-                                var latitudeFasum = parseFloat(ressPosPam[i].coordinate_guarding.lat);
-                                var longitudeFasum = parseFloat(ressPosPam[i].coordinate_guarding.lng); 
-                                posPamClusterGroup.addLayer( markerPosPam[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
-                                    // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/POSPAM.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
-                                    iconSize: [5, 5],
-                                    iconAnchor: [5, 10]
-                                    // iconAnchor: [10, 33]
-                                    }) }).bindPopup(`
-                                        <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row mt-3"> 
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <h5>${ressPosPam[i].name_renpam}</h5> 
-                                                    <span>- ${ressPosPam[i].schedule.activity} -</span>
-                                                </div>
+
+                            if(ressPosPam[i].coordinate_guarding && ressPosPam[i].coordinate_guarding.lat != null && ressPosPam[i].coordinate_guarding.lng != null){
+                                setTimeout(() => {
+                                    countPosPamDisplay += 1;
+                                    listPosPamDisplay += `
+                                        <tr>
+                                            <td>${countPosPamDisplay}</td>
+                                            <td><a href="<?= base_url()?>masterdata/Fasilitasumum" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
+                                            <td>${ressPosPam[i].title_start != null ? ressPosPam[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterPosPam${countPosPamDisplay}"
+                                                    data-akun="${ressPosPam[i].accounts}"
+                                                    data-cord="${ressPosPam[i].coordinate_guarding.lat},${ressPosPam[i].coordinate_guarding.lng}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalPosPamDisplay').html(listPosPamDisplay); 
+        
+                                    
+                                    var latitudeFasum = parseFloat(ressPosPam[i].coordinate_guarding.lat);
+                                    var longitudeFasum = parseFloat(ressPosPam[i].coordinate_guarding.lng); 
+                                    posPamClusterGroup.addLayer( markerPosPam[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `<img src="<?php echo base_url();?>assets/icon/POSPAM.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                        }) }).bindPopup(`
+                                            <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                                <div class="row mt-3"> 
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <h5>${ressPosPam[i].name_renpam}</h5> 
+                                                        <span>- ${ressPosPam[i].schedule.activity} -</span>
+                                                    </div> 
+                                                    
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].title_start != null ? ressPosPam[i].title_start.replace(/\n/g, "<br />") : "-"}</p>
+                                                    </div> 
                                                 
-
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Note</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].note_kakor != null ? ressPosPam[i].note_kakor.replace(/\n/g, "<br />") : "-"}</p>
-                                                        </div> 
+                                            
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Note</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].note_kakor != null ? ressPosPam[i].note_kakor.replace(/\n/g, "<br />") : "-"}</p>
                                                     </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].date}</p>
-                                                        </div> 
+                                                
+                                            
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].date}</p>
                                                     </div> 
-                                                </div>    
-                                            </div>
-                                        </div> 
-                                `,{minWidth : 100,maxWidth : 900,width : 500})
-                                );  
+                                                        
+                                                </div>
+                                            </div> 
+                                    `,{minWidth : 100,maxWidth : 900,width : 500})
+                                    );  
+                                }, i * 500);
+                            }
                         }
 
-                         
-                        for (let i = 0; i < countPosPamDisplay; i++) { 
-                            $(`#flyToMapFilterPosPam${i+1}`).on("click", function (e) {  
-                                var latlong =  $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);  
-                                mapContainer.flyTo([latitude, longitude], 17); 
-                            });
-                        }
-                        $('#datatablePosPamOnDisplay').DataTable({
-                            responsive: true,
+                        setTimeout(() => {
+                            for (let i = 0; i < countPosPamDisplay; i++) { 
+                                $(`#flyToMapFilterPosPam${i+1}`).on("click", function (e) {  
+                                    var latlong =  $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);  
+                                    mapContainer.flyTo([latitude, longitude], 17); 
+                                });
+                            }
+                            $('#datatablePosPamOnDisplay').DataTable({
+                                responsive: true,
 
-                            scrollX: true,
+                                scrollX: true,
 
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
 
-                                sSearch: 'Search:'
+                                    sSearch: 'Search:'
 
-                            },
-                        }); 
-                        mapContainer.addLayer(posPamClusterGroup);
+                                },
+                            }); 
+                            mapContainer.addLayer(posPamClusterGroup);
+                        }, countPosPamDisplay.length * 500);
                     }
 
                     if(ressPosYan && ressPosYan.length > 0){  

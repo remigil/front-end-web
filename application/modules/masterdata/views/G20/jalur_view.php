@@ -309,7 +309,7 @@
                     <div class="col-md-12 mt-3">
                         <div id="mapEdit" style="height: 500px"></div>
                     </div>
-                    <div class="col-md-12 mt-3">
+                    <div class="col-md-12 mt-3"> 
                         <textarea hidden name="fasum_routeEdit" id="fasum_routeEdit" cols="30" rows="30"></textarea>
                     </div>
 					<div class="row mt-3">
@@ -696,14 +696,17 @@
                                 'success'
                             ).then(function() {
                                 $(".TambahFasum").modal('hide');
-                                userDataTable.draw();
+                                // userDataTable.draw();
+                                location.reload(); 
                             });
                         } else {
                             Swal.fire(
                                 `${data['message']}`,
                                 '',
                                 'error'
-                            ).then(function() {});
+                            ).then(function() {
+                                location.reload(); 
+                            });
                         }
                     }
                 });
@@ -974,7 +977,7 @@
 
         routeAlternativeUtamaEdit = L.Routing.control({
             waypoints: arrayWaypointUtamaEdit,
-            draggableWaypoints: false,
+            // draggableWaypoints: false,
             router: new L.Routing.osrmv1({
                 language: 'en',
                 profile: 'car'
@@ -1013,6 +1016,7 @@
             .openOn(mapContainerEdit); 
         });
         
+         
 
     }); 
 
@@ -1061,7 +1065,7 @@
     $('#btn_edit').on('click', function(e) {
         e.preventDefault()
 
-        $('#fasum_routeEdit').val(JSON.stringify(routingAlternativeUtamaEdit));
+        $('#fasum_routeEdit').val(JSON.stringify(routeAlternativeUtamaEdit.getWaypoints()));
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
             url: '<?= base_url() ?>masterdata/Fasilitasumum/updateFasum',
@@ -1079,18 +1083,25 @@
                         'success'
                     ).then(function() {
                         $(".UbahFasum").modal('hide');
-                        userDataTable.draw();
+                        // userDataTable.draw();
+                        location.reload(); 
                     });
                 } else {
                     Swal.fire(
                         `${results['message']}`,
                         '',
                         'error'
-                    ).then(function() {});
+                    ).then(function() {
+                        location.reload(); 
+                    });
                 }
             }
         })
-    })
+    });
+    $('#myModalEdit').on('hidden.bs.modal', function() {
+        $("#overlay").fadeIn(300);
+        location.reload(); 
+    });
 
 	$('#btnTambah').on('click', function(e){
 		$('#form_tambah')[0].reset()
