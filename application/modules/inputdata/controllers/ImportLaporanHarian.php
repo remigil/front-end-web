@@ -544,10 +544,10 @@ class ImportLaporanHarian extends MY_Controller
                                     // 'polres_name'=>$B,
                                     'date'=>$tanggal,
                                     'mobil_penumpang'=>$C,
-                                    'mobil_barang'=>$D,
-                                    'mobil_bus'=>$E,
-                                    'ransus'=>$F,
-                                    'sepeda_motor'=>$G
+                                    'mobil_bus' => $D,
+                                    'mobil_barang' => $E,
+                                    'sepeda_motor' => $F,
+                                    'ransus' => $G
                                 );
 
                             }else if($type==10) {
