@@ -7355,90 +7355,97 @@
                         var logoMarker = '';
                         var logoBody = '';
                         for (let i = 0; i < ressPosYan.length; i++) {  
-                            countPosYanDisplay += 1;
-                            listPosYanDisplay += `
-                                <tr>
-                                    <td>${countPosYanDisplay}</td>
-                                    <td><a href="<?= base_url()?>masterdata/Fasilitasumum" target="_blank">${ressPosYan[i].name_renpam}</a></td> 
-                                    <td>${ressPosYan[i].note_kakor != null ? ressPosYan[i].note_kakor.replace(/\n/g, "<br />") : "-"}</td> 
-                                    <td>
-                                        <a class="btn" style="margin-top: -10px;"  
-                                            id="flyToMapFilterPosYan${countPosYanDisplay}"
-                                            data-akun="${ressPosYan[i].accounts}"
-                                            data-cord="${ressPosYan[i].coordinate_guarding.lat},${ressPosYan[i].coordinate_guarding.lng}" 
-                                            href="javascript:void(0)">
-                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                        </a> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#isiModalPosYanDisplay').html(listPosYanDisplay); 
- 
-                            
-                                var latitudeFasum = parseFloat(ressPosYan[i].coordinate_guarding.lat);
-                                var longitudeFasum = parseFloat(ressPosYan[i].coordinate_guarding.lng); 
-                                posYanClusterGroup.addLayer( markerPosYan[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
-                                    // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
-                                    iconSize: [5, 5],
-                                    iconAnchor: [5, 10]
-                                    // iconAnchor: [10, 33]
-                                    }) }).bindPopup(`
-                                        <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row mt-3"> 
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <h5>${ressPosYan[i].name_renpam}</h5> 
-                                                    <span>- ${ressPosYan[i].schedule.activity} -</span>
-                                                </div>
-                                                
 
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Note</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].note_kakor != null ? ressPosYan[i].note_kakor.replace(/\n/g, "<br />") : "-"}</p>
-                                                        </div> 
+                            if(ressPosYan[i].coordinate_guarding && ressPosYan[i].coordinate_guarding.lat != null && ressPosYan[i].coordinate_guarding.lng != null){ 
+                                setTimeout(() => {
+                                    countPosYanDisplay += 1;
+                                    listPosYanDisplay += `
+                                        <tr>
+                                            <td>${countPosYanDisplay}</td>
+                                            <td><a href="<?= base_url()?>masterdata/Fasilitasumum" target="_blank">${ressPosYan[i].name_renpam}</a></td> 
+                                            <td>${ressPosYan[i].title_start != null ? ressPosYan[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterPosYan${countPosYanDisplay}"
+                                                    data-akun="${ressPosYan[i].accounts}"
+                                                    data-cord="${ressPosYan[i].coordinate_guarding.lat},${ressPosYan[i].coordinate_guarding.lng}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalPosYanDisplay').html(listPosYanDisplay); 
+        
+                                    
+                                    var latitudeFasum = parseFloat(ressPosYan[i].coordinate_guarding.lat);
+                                    var longitudeFasum = parseFloat(ressPosYan[i].coordinate_guarding.lng); 
+                                    posYanClusterGroup.addLayer( markerPosYan[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `<img src="<?php echo base_url();?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                        }) }).bindPopup(`
+                                            <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                                <div class="row mt-3"> 
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <h5>${ressPosYan[i].name_renpam}</h5> 
+                                                        <span>- ${ressPosYan[i].schedule.activity} -</span>
                                                     </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].date}</p>
-                                                        </div> 
+                                                    
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].title_start != null ? ressPosYan[i].title_start.replace(/\n/g, "<br />") : "-"}</p>
                                                     </div> 
-                                                </div>    
-                                            </div>
-                                        </div> 
-                                `,{minWidth : 100,maxWidth : 900,width : 500})
-                                );  
+                                                
+                                            
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Note</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].note_kakor != null ? ressPosYan[i].note_kakor.replace(/\n/g, "<br />") : "-"}</p>
+                                                    </div> 
+                                                
+                                            
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].date}</p>
+                                                    </div> 
+                                                        
+                                                </div>
+                                            </div> 
+                                    `,{minWidth : 100,maxWidth : 900,width : 500})
+                                    );  
+                                }, i * 500);
+                            }
                         }
 
                          
-                        for (let i = 0; i < countPosYanDisplay; i++) { 
-                            $(`#flyToMapFilterPosYan${i+1}`).on("click", function (e) {  
-                                var latlong =  $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);  
-                                mapContainer.flyTo([latitude, longitude], 17); 
-                            });
-                        }
-                        $('#datatablePosYanOnDisplay').DataTable({
-                            responsive: true,
+                        setTimeout(() => {
+                            for (let i = 0; i < countPosYanDisplay; i++) { 
+                                $(`#flyToMapFilterPosYan${i+1}`).on("click", function (e) {  
+                                    var latlong =  $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);  
+                                    mapContainer.flyTo([latitude, longitude], 17); 
+                                });
+                            }
+                            $('#datatablePosYanOnDisplay').DataTable({
+                                responsive: true,
 
-                            scrollX: true,
+                                scrollX: true,
 
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
 
-                                sSearch: 'Search:'
+                                    sSearch: 'Search:'
 
-                            },
-                        }); 
-                        mapContainer.addLayer(posYanClusterGroup);
+                                },
+                            }); 
+                            mapContainer.addLayer(posYanClusterGroup);
+                        }, countPosYanDisplay.length * 500);
                     }
 
                     if(ressGerbangtol && ressGerbangtol.length > 0){  
@@ -7486,12 +7493,11 @@
                                 var latitudeGerbang = parseFloat(ressGerbangtol[i].fasum_lat);
                                 var longitudeGerbang = parseFloat(ressGerbangtol[i].fasum_lng); 
                                 gerbangTolClusterGroup.addLayer( markerGerbangtol[i] = L.marker([latitudeGerbang,longitudeGerbang], { icon: L.divIcon({
-                                    className: 'location-pin2',
-                                    html: `<img src="${ressGerbangtol[i].fasum_logo}"><div class="pin2"></div><div class="pulse2"></div>`,
-                                    iconSize: [30, 30],
-                                    //iconAnchor: [18, 30]
-                                    iconAnchor: [10, 33]
-
+                                    // className: 'location-pin',
+                                    html: `<img src="<?php echo base_url();?>assets/icon/gerbang tol.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33] 
                                     }) }).bindPopup(`
                                         <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                             <div class="row mt-3"> 
@@ -8232,6 +8238,24 @@
                                 <div style="display: flex;align-items: center;">
                                     <img src="<?php echo base_url();?>assets/icon/POSYAN.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                     <b style="font-size: 14px; text-transform: capitalize;">POSYAN</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/gerbang tol.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Gerbang Tol</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/gerbang tol.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Gerbang Tol</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/rest_area.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Rest Area</b>
                                 </div> 
                             </div> 
                         `;
