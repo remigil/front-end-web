@@ -99,8 +99,8 @@
       </div> -->
       <div class="contact-info social-links d-none d-md-flex align-items-center">
 			<!-- <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i> -->
-        <i class="bi bi-phone d-flex align-items-center"><span>1-500-669 </span></i>
-        <i class="bi bi-telephone d-flex align-items-center ms-4" style="margin-right: 20px;"><span>9119 </span></i>
+        <i class="bi bi-phone d-flex align-items-center"><span><a href="https://ntmcpolri.info/">1-500-669</a> </span></i>
+        <i class="bi bi-telephone d-flex align-items-center ms-4" style="margin-right: 20px;"><span><a href="https://ntmcpolri.info/">9119</a> </span></i>
         <i class="bi bi-calendar3 d-flex align-items-center ms-4" style="margin-right: 20px;"><span><?php echo format_indoHari(date('Y-m-d')) ?> </span></i>
 			
 				<!-- <div class="input-group">
@@ -170,31 +170,51 @@
 		<li class="dropdown megamenu"><a href="#"><span>stakeholder</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li>
-			  	<a href="<?= base_url()?>stakeholder/kemendagri">KEMENDAGRI</a>
-				<a href="<?= base_url()?>stakeholder/kemenhub">KEMENHUB</a>
+			  				<a href="https://kemendagri.go.id/" target="_blank">KEMENDAGRI</a>
+								<a href="http://www.dephub.go.id/" target="_blank">KEMENHUB</a>
+                <a href="https://www.kemkes.go.id/" target="_blank">KEMENKES</a>
+								<a href="https://kemenperin.go.id/" target="_blank">KEMENPERIN</a>
+								<a href="https://www.pu.go.id/" target="_blank">KEMENPUPR</a>
+								<a href="https://www.brin.go.id/" target="_blank">BADAN RISET DAN INOVASI NASIONAL</a>
+								<a href="https://www.kemenkeu.go.id/" target="_blank">KEMENKEU</a>
+			  				<!-- <a href="<?= base_url()?>stakeholder/kemendagri">KEMENDAGRI</a>
+								<a href="<?= base_url()?>stakeholder/kemenhub">KEMENHUB</a>
                 <a href="<?= base_url()?>stakeholder/kemenkes">KEMENKES</a>
-				<a href="<?= base_url()?>stakeholder/kemenperin">KEMENPERIN</a>
-				<a href="<?= base_url()?>stakeholder/kemenpupr">KEMENPUPR</a>
-				<a href="<?= base_url()?>stakeholder/badan_riset">BADAN RISET DAN INOVASI NASIONAL</a>
-				<a href="<?= base_url()?>stakeholder/kemenkeu">KEMENKEU</a>
+								<a href="<?= base_url()?>stakeholder/kemenperin">KEMENPERIN</a>
+								<a href="<?= base_url()?>stakeholder/kemenpupr">KEMENPUPR</a>
+								<a href="<?= base_url()?>stakeholder/badan_riset">BADAN RISET DAN INOVASI NASIONAL</a>
+								<a href="<?= base_url()?>stakeholder/kemenkeu">KEMENKEU</a> -->
               </li>
               <li>
-			  	<a href="<?= base_url()?>stakeholder/kemendikbud">KEMENDIKBUD</a>
-				<a href="<?= base_url()?>stakeholder/kemenhan">KEMENHAN</a>
+			  				<a href="https://www.kemdikbud.go.id/" target="_blank">KEMENDIKBUD</a>
+								<a href="https://www.kemhan.go.id/" target="_blank">KEMENHAN</a>
+                <a href="https://binamarga.pu.go.id/" target="_blank">DITJEN BINA WARGA</a>
+								<a href="https://dukcapil.kemendagri.go.id/" target="_blank">DUKCAPIL</a>
+								<a href="https://www.jasaraharja.co.id/" target="_blank">PT JASA RAHARJA</a>
+								<a href="https://www.jasamarga.com/public/id/home.aspx" target="_blank">JASA MARGA</a>
+			  				<!-- <a href="<?= base_url()?>stakeholder/kemendikbud">KEMENDIKBUD</a>
+								<a href="<?= base_url()?>stakeholder/kemenhan">KEMENHAN</a>
                 <a href="<?= base_url()?>stakeholder/bina_marga">DITJEN BINA WARGA</a>
-				<a href="<?= base_url()?>stakeholder/dukcapil">DUKCAPIL</a>
-				<a href="<?= base_url()?>stakeholder/jasa_raharja">PT JASA RAHARJA</a>
-				<a href="<?= base_url()?>stakeholder/jasa_marga">JASA MARGA</a>
+								<a href="<?= base_url()?>stakeholder/dukcapil">DUKCAPIL</a>
+								<a href="<?= base_url()?>stakeholder/jasa_raharja">PT JASA RAHARJA</a>
+								<a href="<?= base_url()?>stakeholder/jasa_marga">JASA MARGA</a> -->
               </li>
-			  <li>
-			  	<a href="<?= base_url()?>stakeholder/mabes_tni">MABES TNI</a>
-				<a href="<?= base_url()?>stakeholder/satgas_covid">SATGAS COVID</a>
-                <a href="<?= base_url()?>stakeholder/bmkg">BMKG</a>
-				<a href="<?= base_url()?>stakeholder/bnn">BNN</a>
-				<a href="<?= base_url()?>stakeholder/bnpb">BNPB</a>
-				<a href="<?= base_url()?>stakeholder/bnpt">BNPT</a>
-				<a href="<?= base_url()?>stakeholder/bps">BPS</a>
-			  </li>
+							<li>
+								<a href="https://tni.mil.id/" target="_blank">MABES TNI</a>
+								<a href="https://covid19.go.id/" target="_blank">SATGAS COVID</a>
+								<a href="https://www.bmkg.go.id/" target="_blank">BMKG</a>
+								<a href="https://bnn.go.id/" target="_blank">BNN</a>
+								<a href="https://www.bnpb.go.id/" target="_blank">BNPB</a>
+								<a href="https://www.bnpt.go.id/" target="_blank">BNPT</a>
+								<a href="https://www.bps.go.id/" target="_blank">BPS</a>
+								<!-- <a href="<?= base_url()?>stakeholder/mabes_tni">MABES TNI</a>
+								<a href="<?= base_url()?>stakeholder/satgas_covid">SATGAS COVID</a>
+								<a href="<?= base_url()?>stakeholder/bmkg">BMKG</a>
+								<a href="<?= base_url()?>stakeholder/bnn">BNN</a>
+								<a href="<?= base_url()?>stakeholder/bnpb">BNPB</a>
+								<a href="<?= base_url()?>stakeholder/bnpt">BNPT</a>
+								<a href="<?= base_url()?>stakeholder/bps">BPS</a> -->
+							</li>
               
             </ul>
           </li>
@@ -209,7 +229,7 @@
 				<li><a href="<?= base_url()?>publikasi/kegiatan_khusus">Kegiatan Khusus (PAM PPKM)</a></li> 
             </ul>
         </li>
-		<li class="dropdown"><a href="#"><span>Pustaka</span> <i class="bi bi-chevron-down"></i></a>
+		<li class="dropdown"><a href="#"><span>informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
 				<li><a href="<?= base_url()?>pustaka/informasi_setiap_saat">Informasi Setiap Saat</a></li>
 				<li><a href="<?= base_url()?>pustaka/informasi_berkala">Informasi Berkala</a></li>

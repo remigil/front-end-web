@@ -136,14 +136,16 @@
             <div class="service-item position-relative" style="background-color: #ff555b; border-radius:10px; color:#3b3b3b">
               <div class="icon text-center"><iconify-icon icon="bxs:car-crash" width="50"></iconify-icon></div>
               <h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5" style="color:#3b3b3b">Kecelakaan Lalu Lintas</a></h4>
-              <h1 id="lakalantas" class="text-center"></h1>
+              <h1 id="lakalantas" class="text-center fw-bold"></h1>
+							<p class="text-center mt-4 fw-bold">selengkapnya</p>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
             <div class="service-item position-relative" style="background-color: #fffd51; border-radius:10px; color:#3b3b3b">
               <div class="icon text-center"><iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon></div>
               <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5" style="color:#3b3b3b">Pelanggaran Lalu Lintas</a></h4>
-              <h1 id="garlantas" class="text-center"></h1>
+              <h1 id="garlantas" class="text-center fw-bold"></h1>
+							<p class="text-center mt-4 fw-bold">selengkapnya</p>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
@@ -153,14 +155,16 @@
 				<iconify-icon icon="mdi:atv" width="50"></iconify-icon>
 			</div>
               <h4 class="text-center"><a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" class="stretched-link fs-5" style="color:#3b3b3b">Kendaraan Bermotor</a></h4>
-              <h1 id="motor" class="text-center"></h1>
+              <h1 id="motor" class="text-center fw-bold"></h1>
+							<p class="text-center mt-4 fw-bold">selengkapnya</p>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
             <div class="service-item position-relative" style="background-color: #5a8cff; border-radius:10px; color:#3b3b3b">
               <div class="icon text-center"><iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon></div>
               <h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5" style="color:#3b3b3b">SIM Nasional</a></h4>
-              <h1 id="sim" class="text-center"></h1>
+              <h1 id="sim" class="text-center fw-bold"></h1>
+							<p class="text-center mt-4 fw-bold">selengkapnya</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -201,7 +205,7 @@
 
 				<?php 
 						$i=0;
-						foreach ( $databerita as $data) : 
+						foreach ( $semuaberita as $data) : 
 							if (++$i == 4) break;?>
 
           <div class="col-lg-4 mt-5" data-aos="fade-up" data-aos-delay="200">
@@ -255,9 +259,9 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="card-item">
               <div class="row">
-                <div class="col-xl-5">
-                	<div class="card-bg" style="background-image: url(assets/fe/slider-1.png);">
-						<a href="https://samsatdigital.id/"><img src="<?= base_url()?>assets/fe/client/SIGNAL.png" alt="" width="100%"></a>
+                <div class="col-xl-5 justify-content-center">
+                	<div class="card-bg p-4" style="background-image: url(assets/fe/slider-1.png);">
+						<a href="https://samsatdigital.id/"><img src="<?= base_url()?>assets/fe/client/SIGNAL.png" alt="" width="200"></a>
 					</div>
                 </div>
                 <div class="col-xl-7 d-flex align-items-center">
@@ -274,8 +278,8 @@
             <div class="card-item">
               <div class="row">
                 <div class="col-xl-5">
-				<div class="card-bg " style="background-image: url(assets/fe/slider-1.png);">
-						<a href="https://www.digitalkorlantas.id/"><img src="<?= base_url()?>assets/fe/client/SINAR.png" alt="" width="100%"></a>
+				<div class="card-bg p-4" style="background-image: url(assets/fe/slider-1.png);">
+						<a href="https://www.digitalkorlantas.id/"><img src="<?= base_url()?>assets/fe/client/SINAR.png" alt="" width="200"></a>
 					</div>
                 </div>
                 <div class="col-xl-7 d-flex align-items-center">
@@ -292,8 +296,8 @@
             <div class="card-item">
               <div class="row">
                 <div class="col-xl-5">
-				<div class="card-bg " style="background-image: url(assets/fe/slider-1.png);">
-						<a href="https://siminternasional.korlantas.polri.go.id/"><img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="100%"></a>
+				<div class="card-bg p-4" style="background-image: url(assets/fe/slider-1.png);">
+						<a href="https://siminternasional.korlantas.polri.go.id/"><img src="<?= base_url()?>assets/korlantas-hd.png" alt="" width="200"></a>
 					</div>
                 </div>
                 <div class="col-xl-7 d-flex align-items-center">
@@ -311,7 +315,7 @@
               <div class="row">
                 <div class="col-xl-5">
 				<div class="card-bg " style="background-image: url(assets/fe/slider-1.png);">
-						<a href="https://korlantas.polri.go.id/" ><img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="50%" class="d-block mx-auto"></a>
+						<a href="https://korlantas.polri.go.id/" ><img src="<?= base_url()?>assets/korlantas-hd.png" alt="" width="50%" class="d-block mx-auto"></a>
 						<a href="https://ntmcpolri.info/"><img src="<?= base_url()?>assets/fe/client/ntmc_korlantas.png" alt="" width="50%" class="d-block mx-auto"></a>
 					</div>
                 </div>
@@ -347,7 +351,7 @@
               <p>Big Data</p>
 						</div>
             <div class="swiper-slide">
-							<a target="_blank" href="http://k3i.korlantas.polri.go.id/cctv/"><img src="<?php echo base_url(); ?>assets/fe/client/cctv.png" alt="" width="100%"></a>
+							<a target="_blank" href="http://k3i.korlantas.polri.go.id/cctv/"><img src="<?php echo base_url(); ?>assets/fe/client/cctv-hd.png" alt="" width="100%"></a>
               <p>CCTV</p>
 						</div>
             <div class="swiper-slide">
@@ -355,33 +359,33 @@
               <p>DIS</p>
 						</div>
             <div class="swiper-slide">
-							<a target="_blank" href="http://dakgargakkum.com/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/e-tilang.png" alt="" width="100%"></a>
+							<a target="_blank" href="http://dakgargakkum.com/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/etle-hd.png" alt="" width="100%"></a>
               <p>E-TILANG</p>
 						</div>
             <div class="swiper-slide">
 							<a target="_blank" href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php"><img src="<?php echo base_url(); ?>assets/fe/client/Eri.png" alt="" width="100%"></a>
               <p>ERI</p>
 						</div>
-            <div class="swiper-slide">
+            <!-- <div class="swiper-slide">
 							<a target="_blank" href="https://maps.korlantas.polri.go.id/portal/home/"><img src="<?php echo base_url(); ?>assets/fe/client/intan.png" alt="" width="100%"></a>
               <p>INTAN</p>
-						</div>
+						</div> -->
             <div class="swiper-slide">
 							<a target="_blank" href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#"><img src="<?php echo base_url(); ?>assets/fe/client/irsms.png" alt="" width="100%"></a>
               <p>IRSMS</p>
 						</div>
             <div class="swiper-slide">
-							<a target="_blank" href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="" width="100%"></a>
+							<a target="_blank" href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/korlantas-hd.png" alt="" width="100%"></a>
               <p>Korlantas</p>
 						</div>
             <div class="swiper-slide">
-							<a target="_blank" href="https://1500669.com/"><img src="<?php echo base_url(); ?>assets/fe/client/NTMC.png" alt="" width="100%"></a>
-              <p>NTMC</p>
+							<a target="_blank" href="https://1500669.com/"><img src="<?php echo base_url(); ?>assets/fe/client/ntmc_korlantas.png" alt="" width="100%"></a>
+              <p>Contact Center</p>
 						</div>
-            <div class="swiper-slide">
+            <!-- <div class="swiper-slide">
 							<a target="_blank" href="https://rasirosakorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/rarirosa.png" alt="" width="100%"></a>
               <p>RASIROSA</p>
-						</div>
+						</div> -->
             <div class="swiper-slide">
 							<a target="_blank" href="http://sbstkorlantas.net/korlantas/"><img src="<?php echo base_url(); ?>assets/fe/client/SBST.png" alt="" width="100%"></a>
               <p>SBST</p>
@@ -411,6 +415,7 @@
             <ul class="nav nav-pills mb-3">
               <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">NEWS FLASH</a></li>
               <li><a class="nav-link" data-bs-toggle="pill" href="#tab2">NTMC CHANNEL</a></li>
+              <li><a class="nav-link" data-bs-toggle="pill" href="#tab3">NTMC POLRI</a></li>
               
             </ul><!-- End Tabs -->
 
@@ -462,10 +467,37 @@
                         </div>
 
               </div><!-- End Tab 2 Content -->
+							
+              <div class="tab-pane fade show" id="tab3">
+
+							<div class="row margin-top-20">
+                            <div class="col-md-8">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+                                    <div class="col-md-12">
+                                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZiRhVpxCG_GIkU8qIDuVsoL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZjbI-kL-waXbHJRd7cmiRYa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZj2pQDOfwMfjwAQMaAtvv3f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+              </div><!-- End Tab 2 Content -->
 
             </div>
+						<div class="row align-items-center">
+							<div class="col-md-12 align-self-center" >
+								<img src="<?= base_url()?>assets/fe/contactntmc.png" alt="" width="600" class="mx-auto d-block mt-5">
 
-						<img src="<?= base_url()?>assets/fe/contactntmc.png" alt="" width="100%">
+							</div>
+						</div>
       </div>
     </section><!-- End About Section -->
 		

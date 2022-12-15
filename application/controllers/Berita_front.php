@@ -35,10 +35,10 @@ class Berita_front extends MX_Controller {
                 $news[] = $k;
             }
         }
-        // var_dump($databerita['getBerita']);die;
+        // var_dump($semuaberita['getBerita']);die;
 
 
-        $data["databerita"] = $news;
+        $data["semuaberita"] = $news;
 		// $postData = $this->input->post();   
         // $data = $this->berita->get_datatables($postData);  
 		// echo json_encode($data); 
@@ -61,10 +61,10 @@ class Berita_front extends MX_Controller {
                 $news[] = $k;
             }
         }
-        // var_dump($databerita['getBerita']);die;
+        // var_dump($semuaberita['getBerita']);die;
 
 
-        $data["databerita"] = $news;
+        $data["semuaberita"] = $news;
 
 		$getDetail = guzzle_request('GET', 'news/getIdweb/' . $id . '', [
             // 'headers' => $headers

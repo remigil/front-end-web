@@ -91,7 +91,7 @@
               <div class="sidebar-item recent-posts">
 			  <?php 
 						$i=0;
-						foreach ( $databerita as $data) : 
+						foreach ( $semuaberita as $data) : 
 							if (++$i == 4) break;?>
                 <div class="post-item clearfix">
                   <img src="<?= url_api() ?>news/<?= $data['picture'] ?>" alt="">

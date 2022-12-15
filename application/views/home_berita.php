@@ -20,11 +20,15 @@
         <div class="row">
 
           <div class="col-lg-9 entries">
+					<h3>Berita Satpas</h3>
+						<hr>
 
 		  <?php 
 						$i=0;
-						foreach ( $databerita as $data) : 
+						foreach ( $semuaberita as $data) : 
 							// if (++$i == 4) break;?>
+
+						
 
             <article class="entry">
 
@@ -79,7 +83,7 @@
               <div class="sidebar-item recent-posts">
 			  <?php 
 						$i=0;
-						foreach ( $databerita as $data) : 
+						foreach ( $semuaberita as $data) : 
 							if (++$i == 4) break;?>
                 <div class="post-item clearfix">
                   <img src="<?= url_api() ?>news/<?= $data['picture'] ?>" alt="">

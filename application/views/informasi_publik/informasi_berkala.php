@@ -60,17 +60,35 @@
 					</ul>
 				</li>
 				<li>
-					Struktur Organisasi
+					<a href="<?= base_url()?>profil/struktur_organisasi" style="text-decoration:none ; color:#000"> Struktur Organisasi</a>
 					<ul>
-						<li>Struktur Organisasi Korlantas Polri</li>
-						<li>Struktur Organisasi Direktorat Kamsel</li>
-						<li>Struktur Organisasi Direktorat Gakkum</li>
-						<li>Struktur Organisasi Direktorat Regident</li>
-						<li>Struktur Organisasi Bagops Korlantas Polri</li>
-						<li>Struktur Organisasi Bagrenmin Korlantas Polri</li>
-						<li>Struktur Organisasi Bag TIK Korlantas Polri</li>
-						<li>Struktur Organisasi Direktorat Lalu Lintas Polda</li>
-						<li>Struktur Organisasi Satlantas Polres/Ta/Tabes</li>
+						<li>
+							<a href="<?= base_url()?>profil/profil_pejabat"> Struktur Organisasi Korlantas Polri</a>
+						</li>
+						<li>
+							<a href="<?= base_url()?>profil/profil_pejabat#tab2"> Struktur Organisasi Direktorat Kamsel</a>
+						</li>
+						<li>
+							<a href="<?= base_url()?>profil/profil_pejabat#tab2"> Struktur Organisasi Direktorat Gakkum</a>
+						</li>
+						<li>
+							<a href="<?= base_url()?>profil/profil_pejabat#tab2"> Struktur Organisasi Direktorat Regident</a>
+						</li>
+						<li>
+							<a href="<?= base_url()?>profil/profil_pejabattab3"> Struktur Organisasi Bagops Korlantas Polri</a>
+						</li>
+						<li>
+							<a href="<?= base_url()?>profil/profil_pejabattab3"> Struktur Organisasi Bagrenmin Korlantas Polri</a>
+						</li>
+						<li>
+							<a href="<?= base_url()?>profil/profil_pejabattab3"> Struktur Organisasi Bag TIK Korlantas Polri</a>
+						</li>
+						<li>
+							<a href="<?= base_url()?>profil/profil_pejabat"> Struktur Organisasi Direktorat Lalu Lintas Polda</a>
+						</li>
+						<li>
+							<a href="<?= base_url()?>profil/profil_pejabat"> Struktur Organisasi Satlantas Polres/Ta/Tabes</a>
+						</li>
 					</ul>
 				</li>
 				<li>Bagrenmin Korlantas Polri;</li>

@@ -177,22 +177,27 @@
           <div class="swiper-wrapper align-items-center">
             <div class="swiper-slide">
 				<a class="glightbox" data-gallery="images-gallery" href="<?= base_url()?>assets/fe/ditgakkum/ditgakkum1.jpg"><img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum1.jpg" class="img-fluid" alt="" width="100%"></a>
+				<p>Dirgakkum Brigjen Pol Aan Suhanan saat menggelar pelatihan dan sosialisasi penertiban ODOl di Tol Cikampek, Selasa (25/1/22).</p>
 			</div>
             <div class="swiper-slide">
 				<a class="glightbox" data-gallery="images-gallery" href="<?= base_url()?>assets/fe/ditgakkum/ditgakkum2.jpg"><img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum2.jpg" class="img-fluid" alt="" width="100%"></a>
+				<p>Dirgakkum Brigjen Pol Aan Suhanan</p>
 			</div>
             <div class="swiper-slide">
 				<a class="glightbox" data-gallery="images-gallery" href="<?= base_url()?>assets/fe/ditgakkum/ditgakkum3.jpg"><img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum3.jpg" class="img-fluid" alt="" width="100%"></a>
+				<p>Dirgakkum Brigjen Pol Aan Suhanan, Dirkamsel Brigjen Pol Chryshnanda Dwilaksana, Dirregident Brigjen Pol Yusri Yunus, serta Kabagops Kombes Pol Eddy Djunaedi berkunjung ke Kantor Berita TVOne, 19 Januari 2022</p>
 			</div>
             <div class="swiper-slide">
 				<a class="glightbox" data-gallery="images-gallery" href="<?= base_url()?>assets/fe/ditgakkum/ditgakkum4.jpg"><img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum4.jpg" class="img-fluid" alt="" width="100%"></a>
+				<p>Direktur Gakkum Brigjen Pol Aan Suhanan Konferensi Pers Arus Lalu lintas Tahun Baru, 30 Desember 2021</p>
 			</div>
             <div class="swiper-slide">
 				<a class="glightbox" data-gallery="images-gallery" href="<?= base_url()?>assets/fe/ditgakkum/ditgakkum5.jpg"><img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum5.jpg" class="img-fluid" alt="" width="100%"></a>
+				<p>Dirgakkum Korlantas Polri Brigjen Pol Aan Suhanan di Rakernis Fungsi Gakkum Tahun Anggaran 2021 di Ballroom Hotel Ciputra, Jakarta, Senin 6-8 Desember 2021</p>
 			</div>
             
             
-          <div class="swiper-pagination"></div>
+          <!-- <div class="swiper-pagination"></div> -->
         </div>
 
       </div>

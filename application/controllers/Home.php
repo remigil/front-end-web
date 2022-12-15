@@ -22,12 +22,13 @@ class Home extends MX_Controller {
         // $page_content["js"] = '';
         // $page_content["title"] = "Berita";
 
-		$getBerita = guzzle_request('GET', 'news', [
+		$getBeritaall = guzzle_request('GET', 'news', [
             // 'headers' => $headers
         ]);
+		// var_dump($getBerita);die;
 
         $news = array();
-        foreach ($getBerita['data']['datanya'] as $key) {
+        foreach ($getBeritaall['data']['datanya'] as $key) {
             foreach ($key['data'] as $k) {
                 $news[] = $k;
             }
@@ -35,7 +36,7 @@ class Home extends MX_Controller {
         // var_dump($databerita['getBerita']);die;
 
 
-        $data["databerita"] = $news;
+        $data["semuaberita"] = $news;
 		// $postData = $this->input->post();   
         // $data = $this->berita->get_datatables($postData);  
 		// echo json_encode($data); 
@@ -127,8 +128,8 @@ class Home extends MX_Controller {
         $getSim = $getSim["data"];
 		// var_dump($getSim);die;
 
-        // $totalsim = 0;
-        $totalsim = 9570;
+        $totalsim = 0;
+        // $totalsim = 9570;
         // for ($i = 0; $i < count($getSim); $i++) {
         //     $totalsim += $getSim[$i]['total'];
         // }
