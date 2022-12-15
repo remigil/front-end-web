@@ -13,7 +13,7 @@
     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
         <div class="row m-2">
             <div class="col-sm-4 col-md-5 align-self-center">
-                <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">STNK <span style="color:#000;">Nasional</span></span> </h2>
+                <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">STNK <span style="color:#000;">Nasional</span></span> </h2>
             </div>
             <div class="col-sm-8 col-md-7">
                 <div class="row m-2">
@@ -25,7 +25,7 @@
                                         <h4 class="mb-0 ms-3">Hari Ini</h4>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="stnkThisDay"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="stnkThisDay"></h1>
                                         <p class="text-center mb-0">STNK</p>
                                     </div>
                                     <div class="col-md-12 ms-3">
@@ -49,7 +49,7 @@
                                         <h4 class="mb-0 ms-3">Bulan Ini</h4>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="stnkThisMonth"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="stnkThisMonth"></h1>
                                         <p class="text-center mb-0">STNK</p>
                                     </div>
                                     <div class="col-md-12 ms-3">
@@ -73,7 +73,7 @@
                                         <h4 class="mb-0 ms-3">Tahun Ini</h4>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="stnkThisYear"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="stnkThisYear"></h1>
                                         <p class="text-center mb-0">STNK</p>
                                     </div>
                                     <div class="col-md-12 ms-3">
@@ -105,7 +105,7 @@
                  </button> -->
             </div>
             <div class="modal-body">
-                <div class="container">
+                <div class="container" style="line-height: 0.8;">
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr class="text-white" style="background-color: #0007D8;">
@@ -237,7 +237,7 @@
                  </button> -->
             </div>
             <div class="modal-body">
-                <div class="container">
+                <div class="container" style="line-height: 0.8;">
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr class="text-white" style="background-color: #0007D8;">
@@ -366,7 +366,7 @@
                  </button> -->
             </div>
             <div class="modal-body">
-                <div class="container">
+                <div class="container" style="line-height: 0.8;">
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr class="text-white" style="background-color: #0007D8;">
@@ -538,7 +538,7 @@ if ($mobile === true) { ?>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="row">
-                            <div class="col-md-12 mt-3">
+                            <div class="col-md-12 mt-3" style="line-height: 0.5;">
                                 <h5>Ranking Polda Data STNK Tertinggi <?= date('d M Y'); ?></h5>
                                 <div class="card shadow-sm">
                                     <table class="table table-bordered table-hover" id="tableStnkDay">
@@ -577,6 +577,27 @@ if ($mobile === true) { ?>
                                         </thead>
                                         <tbody id="tbody-stnkDay">
                                         </tbody>
+
+                                        <tfoot>
+                                            <tr class="text-white" style="background-color: #0007D8;">
+                                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr2Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr4Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr2Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr4Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr2Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr4Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr2Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr4Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr2Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr4Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr2Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr4Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr2Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr4Day"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalDay"></span></th>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -584,7 +605,7 @@ if ($mobile === true) { ?>
                     </div>
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         <div class="row">
-                            <div class="col-md-12 mt-3">
+                            <div class="col-md-12 mt-3" style="line-height: 0.5;">
                                 <h5>Ranking Polda Data STNK Tertinggi <?= date('M Y'); ?></h5>
                                 <div class="card shadow-sm">
                                     <table class="table table-bordered table-hover" id="tableStnkMonth">
@@ -623,6 +644,26 @@ if ($mobile === true) { ?>
                                         </thead>
                                         <tbody id="tbody-stnkMonth">
                                         </tbody>
+                                        <tfoot>
+                                            <tr class="text-white" style="background-color: #0007D8;">
+                                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr2Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr4Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr2Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr4Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr2Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr4Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr2Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr4Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr2Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr4Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr2Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr4Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr2Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr4Month"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalMonth"></span></th>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -630,7 +671,7 @@ if ($mobile === true) { ?>
                     </div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                         <div class="row">
-                            <div class="col-md-12 mt-3">
+                            <div class="col-md-12 mt-3" style="line-height: 0.5;">
                                 <h5>Ranking Polda Data STNK Tertinggi <?= date('Y'); ?></h5>
                                 <div class="card shadow-sm">
                                     <table class="table table-bordered table-hover" id="tableStnkYear">
@@ -669,6 +710,26 @@ if ($mobile === true) { ?>
                                         </thead>
                                         <tbody id="tbody-stnkYear">
                                         </tbody>
+                                        <tfoot>
+                                            <tr class="text-white" style="background-color: #0007D8;">
+                                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr2Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr4Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr2Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr4Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr2Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr4Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr2Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr4Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr2Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr4Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr2Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr4Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr2Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr4Year"></span></th>
+                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalYear"></span></th>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -763,7 +824,6 @@ if ($mobile === true) { ?>
 
         var limit = $('#limit_showData').val();
 
-        // console.log(firstDay, lastDay)
         $("#overlay").fadeIn(300);
         $.ajax({
             type: "POST",
@@ -908,7 +968,6 @@ if ($mobile === true) { ?>
             },
             dataType: "JSON",
             success: function(result) {
-                console.log(result.data)
                 $("#overlay").fadeOut(300);
                 $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                 $("#charta").html(`<div id="chart"></div>`);
@@ -1031,7 +1090,6 @@ if ($mobile === true) { ?>
                 lastDay
             },
             success: function(result) {
-                console.log(result.detailsthisDay.mutasi_keluar_r4);
                 $("#overlay").fadeOut(300);
                 $('#stnkThisDay').text(result.thisDay)
                 $('#stnkThisMonth').text(result.thisMonth)
@@ -1119,7 +1177,6 @@ if ($mobile === true) { ?>
                 },
                 dataType: "JSON",
                 success: function(result) {
-                    console.log(result)
                     $("#overlay").fadeOut(300);
                     $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                     $("#charta").html(`<div id="chart"></div>`);
@@ -1245,7 +1302,7 @@ if ($mobile === true) { ?>
             success: function(results) {
                 $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${results.title}</h1>`);
                 $("#chartdate").html(`<div id="chart2"></div>`);
-                console.log(results)
+
 
                 var chart2 = {
                     series: [{
@@ -1358,31 +1415,47 @@ if ($mobile === true) { ?>
             success: function(result) {
                 $("#overlay").fadeOut(300);
                 var table = '';
-                let nf = new Intl.NumberFormat('en-US');
-                for (let i = 0; i < result.length; i++) {
+                let resultstnk = result.topStnk;
+
+                for (let i = 0; i < resultstnk.length; i++) {
                     let x = parseInt(i)
                     let no = x + 1
                     table += `<tr class="text-center"> 
                         <td>  ${no}  </td> 
-                        <td>  ${result[i].name_polda}  </td> 
-                        <td>  ${result[i].bbn_1_r2}  </td> 
-                        <td>  ${result[i].bbn_1_r4}  </td> 
-                        <td>  ${result[i].perubahan_r2}  </td> 
-                        <td>  ${result[i].perubahan_r4}  </td> 
-                        <td>  ${result[i].perpanjangan_r2}  </td>  
-                        <td>  ${result[i].perpanjangan_r4}  </td>  
-                        <td>  ${result[i].mutasi_masuk_r2}  </td>  
-                        <td>  ${result[i].mutasi_keluar_r2}  </td>  
-                        <td>  ${result[i].mutasi_masuk_r4}  </td>  
-                        <td>  ${result[i].mutasi_keluar_r4}  </td>  
-                        <td>  ${result[i].pengesahan_r2}  </td>  
-                        <td>  ${result[i].pengesahan_r4}  </td>  
-                        <td>  ${result[i].samolnas_r2}  </td>  
-                        <td>  ${result[i].samolnas_r4}  </td>  
-                        <td>  ${result[i].total}  </td>  
+                        <td>  ${resultstnk[i].name_polda}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].bbn_1_r2)}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].bbn_1_r4)}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].perubahan_r2)}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].perubahan_r4)}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].perpanjangan_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].perpanjangan_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].mutasi_masuk_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].mutasi_keluar_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].mutasi_masuk_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].mutasi_keluar_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].pengesahan_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].pengesahan_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].samolnas_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].samolnas_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].total)}  </td>  
                         </tr>`
                 }
                 $('#tbody-stnkDay').html(table);
+                $('#totalbbnr2Day').text(result.bbn_1_r2)
+                $('#totalbbnr4Day').text(result.bbn_1_r4)
+                $('#totalprr2Day').text(result.perubahan_r2)
+                $('#totalprr4Day').text(result.perubahan_r4)
+                $('#totalpnr2Day').text(result.perpanjangan_r2)
+                $('#totalpnr4Day').text(result.perpanjangan_r4)
+                $('#totalmmr2Day').text(result.mutasi_masuk_r2)
+                $('#totalmmr4Day').text(result.mutasi_masuk_r4)
+                $('#totalmkr2Day').text(result.mutasi_keluar_r2)
+                $('#totalmkr4Day').text(result.mutasi_keluar_r4)
+                $('#totalpgr2Day').text(result.pengesahan_r2)
+                $('#totalpgr4Day').text(result.pengesahan_r4)
+                $('#totalsmr2Day').text(result.samolnas_r2)
+                $('#totalsmr4Day').text(result.samolnas_r4)
+                $('#totalDay').text(result.total)
                 <?php $mobile = detect_mobile();
                 if ($mobile === true) { ?>
 
@@ -1417,31 +1490,46 @@ if ($mobile === true) { ?>
             success: function(result) {
                 $("#overlay").fadeOut(300);
                 var table = '';
-                let nf = new Intl.NumberFormat('en-US');
-                for (let i = 0; i < result.length; i++) {
+                let resultstnk = result.topStnk;
+                for (let i = 0; i < resultstnk.length; i++) {
                     let x = parseInt(i)
                     let no = x + 1
                     table += `<tr class="text-center"> 
-                            <td>  ${no}  </td> 
-                                <td>  ${result[i].name_polda}  </td> 
-                                <td>  ${result[i].bbn_1_r2}  </td> 
-                                <td>  ${result[i].bbn_1_r4}  </td> 
-                                <td>  ${result[i].perubahan_r2}  </td> 
-                                <td>  ${result[i].perubahan_r4}  </td> 
-                                <td>  ${result[i].perpanjangan_r2}  </td> 
-                                <td>  ${result[i].perpanjangan_r4}  </td> 
-                                <td>  ${result[i].mutasi_masuk_r2}  </td> 
-                                <td>  ${result[i].mutasi_keluar_r2}  </td> 
-                                <td>  ${result[i].mutasi_masuk_r4}  </td> 
-                                <td>  ${result[i].mutasi_keluar_r4}  </td> 
-                                <td>  ${result[i].pengesahan_r2}  </td> 
-                                <td>  ${result[i].pengesahan_r4}  </td> 
-                                <td>  ${result[i].samolnas_r2}  </td> 
-                                <td>  ${result[i].samolnas_r4}  </td> 
-                                <td>  ${result[i].total}  </td> 
-                            </tr>`
+                        <td>  ${no}  </td> 
+                        <td>  ${resultstnk[i].name_polda}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].bbn_1_r2)}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].bbn_1_r4)}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].perubahan_r2)}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].perubahan_r4)}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].perpanjangan_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].perpanjangan_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].mutasi_masuk_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].mutasi_keluar_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].mutasi_masuk_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].mutasi_keluar_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].pengesahan_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].pengesahan_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].samolnas_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].samolnas_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].total)}  </td>  
+                        </tr>`
                 }
                 $('#tbody-stnkMonth').html(table);
+                $('#totalbbnr2Month').text(result.bbn_1_r2)
+                $('#totalbbnr4Month').text(result.bbn_1_r4)
+                $('#totalprr2Month').text(result.perubahan_r2)
+                $('#totalprr4Month').text(result.perubahan_r4)
+                $('#totalpnr2Month').text(result.perpanjangan_r2)
+                $('#totalpnr4Month').text(result.perpanjangan_r4)
+                $('#totalmmr2Month').text(result.mutasi_masuk_r2)
+                $('#totalmmr4Month').text(result.mutasi_masuk_r4)
+                $('#totalmkr2Month').text(result.mutasi_keluar_r2)
+                $('#totalmkr4Month').text(result.mutasi_keluar_r4)
+                $('#totalpgr2Month').text(result.pengesahan_r2)
+                $('#totalpgr4Month').text(result.pengesahan_r4)
+                $('#totalsmr2Month').text(result.samolnas_r2)
+                $('#totalsmr4Month').text(result.samolnas_r4)
+                $('#totalMonth').text(result.total)
                 <?php $mobile = detect_mobile();
                 if ($mobile === true) { ?>
 
@@ -1476,31 +1564,46 @@ if ($mobile === true) { ?>
             success: function(result) {
                 $("#overlay").fadeOut(300);
                 var table = '';
-                let nf = new Intl.NumberFormat('en-US');
-                for (let i = 0; i < result.length; i++) {
+                let resultstnk = result.topStnk;
+                for (let i = 0; i < resultstnk.length; i++) {
                     let x = parseInt(i)
                     let no = x + 1
                     table += `<tr class="text-center"> 
-                            <td>  ${no}  </td> 
-                                <td>  ${result[i].name_polda}  </td> 
-                                <td>  ${result[i].bbn_1_r2}  </td> 
-                                <td>  ${result[i].bbn_1_r4}  </td> 
-                                <td>  ${result[i].perubahan_r2}  </td> 
-                                <td>  ${result[i].perubahan_r4}  </td> 
-                                <td>  ${result[i].perpanjangan_r2}  </td> 
-                                <td>  ${result[i].perpanjangan_r4}  </td> 
-                                <td>  ${result[i].mutasi_masuk_r2}  </td> 
-                                <td>  ${result[i].mutasi_keluar_r2}  </td> 
-                                <td>  ${result[i].mutasi_masuk_r4}  </td> 
-                                <td>  ${result[i].mutasi_keluar_r4}  </td> 
-                                <td>  ${result[i].pengesahan_r2}  </td> 
-                                <td>  ${result[i].pengesahan_r4}  </td> 
-                                <td>  ${result[i].samolnas_r2}  </td> 
-                                <td>  ${result[i].samolnas_r4}  </td> 
-                                <td>  ${result[i].total}  </td> 
-                            </tr>`
+                        <td>  ${no}  </td> 
+                        <td>  ${resultstnk[i].name_polda}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].bbn_1_r2)}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].bbn_1_r4)}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].perubahan_r2)}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].perubahan_r4)}  </td> 
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].perpanjangan_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].perpanjangan_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].mutasi_masuk_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].mutasi_keluar_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].mutasi_masuk_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].mutasi_keluar_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].pengesahan_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].pengesahan_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].samolnas_r2)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].samolnas_r4)}  </td>  
+                        <td>  ${new Intl.NumberFormat().format(resultstnk[i].total)}  </td>  
+                        </tr>`
                 }
                 $('#tbody-stnkYear').html(table);
+                $('#totalbbnr2Year').text(result.bbn_1_r2)
+                $('#totalbbnr4Year').text(result.bbn_1_r4)
+                $('#totalprr2Year').text(result.perubahan_r2)
+                $('#totalprr4Year').text(result.perubahan_r4)
+                $('#totalpnr2Year').text(result.perpanjangan_r2)
+                $('#totalpnr4Year').text(result.perpanjangan_r4)
+                $('#totalmmr2Year').text(result.mutasi_masuk_r2)
+                $('#totalmmr4Year').text(result.mutasi_masuk_r4)
+                $('#totalmkr2Year').text(result.mutasi_keluar_r2)
+                $('#totalmkr4Year').text(result.mutasi_keluar_r4)
+                $('#totalpgr2Year').text(result.pengesahan_r2)
+                $('#totalpgr4Year').text(result.pengesahan_r4)
+                $('#totalsmr2Year').text(result.samolnas_r2)
+                $('#totalsmr4Year').text(result.samolnas_r4)
+                $('#totalYear').text(result.total)
                 <?php $mobile = detect_mobile();
                 if ($mobile === true) { ?>
 

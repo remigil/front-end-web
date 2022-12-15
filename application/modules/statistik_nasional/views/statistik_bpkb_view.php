@@ -124,13 +124,20 @@ if ($mobile === true) { ?>
                                 <h5>Ranking Polda Data BPKB Tertinggi <?= date('d M Y'); ?></h5>
                                 <div class="card shadow-sm">
                                     <table class="table table-bordered table-hover" id="tableBpkbDay">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Baru</th>
-                                                <th scope="col">Perpanjangan</th>
-                                                <th scope="col">Rubentina</th>
+                                        <thead>
+                                            <tr class="text-white" style="background-color: #0007D8;">
+                                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">No</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergnatian</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
+                                            </tr>
+                                            <tr class="text-center" style="background-color:#5150D8; color:#fff;">
+                                                <th style="text-align: center; vertical-align: middle" scope="col ">1</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col ">2</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col">Masuk</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col">Keluar</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tbody-bpkbDay">
@@ -146,13 +153,20 @@ if ($mobile === true) { ?>
                                 <h5>Ranking Polda Data BPKB Tertinggi <?= date('M Y'); ?></h5>
                                 <div class="card shadow-sm">
                                     <table class="table table-bordered table-hover" id="tableBpkbMonth">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Baru</th>
-                                                <th scope="col">Perpanjangan</th>
-                                                <th scope="col">Rubentina</th>
+                                        <thead>
+                                            <tr class="text-white" style="background-color: #0007D8;">
+                                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">No</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergnatian</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
+                                            </tr>
+                                            <tr class="text-center" style="background-color:#5150D8; color:#fff;">
+                                                <th style="text-align: center; vertical-align: middle" scope="col ">1</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col ">2</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col">Masuk</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col">Keluar</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tbody-bpkbMonth">
@@ -168,13 +182,20 @@ if ($mobile === true) { ?>
                                 <h5>Ranking Polda Data Kecelakaan Tertinggi <?= date('Y'); ?></h5>
                                 <div class="card shadow-sm">
                                     <table class="table table-bordered table-hover" id="tableBpkbYear">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Baru</th>
-                                                <th scope="col">Perpanjangan</th>
-                                                <th scope="col">Rubentina</th>
+                                        <thead>
+                                            <tr class="text-white" style="background-color: #0007D8;">
+                                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">No</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergnatian</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
+                                            </tr>
+                                            <tr class="text-center" style="background-color:#5150D8; color:#fff;">
+                                                <th style="text-align: center; vertical-align: middle" scope="col ">1</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col ">2</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col">Masuk</th>
+                                                <th style="text-align: center; vertical-align: middle" scope="col">Keluar</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tbody-bpkbYear">
@@ -397,7 +418,7 @@ if ($mobile === true) { ?>
         topBpkbMonth(firstDayMonth, lastDayMonth);
         topBpkbYear(firstDay, lastDay)
 
-        ditregident_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
+        bpkb_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
 
         BpkblineChart(seven_daysAgo, yesterday)
         jam();
@@ -529,10 +550,10 @@ if ($mobile === true) { ?>
     })
 
 
-    function ditregident_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+    function bpkb_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>executive/statistik_executive/getDitregidentDate",
+            url: "<?php echo base_url(); ?>executive/statistik_executive/getBpkbDate",
             dataType: "JSON",
             data: {
                 yesterday,
@@ -543,6 +564,9 @@ if ($mobile === true) { ?>
             },
             success: function(result) {
                 $("#overlay").fadeOut(300);
+                $('#bpkbThisDay').text(result.thisDay[0].bpkb)
+                $('#bpkbThisDay').text(result.thisDay[0].bpkb)
+                $('#bpkbThisDay').text(result.thisDay[0].bpkb)
                 $('#bpkbThisDay').text(result.thisDay[0].bpkb)
                 $('#bpkbThisMonth').text(result.thisMonth[0].bpkb)
                 $('#bpkbThisYear').text(result.thisYear.bpkb)
@@ -828,13 +852,16 @@ if ($mobile === true) { ?>
                     let x = parseInt(i)
                     let no = x + 1
                     table += `<tr class="text-center"> 
-                        <td>  ${no}  </td> 
-                        <td>  ${result[i].name_polda}  </td> 
-                        <td>  ${result[i].baru}  </td> 
-                        <td>  ${result[i].perpanjangan}  </td> 
-                        <td>  ${result[i].rubentina}  </td> 
-                       
-                        </tr>`
+                            <td>  ${no}  </td> 
+                            <td>  ${result[i].name_polda}  </td> 
+                            <td>  ${result[i].bbn_1}  </td> 
+                            <td>  ${result[i].bbn_2}  </td> 
+                            <td>  ${result[i].mutasi_masuk}  </td> 
+                            <td>  ${result[i].mutasi_keluar}  </td> 
+                            <td>  ${result[i].perubahan_pergantian}  </td> 
+                            <td>  ${result[i].total}  </td> 
+                             
+                            </tr>`
                 }
                 $('#tbody-bpkbDay').html(table);
                 <?php $mobile = detect_mobile();
@@ -878,10 +905,13 @@ if ($mobile === true) { ?>
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
                             <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].meninggal_dunia}  </td> 
-                            <td>  ${result[i].luka_berat}  </td> 
-                            <td>  ${result[i].luka_berat}  </td> 
-                           
+                            <td>  ${result[i].bbn_1}  </td> 
+                            <td>  ${result[i].bbn_2}  </td> 
+                            <td>  ${result[i].mutasi_masuk}  </td> 
+                            <td>  ${result[i].mutasi_keluar}  </td> 
+                            <td>  ${result[i].perubahan_pergantian}  </td> 
+                            <td>  ${result[i].total}  </td> 
+                             
                             </tr>`
                 }
                 $('#tbody-bpkbMonth').html(table);
@@ -926,9 +956,12 @@ if ($mobile === true) { ?>
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
                             <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].meninggal_dunia}  </td> 
-                            <td>  ${result[i].luka_berat}  </td> 
-                            <td>  ${result[i].luka_berat}  </td> 
+                            <td>  ${result[i].bbn_1}  </td> 
+                            <td>  ${result[i].bbn_2}  </td> 
+                            <td>  ${result[i].mutasi_masuk}  </td> 
+                            <td>  ${result[i].mutasi_keluar}  </td> 
+                            <td>  ${result[i].perubahan_pergantian}  </td> 
+                            <td>  ${result[i].total}  </td> 
                              
                             </tr>`
                 }

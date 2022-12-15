@@ -118,18 +118,18 @@ class Statistik_nasional extends MY_Controller
             'headers' => $headers
         ]);
         $getRegident = $getRegident["data"];
-        // var_dump($getRegident);
-        // die;
+
 
         $totalbpkb = 0;
         $totalstnk = 0;
         $totalsim = 0;
         $totalsbst = 0;
+        $totalranmor = 0;
         for ($i = 0; $i < count($getRegident); $i++) {
             $totalbpkb += $getRegident[$i]['bpkb'];
             $totalstnk += $getRegident[$i]['stnk'];
             $totalsim += $getRegident[$i]['sim'];
-            // $totalsbst += $getRegident[$i]['sbst'];
+            $totalranmor += $getRegident[$i]['ranmor'];
             // $totalsim += 0;
         }
 
@@ -280,7 +280,8 @@ class Statistik_nasional extends MY_Controller
                 'bpkb' => $findComparebpkb,
                 'stnk' => $findComparestnk,
                 'sim' => $findComparesim,
-                'sbst' => '',
+                'ranmor' => $findCompareranmor,
+                // 'sbst' => '',
 
                 'dikmas' => $findComparedikmas,
                 'jemenopsrek' => '',
@@ -301,7 +302,8 @@ class Statistik_nasional extends MY_Controller
             'bpkb' => number_format($totalbpkb, 0, '', '.'),
             'stnk' =>  number_format($totalstnk, 0, '', '.'),
             'sim' =>  number_format($totalsim, 0, '', '.'),
-            'sbst' => number_format($totalsbst, 0, '', '.'),
+            'ranmor' => number_format($totalranmor, 0, '', '.'),
+            // 'sbst' => number_format($totalsbst, 0, '', '.'),
 
             'dikmas' => number_format($totaldikmas, 0, '', '.'),
             'jemenopsrek' =>  number_format($totaljemenopsrek, 0, '', '.'),
@@ -448,6 +450,17 @@ class Statistik_nasional extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "Data Turjagwali Nasional";
         $page_content["page"] = "statistik_nasional/statistik_turjagwali_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Ranmor()
+    {
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Ranmor Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_ranmor_view";
         $page_content["data"] = '';
         // $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);

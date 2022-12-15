@@ -4,9 +4,9 @@
              <a href="<?= base_url('statistik_nasional') ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
          </div>
          <div class="col-md-6 text-end align-self-center">
-             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
-             <!-- <button type="button" class="btn btn-outline-info float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
-             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
+             <!-- <button type="button" class="btn btn-outline-primary float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
+             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
              <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
          </div>
      </div>
@@ -31,7 +31,7 @@
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
                                              <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
-                                                 <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalDay">
+                                                 <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalDay">
                                                      Detail
                                                  </button>
                                              </div>
@@ -55,7 +55,7 @@
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
                                              <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
-                                                 <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalMonth">
+                                                 <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalMonth">
                                                      Detail
                                                  </button>
                                              </div>
@@ -79,7 +79,7 @@
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
                                              <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
-                                                 <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalYear">
+                                                 <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalYear">
                                                      Detail
                                                  </button>
                                              </div>
@@ -106,7 +106,7 @@
                  </button> -->
              </div>
              <div class="modal-body">
-                 <div class="container">
+                 <div class="container" style="line-height: 0.8;">
                      <table class="table table-bordered table-hover">
                          <thead>
                              <tr class="text-white" style="background-color: #0007D8;">
@@ -141,14 +141,14 @@
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">AU</th>
                                  <th style="text-align: center;" scope="col">BI</th>
-                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">BIU</th>
                                  <th style="text-align: center;" scope="col">BII</th>
                                  <th style="text-align: center;" scope="col">BIIU</th>
                                  <th style="text-align: center;" scope="col">C</th>
                                  <th style="text-align: center;" scope="col">CI</th>
                                  <th style="text-align: center;" scope="col">CII</th>
                                  <th style="text-align: center;" scope="col">D</th>
-                                 <th style="text-align: center;" scope="col">DII</th>
+                                 <th style="text-align: center;" scope="col">DI</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -175,7 +175,7 @@
                              <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">AU</th>
                                  <th style="text-align: center;" scope="col">BI</th>
-                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">BIU</th>
                                  <th style="text-align: center;" scope="col">BII</th>
                                  <th style="text-align: center;" scope="col">BIIU</th>
                              </tr>
@@ -211,7 +211,7 @@
                  </button> -->
              </div>
              <div class="modal-body">
-                 <div class="container">
+                 <div class="container" style="line-height: 0.8;">
                      <table class="table table-bordered table-hover">
                          <thead>
                              <tr class="text-white" style="background-color: #0007D8;">
@@ -246,14 +246,14 @@
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">AU</th>
                                  <th style="text-align: center;" scope="col">BI</th>
-                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">BIU</th>
                                  <th style="text-align: center;" scope="col">BII</th>
                                  <th style="text-align: center;" scope="col">BIIU</th>
                                  <th style="text-align: center;" scope="col">C</th>
                                  <th style="text-align: center;" scope="col">CI</th>
                                  <th style="text-align: center;" scope="col">CII</th>
                                  <th style="text-align: center;" scope="col">D</th>
-                                 <th style="text-align: center;" scope="col">DII</th>
+                                 <th style="text-align: center;" scope="col">DI</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -280,7 +280,7 @@
                              <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">AU</th>
                                  <th style="text-align: center;" scope="col">BI</th>
-                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">BIU</th>
                                  <th style="text-align: center;" scope="col">BII</th>
                                  <th style="text-align: center;" scope="col">BIIU</th>
                              </tr>
@@ -313,7 +313,7 @@
                  </button> -->
              </div>
              <div class="modal-body">
-                 <div class="container">
+                 <div class="container" style="line-height: 0.8;">
                      <table class="table table-bordered table-hover">
                          <thead>
                              <tr class="text-white" style="background-color: #0007D8;">
@@ -348,14 +348,14 @@
                                  <th style="text-align: center;" scope="col">A</th>
                                  <th style="text-align: center;" scope="col">AU</th>
                                  <th style="text-align: center;" scope="col">BI</th>
-                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">BIU</th>
                                  <th style="text-align: center;" scope="col">BII</th>
                                  <th style="text-align: center;" scope="col">BIIU</th>
                                  <th style="text-align: center;" scope="col">C</th>
                                  <th style="text-align: center;" scope="col">CI</th>
                                  <th style="text-align: center;" scope="col">CII</th>
                                  <th style="text-align: center;" scope="col">D</th>
-                                 <th style="text-align: center;" scope="col">DII</th>
+                                 <th style="text-align: center;" scope="col">DI</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -382,7 +382,7 @@
                              <tr style="background-color:#5150D8; color:#fff;">
                                  <th style="text-align: center;" scope="col">AU</th>
                                  <th style="text-align: center;" scope="col">BI</th>
-                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">BIU</th>
                                  <th style="text-align: center;" scope="col">BII</th>
                                  <th style="text-align: center;" scope="col">BIIU</th>
                              </tr>
@@ -422,8 +422,8 @@
 
              </div>
 
-             <button type="button" class="btn btn-info float-end btn-sm" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
-             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info float-end btn-sm mt-2" style="width: 100%; border-color:#007DD8;">Export Laporan</a>
+             <button type="button" class="btn btn-primary float-end btn-sm" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary float-end btn-sm mt-2" style="width: 100%; border-color:#007DD8;">Export Laporan</a>
 
 
          </div>
@@ -456,7 +456,7 @@
                  <div class="tab-content" id="pills-tabContent">
                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                          <div class="row">
-                             <div class="col-md-12 mt-3">
+                             <div class="col-md-12 mt-3" style="line-height: 0.5;">
                                  <h5>Ranking Polda Data Sim Tertinggi <?= date('d M Y'); ?></h5>
                                  <div class="card shadow-sm">
                                      <table class="table table-bordered table-hover" id="tableSimDay">
@@ -482,20 +482,48 @@
                                                  <th style="text-align: center;" scope="col">CI</th>
                                                  <th style="text-align: center;" scope="col">CII</th>
                                                  <th style="text-align: center;" scope="col">D</th>
-                                                 <th style="text-align: center;" scope="col">DII</th>
+                                                 <th style="text-align: center;" scope="col">DI</th>
                                                  <th style="text-align: center;" scope="col">BI</th>
-                                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                                 <th style="text-align: center;" scope="col">BIU</th>
                                                  <th style="text-align: center;" scope="col">BII</th>
                                                  <th style="text-align: center;" scope="col">BIIU</th>
                                                  <th style="text-align: center;" scope="col">AU</th>
                                                  <th style="text-align: center;" scope="col">BI</th>
-                                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                                 <th style="text-align: center;" scope="col">BIU</th>
                                                  <th style="text-align: center;" scope="col">BII</th>
                                                  <th style="text-align: center;" scope="col">BIIU</th>
                                              </tr>
                                          </thead>
                                          <tbody id="tbody-simDay">
                                          </tbody>
+                                         <tfoot>
+                                             <tr class="text-white" style="background-color: #0007D8;">
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruaDay"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarucDay"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc1Day"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc2Day"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarudDay"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarud1Day"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganaDay"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganauDay"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangancDay"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc1Day"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc2Day"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangandDay"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangand1Day"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1Day"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1uDay"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2Day"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2uDay"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanauDay"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1Day"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1uDay"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2Day"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2uDay"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalDay"></span></th>
+                                             </tr>
+                                         </tfoot>
                                      </table>
                                  </div>
                              </div>
@@ -503,7 +531,7 @@
                      </div>
                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                          <div class="row">
-                             <div class="col-md-12 mt-3">
+                             <div class="col-md-12 mt-3" style="line-height: 0.5;">
                                  <h5>Ranking Polda Data Sim Tertinggi <?= date('M Y'); ?></h5>
                                  <div class="card shadow-sm">
                                      <table class="table table-bordered table-hover" id="tableSimMonth">
@@ -529,20 +557,48 @@
                                                  <th style="text-align: center;" scope="col">CI</th>
                                                  <th style="text-align: center;" scope="col">CII</th>
                                                  <th style="text-align: center;" scope="col">D</th>
-                                                 <th style="text-align: center;" scope="col">DII</th>
+                                                 <th style="text-align: center;" scope="col">DI</th>
                                                  <th style="text-align: center;" scope="col">BI</th>
-                                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                                 <th style="text-align: center;" scope="col">BIU</th>
                                                  <th style="text-align: center;" scope="col">BII</th>
                                                  <th style="text-align: center;" scope="col">BIIU</th>
                                                  <th style="text-align: center;" scope="col">AU</th>
                                                  <th style="text-align: center;" scope="col">BI</th>
-                                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                                 <th style="text-align: center;" scope="col">BIU</th>
                                                  <th style="text-align: center;" scope="col">BII</th>
                                                  <th style="text-align: center;" scope="col">BIIU</th>
                                              </tr>
                                          </thead>
                                          <tbody id="tbody-simMonth">
                                          </tbody>
+                                         <tfoot>
+                                             <tr class="text-white" style="background-color: #0007D8;">
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruaMonth"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarucMonth"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc1Month"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc2Month"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarudMonth"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarud1Month"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganaMonth"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganauMonth"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangancMonth"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc1Month"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc2Month"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangandMonth"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangand1Month"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1Month"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1uMonth"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2Month"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2uMonth"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanauMonth"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1Month"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1uMonth"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2Month"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2uMonth"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalMonth"></span></th>
+                                             </tr>
+                                         </tfoot>
                                      </table>
                                  </div>
                              </div>
@@ -550,7 +606,7 @@
                      </div>
                      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                          <div class="row">
-                             <div class="col-md-12 mt-3">
+                             <div class="col-md-12 mt-3" style="line-height: 0.5;">
                                  <h5>Ranking Polda Data Sim Tertinggi <?= date('Y'); ?></h5>
                                  <div class="card shadow-sm">
                                      <table class="table table-bordered table-hover" id="tableSimYear">
@@ -563,7 +619,7 @@
                                                  <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
                                                  <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Total</th>
                                              </tr>
-                                             <tr style="background-color:#5150D8; color:#fff; ">
+                                             <tr style="background-color:#5150D8; color:#fff;">
                                                  <th style="text-align: center;" scope="col">A</th>
                                                  <th style="text-align: center;" scope="col">C</th>
                                                  <th style="text-align: center;" scope="col">CI</th>
@@ -576,20 +632,48 @@
                                                  <th style="text-align: center;" scope="col">CI</th>
                                                  <th style="text-align: center;" scope="col">CII</th>
                                                  <th style="text-align: center;" scope="col">D</th>
-                                                 <th style="text-align: center;" scope="col">DII</th>
+                                                 <th style="text-align: center;" scope="col">DI</th>
                                                  <th style="text-align: center;" scope="col">BI</th>
-                                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                                 <th style="text-align: center;" scope="col">BIU</th>
                                                  <th style="text-align: center;" scope="col">BII</th>
                                                  <th style="text-align: center;" scope="col">BIIU</th>
                                                  <th style="text-align: center;" scope="col">AU</th>
                                                  <th style="text-align: center;" scope="col">BI</th>
-                                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                                 <th style="text-align: center;" scope="col">BIU</th>
                                                  <th style="text-align: center;" scope="col">BII</th>
                                                  <th style="text-align: center;" scope="col">BIIU</th>
                                              </tr>
                                          </thead>
                                          <tbody id="tbody-simYear">
                                          </tbody>
+                                         <tfoot>
+                                             <tr class="text-white" style="background-color: #0007D8;">
+                                                 <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruaYear"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarucYear"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc1Year"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc2Year"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarudYear"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarud1Year"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganaYear"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganauYear"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangancYear"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc1Year"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc2Year"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangandYear"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangand1Year"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1Year"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1uYear"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2Year"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2uYear"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanauYear"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1Year"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1uYear"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2Year"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2uYear"></span></th>
+                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalYear"></span></th>
+                                             </tr>
+                                         </tfoot>
                                      </table>
                                  </div>
                              </div>
@@ -613,7 +697,7 @@
                                      <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
                                  </div>
                                  <div class="col-md-2">
-                                     <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                     <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                                  </div>
 
                              </div>
@@ -935,7 +1019,6 @@
                  lastDay
              },
              success: function(result) {
-                 console.log(result);
                  $("#overlay").fadeOut(300);
                  $('#simThisDay').text(result.thisDay)
                  $('#simThisMonth').text(result.thisMonth)
@@ -1282,39 +1365,62 @@
                  $("#overlay").fadeOut(300);
                  var table = '';
                  let total = 0;
-                 let nf = new Intl.NumberFormat('en-US');
-                 for (let i = 0; i < result.length; i++) {
+                 let resultsim = result.topSim;
+                 for (let i = 0; i < resultsim.length; i++) {
                      let x = parseInt(i)
                      let no = x + 1
                      table += `<tr class="text-center"> 
-                        <td>  ${no}  </td> 
-                        <td>  ${result[i].name_polda}  </td> 
-                        <td>  ${result[i].baru_a}  </td> 
-                        <td>  ${result[i].baru_c}  </td> 
-                        <td>  0  </td> 
-                        <td>  0  </td> 
-                        <td>  ${result[i].baru_d}  </td> 
-                        <td>  0  </td> 
-                        <td>  ${result[i].perpanjangan_a}  </td>  
-                        <td>  ${result[i].perpanjangan_au}  </td>  
-                        <td>  ${result[i].perpanjangan_c}  </td>  
-                        <td>  ${result[i].perpanjangan_c1}  </td>  
-                        <td>  ${result[i].perpanjangan_c2}  </td>  
-                        <td>  ${result[i].perpanjangan_d}  </td>  
-                        <td>  ${result[i].perpanjangan_d1}  </td>  
-                        <td>  ${result[i].perpanjangan_b1}  </td>  
-                        <td>  ${result[i].perpanjangan_b1u}  </td>  
-                        <td>  ${result[i].perpanjangan_b2}  </td>  
-                        <td>  ${result[i].perpanjangan_b2u}  </td>  
-                        <td>  ${result[i].peningkatan_au}  </td>  
-                        <td>  ${result[i].peningkatan_b1}  </td>  
-                        <td>  ${result[i].peningkatan_b1u}  </td>  
-                        <td>  ${result[i].peningkatan_b2}  </td>  
-                        <td>  ${result[i].peningkatan_b2u}  </td>  
-                        <td>  ${result[i].total}  </td>  
+                     <td>  ${no}  </td> 
+                        <td>  ${resultsim[i].name_polda}  </td> 
+                        <td>  ${resultsim[i].baru_a}  </td> 
+                        <td>  ${resultsim[i].baru_c}  </td> 
+                        <td>  ${resultsim[i].baru_c1}  </td> 
+                        <td>  ${resultsim[i].baru_c2}  </td>
+                        <td>  ${resultsim[i].baru_d}  </td> 
+                        <td>  ${resultsim[i].baru_d1}  </td> 
+                        <td>  ${resultsim[i].perpanjangan_a}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_au}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_c}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_c1}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_c2}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_d}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_d1}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_b1}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_b1u}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_b2}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_b2u}  </td>  
+                        <td>  ${resultsim[i].peningkatan_au}  </td>  
+                        <td>  ${resultsim[i].peningkatan_b1}  </td>  
+                        <td>  ${resultsim[i].peningkatan_b1u}  </td>  
+                        <td>  ${resultsim[i].peningkatan_b2}  </td>  
+                        <td>  ${resultsim[i].peningkatan_b2u}  </td>  
+                        <td>  ${resultsim[i].total}  </td>  
                         </tr>`
                  }
                  $('#tbody-simDay').html(table);
+                 $('#totalbaruaDay').text(result.baru_a)
+                 $('#totalbarucDay').text(result.baru_c)
+                 $('#totalbaruc1Day').text(result.baru_c1)
+                 $('#totalbaruc2Day').text(result.baru_c2)
+                 $('#totalbarudDay').text(result.baru_d)
+                 $('#totalbarud1Day').text(result.baru_d1)
+                 $('#totalperpanjanganaDay').text(result.perpanjangan_a)
+                 $('#totalperpanjanganauDay').text(result.perpanjangan_au)
+                 $('#totalperpanjangancDay').text(result.perpanjangan_c)
+                 $('#totalperpanjanganc1Day').text(result.perpanjangan_c1)
+                 $('#totalperpanjanganc2Day').text(result.perpanjangan_c2)
+                 $('#totalperpanjangandDay').text(result.perpanjangan_d)
+                 $('#totalperpanjangand1Day').text(result.perpanjangan_d1)
+                 $('#totalperpanjanganb1Day').text(result.perpanjangan_b1)
+                 $('#totalperpanjanganb1uDay').text(result.perpanjangan_b1u)
+                 $('#totalperpanjanganb2Day').text(result.perpanjangan_b2)
+                 $('#totalperpanjanganb2uDay').text(result.perpanjangan_b2u)
+                 $('#totalpeningkatanauDay').text(result.peningkatan_au)
+                 $('#totalpeningkatanb1Day').text(result.peningkatan_b1)
+                 $('#totalpeningkatanb1uDay').text(result.peningkatan_b1u)
+                 $('#totalpeningkatanb2Day').text(result.peningkatan_b2)
+                 $('#totalpeningkatanb2uDay').text(result.peningkatan_b2u)
+                 $('#totalDay').text(result.total)
                  <?php $mobile = detect_mobile();
                     if ($mobile === true) { ?>
 
@@ -1349,39 +1455,64 @@
              success: function(result) {
                  $("#overlay").fadeOut(300);
                  var table = '';
-                 let nf = new Intl.NumberFormat('en-US');
-                 for (let i = 0; i < result.length; i++) {
+                 let resultsim = result.topSim;
+                 for (let i = 0; i < resultsim.length; i++) {
                      let x = parseInt(i)
                      let no = x + 1
                      table += `<tr class="text-center"> 
                      <td>  ${no}  </td> 
-                        <td>  ${result[i].name_polda}  </td> 
-                        <td>  ${result[i].baru_a}  </td> 
-                        <td>  ${result[i].baru_c}  </td> 
-                        <td>  0  </td> 
-                        <td>  0  </td> 
-                        <td>  ${result[i].baru_d}  </td> 
-                        <td>  0  </td> 
-                        <td>  ${result[i].perpanjangan_a}  </td>  
-                        <td>  ${result[i].perpanjangan_au}  </td>  
-                        <td>  ${result[i].perpanjangan_c}  </td>  
-                        <td>  ${result[i].perpanjangan_c1}  </td>  
-                        <td>  ${result[i].perpanjangan_c2}  </td>  
-                        <td>  ${result[i].perpanjangan_d}  </td>  
-                        <td>  ${result[i].perpanjangan_d1}  </td>  
-                        <td>  ${result[i].perpanjangan_b1}  </td>  
-                        <td>  ${result[i].perpanjangan_b1u}  </td>  
-                        <td>  ${result[i].perpanjangan_b2}  </td>  
-                        <td>  ${result[i].perpanjangan_b2u}  </td>  
-                        <td>  ${result[i].peningkatan_au}  </td>  
-                        <td>  ${result[i].peningkatan_b1}  </td>  
-                        <td>  ${result[i].peningkatan_b1u}  </td>  
-                        <td>  ${result[i].peningkatan_b2}  </td>  
-                        <td>  ${result[i].peningkatan_b2u}  </td>  
-                        <td>  ${result[i].total}  </td>  
+                        <td>  ${resultsim[i].name_polda}  </td> 
+                        <td>  ${resultsim[i].baru_a}  </td> 
+                        <td>  ${resultsim[i].baru_c}  </td> 
+                        <td>  ${resultsim[i].baru_c1}  </td> 
+                        <td>  ${resultsim[i].baru_c2}  </td>
+                        <td>  ${resultsim[i].baru_d}  </td> 
+                        <td>  ${resultsim[i].baru_d1}  </td> 
+                        <td>  ${resultsim[i].perpanjangan_a}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_au}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_c}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_c1}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_c2}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_d}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_d1}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_b1}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_b1u}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_b2}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_b2u}  </td>  
+                        <td>  ${resultsim[i].peningkatan_au}  </td>  
+                        <td>  ${resultsim[i].peningkatan_b1}  </td>  
+                        <td>  ${resultsim[i].peningkatan_b1u}  </td>  
+                        <td>  ${resultsim[i].peningkatan_b2}  </td>  
+                        <td>  ${resultsim[i].peningkatan_b2u}  </td>  
+                        <td>  ${resultsim[i].total}  </td>  
                         </tr>`
                  }
                  $('#tbody-simMonth').html(table);
+                 $('#totalbaruaMonth').text(result.baru_a)
+                 $('#totalbarucMonth').text(result.baru_c)
+                 $('#totalbaruc1Month').text(result.baru_c1)
+                 $('#totalbaruc2Month').text(result.baru_c2)
+                 $('#totalbarudMonth').text(result.baru_d)
+                 $('#totalbarud1Month').text(result.baru_d1)
+                 $('#totalperpanjanganaMonth').text(result.perpanjangan_a)
+                 $('#totalperpanjanganauMonth').text(result.perpanjangan_au)
+                 $('#totalperpanjangancMonth').text(result.perpanjangan_c)
+                 $('#totalperpanjanganc1Month').text(result.perpanjangan_c1)
+                 $('#totalperpanjanganc2Month').text(result.perpanjangan_c2)
+                 $('#totalperpanjangandMonth').text(result.perpanjangan_d)
+                 $('#totalperpanjangand1Month').text(result.perpanjangan_d1)
+                 $('#totalperpanjanganb1Month').text(result.perpanjangan_b1)
+                 $('#totalperpanjanganb1uMonth').text(result.perpanjangan_b1u)
+                 $('#totalperpanjanganb2Month').text(result.perpanjangan_b2)
+                 $('#totalperpanjanganb2uMonth').text(result.perpanjangan_b2u)
+                 $('#totalpeningkatanauMonth').text(result.peningkatan_au)
+                 $('#totalpeningkatanb1Month').text(result.peningkatan_b1)
+                 $('#totalpeningkatanb1uMonth').text(result.peningkatan_b1u)
+                 $('#totalpeningkatanb2Month').text(result.peningkatan_b2)
+                 $('#totalpeningkatanb2uMonth').text(result.peningkatan_b2u)
+                 $('#totalMonth').text(result.total)
+
+
                  <?php $mobile = detect_mobile();
                     if ($mobile === true) { ?>
 
@@ -1416,39 +1547,62 @@
              success: function(result) {
                  $("#overlay").fadeOut(300);
                  var table = '';
-                 let nf = new Intl.NumberFormat('en-US');
-                 for (let i = 0; i < result.length; i++) {
+                 let resultsim = result.topSim;
+                 for (let i = 0; i < resultsim.length; i++) {
                      let x = parseInt(i)
                      let no = x + 1
                      table += `<tr class="text-center"> 
-                        <td>  ${no}  </td> 
-                        <td>  ${result[i].name_polda}  </td> 
-                        <td>  ${result[i].baru_a}  </td> 
-                        <td>  ${result[i].baru_c}  </td> 
-                        <td>  0  </td> 
-                        <td>  0  </td> 
-                        <td>  ${result[i].baru_d}  </td> 
-                        <td>  0  </td> 
-                        <td>  ${result[i].perpanjangan_a}  </td>  
-                        <td>  ${result[i].perpanjangan_au}  </td>  
-                        <td>  ${result[i].perpanjangan_c}  </td>  
-                        <td>  ${result[i].perpanjangan_c1}  </td>  
-                        <td>  ${result[i].perpanjangan_c2}  </td>  
-                        <td>  ${result[i].perpanjangan_d}  </td>  
-                        <td>  ${result[i].perpanjangan_d1}  </td>  
-                        <td>  ${result[i].perpanjangan_b1}  </td>  
-                        <td>  ${result[i].perpanjangan_b1u}  </td>  
-                        <td>  ${result[i].perpanjangan_b2}  </td>  
-                        <td>  ${result[i].perpanjangan_b2u}  </td>  
-                        <td>  ${result[i].peningkatan_au}  </td>  
-                        <td>  ${result[i].peningkatan_b1}  </td>  
-                        <td>  ${result[i].peningkatan_b1u}  </td>  
-                        <td>  ${result[i].peningkatan_b2}  </td>  
-                        <td>  ${result[i].peningkatan_b2u}  </td>  
-                        <td>  ${result[i].total}  </td>  
+                     <td>  ${no}  </td> 
+                        <td>  ${resultsim[i].name_polda}  </td> 
+                        <td>  ${resultsim[i].baru_a}  </td> 
+                        <td>  ${resultsim[i].baru_c}  </td> 
+                        <td>  ${resultsim[i].baru_c1}  </td> 
+                        <td>  ${resultsim[i].baru_c2}  </td>
+                        <td>  ${resultsim[i].baru_d}  </td> 
+                        <td>  ${resultsim[i].baru_d1}  </td> 
+                        <td>  ${resultsim[i].perpanjangan_a}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_au}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_c}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_c1}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_c2}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_d}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_d1}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_b1}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_b1u}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_b2}  </td>  
+                        <td>  ${resultsim[i].perpanjangan_b2u}  </td>  
+                        <td>  ${resultsim[i].peningkatan_au}  </td>  
+                        <td>  ${resultsim[i].peningkatan_b1}  </td>  
+                        <td>  ${resultsim[i].peningkatan_b1u}  </td>  
+                        <td>  ${resultsim[i].peningkatan_b2}  </td>  
+                        <td>  ${resultsim[i].peningkatan_b2u}  </td>  
+                        <td>  ${resultsim[i].total}  </td>  
                         </tr>`
                  }
                  $('#tbody-simYear').html(table);
+                 $('#totalbaruaYear').text(result.baru_a)
+                 $('#totalbarucYear').text(result.baru_c)
+                 $('#totalbaruc1Year').text(result.baru_c1)
+                 $('#totalbaruc2Year').text(result.baru_c2)
+                 $('#totalbarudYear').text(result.baru_d)
+                 $('#totalbarud1Year').text(result.baru_d1)
+                 $('#totalperpanjanganaYear').text(result.perpanjangan_a)
+                 $('#totalperpanjanganauYear').text(result.perpanjangan_au)
+                 $('#totalperpanjangancYear').text(result.perpanjangan_c)
+                 $('#totalperpanjanganc1Year').text(result.perpanjangan_c1)
+                 $('#totalperpanjanganc2Year').text(result.perpanjangan_c2)
+                 $('#totalperpanjangandYear').text(result.perpanjangan_d)
+                 $('#totalperpanjangand1Year').text(result.perpanjangan_d1)
+                 $('#totalperpanjanganb1Year').text(result.perpanjangan_b1)
+                 $('#totalperpanjanganb1uYear').text(result.perpanjangan_b1u)
+                 $('#totalperpanjanganb2Year').text(result.perpanjangan_b2)
+                 $('#totalperpanjanganb2uYear').text(result.perpanjangan_b2u)
+                 $('#totalpeningkatanauYear').text(result.peningkatan_au)
+                 $('#totalpeningkatanb1Year').text(result.peningkatan_b1)
+                 $('#totalpeningkatanb1uYear').text(result.peningkatan_b1u)
+                 $('#totalpeningkatanb2Year').text(result.peningkatan_b2)
+                 $('#totalpeningkatanb2uYear').text(result.peningkatan_b2u)
+                 $('#totalYear').text(result.total)
                  <?php $mobile = detect_mobile();
                     if ($mobile === true) { ?>
 

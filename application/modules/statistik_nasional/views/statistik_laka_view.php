@@ -13,13 +13,13 @@
 
      <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
-             <div class="col-sm-4 col-md-5 align-self-center">
+             <div class="col-sm-3 col-md-4 align-self-center">
                  <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">Kecelakaan <span style="color:#000;">Nasional</span></span> </h2>
              </div>
-             <div class="col-sm-8 col-md-7">
+             <div class="col-sm-9 col-md-8">
                  <div class="row m-2">
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9; width:105%">
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
@@ -31,12 +31,17 @@
                                      </div>
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
-                                             <div class="col-md-12 ms-n3 mt-1">
-                                                 <span class="fw-bold">LR : <span class="text-success" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisDayLR"></span></span>
-                                                 <span class="fw-bold">LB : <span class="text-warning" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisDayLB"></span></span>
-                                                 <span class="fw-bold">MD : <span class="text-danger" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisDayMD"></span></span>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold">MD : <span class="text-danger" style=" padding:5px" id="lakaThisDayMD"></span></span>
+                                             </div>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold">LB : <span class="text-warning" style=" padding:5px" id="lakaThisDayLB"></span></span>
+                                             </div>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold">LR : <span class="text-success" style=" padding:5px" id="lakaThisDayLR"></span></span>
                                              </div>
                                          </div>
+
                                      </div>
                                  </div>
                              </div>
@@ -44,7 +49,7 @@
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9; width:105%">
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
@@ -56,19 +61,24 @@
                                      </div>
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
-                                             <div class="col-md-12 ms-n3 mt-1">
-                                                 <span class="fw-bold">LR : <span class="text-success" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisMonthLR"></span></span>
-                                                 <span class="fw-bold">LB : <span class="text-warning" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisMonthLB"></span></span>
-                                                 <span class="fw-bold">MD : <span class="text-danger" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisMonthMD"></span></span>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold">MD : <span class="text-danger" style=" padding:5px" id="lakaThisMonthMD"></span></span>
+                                             </div>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold">LB : <span class="text-warning" style=" padding:5px" id="lakaThisMonthLB"></span></span>
+                                             </div>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold">LR : <span class="text-success" style=" padding:5px" id="lakaThisMonthLR"></span></span>
                                              </div>
                                          </div>
                                      </div>
                                  </div>
+
                              </div>
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9;  width:105%">
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
@@ -80,13 +90,20 @@
                                      </div>
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
-                                             <div class="col-md-12 ms-n3 mt-1">
-                                                 <span class="fw-bold">LR : <span class="text-success" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisYearLR"></span></span>
-                                                 <span class="fw-bold">LB : <span class="text-warning" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisYearLB"></span></span>
-                                                 <span class="fw-bold">MD : <span class="text-danger" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisYearMD"></span></span>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold">MD : <span class="text-danger" style=" padding:5px" id="lakaThisYearMD"></span></span>
+                                             </div>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold">LB : <span class="text-warning" style=" padding:5px" id="lakaThisYearLB"></span></span>
+
+                                             </div>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold">LR : <span class="text-success" style=" padding:5px" id="lakaThisYearLR"></span></span>
+
                                              </div>
                                          </div>
                                      </div>
+
                                  </div>
                              </div>
                          </div>
@@ -113,30 +130,7 @@
                          <span>Korban Luka Berat : 10</span><br>
                          <span>Korban Luka Ringan : 10</span><br>
                          <span>Korban Meninggal Dunia : 10</span><br>
-                         <!-- <span>D : 10</span><br> -->
                      </div>
-                     <!-- <div class="col-md-3">
-                         <span>Perpanjangan</span> <br>
-                         <span>A : 10</span> <br>
-                         <span>AU : 10</span> <br>
-                         <span>C : 10</span><br>
-                         <span>C1 : 10</span><br>
-                         <span>C2 : 10</span><br>
-                         <span>D : 10</span><br>
-                         <span>D1 : 10</span><br>
-                         <span>B1 : 10</span><br>
-                         <span>B1U : 10</span><br>
-                         <span>B2 : 10</span><br>
-                         <span>B2U : 10</span><br>
-                     </div>
-                     <div class="col-md-3">
-                         <span>Peningkatan</span> <br>
-                         <span>AU : 10</span> <br>
-                         <span>B1 : 10</span><br>
-                         <span>B1U : 10</span><br>
-                         <span>B2 : 10</span><br>
-                         <span>B2U : 10</span><br>
-                     </div> -->
                  </div>
              </div>
 
@@ -195,6 +189,20 @@
                  <div class="tab-content" id="pills-tabContent">
                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                          <div class="row">
+                             <div class="col-md-9">
+                                 <!-- <label for="waktu" class="form-label text-uppercase">Waktu</label> -->
+                                 <div class="row">
+                                     <div class="col-md-4">
+                                         <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
+                                     </div>
+                                     <div class="col-md-4">
+                                         <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
+                                     </div>
+                                     <div class="col-md-2">
+                                         <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                     </div>
+                                 </div>
+                             </div>
                              <div class="col-md-12 mt-3">
                                  <h5>Ranking Polda Data Kecelakaan Tertinggi <?= date('d M Y'); ?></h5>
                                  <div class="card shadow-sm">
@@ -219,6 +227,20 @@
                      </div>
                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                          <div class="row">
+                             <div class="col-md-9">
+                                 <!-- <label for="waktu" class="form-label text-uppercase">Waktu</label> -->
+                                 <div class="row">
+                                     <div class="col-md-4">
+                                         <input class="form-control form-control-lg" type="date" name="" id="">
+                                     </div>
+                                     <div class="col-md-4">
+                                         <input class="form-control form-control-lg" type="date" name="" id="">
+                                     </div>
+                                     <div class="col-md-2">
+                                         <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                     </div>
+                                 </div>
+                             </div>
                              <div class="col-md-12 mt-3">
                                  <h5>Ranking Polda Data Kecelakaan Tertinggi <?= date('M Y'); ?></h5>
                                  <div class="card shadow-sm">
@@ -243,6 +265,20 @@
                      </div>
                      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                          <div class="row">
+                             <div class="col-md-9">
+                                 <!-- <label for="waktu" class="form-label text-uppercase">Waktu</label> -->
+                                 <div class="row">
+                                     <div class="col-md-4">
+                                         <input class="form-control form-control-lg" type="date" name="" id="">
+                                     </div>
+                                     <div class="col-md-4">
+                                         <input class="form-control form-control-lg" type="date" name="" id="">
+                                     </div>
+                                     <div class="col-md-2">
+                                         <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                     </div>
+                                 </div>
+                             </div>
                              <div class="col-md-12 mt-3">
                                  <h5>Ranking Polda Data Kecelakaan Tertinggi <?= date('Y'); ?></h5>
                                  <div class="card shadow-sm">

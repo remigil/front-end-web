@@ -791,9 +791,84 @@ class Statistik_executive extends MY_Controller
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
+        $baru_a = 0;
+        $baru_c = 0;
+        $baru_c1 = 0;
+        $baru_c2 = 0;
+        $baru_d = 0;
+        $baru_d1 = 0;
+        $perpanjangan_a = 0;
+        $perpanjangan_au = 0;
+        $perpanjangan_c = 0;
+        $perpanjangan_c1 = 0;
+        $perpanjangan_c2 = 0;
+        $perpanjangan_d = 0;
+        $perpanjangan_d1 = 0;
+        $perpanjangan_b1 = 0;
+        $perpanjangan_b1u = 0;
+        $perpanjangan_b2 = 0;
+        $perpanjangan_b2u = 0;
+        $peningkatan_au = 0;
+        $peningkatan_b1 = 0;
+        $peningkatan_b1u = 0;
+        $peningkatan_b2 = 0;
+        $peningkatan_b2u = 0;
+        $total = 0;
 
-        $data['topSim'] = $simTopPolda['data']['rows'];
-        echo json_encode($data['topSim']);
+        foreach ($simTopPolda['data']['rows'] as $key) {
+            $baru_a += $key['baru_a'];
+            $baru_c += $key['baru_c'];
+            $baru_c1 += $key['baru_c1'];
+            $baru_c2 += $key['baru_c2'];
+            $baru_d += $key['baru_d'];
+            $baru_d1 += $key['baru_d1'];
+            $perpanjangan_a += $key['perpanjangan_a'];
+            $perpanjangan_au += $key['perpanjangan_au'];
+            $perpanjangan_c += $key['perpanjangan_c'];
+            $perpanjangan_c1 += $key['perpanjangan_c1'];
+            $perpanjangan_c2 += $key['perpanjangan_c2'];
+            $perpanjangan_d += $key['perpanjangan_d'];
+            $perpanjangan_d1 += $key['perpanjangan_d1'];
+            $perpanjangan_b1 += $key['perpanjangan_b1'];
+            $perpanjangan_b1u += $key['perpanjangan_b1u'];
+            $perpanjangan_b2 += $key['perpanjangan_b2'];
+            $perpanjangan_b2u += $key['perpanjangan_b2u'];
+            $peningkatan_au += $key['peningkatan_au'];
+            $peningkatan_b1 += $key['peningkatan_b1'];
+            $peningkatan_b1u += $key['peningkatan_b1u'];
+            $peningkatan_b2 += $key['peningkatan_b2'];
+            $peningkatan_b2u += $key['peningkatan_b2u'];
+            $total += $key['total'];
+        }
+
+
+        $data = [
+            'topSim' => $simTopPolda['data']['rows'],
+            'baru_a' => number_format($baru_a),
+            'baru_c' => number_format($baru_c),
+            'baru_c1' => number_format($baru_c1),
+            'baru_c2' => number_format($baru_c2),
+            'baru_d' => number_format($baru_d),
+            'baru_d1' => number_format($baru_d1),
+            'perpanjangan_a' => number_format($perpanjangan_a),
+            'perpanjangan_au' => number_format($perpanjangan_au),
+            'perpanjangan_c' => number_format($perpanjangan_c),
+            'perpanjangan_c1' => number_format($perpanjangan_c1),
+            'perpanjangan_c2' => number_format($perpanjangan_c2),
+            'perpanjangan_d' => number_format($perpanjangan_d),
+            'perpanjangan_d1' => number_format($perpanjangan_d1),
+            'perpanjangan_b1' => number_format($perpanjangan_b1),
+            'perpanjangan_b1u' => number_format($perpanjangan_b1u),
+            'perpanjangan_b2' => number_format($perpanjangan_b2),
+            'perpanjangan_b2u' => number_format($perpanjangan_b2u),
+            'peningkatan_au' => number_format($peningkatan_au),
+            'peningkatan_b1' => number_format($peningkatan_b1),
+            'peningkatan_b1u' => number_format($peningkatan_b1u),
+            'peningkatan_b2' => number_format($peningkatan_b2),
+            'peningkatan_b2u' => number_format($peningkatan_b2u),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
 
     public function getSimMonth()
@@ -808,9 +883,84 @@ class Statistik_executive extends MY_Controller
             ]
         ]);
 
-        $data['topsim'] = $simTopPolda['data']['rows'];
+        $baru_a = 0;
+        $baru_c = 0;
+        $baru_c1 = 0;
+        $baru_c2 = 0;
+        $baru_d = 0;
+        $baru_d1 = 0;
+        $perpanjangan_a = 0;
+        $perpanjangan_au = 0;
+        $perpanjangan_c = 0;
+        $perpanjangan_c1 = 0;
+        $perpanjangan_c2 = 0;
+        $perpanjangan_d = 0;
+        $perpanjangan_d1 = 0;
+        $perpanjangan_b1 = 0;
+        $perpanjangan_b1u = 0;
+        $perpanjangan_b2 = 0;
+        $perpanjangan_b2u = 0;
+        $peningkatan_au = 0;
+        $peningkatan_b1 = 0;
+        $peningkatan_b1u = 0;
+        $peningkatan_b2 = 0;
+        $peningkatan_b2u = 0;
+        $total = 0;
 
-        echo json_encode($data['topsim']);
+        foreach ($simTopPolda['data']['rows'] as $key) {
+            $baru_a += $key['baru_a'];
+            $baru_c += $key['baru_c'];
+            $baru_c1 += $key['baru_c1'];
+            $baru_c2 += $key['baru_c2'];
+            $baru_d += $key['baru_d'];
+            $baru_d1 += $key['baru_d1'];
+            $perpanjangan_a += $key['perpanjangan_a'];
+            $perpanjangan_au += $key['perpanjangan_au'];
+            $perpanjangan_c += $key['perpanjangan_c'];
+            $perpanjangan_c1 += $key['perpanjangan_c1'];
+            $perpanjangan_c2 += $key['perpanjangan_c2'];
+            $perpanjangan_d += $key['perpanjangan_d'];
+            $perpanjangan_d1 += $key['perpanjangan_d1'];
+            $perpanjangan_b1 += $key['perpanjangan_b1'];
+            $perpanjangan_b1u += $key['perpanjangan_b1u'];
+            $perpanjangan_b2 += $key['perpanjangan_b2'];
+            $perpanjangan_b2u += $key['perpanjangan_b2u'];
+            $peningkatan_au += $key['peningkatan_au'];
+            $peningkatan_b1 += $key['peningkatan_b1'];
+            $peningkatan_b1u += $key['peningkatan_b1u'];
+            $peningkatan_b2 += $key['peningkatan_b2'];
+            $peningkatan_b2u += $key['peningkatan_b2u'];
+            $total += $key['total'];
+        }
+
+
+        $data = [
+            'topSim' => $simTopPolda['data']['rows'],
+            'baru_a' => number_format($baru_a),
+            'baru_c' => number_format($baru_c),
+            'baru_c1' => number_format($baru_c1),
+            'baru_c2' => number_format($baru_c2),
+            'baru_d' => number_format($baru_d),
+            'baru_d1' => number_format($baru_d1),
+            'perpanjangan_a' => number_format($perpanjangan_a),
+            'perpanjangan_au' => number_format($perpanjangan_au),
+            'perpanjangan_c' => number_format($perpanjangan_c),
+            'perpanjangan_c1' => number_format($perpanjangan_c1),
+            'perpanjangan_c2' => number_format($perpanjangan_c2),
+            'perpanjangan_d' => number_format($perpanjangan_d),
+            'perpanjangan_d1' => number_format($perpanjangan_d1),
+            'perpanjangan_b1' => number_format($perpanjangan_b1),
+            'perpanjangan_b1u' => number_format($perpanjangan_b1u),
+            'perpanjangan_b2' => number_format($perpanjangan_b2),
+            'perpanjangan_b2u' => number_format($perpanjangan_b2u),
+            'peningkatan_au' => number_format($peningkatan_au),
+            'peningkatan_b1' => number_format($peningkatan_b1),
+            'peningkatan_b1u' => number_format($peningkatan_b1u),
+            'peningkatan_b2' => number_format($peningkatan_b2),
+            'peningkatan_b2u' => number_format($peningkatan_b2u),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
 
     public function getSimYear()
@@ -825,8 +975,84 @@ class Statistik_executive extends MY_Controller
             ]
         ]);
 
-        $data['topsim'] = $simTopPolda['data']['rows'];
-        echo json_encode($data['topsim']);
+        $baru_a = 0;
+        $baru_c = 0;
+        $baru_c1 = 0;
+        $baru_c2 = 0;
+        $baru_d = 0;
+        $baru_d1 = 0;
+        $perpanjangan_a = 0;
+        $perpanjangan_au = 0;
+        $perpanjangan_c = 0;
+        $perpanjangan_c1 = 0;
+        $perpanjangan_c2 = 0;
+        $perpanjangan_d = 0;
+        $perpanjangan_d1 = 0;
+        $perpanjangan_b1 = 0;
+        $perpanjangan_b1u = 0;
+        $perpanjangan_b2 = 0;
+        $perpanjangan_b2u = 0;
+        $peningkatan_au = 0;
+        $peningkatan_b1 = 0;
+        $peningkatan_b1u = 0;
+        $peningkatan_b2 = 0;
+        $peningkatan_b2u = 0;
+        $total = 0;
+
+        foreach ($simTopPolda['data']['rows'] as $key) {
+            $baru_a += $key['baru_a'];
+            $baru_c += $key['baru_c'];
+            $baru_c1 += $key['baru_c1'];
+            $baru_c2 += $key['baru_c2'];
+            $baru_d += $key['baru_d'];
+            $baru_d1 += $key['baru_d1'];
+            $perpanjangan_a += $key['perpanjangan_a'];
+            $perpanjangan_au += $key['perpanjangan_au'];
+            $perpanjangan_c += $key['perpanjangan_c'];
+            $perpanjangan_c1 += $key['perpanjangan_c1'];
+            $perpanjangan_c2 += $key['perpanjangan_c2'];
+            $perpanjangan_d += $key['perpanjangan_d'];
+            $perpanjangan_d1 += $key['perpanjangan_d1'];
+            $perpanjangan_b1 += $key['perpanjangan_b1'];
+            $perpanjangan_b1u += $key['perpanjangan_b1u'];
+            $perpanjangan_b2 += $key['perpanjangan_b2'];
+            $perpanjangan_b2u += $key['perpanjangan_b2u'];
+            $peningkatan_au += $key['peningkatan_au'];
+            $peningkatan_b1 += $key['peningkatan_b1'];
+            $peningkatan_b1u += $key['peningkatan_b1u'];
+            $peningkatan_b2 += $key['peningkatan_b2'];
+            $peningkatan_b2u += $key['peningkatan_b2u'];
+            $total += $key['total'];
+        }
+
+
+        $data = [
+            'topSim' => $simTopPolda['data']['rows'],
+            'baru_a' => number_format($baru_a),
+            'baru_c' => number_format($baru_c),
+            'baru_c1' => number_format($baru_c1),
+            'baru_c2' => number_format($baru_c2),
+            'baru_d' => number_format($baru_d),
+            'baru_d1' => number_format($baru_d1),
+            'perpanjangan_a' => number_format($perpanjangan_a),
+            'perpanjangan_au' => number_format($perpanjangan_au),
+            'perpanjangan_c' => number_format($perpanjangan_c),
+            'perpanjangan_c1' => number_format($perpanjangan_c1),
+            'perpanjangan_c2' => number_format($perpanjangan_c2),
+            'perpanjangan_d' => number_format($perpanjangan_d),
+            'perpanjangan_d1' => number_format($perpanjangan_d1),
+            'perpanjangan_b1' => number_format($perpanjangan_b1),
+            'perpanjangan_b1u' => number_format($perpanjangan_b1u),
+            'perpanjangan_b2' => number_format($perpanjangan_b2),
+            'perpanjangan_b2u' => number_format($perpanjangan_b2u),
+            'peningkatan_au' => number_format($peningkatan_au),
+            'peningkatan_b1' => number_format($peningkatan_b1),
+            'peningkatan_b1u' => number_format($peningkatan_b1u),
+            'peningkatan_b2' => number_format($peningkatan_b2),
+            'peningkatan_b2u' => number_format($peningkatan_b2u),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
 
     public function getLineSim()
@@ -930,8 +1156,60 @@ class Statistik_executive extends MY_Controller
             ]
         ]);
 
-        $data['topLaka'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topLaka']);
+        $bbn_1_r2 = 0;
+        $bbn_1_r4 = 0;
+        $perubahan_r2 = 0;
+        $perubahan_r4 = 0;
+        $perpanjangan_r2 = 0;
+        $perpanjangan_r4 = 0;
+        $mutasi_masuk_r2 = 0;
+        $mutasi_keluar_r2 = 0;
+        $mutasi_masuk_r4 = 0;
+        $mutasi_keluar_r4 = 0;
+        $pengesahan_r2 = 0;
+        $pengesahan_r4 = 0;
+        $samolnas_r2 = 0;
+        $samolnas_r4 = 0;
+        $total = 0;
+
+        foreach ($lakaTopPolda['data']['rows'] as $key) {
+            $bbn_1_r2 += $key['bbn_1_r2'];
+            $bbn_1_r4 += $key['bbn_1_r4'];
+            $perubahan_r2 += $key['perubahan_r2'];
+            $perubahan_r4 += $key['perubahan_r4'];
+            $perpanjangan_r2 += $key['perpanjangan_r2'];
+            $perpanjangan_r4 += $key['perpanjangan_r4'];
+            $mutasi_masuk_r2 += $key['mutasi_masuk_r2'];
+            $mutasi_masuk_r4 += $key['mutasi_masuk_r4'];
+            $mutasi_keluar_r2 += $key['mutasi_keluar_r2'];
+            $mutasi_keluar_r4 += $key['mutasi_keluar_r4'];
+            $pengesahan_r2 += $key['pengesahan_r2'];
+            $pengesahan_r4 += $key['pengesahan_r4'];
+            $samolnas_r2 += $key['samolnas_r2'];
+            $samolnas_r4 += $key['samolnas_r4'];
+            $total += $key['total'];
+        }
+
+
+        $data = [
+            'topStnk' => $lakaTopPolda['data']['rows'],
+            'bbn_1_r2' => number_format($bbn_1_r2),
+            'bbn_1_r4' => number_format($bbn_1_r4),
+            'perubahan_r2' => number_format($perubahan_r2),
+            'perubahan_r4' => number_format($perubahan_r4),
+            'perpanjangan_r2' => number_format($perpanjangan_r2),
+            'perpanjangan_r4' => number_format($perpanjangan_r4),
+            'mutasi_masuk_r2' => number_format($mutasi_masuk_r2),
+            'mutasi_masuk_r4' => number_format($mutasi_masuk_r4),
+            'mutasi_keluar_r2' => number_format($mutasi_keluar_r2),
+            'mutasi_keluar_r4' => number_format($mutasi_keluar_r4),
+            'pengesahan_r2' => number_format($pengesahan_r2),
+            'pengesahan_r4' => number_format($pengesahan_r4),
+            'samolnas_r2' => number_format($samolnas_r2),
+            'samolnas_r4' => number_format($samolnas_r4),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
 
     public function getStnkMonth()
@@ -946,8 +1224,61 @@ class Statistik_executive extends MY_Controller
             ]
         ]);
 
-        $data['topLaka'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topLaka']);
+
+        $bbn_1_r2 = 0;
+        $bbn_1_r4 = 0;
+        $perubahan_r2 = 0;
+        $perubahan_r4 = 0;
+        $perpanjangan_r2 = 0;
+        $perpanjangan_r4 = 0;
+        $mutasi_masuk_r2 = 0;
+        $mutasi_keluar_r2 = 0;
+        $mutasi_masuk_r4 = 0;
+        $mutasi_keluar_r4 = 0;
+        $pengesahan_r2 = 0;
+        $pengesahan_r4 = 0;
+        $samolnas_r2 = 0;
+        $samolnas_r4 = 0;
+        $total = 0;
+
+        foreach ($lakaTopPolda['data']['rows'] as $key) {
+            $bbn_1_r2 += $key['bbn_1_r2'];
+            $bbn_1_r4 += $key['bbn_1_r4'];
+            $perubahan_r2 += $key['perubahan_r2'];
+            $perubahan_r4 += $key['perubahan_r4'];
+            $perpanjangan_r2 += $key['perpanjangan_r2'];
+            $perpanjangan_r4 += $key['perpanjangan_r4'];
+            $mutasi_masuk_r2 += $key['mutasi_masuk_r2'];
+            $mutasi_masuk_r4 += $key['mutasi_masuk_r4'];
+            $mutasi_keluar_r2 += $key['mutasi_keluar_r2'];
+            $mutasi_keluar_r4 += $key['mutasi_keluar_r4'];
+            $pengesahan_r2 += $key['pengesahan_r2'];
+            $pengesahan_r4 += $key['pengesahan_r4'];
+            $samolnas_r2 += $key['samolnas_r2'];
+            $samolnas_r4 += $key['samolnas_r4'];
+            $total += $key['total'];
+        }
+
+
+        $data = [
+            'topStnk' => $lakaTopPolda['data']['rows'],
+            'bbn_1_r2' => number_format($bbn_1_r2),
+            'bbn_1_r4' => number_format($bbn_1_r4),
+            'perubahan_r2' => number_format($perubahan_r2),
+            'perubahan_r4' => number_format($perubahan_r4),
+            'perpanjangan_r2' => number_format($perpanjangan_r2),
+            'perpanjangan_r4' => number_format($perpanjangan_r4),
+            'mutasi_masuk_r2' => number_format($mutasi_masuk_r2),
+            'mutasi_masuk_r4' => number_format($mutasi_masuk_r4),
+            'mutasi_keluar_r2' => number_format($mutasi_keluar_r2),
+            'mutasi_keluar_r4' => number_format($mutasi_keluar_r4),
+            'pengesahan_r2' => number_format($pengesahan_r2),
+            'pengesahan_r4' => number_format($pengesahan_r4),
+            'samolnas_r2' => number_format($samolnas_r2),
+            'samolnas_r4' => number_format($samolnas_r4),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
 
     public function getStnkYear()
@@ -962,8 +1293,61 @@ class Statistik_executive extends MY_Controller
             ]
         ]);
 
-        $data['topLaka'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topLaka']);
+
+        $bbn_1_r2 = 0;
+        $bbn_1_r4 = 0;
+        $perubahan_r2 = 0;
+        $perubahan_r4 = 0;
+        $perpanjangan_r2 = 0;
+        $perpanjangan_r4 = 0;
+        $mutasi_masuk_r2 = 0;
+        $mutasi_keluar_r2 = 0;
+        $mutasi_masuk_r4 = 0;
+        $mutasi_keluar_r4 = 0;
+        $pengesahan_r2 = 0;
+        $pengesahan_r4 = 0;
+        $samolnas_r2 = 0;
+        $samolnas_r4 = 0;
+        $total = 0;
+
+        foreach ($lakaTopPolda['data']['rows'] as $key) {
+            $bbn_1_r2 += $key['bbn_1_r2'];
+            $bbn_1_r4 += $key['bbn_1_r4'];
+            $perubahan_r2 += $key['perubahan_r2'];
+            $perubahan_r4 += $key['perubahan_r4'];
+            $perpanjangan_r2 += $key['perpanjangan_r2'];
+            $perpanjangan_r4 += $key['perpanjangan_r4'];
+            $mutasi_masuk_r2 += $key['mutasi_masuk_r2'];
+            $mutasi_masuk_r4 += $key['mutasi_masuk_r4'];
+            $mutasi_keluar_r2 += $key['mutasi_keluar_r2'];
+            $mutasi_keluar_r4 += $key['mutasi_keluar_r4'];
+            $pengesahan_r2 += $key['pengesahan_r2'];
+            $pengesahan_r4 += $key['pengesahan_r4'];
+            $samolnas_r2 += $key['samolnas_r2'];
+            $samolnas_r4 += $key['samolnas_r4'];
+            $total += $key['total'];
+        }
+
+
+        $data = [
+            'topStnk' => $lakaTopPolda['data']['rows'],
+            'bbn_1_r2' => number_format($bbn_1_r2),
+            'bbn_1_r4' => number_format($bbn_1_r4),
+            'perubahan_r2' => number_format($perubahan_r2),
+            'perubahan_r4' => number_format($perubahan_r4),
+            'perpanjangan_r2' => number_format($perpanjangan_r2),
+            'perpanjangan_r4' => number_format($perpanjangan_r4),
+            'mutasi_masuk_r2' => number_format($mutasi_masuk_r2),
+            'mutasi_masuk_r4' => number_format($mutasi_masuk_r4),
+            'mutasi_keluar_r2' => number_format($mutasi_keluar_r2),
+            'mutasi_keluar_r4' => number_format($mutasi_keluar_r4),
+            'pengesahan_r2' => number_format($pengesahan_r2),
+            'pengesahan_r4' => number_format($pengesahan_r4),
+            'samolnas_r2' => number_format($samolnas_r2),
+            'samolnas_r4' => number_format($samolnas_r4),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
 
     // END STNK
@@ -1539,8 +1923,33 @@ class Statistik_executive extends MY_Controller
             ]
         ]);
 
-        $data['topRanmor'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topRanmor']);
+        $mobil_penumpang = 0;
+        $mobil_bus = 0;
+        $mobil_barang = 0;
+        $sepeda_motor = 0;
+        $ransus = 0;
+        $total = 0;
+
+        foreach ($lakaTopPolda['data']['rows'] as $key) {
+            $mobil_penumpang += $key['mobil_penumpang'];
+            $mobil_bus += $key['mobil_bus'];
+            $mobil_barang += $key['mobil_barang'];
+            $sepeda_motor += $key['sepeda_motor'];
+            $ransus += $key['ransus'];
+            $total += $key['total'];
+        }
+
+
+        $data = [
+            'topRanmor' => $lakaTopPolda['data']['rows'],
+            'mobil_penumpang' => number_format($mobil_penumpang),
+            'mobil_bus' => number_format($mobil_bus),
+            'mobil_barang' => number_format($mobil_barang),
+            'sepeda_motor' => number_format($sepeda_motor),
+            'ransus' => number_format($ransus),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
     public function getRanmorMonth()
     {
@@ -1553,9 +1962,33 @@ class Statistik_executive extends MY_Controller
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
+        $mobil_penumpang = 0;
+        $mobil_bus = 0;
+        $mobil_barang = 0;
+        $sepeda_motor = 0;
+        $ransus = 0;
+        $total = 0;
 
-        $data['topRanmor'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topRanmor']);
+        foreach ($lakaTopPolda['data']['rows'] as $key) {
+            $mobil_penumpang += $key['mobil_penumpang'];
+            $mobil_bus += $key['mobil_bus'];
+            $mobil_barang += $key['mobil_barang'];
+            $sepeda_motor += $key['sepeda_motor'];
+            $ransus += $key['ransus'];
+            $total += $key['total'];
+        }
+
+
+        $data = [
+            'topRanmor' => $lakaTopPolda['data']['rows'],
+            'mobil_penumpang' => number_format($mobil_penumpang),
+            'mobil_bus' => number_format($mobil_bus),
+            'mobil_barang' => number_format($mobil_barang),
+            'sepeda_motor' => number_format($sepeda_motor),
+            'ransus' => number_format($ransus),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
     public function getRanmorYear()
     {
@@ -1568,9 +2001,33 @@ class Statistik_executive extends MY_Controller
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
+        $mobil_penumpang = 0;
+        $mobil_bus = 0;
+        $mobil_barang = 0;
+        $sepeda_motor = 0;
+        $ransus = 0;
+        $total = 0;
 
-        $data['topRanmor'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topRanmor']);
+        foreach ($lakaTopPolda['data']['rows'] as $key) {
+            $mobil_penumpang += $key['mobil_penumpang'];
+            $mobil_bus += $key['mobil_bus'];
+            $mobil_barang += $key['mobil_barang'];
+            $sepeda_motor += $key['sepeda_motor'];
+            $ransus += $key['ransus'];
+            $total += $key['total'];
+        }
+
+
+        $data = [
+            'topRanmor' => $lakaTopPolda['data']['rows'],
+            'mobil_penumpang' => number_format($mobil_penumpang),
+            'mobil_bus' => number_format($mobil_bus),
+            'mobil_barang' => number_format($mobil_barang),
+            'sepeda_motor' => number_format($sepeda_motor),
+            'ransus' => number_format($ransus),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
     public function getSimDate()
     {
@@ -1610,7 +2067,10 @@ class Statistik_executive extends MY_Controller
 
         $ybaru_a = 0;
         $ybaru_c = 0;
+        $ybaru_c1 = 0;
+        $ybaru_c2 = 0;
         $ybaru_d = 0;
+        $ybaru_d1 = 0;
         $yperpanjangan_a = 0;
         $yperpanjangan_au = 0;
         $yperpanjangan_c = 0;
@@ -1629,9 +2089,18 @@ class Statistik_executive extends MY_Controller
         $ypeningkatan_b2u = 0;
 
         foreach ($thisYear['data'] as $key) {
+            // $ybaru_a += $key['baru_a'];
+            // $ybaru_c += $key['baru_c'];
+            // $ybaru_c1 += 0;
+            // $ybaru_c2 += 0;
+            // $ybaru_d += $key['baru_d'];
+            // $ybaru_d1 += 0;
             $ybaru_a += $key['baru_a'];
             $ybaru_c += $key['baru_c'];
+            $ybaru_c1 += $key['baru_c1'];
+            $ybaru_c2 += $key['baru_c2'];
             $ybaru_d += $key['baru_d'];
+            $ybaru_d1 += $key['baru_d1'];
             $yperpanjangan_a += $key['perpanjangan_a'];
             $yperpanjangan_au += $key['perpanjangan_au'];
             $yperpanjangan_c += $key['perpanjangan_c'];
@@ -1653,7 +2122,10 @@ class Statistik_executive extends MY_Controller
         $data['thisYear'] = [
             'baru_a' => $ybaru_a,
             'baru_c' => $ybaru_c,
+            'baru_c1' => $ybaru_c1,
+            'baru_c2' => $ybaru_c2,
             'baru_d' => $ybaru_d,
+            'baru_d1' => $ybaru_d1,
             'perpanjangan_a' => $yperpanjangan_a,
             'perpanjangan_au' => $yperpanjangan_au,
             'perpanjangan_c' => $yperpanjangan_c,
@@ -1675,7 +2147,16 @@ class Statistik_executive extends MY_Controller
 
         $dataDay = array_values($thisDay['data'][0]);
         array_pop($dataDay);
+        array_pop($dataDay);
+        array_pop($dataDay);
+        array_pop($dataDay);
+        array_pop($dataDay);
+        array_pop($dataDay);
         $dataMonth = array_values($thisMonth['data'][0]);
+        array_pop($dataMonth);
+        array_pop($dataMonth);
+        array_pop($dataMonth);
+        array_pop($dataMonth);
         array_pop($dataMonth);
         $dataYear = array_values($data['thisYear']);
         array_pop($dataYear);
@@ -1869,6 +2350,122 @@ class Statistik_executive extends MY_Controller
         ];
 
         echo json_encode($data['ditregidentDate']);
+    }
+    public function getStnkDate()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $firstDayMonth = $this->input->post('firstDayMonth');
+        $lastDayMonth = $this->input->post('lastDayMonth');
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url_thisDay = 'stnk/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'stnk/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'stnk/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        $thisDay = guzzle_request('GET', $url_thisDay, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisMonth = guzzle_request('GET', $url_thisMonth, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisYear = guzzle_request('GET', $url_thisYear, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $totalDay = 0;
+        $totalMonth = 0;
+        $totalYear = 0;
+
+        $ybbn_1_r2 = 0;
+        $ybbn_1_r4 = 0;
+        $yperubahan_r2 = 0;
+        $yperubahan_r4 = 0;
+        $yperpanjangan_r2 = 0;
+        $yperpanjangan_r4 = 0;
+        $ymutasi_keluar_r2 = 0;
+        $ymutasi_keluar_r4 = 0;
+        $ymutasi_masuk_r2 = 0;
+        $ymutasi_masuk_r4 = 0;
+        $ypengesahan_r2 = 0;
+        $ypengesahan_r4 = 0;
+        $ysamolnas_r2 = 0;
+        $ysamolnas_r4 = 0;
+        foreach ($thisYear['data'] as $key) {
+            $ybbn_1_r2 += $key['bbn_1_r2'];
+            $ybbn_1_r4 += $key['bbn_1_r4'];
+            $yperubahan_r2 += $key['perubahan_r2'];
+            $yperubahan_r4 += $key['perubahan_r4'];
+            $yperpanjangan_r2 += $key['perpanjangan_r2'];
+            $yperpanjangan_r4 += $key['perpanjangan_r4'];
+            $ymutasi_keluar_r2 += $key['mutasi_keluar_r2'];
+            $ymutasi_keluar_r4 += $key['mutasi_keluar_r4'];
+            $ymutasi_masuk_r2 += $key['mutasi_masuk_r2'];
+            $ymutasi_masuk_r4 += $key['mutasi_masuk_r4'];
+            $ypengesahan_r2 += $key['pengesahan_r2'];
+            $ypengesahan_r4 += $key['pengesahan_r4'];
+            $ysamolnas_r2 += $key['samolnas_r2'];
+            $ysamolnas_r4 += $key['samolnas_r4'];
+        }
+
+        $data['thisYear'] = [
+            'bbn_1_r2' => $ybbn_1_r2,
+            'bbn_1_r4' => $ybbn_1_r4,
+            'perubahan_r2' => $yperubahan_r2,
+            'perubahan_r4' => $yperubahan_r4,
+            'perpanjangan_r2' => $yperpanjangan_r2,
+            'perpanjangan_r4' => $yperpanjangan_r4,
+            'mutasi_keluar_r2' => $ymutasi_keluar_r2,
+            'mutasi_keluar_r4' => $ymutasi_keluar_r4,
+            'mutasi_masuk_r2' => $ymutasi_masuk_r2,
+            'mutasi_masuk_r4' => $ymutasi_masuk_r4,
+            'pengesahan_r2' => $ypengesahan_r2,
+            'pengesahan_r4' => $ypengesahan_r4,
+            'samolnas_r2' => $ysamolnas_r2,
+            'samolnas_r4' => $ysamolnas_r4,
+            'date' => date("Y", strtotime($firstDay)),
+        ];
+
+        $dataDay = array_values($thisDay['data'][0]);
+        array_pop($dataDay);
+        $dataMonth = array_values($thisMonth['data'][0]);
+        array_pop($dataMonth);
+        $dataYear = array_values($data['thisYear']);
+        array_pop($dataYear);
+
+
+
+
+        for ($i = 0; $i < count($dataDay); $i++) {
+            $totalDay += $dataDay[$i];
+        }
+        for ($i = 0; $i < count($dataMonth); $i++) {
+            $totalMonth += $dataMonth[$i];
+        }
+        for ($i = 0; $i < count($dataYear); $i++) {
+            $totalYear += $dataYear[$i];
+        }
+
+        $data['stnkDate'] = [
+            'thisDay' => $totalDay,
+            'detailsthisDay' => $thisDay['data'][0],
+            'thisMonth' => $totalMonth,
+            'detailsthisMonth' => $thisMonth['data'][0],
+            'thisYear' => $totalYear,
+            'detailsthisYear' => $data['thisYear'],
+            // 'thisYear' => $data['thisYear']
+        ];
+
+        echo json_encode($data['stnkDate']);
     }
 
     public function getRanmorDate()

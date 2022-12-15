@@ -58,23 +58,160 @@
     </div>
 </div>
 
+<div class="row m-3">
+    <div class="col-xl-12">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="row">
+                    <div class="col-md-12 mt-3" style="line-height: 0.5;">
+                        <h5 style="text-align:center">Ranking Polda Data Ranmor Tertinggi <?= date('d M Y', strtotime("-1 days")); ?></h5>
+                        <!-- <div class="card shadow-sm"> -->
+                        <center>
+                            <table class="table table-bordered table-hover" id="tableLakaDay" style="width: 70%; background:white ">
+                                <thead style="background-color:#0007D8; color:#fff; ">
+                                    <tr class="text-center">
+                                        <th style="text-align: center; height:5px !important" scope="col">No</th>
+                                        <th style="text-align: center;" scope="col">Polda</th>
+                                        <th style="text-align: center;" scope="col">Mobil Penumpang</th>
+                                        <th style="text-align: center;" scope="col">Mobil Bus</th>
+                                        <th style="text-align: center;" scope="col">Mobil Barang</th>
+                                        <th style="text-align: center;" scope="col">Sepeda Motor</th>
+                                        <th style="text-align: center;" scope="col">Ransus</th>
+                                        <th style="text-align: center;" scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody-lakaDay">
+                                </tbody>
+                                <tfoot>
+                                    <tr class="text-white" style="background-color: #0007D8;">
+                                        <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmpDay"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmsDay"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmbDay"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmDay"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalrnDay"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalslDay"></span> </th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </center>
 
-<?php $mobile = detect_mobile(); if($mobile === true){ ?>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="row">
+                    <div class="col-md-12 mt-3" style="line-height: 0.5;">
+                        <h5 style="text-align:center">Ranking Polda Data Ranmor Tertinggi <?= date('M Y'); ?></h5>
+                        <!-- <div class="card shadow-sm"> -->
+                        <center>
+                            <table class="table table-bordered table-hover" id="tableLakaMonth" style="width: 70%; background:white ">
+                                <thead style="background-color:#0007D8; color:#fff; ">
+                                    <tr class="text-center">
+                                        <th style="text-align: center; height:5px !important" scope="col">No</th>
+                                        <th style="text-align: center;" scope="col">Polda</th>
+                                        <th style="text-align: center;" scope="col">Mobil Penumpang</th>
+                                        <th style="text-align: center;" scope="col">Mobil Bus</th>
+                                        <th style="text-align: center;" scope="col">Mobil Barang</th>
+                                        <th style="text-align: center;" scope="col">Sepeda Motor</th>
+                                        <th style="text-align: center;" scope="col">Ransus</th>
+                                        <th style="text-align: center;" scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody-lakaMonth">
+                                </tbody>
+                                <tfoot>
+                                    <tr class="text-white" style="background-color: #0007D8;">
+                                        <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmpMonth"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmsMonth"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmbMonth"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmMonth"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalrnMonth"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalslMonth"></span> </th>
+                                    </tr>
+
+                                </tfoot>
+                            </table>
+                        </center>
+
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <div class="row">
+                    <div class="col-md-12 mt-3" style="line-height: 0.5;">
+                        <h5 style="text-align:center">Ranking Polda Data Ranmor Tertinggi <?= date('Y'); ?></h5>
+                        <!-- <div class="card shadow-sm"> -->
+                        <center>
+                            <table class="table table-bordered table-hover" id="tableLakaYear" style="width: 70%; background:white ">
+                                <thead style="background-color:#0007D8; color:#fff; ">
+                                    <tr class="text-center">
+                                        <th style="text-align: center; height:5px !important" scope="col">No</th>
+                                        <th style="text-align: center;" scope="col">Polda</th>
+                                        <th style="text-align: center;" scope="col">Mobil Penumpang</th>
+                                        <th style="text-align: center;" scope="col">Mobil Bus</th>
+                                        <th style="text-align: center;" scope="col">Mobil Barang</th>
+                                        <th style="text-align: center;" scope="col">Sepeda Motor</th>
+                                        <th style="text-align: center;" scope="col">Ransus</th>
+                                        <th style="text-align: center;" scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody-lakaYear">
+                                </tbody>
+                                <tfoot>
+                                    <tr class="text-white" style="background-color: #0007D8;">
+                                        <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmpYear"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmsYear"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmbYear"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmYear"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalrnYear"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalslYear"></span> </th>
+                                    </tr>
+
+                                </tfoot>
+                            </table>
+                        </center>
+
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php $mobile = detect_mobile();
+if ($mobile === true) { ?>
     <div class="container-fluid">
         <div class="row mt-5 justify-content-center">
             <div class="col-md-9">
-                <label for="waktu" class="form-label text-uppercase">Waktu</label> 
+                <label for="waktu" class="form-label text-uppercase">Waktu</label>
             </div>
 
             <div style="display: flex;">
-                
-                <input class="form-control form-control-lg" type="date" name="start_date" id="start_date"> 
+
+                <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
                 <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
-                 
+
             </div>
             <div>
-                <button type="button" class="btn btn-info float-end btn-sm" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button> 
-                <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info float-end btn-sm mt-2" style="width: 100%; border-color:#007DD8;">Export Laporan</a>
+                <button type="button" class="btn btn-primary float-end btn-sm" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary float-end btn-sm mt-2" style="width: 100%; border-color:#0007D8;">Export Laporan</a>
             </div>
         </div>
     </div>
@@ -91,14 +228,14 @@
                         <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
                     </div>
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                        <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                     </div>
                     <div class="col-md-2 text-end align-self-center">
-                        <!-- <button type="button" class="btn btn-outline-info float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
-                        <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-                        <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
-    
-                        <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+                        <!-- <button type="button" class="btn btn-outline-primary float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#0007D8;">Tampilkan</button> -->
+                        <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-primary" style="width: 200px; border-color:#0007D8;">Export Laporan</button></a> -->
+                        <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary btn-lg" style="width: 200px; border-color:#0007D8;">Export Laporan</a>
+
+                        <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#0007D8;">Export Laporan</button></a> -->
                     </div>
                 </div>
             </div>
@@ -107,6 +244,7 @@
 <?php } ?>
 
 <div class="container-fluid">
+
     <section class="shadow-sm mt-5">
         <div class="row">
             <div class="col-xl-12">
@@ -152,98 +290,7 @@
             </div>
         </div>
 
-        <div class="row m-3">
-            <div class="col-xl-12">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
-                    </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <div class="row">
-                            <div class="col-md-12 mt-3">
-                                <h5>Ranking Polda Data Ranmor Tertinggi <?= date('d M Y', strtotime("-1 days")); ?></h5>
-                                <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover" id="tableLakaDay">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Mobil Barang</th>
-                                                <th scope="col">Mobil Penumpang</th>
-                                                <th scope="col">Mobil Bus</th>
-                                                <th scope="col">Ransus</th>
-                                                <th scope="col">Sepeda Motor</th>
-                                                <th scope="col">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbody-lakaDay">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="row">
-                            <div class="col-md-12 mt-3">
-                                <h5>Ranking Polda Data Ranmor Tertinggi <?= date('M Y'); ?></h5>
-                                <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover" id="tableLakaMonth">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Mobil Barang</th>
-                                                <th scope="col">Mobil Penumpang</th>
-                                                <th scope="col">Mobil Bus</th>
-                                                <th scope="col">Ransus</th>
-                                                <th scope="col">Sepeda Motor</th>
-                                                <th scope="col">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbody-lakaMonth">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <div class="row">
-                            <div class="col-md-12 mt-3">
-                                <h5>Ranking Polda Data Ranmor Tertinggi <?= date('Y'); ?></h5>
-                                <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover" id="tableLakaYear">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Mobil Barang</th>
-                                                <th scope="col">Mobil Penumpang</th>
-                                                <th scope="col">Mobil Bus</th>
-                                                <th scope="col">Ransus</th>
-                                                <th scope="col">Sepeda Motor</th>
-                                                <th scope="col">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbody-lakaYear">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </section>
 </div>
 
@@ -893,26 +940,35 @@
                 yesterday: yesterday
             },
             success: function(result) {
+                console.log(result);
                 $("#overlay").fadeOut(300);
                 var table = '';
-                let nf = new Intl.NumberFormat('en-US');
-                for (let i = 0; i < result.length; i++) {
+                let resultranmor = result.topRanmor;
+                for (let i = 0; i < resultranmor.length; i++) {
                     let x = parseInt(i)
                     let no = x + 1
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].mobil_barang}  </td> 
-                            <td>  ${result[i].mobil_penumpang}  </td> 
-                            <td>  ${result[i].mobil_bus}  </td> 
-                            <td>  ${result[i].ransus}  </td>
-                            <td>  ${result[i].sepeda_motor}  </td>
-                            <td>  ${result[i].total}  </td> 
+                            <td style="">  ${resultranmor[i].name_polda}  </td> 
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].mobil_penumpang)}  </td> 
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].mobil_bus)}  </td> 
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].mobil_barang)}  </td> 
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].sepeda_motor)}  </td>
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].ransus)}  </td>
+                            <td class="fw-bold" style="">  ${new Intl.NumberFormat().format(resultranmor[i].total)}  </td> 
                             </tr>`
                 }
                 $('#tbody-lakaDay').html(table);
-                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
-        
+                $('#totalmpDay').text(result.mobil_penumpang)
+                $('#totalmbDay').text(result.mobil_bus)
+                $('#totalmsDay').text(result.mobil_barang)
+                $('#totalsmDay').text(result.sepeda_motor)
+                $('#totalrnDay').text(result.ransus)
+                $('#totalslDay').text(result.total)
+
+                <?php $mobile = detect_mobile();
+                if ($mobile === true) { ?>
+
                     $('#tableLakaDay').DataTable({
                         responsive: true,
 
@@ -922,12 +978,12 @@
 
                         // buttons: ["excel", "csv", "pdf"],
                         processing: true,
-                        oLanguage: { 
-                            sSearch: 'Search:' 
+                        oLanguage: {
+                            sSearch: 'Search:'
                         },
-                    }); 
-                
-                <?php } ?> 
+                    });
+
+                <?php } ?>
             }
         })
     }
@@ -944,24 +1000,33 @@
             success: function(result) {
                 $("#overlay").fadeOut(300);
                 var table = '';
-                let nf = new Intl.NumberFormat('en-US');
-                for (let i = 0; i < result.length; i++) {
+                let resultranmor = result.topRanmor;
+                for (let i = 0; i < resultranmor.length; i++) {
                     let x = parseInt(i)
                     let no = x + 1
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].mobil_barang}  </td> 
-                            <td>  ${result[i].mobil_penumpang}  </td> 
-                            <td>  ${result[i].mobil_bus}  </td> 
-                            <td>  ${result[i].ransus}  </td>
-                            <td>  ${result[i].sepeda_motor}  </td>
-                            <td>  ${result[i].total}  </td>  
+                            <td style="">  ${resultranmor[i].name_polda}  </td> 
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].mobil_penumpang)}  </td> 
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].mobil_bus)}  </td> 
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].mobil_barang)}  </td> 
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].sepeda_motor)}  </td>
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].ransus)}  </td>
+                            <td class="fw-bold" style="">  ${new Intl.NumberFormat().format(resultranmor[i].total)}  </td> 
                             </tr>`
                 }
                 $('#tbody-lakaMonth').html(table);
-                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
-                    
+
+                $('#totalmpMonth').text(result.mobil_penumpang)
+                $('#totalmbMonth').text(result.mobil_bus)
+                $('#totalmsMonth').text(result.mobil_barang)
+                $('#totalsmMonth').text(result.sepeda_motor)
+                $('#totalrnMonth').text(result.ransus)
+                $('#totalslMonth').text(result.total)
+
+                <?php $mobile = detect_mobile();
+                if ($mobile === true) { ?>
+
                     $('#tableLakaMonth').DataTable({
                         responsive: true,
 
@@ -971,12 +1036,12 @@
 
                         // buttons: ["excel", "csv", "pdf"],
                         processing: true,
-                        oLanguage: { 
-                            sSearch: 'Search:' 
+                        oLanguage: {
+                            sSearch: 'Search:'
                         },
-                    }); 
-                
-                <?php } ?> 
+                    });
+
+                <?php } ?>
             }
         })
     }
@@ -993,24 +1058,31 @@
             success: function(result) {
                 $("#overlay").fadeOut(300);
                 var table = '';
-                let nf = new Intl.NumberFormat('en-US');
-                for (let i = 0; i < result.length; i++) {
+                let resultranmor = result.topRanmor;
+                for (let i = 0; i < resultranmor.length; i++) {
                     let x = parseInt(i)
                     let no = x + 1
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].mobil_barang}  </td> 
-                            <td>  ${result[i].mobil_penumpang}  </td> 
-                            <td>  ${result[i].mobil_bus}  </td> 
-                            <td>  ${result[i].ransus}  </td>
-                            <td>  ${result[i].sepeda_motor}  </td>
-                            <td>  ${result[i].total}  </td>  
+                            <td style="">  ${resultranmor[i].name_polda}  </td> 
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].mobil_penumpang)}  </td> 
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].mobil_bus)}  </td> 
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].mobil_barang)}  </td> 
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].sepeda_motor)}  </td>
+                            <td style="">  ${new Intl.NumberFormat().format(resultranmor[i].ransus)}  </td>
+                            <td class="fw-bold" style="">  ${new Intl.NumberFormat().format(resultranmor[i].total)}  </td> 
                             </tr>`
                 }
                 $('#tbody-lakaYear').html(table);
-                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
-        
+                $('#totalmpYear').text(result.mobil_penumpang)
+                $('#totalmbYear').text(result.mobil_bus)
+                $('#totalmsYear').text(result.mobil_barang)
+                $('#totalsmYear').text(result.sepeda_motor)
+                $('#totalrnYear').text(result.ransus)
+                $('#totalslYear').text(result.total)
+                <?php $mobile = detect_mobile();
+                if ($mobile === true) { ?>
+
                     $('#tableLakaYear').DataTable({
                         responsive: true,
 
@@ -1020,12 +1092,12 @@
 
                         // buttons: ["excel", "csv", "pdf"],
                         processing: true,
-                        oLanguage: { 
-                            sSearch: 'Search:' 
+                        oLanguage: {
+                            sSearch: 'Search:'
                         },
-                    }); 
-                
-                <?php } ?> 
+                    });
+
+                <?php } ?>
             }
         })
     }
