@@ -126,9 +126,14 @@ class Home extends MX_Controller {
             // 'headers' => $headers
         ]);
         $getSim = $getSim["data"];
-		// var_dump($getSim);die;
 
         $totalsim = 0;
+        foreach ($getSim['rows'] as $key) {
+            $totalsim += $key['baru'] + $key['perpanjangan'] + $key['peningkatan'];
+        }
+		// var_dump($getSim);die;
+
+        // $totalsim = 0;
         // $totalsim = 9570;
         // for ($i = 0; $i < count($getSim); $i++) {
         //     $totalsim += $getSim[$i]['total'];
