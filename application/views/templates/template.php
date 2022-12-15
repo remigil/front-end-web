@@ -423,8 +423,9 @@
     // 
     $(`#headerSearch`).on('click', function(e) { 
       var isi = $("[name=filterSearch]").val();
-      console.log(isi);
-      window.open(`<?php base_url()?>berita_front?search=${isi}`); 
+      // console.log(isi);
+      location.href = `<?php base_url()?>berita_front?search=${isi}`;
+      // window.open(`<?php base_url()?>berita_front?search=${isi}`); 
     });
 </script>
 </body>
