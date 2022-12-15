@@ -1286,12 +1286,123 @@
                                     </a>
                                 </li>
 
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">LICENCE PLATE RECOGNITION</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">FACE RECOGNITION</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">VEHICLE COUNTING</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">MONITORING DRONE</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">MONITORING BODY WORN</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">MONITORING GPS PATROL RANMOR PATROLI</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SUB MONITORING CENTER</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">DASHBOARD POLISIKU</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">DASHBOARD 110</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SOT PRESISI</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">INFO BMKG DAN CUACA</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">INARISK BNPM</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">MONITORING KECEPATAN ANGIN</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">PERKIRAANG CUACA DI PLABUHAN</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">PASANG SURUT AIR DAN TINGGI GELOMBANG</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">FLIGHT RADAR</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">TRAFFIC MARINE</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SUB MONITORING CENTER</span>
+                                    </a>
+                                </li>
+
                                 <!-- <li>
-                                                        <a href="<?php echo base_url(); ?>masterdata/bodycam">
-                                                            <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                            <span data-key="t-dashboard">BodyCam</span>
-                                                        </a>
-                                                    </li> -->
+                                    <a href="<?php echo base_url(); ?>masterdata/bodycam">
+                                        <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">BodyCam</span>
+                                    </a>
+                                </li> -->
+
+
 
                             <?php } elseif ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU'  || $this->session->userdata['role'] == 'Operator') { ?>
 
