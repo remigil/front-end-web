@@ -255,12 +255,12 @@
 		<li class="dropdown megamenu"><a href="#"><span><i class="bi bi-search fs-5" style="padding: 0;"></i></span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
 				<li>
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Masukan kata kunci" aria-label="Recipient's username" aria-describedby="basic-addon2">
-					<div class="input-group-append">
-						<button class="btn btn-outline-secondary" type="button">Cari</button>
-					</div>
-				</div>
+          <form class="input-group">
+            <input type="text" name="filterSearch" class="form-control" placeholder="Masukan kata kunci" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="headerSearch">Cari</button>
+            </div>
+          </form>
 				</li>
 				
             </ul>
@@ -417,6 +417,15 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> -->
 
+
+
+<script>
+    // 
+    $(`#headerSearch`).on('click', function(e) { 
+      var isi = $("[name=filterSearch]").val();
+      window.open(`<?php base_url()?>berita_front?search=${isi}`); 
+    });
+</script>
 </body>
 
 </html>

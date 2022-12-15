@@ -20,14 +20,22 @@ class Berita_front extends MX_Controller {
 		// $url = 'news?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
 		// $json = json_decode($url);
-		// var_dump($json);
+		// var_dump();
         // $page_content["css"] = '';
         // $page_content["js"] = '';
         // $page_content["title"] = "Berita";
+        // ?search='..'
+        if(isset($_GET['search'])){
+            $search = '?search='.$_GET['search'].'';
+            // var_dump($search);
+        }else{
+            $search = '';
+        }
 
-		$getBerita = guzzle_request('GET', 'news', [
+		$getBerita = guzzle_request('GET', 'news'.$search.'', [
             // 'headers' => $headers
         ]);
+        // echo json_encode($getBerita);
 
         $news = array();
         foreach ($getBerita['data']['datanya'] as $key) {

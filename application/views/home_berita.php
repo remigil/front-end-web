@@ -72,8 +72,8 @@
               <h3 class="sidebar-title">Search</h3>
               <div class="sidebar-item search-form">
                 <form action="">
-                  <input type="text">
-                  <button type="submit"><i class="bi bi-search"></i></button>
+                  <input type="text" name="search">
+                  <button type="submit" id="btnFilterSearch"><i class="bi bi-search"></i></button>
                 </form>
               </div><!-- End sidebar search formn-->
 
@@ -88,7 +88,7 @@
                 <div class="post-item clearfix">
                   <img src="<?= url_api() ?>news/<?= $data['picture'] ?>" alt="">
                   <h4><a href="berita_front/detailberita/<?=$data['id']; ?>"><?=$data['title']; ?></a></h4>
-                  <time datetime="2020-01-01"><?=$data['updated_at']; ?></time>
+                  <time datetime="2020-01-01"><?= format_indoTglWkt($data['updated_at']); ?></time>
                 </div>
 
 				<?php endforeach; ?>
@@ -109,3 +109,5 @@
     </section><!-- End Blog Section -->
 
   </main><!-- End #main -->
+
+ 
