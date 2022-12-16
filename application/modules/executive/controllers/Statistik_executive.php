@@ -1422,9 +1422,33 @@ class Statistik_executive extends MY_Controller
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
+        $bbn_1 = 0;
+        $bbn_2 = 0;
+        $mutasi_masuk = 0;
+        $mutasi_keluar = 0;
+        $perubahan_pergantian = 0;
+        $total = 0;
 
-        $data['topLaka'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topLaka']);
+        foreach ($lakaTopPolda['data']['rows'] as $key) {
+            $bbn_1 += $key['bbn_1'];
+            $bbn_2 += $key['bbn_2'];
+            $mutasi_masuk += $key['mutasi_masuk'];
+            $mutasi_keluar += $key['mutasi_keluar'];
+            $perubahan_pergantian += $key['perubahan_pergantian'];
+            $total += $key['total'];
+        }
+
+
+        $data = [
+            'topBpkb' => $lakaTopPolda['data']['rows'],
+            'bbn_1' => number_format($bbn_1),
+            'bbn_2' => number_format($bbn_2),
+            'mutasi_masuk' => number_format($mutasi_masuk),
+            'mutasi_keluar' => number_format($mutasi_keluar),
+            'perubahan_pergantian' => number_format($perubahan_pergantian),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
 
     public function getBpkbMonth()
@@ -1438,9 +1462,33 @@ class Statistik_executive extends MY_Controller
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
+        $bbn_1 = 0;
+        $bbn_2 = 0;
+        $mutasi_masuk = 0;
+        $mutasi_keluar = 0;
+        $perubahan_pergantian = 0;
+        $total = 0;
 
-        $data['topLaka'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topLaka']);
+        foreach ($lakaTopPolda['data']['rows'] as $key) {
+            $bbn_1 += $key['bbn_1'];
+            $bbn_2 += $key['bbn_2'];
+            $mutasi_masuk += $key['mutasi_masuk'];
+            $mutasi_keluar += $key['mutasi_keluar'];
+            $perubahan_pergantian += $key['perubahan_pergantian'];
+            $total += $key['total'];
+        }
+
+
+        $data = [
+            'topBpkb' => $lakaTopPolda['data']['rows'],
+            'bbn_1' => number_format($bbn_1),
+            'bbn_2' => number_format($bbn_2),
+            'mutasi_masuk' => number_format($mutasi_masuk),
+            'mutasi_keluar' => number_format($mutasi_keluar),
+            'perubahan_pergantian' => number_format($perubahan_pergantian),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
 
     public function getBpkbYear()
@@ -1454,9 +1502,33 @@ class Statistik_executive extends MY_Controller
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
+        $bbn_1 = 0;
+        $bbn_2 = 0;
+        $mutasi_masuk = 0;
+        $mutasi_keluar = 0;
+        $perubahan_pergantian = 0;
+        $total = 0;
 
-        $data['topLaka'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topLaka']);
+        foreach ($lakaTopPolda['data']['rows'] as $key) {
+            $bbn_1 += $key['bbn_1'];
+            $bbn_2 += $key['bbn_2'];
+            $mutasi_masuk += $key['mutasi_masuk'];
+            $mutasi_keluar += $key['mutasi_keluar'];
+            $perubahan_pergantian += $key['perubahan_pergantian'];
+            $total += $key['total'];
+        }
+
+
+        $data = [
+            'topBpkb' => $lakaTopPolda['data']['rows'],
+            'bbn_1' => number_format($bbn_1),
+            'bbn_2' => number_format($bbn_2),
+            'mutasi_masuk' => number_format($mutasi_masuk),
+            'mutasi_keluar' => number_format($mutasi_keluar),
+            'perubahan_pergantian' => number_format($perubahan_pergantian),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
     //END BPKB
 

@@ -128,7 +128,7 @@ if ($mobile === true) { ?>
                                         <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
                                         <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
                                         <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergnatian</th>
+                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergantian</th>
                                         <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
                                     </tr>
                                     <tr class="text-center" style="background-color:#5150D8; color:#fff;">
@@ -140,6 +140,17 @@ if ($mobile === true) { ?>
                                 </thead>
                                 <tbody id="tbody-bpkbDay">
                                 </tbody>
+                                <tfoot>
+                                    <tr class="text-white" style="background-color: #0007D8;">
+                                        <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn1Day"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn2Day"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmDay"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkDay"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalppDay"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalDay"></span></th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </center>
                         <!-- </div> -->
@@ -159,7 +170,7 @@ if ($mobile === true) { ?>
                                         <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
                                         <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
                                         <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergnatian</th>
+                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergantian</th>
                                         <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
                                     </tr>
                                     <tr class="text-center" style="background-color:#5150D8; color:#fff;">
@@ -171,6 +182,17 @@ if ($mobile === true) { ?>
                                 </thead>
                                 <tbody id="tbody-bpkbMonth">
                                 </tbody>
+                                <tfoot>
+                                    <tr class="text-white" style="background-color: #0007D8;">
+                                        <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn1Month"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn2Month"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmMonth"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkMonth"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalppMonth"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalMonth"></span></th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </center>
                         <!-- </div> -->
@@ -190,7 +212,7 @@ if ($mobile === true) { ?>
                                         <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
                                         <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
                                         <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergnatian</th>
+                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergantian</th>
                                         <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
                                     </tr>
                                     <tr class="text-center" style="background-color:#5150D8; color:#fff;">
@@ -202,6 +224,17 @@ if ($mobile === true) { ?>
                                 </thead>
                                 <tbody id="tbody-bpkbYear">
                                 </tbody>
+                                <tfoot>
+                                    <tr class="text-white" style="background-color: #0007D8;">
+                                        <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn1Year"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn2Year"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmYear"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkYear"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalppYear"></span></th>
+                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalYear"></span></th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </center>
                         <!-- </div> -->
@@ -850,23 +883,30 @@ if ($mobile === true) { ?>
             success: function(result) {
                 $("#overlay").fadeOut(300);
                 var table = '';
-                let nf = new Intl.NumberFormat('en-US');
-                for (let i = 0; i < result.length; i++) {
+                let resultbpkb = result.topBpkb;
+
+                for (let i = 0; i < resultbpkb.length; i++) {
                     let x = parseInt(i)
                     let no = x + 1
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].bbn_1}  </td> 
-                            <td>  ${result[i].bbn_2}  </td> 
-                            <td>  ${result[i].mutasi_masuk}  </td> 
-                            <td>  ${result[i].mutasi_keluar}  </td> 
-                            <td>  ${result[i].perubahan_pergantian}  </td> 
-                            <td>  ${result[i].total}  </td> 
+                            <td>  ${resultbpkb[i].name_polda}  </td> 
+                            <td>  ${resultbpkb[i].bbn_1}  </td> 
+                            <td>  ${resultbpkb[i].bbn_2}  </td> 
+                            <td>  ${resultbpkb[i].mutasi_masuk}  </td> 
+                            <td>  ${resultbpkb[i].mutasi_keluar}  </td> 
+                            <td>  ${resultbpkb[i].perubahan_pergantian}  </td> 
+                            <td>  ${resultbpkb[i].total}  </td> 
                              
                             </tr>`
                 }
                 $('#tbody-bpkbDay').html(table);
+                $('#totalbbn1Day').text(result.bbn_1)
+                $('#totalbbn2Day').text(result.bbn_2)
+                $('#totalmmDay').text(result.mutasi_masuk)
+                $('#totalmkDay').text(result.mutasi_keluar)
+                $('#totalppDay').text(result.perubahan_pergantian)
+                $('#totalDay').text(result.total)
                 <?php $mobile = detect_mobile();
                 if ($mobile === true) { ?>
 
@@ -901,23 +941,30 @@ if ($mobile === true) { ?>
             success: function(result) {
                 $("#overlay").fadeOut(300);
                 var table = '';
-                let nf = new Intl.NumberFormat('en-US');
-                for (let i = 0; i < result.length; i++) {
+                let resultbpkb = result.topBpkb;
+
+                for (let i = 0; i < resultbpkb.length; i++) {
                     let x = parseInt(i)
                     let no = x + 1
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].bbn_1}  </td> 
-                            <td>  ${result[i].bbn_2}  </td> 
-                            <td>  ${result[i].mutasi_masuk}  </td> 
-                            <td>  ${result[i].mutasi_keluar}  </td> 
-                            <td>  ${result[i].perubahan_pergantian}  </td> 
-                            <td>  ${result[i].total}  </td> 
+                            <td>  ${resultbpkb[i].name_polda}  </td> 
+                            <td>  ${resultbpkb[i].bbn_1}  </td> 
+                            <td>  ${resultbpkb[i].bbn_2}  </td> 
+                            <td>  ${resultbpkb[i].mutasi_masuk}  </td> 
+                            <td>  ${resultbpkb[i].mutasi_keluar}  </td> 
+                            <td>  ${resultbpkb[i].perubahan_pergantian}  </td> 
+                            <td>  ${resultbpkb[i].total}  </td> 
                              
                             </tr>`
                 }
                 $('#tbody-bpkbMonth').html(table);
+                $('#totalbbn1Month').text(result.bbn_1)
+                $('#totalbbn2Month').text(result.bbn_2)
+                $('#totalmmMonth').text(result.mutasi_masuk)
+                $('#totalmkMonth').text(result.mutasi_keluar)
+                $('#totalppMonth').text(result.perubahan_pergantian)
+                $('#totalMonth').text(result.total)
                 <?php $mobile = detect_mobile();
                 if ($mobile === true) { ?>
 
@@ -952,23 +999,30 @@ if ($mobile === true) { ?>
             success: function(result) {
                 $("#overlay").fadeOut(300);
                 var table = '';
-                let nf = new Intl.NumberFormat('en-US');
-                for (let i = 0; i < result.length; i++) {
+                let resultbpkb = result.topBpkb;
+
+                for (let i = 0; i < resultbpkb.length; i++) {
                     let x = parseInt(i)
                     let no = x + 1
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].bbn_1}  </td> 
-                            <td>  ${result[i].bbn_2}  </td> 
-                            <td>  ${result[i].mutasi_masuk}  </td> 
-                            <td>  ${result[i].mutasi_keluar}  </td> 
-                            <td>  ${result[i].perubahan_pergantian}  </td> 
-                            <td>  ${result[i].total}  </td> 
+                            <td>  ${resultbpkb[i].name_polda}  </td> 
+                            <td>  ${resultbpkb[i].bbn_1}  </td> 
+                            <td>  ${resultbpkb[i].bbn_2}  </td> 
+                            <td>  ${resultbpkb[i].mutasi_masuk}  </td> 
+                            <td>  ${resultbpkb[i].mutasi_keluar}  </td> 
+                            <td>  ${resultbpkb[i].perubahan_pergantian}  </td> 
+                            <td>  ${resultbpkb[i].total}  </td> 
                              
                             </tr>`
                 }
                 $('#tbody-bpkbYear').html(table);
+                $('#totalbbn1Year').text(result.bbn_1)
+                $('#totalbbn2Year').text(result.bbn_2)
+                $('#totalmmYear').text(result.mutasi_masuk)
+                $('#totalmkYear').text(result.mutasi_keluar)
+                $('#totalppYear').text(result.perubahan_pergantian)
+                $('#totalYear').text(result.total)
                 <?php $mobile = detect_mobile();
                 if ($mobile === true) { ?>
 
