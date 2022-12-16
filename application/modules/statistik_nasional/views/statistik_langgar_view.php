@@ -4,7 +4,7 @@
              <a href="<?= base_url('statistik_nasional') ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
          </div>
          <div class="col-md-6 text-end align-self-center">
-             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
+             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary btn-lg" style="width: 200px; border-color:#0007D8;">Export Laporan</a>
          </div>
      </div>
 
@@ -29,10 +29,10 @@
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
                                              <div class="col-md-12 ms-n3 mt-1">
-                                                 <span class="fw-bold">PB : <span class="text-danger" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="garlantasThisDayPB"></span></span>
-                                                 <span class="fw-bold">PS : <span class="text-warning" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="garlantasThisDayPS"></span></span>
-                                                 <span class="fw-bold">PR : <span class="text-success" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="garlantasThisDayPR"></span></span>
-                                                 <span class="fw-bold">T : <span class="text-info" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="garlantasThisDayT"></span></span>
+                                                 <span class="fw-bold">PB : <span class="text-danger" style="padding:5px" id="garlantasThisDayPB"></span></span>
+                                                 <span class="fw-bold">PS : <span class="text-warning" style="padding:5px" id="garlantasThisDayPS"></span></span>
+                                                 <span class="fw-bold">PR : <span class="text-success" style="padding:5px" id="garlantasThisDayPR"></span></span>
+                                                 <span class="fw-bold">T : <span class="text-primary" style="padding:5px" id="garlantasThisDayT"></span></span>
                                              </div>
                                          </div>
                                      </div>
@@ -54,10 +54,10 @@
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
                                              <div class="col-md-12 ms-n3 mt-1">
-                                                 <span class="fw-bold">PB : <span class="text-danger" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="garlantasThisMonthPB"></span></span>
-                                                 <span class="fw-bold">PS : <span class="text-warning" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="garlantasThisMonthPS"></span></span>
-                                                 <span class="fw-bold">PR : <span class="text-success" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="garlantasThisMonthPR"></span></span>
-                                                 <span class="fw-bold">T : <span class="text-info" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="garlantasThisMonthT"></span></span>
+                                                 <span class="fw-bold">PB : <span class="text-danger" style="padding:5px" id="garlantasThisMonthPB"></span></span>
+                                                 <span class="fw-bold">PS : <span class="text-warning" style="padding:5px" id="garlantasThisMonthPS"></span></span>
+                                                 <span class="fw-bold">PR : <span class="text-success" style="padding:5px" id="garlantasThisMonthPR"></span></span>
+                                                 <span class="fw-bold">T : <span class="text-primary" style="padding:5px" id="garlantasThisMonthT"></span></span>
                                              </div>
                                          </div>
                                      </div>
@@ -79,10 +79,10 @@
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
                                              <div class="col-md-12 ms-n3 mt-1">
-                                                 <span class="fw-bold">PB : <span class="text-danger" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="garlantasThisYearPB"></span></span>
-                                                 <span class="fw-bold">PS : <span class="text-warning" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="garlantasThisYearPS"></span></span>
-                                                 <span class="fw-bold">PR : <span class="text-success" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="garlantasThisYearPR"></span></span>
-                                                 <span class="fw-bold">T : <span class="text-info" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="garlantasThisYearT"></span></span>
+                                                 <span class="fw-bold">PB : <span class="text-danger" style="padding:5px" id="garlantasThisYearPB"></span></span>
+                                                 <span class="fw-bold">PS : <span class="text-warning" style="padding:5px" id="garlantasThisYearPS"></span></span>
+                                                 <span class="fw-bold">PR : <span class="text-success" style="padding:5px" id="garlantasThisYearPR"></span></span>
+                                                 <span class="fw-bold">T : <span class="text-primary" style="padding:5px" id="garlantasThisYearT"></span></span>
                                              </div>
                                          </div>
                                      </div>
@@ -119,7 +119,7 @@
 
              </div>
              <div>
-                 <button type="button" class="btn btn-info float-end btn-sm" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                 <button type="button" class="btn btn-primary float-end btn-sm" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
 
              </div>
 
@@ -129,176 +129,219 @@
  <?php } ?>
 
 
- <div class="container-fluid">
-     <div class="card">
-         <div class="row m-3" style="font-size: 16px;">
-             <div class="col-xl-12">
-                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
-                     </li>
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
-                     </li>
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
-                     </li>
-                 </ul>
-                 <div class="tab-content" id="pills-tabContent">
-                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+ <div class="row m-3" style="font-size: 16px;">
+     <div class="col-xl-12">
+         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+             <li class="nav-item" role="presentation">
+                 <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
+             </li>
+             <li class="nav-item" role="presentation">
+                 <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
+             </li>
+             <li class="nav-item" role="presentation">
+                 <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
+             </li>
+         </ul>
+         <div class="tab-content" id="pills-tabContent">
+             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                 <div class="row">
+                     <div class="col-md-9">
                          <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data Pelanggaran Tertinggi <?= date('d M Y', strtotime("-1 days")); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableLakaDay">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Pelanggaran Berat</th>
-                                                 <th scope="col">Pelanggaran Sedang</th>
-                                                 <th scope="col">Pelanggaran Ringan</th>
-                                                 <th scope="col">Teguran</th>
-                                                 <th scope="col">Total</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-lakaDay">
-                                         </tbody>
-                                     </table>
-                                 </div>
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
+                             </div>
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
+                             </div>
+                             <div class="col-md-2">
+                                 <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                              </div>
                          </div>
                      </div>
-                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                     <div class="col-md-12 mt-5" style="line-height: 0.5;">
+                         <h5 style="text-align: center;">Ranking Polda Data Pelanggaran Tertinggi <?= date('d M Y', strtotime("-1 days")); ?></h5>
+                         <!-- <div class="card shadow-sm"> -->
+                         <center>
+                             <table class="table table-bordered table-hover" id="tableLakaDay" style="background-color: white; width:70%">
+                                 <thead style="background-color:#0007D8; color:#fff;">
+                                     <tr class="text-center">
+                                         <th scope="col">No</th>
+                                         <th scope="col">Polda</th>
+                                         <th scope="col">Pelanggaran Berat</th>
+                                         <th scope="col">Pelanggaran Sedang</th>
+                                         <th scope="col">Pelanggaran Ringan</th>
+                                         <th scope="col">Teguran</th>
+                                         <th scope="col">Total</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody id="tbody-lakaDay">
+                                 </tbody>
+                             </table>
+                         </center>
+                         <!-- </div> -->
+                     </div>
+                 </div>
+             </div>
+             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                 <div class="row">
+                     <div class="col-md-9">
                          <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data Pelanggaran Tertinggi <?= date('M Y'); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableLakaMonth">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Pelanggaran Berat</th>
-                                                 <th scope="col">Pelanggaran Sedang</th>
-                                                 <th scope="col">Pelanggaran Ringan</th>
-                                                 <th scope="col">Teguran</th>
-                                                 <th scope="col">Total</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-lakaMonth">
-                                         </tbody>
-                                     </table>
-                                 </div>
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
+                             </div>
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
+                             </div>
+                             <div class="col-md-2">
+                                 <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                              </div>
                          </div>
                      </div>
-                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                     <div class="col-md-12 mt-5" style="line-height: 0.5;">
+                         <h5 style="text-align: center;">Ranking Polda Data Pelanggaran Tertinggi <?= date('M Y'); ?></h5>
+                         <!-- <div class="card shadow-sm"> -->
+                         <center>
+                             <table class="table table-bordered table-hover" id="tableLakaMonth" style="background-color: white; width:70%">
+                                 <thead style="background-color:#0007D8; color:#fff;">
+                                     <tr class="text-center">
+                                         <th scope="col">No</th>
+                                         <th scope="col">Polda</th>
+                                         <th scope="col">Pelanggaran Berat</th>
+                                         <th scope="col">Pelanggaran Sedang</th>
+                                         <th scope="col">Pelanggaran Ringan</th>
+                                         <th scope="col">Teguran</th>
+                                         <th scope="col">Total</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody id="tbody-lakaMonth">
+                                 </tbody>
+                             </table>
+                         </center>
+                         <!-- </div> -->
+                     </div>
+                 </div>
+             </div>
+             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                 <div class="row">
+                     <div class="col-md-9">
                          <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data Pelanggaran Tertinggi <?= date('Y'); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableLakaYear">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Pelanggaran Berat</th>
-                                                 <th scope="col">Pelanggaran Sedang</th>
-                                                 <th scope="col">Pelanggaran Ringan</th>
-                                                 <th scope="col">Teguran</th>
-                                                 <th scope="col">Total</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-lakaYear">
-                                         </tbody>
-                                     </table>
-                                 </div>
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
+                             </div>
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
+                             </div>
+                             <div class="col-md-2">
+                                 <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                              </div>
                          </div>
+                     </div>
+                     <div class="col-md-12 mt-5" style="line-height: 0.5;">
+                         <h5 style="text-align: center;">Ranking Polda Data Pelanggaran Tertinggi <?= date('Y'); ?></h5>
+                         <!-- <div class="card shadow-sm"> -->
+                         <center>
+                             <table class="table table-bordered table-hover" id="tableLakaYear" style="background-color: white; width:70%">
+                                 <thead style="background-color:#0007D8; color:#fff;">
+                                     <tr class="text-center">
+                                         <th scope="col">No</th>
+                                         <th scope="col">Polda</th>
+                                         <th scope="col">Pelanggaran Berat</th>
+                                         <th scope="col">Pelanggaran Sedang</th>
+                                         <th scope="col">Pelanggaran Ringan</th>
+                                         <th scope="col">Teguran</th>
+                                         <th scope="col">Total</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody id="tbody-lakaYear">
+                                 </tbody>
+                             </table>
+                         </center>
+                         <!-- </div> -->
                      </div>
                  </div>
              </div>
          </div>
+     </div>
+ </div>
 
-         <div class="row">
-             <!-- <div class="col-md-3">
+ <div class="row">
+     <!-- <div class="col-md-3">
                                <label for="waktu" class="form-label text-uppercase">Wilayah</label>
                                <select class="form-control" id="polda_id" name="polda_id">
                                    <option value="1">Semua Polda</option>
                                </select>
                            </div> -->
-             <hr style="width:97%; margin: auto">
-             <div class="filter mt-4" style=" height:125px;">
-                 <div class="container-fluid">
-                     <div class="col-md-9">
-                         <label for="waktu" class="form-label text-uppercase">Waktu</label>
-                         <div class="row">
-                             <div class="col-md-4">
-                                 <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
-                             </div>
-                             <div class="col-md-4">
-                                 <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
-                             </div>
-                             <div class="col-md-2">
-                                 <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
-                             </div>
-                             <!-- <div class="col-md-2 text-end align-self-center"> 
-                       <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
+     <hr style="width:97%; margin: auto">
+     <div class="filter mt-4" style=" height:125px;">
+         <div class="container-fluid">
+             <div class="col-md-9">
+                 <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                 <div class="row">
+                     <div class="col-md-4">
+                         <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                     </div>
+                     <div class="col-md-4">
+                         <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                     </div>
+                     <div class="col-md-2">
+                         <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                     </div>
+                     <!-- <div class="col-md-2 text-end align-self-center"> 
+                       <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary btn-lg" style="width: 200px; border-color:#0007D8;">Export Laporan</a>
     
                     </div> -->
-                         </div>
-                     </div>
-                 </div>
-             </div>
-
-         </div>
-
-         <div class="row">
-             <div class="col-xl-12">
-                 <div class="card">
-                     <div class="card-header">
-                         <div id="titleline"></div>
-                     </div>
-                     <div class="card-body">
-                         <div class="main-chart">
-                             <div id="chartdate">
-                             </div>
-                         </div>
-                     </div>
                  </div>
              </div>
          </div>
-         <div class="row">
-             <div class="col-xl-12">
-                 <div class="card">
-                     <div class="card-header">
-                         <div id="title"></div>
-                         <div class="row">
-                             <div class="col-md-2">
-                                 <div class="form-group">
-                                     <label for="exampleFormControlSelect1">Show data</label>
-                                     <select class="form-control" id="limit_showData">
-                                         <option value="3">3</option>
-                                         <option value="5" selected>5</option>
-                                         <option value="7">7</option>
-                                         <option value="10">10</option>
-                                     </select>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="card-body">
-                         <div class="main-chart">
-                             <div id="charta">
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-
      </div>
+
+ </div>
+
+ <div class="row">
+     <div class="col-xl-12">
+         <div class="card">
+             <div class="card-header">
+                 <div id="titleline"></div>
+             </div>
+             <div class="card-body">
+                 <div class="main-chart">
+                     <div id="chartdate">
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ <div class="row">
+     <div class="col-xl-12">
+         <div class="card">
+             <div class="card-header">
+                 <div id="title"></div>
+                 <div class="row">
+                     <div class="col-md-2">
+                         <div class="form-group">
+                             <label for="exampleFormControlSelect1">Show data</label>
+                             <select class="form-control" id="limit_showData">
+                                 <option value="3">3</option>
+                                 <option value="5" selected>5</option>
+                                 <option value="7">7</option>
+                                 <option value="10">10</option>
+                             </select>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="card-body">
+                 <div class="main-chart">
+                     <div id="charta">
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+
+ </div>
  </div>
 
 

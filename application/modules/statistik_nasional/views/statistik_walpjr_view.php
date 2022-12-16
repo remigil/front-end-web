@@ -4,16 +4,16 @@
              <a href="<?= base_url('statistik_nasional') ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
          </div>
          <div class="col-md-6 text-end align-self-center">
-             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
-             <!-- <button type="button" class="btn btn-outline-info float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
-             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary btn-lg" style="width: 200px; border-color:#0007D8;">Export Laporan</a>
+             <!-- <button type="button" class="btn btn-outline-primary float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#0007D8;">Tampilkan</button> -->
+             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-primary" style="width: 200px; border-color:#0007D8;">Export Laporan</button></a> -->
+             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#0007D8;">Export Laporan</button></a> -->
          </div>
      </div>
      <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
              <div class="col-sm-4 col-md-5 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">WAL & PJR <span style="color:#000;">Nasional</span></span> </h2>
+                 <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">WAL & PJR <span style="color:#000;">Nasional</span></span> </h2>
              </div>
              <div class="col-sm-8 col-md-7">
                  <div class="row m-2">
@@ -25,7 +25,7 @@
                                          <h4 class="mb-0 ms-3">Harian</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="walpjrThisDay"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="walpjrThisDay"></h1>
                                          <p class="text-center mb-0">WAL & PJR</p>
                                      </div>
                                  </div>
@@ -40,7 +40,7 @@
                                          <h4 class="mb-0 ms-3">Bulanan</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="walpjrThisMonth"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="walpjrThisMonth"></h1>
                                          <p class="text-center mb-0">WAL & PJR</p>
                                      </div>
                                  </div>
@@ -55,7 +55,7 @@
                                          <h4 class="mb-0 ms-3">Tahunan</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="walpjrThisYear"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="walpjrThisYear"></h1>
                                          <p class="text-center mb-0">WAL & PJR</p>
                                      </div>
                                  </div>
@@ -86,8 +86,8 @@
 
              </div>
 
-             <button type="button" class="btn btn-info float-end btn-sm" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
-             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info float-end btn-sm mt-2" style="width: 100%; border-color:#007DD8;">Export Laporan</a>
+             <button type="button" class="btn btn-primary float-end btn-sm" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary float-end btn-sm mt-2" style="width: 100%; border-color:#0007D8;">Export Laporan</a>
 
 
          </div>
@@ -99,154 +99,196 @@
 
  <?php } ?>
 
- <div class="container-fluid">
-
-     <div class="card">
-         <div class="row m-3" style="font-size: 16px;">
-             <div class="col-xl-12">
-                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
-                     </li>
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
-                     </li>
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
-                     </li>
-                 </ul>
+ <div class="row m-3" style="font-size: 16px;">
+     <div class="col-xl-12">
+         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+             <li class="nav-item" role="presentation">
+                 <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
+             </li>
+             <li class="nav-item" role="presentation">
+                 <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
+             </li>
+             <li class="nav-item" role="presentation">
+                 <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
+             </li>
+         </ul>
 
 
-                 <div class="tab-content" id="pills-tabContent">
-                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+         <div class="tab-content" id="pills-tabContent">
+             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                 <div class="row">
+                     <div class="col-md-9">
                          <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data WAL & PJR Tertinggi <?= date('d M Y'); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableWalpjrDay">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">WAL & PJR</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-walpjrDay">
-                                         </tbody>
-                                     </table>
-                                 </div>
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
                              </div>
-                         </div>
-                     </div>
-                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data WAL & PJR Tertinggi <?= date('M Y'); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableWalpjrMonth">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Wal & PJR</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-walpjrMonth">
-                                         </tbody>
-                                     </table>
-                                 </div>
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
                              </div>
-                         </div>
-                     </div>
-                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data WAL & PJR Tertinggi <?= date('Y'); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableWalpjrYear">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Wal & PJR</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-walpjrYear">
-                                         </tbody>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="row">
-             <hr style="width:97%; margin: auto">
-             <div class="filter mt-4" style=" height:125px;">
-                 <div class="container-fluid">
-                     <div class="row">
-                         <div class="col-md-9">
-                             <label for="waktu" class="form-label text-uppercase">Waktu</label>
-                             <div class="row">
-                                 <div class="col-md-4">
-                                     <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
-                                 </div>
-                                 <div class="col-md-4">
-                                     <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
-                                 </div>
-                                 <div class="col-md-2">
-                                     <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
-                                 </div>
-
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <div class="col-xl-12">
-                 <div class="card">
-                     <div class="card-header">
-                         <div id="titleline"></div>
-                     </div>
-                     <div class="card-body">
-                         <div class="main-chart">
-                             <div id="chartdate">
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="row">
-             <div class="col-xl-12">
-                 <div class="card">
-                     <div class="card-header">
-                         <div id="title"></div>
-                         <div class="row">
                              <div class="col-md-2">
-                                 <div class="form-group">
-                                     <label for="exampleFormControlSelect1">Show data</label>
-                                     <select class="form-control" id="limit_showData">
-                                         <option value="3">3</option>
-                                         <option value="5" selected>5</option>
-                                         <option value="7">7</option>
-                                         <option value="10">10</option>
-                                     </select>
-                                 </div>
+                                 <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                              </div>
                          </div>
                      </div>
-                     <div class="card-body">
-                         <div class="main-chart">
-                             <div id="charta">
+                     <div class="col-md-12 mt-5" style="line-height: 0.5;">
+                         <h5 style="text-align: center;">Ranking Polda Data WAL & PJR Tertinggi <?= date('d M Y'); ?></h5>
+                         <!-- <div class="card shadow-sm"> -->
+                         <center>
+                             <table class="table table-bordered table-hover" id="tableWalpjrDay" style="background: white; width:50%">
+                                 <thead style="background-color:#0007D8; color:#fff;">
+                                     <tr class="text-center">
+                                         <th scope="col">No</th>
+                                         <th scope="col">Polda</th>
+                                         <th scope="col">WAL & PJR</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody id="tbody-walpjrDay">
+                                 </tbody>
+                             </table>
+                         </center>
+                         <!-- </div> -->
+                     </div>
+                 </div>
+             </div>
+             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                 <div class="row">
+                     <div class="col-md-9">
+                         <div class="row">
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
+                             </div>
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
+                             </div>
+                             <div class="col-md-2">
+                                 <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                              </div>
                          </div>
+                     </div>
+                     <div class="col-md-12 mt-5" style="line-height: 0.5;">
+                         <h5 style="text-align: center;">Ranking Polda Data WAL & PJR Tertinggi <?= date('M Y'); ?></h5>
+                         <!-- <div class="card shadow-sm"> -->
+                         <center>
+                             <table class="table table-bordered table-hover" id="tableWalpjrMonth" style="background: white; width:50%">
+                                 <thead style="background-color:#0007D8; color:#fff;">
+                                     <tr class="text-center">
+                                         <th scope="col">No</th>
+                                         <th scope="col">Polda</th>
+                                         <th scope="col">Wal & PJR</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody id="tbody-walpjrMonth">
+                                 </tbody>
+                             </table>
+                         </center>
+                         <!-- </div> -->
+                     </div>
+                 </div>
+             </div>
+             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                 <div class="row">
+                     <div class="col-md-9">
+                         <div class="row">
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
+                             </div>
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="" id="" value="<?= date('Y'); ?>">
+                             </div>
+                             <div class="col-md-2">
+                                 <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-md-12 mt-5" style="line-height: 0.5;">
+                         <h5 style="text-align: center;">Ranking Polda Data WAL & PJR Tertinggi <?= date('Y'); ?></h5>
+                         <!-- <div class="card shadow-sm"> -->
+                         <center>
+                             <table class="table table-bordered table-hover" id="tableWalpjrYear" style="background: white; width:50%">
+                                 <thead style="background-color:#0007D8; color:#fff;">
+                                     <tr class="text-center">
+                                         <th scope="col">No</th>
+                                         <th scope="col">Polda</th>
+                                         <th scope="col">Wal & PJR</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody id="tbody-walpjrYear">
+                                 </tbody>
+                             </table>
+                         </center>
+                         <!-- </div> -->
                      </div>
                  </div>
              </div>
          </div>
      </div>
+ </div>
+ <div class="row">
+     <hr style="width:97%; margin: auto">
+     <div class="filter mt-4" style=" height:125px;">
+         <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-9">
+                     <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                     <div class="row">
+                         <div class="col-md-4">
+                             <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                         </div>
+                         <div class="col-md-4">
+                             <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                         </div>
+                         <div class="col-md-2">
+                             <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                         </div>
+
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <div class="col-xl-12">
+         <div class="card">
+             <div class="card-header">
+                 <div id="titleline"></div>
+             </div>
+             <div class="card-body">
+                 <div class="main-chart">
+                     <div id="chartdate">
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ <div class="row">
+     <div class="col-xl-12">
+         <div class="card">
+             <div class="card-header">
+                 <div id="title"></div>
+                 <div class="row">
+                     <div class="col-md-2">
+                         <div class="form-group">
+                             <label for="exampleFormControlSelect1">Show data</label>
+                             <select class="form-control" id="limit_showData">
+                                 <option value="3">3</option>
+                                 <option value="5" selected>5</option>
+                                 <option value="7">7</option>
+                                 <option value="10">10</option>
+                             </select>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="card-body">
+                 <div class="main-chart">
+                     <div id="charta">
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ </div>
 
  </div>
  <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
