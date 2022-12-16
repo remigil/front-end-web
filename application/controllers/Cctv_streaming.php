@@ -38,9 +38,9 @@ class Cctv_streaming extends MX_Controller {
 
 	public function getCCTV()
     {
-        $headers = [
-            'Authorization' => $this->session->userdata['token']
-        ];
+        // $headers = [
+        //     'Authorization' => $this->session->userdata['token']
+        // ];
 
         $input = $this->input->post();  
 
@@ -67,7 +67,7 @@ class Cctv_streaming extends MX_Controller {
         // print_r($url);
         // die;
         $getCCTV = guzzle_request('GET', $url, [
-            'headers' => $headers
+            // 'headers' => $headers
         ]);
         if($getCCTV['isSuccess'] == false){
             redirect(base_url('404_notfound'));
