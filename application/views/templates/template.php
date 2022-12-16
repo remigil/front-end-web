@@ -99,9 +99,9 @@
       </div> -->
       <div class="contact-info social-links d-none d-md-flex align-items-center">
 			<!-- <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i> -->
-        <i class="bi bi-phone d-flex align-items-center"><span><a href="https://1500669.com/">1-500-669</a> </span></i>
-        <i class="bi bi-telephone d-flex align-items-center ms-4" style="margin-right: 20px;"><span><a href="https://1500669.com/">9119</a> </span></i>
-        <i class="bi bi-calendar3 d-flex align-items-center ms-4" style="margin-right: 20px;"><span><?php echo format_indoHari(date('Y-m-d')) ?> </span></i>
+        <i class="bi bi-phone d-flex align-items-center"><span><a href="https://ccntmc.1500669.com/" target="_blank">1-500-669</a> </span></i>
+        <i class="bi bi-telephone d-flex align-items-center ms-4" style="margin-right: 20px;"><span><a href="https://1500669.com/" target="_blank">9119</a> </span></i>
+        <i class="bi bi-calendar3 d-flex align-items-center ms-4" style="margin-right: 20px;"><span><a href="https://calendar.google.com/" target="_blank"><?php echo format_indoHari(date('Y-m-d')) ?></a> </span></i>
 			
 				<!-- <div class="input-group">
 
@@ -241,15 +241,15 @@
             <ul> 
 				<li><a href="<?= base_url()?>kontak/survey_kepuasan">Survey Kepuasan</a></li>
 				<li><a href="<?= base_url()?>kontak/layanan_pengaduan">Layanan Pengaduan</a></li>
-				<li><a href="<?= base_url()?>https://ccntmc.1500669.com/">Contact Center NTMC</a></li> 
+				<li><a href="https://ccntmc.1500669.com/" target="_blank">Contact Center NTMC</a></li> 
             </ul>
         </li>
 		<li class="dropdown"><a href="#"><span>Lain-lain</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
 				<li><a href="<?= base_url()?>cctv_streaming">CCTV Streaming</a></li>
-				<li><a href="https://etle-pmj.info/id">Link Pengecekan Status ETLE</a></li>
-				<li><a href="https://polri.go.id/polisiku">Link ke Layanan Polisiku</a></li>
-				<li><a href="https://tvradio.polri.go.id/">Link ke TV-RADIO POLRI</a></li> 
+				<li><a href="https://etle-pmj.info/id" target="_blank">Link Pengecekan Status ETLE</a></li>
+				<li><a href="https://polri.go.id/polisiku" target="_blank">Link ke Layanan Polisiku</a></li>
+				<li><a href="https://tvradio.polri.go.id/" target="_blank">Link ke TV-RADIO POLRI</a></li> 
             </ul>
         </li>
 		<li class="dropdown megamenu"><a href="#"><span><i class="bi bi-search fs-5" style="padding: 0;"></i></span> <i class="bi bi-chevron-down"></i></a>

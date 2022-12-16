@@ -135,7 +135,7 @@
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
             <div class="service-item position-relative" style="background-color: #ff555b; border-radius:10px; color:#3b3b3b">
               <div class="icon text-center"><iconify-icon icon="bxs:car-crash" width="50"></iconify-icon></div>
-              <h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5" style="color:#3b3b3b">Kecelakaan Lalu Lintas</a></h4>
+              <h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5" style="color:#3b3b3b" target="_balnk">Kecelakaan Lalu Lintas</a></h4>
               <h1 id="lakalantas" class="text-center fw-bold"></h1>
 							<p class="text-center mt-4 fw-bold">selengkapnya</p>
             </div>
@@ -143,7 +143,7 @@
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
             <div class="service-item position-relative" style="background-color: #fffd51; border-radius:10px; color:#3b3b3b">
               <div class="icon text-center"><iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon></div>
-              <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5" style="color:#3b3b3b">Pelanggaran Lalu Lintas</a></h4>
+              <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5" style="color:#3b3b3b" target="_blank">Pelanggaran Lalu Lintas</a></h4>
               <h1 id="garlantas" class="text-center fw-bold"></h1>
 							<p class="text-center mt-4 fw-bold">selengkapnya</p>
             </div>
@@ -154,7 +154,7 @@
 				<iconify-icon icon="mdi:car-multiple" width="50"></iconify-icon>
 				<iconify-icon icon="mdi:atv" width="50"></iconify-icon>
 			</div>
-              <h4 class="text-center"><a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" class="stretched-link fs-5" style="color:#3b3b3b">Kendaraan Bermotor</a></h4>
+              <h4 class="text-center"><a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" class="stretched-link fs-5" style="color:#3b3b3b" target="_blank">Kendaraan Bermotor</a></h4>
               <h1 id="motor" class="text-center fw-bold"></h1>
 							<p class="text-center mt-4 fw-bold">selengkapnya</p>
             </div>
@@ -162,7 +162,7 @@
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
             <div class="service-item position-relative" style="background-color: #5a8cff; border-radius:10px; color:#3b3b3b">
               <div class="icon text-center"><iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon></div>
-              <h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5" style="color:#3b3b3b">SIM Nasional</a></h4>
+              <h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5" style="color:#3b3b3b" target="_blank">SIM Nasional</a></h4>
               <h1 id="sim" class="text-center fw-bold"></h1>
 							<p class="text-center mt-4 fw-bold">selengkapnya</p>
             </div>
@@ -603,8 +603,9 @@
 							</div>
 
 							<div class="col-md-12 mt-3">
-							<a href=<?= base_url('Ditlantas_polda/');?>${ressData[i].id}><button class="btn btn-primary float-start">Halaman</button></a>   
-								<a href=${ressData[i].website} target="_blank"><button class="btn btn-primary float-end">Selengkapnya</button></a>   
+							<!-- <a href=<?= base_url('Ditlantas_polda/');?>${ressData[i].id}><button class="btn btn-primary float-start">Halaman</button></a> -->
+								<!-- <a href=${ressData[i].website} target="_blank"><button class="btn btn-primary float-end">Selengkapnya</button></a> -->
+								<a href=<?= base_url('Ditlantas_polda/');?>${ressData[i].id}><button class="btn btn-primary float-end">Selengkapnya</button></a>   
 							</div>
 							</div>
 					</div>
