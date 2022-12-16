@@ -20,6 +20,48 @@
         <div class="row">
 
           <div class="col-lg-9 entries">
+<h3>Headline</h3>
+<hr>
+
+<?php 
+						$i=0;
+						foreach ( $semuaberita as $data) : 
+							if (++$i == 2) break;?>
+
+						
+
+            <article class="entry">
+
+              <div class="entry-img">
+                <img src="<?= url_api() ?>news/<?= $data['picture'] ?>" alt="" class="img-fluid" width="100%">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="berita_front/detailberita/<?= $data['id']?>"><?=$data['title']; ?></a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">Korlantas Polri</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><?=$data['updated_at']; ?></time></a></li>
+                  <!-- <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li> -->
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                <p>
+				<?= substr($data['content'], 0, 250) . '. . .' ?>
+                </p>
+                <div class="read-more">
+                  <a href="berita_front/detailberita/<?= $data['id']?>">Baca Selengkapnya</a>
+                </div>
+              </div>
+
+            </article><!-- End blog entry -->
+
+			<?php endforeach; ?>
+
+
 					<h3>Berita Satpas</h3>
 						<hr>
 

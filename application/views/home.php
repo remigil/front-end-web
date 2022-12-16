@@ -20,31 +20,31 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background-image: url(assets/fe/slider-home5.jpg)">
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-8.jpg)">
             <div class="carousel-container">
               <div class="carousel-content">
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
                 <h2 class="animate__animated fanimate__adeInDown">Mari Tertib <span>Berlalu Lintas</span></h2>
-                <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;">Dengan anda Tertib berlalu lintas anda sudah menyelamatkan diri sendiri, Penumpang dan Orang lain dijalan</p>
+                <p class="animate__animated animate__fadeInUp fs-5" style="text-shadow: 2px 2px #000;">Dengan anda Tertib berlalu lintas anda sudah menyelamatkan diri sendiri, Penumpang dan Orang lain dijalan</p>
                 <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a> -->
               </div>
             </div>
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background-image: url(assets/fe/slider-home2.jpeg)">
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-9.jpg); ">
             <div class="carousel-container">
               <div class="carousel-content">
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
                 <h2 class="animate__animated animate__fadeInDown">Mari Tertib <span>Berlalu Lintas</span></h2>
-                <p class="animate__animated animate__fadeInUp" style="text-shadow: 2px 2px #000;">Utamakan Keselamatan, selalu patuhi rambu rambu lalu lintas dan gunakan sabuk keselamatan serta tidak menggunakan Hp saat berkendara, segera jika lelah & mengantuk</p>
+                <p class="animate__animated animate__fadeInUp fs-5" style="text-shadow: 2px 2px #000;">Utamakan Keselamatan, selalu patuhi rambu rambu lalu lintas dan gunakan sabuk keselamatan serta tidak menggunakan Hp saat berkendara, segera jika lelah & mengantuk</p>
                 <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Telusuri</a> -->
               </div>
             </div>
           </div>
 
           <!-- Slide 4 -->
-          <div class="carousel-item" style="background-image: url(assets/fe/banner-home4.jpeg)">
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-11.jpeg); background-position:center;">
             <div class="carousel-container">
               <div class="carousel-content">
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
@@ -56,7 +56,7 @@
           </div>
 
           <!-- Slide 5 -->
-          <div class="carousel-item" style="background-image: url(assets/fe/banner-home2.jpeg)">
+          <div class="carousel-item" style="background-image: url(assets/fe/slider-10.jpeg)">
             <div class="carousel-container">
               <div class="carousel-content">
 			  <img src="<?= base_url()?>assets/logo-nav.png" alt="">
@@ -261,7 +261,7 @@
               <div class="row">
                 <div class="col-xl-5 justify-content-center">
                 	<div class="card-bg p-4" style="background-image: url(assets/fe/slider-1.png);">
-						<a href="https://samsatdigital.id/"><img src="<?= base_url()?>assets/fe/client/SIGNAL.png" alt="" width="200"></a>
+						<a href="https://samsatdigital.id/"><img src="<?= base_url()?>assets/fe/client/signal-hd-putih.png" alt="" width="200" class="mx-auto d-block mt-5"></a>
 					</div>
                 </div>
                 <div class="col-xl-7 d-flex align-items-center">
@@ -279,7 +279,7 @@
               <div class="row">
                 <div class="col-xl-5">
 				<div class="card-bg p-4" style="background-image: url(assets/fe/slider-1.png);">
-						<a href="https://www.digitalkorlantas.id/"><img src="<?= base_url()?>assets/fe/client/SINAR.png" alt="" width="200"></a>
+						<a href="https://www.digitalkorlantas.id/"><img src="<?= base_url()?>assets/fe/client/sinar-hd.png" alt="" width="170" class="mx-auto d-block mt-3"></a>
 					</div>
                 </div>
                 <div class="col-xl-7 d-flex align-items-center">
@@ -297,7 +297,7 @@
               <div class="row">
                 <div class="col-xl-5">
 				<div class="card-bg p-4" style="background-image: url(assets/fe/slider-1.png);">
-						<a href="https://siminternasional.korlantas.polri.go.id/"><img src="<?= base_url()?>assets/korlantas-hd.png" alt="" width="200"></a>
+						<a href="https://siminternasional.korlantas.polri.go.id/"><img src="<?= base_url()?>assets/korlantas-hd.png" alt="" width="150" class="mx-auto d-block mt-3"></a>
 					</div>
                 </div>
                 <div class="col-xl-7 d-flex align-items-center">
@@ -314,9 +314,9 @@
             <div class="card-item">
               <div class="row">
                 <div class="col-xl-5">
-				<div class="card-bg " style="background-image: url(assets/fe/slider-1.png);">
-						<a href="https://korlantas.polri.go.id/" ><img src="<?= base_url()?>assets/korlantas-hd.png" alt="" width="50%" class="d-block mx-auto"></a>
-						<a href="https://ntmcpolri.info/"><img src="<?= base_url()?>assets/fe/client/ntmc_korlantas.png" alt="" width="50%" class="d-block mx-auto"></a>
+				<div class="card-bg p-2" style="background-image: url(assets/fe/slider-1.png);">
+						<a href="https://korlantas.polri.go.id/" ><img src="<?= base_url()?>assets/korlantas-hd.png" alt="" width="50%" class="d-block mx-auto mt-2"></a>
+						<a href="https://ntmcpolri.info/"><img src="<?= base_url()?>assets/fe/client/ntmc_korlantas.png" alt="" width="50%" class="d-block mx-auto mt-2"></a>
 					</div>
                 </div>
                 <div class="col-xl-7 d-flex align-items-center">
@@ -347,7 +347,7 @@
         <div class="clients-slider swiper">
           <div class="swiper-wrapper align-items-center text-center">
             <div class="swiper-slide">
-							<a target="_blank" href="http://103.154.174.55/#/pages/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/big data.png" alt="" width="100%"></a>
+							<a target="_blank" href="http://103.154.174.55/#/pages/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/bigdata-hd.png" alt="" width="100%"></a>
               <p>Big Data</p>
 						</div>
             <div class="swiper-slide">
@@ -355,23 +355,20 @@
               <p>CCTV</p>
 						</div>
             <div class="swiper-slide">
-							<a target="_blank" href="https://k3i.korlantas.polri.go.id/dis/"><img src="<?php echo base_url(); ?>assets/fe/client/dis.png" alt="" width="100%"></a>
+							<a target="_blank" href="https://k3i.korlantas.polri.go.id/dis/"><img src="<?php echo base_url(); ?>assets/fe/client/dis-hd.png" alt="" width="100%"></a>
               <p>DIS</p>
 						</div>
             <div class="swiper-slide">
 							<a target="_blank" href="http://dakgargakkum.com/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/etle-hd.png" alt="" width="100%"></a>
               <p>E-TILANG</p>
 						</div>
-            <div class="swiper-slide">
-							<a target="_blank" href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php"><img src="<?php echo base_url(); ?>assets/fe/client/Eri.png" alt="" width="100%"></a>
-              <p>ERI</p>
-						</div>
+            
             <!-- <div class="swiper-slide">
 							<a target="_blank" href="https://maps.korlantas.polri.go.id/portal/home/"><img src="<?php echo base_url(); ?>assets/fe/client/intan.png" alt="" width="100%"></a>
               <p>INTAN</p>
 						</div> -->
             <div class="swiper-slide">
-							<a target="_blank" href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#"><img src="<?php echo base_url(); ?>assets/fe/client/irsms.png" alt="" width="100%"></a>
+							<a target="_blank" href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#"><img src="<?php echo base_url(); ?>assets/fe/client/irsms-hd.png" alt="" width="100%"></a>
               <p>IRSMS</p>
 						</div>
             <div class="swiper-slide">
@@ -387,12 +384,16 @@
               <p>RASIROSA</p>
 						</div> -->
             <div class="swiper-slide">
-							<a target="_blank" href="http://sbstkorlantas.net/korlantas/"><img src="<?php echo base_url(); ?>assets/fe/client/SBST.png" alt="" width="100%"></a>
+							<a target="_blank" href="http://sbstkorlantas.net/korlantas/"><img src="<?php echo base_url(); ?>assets/fe/client/sbst-hd.png" alt="" width="100%"></a>
               <p>SBST</p>
 						</div>
             <div class="swiper-slide">
 							<a target="_blank" href="http://sislapops.com/home"><img src="<?php echo base_url(); ?>assets/fe/client/Sislapops.png" alt="" width="100%"></a>
               <p>SISLAPOPS</p>
+						</div>
+						<div class="swiper-slide">
+							<a target="_blank" href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php"><img src="<?php echo base_url(); ?>assets/fe/client/Eri.png" alt="" width="100%"></a>
+              <p>ERI</p>
 						</div>
             
           </div>
@@ -494,7 +495,7 @@
             </div>
 						<div class="row align-items-center">
 							<div class="col-md-12 align-self-center" >
-								<img src="<?= base_url()?>assets/fe/contactntmc.png" alt="" width="600" class="mx-auto d-block mt-5">
+								<a href="https://1500669.com/"><img src="<?= base_url()?>assets/fe/contactntmc.png" alt="" width="600" class="mx-auto d-block mt-5"></a>
 
 							</div>
 						</div>

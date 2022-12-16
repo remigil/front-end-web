@@ -12,6 +12,7 @@
     </section><!-- End Breadcrumbs -->
 
 	<div class="container">
+		<h3 class="text-center mb-5">CCTV Terintegrasi - Korlantas Polri</h3>
 
 		<div class="row align-items-center">
 		
@@ -75,7 +76,7 @@
         let listCCTV = ""; 
         $('[name=kategoriFilter]').on("change", function (e) {
             countlistCCTV = 0;
-            listCCTV = "";
+            listCCTV = "";d
             $('#listCCTV').html(listCCTV); 
             serverSideGetCCTV();
         });
@@ -150,10 +151,7 @@
                                                     <i class="bx bx-dots-horizontal-rounded"></i>
                                                 </a>
                                                 
-                                                <div class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item" href="#">Edit</a> 
-                                                    <a class="dropdown-item" href="#">Hapus</a>
-                                                </div>
+                                                
                                             </div>
                                             
                                             <div class="row mb-4">

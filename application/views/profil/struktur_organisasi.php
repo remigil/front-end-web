@@ -25,7 +25,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12 text-center">
-			<img src="<?= base_url()?>assets/fe/struktur-organisasi.jpg" alt="">
+			<img src="<?= base_url()?>assets/fe/STRUKTUR_KORLANTAS.png" alt="" width="1000px">
 
 		</div>
 		

@@ -5,35 +5,42 @@ class Cctv_streaming extends MX_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		// $this->load->model('m_cctv');
+		$this->load->model('m_cctv_streaming');
     }
  
 	public function index()
 	{ 
+		$headers = [
+            // 'Authorization' => $this->session->userdata['token']
+        ];
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash(); 
 		$data['title'] = "CCTV Streaming | K3I Korlantas";
 		$data['breadcrumb'] = "cctv";
 		$data['headline'] = "CCTV STREAMING";
+
+		$getCCTV = guzzle_request('GET', 'cctv', [
+            // 'headers' => $headers
+        ]);
+		// var_dump($getCCTV);die;
 		
         
         $this->template->load('templates/template','lain_lain/cctv_streaming', $data); 
         
 	}
 
-	public function serverSideTable() 
-    {  
-        $postData = $this->input->post();   
-        $data = $this->m_cctv->get_datatables($postData);  
-		echo json_encode($data); 
-    }
+	// public function serverSideTable() 
+    // {  
+    //     $postData = $this->input->post();   
+    //     $data = $this->m_cctv_streaming->get_datatables($postData);  
+	// 	echo json_encode($data); 
+    // }
 
 	public function getCCTV()
     {
-		
-        // $headers = [
-        //     'Authorization' => $this->session->userdata['token']
-        // ];
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
 
         $input = $this->input->post();  
 
@@ -59,11 +66,9 @@ class Cctv_streaming extends MX_Controller {
         $url = 'cctv?serverSide=True&length=8&start='.$page.'&order=id&orderDirection=asc'.$searchData.''.$kategoriFilter.'';
         // print_r($url);
         // die;
-		// var_dump($url);die;
         $getCCTV = guzzle_request('GET', $url, [
-            // 'headers' => $headers
+            'headers' => $headers
         ]);
-		
         if($getCCTV['isSuccess'] == false){
             redirect(base_url('404_notfound'));
             die;

@@ -54,7 +54,7 @@
             <iconify-icon icon="bxs:car-crash" width="50"></iconify-icon>
           </div>
           <h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5" style="color:#3b3b3b">Kecelakaan Lalu Lintas</a></h4>
-          <h1 id="lakalantas" class="text-center"><?= number_format($ditgakkum['data'][0]['lakalantas'], 0, '', '.');  ?></h1>
+          <h1 id="lakalantas" class="text-center fw-bold"><?= number_format($ditgakkum['data'][0]['lakalantas'], 0, '', '.');  ?></h1>
         </div>
       </div><!-- End Service Item -->
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
@@ -63,7 +63,7 @@
             <iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon>
           </div>
           <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5" style="color:#3b3b3b">Pelanggaran Lalu Lintas</a></h4>
-          <h1 id="garlantas" class="text-center"><?= number_format($ditgakkum['data'][0]['garlantas'], 0, '', '.');  ?></h1>
+          <h1 id="garlantas" class="text-center fw-bold"><?= number_format($ditgakkum['data'][0]['garlantas'], 0, '', '.');  ?></h1>
         </div>
       </div><!-- End Service Item -->
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
@@ -73,7 +73,7 @@
             <iconify-icon icon="mdi:atv" width="50"></iconify-icon>
           </div>
           <h4 class="text-center"><a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" class="stretched-link fs-5" style="color:#3b3b3b">Kendaraan Bermotor</a></h4>
-          <h1 id="motor" class="text-center"><?= number_format($ditregident['data'][0]['ranmor'], 0, '', '.');  ?></h1>
+          <h1 id="motor" class="text-center fw-bold"><?= number_format($ditregident['data'][0]['ranmor'], 0, '', '.');  ?></h1>
         </div>
       </div><!-- End Service Item -->
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
@@ -82,7 +82,7 @@
             <iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon>
           </div>
           <h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5" style="color:#3b3b3b">SIM Nasional</a></h4>
-          <h1 id="sim" class="text-center"><?= number_format($ditregident['data'][0]['sim'], 0, '', '.');  ?></h1>
+          <h1 id="sim" class="text-center fw-bold"><?= number_format($ditregident['data'][0]['sim'], 0, '', '.');  ?></h1>
         </div>
       </div><!-- End Service Item -->
 
@@ -92,6 +92,22 @@
 
   </div>
 </section><!-- End Featured Services Section -->
+
+<section>
+	<div class="container">
+	<div class="section-title">
+      <h2>Peta Lokasi Polres Jajaran <?= $headline ?></h2>
+      <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+    </div>
+		<div class="col-md-12 mt-3">
+			<div style="height: 450px;" class="mt-3" id="mapG20Dashboard"></div>
+		
+		</div>
+
+	</div>
+	
+</section>
+
 
 
 
@@ -107,7 +123,7 @@
 
     <!-- <h3>KORBINMAS BAHARKAM POLRI</h3> -->
 
-    <div class="row margin-top-20">
+    <!-- <div class="row margin-top-20">
       <div class="col-md-8 border-end shadows">
         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8-avdziYWg8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
@@ -124,8 +140,8 @@
           </div>
         </div>
       </div>
-    </div>
-    <hr class="mt-5 mb-5">
+    </div> -->
+    <!-- <hr class="mt-5 mb-5"> -->
 
 
 
@@ -150,27 +166,131 @@
     </div>
   </div>
 </section>
-
 <script>
-  let app_url = '<%-app_url%>'
-  let path = '<%-path%>'
+	$(document).ready(function() {  
+		// $.ajax({
+        //         type: "POST",
+        //         url: "<?= base_url(); ?>dashboard/dashboard/getDetailPolda",
+        //         data: {
+        //             id: idpolda
+        //         },
+        //         dataType: "JSON",
+        //         success: function(result) {
+        //             var ressPolda = result;
+		// 		}})
+	  let zoom= '<?= $polda['zoomview'] ?>';
+	  let fileshp= '<?= $polda['file_shp'] ?>';
+	  let zxc = zoom.split(",")
+      let lat = parseFloat(zxc[0])
+      let long = parseFloat(zxc[1])
+	  
+	  var initialCenter = [lat, long];
+        var initialZoom = 8;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
 
-  $(document).ready(function() {
-    $.ajax({
-      type: "POST",
-      url: "<?php echo base_url(); ?>ditlantas_polda/getPolda",
-      dataType: "JSON",
-      success: function(result) {
+		// var gl = L.mapboxGL({
+        //                 accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
+        //                 style: 'mapbox://styles/mapbox/traffic-day-v2'
+        //             });
 
-        let ressData = result;
-        // console.log(result)
-        $("#overlay").fadeOut(300);
+        //             var trafficMutant = L.gridLayer.googleMutant({
+        //                 maxZoom: 24,
+        //                 type: "hybrid",
+        //             }).addGoogleLayer("TrafficLayer");
 
-        $('#lakalantas').html(`${ressData[i].lakalantas}`);
-        $('#garlantas').html(`${ressData[i].garlantas}`);
-        $('#motor').html(`${ressData[i].sepeda_motor}`);
-        $('#sim').html(`${ressData[i].turjagwali}`);
-      }
-    })
-  })
+        //             var trafficMutantRoad = L.gridLayer.googleMutant({
+        //                 maxZoom: 24,
+        //                 type: "roadmap",
+        //             }).addGoogleLayer("TrafficLayer");
+
+        //             var shpFile = new L.Shapefile(`<?php echo base_url(); ?>assets/admin/shp/SHP/${fileshp}`, {
+        //                 pointToLayer: function(feature, latlng) {
+
+        //                     var smallIcon = new L.divIcon({
+        //                         iconAnchor: [20, 51],
+        //                         popupAnchor: [0, -51],
+        //                         className: 'listeo-marker-icon',
+        //                         html: '<div class="marker-container">' +
+        //                             '<div class="marker-card">' +
+        //                             '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
+        //                             '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
+        //                             '<div class="marker-arrow"></div>' +
+        //                             '</div>' +
+        //                             '</div>'
+        //                     });
+
+
+        //                     var mark = L.marker(latlng, {
+        //                         icon: smallIcon
+        //                     })
+        //                     cluster.addLayer(mark)
+        //                     return cluster;
+
+        //                 },
+        //                 onEachFeature: function(feature, layer) {
+        //                     if (feature.properties) {
+        //                         layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+        //                             return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
+        //                         }).join("<hr>"), {
+        //                             maxWidth: 400,
+        //                             maxHeight: 250,
+        //                             scrollbarWidth: 'thin',
+        //                             className: 'leaflet-infoBox'
+        //                         });
+        //                     }
+        //                 }
+        //             });
+        // StART MAP SECTION
+        var mapContainer = L.map('mapG20Dashboard', {
+            maxZoom: 19,
+            minZoom: 1,
+            zoomControl: false,
+            layers: [googleHybrid]
+        }).setView(initialCenter, initialZoom);
+
+        var markerClusterGroup = L.markerClusterGroup();
+        var icon = L.icon({
+            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
+            iconSize: [80, 80], // size of the icon
+        });
+
+       
+        mapContainer.addLayer(markerClusterGroup);
+        mapContainer.setView(initialCenter, initialZoom);
+
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topright'
+        }).addTo(mapContainer);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainer);
+
+
+});
 </script>

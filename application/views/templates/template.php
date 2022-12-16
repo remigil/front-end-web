@@ -99,8 +99,8 @@
       </div> -->
       <div class="contact-info social-links d-none d-md-flex align-items-center">
 			<!-- <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i> -->
-        <i class="bi bi-phone d-flex align-items-center"><span><a href="https://ntmcpolri.info/">1-500-669</a> </span></i>
-        <i class="bi bi-telephone d-flex align-items-center ms-4" style="margin-right: 20px;"><span><a href="https://ntmcpolri.info/">9119</a> </span></i>
+        <i class="bi bi-phone d-flex align-items-center"><span><a href="https://1500669.com/">1-500-669</a> </span></i>
+        <i class="bi bi-telephone d-flex align-items-center ms-4" style="margin-right: 20px;"><span><a href="https://1500669.com/">9119</a> </span></i>
         <i class="bi bi-calendar3 d-flex align-items-center ms-4" style="margin-right: 20px;"><span><?php echo format_indoHari(date('Y-m-d')) ?> </span></i>
 			
 				<!-- <div class="input-group">
@@ -265,7 +265,7 @@
 				
             </ul>
         </li>
-				<li><a href="portfolio.html"></a></li>
+				<!-- <li><a href="portfolio.html"></a></li> -->
 				<li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

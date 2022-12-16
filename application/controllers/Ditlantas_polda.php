@@ -47,6 +47,8 @@ class Ditlantas_polda extends MX_Controller {
         $data["databerita"] = $news;
         $data['ditgakkum'] = $getDitgakkum;
         $data['ditregident'] = $getDitregident;
+		// echo "<pre>";
+		// var_dump($data);die;
         $this->template->load('templates/template', 'detail_polda', $data);
 	}
 
