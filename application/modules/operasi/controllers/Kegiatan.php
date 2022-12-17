@@ -40,7 +40,7 @@ class Kegiatan extends MY_Controller
         ]); 
         $data['getVip'] = $getVip['data']['data']; 
 
-        $getAccount = guzzle_request('GET', 'account', [  
+        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [  
             'headers' => $headers 
         ]); 
         $data['getAccount'] = $getAccount['data']['data'];

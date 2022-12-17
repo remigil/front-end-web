@@ -71,6 +71,16 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="cat restAreaDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="rest_area" name="filter" id="restAreaDisplay"><span><i class="mdi mdi-chat-alert"></i> Rest Area</span>
+                                </label>
+                                <button id="restAreaFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
                         <div class="cat jalurBeatDisplay" style="margin-left: 10px; display: none;"> 
                             <div class="btn-group">
                                 <label>
@@ -229,16 +239,7 @@
                             </div>
                         </div>
     
-                        <div class="cat restAreaDisplay" style="margin-left: 10px;">
-                            <div class="btn-group">
-                                <label>
-                                    <input type="checkbox" value="rest_area" name="filter" id="restAreaDisplay"><span><i class="mdi mdi-chat-alert"></i> Rest Area</span>
-                                </label>
-                                <button id="restAreaFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                                </button>
-                            </div>
-                        </div>
+                        
     
                         <div class="cat posPamDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
