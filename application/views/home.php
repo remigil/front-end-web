@@ -108,12 +108,17 @@
 		
 		<div class="col-md-2">
 			<div class="container-fluid">
-				<h4 class="text-black p-2">Informasi Terkini</h4>
+				<h4 class="text-black p-2">Informasi</h4>
 			</div>
 
 		</div>
 		<div class="col-md-10">
-				<marquee behavior="" direction="" style="color: white; background-color:#073888;" class="p-2">SELAMAT DATANG DI PORTAL PUSAT KENDALI KOORDINASI KOMUNIKASI DAN INFORMASI KORLANTAS POLRI</marquee>
+				<marquee behavior="" direction="" style="color: white; background-color:#073888;" class="p-2">
+					SELAMAT DATANG DI PORTAL PUSAT KENDALI KOORDINASI KOMUNIKASI DAN INFORMASI KORLANTAS POLRI
+					<?php foreach($semuaberita as $data):?>
+						<a href="berita_front/detailberita/<?= $data['id']?>" class="mx-3 text-white" style="text-decoration: none;">||  <?= $data['title']?>  ||</a>
+					<?php endforeach;?>
+				</marquee>
 
 		</div>
 	</div>
@@ -134,37 +139,69 @@
 
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
             <div class="service-item position-relative" style="background-color: #ff555b; border-radius:10px; color:#3b3b3b">
-              <div class="icon text-center"><iconify-icon icon="bxs:car-crash" width="50"></iconify-icon></div>
-              <h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5" style="color:#3b3b3b" target="_balnk">Kecelakaan Lalu Lintas</a></h4>
-              <h1 id="lakalantas" class="text-center fw-bold"></h1>
-							<p class="text-center mt-4 fw-bold">selengkapnya</p>
+							<div class="service-item-upper">
+								<div class="icon text-center"><iconify-icon icon="bxs:car-crash" width="50"></iconify-icon></div>
+								<h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5" style="color:#3b3b3b" target="_balnk">Kecelakaan Lalu Lintas</a></h4>
+								<h1 id="lakalantas" class="text-center fw-bold"></h1>
+								<div class="text-center mt-4">
+									<h6>Data Laka s.d</h6>
+									<h6><?php echo format_indoHari(date('Y-m-d')) ?></h6>
+
+								</div>
+
+							</div>
+							<p class="text-center pt-3 pb-3 fw-bold" style="padding: 0; border-radius:10px;">selengkapnya</p>
             </div>
           </div><!-- End Service Item -->
-          <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
+          <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
             <div class="service-item position-relative" style="background-color: #fffd51; border-radius:10px; color:#3b3b3b">
-              <div class="icon text-center"><iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon></div>
-              <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5" style="color:#3b3b3b" target="_blank">Pelanggaran Lalu Lintas</a></h4>
-              <h1 id="garlantas" class="text-center fw-bold"></h1>
-							<p class="text-center mt-4 fw-bold">selengkapnya</p>
+							<div class="service-item-upper">
+								<div class="icon text-center"><iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon></div>
+								<h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5" style="color:#3b3b3b" target="_blank">Pelanggaran Lalu Lintas</a></h4>
+								<h1 id="garlantas" class="text-center fw-bold"></h1>
+								<div class="text-center mt-4">
+									<h6>Data Dakgar s.d </h6>
+									<h6><?php echo format_indoHari(date('Y-m-d')) ?></h6>
+
+								</div>
+
+							</div>
+							<p class="text-center pt-3 pb-3 fw-bold" style="padding: 0; border-radius:10px;">selengkapnya</p>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
             <div class="service-item position-relative" style="background-color: #40e48a; border-radius:10px; color:#3b3b3b">
-              <div class="icon text-center">
-				<iconify-icon icon="mdi:car-multiple" width="50"></iconify-icon>
-				<iconify-icon icon="mdi:atv" width="50"></iconify-icon>
-			</div>
-              <h4 class="text-center"><a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" class="stretched-link fs-5" style="color:#3b3b3b" target="_blank">Kendaraan Bermotor</a></h4>
-              <h1 id="motor" class="text-center fw-bold"></h1>
-							<p class="text-center mt-4 fw-bold">selengkapnya</p>
+							<div class="service-item-upper">
+								<div class="icon text-center">
+									<iconify-icon icon="mdi:car-multiple" width="50"></iconify-icon>
+									<iconify-icon icon="mdi:atv" width="50"></iconify-icon>
+								</div>
+								<h4 class="text-center"><a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" class="stretched-link fs-5" style="color:#3b3b3b" target="_blank">Kendaraan Bermotor</a></h4>
+								<h1 id="motor" class="text-center fw-bold"></h1>
+								<div class="text-center mt-4">
+									<h6>Data Ranmor s.d </h6>
+									<h6><?php echo format_indoHari(date('Y-m-d')) ?></h6>
+
+								</div>
+
+							</div>
+							<p class="text-center pt-3 pb-3 fw-bold" style="padding: 0; border-radius:10px;">selengkapnya</p>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
             <div class="service-item position-relative" style="background-color: #5a8cff; border-radius:10px; color:#3b3b3b">
-              <div class="icon text-center"><iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon></div>
-              <h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5" style="color:#3b3b3b" target="_blank">SIM Nasional</a></h4>
-              <h1 id="sim" class="text-center fw-bold"></h1>
-							<p class="text-center mt-4 fw-bold">selengkapnya</p>
+							<div class="service-item-upper">
+								<div class="icon text-center"><iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon></div>
+								<h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5" style="color:#3b3b3b" target="_blank">SIM Nasional</a></h4>
+								<h1 id="sim" class="text-center fw-bold"></h1>
+								<div class="text-center mt-4">
+									<h6>Data Sim s.d </h6>
+									<h6><?php echo format_indoHari(date('Y-m-d')) ?></h6>
+
+								</div>
+
+							</div>
+							<p class="text-center pt-3 pb-3 fw-bold" style="padding: 0; border-radius:10px;">selengkapnya</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -182,8 +219,134 @@
 				<!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
 			</div>
 
-			<div class="container">
-				<div id="map" style="height: 500px;"></div>
+			<div class="container-fluid">
+				<div id="map" style="height: 800px;"></div>
+			</div>
+
+			<!-- get logo polda by looping -->
+			<!-- <div class="row">
+				<div class="col-md-12">
+					<div class="logo_polda text-center">
+					<?php foreach($logopolda as $polda) :?>
+						<a href="<?= base_url()?>ditlantas_polda/<?= $polda['id']?>">
+							<img src="<?= url_api() ?>polda/logo/<?= $polda['logo_polda']?>" alt="" width="40px" class="m-2">
+						</a>
+						<?php endforeach;?>
+					</div>
+				</div>
+			</div> -->
+
+			<!-- get logo polda manual -->
+			<div class="row">
+				<div class="col-md-12">
+
+				<div class="logo_polda text-center">
+	
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMS9wTkR4R0lkWkcxdkwydkp5dmNEcEJxMmtMUURqdzllTT0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Aceh.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMStoeEZZVmN6MmE1TGRnQm5TMkJxV2tDc2N6V1l5Sk1QND0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Sumut.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMStYeHJqNjJTZjZyc2N5RzVsbDlpeGs3UFN2cEp1SjFrWT0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Sumbar.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMStkRnMvVi9ZaWFxTVc4Qm9ZUHM5Z2VOQy9RcWplSkYraz0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Riau.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMThmY3hwZUJHYWdFN3VpYUlFeVcrYWhpeTZWa1BXV0tHMD0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Bengkulu.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMS9YUHMvc3JBMkZLSHdhUEs3VW1hQlBleHlWbEVzN0lSST0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Jambi.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMTl3aFlmWHd2NjFHbHB1aE96UWhQLzh3MmdlYThsTlBsRT0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Sumsel.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMSsrOHBCZGZoM1ZLWnZvdHFEYkFrVGxkOXpiYWczK0FPMD0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Lampung.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMStBOGVndlZMV3JpRGVwV0IraGFTRWg3Z2c3VFJKYXVhND0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Metro_Jaya.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMTk5TVRlWVA4REh6L2ZqSFI4R215ZlJsaHM3OHVJT0ViND0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Jabar.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMS9RakZNK1Z4SEUyY3ZCcTFTbzRnRmt2SmlVOGtRUzBwaz0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Jateng.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMTlvenVBR01YRVh3OWhDV1RCK1JoSEVpRzc5Sk5kV0FJWT0">
+							<img src="<?= url_api() ?>polda/logo/Polda_DIY.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMS9xdkozcXlWVXFXc0JCT013NHdDdUpVRWp3aWFETVR6ST0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Jatim.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMTh6TVlublVIQjlhUU5YMS9xWDlKOHFpbE55QTRYU0E3Zz0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Bali.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMThPcnJzZkFKbGxFdjVvYW1QTEhMejJNV3dFOStTNnRGST0">
+							<img src="<?= url_api() ?>polda/logo/Polda_NTB.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMThmQXNxeUgyMzhMTFBDTlAzQkpJUzJsZmxJeVNHTks1dz0">
+							<img src="<?= url_api() ?>polda/logo/Polda_NTT.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMStVajlYaXd3YzNwWEd0cmNyeDlWbDltRElEQS9leVhUOD0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Kalbar.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMS9yOGxua3ZCQ2lxQW0vMlA3TE0wejBacjIzbzlVQnAyZz0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Kalsel.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMTlqMktVMnRFVGZWekdXTUVydkJyaWNuZmcxdXYxeE5PST0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Kalteng.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMStseGQyTko2eUwxY0RqKzNYTHpKQ1NUaXArK1p3ZEdrMD0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Kaltim.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMTlGb29lT25WR251VklHZ0Ewcm5sS2JOc2wrNGhBZktnTT0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Sulsel.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMTlwNHRrckZGSG1hc2ZXQ1ROa2tNdTUybnMvOU94alJlVT0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Sultra.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMThPOGR2emEyd3VXMUZPbXNSZDFWRVJJVksxV2Z0am0zRT0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Sulteng.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMS91eW1ycmtYSW50UGhzRi9xV0FCQktBTHNNRkRqWG04VT0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Sulawesi_Utara.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMTlQU1FmWHZHTit0WGdmd3pxSHhLTTFqbENFUEhnUkpHMD0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Maluku.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMThXMksvT1ZWc08wY09LODdOL1VBNHJIRU1WWWN2Ynh5RT0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Papua.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMTlkSlBrT0FZRmxDbXA1eXIwdWhZZFdicVFSM1gweEFvYz0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Kep_Babel.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMS92elB1ZWt1SkdhNE5nU01lYzdDTk9IOExvTm1nVC85bz0">
+							<img src="<?= url_api() ?>polda/logo/polda_Banten.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMTlHQmIxSzlFTmlaVytmVTJld2ZKZjZmVUhjdktiRnlOVT0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Gorontalo.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMThHYVFTaUwweFNOdUNMNEFZZkpZS2dkMUhLNFFNRXBhcz0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Maluku_Utara.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMThJTEE1NUNwT1JTd2xQZnFka2dPWFlNZ2duT0Q3UWZyST0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Kep_Riau.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMThZQVJPVWpqZWYwUzBnOVNrVERUM3MyRkVrM2pOL0FkUT0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Papua_Barat.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMTlvYzF5QTU4YmpWMzkxNFBNUldFY2ZMWVFYRjBsbkNoYz0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Sulbar.png" alt="" width="43px" class="m-2">
+						</a>
+						<a href="<?= base_url()?>Ditlantas_polda/VTJGc2RHVmtYMS9UaGVKL1J6Z0FjWTBEV3dsdDBGUTFOS1BLUXVWVk1hcz0">
+							<img src="<?= url_api() ?>polda/logo/Polda_Kaltara.png" alt="" width="43px" class="m-2">
+						</a>
+						
+					</div>
+				</div>
 			</div>
 
 		</section>
@@ -206,16 +369,16 @@
 				<?php 
 						$i=0;
 						foreach ( $semuaberita as $data) : 
-							if (++$i == 4) break;?>
+							if (++$i == 5) break;?>
 
-          <div class="col-lg-4 mt-5" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-3 mt-5" data-aos="fade-up" data-aos-delay="200">
             <div class="post-box">
               <div class="post-img"><img width="500" src="<?= url_api() ?>news/<?= $data['picture'] ?>" class="img-fluid"></div>
               <div class="meta">
                 <span class="post-date"><?= $data['category_news'][0]['name_category_news'] ?></span>
                 <span class="post-author"> / Korlantas Polri</span>
               </div>
-              <h3 class="post-title"><?=$data['title']; ?></h3>
+              <h4 class="post-title"><?=$data['title']; ?></h4>
               <p><?= substr($data['content'], 0, 250) . '. . .' ?></p>
               <a href="berita_front/detailberita/<?= $data['id']?>" class="readmore stretched-link"><span>Baca Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
             </div>
@@ -373,7 +536,7 @@
 						</div>
             <div class="swiper-slide">
 							<a target="_blank" href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/korlantas-hd.png" alt="" width="100%"></a>
-              <p>Korlantas</p>
+              <p>Digital Korlantas</p>
 						</div>
             <div class="swiper-slide">
 							<a target="_blank" href="https://1500669.com/"><img src="<?php echo base_url(); ?>assets/fe/client/ntmc_korlantas.png" alt="" width="100%"></a>
@@ -408,7 +571,7 @@
       <div class="container" data-aos="fade-up">
 
 				<div class="section-title">
-          <h2>Media Sosial</h2>
+          <h2>Media Sosial NTMC</h2>
           <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
 
@@ -559,7 +722,7 @@
                             iconAnchor: [5, 10]
                         })
                     }).bindPopup(
-                        `<div style="width: 450px;">
+                        `<div style="width: 350px;">
 						<div class="row">
 							<div class="col-md-2 text-center">
 								<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 50px;">
@@ -571,16 +734,16 @@
 							<div class="col-md-12 mt-3 text-center">
 								<div class="row">
 									<div class="col-md-3">
-										<span class="fs-6">Total <b> Kecelakaan</b> Lalu Lintas</span>
+										<span class="fs-7">Total <b> Kecelakaan</b> Lalu Lintas</span>
 									</div>
 									<div class="col-md-3">
-										<span class="fs-6">Total <b>Pelanggaran</b> Lalu Lintas</span>
+										<span class="fs-7">Total <b>Pelanggaran</b> Lalu Lintas</span>
 									</div>
 									<div class="col-md-3">
-										<span class="fs-6">Total <b>Turjagwali</b></span>
+										<span class="fs-7">Total <b>Turjagwali</b></span>
 									</div>    
 									<div class="col-md-3">
-										<span class="fs-6">Total <b>Kendaraan Bermotor</b></span>
+										<span class="fs-7">Total <b>Kendaraan Bermotor</b></span>
 									</div>
 								</div>    
 							</div>
@@ -588,16 +751,16 @@
 							<div class="col-md-12 mt-3 text-center">
 								<div class="row">
 									<div class="col-md-3">
-										<span class="fs-3"> <b>${ressData[i].lakalantas}</b></span>
+										<span class="fs-5"> <b>${ressData[i].lakalantas}</b></span>
 									</div>
 									<div class="col-md-3">
-										<span class="fs-3"> <b>${ressData[i].garlantas}</b></span>
+										<span class="fs-5"> <b>${ressData[i].garlantas}</b></span>
 									</div>
 									<div class="col-md-3">
-									<span class="fs-3"> <b>${ressData[i].turjagwali}</b></span>
+									<span class="fs-5"> <b>${ressData[i].turjagwali}</b></span>
 									</div>    
 									<div class="col-md-3">
-										<span class="fs-3"> <b>${ressData[i].sepeda_motor}</b></span>
+										<span class="fs-5"> <b>${ressData[i].sepeda_motor}</b></span>
 									</div>
 								</div>    
 							</div>
@@ -605,7 +768,7 @@
 							<div class="col-md-12 mt-3">
 							<!-- <a href=<?= base_url('Ditlantas_polda/');?>${ressData[i].id}><button class="btn btn-primary float-start">Halaman</button></a> -->
 								<!-- <a href=${ressData[i].website} target="_blank"><button class="btn btn-primary float-end">Selengkapnya</button></a> -->
-								<a href=<?= base_url('Ditlantas_polda/');?>${ressData[i].id}><button class="btn btn-primary float-end">Selengkapnya</button></a>   
+								<a href=<?= base_url('Ditlantas_polda/');?>${ressData[i].id} class="fs-7"><button class="btn btn-primary float-end fs-7">Selengkapnya</button></a>   
 							</div>
 							</div>
 					</div>

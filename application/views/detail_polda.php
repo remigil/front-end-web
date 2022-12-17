@@ -168,23 +168,23 @@
 </section>
 <script>
 	$(document).ready(function() {  
-		// $.ajax({
-        //         type: "POST",
-        //         url: "<?= base_url(); ?>dashboard/dashboard/getDetailPolda",
-        //         data: {
-        //             id: idpolda
-        //         },
-        //         dataType: "JSON",
-        //         success: function(result) {
-        //             var ressPolda = result;
-		// 		}})
-	  let zoom= '<?= $polda['zoomview'] ?>';
-	  let fileshp= '<?= $polda['file_shp'] ?>';
-	  let zxc = zoom.split(",")
-      let lat = parseFloat(zxc[0])
-      let long = parseFloat(zxc[1])
-	  
-	  var initialCenter = [lat, long];
+		let id= '<?= $polda['id'] ?>';
+		$.ajax({
+			type: "POST",
+			url: "<?= base_url(); ?>ditlantas_polda/getDetailPolda",
+			data: {
+				id: id
+			},
+			dataType: "JSON",
+			success: function(result) {
+				var ressPolda = result.polda;
+				var ressPolres = result.polres;
+
+							
+							let zxc = ressPolda.zoomview.split(",")
+							let lat = parseFloat(zxc[0])
+							let long = parseFloat(zxc[1])
+										var initialCenter = [lat, long];
         var initialZoom = 8;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
@@ -207,89 +207,154 @@
             attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
         });
 
-		// var gl = L.mapboxGL({
-        //                 accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
-        //                 style: 'mapbox://styles/mapbox/traffic-day-v2'
-        //             });
-
-        //             var trafficMutant = L.gridLayer.googleMutant({
-        //                 maxZoom: 24,
-        //                 type: "hybrid",
-        //             }).addGoogleLayer("TrafficLayer");
-
-        //             var trafficMutantRoad = L.gridLayer.googleMutant({
-        //                 maxZoom: 24,
-        //                 type: "roadmap",
-        //             }).addGoogleLayer("TrafficLayer");
-
-        //             var shpFile = new L.Shapefile(`<?php echo base_url(); ?>assets/admin/shp/SHP/${fileshp}`, {
-        //                 pointToLayer: function(feature, latlng) {
-
-        //                     var smallIcon = new L.divIcon({
-        //                         iconAnchor: [20, 51],
-        //                         popupAnchor: [0, -51],
-        //                         className: 'listeo-marker-icon',
-        //                         html: '<div class="marker-container">' +
-        //                             '<div class="marker-card">' +
-        //                             '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
-        //                             '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
-        //                             '<div class="marker-arrow"></div>' +
-        //                             '</div>' +
-        //                             '</div>'
-        //                     });
-
-
-        //                     var mark = L.marker(latlng, {
-        //                         icon: smallIcon
-        //                     })
-        //                     cluster.addLayer(mark)
-        //                     return cluster;
-
-        //                 },
-        //                 onEachFeature: function(feature, layer) {
-        //                     if (feature.properties) {
-        //                         layer.bindPopup(Object.keys(feature.properties).map(function(k) {
-        //                             return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
-        //                         }).join("<hr>"), {
-        //                             maxWidth: 400,
-        //                             maxHeight: 250,
-        //                             scrollbarWidth: 'thin',
-        //                             className: 'leaflet-infoBox'
-        //                         });
-        //                     }
-        //                 }
-        //             });
-        // StART MAP SECTION
-        var mapContainer = L.map('mapG20Dashboard', {
-            maxZoom: 19,
-            minZoom: 1,
-            zoomControl: false,
-            layers: [googleHybrid]
-        }).setView(initialCenter, initialZoom);
-
-        var markerClusterGroup = L.markerClusterGroup();
-        var icon = L.icon({
-            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-            iconSize: [80, 80], // size of the icon
+				var gl = L.mapboxGL({
+						accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
+            style: 'mapbox://styles/mapbox/traffic-day-v2'
         });
 
-       
-        mapContainer.addLayer(markerClusterGroup);
-        mapContainer.setView(initialCenter, initialZoom);
+        var trafficMutant = L.gridLayer.googleMutant({
+        	maxZoom: 24,
+          type: "hybrid",
+        }).addGoogleLayer("TrafficLayer");
 
-        var baseMaps = {
-            "Google Map Street": googleStreet,
-            "Google Map Satelite": googleSatelite,
-            "Google Map Hybrid": googleHybrid,
-            "Google Map Terrain": googleTerrain,
-        };
-        var overlayMaps = {};
-        L.control.layers(baseMaps, overlayMaps, {
-            position: 'topright'
-        }).addTo(mapContainer);
-        L.control.zoom({
-            position: 'bottomleft'
-        }).addTo(mapContainer);
+        var trafficMutantRoad = L.gridLayer.googleMutant({
+          maxZoom: 24,
+          type: "roadmap",
+       	}).addGoogleLayer("TrafficLayer");
+
+				//  for (let i = 0; i < ressPolres.length; i++) {
+        //             id = i;
+        //             var latitude = parseFloat(ressPolres[i].latitude);
+        //             var longitude = parseFloat(ressPolres[i].longitude);
+
+        //             var resource = '';
+
+        //             marker[i] = L.marker([latitude, longitude], {
+        //                 icon: L.divIcon({
+        //                     // className: 'location-pin',
+        //                     html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
+        //                     // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressPolres[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
+        //                     iconSize: [5, 5],
+        //                     iconAnchor: [5, 10]
+        //                 })
+        //             }).bindPopup(
+        //                 `<div style="width: 450px;">
+				// 		<div class="row">
+							
+				// 			<div class="col-md-10">
+				// 				<span class="fs-5 text-uppercase">Polda <b>${ressPolres[i].name_polres}</b></span><br>
+								
+				// 			</div>
+				// 			<div class="col-md-12 mt-3 text-center">
+				// 				<div class="row">
+				// 					<div class="col-md-3">
+				// 						<span class="fs-6">Total <b> Kecelakaan</b> Lalu Lintas</span>
+				// 					</div>
+				// 					<div class="col-md-3">
+				// 						<span class="fs-6">Total <b>Pelanggaran</b> Lalu Lintas</span>
+				// 					</div>
+				// 					<div class="col-md-3">
+				// 						<span class="fs-6">Total <b>Turjagwali</b></span>
+				// 					</div>    
+				// 					<div class="col-md-3">
+				// 						<span class="fs-6">Total <b>Kendaraan Bermotor</b></span>
+				// 					</div>
+				// 				</div>    
+				// 			</div>
+							
+				// 			</div>
+				// 	</div>
+						
+				// `, {
+        //                     minWidth: 100,
+        //                     maxWidth: 560,
+        //                     width: 400
+        //                 }).addTo(mapContainer);
+        //         }
+
+        var shpFile = new L.Shapefile(`<?php echo base_url(); ?>assets/admin/shp/SHP/${ressPolda.file_shp}`, {
+        	pointToLayer: function(feature, latlng) {
+				var smallIcon = new L.divIcon({
+        	iconAnchor: [20, 51],
+          popupAnchor: [0, -51],
+          className: 'listeo-marker-icon',
+          html: '<div class="marker-container">' +
+          '<div class="marker-card">' +
+          '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
+          '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
+          '<div class="marker-arrow"></div>' +
+          '</div>' +
+          '</div>'
+          });
+
+
+          var mark = L.marker(latlng, {
+          	icon: smallIcon
+          })
+          cluster.addLayer(mark)
+          return cluster;
+
+          },
+          onEachFeature: function(feature, layer) {
+          if (feature.properties) {
+          layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+          return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
+          }).join("<hr>"), {
+          maxWidth: 400,
+          maxHeight: 250,
+          scrollbarWidth: 'thin',
+          className: 'leaflet-infoBox'
+          });
+          }
+          }
+          });
+
+					
+
+
+        // StART MAP SECTION
+        var mapContainer = L.map('mapG20Dashboard', {
+                        maxZoom: 20,
+                        minZoom: 1,
+                        zoomSnap: 0.25,
+                        zoomControl: false,
+                        layers: [googleHybrid, shpFile]
+                    }).setView(initialCenter, initialZoom);
+
+                    var myRenderer = L.canvas({
+                        padding: 0.5
+                    });
+
+                    var markerClusterGroup = L.markerClusterGroup();
+                    var icon = L.icon({
+                        iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
+                        iconSize: [80, 80], // size of the icon
+                    });
+
+
+                    var baseMaps = {
+                        "Google Map Street": googleStreet,
+                        "Google Map Satelite": googleSatelite,
+                        "Google Map Hybrid": googleHybrid,
+                        "Google Map Terrain": googleTerrain,
+                        "Google Map Street Traffic": trafficMutantRoad,
+                        "Google Map Hybrid Traffic": trafficMutant,
+                        "MappBox Traffic": gl,
+                    };
+                    var overlayMaps = {
+                        "Batas Wilayah": shpFile
+                    };
+                    L.control.layers(baseMaps, overlayMaps, {
+                        position: 'topright'
+                    }).addTo(mapContainer);
+                    L.control.zoom({
+                        position: 'topright'
+                    }).addTo(mapContainer);
+
+                    mapContainer.doubleClickZoom.enable();
+									}})
+	  
+	  
 
 
 });

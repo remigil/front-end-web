@@ -6,12 +6,12 @@
           <li><a href="<?= base_url()?>home">Home</a></li>
           <li><?= $breadcrumb?></li>
         </ol>
-        <div class="container mt-5">
+        <div class="container-fluid mt-5">
 			<div class="row">
 				<div class="col-md-1 text-center">
 				<img src="<?= base_url()?>assets/fe/client/kemendagri.png" alt="" width="100%">
 				</div>
-				<div class="col-md-7">
+				<div class="col-md-4">
 					<h3><?= $headline?></h3>
 					<hr>
 					<p>	
@@ -21,7 +21,7 @@
 						Pengaduan: <a href="mailto:pengaduan@kemendagri.go.id">pengaduan@kemendagri.go.id</a> 
 					</p>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 				<p>Website:</p>
 					<a href="https://kemendagri.go.id/">https://kemendagri.go.id/</a>
 					<p>Social Media:</p>
@@ -32,13 +32,16 @@
 						<li><a class="youtube" href="https://www.youtube.com/channel/UCNS2Sv12RNs8qb3OAWJEofA"><i class="icon-youtube"></i></a></li>
 					</ul>
 				</div>
+				<div class="col-md-4">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28108.39961480636!2d106.82794556302969!3d-6.163824152437846!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x30b7ec7f0aeb8f12!2sKementerian%20Dalam%20Negeri%20Republik%20Indonesia!5e0!3m2!1sid!2sid!4v1670669074240!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+				</div>
 	
 			</div>
 
 		</div>
 
       </div>
-	  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28108.39961480636!2d106.82794556302969!3d-6.163824152437846!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x30b7ec7f0aeb8f12!2sKementerian%20Dalam%20Negeri%20Republik%20Indonesia!5e0!3m2!1sid!2sid!4v1670669074240!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mt-5"></iframe>
 	  
 	  
     </section><!-- End Breadcrumbs -->

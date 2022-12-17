@@ -16,7 +16,6 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/MarkerCluster.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/MarkerCluster.Default.css">
@@ -24,6 +23,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/leaflet-routing-machine.css" />
     <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/bataspolda/css/qgis2web.css">
 
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
@@ -61,6 +61,7 @@
     <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js'></script>
+		
 
 	<script>
         var csfrData = {};
@@ -170,50 +171,50 @@
 		<li class="dropdown megamenu"><a href="#"><span>stakeholder</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li>
-			  				<a href="https://kemendagri.go.id/" target="_blank">KEMENDAGRI</a>
+			  				<!-- <a href="https://kemendagri.go.id/" target="_blank">KEMENDAGRI</a>
 								<a href="http://www.dephub.go.id/" target="_blank">KEMENHUB</a>
                 <a href="https://www.kemkes.go.id/" target="_blank">KEMENKES</a>
 								<a href="https://kemenperin.go.id/" target="_blank">KEMENPERIN</a>
 								<a href="https://www.pu.go.id/" target="_blank">KEMENPUPR</a>
 								<a href="https://www.brin.go.id/" target="_blank">BADAN RISET DAN INOVASI NASIONAL</a>
-								<a href="https://www.kemenkeu.go.id/" target="_blank">KEMENKEU</a>
-			  				<!-- <a href="<?= base_url()?>stakeholder/kemendagri">KEMENDAGRI</a>
+								<a href="https://www.kemenkeu.go.id/" target="_blank">KEMENKEU</a> -->
+			  				<a href="<?= base_url()?>stakeholder/kemendagri">KEMENDAGRI</a>
 								<a href="<?= base_url()?>stakeholder/kemenhub">KEMENHUB</a>
                 <a href="<?= base_url()?>stakeholder/kemenkes">KEMENKES</a>
 								<a href="<?= base_url()?>stakeholder/kemenperin">KEMENPERIN</a>
 								<a href="<?= base_url()?>stakeholder/kemenpupr">KEMENPUPR</a>
 								<a href="<?= base_url()?>stakeholder/badan_riset">BADAN RISET DAN INOVASI NASIONAL</a>
-								<a href="<?= base_url()?>stakeholder/kemenkeu">KEMENKEU</a> -->
+								<a href="<?= base_url()?>stakeholder/kemenkeu">KEMENKEU</a>
               </li>
               <li>
-			  				<a href="https://www.kemdikbud.go.id/" target="_blank">KEMENDIKBUD</a>
+			  				<!-- <a href="https://www.kemdikbud.go.id/" target="_blank">KEMENDIKBUD</a>
 								<a href="https://www.kemhan.go.id/" target="_blank">KEMENHAN</a>
                 <a href="https://binamarga.pu.go.id/" target="_blank">DITJEN BINA WARGA</a>
 								<a href="https://dukcapil.kemendagri.go.id/" target="_blank">DUKCAPIL</a>
 								<a href="https://www.jasaraharja.co.id/" target="_blank">PT JASA RAHARJA</a>
-								<a href="https://www.jasamarga.com/public/id/home.aspx" target="_blank">JASA MARGA</a>
-			  				<!-- <a href="<?= base_url()?>stakeholder/kemendikbud">KEMENDIKBUD</a>
+								<a href="https://www.jasamarga.com/public/id/home.aspx" target="_blank">JASA MARGA</a> -->
+			  				<a href="<?= base_url()?>stakeholder/kemendikbud">KEMENDIKBUD</a>
 								<a href="<?= base_url()?>stakeholder/kemenhan">KEMENHAN</a>
                 <a href="<?= base_url()?>stakeholder/bina_marga">DITJEN BINA WARGA</a>
 								<a href="<?= base_url()?>stakeholder/dukcapil">DUKCAPIL</a>
 								<a href="<?= base_url()?>stakeholder/jasa_raharja">PT JASA RAHARJA</a>
-								<a href="<?= base_url()?>stakeholder/jasa_marga">JASA MARGA</a> -->
+								<a href="<?= base_url()?>stakeholder/jasa_marga">JASA MARGA</a>
               </li>
 							<li>
-								<a href="https://tni.mil.id/" target="_blank">MABES TNI</a>
+								<!-- <a href="https://tni.mil.id/" target="_blank">MABES TNI</a>
 								<a href="https://covid19.go.id/" target="_blank">SATGAS COVID</a>
 								<a href="https://www.bmkg.go.id/" target="_blank">BMKG</a>
 								<a href="https://bnn.go.id/" target="_blank">BNN</a>
 								<a href="https://www.bnpb.go.id/" target="_blank">BNPB</a>
 								<a href="https://www.bnpt.go.id/" target="_blank">BNPT</a>
-								<a href="https://www.bps.go.id/" target="_blank">BPS</a>
-								<!-- <a href="<?= base_url()?>stakeholder/mabes_tni">MABES TNI</a>
+								<a href="https://www.bps.go.id/" target="_blank">BPS</a> -->
+								<a href="<?= base_url()?>stakeholder/mabes_tni">MABES TNI</a>
 								<a href="<?= base_url()?>stakeholder/satgas_covid">SATGAS COVID</a>
 								<a href="<?= base_url()?>stakeholder/bmkg">BMKG</a>
 								<a href="<?= base_url()?>stakeholder/bnn">BNN</a>
 								<a href="<?= base_url()?>stakeholder/bnpb">BNPB</a>
 								<a href="<?= base_url()?>stakeholder/bnpt">BNPT</a>
-								<a href="<?= base_url()?>stakeholder/bps">BPS</a> -->
+								<a href="<?= base_url()?>stakeholder/bps">BPS</a>
 							</li>
               
             </ul>
@@ -299,12 +300,12 @@
     </div> -->
 
     <div class="footer-top">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
 
           <div class="col-md-4 footer-links">
 						<div class="container" style="background-color: white; color:black; border: 1px solid black; border-radius: 10px;">
-							<h6 class="headline centered text-center mt-3">Dapatkan arah Transportasi Umum ke Kantor Pusat Kendali Koordinasi Komunikasi dan Informasi Korlantas Polri</h6>
+							<h6 class="headline centered text-center mt-3">Dapatkan rute ke Kantor Pusat Kendali Koordinasi Komunikasi dan Informasi Korlantas Polri</h6>
 							<iframe allowtransparency="true" class="" src="https://widgets.moovit.com/ws/fp/CF1755A1AD0C1795E0530100007F9822/4255280?metroId=2044&amp;lang=in" style="height: 319px;" width="100%" frameborder="0"></iframe>
 						</div>
           </div>
@@ -312,13 +313,13 @@
           <div class="col-md-2 footer-links">
             <h4>Dasar Hukum / Referensi</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Undang Undang Republik Indonesia</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Peraturan Pemerintah Republik indonesia</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">peraturan Presiden Republik Indonesia</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Peraturan Kepolisian Negara Republik Indonesia</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Peraturan Kepala Polisi Negara Republik Indonesia</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Peraturan kepala Korps Lalu Lintas POLRI</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Peraturan Lain-lain</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>pustaka/undang_undang">Undang Undang Republik Indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>pustaka/undang_undang">Peraturan Pemerintah Republik indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>pustaka/undang_undang">peraturan Presiden Republik Indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>pustaka/undang_undang">Peraturan Kepolisian Negara Republik Indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>pustaka/undang_undang">Peraturan Kepala Polisi Negara Republik Indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>pustaka/undang_undang">Peraturan kepala Korps Lalu Lintas POLRI</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>pustaka/undang_undang">Peraturan Lain-lain</a></li>
             </ul>
 						<!-- <img src="<?= base_url()?>assets/fe/contactntmc.png" alt=""> -->
           </div>
@@ -399,21 +400,32 @@
   <!-- Template Main JS File -->
   <script src="<?= base_url()?>assets/fe/js/main.js"></script>
 
-	<!-- Leaflet -->
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-<script src="<?php echo base_url(); ?>assets/admin/js/leaflet.markercluster.js"></script>
-<script src="<?php echo base_url(); ?>assets/admin/js/Control.Geocoder.js"></script>
-<script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.js"></script>
-<!-- <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.min.js"></script> -->
-<script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+	<!-- Leaflet --><script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/qgis2web_expressions.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/js/leaflet.markercluster.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/js/Control.Geocoder.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.js"></script>
+            <!-- <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.min.js"></script> -->
+            <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js'></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js'></script>
 
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
-<script src="https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js"></script>
+            <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+            <script src="https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEY9jbE_zL8SV7c6meCf7-lV3JLcbKnlY" async defer></script>
-<script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEY9jbE_zL8SV7c6meCf7-lV3JLcbKnlY" async defer></script>
+            <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script>
+
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/leaflet.rotatedMarker.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/leaflet.pattern.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/leaflet-hash.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/Autolinker.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/rbush.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/labelgun.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/labels.js"></script>
+
+            <script src="<?php echo base_url(); ?>assets/admin/js/leaflet.shpfile.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/js/shp.js"></script>
+
 <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> -->
 

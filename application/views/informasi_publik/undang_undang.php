@@ -49,7 +49,7 @@
 
         <div class="card-body">
 
-            <table id="datatable" class="table dt-responsive w-100">
+            <table id="datatable" class="table table-striped table-hover dt-responsive w-100">
                 <thead>
                     <tr>
                         <th width="5%">No</th>
@@ -213,7 +213,7 @@
 
         <div class="card-body">
 
-            <table id="datatable" class="table dt-responsive w-100">
+            <table id="datatable" class="table table-striped table-hover dt-responsive w-100">
                 <thead>
                     <tr>
                         <th width="5%">No</th>
@@ -295,7 +295,7 @@
 
         <div class="card-body">
 
-            <table id="datatable" class="table dt-responsive w-100">
+            <table id="datatable" class="table table-striped table-hover dt-responsive w-100">
                 <thead>
                     <tr>
                         <th width="5%">No</th>
@@ -363,7 +363,7 @@
 
         <div class="card-body">
 
-            <table id="datatable" class="table dt-responsive w-100">
+            <table id="datatable" class="table table-striped table-hover dt-responsive w-100">
                 <thead>
                     <tr>
                         <th width="5%">No</th>
@@ -464,7 +464,7 @@
 
         <div class="card-body">
 
-            <table id="datatable" class="table dt-responsive w-100">
+            <table id="datatable" class="table table-striped table-hover dt-responsive w-100">
                 <thead>
                     <tr>
                         <th width="5%">No</th>
@@ -565,7 +565,7 @@
 
         <div class="card-body">
 
-            <table id="datatable" class="table dt-responsive w-100">
+            <table id="datatable" class="table table-striped table-hover dt-responsive w-100">
                 <thead>
                     <tr>
                         <th width="5%">No</th>
@@ -623,7 +623,7 @@
 
         <div class="card-body">
 
-            <table id="datatable" class="table dt-responsive w-100">
+            <table id="datatable" class="table table-striped table-hover dt-responsive w-100">
                 <thead>
                     <tr>
                         <th width="5%">No</th>

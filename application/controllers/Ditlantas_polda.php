@@ -6,6 +6,7 @@ class Ditlantas_polda extends MX_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('m_berita','berita');
+		$this->load->model('m_ditlantas','ditlantas');
     }
  
 	public function index($id)
@@ -52,8 +53,17 @@ class Ditlantas_polda extends MX_Controller {
         $this->template->load('templates/template', 'detail_polda', $data);
 	}
 
+	public function getDetailPolda()
+    {
+        $id = $this->input->post('id');
+        $data = $this->ditlantas->get_Poldaid($id);
+		
+        echo json_encode($data);
+    }
 	public function error()
 	{
 		$this->load->view('404_notfound');
 	}
 }
+
+

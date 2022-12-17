@@ -41,7 +41,7 @@
               </div>
 
               <div class="entry-content">
-                <p>
+                <p style="text-align: justify;">
                   <?= $getDetail['content']?>
                 </p>
 
