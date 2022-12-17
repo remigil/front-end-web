@@ -84,11 +84,15 @@ class Kegiatan extends MY_Controller
             echo json_encode($res);
             die;
         }
-
+         
         if($_FILES['photo']['name']){ 
             $path = $_FILES['photo']['tmp_name'];
             $filename = $_FILES['photo']['name'];
             $dummy = [
+                [
+                    'name' => 'operation_id',
+                    'contents' => $this->session->userdata['operation_id'],
+                ],
                 [
                     'name' => 'activity',
                     'contents' => $input['kegiatan'],
@@ -137,6 +141,10 @@ class Kegiatan extends MY_Controller
             ];
         }else{
             $dummy = [
+                [
+                    'name' => 'operation_id',
+                    'contents' => $this->session->userdata['operation_id'],
+                ],
                 [
                     'name' => 'activity',
                     'contents' => $input['kegiatan'],
