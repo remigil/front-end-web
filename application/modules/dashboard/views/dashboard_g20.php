@@ -2668,7 +2668,7 @@
                                     </tr>
                                 `;
                                 $('#isiModalPetugasDisplay').html(listDisplay);  
-                            }, i * 300);
+                            }, i * 500);
                         } 
 
                          
@@ -3646,7 +3646,7 @@
                             $("#loadR2FosilDisplay").html(`R2 Fosil`);
                             $("#loadR4FosilDisplay").html(`R4 Fosil`);
                             
-                            $("#overlayMenuDisplay").fadeOut(300); 
+                            $("#overlayMenuDisplay").fadeOut(500); 
 
                             
                             $("#allPetugasCarListrik").prop('disabled', false); 
@@ -3664,7 +3664,7 @@
                             // ).then(function() {
                                 
                             // });
-                        }, dummyGetTracking.length * 300);
+                        }, dummyGetTracking.length * 500);
                         $("#overlay").fadeOut(300);  
                         
                     }else{
