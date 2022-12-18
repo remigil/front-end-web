@@ -23,7 +23,7 @@ class Dashboard extends MY_Controller
         $page_content["title"] = "Operasi";
         $page_content["page"] = "dashboard/google"; 
         $page_content["data"] = '';
-        $this->templates->loadTemplate($page_content);
+        $this->load->view('google');
     }
 
     public function index()

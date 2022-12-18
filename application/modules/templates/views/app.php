@@ -2596,6 +2596,7 @@
             <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/qgis2web_expressions.js"></script>
             <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
             <script src="<?php echo base_url(); ?>assets/admin/js/leaflet.markercluster.js"></script>
+            
             <script src="<?php echo base_url(); ?>assets/admin/js/Control.Geocoder.js"></script>
             <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.js"></script>
             <!-- <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.min.js"></script> -->

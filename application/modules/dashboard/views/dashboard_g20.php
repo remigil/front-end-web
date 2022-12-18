@@ -1138,7 +1138,10 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabelPosPamDisplay">POS PAM</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalPosPamDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalPosPamDisplay" style="width: 550px;">  
+            <div class="modal-body"  style="width: 550px;">  
+                <div class="accordion" id="openModalPosPamDisplay">
+
+                </div>
             </div>
         </div>
     </div>
@@ -1150,7 +1153,10 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabelPosYanDisplay">POS YAN</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalPosYanDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalPosYanDisplay" style="width: 550px;">  
+            <div class="modal-body" style="width: 550px;">  
+                <div class="accordion" id="openModalPosYanDisplay">
+
+                </div>
             </div>
         </div>
     </div>
@@ -2129,8 +2135,8 @@
                 url: "<?php echo base_url(); ?>dashboard/getPolda",
                 dataType: "JSON",
                 success: function(result) {
+                    // console.log(result);
                     $("#overlay").fadeOut(300);
-
                     let ressData = result;
                     // console.log();
 
@@ -2149,12 +2155,10 @@
                     `);
                     var countPoldaDisplay = 0;
                     var listPoldaDisplay = '';
+                    var listLIPoldaDisplay = '';
+                    var listPosYanPoldaDisplay = '';
 
-                    for (let i = 0; i < ressData.length; i++) {
-
-                        $("#openModalPosPamDisplay").html(`
-
-                        `);
+                    for (let i = 0; i < ressData.length; i++) { 
 
                         if(ressData[i].latitude && ressData[i].longitude){ 
                             id = i;
@@ -2243,8 +2247,45 @@
                                         </button> 
                                     </td>
                                 </tr>
+                            `; 
+
+
+                             
+                            listLIPoldaDisplay +=` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${countPoldaDisplay}" aria-expanded="false" aria-controls="collapse${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapse${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="heading${countPoldaDisplay}" data-bs-parent="#openModalPosPamDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaPosPam${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            listPosYanPoldaDisplay +=` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingPosYan${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePosYan${countPoldaDisplay}" aria-expanded="false" aria-controls="collapsePosYan${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapsePosYan${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="headingPosYan${countPoldaDisplay}" data-bs-parent="#openModalPosYanDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaPosYan${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             `;
                             $('#isiModalPoldaDisplay').html(listPoldaDisplay);
+                            $('#openModalPosPamDisplay').html(listLIPoldaDisplay);
+                            $('#openModalPosYanDisplay').html(listPosYanPoldaDisplay);
                         }
                     }
 
@@ -2255,6 +2296,13 @@
                             var latitude = parseFloat(latlong[0]);
                             var longitude = parseFloat(latlong[1]);
                             mapContainer.flyTo([latitude, longitude], 8);
+                        });
+
+                        $(`#heading${i+1}`).on("click", function(e) {  
+                            serverSideFilter($(this).data('poldaid')); 
+                        });
+                        $(`#headingPosYan${i+1}`).on("click", function(e) {  
+                            serverSideFilter($(this).data('poldaid')); 
                         });
                     }
 
@@ -2279,7 +2327,7 @@
 
 
         
-        serverSideGet();
+        // serverSideGet();
         function serverSideGet(){
             $("#overlay").fadeIn(300);   
  
@@ -2668,7 +2716,7 @@
                                     </tr>
                                 `;
                                 $('#isiModalPetugasDisplay').html(listDisplay);  
-                            }, i * 500);
+                            }, i * 200);
                         } 
 
                          
@@ -3646,7 +3694,7 @@
                             $("#loadR2FosilDisplay").html(`R2 Fosil`);
                             $("#loadR4FosilDisplay").html(`R4 Fosil`);
                             
-                            $("#overlayMenuDisplay").fadeOut(500); 
+                            $("#overlayMenuDisplay").fadeOut(300); 
 
                             
                             $("#allPetugasCarListrik").prop('disabled', false); 
@@ -3664,7 +3712,7 @@
                             // ).then(function() {
                                 
                             // });
-                        }, dummyGetTracking.length * 500);
+                        }, dummyGetTracking.length * 200);
                         $("#overlay").fadeOut(300);  
                         
                     }else{
@@ -6002,8 +6050,9 @@
         
 
         serverSideFilter(); 
-        function serverSideFilter(){
+        function serverSideFilter(polda_id){
             // userDataTable.draw();
+            console.log(polda_id);
 
             $("#overlay").fadeIn(300);   
             arrayFilter = [];
@@ -6171,6 +6220,7 @@
                     "type" : arrayFilterFasumKategori.toString(), 
                     "startdate" : $("#startdate").val(),
                     "enddate" : $("#enddate").val(),
+                    "polda_id": polda_id ? polda_id : null,
                 }, 
                 dataType : "JSON",
                 success : function(result){  
@@ -7232,13 +7282,7 @@
                     }
 
                     if(ressPosPam && ressPosPam.length > 0){  
-                        $('#openModalPosPamDisplay').html(`
-                            <div id="overlayMenu">
-                                <div class="loading">
-                                    <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                    
-                                </div>
-                            </div>
+                        $(`#isiPoldaPosPam${polda_id}`).html(`
                             <table id="datatablePosPamOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
                                     <tr>
@@ -7259,10 +7303,9 @@
                         var logoMarker = '';
                         var logoBody = '';
                         $("#overlayMenu").fadeIn(300);
-                        for (let i = 0; i < ressPosPam.length; i++) {  
-
+                        for (let i = 0; i < ressPosPam.length; i++) {   
                             if(ressPosPam[i].coordinate_guarding && ressPosPam[i].coordinate_guarding.lat != null && ressPosPam[i].coordinate_guarding.lng != null){
-                                setTimeout(() => {
+                                // setTimeout(() => {
                                     countPosPamDisplay += 1;
                                     listPosPamDisplay += `
                                         <tr>
@@ -7320,19 +7363,21 @@
                                             </div> 
                                     `,{minWidth : 100,maxWidth : 900,width : 500})
                                     );  
-                                }, i * 100);
+                                // }, i * 200);
                             }
                         }
 
-                        setTimeout(() => {
-                            $("#overlayMenu").fadeOut(300);
+                        
                             for (let i = 0; i < countPosPamDisplay; i++) { 
-                                $(`#flyToMapFilterPosPam${i+1}`).on("click", function (e) {  
-                                    var latlong =  $(this).data('cord').split(',');
-                                    var latitude = parseFloat(latlong[0]);
-                                    var longitude = parseFloat(latlong[1]);  
-                                    mapContainer.flyTo([latitude, longitude], 17); 
-                                });
+                                // setTimeout(() => {
+                                    $(`#flyToMapFilterPosPam${i+1}`).on("click", function (e) {  
+                                        var latlong =  $(this).data('cord').split(',');
+                                        var latitude = parseFloat(latlong[0]);
+                                        var longitude = parseFloat(latlong[1]);  
+                                        mapContainer.flyTo([latitude, longitude], 17); 
+                                    });
+                                    
+                                // }, countPosPamDisplay.length * 200);
                             }
                             $('#datatablePosPamOnDisplay').DataTable({
                                 responsive: true,
@@ -7349,12 +7394,12 @@
 
                                 },
                             }); 
+                            $("#overlayMenu").fadeOut(300);
                             mapContainer.addLayer(posPamClusterGroup);
-                        }, countPosPamDisplay.length * 100);
                     }
 
                     if(ressPosYan && ressPosYan.length > 0){  
-                        $('#openModalPosYanDisplay').html(`
+                        $(`#isiPoldaPosYan${polda_id}`).html(`
                             <table id="datatablePosYanOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
                                     <tr>
@@ -7377,7 +7422,7 @@
                         for (let i = 0; i < ressPosYan.length; i++) {  
 
                             if(ressPosYan[i].coordinate_guarding && ressPosYan[i].coordinate_guarding.lat != null && ressPosYan[i].coordinate_guarding.lng != null){ 
-                                setTimeout(() => {
+                                // setTimeout(() => {
                                     countPosYanDisplay += 1;
                                     listPosYanDisplay += `
                                         <tr>
@@ -7435,12 +7480,12 @@
                                             </div> 
                                     `,{minWidth : 100,maxWidth : 900,width : 500})
                                     );  
-                                }, i * 500);
+                                // }, i * 500);
                             }
                         }
 
                          
-                        setTimeout(() => {
+                        // setTimeout(() => {
                             for (let i = 0; i < countPosYanDisplay; i++) { 
                                 $(`#flyToMapFilterPosYan${i+1}`).on("click", function (e) {  
                                     var latlong =  $(this).data('cord').split(',');
@@ -7465,7 +7510,7 @@
                                 },
                             }); 
                             mapContainer.addLayer(posYanClusterGroup);
-                        }, countPosYanDisplay.length * 500);
+                        // }, countPosYanDisplay.length * 500);
                     }
 
                     if(ressGerbangtol && ressGerbangtol.length > 0){  
@@ -8988,7 +9033,7 @@
                 $("#pos_pam").prop('checked', false); 
                 $("#pos_pam").val();
             }
-            serverSideFilter();
+            // serverSideFilter();
         }); 
 
         $("#posYanDisplay").on("change", function (e) {   
@@ -9001,7 +9046,7 @@
                 $("#pos_yan").prop('checked', false); 
                 $("#pos_yan").val();
             }
-            serverSideFilter();
+            // serverSideFilter();
         }); 
 
         $("#satPasDisplay").on("change", function (e) {   
