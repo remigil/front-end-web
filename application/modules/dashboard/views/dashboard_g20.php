@@ -262,6 +262,39 @@
                                 </button>
                             </div>
                         </div> 
+
+                        <div class="cat posTerpaduDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="pos_terpadu" name="filter" id="posTerpaduDisplay"><span><i class="mdi mdi-chat-alert"></i> POSTERPADU</span>
+                                </label>
+                                <button id="posTerpaduFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div> 
+
+                        <div class="cat poskoDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="posko" name="filter" id="poskoDisplay"><span><i class="mdi mdi-chat-alert"></i> POSKO</span>
+                                </label>
+                                <button id="poskoFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div> 
+
+                        <div class="cat satPjrDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="sat_pjr" name="filter" id="satPjrDisplay"><span><i class="mdi mdi-chat-alert"></i> SAT PJR</span>
+                                </label>
+                                <button id="satPjrFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div> 
     
                         <div class="cat satPasDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
@@ -355,11 +388,7 @@
                                     <div class="col-md-6" style="display: none;">
                                         <input type="checkbox" name="filter" value="gerbang_tol" id="gerbang_tol" class="form-input" >  
                                         <span>Gerbang Tol</span> 
-                                    </div> 
-                                    <div class="col-md-6" style="display: none;">
-                                        <input type="checkbox" name="filter" value="pos_pam" id="pos_pam" class="form-input" >  
-                                        <span>POS PAM</span> 
-                                    </div> 
+                                    </div>  
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="sat_pas" id="sat_pas" class="form-input" >  
                                         <span>SATPAS</span> 
@@ -1161,6 +1190,55 @@
         </div>
     </div>
 </div>
+<div class="modal right fade" id="myModalPosTerpaduDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPosTerpaduDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPosTerpaduDisplay">POS TERPADU</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalPosTerpaduDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="width: 550px;">  
+                <div class="accordion" id="openModalPosTerpaduDisplay">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalPoskoDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPoskoDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPoskoDisplay">POSKO</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalPoskoDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="width: 550px;">  
+                <div class="accordion" id="openModalPoskoDisplay">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalSatPjrDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelSatPjrDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelSatPjrDisplay">SAT PJR</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalSatPjrDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="width: 550px;">  
+                <div class="accordion" id="openModalSatPjrDisplay">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <div class="modal right fade" id="myModalSatPasDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelSatPasDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -1375,6 +1453,12 @@
     var markerRestArea = new Array();
     var markerPosPam = new Array();
     var markerPosYan = new Array();
+
+    var markerPosTerpadu = new Array();
+    var markerPosko = new Array();
+    var markerSatPjr = new Array();
+
+
     var markerGerbangtol = new Array();
     var markerSatPas = new Array();
     var markerPolres = new Array();
@@ -1411,6 +1495,11 @@
     var restAreaClusterGroup;
     var posPamClusterGroup;
     var posYanClusterGroup;
+    var posTerpaduClusterGroup;
+    var poskoClusterGroup;
+    var satPjrClusterGroup;
+
+
     var satPasClusterGroup;
     var gerbangTolClusterGroup;
 
@@ -2158,6 +2247,10 @@
                     var listLIPoldaDisplay = '';
                     var listPosYanPoldaDisplay = '';
 
+                    var listPosTerpaduPoldaDisplay = '';
+                    var listPoskoPoldaDisplay = '';
+                    var listSatPjrPoldaDisplay = '';
+
                     for (let i = 0; i < ressData.length; i++) { 
 
                         if(ressData[i].latitude && ressData[i].longitude){ 
@@ -2283,9 +2376,61 @@
                                     </div>
                                 </div>
                             `;
+                            listPosTerpaduPoldaDisplay +=` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingPosTerpadu${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePosTerpadu${countPoldaDisplay}" aria-expanded="false" aria-controls="collapsePosTerpadu${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapsePosTerpadu${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="headingPosTerpadu${countPoldaDisplay}" data-bs-parent="#openModalPosTerpaduDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaPosTerpadu${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            listPoskoPoldaDisplay +=` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingPosko${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePosko${countPoldaDisplay}" aria-expanded="false" aria-controls="collapsePosko${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapsePosko${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="headingPosko${countPoldaDisplay}" data-bs-parent="#openModalPoskoDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaPosko${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            listSatPjrPoldaDisplay +=` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingSatPjr${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSatPjr${countPoldaDisplay}" aria-expanded="false" aria-controls="collapseSatPjr${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSatPjr${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="headingSatPjr${countPoldaDisplay}" data-bs-parent="#openModalSatPjrDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaSatPjr${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
                             $('#isiModalPoldaDisplay').html(listPoldaDisplay);
                             $('#openModalPosPamDisplay').html(listLIPoldaDisplay);
                             $('#openModalPosYanDisplay').html(listPosYanPoldaDisplay);
+
+                            $('#openModalPosTerpaduDisplay').html(listPosTerpaduPoldaDisplay);
+                            $('#openModalPoskoDisplay').html(listPoskoPoldaDisplay);
+                            $('#openModalSatPjrDisplay').html(listSatPjrPoldaDisplay);
                         }
                     }
 
@@ -2302,6 +2447,17 @@
                             serverSideFilter($(this).data('poldaid')); 
                         });
                         $(`#headingPosYan${i+1}`).on("click", function(e) {  
+                            serverSideFilter($(this).data('poldaid')); 
+                        });
+
+
+                        $(`#headingPosTerpadu${i+1}`).on("click", function(e) {  
+                            serverSideFilter($(this).data('poldaid')); 
+                        });
+                        $(`#headingPosko${i+1}`).on("click", function(e) {  
+                            serverSideFilter($(this).data('poldaid')); 
+                        });
+                        $(`#headingSatPjr${i+1}`).on("click", function(e) {  
                             serverSideFilter($(this).data('poldaid')); 
                         });
                     }
@@ -5979,6 +6135,37 @@
                 });
             }
         });
+        
+        posTerpaduClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#420fd4;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
+        poskoClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#420fd4;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
+        satPjrClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#420fd4;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
         gerbangTolClusterGroup = L.markerClusterGroup({
             iconCreateFunction: function(cluster) {
                 return new L.DivIcon({
@@ -6081,45 +6268,80 @@
                 }
             });
           
-            for (let i = 0; i < markerCCTV.length; i++) { 
-                // mapContainer.removeLayer(markerCCTV[i]);
-                if(markerCCTV[i]){
-                cctvClusterGroup.removeLayer(markerCCTV[i]);
-                }
-            } 
-            markerCCTV = new Array();  
 
-            for (let i = 0; i < markerSamsat.length; i++) {
-                // mapContainer.removeLayer(markerSamsat[i]);
-                if(markerSamsat[i]){
-                samsatClusterGroup.removeLayer(markerSamsat[i]);
+            $("#cctvDisplay").on("change", function(e) {
+                if ($(this).is(':checked')) {
+                    
+                }else{ 
+                    for (let i = 0; i < markerCCTV.length; i++) { 
+                        // mapContainer.removeLayer(markerCCTV[i]);
+                        if(markerCCTV[i]){
+                        cctvClusterGroup.removeLayer(markerCCTV[i]);
+                        }
+                    } 
+                    markerCCTV = new Array();  
                 }
-            }
-            markerSamsat = new Array();
+            });
+
+
+            $("#samsatDisplay").on("change", function(e) {
+                if ($(this).is(':checked')) {
+                    
+                }else{ 
+                    for (let i = 0; i < markerSamsat.length; i++) {
+                        // mapContainer.removeLayer(markerSamsat[i]);
+                        if(markerSamsat[i]){
+                        samsatClusterGroup.removeLayer(markerSamsat[i]);
+                        }
+                    }
+                    markerSamsat = new Array();
+                }
+            });
+
  
-            for (let i = 0; i < markerTroubleSpot.length; i++) {
-                // mapContainer.removeLayer(markerTroubleSpot[i]);
-                if(markerTroubleSpot[i]){
-                    troubleSpotClusterGroup.removeLayer(markerTroubleSpot[i]);
+            $("#samsatDisplay").on("change", function(e) {
+                if ($(this).is(':checked')) {
+                    
+                }else{  
+                    for (let i = 0; i < markerTroubleSpot.length; i++) {
+                        // mapContainer.removeLayer(markerTroubleSpot[i]);
+                        if(markerTroubleSpot[i]){
+                            troubleSpotClusterGroup.removeLayer(markerTroubleSpot[i]);
+                        }
+                    }
+                    markerTroubleSpot = new Array();
                 }
-            }
-            markerTroubleSpot = new Array();
+            });
 
-            for (let i = 0; i < markerBlankSpot.length; i++) {
-                // mapContainer.removeLayer(markerBlankSpot[i]);
-                if(markerBlankSpot[i]){
-                    blankSpotClusterGroup.removeLayer(markerBlankSpot[i]);
-                }
-            }
-            markerBlankSpot = new Array();
 
-            for (let i = 0; i < markerRestArea.length; i++) {
-                // mapContainer.removeLayer(markerRestArea[i]);
-                if(markerRestArea[i]){
-                    restAreaClusterGroup.removeLayer(markerRestArea[i]);
+            $("#blank_spotDisplay").on("change", function(e) {
+                if ($(this).is(':checked')) {
+                    
+                }else{ 
+                    for (let i = 0; i < markerBlankSpot.length; i++) {
+                        // mapContainer.removeLayer(markerBlankSpot[i]);
+                        if(markerBlankSpot[i]){
+                            blankSpotClusterGroup.removeLayer(markerBlankSpot[i]);
+                        }
+                    }
+                    markerBlankSpot = new Array();
                 }
-            }
-            markerRestArea = new Array();
+            });  
+
+
+            $("#restAreaDisplay").on("change", function(e) {
+                if ($(this).is(':checked')) {
+                    
+                }else{
+                    for (let i = 0; i < markerRestArea.length; i++) {
+                        // mapContainer.removeLayer(markerRestArea[i]);
+                        if(markerRestArea[i]){
+                            restAreaClusterGroup.removeLayer(markerRestArea[i]);
+                        }
+                    }
+                    markerRestArea = new Array();
+                }
+            }); 
 
             for (let i = 0; i < markerPosPam.length; i++) {
                 // mapContainer.removeLayer(markerPosPam[i]);
@@ -6137,21 +6359,59 @@
             }
             markerPosYan = new Array();
 
-            for (let i = 0; i < markerGerbangtol.length; i++) {
-                // mapContainer.removeLayer(markerGerbangtol[i]);
-                if(markerGerbangtol[i]){
-                    gerbangTolClusterGroup.removeLayer(markerGerbangtol[i]);
+            for (let i = 0; i < markerPosTerpadu.length; i++) {
+                // mapContainer.removeLayer(markerPosTerpadu[i]);
+                if(markerPosTerpadu[i]){
+                    posTerpaduClusterGroup.removeLayer(markerPosTerpadu[i]);
                 }
             }
-            markerGerbangtol = new Array();
+            markerPosTerpadu = new Array();
 
-            for (let i = 0; i < markerSatPas.length; i++) {
-                // mapContainer.removeLayer(markerSatPas[i]);
-                if(markerSatPas[i]){
-                    satPasClusterGroup.removeLayer(markerSatPas[i]);
+            for (let i = 0; i < markerPosko.length; i++) {
+                // mapContainer.removeLayer(markerPosko[i]);
+                if(markerPosko[i]){
+                    poskoClusterGroup.removeLayer(markerPosko[i]);
                 }
             }
-            markerSatPas = new Array();
+            markerPosko = new Array();
+
+            for (let i = 0; i < markerSatPjr.length; i++) {
+                // mapContainer.removeLayer(markerSatPjr[i]);
+                if(markerSatPjr[i]){
+                    satPjrClusterGroup.removeLayer(markerSatPjr[i]);
+                }
+            }
+            markerSatPjr = new Array();
+
+
+            $("#gerbangtolDisplay").on("change", function(e) {
+                if ($(this).is(':checked')) {
+                    
+                }else{
+                    for (let i = 0; i < markerGerbangtol.length; i++) {
+                        // mapContainer.removeLayer(markerGerbangtol[i]);
+                        if(markerGerbangtol[i]){
+                            gerbangTolClusterGroup.removeLayer(markerGerbangtol[i]);
+                        }
+                    }
+                    markerGerbangtol = new Array();
+                }
+            });
+
+
+            $("#satPasDisplay").on("change", function(e) {
+                if ($(this).is(':checked')) {
+                    
+                }else{
+                    for (let i = 0; i < markerSatPas.length; i++) {
+                        // mapContainer.removeLayer(markerSatPas[i]);
+                        if(markerSatPas[i]){
+                            satPasClusterGroup.removeLayer(markerSatPas[i]);
+                        }
+                    }
+                    markerSatPas = new Array();
+                }
+            });
 
             for (let i = 0; i < markerFasum.length; i++) { 
                 if(markerFasum[i]){
@@ -6160,60 +6420,98 @@
             }
             markerFasum = new Array(); 
             
-            for (let i = 0; i < markerFasumKhusus.length; i++) { 
-                if(markerFasumKhusus[i]){
-                fasumKhususClusterGroup.removeLayer(markerFasumKhusus[i]); 
-                }
-            }
-            markerFasumKhusus = new Array(); 
 
-            for (let i = 0; i < markerCluster.length; i++) { 
-                if(markerCluster[i]){
-                mapContainer.removeLayer(markerCluster[i]);
+            $("#satPasDisplay").on("change", function(e) {
+                if ($(this).is(':checked')) {
+                    
+                }else{
+                    for (let i = 0; i < markerFasumKhusus.length; i++) { 
+                        if(markerFasumKhusus[i]){
+                        fasumKhususClusterGroup.removeLayer(markerFasumKhusus[i]); 
+                        }
+                    }
+                    markerFasumKhusus = new Array();  
                 }
-            }
-            markerCluster = new Array(); 
+            });
 
-            for (let i = 0; i < markerRadius.length; i++) { 
-                if(markerRadius[i]){
-                // fasumKhususRadiusGroup.removeLayer(markerRadius[i]);
-                mapContainer.removeLayer(markerRadius[i]);
+            $("#clusterDisplay").on("change", function(e) {
+                if ($(this).is(':checked')) {
+                    
+                }else{
+                    for (let i = 0; i < markerCluster.length; i++) { 
+                        if(markerCluster[i]){
+                        mapContainer.removeLayer(markerCluster[i]);
+                        }
+                    }
+                    markerCluster = new Array(); 
                 }
-            }
-            markerRadius = new Array(); 
+            });
 
-            for (let i = 0; i < markerPolres.length; i++) {
-                if(markerPolres[i]){
-                mapContainer.removeLayer(markerPolres[i]);
+
+            $("#radiusDisplay").on("change", function(e) {
+                if ($(this).is(':checked')) {
+                    
+                }else{
+                    for (let i = 0; i < markerRadius.length; i++) { 
+                        if(markerRadius[i]){
+                        // fasumKhususRadiusGroup.removeLayer(markerRadius[i]);
+                        mapContainer.removeLayer(markerRadius[i]);
+                        }
+                    }
+                    markerRadius = new Array(); 
                 }
-            }
-            markerPolres = new Array();
+            });
+
+
+            $("#polresDisplay").on("change", function(e) {
+                if ($(this).is(':checked')) {
+                    
+                }else{
+                    for (let i = 0; i < markerPolres.length; i++) {
+                        if(markerPolres[i]){
+                        mapContainer.removeLayer(markerPolres[i]);
+                        }
+                    }
+                    markerPolres = new Array();
+                }
+            });
 
          
-
-            for (let i = 0; i < markerLaporan.length; i++) { 
-                if(markerLaporan[i]){
-                laporanClusterGroup.removeLayer(markerLaporan[i]);
-                // mapContainer.removeLayer(laporanClusterGroup);
+            $("#operasiDisplay").on("change", function(e) {
+                if ($(this).is(':checked')) {
+                    
+                }else{
+                    for (let i = 0; i < markerLaporan.length; i++) { 
+                        if(markerLaporan[i]){
+                        laporanClusterGroup.removeLayer(markerLaporan[i]);
+                        // mapContainer.removeLayer(laporanClusterGroup);
+                        }
+                    }
+                    markerLaporan = new Array();
                 }
-            }
-            markerLaporan = new Array();
+            });
 
-            for (let i = 0; i < markerLaporanPanic.length; i++) { 
-                if(markerLaporanPanic[i]){
-                panicClusterGroup.removeLayer(markerLaporanPanic[i]);
-                // mapContainer.removeLayer(panicClusterGroup);
+
+            $("#panicDisplay").on("change", function(e) {
+                if ($(this).is(':checked')) {
+                    
+                }else{
+                    for (let i = 0; i < markerLaporanPanic.length; i++) { 
+                        if(markerLaporanPanic[i]){
+                        panicClusterGroup.removeLayer(markerLaporanPanic[i]);
+                        // mapContainer.removeLayer(panicClusterGroup);
+                        }
+                    }
+                    markerLaporanPanic = new Array();
                 }
-            }
-            markerLaporanPanic = new Array();
+            });
 
             // console.log(`${centerLat},${centerLng}`);  
             
-             
-            $.ajax({
-                type : "POST",
-                url : "<?php echo base_url();?>dashboard/getFilter", 
-                data : {
+            var idPolda = polda_id;
+            var filterDumy;
+            if(idPolda){
+                filterDumy = {
                     "filter" : arrayFilter.toString(),
                     "radius" : 15000,
                     "coordinate" : `${centerLat},${centerLng}`,
@@ -6221,7 +6519,22 @@
                     "startdate" : $("#startdate").val(),
                     "enddate" : $("#enddate").val(),
                     "polda_id": polda_id ? polda_id : null,
-                }, 
+                };
+            }else{
+                filterDumy = {
+                    "filter" : arrayFilter.toString(),
+                    "radius" : 15000,
+                    "coordinate" : `${centerLat},${centerLng}`,
+                    "type" : arrayFilterFasumKategori.toString(), 
+                    "startdate" : $("#startdate").val(),
+                    "enddate" : $("#enddate").val(),
+                };
+            } 
+            
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>dashboard/getFilter", 
+                data : filterDumy, 
                 dataType : "JSON",
                 success : function(result){  
                     console.log(result);
@@ -6237,6 +6550,9 @@
                     var ressRestArea = result['data']['rest_area'];
                     var ressPosPam = result['data']['pos_pam'];
                     var ressPosYan = result['data']['pos_yan'];
+                    var ressPosTerpadu = result['data']['pos_terpadu'];
+                    var ressPosko = result['data']['posko'];
+                    var ressSatPjr = result['data']['sat_pjr'];
 
                     var ressSatPas = result['data']['sat_pas'];
 
@@ -7303,6 +7619,8 @@
                         var logoMarker = '';
                         var logoBody = '';
                         $("#overlayMenu").fadeIn(300);
+
+                        listPosPamDisplay = '';
                         for (let i = 0; i < ressPosPam.length; i++) {   
                             if(ressPosPam[i].coordinate_guarding && ressPosPam[i].coordinate_guarding.lat != null && ressPosPam[i].coordinate_guarding.lng != null){
                                 // setTimeout(() => {
@@ -7379,21 +7697,21 @@
                                     
                                 // }, countPosPamDisplay.length * 200);
                             }
-                            $('#datatablePosPamOnDisplay').DataTable({
-                                responsive: true,
+                            // $('#datatablePosPamOnDisplay').DataTable({
+                            //     responsive: true,
 
-                                scrollX: true,
+                            //     scrollX: true,
 
-                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            //     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                                buttons: ["excel", "csv", "pdf"],
-                                processing: true,
-                                oLanguage: {
+                            //     buttons: ["excel", "csv", "pdf"],
+                            //     processing: true,
+                            //     oLanguage: {
 
-                                    sSearch: 'Search:'
+                            //         sSearch: 'Search:'
 
-                                },
-                            }); 
+                            //     },
+                            // }); 
                             $("#overlayMenu").fadeOut(300);
                             mapContainer.addLayer(posPamClusterGroup);
                     }
@@ -7511,6 +7829,379 @@
                             }); 
                             mapContainer.addLayer(posYanClusterGroup);
                         // }, countPosYanDisplay.length * 500);
+                    }
+
+                    if(ressPosTerpadu && ressPosTerpadu.length > 0){  
+                        $(`#isiPoldaPosTerpadu${polda_id}`).html(`
+                            <table id="datatablePosTerpaduOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalPosTerpaduDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countPosTerpaduDisplay = 0;
+                        var listPosTerpaduDisplay = '';
+                        $('#totalPosTerpaduDisplay').html(ressPosTerpadu.length);
+
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressPosTerpadu.length; i++) {  
+
+                            if(ressPosTerpadu[i].coordinate_guarding && ressPosTerpadu[i].coordinate_guarding.lat != null && ressPosTerpadu[i].coordinate_guarding.lng != null){ 
+                                // setTimeout(() => {
+                                    countPosTerpaduDisplay += 1;
+                                    listPosTerpaduDisplay += `
+                                        <tr>
+                                            <td>${countPosTerpaduDisplay}</td>
+                                            <td><a href="<?= base_url()?>masterdata/Fasilitasumum" target="_blank">${ressPosTerpadu[i].name_renpam}</a></td> 
+                                            <td>${ressPosTerpadu[i].title_start != null ? ressPosTerpadu[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterPosTerpadu${countPosTerpaduDisplay}"
+                                                    data-akun="${ressPosTerpadu[i].accounts}"
+                                                    data-cord="${ressPosTerpadu[i].coordinate_guarding.lat},${ressPosTerpadu[i].coordinate_guarding.lng}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalPosTerpaduDisplay').html(listPosTerpaduDisplay); 
+        
+                                    
+                                    var latitudeFasum = parseFloat(ressPosTerpadu[i].coordinate_guarding.lat);
+                                    var longitudeFasum = parseFloat(ressPosTerpadu[i].coordinate_guarding.lng); 
+                                    posTerpaduClusterGroup.addLayer( markerPosTerpadu[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `<img src="<?php echo base_url();?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                        }) }).bindPopup(`
+                                            <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                                <div class="row mt-3"> 
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <h5>${ressPosTerpadu[i].name_renpam}</h5> 
+                                                        <span>- ${ressPosTerpadu[i].schedule.activity} -</span>
+                                                    </div> 
+                                                    
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosTerpadu[i].title_start != null ? ressPosTerpadu[i].title_start.replace(/\n/g, "<br />") : "-"}</p>
+                                                    </div> 
+                                                
+                                            
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Note</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosTerpadu[i].note_kakor != null ? ressPosTerpadu[i].note_kakor.replace(/\n/g, "<br />") : "-"}</p>
+                                                    </div> 
+                                                
+                                            
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosTerpadu[i].date}</p>
+                                                    </div> 
+                                                        
+                                                </div>
+                                            </div> 
+                                    `,{minWidth : 100,maxWidth : 900,width : 500})
+                                    );  
+                                // }, i * 500);
+                            }
+                        }
+
+                         
+                        // setTimeout(() => {
+                            for (let i = 0; i < countPosTerpaduDisplay; i++) { 
+                                $(`#flyToMapFilterPosTerpadu${i+1}`).on("click", function (e) {  
+                                    var latlong =  $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);  
+                                    mapContainer.flyTo([latitude, longitude], 17); 
+                                });
+                            }
+                            $('#datatablePosTerpaduOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            }); 
+                            mapContainer.addLayer(posTerpaduClusterGroup);
+                        // }, countPosTerpaduDisplay.length * 500);
+                    }
+
+                    if(ressPosko && ressPosko.length > 0){  
+                        $(`#isiPoldaPosko${polda_id}`).html(`
+                            <table id="datatablePoskoOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalPoskoDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countPoskoDisplay = 0;
+                        var listPoskoDisplay = '';
+                        $('#totalPoskoDisplay').html(ressPosko.length);
+
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressPosko.length; i++) {  
+
+                            if(ressPosko[i].coordinate_guarding && ressPosko[i].coordinate_guarding.lat != null && ressPosko[i].coordinate_guarding.lng != null){ 
+                                // setTimeout(() => {
+                                    countPoskoDisplay += 1;
+                                    listPoskoDisplay += `
+                                        <tr>
+                                            <td>${countPoskoDisplay}</td>
+                                            <td><a href="<?= base_url()?>masterdata/Fasilitasumum" target="_blank">${ressPosko[i].name_renpam}</a></td> 
+                                            <td>${ressPosko[i].title_start != null ? ressPosko[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterPosko${countPoskoDisplay}"
+                                                    data-akun="${ressPosko[i].accounts}"
+                                                    data-cord="${ressPosko[i].coordinate_guarding.lat},${ressPosko[i].coordinate_guarding.lng}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalPoskoDisplay').html(listPoskoDisplay); 
+        
+                                    
+                                    var latitudeFasum = parseFloat(ressPosko[i].coordinate_guarding.lat);
+                                    var longitudeFasum = parseFloat(ressPosko[i].coordinate_guarding.lng); 
+                                    poskoClusterGroup.addLayer( markerPosko[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `<img src="<?php echo base_url();?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                        }) }).bindPopup(`
+                                            <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                                <div class="row mt-3"> 
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <h5>${ressPosko[i].name_renpam}</h5> 
+                                                        <span>- ${ressPosko[i].schedule.activity} -</span>
+                                                    </div> 
+                                                    
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosko[i].title_start != null ? ressPosko[i].title_start.replace(/\n/g, "<br />") : "-"}</p>
+                                                    </div> 
+                                                
+                                            
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Note</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosko[i].note_kakor != null ? ressPosko[i].note_kakor.replace(/\n/g, "<br />") : "-"}</p>
+                                                    </div> 
+                                                
+                                            
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosko[i].date}</p>
+                                                    </div> 
+                                                        
+                                                </div>
+                                            </div> 
+                                    `,{minWidth : 100,maxWidth : 900,width : 500})
+                                    );  
+                                // }, i * 500);
+                            }
+                        }
+
+                         
+                        // setTimeout(() => {
+                            for (let i = 0; i < countPoskoDisplay; i++) { 
+                                $(`#flyToMapFilterPosko${i+1}`).on("click", function (e) {  
+                                    var latlong =  $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);  
+                                    mapContainer.flyTo([latitude, longitude], 17); 
+                                });
+                            }
+                            $('#datatablePoskoOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            }); 
+                            mapContainer.addLayer(poskoClusterGroup);
+                        // }, countPoskoDisplay.length * 500);
+                    }
+
+                    if(ressSatPjr && ressSatPjr.length > 0){  
+                        $(`#isiPoldaSatPjr${polda_id}`).html(`
+                            <table id="datatableSatPjrOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalSatPjrDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countSatPjrDisplay = 0;
+                        var listSatPjrDisplay = '';
+                        $('#totalSatPjrDisplay').html(ressSatPjr.length);
+
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressSatPjr.length; i++) {  
+
+                            if(ressSatPjr[i].coordinate_guarding && ressSatPjr[i].coordinate_guarding.lat != null && ressSatPjr[i].coordinate_guarding.lng != null){ 
+                                // setTimeout(() => {
+                                    countSatPjrDisplay += 1;
+                                    listSatPjrDisplay += `
+                                        <tr>
+                                            <td>${countSatPjrDisplay}</td>
+                                            <td><a href="<?= base_url()?>masterdata/Fasilitasumum" target="_blank">${ressSatPjr[i].name_renpam}</a></td> 
+                                            <td>${ressSatPjr[i].title_start != null ? ressSatPjr[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterSatPjr${countSatPjrDisplay}"
+                                                    data-akun="${ressSatPjr[i].accounts}"
+                                                    data-cord="${ressSatPjr[i].coordinate_guarding.lat},${ressSatPjr[i].coordinate_guarding.lng}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalSatPjrDisplay').html(listSatPjrDisplay); 
+        
+                                    
+                                    var latitudeFasum = parseFloat(ressSatPjr[i].coordinate_guarding.lat);
+                                    var longitudeFasum = parseFloat(ressSatPjr[i].coordinate_guarding.lng); 
+                                    satPjrClusterGroup.addLayer( markerSatPjr[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `<img src="<?php echo base_url();?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                        }) }).bindPopup(`
+                                            <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                                <div class="row mt-3">  
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <h5>${ressSatPjr[i].name_renpam}</h5> 
+                                                        <span>- ${ressSatPjr[i].schedule.activity} -</span>
+                                                    </div> 
+                                                    
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressSatPjr[i].title_start != null ? ressSatPjr[i].title_start.replace(/\n/g, "<br />") : "-"}</p>
+                                                    </div>   
+                                            
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressSatPjr[i].date}</p>
+                                                    </div>  
+
+                                                    <div class="col-md-12 col-12 text-start" id="isiAkunSatPjr${countSatPjrDisplay}">
+                                                    
+                                                    </div>
+                                                        
+                                                </div>
+                                            </div> 
+                                        `,{minWidth : 100,maxWidth : 900,width : 500}).on("click", function(e) {
+                                            $("#overlayMenu").fadeIn(300);
+                                            var akuns = ressSatPjr[i].accounts ? ressSatPjr[i].accounts : null;
+                                            var dataAkuns = '';
+                                            if(akuns){
+                                                $.ajax({
+                                                    type: "POST",
+                                                    url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                    data: {
+                                                        "id": akuns[i]['id'],
+                                                    },
+                                                    dataType: "JSON",
+                                                    success: function(result) {
+                                                        var ress = result['data'];
+                                                        console.log(ress);
+                                                        // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                     
+                                                        $(`#isiAkunSatPjr${countSatPjrDisplay}`).html(`
+                                                            <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">
+                                                                <img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" alt="" class="rounded-circle avatar-lg"></br>
+                                                                <b>Nama</b>: ${ress['officer']['name_officer']} </br>
+                                                                <b>Pangkat</b>: ${ress['officer']['rank_officer']}
+                                                            </p>
+                                                        `); 
+                                                        $("#overlayMenu").fadeOut(300);
+                                                    }
+                                                });
+                                            }else{
+
+                                            }
+                                        })
+                                    );
+                                // }, i * 500);
+                            }
+                        }
+
+                         
+                        // setTimeout(() => {
+                            for (let i = 0; i < countSatPjrDisplay; i++) { 
+                                $(`#flyToMapFilterSatPjr${i+1}`).on("click", function (e) {  
+                                    var latlong =  $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);  
+                                    mapContainer.flyTo([latitude, longitude], 17); 
+                                });
+                            }
+                            // $('#datatableSatPjrOnDisplay').DataTable({
+                            //     responsive: true,
+
+                            //     scrollX: true,
+
+                            //     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            //     buttons: ["excel", "csv", "pdf"],
+                            //     processing: true,
+                            //     oLanguage: {
+
+                            //         sSearch: 'Search:'
+
+                            //     },
+                            // }); 
+                            mapContainer.addLayer(satPjrClusterGroup);
+                        // }, countSatPjrDisplay.length * 500);
                     }
 
                     if(ressGerbangtol && ressGerbangtol.length > 0){  
@@ -8824,6 +9515,27 @@
                 $("#posYanDisplay").val();
             }
 
+            if($("#pos_terpadu").is(':checked')){ 
+                $("#posTerpaduDisplay").prop('checked', true);  
+            }else{
+                $("#posTerpaduDisplay").prop('checked', false); 
+                $("#posTerpaduDisplay").val();
+            }
+
+            if($("#posko").is(':checked')){ 
+                $("#poskoDisplay").prop('checked', true);  
+            }else{
+                $("#poskoDisplay").prop('checked', false); 
+                $("#poskoDisplay").val();
+            }
+
+            if($("#sat_pjr").is(':checked')){ 
+                $("#satPjrDisplay").prop('checked', true);  
+            }else{
+                $("#satPjrDisplay").prop('checked', false); 
+                $("#satPjrDisplay").val();
+            }
+
             if ($("#polres").is(':checked')) {
                 $("#polresDisplay").prop('checked', true);
                 $("#myModalClusterDisplay").modal('show');
@@ -9049,6 +9761,45 @@
             // serverSideFilter();
         }); 
 
+        $("#posTerpaduDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                openDisplay = this.value; 
+                $("#pos_terpadu").prop('checked', true);  
+                $("#myModalPosTerpaduDisplay").modal('show');
+            }else{
+                openDisplay = '';
+                $("#pos_terpadu").prop('checked', false); 
+                $("#pos_terpadu").val();
+            }
+            // serverSideFilter();
+        }); 
+
+        $("#poskoDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                openDisplay = this.value; 
+                $("#posko").prop('checked', true);  
+                $("#myModalPoskoDisplay").modal('show');
+            }else{
+                openDisplay = '';
+                $("#posko").prop('checked', false); 
+                $("#posko").val();
+            }
+            // serverSideFilter();
+        }); 
+
+        $("#satPjrDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                openDisplay = this.value; 
+                $("#satPjr").prop('checked', true);  
+                $("#myModalSatPjrDisplay").modal('show');
+            }else{
+                openDisplay = '';
+                $("#satPjr").prop('checked', false); 
+                $("#satPjr").val();
+            }
+            // serverSideFilter();
+        }); 
+
         $("#satPasDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 openDisplay = this.value; 
@@ -9193,6 +9944,15 @@
         });  
         $("#posYanFilterModal").on("click", function (e) {   
             $("#myModalPosYanDisplay").modal('show');
+        });   
+        $("#posTerpaduFilterModal").on("click", function (e) {   
+            $("#myModalPosTerpaduDisplay").modal('show');
+        });   
+        $("#poskoFilterModal").on("click", function (e) {   
+            $("#myModalPoskoDisplay").modal('show');
+        });   
+        $("#satPjrFilterModal").on("click", function (e) {   
+            $("#myModalSatPjrDisplay").modal('show');
         });  
 
         $("#satPasFilterModal").on("click", function (e) {   
@@ -9231,6 +9991,12 @@
                     $("#myModalPosPamDisplay").modal('show');
                 } else if(openDisplay == 'pos_yan'){
                     $("#myModalPosYanDisplay").modal('show');
+                } else if(openDisplay == 'pos_terpadu'){
+                    $("#myModalPosTerpaduDisplay").modal('show');
+                } else if(openDisplay == 'posko'){
+                    $("#myModalPoskoDisplay").modal('show');
+                } else if(openDisplay == 'sat_pjr'){
+                    $("#myModalSatPjrDisplay").modal('show');
                 } else if(openDisplay == 'sat_pas'){
                     $("#myModalSatPasDisplay").modal('show');
                 } else if(openDisplay == 'rest_area'){
