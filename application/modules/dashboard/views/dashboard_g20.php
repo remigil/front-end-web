@@ -6509,9 +6509,11 @@
             // console.log(`${centerLat},${centerLng}`);  
             
             var idPolda = polda_id;
-            var filterDumy;
-            if(idPolda){
-                filterDumy = {
+              
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>dashboard/getFilter", 
+                data : {
                     "filter" : arrayFilter.toString(),
                     "radius" : 15000,
                     "coordinate" : `${centerLat},${centerLng}`,
@@ -6519,22 +6521,7 @@
                     "startdate" : $("#startdate").val(),
                     "enddate" : $("#enddate").val(),
                     "polda_id": polda_id ? polda_id : null,
-                };
-            }else{
-                filterDumy = {
-                    "filter" : arrayFilter.toString(),
-                    "radius" : 15000,
-                    "coordinate" : `${centerLat},${centerLng}`,
-                    "type" : arrayFilterFasumKategori.toString(), 
-                    "startdate" : $("#startdate").val(),
-                    "enddate" : $("#enddate").val(),
-                };
-            } 
-            
-            $.ajax({
-                type : "POST",
-                url : "<?php echo base_url();?>dashboard/getFilter", 
-                data : filterDumy, 
+                }, 
                 dataType : "JSON",
                 success : function(result){  
                     console.log(result);
@@ -7599,7 +7586,7 @@
 
                     if(ressPosPam && ressPosPam.length > 0){  
                         $(`#isiPoldaPosPam${polda_id}`).html(`
-                            <table id="datatablePosPamOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                            <table id="datatablePosPamOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -7683,21 +7670,7 @@
                                     );  
                                 // }, i * 200);
                             }
-                        }
-
-                        
-                            for (let i = 0; i < countPosPamDisplay; i++) { 
-                                // setTimeout(() => {
-                                    $(`#flyToMapFilterPosPam${i+1}`).on("click", function (e) {  
-                                        var latlong =  $(this).data('cord').split(',');
-                                        var latitude = parseFloat(latlong[0]);
-                                        var longitude = parseFloat(latlong[1]);  
-                                        mapContainer.flyTo([latitude, longitude], 17); 
-                                    });
-                                    
-                                // }, countPosPamDisplay.length * 200);
-                            }
-                            // $('#datatablePosPamOnDisplay').DataTable({
+                            // $(`#datatablePosPamOnDisplay${polda_id}`).DataTable({
                             //     responsive: true,
 
                             //     scrollX: true,
@@ -7712,13 +7685,28 @@
 
                             //     },
                             // }); 
+                        }
+
+                        
+                            for (let i = 0; i < countPosPamDisplay; i++) { 
+                                // setTimeout(() => {
+                                    $(`#flyToMapFilterPosPam${i+1}`).on("click", function (e) {  
+                                        var latlong =  $(this).data('cord').split(',');
+                                        var latitude = parseFloat(latlong[0]);
+                                        var longitude = parseFloat(latlong[1]);  
+                                        mapContainer.flyTo([latitude, longitude], 17); 
+                                    });
+                                    
+                                // }, countPosPamDisplay.length * 200); 
+                            }
+                            
                             $("#overlayMenu").fadeOut(300);
                             mapContainer.addLayer(posPamClusterGroup);
                     }
 
                     if(ressPosYan && ressPosYan.length > 0){  
                         $(`#isiPoldaPosYan${polda_id}`).html(`
-                            <table id="datatablePosYanOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                            <table id="datatablePosYanOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -7812,28 +7800,28 @@
                                     mapContainer.flyTo([latitude, longitude], 17); 
                                 });
                             }
-                            $('#datatablePosYanOnDisplay').DataTable({
-                                responsive: true,
+                            // $(`#datatablePosYanOnDisplay${polda_id}`).DataTable({
+                            //     responsive: true,
 
-                                scrollX: true,
+                            //     scrollX: true,
 
-                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            //     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                                buttons: ["excel", "csv", "pdf"],
-                                processing: true,
-                                oLanguage: {
+                            //     buttons: ["excel", "csv", "pdf"],
+                            //     processing: true,
+                            //     oLanguage: {
 
-                                    sSearch: 'Search:'
+                            //         sSearch: 'Search:'
 
-                                },
-                            }); 
+                            //     },
+                            // }); 
                             mapContainer.addLayer(posYanClusterGroup);
                         // }, countPosYanDisplay.length * 500);
                     }
 
                     if(ressPosTerpadu && ressPosTerpadu.length > 0){  
                         $(`#isiPoldaPosTerpadu${polda_id}`).html(`
-                            <table id="datatablePosTerpaduOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                            <table id="datatablePosTerpaduOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -7927,28 +7915,28 @@
                                     mapContainer.flyTo([latitude, longitude], 17); 
                                 });
                             }
-                            $('#datatablePosTerpaduOnDisplay').DataTable({
-                                responsive: true,
+                            // $(`#datatablePosTerpaduOnDisplay${polda_id}`).DataTable({
+                            //     responsive: true,
 
-                                scrollX: true,
+                            //     scrollX: true,
 
-                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            //     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                                buttons: ["excel", "csv", "pdf"],
-                                processing: true,
-                                oLanguage: {
+                            //     buttons: ["excel", "csv", "pdf"],
+                            //     processing: true,
+                            //     oLanguage: {
 
-                                    sSearch: 'Search:'
+                            //         sSearch: 'Search:'
 
-                                },
-                            }); 
+                            //     },
+                            // }); 
                             mapContainer.addLayer(posTerpaduClusterGroup);
                         // }, countPosTerpaduDisplay.length * 500);
                     }
 
                     if(ressPosko && ressPosko.length > 0){  
                         $(`#isiPoldaPosko${polda_id}`).html(`
-                            <table id="datatablePoskoOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                            <table id="datatablePoskoOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -8042,21 +8030,21 @@
                                     mapContainer.flyTo([latitude, longitude], 17); 
                                 });
                             }
-                            $('#datatablePoskoOnDisplay').DataTable({
-                                responsive: true,
+                            // $(`#datatablePoskoOnDisplay${polda_id}`).DataTable({
+                            //     responsive: true,
 
-                                scrollX: true,
+                            //     scrollX: true,
 
-                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            //     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                                buttons: ["excel", "csv", "pdf"],
-                                processing: true,
-                                oLanguage: {
+                            //     buttons: ["excel", "csv", "pdf"],
+                            //     processing: true,
+                            //     oLanguage: {
 
-                                    sSearch: 'Search:'
+                            //         sSearch: 'Search:'
 
-                                },
-                            }); 
+                            //     },
+                            // }); 
                             mapContainer.addLayer(poskoClusterGroup);
                         // }, countPoskoDisplay.length * 500);
                     }
@@ -8187,22 +8175,22 @@
                                     var longitude = parseFloat(latlong[1]);  
                                     mapContainer.flyTo([latitude, longitude], 17); 
                                 });
-                                $(`#datatableSatPjrOnDisplay${polda_id}`).DataTable({
-                                    responsive: true,
-    
-                                    scrollX: true,
-    
-                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-    
-                                    buttons: ["excel", "csv", "pdf"],
-                                    processing: true,
-                                    oLanguage: {
-    
-                                        sSearch: 'Search:'
-    
-                                    },
-                                }); 
                             }
+                            // $(`#datatableSatPjrOnDisplay${polda_id}`).DataTable({
+                            //     responsive: true,
+
+                            //     scrollX: true,
+
+                            //     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            //     buttons: ["excel", "csv", "pdf"],
+                            //     processing: true,
+                            //     oLanguage: {
+
+                            //         sSearch: 'Search:'
+
+                            //     },
+                            // }); 
                             mapContainer.addLayer(satPjrClusterGroup);
                         // }, countSatPjrDisplay.length * 500);
                     }
