@@ -1306,91 +1306,91 @@
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/monitoring_drone.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">MONITORING DRONE</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/monitoring_body_worn.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">MONITORING BODY WORN</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/monitoring_gps_ranmor_patroli.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">MONITORING GPS PATROL RANMOR PATROLI</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/sub_monitoring_center.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">SUB MONITORING CENTER</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/dashboard_polisiku.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">DASHBOARD POLISIKU</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/dashboard_110.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">DASHBOARD 110</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/sot_presisi.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">SOT PRESISI</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://k3i.mhews.id/" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/info_bmkg_dan_cuaca.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">INFO BMKG DAN CUACA</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">INARISK BNPM</span>
+                                        <img src="<?= base_url('assets/icon/external/inarisk_bnpb.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">INARISK BNPB</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/monitoring_kecepatan_angin.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">MONITORING KECEPATAN ANGIN</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/prakiraan_cuaca_dipelabuhan.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">PERKIRAANG CUACA DI PLABUHAN</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/pasang_surut_air_dan_tinggi_gelombang.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">PASANG SURUT AIR DAN TINGGI GELOMBANG</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/flight_radar.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">FLIGHT RADAR</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/traffic_marine.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">TRAFFIC MARINE</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/icon/external/sub_monitoring_center1.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">SUB MONITORING CENTER</span>
                                     </a>
                                 </li>

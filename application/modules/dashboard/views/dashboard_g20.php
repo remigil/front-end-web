@@ -6254,10 +6254,10 @@
             });  
 
 
-            $("#kegiatanDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
+            // $("#kegiatanDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
                     
-                }else{
+            //     }else{
                     for (let i = 0; i < markerJadwal.length; i++) { 
                         if(markerJadwal[i]){
                         jadwalClusterGroup.removeLayer(markerJadwal[i]);
@@ -6265,14 +6265,14 @@
                         }
                     }
                     markerJadwal = new Array(); 
-                }
-            });
+            //     }
+            // });
           
 
-            $("#cctvDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
+            // $("#cctvDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
                     
-                }else{ 
+            //     }else{ 
                     for (let i = 0; i < markerCCTV.length; i++) { 
                         // mapContainer.removeLayer(markerCCTV[i]);
                         if(markerCCTV[i]){
@@ -6280,14 +6280,14 @@
                         }
                     } 
                     markerCCTV = new Array();  
-                }
-            });
+            //     }
+            // });
 
 
-            $("#samsatDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
+            // $("#samsatDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
                     
-                }else{ 
+            //     }else{ 
                     for (let i = 0; i < markerSamsat.length; i++) {
                         // mapContainer.removeLayer(markerSamsat[i]);
                         if(markerSamsat[i]){
@@ -6295,14 +6295,14 @@
                         }
                     }
                     markerSamsat = new Array();
-                }
-            });
+            //     }
+            // });
 
  
-            $("#samsatDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
+            // $("#samsatDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
                     
-                }else{  
+            //     }else{  
                     for (let i = 0; i < markerTroubleSpot.length; i++) {
                         // mapContainer.removeLayer(markerTroubleSpot[i]);
                         if(markerTroubleSpot[i]){
@@ -6310,14 +6310,14 @@
                         }
                     }
                     markerTroubleSpot = new Array();
-                }
-            });
+            //     }
+            // });
 
 
-            $("#blank_spotDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
+            // $("#blank_spotDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
                     
-                }else{ 
+            //     }else{ 
                     for (let i = 0; i < markerBlankSpot.length; i++) {
                         // mapContainer.removeLayer(markerBlankSpot[i]);
                         if(markerBlankSpot[i]){
@@ -6325,14 +6325,14 @@
                         }
                     }
                     markerBlankSpot = new Array();
-                }
-            });  
+            //     }
+            // });  
 
 
-            $("#restAreaDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
+            // $("#restAreaDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
                     
-                }else{
+            //     }else{
                     for (let i = 0; i < markerRestArea.length; i++) {
                         // mapContainer.removeLayer(markerRestArea[i]);
                         if(markerRestArea[i]){
@@ -6340,8 +6340,8 @@
                         }
                     }
                     markerRestArea = new Array();
-                }
-            }); 
+            //     }
+            // }); 
 
             for (let i = 0; i < markerPosPam.length; i++) {
                 // mapContainer.removeLayer(markerPosPam[i]);
@@ -6384,10 +6384,10 @@
             markerSatPjr = new Array();
 
 
-            $("#gerbangtolDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
+            // $("#gerbangtolDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
                     
-                }else{
+            //     }else{
                     for (let i = 0; i < markerGerbangtol.length; i++) {
                         // mapContainer.removeLayer(markerGerbangtol[i]);
                         if(markerGerbangtol[i]){
@@ -6395,14 +6395,14 @@
                         }
                     }
                     markerGerbangtol = new Array();
-                }
-            });
+            //     }
+            // });
 
 
-            $("#satPasDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
+            // $("#satPasDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
                     
-                }else{
+            //     }else{
                     for (let i = 0; i < markerSatPas.length; i++) {
                         // mapContainer.removeLayer(markerSatPas[i]);
                         if(markerSatPas[i]){
@@ -6410,8 +6410,8 @@
                         }
                     }
                     markerSatPas = new Array();
-                }
-            });
+            //     }
+            // });
 
             for (let i = 0; i < markerFasum.length; i++) { 
                 if(markerFasum[i]){
@@ -6421,37 +6421,37 @@
             markerFasum = new Array(); 
             
 
-            $("#fasumKhususDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
+            // $("#fasumKhususDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
                     
-                }else{
+            //     }else{
                     for (let i = 0; i < markerFasumKhusus.length; i++) { 
                         if(markerFasumKhusus[i]){
                         fasumKhususClusterGroup.removeLayer(markerFasumKhusus[i]); 
                         }
                     }
                     markerFasumKhusus = new Array();  
-                }
-            });
+            //     }
+            // });
 
-            $("#clusterDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
+            // $("#clusterDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
                     
-                }else{
+            //     }else{
                     for (let i = 0; i < markerCluster.length; i++) { 
                         if(markerCluster[i]){
                         mapContainer.removeLayer(markerCluster[i]);
                         }
                     }
                     markerCluster = new Array(); 
-                }
-            });
+            //     }
+            // });
 
 
-            $("#radiusDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
+            // $("#radiusDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
                     
-                }else{
+            //     }else{
                     for (let i = 0; i < markerRadius.length; i++) { 
                         if(markerRadius[i]){
                         // fasumKhususRadiusGroup.removeLayer(markerRadius[i]);
@@ -6459,28 +6459,28 @@
                         }
                     }
                     markerRadius = new Array(); 
-                }
-            });
+            //     }
+            // });
 
 
-            $("#polresDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
+            // $("#polresDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
                     
-                }else{
+            //     }else{
                     for (let i = 0; i < markerPolres.length; i++) {
                         if(markerPolres[i]){
                         mapContainer.removeLayer(markerPolres[i]);
                         }
                     }
                     markerPolres = new Array();
-                }
-            });
+            //     }
+            // });
 
          
-            $("#operasiDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
+            // $("#operasiDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
                     
-                }else{
+            //     }else{
                     for (let i = 0; i < markerLaporan.length; i++) { 
                         if(markerLaporan[i]){
                         laporanClusterGroup.removeLayer(markerLaporan[i]);
@@ -6488,14 +6488,12 @@
                         }
                     }
                     markerLaporan = new Array();
-                }
-            });
+            //     }
+            // });
 
 
-            $("#panicDisplay").on("change", function(e) {
-                if ($(this).is(':checked')) {
-                    
-                }else{
+      
+            
                     for (let i = 0; i < markerLaporanPanic.length; i++) { 
                         if(markerLaporanPanic[i]){
                         panicClusterGroup.removeLayer(markerLaporanPanic[i]);
@@ -6503,8 +6501,8 @@
                         }
                     }
                     markerLaporanPanic = new Array();
-                }
-            });
+            
+           
 
             // console.log(`${centerLat},${centerLng}`);  
             
@@ -8147,12 +8145,12 @@
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
                                                             <div style="text-align: center">
                                                                 <img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true"></br>
+                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                    <b>Nama</b>: ${ress['officer']['name_officer']} </br>
+                                                                    <b>Pangkat</b>: ${ress['officer']['rank_officer']}
+                                                                </p>
                                                             </div>
 
-                                                            <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                                <b>Nama</b>: ${ress['officer']['name_officer']} </br>
-                                                                <b>Pangkat</b>: ${ress['officer']['rank_officer']}
-                                                            </p>
                                                         `); 
                                                         $("#overlayMenu").fadeOut(300);
                                                     }
