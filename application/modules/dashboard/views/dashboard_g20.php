@@ -6421,7 +6421,7 @@
             markerFasum = new Array(); 
             
 
-            $("#satPasDisplay").on("change", function(e) {
+            $("#fasumKhususDisplay").on("change", function(e) {
                 if ($(this).is(':checked')) {
                     
                 }else{
@@ -8063,7 +8063,7 @@
 
                     if(ressSatPjr && ressSatPjr.length > 0){  
                         $(`#isiPoldaSatPjr${polda_id}`).html(`
-                            <table id="datatableSatPjrOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                            <table id="datatableSatPjrOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -8157,8 +8157,11 @@
                                                      
                                                         $(`#isiAkunSatPjr${countSatPjrDisplay}`).html(`
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">
-                                                                <img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" alt="" class="rounded-circle avatar-lg"></br>
+                                                            <div style="text-align: center">
+                                                                <img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true"></br>
+                                                            </div>
+
+                                                            <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
                                                                 <b>Nama</b>: ${ress['officer']['name_officer']} </br>
                                                                 <b>Pangkat</b>: ${ress['officer']['rank_officer']}
                                                             </p>
@@ -8184,22 +8187,22 @@
                                     var longitude = parseFloat(latlong[1]);  
                                     mapContainer.flyTo([latitude, longitude], 17); 
                                 });
+                                $(`#datatableSatPjrOnDisplay${polda_id}`).DataTable({
+                                    responsive: true,
+    
+                                    scrollX: true,
+    
+                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+    
+                                    buttons: ["excel", "csv", "pdf"],
+                                    processing: true,
+                                    oLanguage: {
+    
+                                        sSearch: 'Search:'
+    
+                                    },
+                                }); 
                             }
-                            // $('#datatableSatPjrOnDisplay').DataTable({
-                            //     responsive: true,
-
-                            //     scrollX: true,
-
-                            //     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            //     buttons: ["excel", "csv", "pdf"],
-                            //     processing: true,
-                            //     oLanguage: {
-
-                            //         sSearch: 'Search:'
-
-                            //     },
-                            // }); 
                             mapContainer.addLayer(satPjrClusterGroup);
                         // }, countSatPjrDisplay.length * 500);
                     }
