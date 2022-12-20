@@ -329,62 +329,62 @@
 
 
         .location-pin2 img {
-        width: 26px;
-        height: 26px;
-        margin: -12px 0 0 -13px;
-        z-index: 10;
-        position: absolute;
-        border-radius: 50%;
-        background: #3f51b5;
+            width: 26px;
+            height: 26px;
+            margin: -12px 0 0 -13px;
+            z-index: 10;
+            position: absolute;
+            border-radius: 50%;
+            background: #3f51b5;
         }
 
         .pin2 {
-        width: 30px;
-        height: 30px;
-        border-radius: 50% 50% 50% 0;
-        background: #3f51b5;
-        position: absolute;
-        transform: rotate(-45deg);
-        left: 50%;
-        top: 50%;
-        margin: -30px 0 0 -30px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50% 50% 50% 0;
+            background: #3f51b5;
+            position: absolute;
+            transform: rotate(-45deg);
+            left: 50%;
+            top: 50%;
+            margin: -30px 0 0 -30px;
         }
 
         .pin2:after {
-        content: '';
-        width: 26px;
-        height: 26px;
-        margin: 2px 0 0 2px;
-        position: absolute;
-        border-radius: 50%;
+            content: '';
+            width: 26px;
+            height: 26px;
+            margin: 2px 0 0 2px;
+            position: absolute;
+            border-radius: 50%;
         }
 
         .pulse2 {
-        background: rgba(0, 0, 0, 0.2);
-        border-radius: 50%;
-        height: 14px;
-        width: 14px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin: 7px 0px 0px -21.5px;
-        transform: rotateX(55deg);
-        z-index: -2;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            height: 14px;
+            width: 14px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: 7px 0px 0px -21.5px;
+            transform: rotateX(55deg);
+            z-index: -2;
         }
 
         .pulse2:after {
-        content: "";
-        border-radius: 50%;
-        height: 40px;
-        width: 40px;
-        position: absolute;
-        margin: -16px 0 0 -13px;
-        animation: pulsate 2.5s ease-out;
-        animation-iteration-count: infinite;
-        opacity: 0;
-        background: rgba(94, 190, 255, 0.5);
-        box-shadow: 0 0 1px 2px #2d99d3;
-        animation-delay: 1.1s;
+            content: "";
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            margin: -16px 0 0 -13px;
+            animation: pulsate 2.5s ease-out;
+            animation-iteration-count: infinite;
+            opacity: 0;
+            background: rgba(94, 190, 255, 0.5);
+            box-shadow: 0 0 1px 2px #2d99d3;
+            animation-delay: 1.1s;
         }
 
 
@@ -790,7 +790,7 @@
             position: absolute;
             top: 15px;
             left: 20px;
-            font-size: 27px; 
+            font-size: 27px;
         }
 
         @media screen and (max-height: 450px) {
@@ -2223,6 +2223,7 @@
                                         <li><a href="<?php echo base_url('masterdata/Cctv'); ?>" data-key="t-read-email">CCTV</a></li>
                                         <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Umum</a></li>
                                         <li><a href="<?php echo base_url('masterdata/Etilang'); ?>" data-key="t-read-email">ETLE</a></li>
+                                        <li><a href="<?php echo base_url('masterdata/Stackholder'); ?>" data-key="t-read-email">Stackholder</a></li>
                                     </ul>
                                 </li>
                             <?php } ?>
@@ -2596,7 +2597,7 @@
             <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/qgis2web_expressions.js"></script>
             <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
             <script src="<?php echo base_url(); ?>assets/admin/js/leaflet.markercluster.js"></script>
-            
+
             <script src="<?php echo base_url(); ?>assets/admin/js/Control.Geocoder.js"></script>
             <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.js"></script>
             <!-- <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.min.js"></script> -->
