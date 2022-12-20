@@ -2122,13 +2122,13 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="<?= base_url('ditkamsel/inputData') ?>">
                                                 <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                 <span data-key="t-tripon">Ditkamsel</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="<?= base_url('ditregident/inputData') ?>">
                                                 <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                 <span data-key="t-tripon">Ditregident</span>
                                             </a>

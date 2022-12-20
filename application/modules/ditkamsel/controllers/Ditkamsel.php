@@ -42,6 +42,31 @@ class Ditkamsel extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
+
+    public function inputData()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Input Data Harian Ditkamsel";
+
+        if ($this->session->userdata['role'] == 'G20') {
+            $page_content["page"] = "dashboard/dashboard_g20";
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $page_content["page"] = "ditkamsel/korlantas/inputdata_ditkamsel";
+        }
+
+
+        $page_content["data"] = '';
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function listof_import_file()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_ditkamsel->get_datatables_harian($postData);
+        echo json_encode($data);
+    }
+
     public function getStatistik()
     {
         $headers = [
