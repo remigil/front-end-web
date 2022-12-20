@@ -1,17 +1,193 @@
-<section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
 
-        <ol>
-          <li><a href="<?= base_url()?>home">Home</a></li>
-          <li><?= $breadcrumb?></li>
-        </ol>
-        <h2><?= $headline?></h2>
+	<div class="row">
 
-      </div>
-    </section><!-- End Breadcrumbs -->
+	<!-- sidebar -->
+		<div class="col-md-2" style="background-color: #073888;">
+			<div class="title-link mt-3 text-white mb-3 text-center">
+				<h4>Pilih Lokasi CCTV</h4>
+				<hr>
+			</div>
+			<div class="list-link">
+				<ul>
+					<li class="mb-3">
+						<a href="https://jid.jasamargalive.com/"><button class="btn btn-primary text-start">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+									<i class="bi bi-play-circle fs-3"></i> 
+								</div>
+								<div class="col-md-10">
+									<h4 class="fs-6 fw-bold">Tol JID Jasamarga</h4> 
+								</div>
+							</div>
+						</button></a>
+					</li>
+					<li class="mb-3">
+						<a href="<?= base_url()?>cctv_streaming"><button class="btn btn-primary text-start">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+									<i class="bi bi-play-circle fs-3"></i>
+								</div>
+								<div class="col-md-10">
+									<h4 class="fs-6 fw-bold">Wilayah DKI Jakarta</h4> 
+								</div>
+							</div>
+							
+						</button></a>
+					</li>
+					<li class="mb-3">
+						<a href="https://stream2.jasamargalive.com:1699/webmatrix/stream/get2?area_id=9&a=1&page=1"><button class="btn btn-primary text-start">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+									<i class="bi bi-play-circle fs-3"></i>
+								</div>
+								<div class="col-md-10">
+									<h4 class="fs-6 fw-bold">Tol Cikampek Purbaleunyi Padalarang (Cipularang)</h4>
+								</div>
+							</div>
+							
+						</button></a>
+					</li>
+					<li class="mb-3">
+						<a href="https://stream2.jasamargalive.com:1699/webmatrix/stream/get2?area_id=17&a=1&page=1"><button class="btn btn-primary text-start">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+									<i class="bi bi-play-circle fs-3"></i>
+								</div>
+								<div class="col-md-10">
+									<h4 class="fs-6 fw-bold">Tol Padalarang Cileunyi (Pasteur)</h4> 
+								</div>
+							</div>
+							 
+						</button></a>
+					</li>
+					<li class="mb-3">
+						<a href="http://jasamargalive.com:5055/stream/get?area_id=2&a=1"><button class="btn btn-primary text-start">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+									<i class="bi bi-play-circle fs-3"></i> 
+								</div>
+								<div class="col-md-10">
+									<h4 class="fs-6 fw-bold">Tol Jakarta - Cikampek</h4> 
+								</div>
+							</div>
+							
+						</button></a>
+					</li>
+					<li class="mb-3">
+						<a href="http://jasamargalive.com:5055/stream/get?area_id=33&a=1"><button class="btn btn-primary text-start">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+									<i class="bi bi-play-circle fs-3"></i>
+								</div>
+								<div class="col-md-10">
+									<h4 class="fs-6 fw-bold">Tol Jakarta Cikampek (Elevated)</h4> 
+								</div>
+							</div>
+							 
+						</button></a>
+					</li>
+					<li class="mb-3">
+						<a href="https://cameraastratoll.com/"><button class="btn btn-primary text-start">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+									<i class="bi bi-play-circle fs-3"></i>
+								</div>
+								<div class="col-md-10">
+									<h4 class="fs-6 fw-bold">Tol Tanggerang - Merak</h4> 
+								</div>
+							</div>
+							 
+						</button></a>
+					</li>
+					<li class="mb-3">
+						<a href="https://stream2.jasamargalive.com:1699/webmatrix/stream/get2?area_id=3&page=4"><button class="btn btn-primary text-start">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+									<i class="bi bi-play-circle fs-3"></i> 
+								</div>
+								<div class="col-md-10">
+									<h4 class="fs-6 fw-bold">Tol Jagorawi (Jakarta Bogor Ciawi)</h4> 
+								</div>
+							</div>
+							
+						</button></a>
+					</li>
+					<li class="mb-3">
+						<a href="https://k3i.korlantas.polri.go.id/cctv-streaming/tol-jorr/"><button class="btn btn-primary text-start">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+									<i class="bi bi-play-circle fs-3"></i>
+								</div>
+								<div class="col-md-10">
+									<h4 class="fs-6 fw-bold">Tol JORR W1 (Lingkar Luar Jakarta)</h4> 
+								</div>
+							</div>
+							 
+						</button></a>
+					</li>
+					<li class="mb-3">
+						<a href="http://jasamargalive.com:5055/stream/get?area_id=13&a=1"><button class="btn btn-primary text-start">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+									<i class="bi bi-play-circle fs-3"></i>
+								</div>
+								<div class="col-md-10">
+									<h4 class="fs-6 fw-bold">Tol JANGER (Jakarta Tanggerang)</h4>
+								</div>
+							</div>
+							  
+						</button></a>
+					</li>
+					<li class="mb-3">
+						<a href="https://jid.jasamargalive.com/graph/cctv_segment?segment=[83,84,85,86,87,88,89,90,91]&ruas=4"><button class="btn btn-primary text-start">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+									<i class="bi bi-play-circle fs-3"></i>
+								</div>
+								<div class="col-md-10">
+									<h4 class="fs-6 fw-bold">Tol BITUNG (Jakarta Tanggerang)</h4> 
+								</div>
+							</div>
+							 
+						</button></a>
+					</li>
+					<li class="mb-3">
+						<a href="http://tiliksemar.semarangkota.go.id/dashboard"><button class="btn btn-primary text-start">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+									<i class="bi bi-play-circle fs-3"></i>
+								</div>
+								<div class="col-md-10">
+									<h4 class="fs-6 fw-bold">Kota Semarang</h4> 
+								</div>
+							</div>
+							 
+						</button></a>
+					</li>
+					<li class="mb-3">
+						<a href="#"><button class="btn btn-primary text-start">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+									<i class="bi bi-play-circle fs-3"></i>
+								</div>
+								<div class="col-md-10">
+									<h4 class="fs-6 fw-bold">Jambi</h4> 
+								</div>
+							</div>
+							 
+						</button></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- end sidebar -->
 
-	<div class="container">
-		<h3 class="text-center mb-5">CCTV Terintegrasi - Korlantas Polri</h3>
+
+
+		<!-- cctv -->
+		<div class="col-md-10">
+		<div class="container-fluid">
+		<h3 class="text-center mb-5 mt-5">CCTV Terintegrasi - Korlantas Polri</h3>
 
 		<div class="row align-items-center">
 		
@@ -63,6 +239,10 @@
 			</div>
 		</div>
 	</div>
+		</div>
+	</div>
+
+	
  
 <script>
     $(document).ready(function() { 
@@ -136,30 +316,24 @@
 
                         ress.forEach(el => {
                             if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                resource = `<iframe id="myIframe" src="${el.link_cctv}" style="width: 230px; height: 250.25px;"></iframe>`;
+                                resource = `<iframe id="myIframe" src="${el.link_cctv}" style="width: 100%; height: 250.25px;"></iframe>`;
                             }else{
-                                resource = `<img style="width: 230px;" src="${el.link_cctv}" />`;
+                                resource = `<img style="width: 100%;" src="${el.link_cctv}" />`;
                             }
                             countlistCCTV += 1;
                             listCCTV += `
-                                <div class="col-xl-3 col-sm-6">
+                                <div class="col-xl-3 col-sm-6 mb-4">
                                     <div class="card text-center">
-                                        <div class="card-body">
-                                            <div class="dropdown text-end">
-                                                <a class="text-muted dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                    <i class="bx bx-dots-horizontal-rounded"></i>
-                                                </a>
-                                                
-                                                
-                                            </div>
+                                        <div class="card-body" style="padding:0 !important;">
+											<h5 class="font-size-16 mb-1 mt-2"><a href="#" class="text-dark">${el.type_cctv}</a></h5>
+											<p class="text-muted mb-2">${el.address_cctv}</p>
                                             
-                                            <div class="row mb-4">
+                                            <div class="row">
                                                 <div class="col-md-12">
-                                                ${resource}
+												<a class="glightbox" href="${el.link_cctv}">${resource}</a>
+                                                
                                                 </div>
                                             </div>
-                                            <h5 class="font-size-16 mb-1"><a href="#" class="text-dark">${el.type_cctv}</a></h5>
-                                            <p class="text-muted mb-2">${el.address_cctv}</p>
                                             
                                         </div> 
                                     </div> 
@@ -182,32 +356,6 @@
         
 
     });
-
-
-
-    $('.detailRow').on('click', function() {
-        $('#detailModal').modal('show')
-        $('.modal-title').text('Detail CCTV')
-        $('[name="nama"]').val($(this).data('nama'))
-        $('[name="alamat"]').val($(this).data('ip'))
-        $('[name="provinsi"]').val($(this).data('provinsi'))
-        $('[name="kota"]').val($(this).data('kota'))
-        $('[name="latitude"]').val($(this).data('lat'))
-        $('[name="longitude"]').val($(this).data('long'))
-        $('[name="username"]').val($(this).data('username'))
-        $('[name="password"]').val($(this).data('password'))
-        $('#submit_edit').hide()
-    })
-
-    $('.editRow').on('click', function() {
-        $('.modal-title').text('Ubah Akun')
-        $('#detailModal').modal('show')
-        $('[name="nama_akun"]').val($(this).data('akun'))
-        $('[name="password"]').val($(this).data('password'))
-        $('[name="tingkat"]').val($(this).data('tingkat'))
-        $('[name="akses"]').val($(this).data('akses'))
-        $('#submit_edit').show()
-    })
 
     
 </script>

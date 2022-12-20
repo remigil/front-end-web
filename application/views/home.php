@@ -21,14 +21,34 @@
           </div>
 
 
-          <?php foreach ($semuaberita as $key) : ?>
+          <?php 
+						$i = 0;
+					foreach ($semuaberita as $key) : 
+						if (++$i == 7) break;
+					?>
             <!-- Slide 2 -->
-            <div class="carousel-item" style="background-image: url(assets/fe/slider-8.jpg)">
+            <div class="carousel-item" style="background-image:url(assets/fe/hero-wall.png)">
               <div class="carousel-container">
                 <div class="carousel-content">
-                  <img src="<?= base_url() ?>assets/logo-nav.png" alt="">
-                  <h2 class="animate__animated fanimate__adeInDown"><?= $key['title'] ?></h2>
-                  <p class="animate__animated animate__fadeInUp fs-5" style="text-shadow: 2px 2px #000;">Dengan anda Tertib berlalu lintas anda sudah menyelamatkan diri sendiri, Penumpang dan Orang lain dijalan</p>
+                  <!-- <img src="<?= base_url() ?>assets/logo-nav.png" alt=""> -->
+									<div class="container">
+										<div class="row">
+											<div class="col-md-5">
+												<div class="news_image">
+													<img width="500"  height="200" src="<?= url_api() ?>news/<?= $key['picture'] ?>" class="img-fluid">
+												</div>
+												
+											</div>
+											<div class="col-md-7">
+												<h2 class="animate__animated fanimate__adeInDown fs-5" style="text-align: left;color:#fffd51;">berita</h2>
+												<h2 class="animate__animated fanimate__adeInDown fs-2" style="text-align: left;"><?= $key['title'] ?></h2>
+												<p class="animate__animated animate__fadeInUp fs-5" style="text-shadow: 2px 2px #000; text-align:left; width:100% !important"><?= substr($key['content'], 0, 250) . '. . .' ?></p>
+												<a href="berita_front/detailberita/<?= $key['id'] ?>" class="btn-get-started animate__animated animate__fadeInUp">Baca Selengkapnya</a>
+	
+											</div>
+										</div>
+
+									</div>
                   <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a> -->
                 </div>
               </div>
@@ -51,24 +71,27 @@
 
       </div>
     </div>
-    <div class="row">
+		<div class="container-fluid px-5">
+			<div class="row shadow mb-5 bg-body rounded">
+	
+				<div class="col-md-2">
+					<div class="container-fluid">
+						<h4 class="text-black p-2">Informasi</h4>
+					</div>
+	
+				</div>
+				<div class="col-md-10">
+					<marquee behavior="" direction="" style="color: white; background-color:#073888;" class="p-2">
+						SELAMAT DATANG DI PORTAL PUSAT KENDALI KOORDINASI KOMUNIKASI DAN INFORMASI KORLANTAS POLRI
+						<?php foreach ($semuaberita as $data) : ?>
+							<a href="berita_front/detailberita/<?= $data['id'] ?>" class="mx-3 text-white" style="text-decoration: none;">|| <?= $data['title'] ?> ||</a>
+						<?php endforeach; ?>
+					</marquee>
+	
+				</div>
+			</div>
 
-      <div class="col-md-2">
-        <div class="container-fluid">
-          <h4 class="text-black p-2">Informasi</h4>
-        </div>
-
-      </div>
-      <div class="col-md-10">
-        <marquee behavior="" direction="" style="color: white; background-color:#073888;" class="p-2">
-          SELAMAT DATANG DI PORTAL PUSAT KENDALI KOORDINASI KOMUNIKASI DAN INFORMASI KORLANTAS POLRI
-          <?php foreach ($semuaberita as $data) : ?>
-            <a href="berita_front/detailberita/<?= $data['id'] ?>" class="mx-3 text-white" style="text-decoration: none;">|| <?= $data['title'] ?> ||</a>
-          <?php endforeach; ?>
-        </marquee>
-
-      </div>
-    </div>
+		</div>
 
   </section><!-- End Hero -->
   <main id="main">
@@ -326,14 +349,25 @@
 
             <div class="col-lg-3 mt-5" data-aos="fade-up" data-aos-delay="200">
               <div class="post-box">
-                <div class="post-img"><img width="500" src="<?= url_api() ?>news/<?= $data['picture'] ?>" class="img-fluid"></div>
+                <div class="post-img"><img width="500" src="<?= url_api() ?>news/<?= $data['picture'] ?>" class="img-fluid" style="height: 210px;"></div>
                 <div class="meta">
                   <span class="post-date"><?= $data['category_news'][0]['name_category_news'] ?></span>
                   <span class="post-author"> / Korlantas Polri</span>
                 </div>
-                <h4 class="post-title"><?= $data['title']; ?></h4>
-                <p><?= substr($data['content'], 0, 250) . '. . .' ?></p>
-                <a href="berita_front/detailberita/<?= $data['id'] ?>" class="readmore stretched-link"><span>Baca Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+								<div class="row">
+									<div class="col-md-12 d-block">
+									<h4 class="post-title fs-5" style="height: 100px;"><?= substr($data['title'],0,150); ?></h4>
+									</div>
+									<div class="col-md-12 d-block">
+									<p style="text-align: justify;" style="height: 100px;"><?= substr($data['content'], 0, 260) . '. . .' ?></p>
+									</div>
+									<div class="col-md-12 d-block">
+									<a href="berita_front/detailberita/<?= $data['id'] ?>" class="readmore stretched-link"><span>Baca Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+									</div>
+								</div>
+                
+                
+                
               </div>
             </div>
 
@@ -470,49 +504,50 @@
 
         <div class="clients-slider swiper">
           <div class="swiper-wrapper align-items-center text-center">
+						
             <div class="swiper-slide">
-              <a target="_blank" href="http://103.154.174.55/#/pages/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/bigdata-hd.png" alt="" width="100%"></a>
+              <a target="_blank" href="http://103.154.174.55/#/pages/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/bigdata-hd.png" alt="" width="100" class="p-3"></a>
               <p>Big Data</p>
             </div>
             <div class="swiper-slide">
-              <a target="_blank" href="http://k3i.korlantas.polri.go.id/cctv/"><img src="<?php echo base_url(); ?>assets/fe/client/cctv-hd.png" alt="" width="100%"></a>
+              <a target="_blank" href="http://k3i.korlantas.polri.go.id/cctv/"><img src="<?php echo base_url(); ?>assets/fe/client/cctv-hd.png" alt="" width="100"></a>
               <p>CCTV</p>
             </div>
             <div class="swiper-slide">
-              <a target="_blank" href="https://k3i.korlantas.polri.go.id/dis/"><img src="<?php echo base_url(); ?>assets/fe/client/dis-hd.png" alt="" width="100%"></a>
+              <a target="_blank" href="https://k3i.korlantas.polri.go.id/dis/"><img src="<?php echo base_url(); ?>assets/fe/client/dis-hd.png" alt="" width="100"></a>
               <p>DIS</p>
             </div>
             <div class="swiper-slide">
-              <a target="_blank" href="http://dakgargakkum.com/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/etle-hd.png" alt="" width="100%"></a>
+              <a target="_blank" href="http://dakgargakkum.com/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/etle-hd.png" alt="" width="100"></a>
               <p>E-TILANG</p>
             </div>
 
             <!-- <div class="swiper-slide">
-							<a target="_blank" href="https://maps.korlantas.polri.go.id/portal/home/"><img src="<?php echo base_url(); ?>assets/fe/client/intan.png" alt="" width="100%"></a>
+							<a target="_blank" href="https://maps.korlantas.polri.go.id/portal/home/"><img src="<?php echo base_url(); ?>assets/fe/client/intan.png" alt="" width="100"></a>
               <p>INTAN</p>
 						</div> -->
             <div class="swiper-slide">
-              <a target="_blank" href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#"><img src="<?php echo base_url(); ?>assets/fe/client/irsms-hd.png" alt="" width="100%"></a>
+              <a target="_blank" href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#"><img src="<?php echo base_url(); ?>assets/fe/client/irsms-hd.png" alt="" width="100"></a>
               <p>IRSMS</p>
             </div>
             <div class="swiper-slide">
-              <a target="_blank" href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/korlantas-hd.png" alt="" width="100%"></a>
+              <a target="_blank" href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/korlantas-hd.png" alt="" width="100"></a>
               <p>Digital Korlantas</p>
             </div>
             <div class="swiper-slide">
-              <a target="_blank" href="https://1500669.com/"><img src="<?php echo base_url(); ?>assets/fe/client/ntmc_korlantas.png" alt="" width="100%"></a>
+              <a target="_blank" href="https://1500669.com/"><img src="<?php echo base_url(); ?>assets/fe/client/ntmc_korlantas.png" alt="" width="100"></a>
               <p>Contact Center</p>
             </div>
             <!-- <div class="swiper-slide">
-							<a target="_blank" href="https://rasirosakorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/rarirosa.png" alt="" width="100%"></a>
+							<a target="_blank" href="https://rasirosakorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/rarirosa.png" alt="" width="100"></a>
               <p>RASIROSA</p>
 						</div> -->
             <div class="swiper-slide">
-              <a target="_blank" href="http://sbstkorlantas.net/korlantas/"><img src="<?php echo base_url(); ?>assets/fe/client/sbst-hd.png" alt="" width="100%"></a>
+              <a target="_blank" href="http://sbstkorlantas.net/korlantas/"><img src="<?php echo base_url(); ?>assets/fe/client/sbst-hd.png" alt="" width="100"></a>
               <p>SBST</p>
             </div>
             <div class="swiper-slide">
-              <a target="_blank" href="http://sislapops.com/home"><img src="<?php echo base_url(); ?>assets/fe/client/Sislapops.png" alt="" width="100%"></a>
+              <a target="_blank" href="http://sislapops.com/home"><img src="<?php echo base_url(); ?>assets/fe/client/Sislapops.png" alt="" width="100"></a>
               <p>SISLAPOPS</p>
             </div>
             <div class="swiper-slide">
@@ -521,9 +556,9 @@
             </div>
 
           </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination mt-5"></div>
+          <div class="swiper-button-next p-5" style="background-color: rgba(51, 51, 51, 0.5); border-radius:50px; color:#fff; top:50px"></div>
+          <div class="swiper-button-prev p-5" style="background-color: rgba(51, 51, 51, 0.5); border-radius:50px; color:#fff; top:50px"></div>
 
         </div>
 
@@ -831,12 +866,15 @@
 
       // StART MAP SECTION
       var mapContainer = L.map('map', {
-        maxZoom: 20,
+				maxZoom: 20,
         minZoom: 1,
         zoomSnap: 0.25,
         zoomControl: false,
+				fullscreenControl: true,
         layers: [googleHybrid]
       }).setView(initialCenter, initialZoom);
+			
+			
 
 
       var markerClusterGroup = L.markerClusterGroup();
@@ -861,6 +899,7 @@
       L.control.zoom({
         position: 'topright'
       }).addTo(mapContainer);
+      
 
       mapContainer.doubleClickZoom.disable();
 
@@ -1473,15 +1512,6 @@
       });
 
 
-      var swiper = new Swiper(".swiper", {
-        slidesPerView: 7,
-        spaceBetween: 30,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
+      
     });
   </script>

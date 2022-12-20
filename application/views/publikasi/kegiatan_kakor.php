@@ -51,6 +51,8 @@
             </div><!-- End Event item -->
 
           </div>
+					<div class="swiper-button-next p-5" style="background-color: rgba(51, 51, 51, 0.5); border-radius:50px; color:#fff; top:150px"></div>
+					<div class="swiper-button-prev p-5" style="background-color: rgba(51, 51, 51, 0.5); border-radius:50px; color:#fff; top:150px"></div>
           <div class="swiper-pagination"></div>
         </div>
 
@@ -87,8 +89,9 @@
 				<a class="glightbox" data-gallery="images-gallery" href="<?= base_url()?>assets/fe/giat_kakor6.jpg"><img src="<?= base_url()?>assets/fe/giat_kakor6.jpg" class="img-fluid" alt="" width="100%"></a>
 			</div>
             
-          <div class="swiper-pagination"></div>
-        </div>
+			
+		</div>
+		<div class="swiper-pagination"></div>
 
       </div>
     </section><!-- End Gallery Section -->

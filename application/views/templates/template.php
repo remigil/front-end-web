@@ -35,6 +35,8 @@
   <link href="<?= base_url()?>assets/fe/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="<?= base_url()?>assets/fe/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="<?= base_url()?>assets/fe/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+	
 	<script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
 
 	<script data-cfasync="false" src="<?php echo base_url();?>assets/fe/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
@@ -59,6 +61,7 @@
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.js"></script>
     <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+		<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js'></script>
 		
@@ -406,6 +409,7 @@
             <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.js"></script>
             <!-- <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.min.js"></script> -->
             <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+						
 
             <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js'></script>
 
