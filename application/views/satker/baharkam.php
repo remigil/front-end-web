@@ -37,7 +37,7 @@
 		</div>
 
       </div>
-	  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63458.9587091969!2d106.803352!3d-6.239342!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2388a7a048cd514e!2sBaharkam%20Polri!5e0!3m2!1sid!2sid!4v1665878384384!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63458.9587091969!2d106.803352!3d-6.239342!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2388a7a048cd514e!2sBaharkam%20Polri!5e0!3m2!1sid!2sid!4v1665878384384!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mt-5"></iframe>
     </section><!-- End Breadcrumbs -->
 
 	<!-- ======= Events Section ======= -->

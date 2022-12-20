@@ -61,7 +61,6 @@
                                     <div class="col-md-4">
                                         <p class=" fw-bold text-primary mt-3">NAMA LENGKAP</p>
                                         <p class=" fw-bold text-primary">NIK</p>
-                                        <p class=" fw-bold text-primary">KEBANGSAAN</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p class=" fw-bold text-primary mt-3">:</p>
@@ -71,7 +70,6 @@
                                     <div class="col-md-7">
                                         <p class=" fw-bold text-primary mt-3"><?php echo $data['getDetail']['data']['society']['person_name']; ?></p>
                                         <p class=" fw-bold text-primary"><?php echo $data['getDetail']['data']['society']['nik']; ?></p>
-                                        <p class=" fw-bold text-primary"><?php echo $data['getDetail']['data']['society']['nationality']; ?></p>
                                     </div>
                                 </div>
                             </div>

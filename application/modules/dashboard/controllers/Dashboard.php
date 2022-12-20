@@ -12,6 +12,20 @@ class Dashboard extends MY_Controller
         $this->load->model('dashboard/m_dashboard');
     }
 
+    public function test()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Operasi";
+        $page_content["page"] = "dashboard/google"; 
+        $page_content["data"] = '';
+        $this->load->view('google');
+    }
+
     public function index()
     {
         // print_r($this->session->userdata['polda_id']);
@@ -491,7 +505,7 @@ class Dashboard extends MY_Controller
         // $date = strtotime("-1 day", $date);
         // echo date('Y-m-d', $date);
 
-        $url = 'getMe';
+        $url = 'filterPetugas?limit=5000&page=1';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
@@ -870,6 +884,8 @@ class Dashboard extends MY_Controller
 
         echo json_encode($res);
     }
+
+    
 
     public function getJadwal()
     {

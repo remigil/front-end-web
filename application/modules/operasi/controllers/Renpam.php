@@ -40,7 +40,7 @@ class Renpam extends MY_Controller
         ]);
         $data['getVip'] = $getVip['data']['data'];
 
-        $getAccount = guzzle_request('GET', 'account', [
+        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
             'headers' => $headers
         ]);
         $data['getAccount'] = $getAccount['data']['data'];
@@ -62,7 +62,7 @@ class Renpam extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "PAMWAL KTT - G20 Bali";
+        $page_content["title"] = "PAMWAL KTT";
 
         if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU' || $this->session->userdata['role'] == 'Operator') {
             $page_content["page"] = "operasi/G20/renpam_g20";
@@ -81,7 +81,7 @@ class Renpam extends MY_Controller
         ]);
         $data['getVip'] = $getVip['data']['data'];
 
-        $getAccount = guzzle_request('GET', 'account', [
+        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
             'headers' => $headers
         ]);
         $data['getAccount'] = $getAccount['data']['data'];
@@ -123,7 +123,7 @@ class Renpam extends MY_Controller
         ]);
         $data['getVip'] = $getVip['data']['data'];
 
-        $getAccount = guzzle_request('GET', 'account', [
+        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
             'headers' => $headers
         ]);
         $data['getAccount'] = $getAccount['data']['data'];
@@ -465,7 +465,7 @@ class Renpam extends MY_Controller
         ]);
         $data['getVip'] = $getVip['data']['data'];
 
-        $getAccount = guzzle_request('GET', 'account', [
+        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
             'headers' => $headers
         ]);
         $data['getAccount'] = $getAccount['data']['data'];

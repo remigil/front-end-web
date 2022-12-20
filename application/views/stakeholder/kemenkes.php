@@ -6,12 +6,12 @@
           <li><a href="<?= base_url()?>home">Home</a></li>
           <li><?= $breadcrumb?></li>
         </ol>
-        <div class="container mt-5">
+        <div class="container-fluid mt-5">
 			<div class="row">
 				<div class="col-md-1 text-center">
 				<img src="<?= base_url()?>assets/fe/client/kemenkes.png" alt="" width="100%">
 				</div>
-				<div class="col-md-7">
+				<div class="col-md-4">
 					<h3><?= $headline?></h3>
 					<hr>
 					<p>	
@@ -22,7 +22,7 @@
 						
 					</p>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 				<p>Website:</p>
 					<a href="https://www.kemkes.go.id/">https://www.kemkes.go.id/</a>
 					<p>Social Media:</p>
@@ -33,6 +33,10 @@
 						<li><a class="youtube" href="https://www.youtube.com/user/sehatnegeriku"><i class="icon-youtube"></i></a></li>
 					</ul>
 				</div>
+				<div class="col-md-4">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d22356.49424343218!2d106.83450251121532!3d-6.2312064713434125!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6e17e1328d1bcba3!2sKementerian%20Kesehatan%20Republik%20Indonesia!5e0!3m2!1sid!2sid!4v1670770366984!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+				</div>
 	
 			</div>
 
@@ -40,7 +44,7 @@
 
       </div>
 	  
-	  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d22356.49424343218!2d106.83450251121532!3d-6.2312064713434125!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6e17e1328d1bcba3!2sKementerian%20Kesehatan%20Republik%20Indonesia!5e0!3m2!1sid!2sid!4v1670770366984!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mt-5"></iframe>
+	  
 	  
 	  
     </section><!-- End Breadcrumbs -->

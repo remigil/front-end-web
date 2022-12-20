@@ -22,6 +22,11 @@ class Home extends MX_Controller {
         // $page_content["js"] = '';
         // $page_content["title"] = "Berita";
 
+		$getlogopolda = guzzle_request('GET', 'polda_front/get_web', [
+            // 'headers' => $headers
+        ]);
+		$getlogopolda = $getlogopolda['data']['data'];
+
 		$getBeritaall = guzzle_request('GET', 'news', [
             // 'headers' => $headers
         ]);
@@ -37,6 +42,7 @@ class Home extends MX_Controller {
 
 
         $data["semuaberita"] = $news;
+		$data['logopolda'] = $getlogopolda;
 		// $postData = $this->input->post();   
         // $data = $this->berita->get_datatables($postData);  
 		// echo json_encode($data); 
@@ -67,9 +73,9 @@ class Home extends MX_Controller {
 
         for ($i = 0; $i < count($getDit); $i++) {
             $datadit = [
-                'garlantas' => $getDit[$i]['garlantas'],
-                'lakalantas' => $getDit[$i]['lakalantas'],
-                'turjagwali' => $getDit[$i]['turjagwali'],
+                'garlantas' => number_format($getDit[$i]['garlantas'], 0, '', '.') ,
+                'lakalantas' => number_format($getDit[$i]['lakalantas'], 0, '', '.') ,
+                'turjagwali' => number_format($getDit[$i]['turjagwali'], 0, '', '.') ,
             ];
             $dit[] = array_merge($getPolda[$i], $datadit);
         }
@@ -83,11 +89,12 @@ class Home extends MX_Controller {
 
         for ($i = 0; $i < count($getRanmor); $i++) {
             $dataranmor = [
-                'sepeda_motor' => $getRanmor[$i]['sepeda_motor'],
+                'sepeda_motor' => number_format($getRanmor[$i]['sepeda_motor'], 0, '','.') ,
             ];
             $allData[] = array_merge($dit[$i], $dataranmor);
         }
 
+		
 
         $data = $allData;
 

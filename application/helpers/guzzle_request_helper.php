@@ -17,10 +17,10 @@ if (!function_exists('guzzle_request')) {
     { 
         try {
             $client = new Client(); 
-            // $request = $client->request($method, 'http://localhost:3020/v1/' . $uri, $body); 
+            // $request = $client->request($method, 'http://localhost:3001/v1/' . $uri, $body); 
             $request = $client->request($method, 'http://k3ig20korlantas.id:3001/v1/' . $uri, $body); 
             // $request = $client->request($method, 'http://34.143.227.90:3019/v1/' . $uri, $body); 
-            $response = $request->getBody();
+            $response = $request->getBody()->getContents(); 
             $data = json_decode($response, true);
 
             return $data;
@@ -52,7 +52,7 @@ if (!function_exists('guzzle_requestTracking')) {
         try {
             $client = new Client();
             // $request = $client->request($method, 'http://localhost:3002/track-location/' . $uri, $body);
-            $request = $client->request($method, 'http://103.163.139.100:3005/track-location/' . $uri, $body);
+            $request = $client->request($method, 'http://103.163.139.100:3001/track-location/' . $uri, $body);
             $response = $request->getBody();
             $data = json_decode($response, true);
             return $data;

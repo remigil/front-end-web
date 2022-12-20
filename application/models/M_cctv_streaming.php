@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class M_cctv extends CI_Model {
+class M_cctv_streaming extends CI_Model {
 
 
     public function __construct(){
@@ -99,12 +99,12 @@ class M_cctv extends CI_Model {
 
         $result = guzzle_request('GET', $url, [
 
-            // 'headers' => [ 
-            //     'Authorization' => $this->session->userdata['token'] 
-            // ]
+            'headers' => [ 
+                'Authorization' => $this->session->userdata['token'] 
+            ]
 
         ]);   
-		var_dump($result);die;
+		// var_dump($result);die;
 
         $no=1;
 

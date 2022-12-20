@@ -51,6 +51,8 @@
             </div><!-- End Event item -->
 
           </div>
+					<div class="swiper-button-next p-5" style="background-color: rgba(51, 51, 51, 0.5); border-radius:50px; color:#fff; top:150px"></div>
+          <div class="swiper-button-prev p-5" style="background-color: rgba(51, 51, 51, 0.5); border-radius:50px; color:#fff; top:150px"></div>
           <div class="swiper-pagination"></div>
         </div>
 
@@ -110,6 +112,8 @@
 
 
           </div>
+					<div class="swiper-button-next p-5" style="background-color: rgba(51, 51, 51, 0.5); border-radius:50px; color:#fff; top:150px"></div>
+					<div class="swiper-button-prev p-5" style="background-color: rgba(51, 51, 51, 0.5); border-radius:50px; color:#fff; top:150px"></div>
           <div class="swiper-pagination"></div>
         </div>
 
