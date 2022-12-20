@@ -7554,7 +7554,7 @@
                                                 </div>   
                                             </div>
                                         </div> 
-                                `,{minWidth : 100,maxWidth : 900,width : 500})
+                                `,{minWidth : 100,maxWidth : 900,width : 400})
                                 );  
                         }
 
@@ -7667,7 +7667,7 @@
                                                         
                                                 </div>
                                             </div> 
-                                    `,{minWidth : 100,maxWidth : 900,width : 500})
+                                    `,{minWidth : 100,maxWidth : 900,width : 400})
                                     );  
                                 // }, i * 200);
                             }
@@ -7785,7 +7785,7 @@
                                                         
                                                 </div>
                                             </div> 
-                                    `,{minWidth : 100,maxWidth : 900,width : 500})
+                                    `,{minWidth : 100,maxWidth : 900,width : 400})
                                     );  
                                 // }, i * 500);
                             }
@@ -7900,7 +7900,7 @@
                                                         
                                                 </div>
                                             </div> 
-                                    `,{minWidth : 100,maxWidth : 900,width : 500})
+                                    `,{minWidth : 100,maxWidth : 900,width : 400})
                                     );  
                                 // }, i * 500);
                             }
@@ -8015,7 +8015,7 @@
                                                         
                                                 </div>
                                             </div> 
-                                    `,{minWidth : 100,maxWidth : 900,width : 500})
+                                    `,{minWidth : 100,maxWidth : 900,width : 400})
                                     );  
                                 // }, i * 500);
                             }
@@ -8115,42 +8115,37 @@
                                                         <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
                                                         <p style="font-size: 12px; margin-top: -15px;">${ressSatPjr[i].title_start != null ? ressSatPjr[i].title_start.replace(/\n/g, "<br />") : "-"}</p>
                                                     </div>   
-                                            
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressSatPjr[i].date}</p>
-                                                    </div>  
 
-                                                    <div class="col-md-12 col-12 text-start" id="isiAkunSatPjr${countSatPjrDisplay}">
+                                                    <div class="col-md-12 col-12 text-start" id="isi${ressSatPjr[i].id}">
                                                     
                                                     </div>
                                                         
                                                 </div>
                                             </div> 
-                                        `,{minWidth : 100,maxWidth : 900,width : 500}).on("click", function(e) {
+                                        `,{minWidth : 100,maxWidth : 900,width : 400}).on("click", function(e) {
                                             $("#overlayMenu").fadeIn(300);
-                                            var akuns = ressSatPjr[i].accounts ? ressSatPjr[i].accounts : null;
+                                            var akuns = ressSatPjr[i].accounts;
                                             var dataAkuns = '';
-                                            if(akuns){
+                                            if(akuns.length > 0){
                                                 $.ajax({
                                                     type: "POST",
                                                     url: "<?php echo base_url(); ?>dashboard/getAkunId",
                                                     data: {
-                                                        "id": akuns[i]['id'],
+                                                        "id": akuns[0]['id'],
                                                     },
                                                     dataType: "JSON",
                                                     success: function(result) {
                                                         var ress = result['data'];
-                                                        console.log(ress);
+                                                        console.log({a:'ada', b:ress});
                                                         // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
                                                      
-                                                        $(`#isiAkunSatPjr${countSatPjrDisplay}`).html(`
+                                                        $(`#isi${ressSatPjr[i].id}`).html(`
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
                                                             <div style="text-align: center">
                                                                 <img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true"></br>
                                                                 <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                                    <b>Nama</b>: ${ress['officer']['name_officer']} </br>
-                                                                    <b>Pangkat</b>: ${ress['officer']['rank_officer']}
+                                                                    <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
+                                                                    <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']}
                                                                 </p>
                                                             </div>
 
@@ -8159,7 +8154,7 @@
                                                     }
                                                 });
                                             }else{
-
+                                                console.log({a:'ga ada'});
                                             }
                                         })
                                     );
@@ -8268,7 +8263,7 @@
                                                 </div>  
                                             </div>
                                         </div> 
-                                `,{minWidth : 100,maxWidth : 900,width : 500}).on("click", function(e) { 
+                                `,{minWidth : 100,maxWidth : 900,width : 400}).on("click", function(e) { 
                                     mapContainer.flyTo([e.latlng.lat, e.latlng.lng], 17); 
                                 })
                                 );  
@@ -8400,7 +8395,7 @@
                                                 </div>   
                                             </div>
                                         </div> 
-                                `,{minWidth : 100,maxWidth : 900,width : 500})
+                                `,{minWidth : 100,maxWidth : 900,width : 400})
                                 );  
                         }
 
@@ -8960,7 +8955,7 @@
                             return group;
                         }, {});
                         var dataArrayGroup = Object.keys(groupByCategory)
-                        // console.log(Object.keys(groupByCategory));
+                        // console.log(dataArrayGroup);
 
 
                         listIsiLegen += `
@@ -8993,34 +8988,77 @@
                                     <img src="<?php echo base_url();?>assets/icon/gerbang tol.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                     <b style="font-size: 14px; text-transform: capitalize;">Gerbang Tol</b>
                                 </div> 
-                            </div> 
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url();?>assets/icon/gerbang tol.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">Gerbang Tol</b>
-                                </div> 
-                            </div> 
+                            </div>  
                             <div class="col-md-4">
                                 <div style="display: flex;align-items: center;">
                                     <img src="<?php echo base_url();?>assets/icon/rest_area.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                     <b style="font-size: 14px; text-transform: capitalize;">Rest Area</b>
                                 </div> 
                             </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/cctv.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">CCTV</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/hotel.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Hotel</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/gereja.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Gereja</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/masjid.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Masjid</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/stasiun.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Stasiun</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/pelabuhan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Pelabuhan</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/pasar.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Pasar</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url();?>assets/icon/marker_PJR.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">SAT PJR</b>
+                                </div> 
+                            </div> 
                         `;
                         for (let i = 0; i < dataArrayGroup.length; i++) {  
                             if(dataArrayGroup[i] != "null"){
                                 countIsiLegen += 1;
-                                listIsiLegen += `
-                                    <div class="col-md-4">
-                                        <div style="display: flex;align-items: center;">
-                                            <img src="<?php echo url_api();?>fasum_khusus/${dataArrayGroup[i]}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                            <b style="font-size: 14px; text-transform: capitalize;">${dataArrayGroup[i].replace('.png', "")}</b>
-                                        </div> 
-                                    </div> 
-                                `;
-                                $('#isiLegendFasum').html(listIsiLegen); 
+                                
+                                // listIsiLegen += `
+                                //     <div class="col-md-4">
+                                //         <div style="display: flex;align-items: center;">
+                                //             <img src="<?php echo url_api();?>fasum_khusus/${dataArrayGroup[i]}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                //             <b style="font-size: 14px; text-transform: capitalize;">${dataArrayGroup[i].replace('.png', "")}</b>
+                                //         </div> 
+                                //     </div> 
+                                // `;
                             }
                         }
+                        $('#isiLegendFasum').html(listIsiLegen); 
 
 
                         $('#openModalFasumKhususDisplay').html(`
@@ -9064,51 +9102,35 @@
                                 `;
                                 $('#isiModalFasumKhususDisplay').html(listFasumKhususDisplay);  
     
-                                if(ressFasumKhusus[i].fasum_type == 1){
-                                    logoMarker = `hotel.png`;
-                                    logoBody = `hotel.png`;
-                                }else if(ressFasumKhusus[i].fasum_type == 2){
-                                    logoMarker = `rumah ibadah.png`;
-                                    logoBody = `rumah ibadah.png`;
-                                }else if(ressFasumKhusus[i].fasum_type == 3){
-                                    logoMarker = `pom bensin.png`;
-                                    logoBody = `pom bensin.png`;
-                                }else if(ressFasumKhusus[i].fasum_type == 4){
-                                    logoMarker = `rest_area.png`;
-                                    logoBody = `rest_area.png`;
-                                }else if(ressFasumKhusus[i].fasum_type == 5){
-                                    logoMarker = `rumah makan.png`;
-                                    logoBody = `rumah makan.png`;
-                                }else if(ressFasumKhusus[i].fasum_type == 6){
-                                    logoMarker = `wisata.png`;
-                                    logoBody = `wisata.png`;
-                                }else if(ressFasumKhusus[i].fasum_type == 7){
-                                    logoMarker = `damkar.png`;
-                                    logoBody = `damkar.png`;
-                                }else if(ressFasumKhusus[i].fasum_type == 8){
-                                    logoMarker = `rumah sakit umum.png`;
-                                    logoBody = `rumah sakit umum.png`;
+                                if(ressFasumKhusus[i].fasum_type == 22){
+                                    logoMarker = `<?php echo base_url();?>assets/icon/gereja.png`; 
+                                    logoBody = `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_image}" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true">`;
+                                }else{
+                                    logoMarker = `<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}`; 
+                                    logoBody  = `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_image}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">`;
                                 }
                                 
                                 var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
                                 var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
                                 fasumKhususClusterGroup.addLayer( markerFasumKhusus[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
                                     // className: 'location-pin',
-                                    html: `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                    html: `<img src="${logoMarker}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
                                     iconSize: [5, 5],
                                     iconAnchor: [5, 10]
                                     // iconAnchor: [10, 33]
                                     }) }).bindPopup(`
                                         <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                             <div class="row mt-3">
-                                                <div class="col-md-12 col-12" style="margin-left: 210px;margin-bottom: 10px;">
-                                                    <div class="avatar-xl me-3">
-                                                    <a href="javascript:void(0);"><img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;"></a>
-                                                    </div>
-                                                </div>
                                                 <div class="col-md-12 col-12 mt-3">
                                                     <h5>${ressFasumKhusus[i].fasum_name}</h5> 
                                                     <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
+                                                </div>
+                                                <div class="col-md-12 col-12 mt-3" style="margin-left: 210px;margin-bottom: 10px;">
+                                                    <div class="avatar-xl me-3">
+                                                        <a href="javascript:void(0);">
+                                                            ${logoBody}
+                                                        </a>
+                                                    </div>
                                                 </div>
                                                 
     
@@ -9146,7 +9168,7 @@
                                                 </div>   
                                             </div>
                                         </div> 
-                                `,{minWidth : 100,maxWidth : 900,width : 500})
+                                `,{minWidth : 100,maxWidth : 900,width : 400})
                                 );  
                             }
                         }
