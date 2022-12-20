@@ -8099,7 +8099,7 @@
                                     var longitudeFasum = parseFloat(ressSatPjr[i].coordinate_guarding.lng); 
                                     satPjrClusterGroup.addLayer( markerSatPjr[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
                                         // className: 'location-pin',
-                                        html: `<img src="<?php echo base_url();?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                        html: `<img src="<?php echo base_url();?>assets/icon/marker_PJR.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
                                         iconSize: [5, 5],
                                         iconAnchor: [5, 10]
                                         // iconAnchor: [10, 33]
