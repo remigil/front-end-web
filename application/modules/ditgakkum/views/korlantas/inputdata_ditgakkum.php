@@ -39,6 +39,10 @@
                 <div class="isiRow">
 
                 </div>
+                <div class="col-md-12" id="asddd" style="display: none;">
+                    <button type="button" id="btn_submit" class="btn btn-primary waves-effect float-end mt-3" style="width: 10%; letter-spacing: 2px;">SIMPAN</button>
+                    <button type="button" class="btn btn-secondary waves-effect float-end mt-3 me-3" style="width: 10%; letter-spacing: 2px;">BATAL</button>
+                </div>
             </form>
         </div>
     </div>
@@ -229,6 +233,7 @@
 
 
     $('#btn_pilih').on('click', function() {
+        $('#asddd').show()
         $.ajax({
             url: '<?= base_url() ?>inputdata/LaporanHarian/getPolda',
             type: 'POST',
@@ -311,11 +316,6 @@
                     ${body}
                 <tbody>
                 </table>
-
-                 <div class="col-md-12">
-                    <button type="button" id="btn_submit" class="btn btn-primary waves-effect float-end mt-3" style="width: 10%; letter-spacing: 2px;">SIMPAN</button>
-                    <button type="button" class="btn btn-secondary waves-effect float-end mt-3 me-3" style="width: 10%; letter-spacing: 2px;">BATAL</button>
-                </div>
                 `
                 } else {
                     master_tb = `<table id="datatable" class="table table-bordered dt-responsive w-100">
@@ -343,11 +343,6 @@
                     ${body}
                 <tbody>
                 </table>
-                
-                 <div class="col-md-12">
-                    <button type="button" id="btn_submit" class="btn btn-primary waves-effect float-end mt-3" style="width: 10%; letter-spacing: 2px;">SIMPAN</button>
-                    <button type="button" class="btn btn-secondary waves-effect float-end mt-3 me-3" style="width: 10%; letter-spacing: 2px;">BATAL</button>
-                </div>
                 `
                 }
 
