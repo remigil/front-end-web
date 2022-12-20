@@ -1859,6 +1859,7 @@
                                             bulansebelumnya = polda_month[10]
                                             pelanggaran_sedangsebelumnya = pelanggaran_sedang[10];
                                         }
+
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
                                             pelanggaran_ringansebelumnya = pelanggaran_ringan[0];
@@ -2119,10 +2120,10 @@
                                             pengaturansebelumnya = pengaturan[5];
                                         } else if (w.globals.labels[dataPointIndex] == 8) {
                                             bulansebelumnya = polda_month[6]
-                                            pengaturansebelumnya = pengaturan[5];
+                                            pengaturansebelumnya = pengaturan[6];
                                         } else if (w.globals.labels[dataPointIndex] == 9) {
                                             bulansebelumnya = polda_month[7]
-                                            pengaturansebelumnya = pengaturan[5];
+                                            pengaturansebelumnya = pengaturan[7];
                                         } else if (w.globals.labels[dataPointIndex] == 10) {
                                             bulansebelumnya = polda_month[8]
                                             pengaturansebelumnya = pengaturan[8];
@@ -2133,6 +2134,7 @@
                                             bulansebelumnya = polda_month[10]
                                             pengaturansebelumnya = pengaturan[10];
                                         }
+
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
                                             pengawalansebelumnya = pengawalan[0];
@@ -2153,10 +2155,10 @@
                                             pengawalansebelumnya = pengawalan[5];
                                         } else if (w.globals.labels[dataPointIndex] == 8) {
                                             bulansebelumnya = polda_month[6]
-                                            pengawalansebelumnya = pengawalan[5];
+                                            pengawalansebelumnya = pengawalan[6];
                                         } else if (w.globals.labels[dataPointIndex] == 9) {
                                             bulansebelumnya = polda_month[7]
-                                            pengawalansebelumnya = pengawalan[5];
+                                            pengawalansebelumnya = pengawalan[7];
                                         } else if (w.globals.labels[dataPointIndex] == 10) {
                                             bulansebelumnya = polda_month[8]
                                             pengawalansebelumnya = pengawalan[8];
@@ -2167,6 +2169,7 @@
                                             bulansebelumnya = polda_month[10]
                                             pengawalansebelumnya = pengawalan[10];
                                         }
+
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
                                             penjagaansebelumnya = penjagaan[0];
@@ -2226,16 +2229,17 @@
                                         } else if (w.globals.labels[dataPointIndex] == 9) {
                                             bulansebelumnya = polda_month[7]
                                             patrolisebelumnya = patroli[7];
-                                        } else if (w.globals.label[dataPointIndex] == 10) {
+                                        } else if (w.globals.labels[dataPointIndex] == 10) {
                                             bulansebelumnya = polda_month[8]
                                             patrolisebelumnya = patroli[8]
-                                        } else if (w.globals.labels[dataPoin8Index] == 11) {
+                                        } else if (w.globals.labels[dataPointIndex] == 11) {
                                             bulansebelumnya = polda_month[9]
-                                            patrolisebelumnya = patroli[9];
+                                            patrolisebelumnya = patroli[9]
                                         } else if (w.globals.labels[dataPointIndex] == 12) {
                                             bulansebelumnya = polda_month[10]
-                                            patrolisebelumnya = patroli[10];
+                                            patrolisebelumnya = patroli[10]
                                         }
+
                                         return (
                                             `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
                                     <div class="col-md-12">
@@ -2275,7 +2279,8 @@
                                                         <span class="fw-bold">${pengaturan[dataPointIndex]}</span><br>
                                                         <span class="fw-bold">${pengawalan[dataPointIndex]}</span><br>
                                                         <span class="fw-bold">${penjagaan[dataPointIndex]}</span><br>
-                                                        <span class="fw-bold">${patroli[dataPointIndex]}</span><br>        
+                                                        <span class="fw-bold">${patroli[dataPointIndex]}</span><br>
+                                                          
                                                     </div>
                                                 </div>
                                             </div>
@@ -2287,6 +2292,7 @@
                                                 <span class="fw-bold">${persentase_pengawalan[dataPointIndex]} %</span><br>
                                                 <span class="fw-bold">${persentase_penjagaan[dataPointIndex]} %</span><br>
                                                 <span class="fw-bold">${persentase_patroli[dataPointIndex]} %</span><br>
+                                               
                                             </div>
                                             ` : `
                                             <div class="col-md-12">
@@ -2304,7 +2310,8 @@
                                                         <span class="fw-bold">${pengaturan[dataPointIndex]}</span><br>
                                                         <span class="fw-bold">${pengawalan[dataPointIndex]}</span><br>
                                                         <span class="fw-bold">${penjagaan[dataPointIndex]}</span><br>
-                                                        <span class="fw-bold">${patroli[dataPointIndex]}</span><br>         
+                                                        <span class="fw-bold">${patroli[dataPointIndex]}</span><br>
+                                                        
                                                     </div>
                                                 </div>
                                                 </div>
