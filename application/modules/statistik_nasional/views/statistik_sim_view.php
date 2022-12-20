@@ -97,7 +97,7 @@
 
 
  <div class="modal fade " id="ModalDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
-     <div class="modal-dialog modal-lg" role="document">
+     <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
          <div class="modal-content">
              <div class=" modal-header">
                  <h5 class="modal-title" id="exampleModalLabel">Detail Surat Izin Mengemudi (SIM) hari ini Seluruh Polda</h5>
@@ -106,8 +106,74 @@
                  </button> -->
              </div>
              <div class="modal-body">
-                 <div class="container" style="line-height: 0.8;">
-                     <table class="table table-bordered table-hover">
+                 <div style="line-height: 0.8;">
+                     <table class="table table-bordered table-hover" id="tableSimDay">
+                         <thead>
+                             <tr class="text-white" style="background-color: #0007D8;">
+                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
+                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
+                                 <th style="text-align: center; vertical-align: middle;" colspan="6" scope="col">Baru</th>
+                                 <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
+                                 <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
+                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Total</th>
+                             </tr>
+                             <tr style="background-color:#5150D8; color:#fff; ">
+                                 <th style="text-align: center;" scope="col">A</th>
+                                 <th style="text-align: center;" scope="col">C</th>
+                                 <th style="text-align: center;" scope="col">CI</th>
+                                 <th style="text-align: center;" scope="col">CII</th>
+                                 <th style="text-align: center;" scope="col">D</th>
+                                 <th style="text-align: center;" scope="col">DI</th>
+                                 <th style="text-align: center;" scope="col">A</th>
+                                 <th style="text-align: center;" scope="col">AU</th>
+                                 <th style="text-align: center;" scope="col">C</th>
+                                 <th style="text-align: center;" scope="col">CI</th>
+                                 <th style="text-align: center;" scope="col">CII</th>
+                                 <th style="text-align: center;" scope="col">D</th>
+                                 <th style="text-align: center;" scope="col">DI</th>
+                                 <th style="text-align: center;" scope="col">BI</th>
+                                 <th style="text-align: center;" scope="col">BIU</th>
+                                 <th style="text-align: center;" scope="col">BII</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">AU</th>
+                                 <th style="text-align: center;" scope="col">BI</th>
+                                 <th style="text-align: center;" scope="col">BIU</th>
+                                 <th style="text-align: center;" scope="col">BII</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
+                             </tr>
+                         </thead>
+                         <tbody id="tbody-simDay">
+                         </tbody>
+                         <tfoot>
+                             <tr class="text-white" style="background-color: #0007D8;">
+                                 <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruaDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarucDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc1Day"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc2Day"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarudDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarud1Day"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganaDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganauDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangancDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc1Day"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc2Day"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangandDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangand1Day"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1Day"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1uDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2Day"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2uDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanauDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1Day"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1uDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2Day"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2uDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalDay"></span></th>
+                             </tr>
+                         </tfoot>
+                     </table>
+                     <!-- <table class="table table-bordered table-hover">
                          <thead>
                              <tr class="text-white" style="background-color: #0007D8;">
                                  <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="6" scope="col">Baru</th>
@@ -189,7 +255,7 @@
                                  <td style="text-align: center;"><span id="daysimpeningkatanb2u"></span></td>
                              </tr>
                          </tbody>
-                     </table>
+                     </table> -->
                  </div>
 
                  <span class="fw-bold fs-5 text-danger"> * Data SIM diUpdate Setiap Bulan</span>
@@ -202,7 +268,7 @@
  </div>
 
  <div class="modal fade" id="ModalMonth" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
-     <div class=" modal-dialog modal-lg" role="document">
+     <div class=" modal-dialog modal-xl" role="document" style="min-width:70%">
          <div class="modal-content">
              <div class="modal-header">
                  <h5 class="modal-title" id="exampleModalLabel">Detail Surat Izin Mengemudi (SIM) bulan ini Seluruh Polda</h5>
@@ -211,8 +277,76 @@
                  </button> -->
              </div>
              <div class="modal-body">
-                 <div class="container" style="line-height: 0.8;">
-                     <table class="table table-bordered table-hover">
+                 <div style="line-height: 0.8;">
+                     <table class="table table-bordered table-hover" id="tableSimMonth">
+                         <thead>
+                             <tr class="text-white" style="background-color: #0007D8;">
+                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
+                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
+                                 <th style="text-align: center; vertical-align: middle;" colspan="6" scope="col">Baru</th>
+                                 <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
+                                 <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
+                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Total</th>
+                             </tr>
+                             <tr style="background-color:#5150D8; color:#fff; ">
+                                 <th style="text-align: center;" scope="col">A</th>
+                                 <th style="text-align: center;" scope="col">C</th>
+                                 <th style="text-align: center;" scope="col">CI</th>
+                                 <th style="text-align: center;" scope="col">CII</th>
+                                 <th style="text-align: center;" scope="col">D</th>
+                                 <th style="text-align: center;" scope="col">DI</th>
+
+                                 <th style="text-align: center;" scope="col">A</th>
+                                 <th style="text-align: center;" scope="col">AU</th>
+                                 <th style="text-align: center;" scope="col">C</th>
+                                 <th style="text-align: center;" scope="col">CI</th>
+                                 <th style="text-align: center;" scope="col">CII</th>
+                                 <th style="text-align: center;" scope="col">D</th>
+                                 <th style="text-align: center;" scope="col">DI</th>
+                                 <th style="text-align: center;" scope="col">BI</th>
+                                 <th style="text-align: center;" scope="col">BIU</th>
+                                 <th style="text-align: center;" scope="col">BII</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
+
+                                 <th style="text-align: center;" scope="col">AU</th>
+                                 <th style="text-align: center;" scope="col">BI</th>
+                                 <th style="text-align: center;" scope="col">BIU</th>
+                                 <th style="text-align: center;" scope="col">BII</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
+                             </tr>
+                         </thead>
+                         <tbody id="tbody-simMonth">
+                         </tbody>
+                         <tfoot>
+                             <tr class="text-white" style="background-color: #0007D8;">
+                                 <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruaMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarucMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc1Month"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc2Month"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarudMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarud1Month"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganaMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganauMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangancMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc1Month"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc2Month"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangandMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangand1Month"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1Month"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1uMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2Month"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2uMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanauMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1Month"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1uMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2Month"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2uMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalMonth"></span></th>
+                             </tr>
+                         </tfoot>
+                     </table>
+                     <!-- <table class="table table-bordered table-hover">
                          <thead>
                              <tr class="text-white" style="background-color: #0007D8;">
                                  <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="6" scope="col">Baru</th>
@@ -294,7 +428,7 @@
                                  <td style="text-align: center;"><span id="monthsimpeningkatanb2u"></span></td>
                              </tr>
                          </tbody>
-                     </table>
+                     </table> -->
                  </div>
              </div>
              <!-- <div class="modal-footer">
@@ -304,7 +438,7 @@
      </div>
  </div>
  <div class="modal  fade" id="ModalYear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
-     <div class=" modal-dialog modal-lg" role="document">
+     <div class=" modal-dialog modal-xl" role="document" style="min-width:70%">
          <div class="modal-content">
              <div class="modal-header">
                  <h5 class="modal-title" id="exampleModalLabel">Detail Surat Izin Mengemudi (SIM) tahun ini Seluruh Polda</h5>
@@ -313,8 +447,74 @@
                  </button> -->
              </div>
              <div class="modal-body">
-                 <div class="container" style="line-height: 0.8;">
-                     <table class="table table-bordered table-hover">
+                 <div style="line-height: 0.8;">
+                     <table class="table table-bordered table-hover" id="tableSimYear">
+                         <thead>
+                             <tr class="text-white" style="background-color: #0007D8;">
+                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
+                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
+                                 <th style="text-align: center; vertical-align: middle;" colspan="6" scope="col">Baru</th>
+                                 <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
+                                 <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
+                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Total</th>
+                             </tr>
+                             <tr style="background-color:#5150D8; color:#fff;">
+                                 <th style="text-align: center;" scope="col">A</th>
+                                 <th style="text-align: center;" scope="col">C</th>
+                                 <th style="text-align: center;" scope="col">CI</th>
+                                 <th style="text-align: center;" scope="col">CII</th>
+                                 <th style="text-align: center;" scope="col">D</th>
+                                 <th style="text-align: center;" scope="col">DI</th>
+                                 <th style="text-align: center;" scope="col">A</th>
+                                 <th style="text-align: center;" scope="col">AU</th>
+                                 <th style="text-align: center;" scope="col">C</th>
+                                 <th style="text-align: center;" scope="col">CI</th>
+                                 <th style="text-align: center;" scope="col">CII</th>
+                                 <th style="text-align: center;" scope="col">D</th>
+                                 <th style="text-align: center;" scope="col">DI</th>
+                                 <th style="text-align: center;" scope="col">BI</th>
+                                 <th style="text-align: center;" scope="col">BIU</th>
+                                 <th style="text-align: center;" scope="col">BII</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
+                                 <th style="text-align: center;" scope="col">AU</th>
+                                 <th style="text-align: center;" scope="col">BI</th>
+                                 <th style="text-align: center;" scope="col">BIU</th>
+                                 <th style="text-align: center;" scope="col">BII</th>
+                                 <th style="text-align: center;" scope="col">BIIU</th>
+                             </tr>
+                         </thead>
+                         <tbody id="tbody-simYear">
+                         </tbody>
+                         <tfoot>
+                             <tr class="text-white" style="background-color: #0007D8;">
+                                 <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruaYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarucYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc1Year"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc2Year"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarudYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarud1Year"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganaYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganauYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangancYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc1Year"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc2Year"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangandYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangand1Year"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1Year"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1uYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2Year"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2uYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanauYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1Year"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1uYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2Year"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2uYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalYear"></span></th>
+                             </tr>
+                         </tfoot>
+                     </table>
+                     <!-- <table class="table table-bordered table-hover">
                          <thead>
                              <tr class="text-white" style="background-color: #0007D8;">
                                  <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="6" scope="col">Baru</th>
@@ -396,7 +596,7 @@
                                  <td style="text-align: center;"><span id="yearsimpeningkatanb2u"></span></td>
                              </tr>
                          </tbody>
-                     </table>
+                     </table> -->
                  </div>
              </div>
              <!-- <div class="modal-footer">
@@ -417,9 +617,8 @@
              </div>
              <div style="display: flex;">
 
-                 <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
-                 <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
-
+                 <input class="form-control form-control-lg" type="date" name="start_date" id="start_date" value="<?= date('Y-m-d', strtotime("-6 days")); ?>">
+                 <input class="form-control form-control-lg" type="date" name="end_date" id="end_date" value="<?= date('Y-m-d'); ?>">
              </div>
 
              <button type="button" class="btn btn-primary float-end btn-sm" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
@@ -436,254 +635,8 @@
  <?php } ?>
 
  <div class="container-fluid">
-
      <div class="card">
-         <div class="row m-3" style="font-size: 16px;">
-             <div class="col-xl-12">
-                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
-                     </li>
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
-                     </li>
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
-                     </li>
-                 </ul>
 
-
-                 <div class="tab-content" id="pills-tabContent">
-                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3" style="line-height: 1; overflow-x: auto">
-                                 <h5>Ranking Polda Data Sim Tertinggi <?= date('d M Y'); ?></h5>
-                                 <div class="card shadow-sm" style="width: 120%;">
-                                     <table class="table table-bordered table-hover" id="tableSimDay">
-                                         <thead>
-                                             <tr class="text-white" style="background-color: #0007D8;">
-                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
-                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="6" scope="col">Baru</th>
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
-                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Total</th>
-                                             </tr>
-                                             <tr style="background-color:#5150D8; color:#fff; ">
-                                                 <th style="text-align: center;" scope="col">A</th>
-                                                 <th style="text-align: center;" scope="col">C</th>
-                                                 <th style="text-align: center;" scope="col">CI</th>
-                                                 <th style="text-align: center;" scope="col">CII</th>
-                                                 <th style="text-align: center;" scope="col">D</th>
-                                                 <th style="text-align: center;" scope="col">DI</th>
-                                                 <th style="text-align: center;" scope="col">A</th>
-                                                 <th style="text-align: center;" scope="col">AU</th>
-                                                 <th style="text-align: center;" scope="col">C</th>
-                                                 <th style="text-align: center;" scope="col">CI</th>
-                                                 <th style="text-align: center;" scope="col">CII</th>
-                                                 <th style="text-align: center;" scope="col">D</th>
-                                                 <th style="text-align: center;" scope="col">DI</th>
-                                                 <th style="text-align: center;" scope="col">BI</th>
-                                                 <th style="text-align: center;" scope="col">BIU</th>
-                                                 <th style="text-align: center;" scope="col">BII</th>
-                                                 <th style="text-align: center;" scope="col">BIIU</th>
-                                                 <th style="text-align: center;" scope="col">AU</th>
-                                                 <th style="text-align: center;" scope="col">BI</th>
-                                                 <th style="text-align: center;" scope="col">BIU</th>
-                                                 <th style="text-align: center;" scope="col">BII</th>
-                                                 <th style="text-align: center;" scope="col">BIIU</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-simDay">
-                                         </tbody>
-                                         <tfoot>
-                                             <tr class="text-white" style="background-color: #0007D8;">
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruaDay"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarucDay"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc1Day"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc2Day"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarudDay"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarud1Day"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganaDay"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganauDay"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangancDay"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc1Day"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc2Day"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangandDay"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangand1Day"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1Day"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1uDay"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2Day"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2uDay"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanauDay"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1Day"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1uDay"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2Day"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2uDay"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalDay"></span></th>
-                                             </tr>
-                                         </tfoot>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3" style="line-height: 1; overflow-x: auto">
-                                 <h5>Ranking Polda Data Sim Tertinggi <?= date('M Y'); ?></h5>
-                                 <div class="card shadow-sm" style="width: 120%;">
-                                     <table class="table table-bordered table-hover" id="tableSimMonth">
-                                         <thead>
-                                             <tr class="text-white" style="background-color: #0007D8;">
-                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
-                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="6" scope="col">Baru</th>
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
-                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Total</th>
-                                             </tr>
-                                             <tr style="background-color:#5150D8; color:#fff; ">
-                                                 <th style="text-align: center;" scope="col">A</th>
-                                                 <th style="text-align: center;" scope="col">C</th>
-                                                 <th style="text-align: center;" scope="col">CI</th>
-                                                 <th style="text-align: center;" scope="col">CII</th>
-                                                 <th style="text-align: center;" scope="col">D</th>
-                                                 <th style="text-align: center;" scope="col">DI</th>
-
-                                                 <th style="text-align: center;" scope="col">A</th>
-                                                 <th style="text-align: center;" scope="col">AU</th>
-                                                 <th style="text-align: center;" scope="col">C</th>
-                                                 <th style="text-align: center;" scope="col">CI</th>
-                                                 <th style="text-align: center;" scope="col">CII</th>
-                                                 <th style="text-align: center;" scope="col">D</th>
-                                                 <th style="text-align: center;" scope="col">DI</th>
-                                                 <th style="text-align: center;" scope="col">BI</th>
-                                                 <th style="text-align: center;" scope="col">BIU</th>
-                                                 <th style="text-align: center;" scope="col">BII</th>
-                                                 <th style="text-align: center;" scope="col">BIIU</th>
-
-                                                 <th style="text-align: center;" scope="col">AU</th>
-                                                 <th style="text-align: center;" scope="col">BI</th>
-                                                 <th style="text-align: center;" scope="col">BIU</th>
-                                                 <th style="text-align: center;" scope="col">BII</th>
-                                                 <th style="text-align: center;" scope="col">BIIU</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-simMonth">
-                                         </tbody>
-                                         <tfoot>
-                                             <tr class="text-white" style="background-color: #0007D8;">
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruaMonth"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarucMonth"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc1Month"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc2Month"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarudMonth"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarud1Month"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganaMonth"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganauMonth"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangancMonth"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc1Month"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc2Month"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangandMonth"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangand1Month"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1Month"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1uMonth"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2Month"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2uMonth"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanauMonth"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1Month"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1uMonth"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2Month"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2uMonth"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalMonth"></span></th>
-                                             </tr>
-                                         </tfoot>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3" style="line-height: 1; overflow-x: auto">
-                                 <h5>Ranking Polda Data Sim Tertinggi <?= date('Y'); ?></h5>
-                                 <div class="card shadow-sm" style="width: 120%;">
-                                     <table class="table table-bordered table-hover" id="tableSimYear">
-                                         <thead>
-                                             <tr class="text-white" style="background-color: #0007D8;">
-                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">No</th>
-                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Polda</th>
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="6" scope="col">Baru</th>
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="11" scope="col">Perpanjangan</th>
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="5" scope="col">Peningkatan</th>
-                                                 <th style="text-align: center; vertical-align: middle;" rowspan="2" scope="col">Total</th>
-                                             </tr>
-                                             <tr style="background-color:#5150D8; color:#fff;">
-                                                 <th style="text-align: center;" scope="col">A</th>
-                                                 <th style="text-align: center;" scope="col">C</th>
-                                                 <th style="text-align: center;" scope="col">CI</th>
-                                                 <th style="text-align: center;" scope="col">CII</th>
-                                                 <th style="text-align: center;" scope="col">D</th>
-                                                 <th style="text-align: center;" scope="col">DI</th>
-                                                 <th style="text-align: center;" scope="col">A</th>
-                                                 <th style="text-align: center;" scope="col">AU</th>
-                                                 <th style="text-align: center;" scope="col">C</th>
-                                                 <th style="text-align: center;" scope="col">CI</th>
-                                                 <th style="text-align: center;" scope="col">CII</th>
-                                                 <th style="text-align: center;" scope="col">D</th>
-                                                 <th style="text-align: center;" scope="col">DI</th>
-                                                 <th style="text-align: center;" scope="col">BI</th>
-                                                 <th style="text-align: center;" scope="col">BIU</th>
-                                                 <th style="text-align: center;" scope="col">BII</th>
-                                                 <th style="text-align: center;" scope="col">BIIU</th>
-                                                 <th style="text-align: center;" scope="col">AU</th>
-                                                 <th style="text-align: center;" scope="col">BI</th>
-                                                 <th style="text-align: center;" scope="col">BIU</th>
-                                                 <th style="text-align: center;" scope="col">BII</th>
-                                                 <th style="text-align: center;" scope="col">BIIU</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-simYear">
-                                         </tbody>
-                                         <tfoot>
-                                             <tr class="text-white" style="background-color: #0007D8;">
-                                                 <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruaYear"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarucYear"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc1Year"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbaruc2Year"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarudYear"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbarud1Year"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganaYear"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganauYear"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangancYear"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc1Year"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganc2Year"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangandYear"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjangand1Year"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1Year"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb1uYear"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2Year"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalperpanjanganb2uYear"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanauYear"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1Year"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb1uYear"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2Year"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpeningkatanb2uYear"></span></th>
-                                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalYear"></span></th>
-                                             </tr>
-                                         </tfoot>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
          <div class="row">
              <hr style="width:97%; margin: auto">
              <div class="filter mt-4" style=" height:125px;">
@@ -693,10 +646,10 @@
                              <label for="waktu" class="form-label text-uppercase">Waktu</label>
                              <div class="row">
                                  <div class="col-md-4">
-                                     <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                                     <input class="form-control form-control-lg" type="date" name="start_date" id="start_date" value="<?= date('Y-m-d', strtotime("-6 days")); ?>">
                                  </div>
                                  <div class="col-md-4">
-                                     <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                                     <input class="form-control form-control-lg" type="date" name="end_date" id="end_date" value="<?= date('Y-m-d'); ?>">
                                  </div>
                                  <div class="col-md-2">
                                      <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
@@ -750,7 +703,6 @@
              </div>
          </div>
      </div>
-
  </div>
  <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
@@ -1231,7 +1183,7 @@
                  }
              })
 
-             LakalineChart(start_date, end_date)
+             SimlineChart(start_date, end_date)
          }
      }
 
@@ -1246,31 +1198,22 @@
              },
              dataType: "JSON",
              success: function(results) {
+                 console.log(results);
                  $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${results.title}</h1>`);
                  $("#chartdate").html(`<div id="chart2"></div>`);
 
 
                  var chart2 = {
                      series: [{
-                         name: '<h6>Total Laka</h6>',
-                         type: 'line',
-                         data: results.data.polda_insiden_kecelakaan,
-                         color: "#11347A"
-                     }, {
                          name: '<h6>Baru</h6>',
                          type: 'line',
-                         data: results.data.polda_meninggal_dunia,
+                         data: results.data.polda_baru,
                          color: "#CB2D3E"
                      }, {
                          name: '<h6>Perpanjangan</h6>',
                          type: 'line',
                          data: results.data.polda_perpanjangan,
                          color: "#E8D42F"
-                     }, {
-                         name: '<h6>Luka Ringan</h6>',
-                         type: 'line',
-                         data: results.data.polda_luka_ringan,
-                         color: "#3CA55C"
                      }],
                      chart: {
                          height: 400,
@@ -1289,9 +1232,7 @@
                      },
                      dataLabels: {
                          enabled: true,
-                         style: {
-                             colors: ['#333']
-                         },
+
                          offsetY: -15
                      },
                      markers: {
