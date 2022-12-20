@@ -289,7 +289,9 @@
                         <div class="cat satPjrDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
-                                    <input type="checkbox" value="sat_pjr" name="filter" id="satPjrDisplay"><span><i class="mdi mdi-chat-alert"></i> SAT PJR</span>
+                                    <input type="checkbox" value="sat_pjr" name="filter" id="satPjrDisplay"><span><img src="<?= base_url()?>assets/icon/PJR_icon_kecil.png" style="
+    width: 18px;
+"> SAT PJR</span>
                                 </label>
                                 <button id="satPjrFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
