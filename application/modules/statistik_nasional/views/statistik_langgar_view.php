@@ -8,56 +8,46 @@
          </div>
      </div>
 
-     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
+     <div class="card mt-5 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
-             <div class="col-sm-4 col-md-4 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">Pelanggaran <span style="color:#000;">Nasional</span></span> </h2>
+             <div class="col-sm-2 col-md-2 align-self-center">
+                 <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">Pelanggaran <span style="color:#000;">Nasional</span></span> </h2>
              </div>
-             <div class="col-sm-8 col-md-8">
+             <div class="col-sm-10 col-md-10">
                  <div class="row m-2">
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
-                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
+                                 <div class="row justify-content-between align-items-center" style="height: 120px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Harian</h4>
+                                         <h4 class="mb-0 ms-3">Hari Ini</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h3 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="garlantasThisDay"></h3>
+                                         <h3 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="garlantasThisDay"></h3>
                                          <p class="text-center mb-0">Kejadian</p>
                                      </div>
-                                     <div class="col-md-12 ms-3">
+                                     <div class="col-md-12">
                                          <div class="row">
-                                             <div class="col-md-12 ms-n3 mt-1">
+                                             <div class="col-md-3 ms-n1">
                                                  <span class="fw-bold">PB : <span class="text-danger" style="padding:5px" id="garlantasThisDayPB"></span></span>
+                                             </div>
+                                             <div class="col-md-3 ms-n1">
                                                  <span class="fw-bold">PS : <span class="text-warning" style="padding:5px" id="garlantasThisDayPS"></span></span>
+                                             </div>
+                                             <div class="col-md-3 ms-n1">
                                                  <span class="fw-bold">PR : <span class="text-success" style="padding:5px" id="garlantasThisDayPR"></span></span>
+                                             </div>
+                                             <div class="col-md-3 ms-n1">
                                                  <span class="fw-bold">T : <span class="text-primary" style="padding:5px" id="garlantasThisDayT"></span></span>
                                              </div>
                                          </div>
                                      </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
-                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                     <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Bulanan</h4>
-                                     </div>
-                                     <div class="col-md-5 float-end">
-                                         <h3 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="garlantasThisMonth"></h3>
-                                         <p class="text-center mb-0">Kejadian</p>
-                                     </div>
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
-                                             <div class="col-md-12 ms-n3 mt-1">
-                                                 <span class="fw-bold">PB : <span class="text-danger" style="padding:5px" id="garlantasThisMonthPB"></span></span>
-                                                 <span class="fw-bold">PS : <span class="text-warning" style="padding:5px" id="garlantasThisMonthPS"></span></span>
-                                                 <span class="fw-bold">PR : <span class="text-success" style="padding:5px" id="garlantasThisMonthPR"></span></span>
-                                                 <span class="fw-bold">T : <span class="text-primary" style="padding:5px" id="garlantasThisMonthT"></span></span>
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                 <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalDay">
+                                                     Detail
+                                                 </button>
                                              </div>
                                          </div>
                                      </div>
@@ -66,23 +56,78 @@
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
-                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
+                                 <div class="row justify-content-between align-items-center" style="height: 120px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Tahunan</h4>
+                                         <h4 class="mb-0 ms-3">Bulan Ini</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h3 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="garlantasThisYear"></h3>
+                                         <h3 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="garlantasThisMonth"></h3>
                                          <p class="text-center mb-0">Kejadian</p>
+                                     </div>
+                                     <div class="col-md-12 ">
+                                         <div class="row">
+                                             <div class="col-md-3 ms-n1">
+                                                 <span class="fw-bold">PB : <span class="text-danger" style="padding:5px" id="garlantasThisMonthPB"></span></span>
+                                             </div>
+                                             <div class="col-md-3">
+                                                 <span class="fw-bold">PS : <span class="text-warning" style="padding:5px" id="garlantasThisMonthPS"></span></span>
+                                             </div>
+                                             <div class="col-md-3">
+                                                 <span class="fw-bold">PR : <span class="text-success" style="padding:5px" id="garlantasThisMonthPR"></span></span>
+                                             </div>
+                                             <div class="col-md-3">
+                                                 <span class="fw-bold">T : <span class="text-primary" style="padding:5px" id="garlantasThisMonthT"></span></span>
+                                             </div>
+                                         </div>
                                      </div>
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
-                                             <div class="col-md-12 ms-n3 mt-1">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                 <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalMonth">
+                                                     Detail
+                                                 </button>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
+                                 <div class="row justify-content-between align-items-center" style="height: 120px;">
+                                     <div class="col-md-7">
+                                         <h4 class="mb-0 ms-3">Tahun Ini</h4>
+                                     </div>
+                                     <div class="col-md-5 float-end">
+                                         <h3 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="garlantasThisYear"></h3>
+                                         <p class="text-center mb-0">Kejadian</p>
+                                     </div>
+                                     <div class="col-md-12 ">
+                                         <div class="row">
+                                             <div class="col-md-3 ms-n1">
                                                  <span class="fw-bold">PB : <span class="text-danger" style="padding:5px" id="garlantasThisYearPB"></span></span>
+                                             </div>
+                                             <div class="col-md-3">
                                                  <span class="fw-bold">PS : <span class="text-warning" style="padding:5px" id="garlantasThisYearPS"></span></span>
+                                             </div>
+                                             <div class="col-md-3">
                                                  <span class="fw-bold">PR : <span class="text-success" style="padding:5px" id="garlantasThisYearPR"></span></span>
+                                             </div>
+                                             <div class="col-md-3">
                                                  <span class="fw-bold">T : <span class="text-primary" style="padding:5px" id="garlantasThisYearT"></span></span>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-12 ms-3">
+                                         <div class="row">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                 <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalYear">
+                                                     Detail
+                                                 </button>
                                              </div>
                                          </div>
                                      </div>
@@ -93,11 +138,145 @@
                  </div>
              </div>
          </div>
-
      </div>
-
  </div>
 
+
+ <div class="modal fade " id="ModalDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+     <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
+         <div class="modal-content">
+             <div class=" modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Detail Pelanggaran Hari ini Seluruh Polda</h5>
+                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+             </div>
+             <div class="modal-body">
+                 <div style="line-height: 0.8;">
+                     <table class="table table-bordered table-hover" id="tableGarlantasDay" style="background:white; ">
+                         <thead style="background-color:#0007D8; color:#fff;">
+                             <tr class="text-center">
+                                 <th scope="col">No</th>
+                                 <th scope="col">Polda</th>
+                                 <th scope="col">Meninggal Dunia</th>
+                                 <th scope="col">Luka Berat</th>
+                                 <th scope="col">Luka Ringan</th>
+                                 <th scope="col">Insiden Kejadian</th>
+                                 <th scope="col">Total</th>
+                             </tr>
+                         </thead>
+                         <tbody id="tbody-garlantasDay">
+                         </tbody>
+                         <tfoot>
+                             <tr class="text-white" style="background-color: #0007D8;">
+                                 <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpbDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpsDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totaltgDay"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalDay"></span></th>
+                             </tr>
+                         </tfoot>
+                     </table>
+                 </div>
+
+             </div>
+             <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+         </div>
+     </div>
+ </div>
+ <div class="modal fade " id="ModalMonth" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+     <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
+         <div class="modal-content">
+             <div class=" modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Detail Pelanggaran Bulan ini Seluruh Polda</h5>
+                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+             </div>
+             <div class="modal-body">
+                 <div style="line-height: 0.8;">
+                     <table class="table table-bordered table-hover" id="tableGarlantasMonth" style="background:white; ">
+                         <thead style="background-color:#0007D8; color:#fff;">
+                             <tr class="text-center">
+                                 <th scope="col">No</th>
+                                 <th scope="col">Polda</th>
+                                 <th scope="col">Meninggal Dunia</th>
+                                 <th scope="col">Luka Berat</th>
+                                 <th scope="col">Luka Ringan</th>
+                                 <th scope="col">Insiden Kejadian</th>
+                                 <th scope="col">Total</th>
+                             </tr>
+                         </thead>
+                         <tbody id="tbody-garlantasMonth">
+                         </tbody>
+                         <tfoot>
+                             <tr class="text-white" style="background-color: #0007D8;">
+                                 <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpbMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpsMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totaltgMonth"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalMonth"></span></th>
+                             </tr>
+                         </tfoot>
+                     </table>
+                 </div>
+
+             </div>
+             <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+         </div>
+     </div>
+ </div>
+ <div class="modal fade " id="ModalYear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+     <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
+         <div class="modal-content">
+             <div class=" modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Detail Pelanggaran Tahun ini Seluruh Polda</h5>
+                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+             </div>
+             <div class="modal-body">
+                 <div style="line-height: 0.8;">
+                     <table class="table table-bordered table-hover" id="tableGarlantasYear" style="background:white; ">
+                         <thead style="background-color:#0007D8; color:#fff;">
+                             <tr class="text-center">
+                                 <th scope="col">No</th>
+                                 <th scope="col">Polda</th>
+                                 <th scope="col">Meninggal Dunia</th>
+                                 <th scope="col">Luka Berat</th>
+                                 <th scope="col">Luka Ringan</th>
+                                 <th scope="col">Insiden Kejadian</th>
+                                 <th scope="col">Total</th>
+                             </tr>
+                         </thead>
+                         <tbody id="tbody-garlantasYear">
+                         </tbody>
+                         <tfoot>
+                             <tr class="text-white" style="background-color: #0007D8;">
+                                 <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpbYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpsYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totaltgYear"></span></th>
+                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalYear"></span></th>
+                             </tr>
+                         </tfoot>
+                     </table>
+                 </div>
+
+             </div>
+             <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+         </div>
+     </div>
+ </div>
  <?php $mobile = detect_mobile();
     if ($mobile === true) { ?>
      <div class="container-fluid mt-5">
@@ -129,7 +308,7 @@
  <?php } ?>
 
 
- <div class="row m-3" style="font-size: 16px;">
+ <!-- <div class="row m-3" style="font-size: 16px;">
      <div class="col-xl-12">
          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
              <li class="nav-item" role="presentation">
@@ -160,9 +339,8 @@
                      </div>
                      <div class="col-md-12 mt-5" style="line-height: 0.5;">
                          <h5 style="text-align: center;">Ranking Polda Data Pelanggaran Tertinggi <?= date('d M Y', strtotime("-1 days")); ?></h5>
-                         <!-- <div class="card shadow-sm"> -->
-                         <center>
-                             <table class="table table-bordered table-hover" id="tableLakaDay" style="background-color: white; width:70%">
+                          <center>
+                             <table class="table table-bordered table-hover" id="tableGarlantasDay" style="background-color: white; width:70%">
                                  <thead style="background-color:#0007D8; color:#fff;">
                                      <tr class="text-center">
                                          <th scope="col">No</th>
@@ -174,11 +352,10 @@
                                          <th scope="col">Total</th>
                                      </tr>
                                  </thead>
-                                 <tbody id="tbody-lakaDay">
+                                 <tbody id="tbody-garlantasDay">
                                  </tbody>
                              </table>
                          </center>
-                         <!-- </div> -->
                      </div>
                  </div>
              </div>
@@ -199,9 +376,8 @@
                      </div>
                      <div class="col-md-12 mt-5" style="line-height: 0.5;">
                          <h5 style="text-align: center;">Ranking Polda Data Pelanggaran Tertinggi <?= date('M Y'); ?></h5>
-                         <!-- <div class="card shadow-sm"> -->
-                         <center>
-                             <table class="table table-bordered table-hover" id="tableLakaMonth" style="background-color: white; width:70%">
+                          <center>
+                             <table class="table table-bordered table-hover" id="tableGarlantasMonth" style="background-color: white; width:70%">
                                  <thead style="background-color:#0007D8; color:#fff;">
                                      <tr class="text-center">
                                          <th scope="col">No</th>
@@ -213,11 +389,10 @@
                                          <th scope="col">Total</th>
                                      </tr>
                                  </thead>
-                                 <tbody id="tbody-lakaMonth">
+                                 <tbody id="tbody-garlantasMonth">
                                  </tbody>
                              </table>
                          </center>
-                         <!-- </div> -->
                      </div>
                  </div>
              </div>
@@ -238,110 +413,100 @@
                      </div>
                      <div class="col-md-12 mt-5" style="line-height: 0.5;">
                          <h5 style="text-align: center;">Ranking Polda Data Pelanggaran Tertinggi <?= date('Y'); ?></h5>
-                         <!-- <div class="card shadow-sm"> -->
                          <center>
-                             <table class="table table-bordered table-hover" id="tableLakaYear" style="background-color: white; width:70%">
-                                 <thead style="background-color:#0007D8; color:#fff;">
-                                     <tr class="text-center">
-                                         <th scope="col">No</th>
-                                         <th scope="col">Polda</th>
-                                         <th scope="col">Pelanggaran Berat</th>
-                                         <th scope="col">Pelanggaran Sedang</th>
-                                         <th scope="col">Pelanggaran Ringan</th>
-                                         <th scope="col">Teguran</th>
-                                         <th scope="col">Total</th>
-                                     </tr>
-                                 </thead>
-                                 <tbody id="tbody-lakaYear">
-                                 </tbody>
-                             </table>
+
                          </center>
-                         <!-- </div> -->
                      </div>
                  </div>
              </div>
          </div>
      </div>
- </div>
+ </div> -->
 
- <div class="row">
-     <!-- <div class="col-md-3">
+ <div class="container-fluid">
+     <div class="card">
+         <div class="row">
+             <!-- <div class="col-md-3">
                                <label for="waktu" class="form-label text-uppercase">Wilayah</label>
                                <select class="form-control" id="polda_id" name="polda_id">
                                    <option value="1">Semua Polda</option>
                                </select>
                            </div> -->
-     <hr style="width:97%; margin: auto">
-     <div class="filter mt-4" style=" height:125px;">
-         <div class="container-fluid">
-             <div class="col-md-9">
-                 <label for="waktu" class="form-label text-uppercase">Waktu</label>
-                 <div class="row">
-                     <div class="col-md-4">
-                         <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
-                     </div>
-                     <div class="col-md-4">
-                         <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
-                     </div>
-                     <div class="col-md-2">
-                         <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
-                     </div>
-                     <!-- <div class="col-md-2 text-end align-self-center"> 
-                       <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary btn-lg" style="width: 200px; border-color:#0007D8;">Export Laporan</a>
-    
-                    </div> -->
-                 </div>
-             </div>
-         </div>
-     </div>
-
- </div>
-
- <div class="row">
-     <div class="col-xl-12">
-         <div class="card">
-             <div class="card-header">
-                 <div id="titleline"></div>
-             </div>
-             <div class="card-body">
-                 <div class="main-chart">
-                     <div id="chartdate">
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </div>
- <div class="row">
-     <div class="col-xl-12">
-         <div class="card">
-             <div class="card-header">
-                 <div id="title"></div>
-                 <div class="row">
-                     <div class="col-md-2">
-                         <div class="form-group">
-                             <label for="exampleFormControlSelect1">Show data</label>
-                             <select class="form-control" id="limit_showData">
-                                 <option value="3">3</option>
-                                 <option value="5" selected>5</option>
-                                 <option value="7">7</option>
-                                 <option value="10">10</option>
-                             </select>
+             <hr style="width:97%; margin: auto">
+             <div class="filter mt-4" style=" height:125px;">
+                 <div class="container-fluid">
+                     <div class="row">
+                         <div class="col-md-9">
+                             <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="start_date" id="start_date" value="<?= date('Y-m-d', strtotime("-6 days")); ?>">
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="end_date" id="end_date" value="<?= date('Y-m-d'); ?>">
+                                 </div>
+                                 <div class="col-md-2">
+                                     <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                 </div>
+                             </div>
                          </div>
                      </div>
                  </div>
              </div>
-             <div class="card-body">
-                 <div class="main-chart">
-                     <div id="charta">
+         </div>
+         <div class="row">
+             <div class="col-xl-12">
+                 <div class="card">
+                     <div class="card-header">
+                         <div id="titleline"></div>
+                     </div>
+                     <div class="card-body">
+                         <div class="main-chart">
+                             <div id="chartdate">
+                             </div>
+                         </div>
                      </div>
                  </div>
              </div>
          </div>
-     </div>
- </div>
+         <div class="row">
+             <div class="col-xl-12">
+                 <div class="card">
+                     <div class="card-header">
+                         <div id="title"></div>
+                         <div class="row">
+                             <div class="col-md-2">
+                                 <div class="form-group">
+                                     <label for="exampleFormControlSelect1">Show data</label>
+                                     <select class="form-control" id="limit_showData">
+                                         <option value="3">3</option>
+                                         <option value="5" selected>5</option>
+                                         <option value="7">7</option>
+                                         <option value="10">10</option>
+                                     </select>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="card-body">
+                         <div class="main-chart">
+                             <div id="charta">
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
 
- </div>
+     </div>
  </div>
 
 
@@ -387,9 +552,7 @@
                  let polda_pelanggaran_ringan = result.data.polda_pelanggaran_ringan
                  let polda_pelanggaran_sedang = result.data.polda_pelanggaran_sedang
                  let polda_teguran = result.data.polda_teguran
-                 // Chart Kecelakaan Lalu Lintas
 
-                 // chart laka
                  var chart = {
                      series: [{
                          name: 'Total Pelanggaran',
@@ -532,9 +695,7 @@
                  let polda_pelanggaran_ringan = result.data.polda_pelanggaran_ringan
                  let polda_pelanggaran_sedang = result.data.polda_pelanggaran_sedang
                  let polda_teguran = result.data.polda_teguran
-                 // Chart Kecelakaan Lalu Lintas
 
-                 // chart laka
                  var chart = {
                      series: [{
                          name: 'Total Pelanggaran',
@@ -669,6 +830,7 @@
                  $('#garlantasThisYear').text(result.thisYearTotal)
                  $('#garlantasThisYearPB').text(result.thisYearPB)
                  $('#garlantasThisYearPS').text(result.thisYearPS)
+                 $('#garlantasThisYearPR').text(result.thisYearPR)
                  $('#garlantasThisYearT').text(result.thisYearT)
              }
          })
@@ -958,25 +1120,31 @@
              success: function(result) {
                  $("#overlay").fadeOut(300);
                  var table = '';
+                 var resultgarlantas = result.topGarlantas;
                  let nf = new Intl.NumberFormat('en-US');
-                 for (let i = 0; i < result.length; i++) {
+                 for (let i = 0; i < resultgarlantas.length; i++) {
                      let x = parseInt(i)
                      let no = x + 1
                      table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].pelanggaran_berat}  </td> 
-                            <td>  ${result[i].pelanggaran_sedang}  </td> 
-                            <td>  ${result[i].pelanggaran_ringan}  </td> 
-                            <td>  ${result[i].teguran}  </td>
-                            <td>  ${nf.format(result[i].total)}  </td> 
+                            <td>  ${resultgarlantas[i].name_polda}  </td> 
+                            <td>  ${nf.format(resultgarlantas[i].pelanggaran_berat)}  </td> 
+                            <td>  ${nf.format(resultgarlantas[i].pelanggaran_sedang)}  </td> 
+                            <td>  ${nf.format(resultgarlantas[i].pelanggaran_ringan)}  </td> 
+                            <td>  ${nf.format(resultgarlantas[i].teguran)}  </td>
+                            <td>  ${nf.format(resultgarlantas[i].total)}  </td> 
                             </tr>`
                  }
-                 $('#tbody-lakaDay').html(table);
+                 $('#tbody-garlantasDay').html(table);
+                 $('#totalpbDay').text(result.pelanggaran_berat)
+                 $('#totalpsDay').text(result.pelanggaran_sedang)
+                 $('#totalprDay').text(result.pelanggaran_ringan)
+                 $('#totaltgDay').text(result.teguran)
+                 $('#totalDay').text(result.total)
                  <?php $mobile = detect_mobile();
                     if ($mobile === true) { ?>
 
-                     $('#tableLakaDay').DataTable({
+                     $('#tableGarlantasDay').DataTable({
                          responsive: true,
 
                          scrollX: true,
@@ -1007,25 +1175,31 @@
              success: function(result) {
                  $("#overlay").fadeOut(300);
                  var table = '';
+                 var resultgarlantas = result.topGarlantas;
                  let nf = new Intl.NumberFormat('en-US');
-                 for (let i = 0; i < result.length; i++) {
+                 for (let i = 0; i < resultgarlantas.length; i++) {
                      let x = parseInt(i)
                      let no = x + 1
                      table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].pelanggaran_berat}  </td> 
-                            <td>  ${result[i].pelanggaran_sedang}  </td> 
-                            <td>  ${result[i].pelanggaran_ringan}  </td> 
-                            <td>  ${result[i].teguran}  </td>
-                            <td>  ${result[i].total}  </td> 
+                            <td>  ${resultgarlantas[i].name_polda}  </td> 
+                            <td>  ${nf.format(resultgarlantas[i].pelanggaran_berat)}  </td> 
+                            <td>  ${nf.format(resultgarlantas[i].pelanggaran_sedang)}  </td> 
+                            <td>  ${nf.format(resultgarlantas[i].pelanggaran_ringan)}  </td> 
+                            <td>  ${nf.format(resultgarlantas[i].teguran)}  </td>
+                            <td>  ${nf.format(resultgarlantas[i].total)}  </td> 
                             </tr>`
                  }
-                 $('#tbody-lakaMonth').html(table);
+                 $('#tbody-garlantasMonth').html(table);
+                 $('#totalpbMonth').text(result.pelanggaran_berat)
+                 $('#totalpsMonth').text(result.pelanggaran_sedang)
+                 $('#totalprMonth').text(result.pelanggaran_ringan)
+                 $('#totaltgMonth').text(result.teguran)
+                 $('#totalMonth').text(result.total)
                  <?php $mobile = detect_mobile();
                     if ($mobile === true) { ?>
 
-                     $('#tableLakaMonth').DataTable({
+                     $('#tableGarlantasMonth').DataTable({
                          responsive: true,
 
                          scrollX: true,
@@ -1056,25 +1230,31 @@
              success: function(result) {
                  $("#overlay").fadeOut(300);
                  var table = '';
+                 var resultgarlantas = result.topGarlantas;
                  let nf = new Intl.NumberFormat('en-US');
-                 for (let i = 0; i < result.length; i++) {
+                 for (let i = 0; i < resultgarlantas.length; i++) {
                      let x = parseInt(i)
                      let no = x + 1
                      table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].pelanggaran_berat}  </td> 
-                            <td>  ${result[i].pelanggaran_sedang}  </td> 
-                            <td>  ${result[i].pelanggaran_ringan}  </td> 
-                            <td>  ${result[i].teguran}  </td>
-                            <td>  ${result[i].total}  </td> 
+                            <td>  ${resultgarlantas[i].name_polda}  </td> 
+                            <td>  ${nf.format(resultgarlantas[i].pelanggaran_berat)}  </td> 
+                            <td>  ${nf.format(resultgarlantas[i].pelanggaran_sedang)}  </td> 
+                            <td>  ${nf.format(resultgarlantas[i].pelanggaran_ringan)}  </td> 
+                            <td>  ${nf.format(resultgarlantas[i].teguran)}  </td>
+                            <td>  ${nf.format(resultgarlantas[i].total)}  </td> 
                             </tr>`
                  }
-                 $('#tbody-lakaYear').html(table);
+                 $('#tbody-garlantasYear').html(table);
+                 $('#totalpbYear').text(result.pelanggaran_berat)
+                 $('#totalpsYear').text(result.pelanggaran_sedang)
+                 $('#totalprYear').text(result.pelanggaran_ringan)
+                 $('#totaltgYear').text(result.teguran)
+                 $('#totalYear').text(result.total)
                  <?php $mobile = detect_mobile();
                     if ($mobile === true) { ?>
 
-                     $('#tableLakaYear').DataTable({
+                     $('#tableGarlantasYear').DataTable({
                          responsive: true,
 
                          scrollX: true,
