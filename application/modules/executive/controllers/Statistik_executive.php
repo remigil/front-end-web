@@ -2137,6 +2137,154 @@ class Statistik_executive extends MY_Controller
         $totalMonth = 0;
         $totalYear = 0;
 
+        $dbaru_a = 0;
+        $dbaru_c = 0;
+        $dbaru_c1 = 0;
+        $dbaru_c2 = 0;
+        $dbaru_d = 0;
+        $dbaru_d1 = 0;
+        $dperpanjangan_a = 0;
+        $dperpanjangan_au = 0;
+        $dperpanjangan_c = 0;
+        $dperpanjangan_c1 = 0;
+        $dperpanjangan_c2 = 0;
+        $dperpanjangan_d = 0;
+        $dperpanjangan_d1 = 0;
+        $dperpanjangan_b1 = 0;
+        $dperpanjangan_b1u = 0;
+        $dperpanjangan_b2 = 0;
+        $dperpanjangan_b2u = 0;
+        $dpeningkatan_au = 0;
+        $dpeningkatan_b1 = 0;
+        $dpeningkatan_b1u = 0;
+        $dpeningkatan_b2 = 0;
+        $dpeningkatan_b2u = 0;
+
+        foreach ($thisDay['data'] as $key) {
+            $dbaru_a += $key['baru_a'];
+            $dbaru_c += $key['baru_c'];
+            $dbaru_c1 += $key['baru_c1'];
+            $dbaru_c2 += $key['baru_c2'];
+            $dbaru_d += $key['baru_d'];
+            $dbaru_d1 += $key['baru_d1'];
+            $dperpanjangan_a += $key['perpanjangan_a'];
+            $dperpanjangan_au += $key['perpanjangan_au'];
+            $dperpanjangan_c += $key['perpanjangan_c'];
+            $dperpanjangan_c1 += $key['perpanjangan_c1'];
+            $dperpanjangan_c2 += $key['perpanjangan_c2'];
+            $dperpanjangan_d += $key['perpanjangan_d'];
+            $dperpanjangan_d1 += $key['perpanjangan_d1'];
+            $dperpanjangan_b1 += $key['perpanjangan_b1'];
+            $dperpanjangan_b1u += $key['perpanjangan_b1u'];
+            $dperpanjangan_b2 += $key['perpanjangan_b2'];
+            $dperpanjangan_b2u += $key['perpanjangan_b2u'];
+            $dpeningkatan_au += $key['peningkatan_au'];
+            $dpeningkatan_b1 += $key['peningkatan_b1'];
+            $dpeningkatan_b1u += $key['peningkatan_b1u'];
+            $dpeningkatan_b2 += $key['peningkatan_b2'];
+            $dpeningkatan_b2u += $key['peningkatan_b2u'];
+        }
+
+        $data['thisDay'] = [
+            'baru_a' => $dbaru_a,
+            'baru_c' => $dbaru_c,
+            'baru_c1' => $dbaru_c1,
+            'baru_c2' => $dbaru_c2,
+            'baru_d' => $dbaru_d,
+            'baru_d1' => $dbaru_d1,
+            'perpanjangan_a' => $dperpanjangan_a,
+            'perpanjangan_au' => $dperpanjangan_au,
+            'perpanjangan_c' => $dperpanjangan_c,
+            'perpanjangan_c1' => $dperpanjangan_c1,
+            'perpanjangan_c2' => $dperpanjangan_c2,
+            'perpanjangan_d' => $dperpanjangan_d,
+            'perpanjangan_d1' => $dperpanjangan_d1,
+            'perpanjangan_b1' => $dperpanjangan_b1,
+            'perpanjangan_b1u' => $dperpanjangan_b1u,
+            'perpanjangan_b2' => $dperpanjangan_b2,
+            'perpanjangan_b2u' => $dperpanjangan_b2u,
+            'peningkatan_au' => $dpeningkatan_au,
+            'peningkatan_b1' => $dpeningkatan_b1,
+            'peningkatan_b1u' => $dpeningkatan_b1u,
+            'peningkatan_b2' => $dpeningkatan_b2,
+            'peningkatan_b2u' => $dpeningkatan_b2u,
+            'date' => date("Y-m-d"),
+        ];
+
+        $mbaru_a = 0;
+        $mbaru_c = 0;
+        $mbaru_c1 = 0;
+        $mbaru_c2 = 0;
+        $mbaru_d = 0;
+        $mbaru_d1 = 0;
+        $mperpanjangan_a = 0;
+        $mperpanjangan_au = 0;
+        $mperpanjangan_c = 0;
+        $mperpanjangan_c1 = 0;
+        $mperpanjangan_c2 = 0;
+        $mperpanjangan_d = 0;
+        $mperpanjangan_d1 = 0;
+        $mperpanjangan_b1 = 0;
+        $mperpanjangan_b1u = 0;
+        $mperpanjangan_b2 = 0;
+        $mperpanjangan_b2u = 0;
+        $mpeningkatan_au = 0;
+        $mpeningkatan_b1 = 0;
+        $mpeningkatan_b1u = 0;
+        $mpeningkatan_b2 = 0;
+        $mpeningkatan_b2u = 0;
+
+        foreach ($thisMonth['data'] as $key) {
+            $mbaru_a += $key['baru_a'];
+            $mbaru_c += $key['baru_c'];
+            $mbaru_c1 += $key['baru_c1'];
+            $mbaru_c2 += $key['baru_c2'];
+            $mbaru_d += $key['baru_d'];
+            $mbaru_d1 += $key['baru_d1'];
+            $mperpanjangan_a += $key['perpanjangan_a'];
+            $mperpanjangan_au += $key['perpanjangan_au'];
+            $mperpanjangan_c += $key['perpanjangan_c'];
+            $mperpanjangan_c1 += $key['perpanjangan_c1'];
+            $mperpanjangan_c2 += $key['perpanjangan_c2'];
+            $mperpanjangan_d += $key['perpanjangan_d'];
+            $mperpanjangan_d1 += $key['perpanjangan_d1'];
+            $mperpanjangan_b1 += $key['perpanjangan_b1'];
+            $mperpanjangan_b1u += $key['perpanjangan_b1u'];
+            $mperpanjangan_b2 += $key['perpanjangan_b2'];
+            $mperpanjangan_b2u += $key['perpanjangan_b2u'];
+            $mpeningkatan_au += $key['peningkatan_au'];
+            $mpeningkatan_b1 += $key['peningkatan_b1'];
+            $mpeningkatan_b1u += $key['peningkatan_b1u'];
+            $mpeningkatan_b2 += $key['peningkatan_b2'];
+            $mpeningkatan_b2u += $key['peningkatan_b2u'];
+        }
+
+        $data['thisMonth'] = [
+            'baru_a' => $mbaru_a,
+            'baru_c' => $mbaru_c,
+            'baru_c1' => $mbaru_c1,
+            'baru_c2' => $mbaru_c2,
+            'baru_d' => $mbaru_d,
+            'baru_d1' => $mbaru_d1,
+            'perpanjangan_a' => $mperpanjangan_a,
+            'perpanjangan_au' => $mperpanjangan_au,
+            'perpanjangan_c' => $mperpanjangan_c,
+            'perpanjangan_c1' => $mperpanjangan_c1,
+            'perpanjangan_c2' => $mperpanjangan_c2,
+            'perpanjangan_d' => $mperpanjangan_d,
+            'perpanjangan_d1' => $mperpanjangan_d1,
+            'perpanjangan_b1' => $mperpanjangan_b1,
+            'perpanjangan_b1u' => $mperpanjangan_b1u,
+            'perpanjangan_b2' => $mperpanjangan_b2,
+            'perpanjangan_b2u' => $mperpanjangan_b2u,
+            'peningkatan_au' => $mpeningkatan_au,
+            'peningkatan_b1' => $mpeningkatan_b1,
+            'peningkatan_b1u' => $mpeningkatan_b1u,
+            'peningkatan_b2' => $mpeningkatan_b2,
+            'peningkatan_b2u' => $mpeningkatan_b2u,
+            'date' => date("F", strtotime($firstDay)),
+        ];
+
         $ybaru_a = 0;
         $ybaru_c = 0;
         $ybaru_c1 = 0;
@@ -2161,12 +2309,6 @@ class Statistik_executive extends MY_Controller
         $ypeningkatan_b2u = 0;
 
         foreach ($thisYear['data'] as $key) {
-            // $ybaru_a += $key['baru_a'];
-            // $ybaru_c += $key['baru_c'];
-            // $ybaru_c1 += 0;
-            // $ybaru_c2 += 0;
-            // $ybaru_d += $key['baru_d'];
-            // $ybaru_d1 += 0;
             $ybaru_a += $key['baru_a'];
             $ybaru_c += $key['baru_c'];
             $ybaru_c1 += $key['baru_c1'];
@@ -2216,22 +2358,13 @@ class Statistik_executive extends MY_Controller
             'peningkatan_b2u' => $ypeningkatan_b2u,
             'date' => date("Y", strtotime($firstDay)),
         ];
-
-        $dataDay = array_values($thisDay['data'][0]);
+        // $dataDay = $data['thisDay'];
+        $dataDay = array_values($data['thisDay']);
         array_pop($dataDay);
-        array_pop($dataDay);
-        array_pop($dataDay);
-        array_pop($dataDay);
-        array_pop($dataDay);
-        array_pop($dataDay);
-        $dataMonth = array_values($thisMonth['data'][0]);
-        array_pop($dataMonth);
-        array_pop($dataMonth);
-        array_pop($dataMonth);
-        array_pop($dataMonth);
+        $dataMonth = array_values($data['thisMonth']);
         array_pop($dataMonth);
         $dataYear = array_values($data['thisYear']);
-        array_pop($dataYear);
+        array_pop($dataYear);;
 
 
 
@@ -2246,11 +2379,11 @@ class Statistik_executive extends MY_Controller
         }
 
         $data['simDate'] = [
-            'thisDay' => $totalDay,
-            'detailsthisDay' => $thisDay['data'][0],
-            'thisMonth' => $totalMonth,
-            'detailsthisMonth' => $thisMonth['data'][0],
-            'thisYear' => $totalYear,
+            'thisDay' => number_format($totalDay),
+            'detailsthisDay' => $data['thisDay'],
+            'thisMonth' => number_format($totalMonth),
+            'detailsthisMonth' => $data['thisMonth'],
+            'thisYear' => number_format($totalYear),
             'detailsthisYear' => $data['thisYear'],
             // 'thisYear' => $data['thisYear']
         ];
@@ -2591,7 +2724,7 @@ class Statistik_executive extends MY_Controller
     }
     public function getLineRanmor()
     {
-        $title = 'DATA RANMOR LALU LINTAS';
+        $title = 'PERBANDINGAN DATA RANMOR SELURUH POLDA ';
         $filter = $this->input->post('filter');
         $limit = $this->input->post('limit');
         $yesterday = $this->input->post('yesterday');

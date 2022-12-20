@@ -307,13 +307,21 @@
          <div class="container-fluid">
              <div class="row">
                  <div class="col-md-9">
-                     <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                     <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
                      <div class="row">
                          <div class="col-md-4">
-                             <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                             <label for="waktu" class="form-label text-uppercase">Awal</label>
                          </div>
                          <div class="col-md-4">
-                             <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                             <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                         </div>
+                     </div>
+                     <div class="row">
+                         <div class="col-md-4">
+                             <input class="form-control form-control-lg" type="date" name="start_date" id="start_date" value="<?= date('Y-m-d', strtotime("-6 days")); ?>">
+                         </div>
+                         <div class="col-md-4">
+                             <input class="form-control form-control-lg" type="date" name="end_date" id="end_date" value="<?= date('Y-m-d'); ?>">
                          </div>
                          <div class="col-md-2">
                              <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
@@ -893,10 +901,37 @@
                      },
                      dataLabels: {
                          enabled: true,
-                         style: {
-                             colors: ['#333']
-                         },
+                         //   style: {
+                         //       colors: ['#333']
+                         //   },
                          offsetY: -15
+                     },
+                     grid: {
+                         show: true,
+                         borderColor: '#000',
+                         strokeDashArray: 2,
+                         //  position: 'back',
+                         //  xaxis: {
+                         //      lines: {
+                         //          show: true
+                         //      }
+                         //  },
+                         //  yaxis: {
+                         //      lines: {
+                         //          show: false
+                         //      }
+                         //  },
+
+                         //  column: {
+                         //      colors: '#000',
+                         //      opacity: 0.5
+                         //  },
+                         //  padding: {
+                         //      top: 0,
+                         //      right: 0,
+                         //      bottom: 0,
+                         //      left: 0
+                         //  },
                      },
                      markers: {
                          size: 4,

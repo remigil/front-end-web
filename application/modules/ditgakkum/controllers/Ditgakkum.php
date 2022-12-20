@@ -124,6 +124,91 @@ class Ditgakkum extends MY_Controller
         echo json_encode($data);
     }
 
+    public function getChartLaka()
+    {
+        $title = 'DATA LAKA';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditgakkum->getChartLaka($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+    public function getChartGarlantas()
+    {
+        $title = 'DATA GARLANTAS';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditgakkum->getChartGarlantas($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+    public function getChartTatib()
+    {
+        $title = 'DATA TATIB';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditgakkum->getChartTatib($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+    public function getChartWalPjr()
+    {
+        $title = 'DATA WAL & PJR';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditgakkum->getChartWalPjr($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+
 
     public function data_dakgar_lantas()
     {

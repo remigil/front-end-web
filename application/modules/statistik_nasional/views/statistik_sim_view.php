@@ -456,9 +456,9 @@
                  <div class="tab-content" id="pills-tabContent">
                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                          <div class="row">
-                             <div class="col-md-12 mt-3" style="line-height: 0.5;">
+                             <div class="col-md-12 mt-3" style="line-height: 1; overflow-x: auto">
                                  <h5>Ranking Polda Data Sim Tertinggi <?= date('d M Y'); ?></h5>
-                                 <div class="card shadow-sm">
+                                 <div class="card shadow-sm" style="width: 120%;">
                                      <table class="table table-bordered table-hover" id="tableSimDay">
                                          <thead>
                                              <tr class="text-white" style="background-color: #0007D8;">
@@ -531,9 +531,9 @@
                      </div>
                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                          <div class="row">
-                             <div class="col-md-12 mt-3" style="line-height: 0.5;">
+                             <div class="col-md-12 mt-3" style="line-height: 1; overflow-x: auto">
                                  <h5>Ranking Polda Data Sim Tertinggi <?= date('M Y'); ?></h5>
-                                 <div class="card shadow-sm">
+                                 <div class="card shadow-sm" style="width: 120%;">
                                      <table class="table table-bordered table-hover" id="tableSimMonth">
                                          <thead>
                                              <tr class="text-white" style="background-color: #0007D8;">
@@ -551,6 +551,7 @@
                                                  <th style="text-align: center;" scope="col">CII</th>
                                                  <th style="text-align: center;" scope="col">D</th>
                                                  <th style="text-align: center;" scope="col">DI</th>
+
                                                  <th style="text-align: center;" scope="col">A</th>
                                                  <th style="text-align: center;" scope="col">AU</th>
                                                  <th style="text-align: center;" scope="col">C</th>
@@ -562,6 +563,7 @@
                                                  <th style="text-align: center;" scope="col">BIU</th>
                                                  <th style="text-align: center;" scope="col">BII</th>
                                                  <th style="text-align: center;" scope="col">BIIU</th>
+
                                                  <th style="text-align: center;" scope="col">AU</th>
                                                  <th style="text-align: center;" scope="col">BI</th>
                                                  <th style="text-align: center;" scope="col">BIU</th>
@@ -606,9 +608,9 @@
                      </div>
                      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                          <div class="row">
-                             <div class="col-md-12 mt-3" style="line-height: 0.5;">
+                             <div class="col-md-12 mt-3" style="line-height: 1; overflow-x: auto">
                                  <h5>Ranking Polda Data Sim Tertinggi <?= date('Y'); ?></h5>
-                                 <div class="card shadow-sm">
+                                 <div class="card shadow-sm" style="width: 120%;">
                                      <table class="table table-bordered table-hover" id="tableSimYear">
                                          <thead>
                                              <tr class="text-white" style="background-color: #0007D8;">

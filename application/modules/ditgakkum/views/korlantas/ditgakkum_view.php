@@ -62,7 +62,7 @@
                     <div class="col-md-12 mt-5">
                         <div class="row justify-content-between align-items-center">
                             <div class="col-md-4 mb-3">
-                                <h4 style="text-transform: uppercase; color:#007DD8;">Statistik Nasional</h4>
+                                <h4 style="text-transform: uppercase; color:#007DD8;">Statistik Data Ditgakkum - <span style="color: red;"> Real Time</span></h4>
                             </div>
                             <div class="col-md-3">
                                 <!-- <p style="color: red; margin-bottom:0;"><?= ucwords('last update ' . date('j F, Y'))  ?></p> -->
@@ -470,7 +470,7 @@
                 function getDitgakkumday(today, seven_daysAgo) {
                     $.ajax({
                         type: "POST",
-                        url: "<?php echo base_url(); ?>ditgakkum/getChartDitgakkum",
+                        url: "<?php echo base_url(); ?>ditgakkum/getChartLaka",
                         data: {
                             start_date: seven_daysAgo,
                             end_date: today,
@@ -479,22 +479,39 @@
                         dataType: "JSON",
                         success: function(result) {
                             let polda_month = result.data.polda_month
-                            let walpjr = result.data.walpjr
-                            let turjagwali = result.data.turjagwali
-                            let garlantas = result.data.garlantas
-                            let lakalantas = result.data.lakalantas
-                            $('#titlewalpjrday').html(`<h4 class="card-title mb-0 text-uppercase">DATA WAL & PJR HARIAN</h4>`);
-                            $('#titletatibday').html(`<h4 class="card-title mb-0 text-uppercase">DATA TATIB HARIAN</h4>`);
-                            $('#titlegarlantasday').html(`<h4 class="card-title mb-0 text-uppercase">DATA GARLANTAS HARIAN</h4>`);
-                            $('#titlelakalantasday').html(`<h4 class="card-title mb-0 text-uppercase">DATA LAKA HARIAN</h4>`);
+                            let insiden_kecelakaan = result.data.insiden_kecelakaan
+                            let persentase_kecelakaan = result.data.persentase_kecelakaan
+                            let meninggal_dunia = result.data.meninggal_dunia
+                            let persentase_md = result.data.persentase_md
+                            let luka_berat = result.data.luka_berat
+                            let persentase_lb = result.data.persentase_lb
+                            let luka_ringan = result.data.luka_ringan
+                            let persentase_lr = result.data.persentase_lr
 
-                            var ditgakkumwalpjrday = {
+                            $('#titlelakalantasday').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA LAKA HARIAN (7 Harian)</h4>`);
+
+                            var ditgakkumlakaday = {
                                 series: [{
-                                    name: 'WAL & PJR',
+                                    name: 'Insiden Kecekalaan',
                                     type: 'line',
-                                    data: walpjr,
-                                    color: "#11347A"
-                                }],
+                                    data: insiden_kecelakaan,
+                                    color: "#5400D8"
+                                }, {
+                                    name: 'Meninggal Dunia',
+                                    type: 'line',
+                                    data: meninggal_dunia,
+                                    color: "#D80000"
+                                }, {
+                                    name: 'Luka Berat',
+                                    type: 'line',
+                                    data: luka_berat,
+                                    color: "#D8A700"
+                                }, {
+                                    name: 'Luka Ringan',
+                                    type: 'line',
+                                    data: luka_ringan,
+                                    color: "#80D800"
+                                }, ],
                                 chart: {
                                     height: 400,
                                     type: 'line',
@@ -527,6 +544,7 @@
                                 xaxis: {
                                     categories: polda_month,
                                 },
+
                                 tooltip: {
                                     custom: function({
                                         series,
@@ -537,231 +555,80 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            walpjrsebelumnya = walpjr[0];
-
-                                            if (walpjr[0] < walpjr[1]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[0] > walpjr[1]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[0];
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            walpjrsebelumnya = walpjr[1];
-                                            if (walpjr[1] < walpjr[2]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[1] > walpjr[2]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
-
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[1];
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
-                                            walpjrsebelumnya = walpjr[2];
-                                            if (walpjr[2] < walpjr[3]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[2] > walpjr[3]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[2];
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
-                                            walpjrsebelumnya = walpjr[3];
-                                            if (walpjr[3] < walpjr[4]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[3] > walpjr[4]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[3];
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[4]
-                                            walpjrsebelumnya = walpjr[4];
-                                            if (walpjr[4] < walpjr[5]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[4] > walpjr[5]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[4];
                                         } else if (w.globals.labels[dataPointIndex] == 7) {
                                             bulansebelumnya = polda_month[5]
-                                            walpjrsebelumnya = walpjr[5];
-                                            if (walpjr[5] < walpjr[6]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[5] > walpjr[6]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[5];
                                         }
-                                        return (
-                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                            ${w.globals.labels[dataPointIndex] != 1 ? `
-                                                <div class="col-md-4">
-                                                <div class="my-2  text-center"">   
-                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
-                                                </div>
-                                                    <div class="row">
-                                                        <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <span class="fw-bold">${walpjrsebelumnya}</span><br>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-8">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${walpjr[dataPointIndex]}</span><br>                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 text-center">
-                                                <div class="my-2 text-center">
-                                                    <span class="fs-6 fw-bold">Presentase</span>
-                                                </div>
-                                                    <span class="fw-bold">${persentasewalpjr}</span><br>
-                                                </div>
-                                                ` : `
-                                                <div class="col-md-12">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
-                                                            </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${walpjr[dataPointIndex]}</span><br>
-                                                            </div>
-                                                    </div>
-                                                </div>`}
-                                            </div>
-                                        </div>
-                                    </div>`
-                                        );
-                                    }
-                                }
-                            };
-
-                            var ditgakkumwalpjrday = new ApexCharts(document.querySelector("#chartday1"), ditgakkumwalpjrday);
-                            ditgakkumwalpjrday.render();
-
-
-                            var ditgakkumtatibday = {
-                                series: [{
-                                    name: 'Tatib',
-                                    type: 'line',
-                                    data: turjagwali,
-                                    color: "#CB2D3E"
-                                }],
-                                chart: {
-                                    height: 400,
-                                    type: 'line',
-                                    stacked: false
-                                },
-                                plotOptions: {
-                                    bar: {
-                                        horizontal: false,
-                                        columnWidth: '55%',
-                                        endingShape: 'rounded',
-                                        dataLabels: {
-                                            position: 'top'
-                                        }
-                                    },
-                                },
-                                dataLabels: {
-                                    enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
-                                    offsetY: -15
-                                },
-                                markers: {
-                                    size: 4,
-                                    colors: '#kkk',
-                                    fillOpacity: 0.9,
-                                    shape: "circle",
-                                    radius: 2,
-                                },
-                                xaxis: {
-                                    categories: polda_month,
-                                },
-                                tooltip: {
-                                    custom: function({
-                                        series,
-                                        seriesIndex,
-                                        dataPointIndex,
-                                        seriesName,
-                                        w
-                                    }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            turjagwalisebelumnya = turjagwali[0];
-
-                                            if (turjagwali[0] < turjagwali[1]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[0] > turjagwali[1]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-
+                                            meninggal_duniasebelumnya = meninggal_dunia[0];
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            turjagwalisebelumnya = turjagwali[1];
-                                            if (turjagwali[1] < turjagwali[2]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[1] > turjagwali[2]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-
+                                            meninggal_duniasebelumnya = meninggal_dunia[1];
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
-                                            turjagwalisebelumnya = turjagwali[2];
-                                            if (turjagwali[2] < turjagwali[3]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[2] > turjagwali[3]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
+                                            meninggal_duniasebelumnya = meninggal_dunia[2];
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
-                                            turjagwalisebelumnya = turjagwali[3];
-                                            if (turjagwali[3] < turjagwali[4]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[3] > turjagwali[4]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
+                                            meninggal_duniasebelumnya = meninggal_dunia[3];
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            meninggal_duniasebelumnya = meninggal_dunia[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
                                             bulansebelumnya = polda_month[5]
-                                            turjagwalisebelumnya = turjagwali[4];
-                                            if (turjagwali[4] < turjagwali[5]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[4] > turjagwali[5]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
+                                            meninggal_duniasebelumnya = meninggal_dunia[5];
                                         }
-
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            luka_beratsebelumnya = luka_berat[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            luka_beratsebelumnya = luka_berat[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            luka_beratsebelumnya = luka_berat[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            luka_beratsebelumnya = luka_berat[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            luka_beratsebelumnya = luka_berat[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            luka_beratsebelumnya = luka_berat[5];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            luka_ringansebelumnya = luka_ringan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            luka_ringansebelumnya = luka_ringan[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            luka_ringansebelumnya = luka_ringan[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            luka_ringansebelumnya = luka_ringan[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            luka_ringansebelumnya = luka_ringan[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            luka_ringansebelumnya = luka_ringan[5];
+                                        }
                                         return (
                                             `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
                                         <div class="col-md-12">
@@ -773,10 +640,16 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total TATIB</span><br>
+                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total MD</span><br>
+                                                            <span class="fw-bold">Total LB</span><br>
+                                                            <span class="fw-bold">Total LR</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${turjagwalisebelumnya}</span><br>
+                                                            <span class="fw-bold">${insiden_kecelakaansebelumnya}</span><br>
+                                                            <span class="fw-bold">${meninggal_duniasebelumnya}</span><br>
+                                                            <span class="fw-bold">${luka_beratsebelumnya}</span><br>
+                                                            <span class="fw-bold">${luka_ringansebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -786,17 +659,26 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total TATIB</span><br>
+                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total MD</span><br>
+                                                            <span class="fw-bold">Total LB</span><br>
+                                                            <span class="fw-bold">Total LR</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${insiden_kecelakaan[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${meninggal_dunia[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${luka_berat[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${luka_ringan[dataPointIndex]}</span><br>                                     </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentaseturjagwali}</span><br>
+                                                    <span class="fw-bold">${persentase_kecelakaan[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_md[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_lb[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_lr[dataPointIndex]} %</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -805,11 +687,17 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total TATIB</span><br>
-                                                            </div>
+                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total MD</span><br>
+                                                            <span class="fw-bold">Total LB</span><br>
+                                                            <span class="fw-bold">Total LR</span><br>
+                                                        </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>
-                                                            </div>
+                                                            <span class="fw-bold">${insiden_kecelakaan[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${meninggal_dunia[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${luka_berat[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${luka_ringan[dataPointIndex]}</span><br>                                     </div>
+                                                    </div>
                                                     </div>
                                                 </div>`}
                                             </div>
@@ -819,20 +707,55 @@
                                         );
                                     }
                                 }
-
                             };
+                            var ditgakkumlakaday = new ApexCharts(document.querySelector("#chartday4"), ditgakkumlakaday);
+                            ditgakkumlakaday.render();
+                        }
+                    })
 
-                            var ditgakkumtatibday = new ApexCharts(document.querySelector("#chartday2"), ditgakkumtatibday);
-                            ditgakkumtatibday.render();
-
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>ditgakkum/getChartGarlantas",
+                        data: {
+                            start_date: seven_daysAgo,
+                            end_date: today,
+                            filter: 'day'
+                        },
+                        dataType: "JSON",
+                        success: function(result) {
+                            let polda_month = result.data.polda_month
+                            let pelanggaran_berat = result.data.pelanggaran_berat
+                            let persentase_pb = result.data.persentase_pb
+                            let pelanggaran_sedang = result.data.pelanggaran_sedang
+                            let persentase_ps = result.data.persentase_ps
+                            let pelanggaran_ringan = result.data.pelanggaran_ringan
+                            let persentase_pr = result.data.persentase_pr
+                            let teguran = result.data.teguran
+                            let persentase_tg = result.data.persentase_tg
+                            $('#titlegarlantasday').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA GARLANTAS HARIAN (7 Harian)</h4>`);
 
                             var ditgakkumdakgarday = {
                                 series: [{
-                                    name: 'DAKGAR',
+                                    name: 'Pelanggaran Berat',
                                     type: 'line',
-                                    data: garlantas,
-                                    color: "#3CA55C"
-                                }],
+                                    data: pelanggaran_berat,
+                                    color: "#D80000"
+                                }, {
+                                    name: 'Pelanggaran Sedang',
+                                    type: 'line',
+                                    data: pelanggaran_sedang,
+                                    color: "#D8A700"
+                                }, {
+                                    name: 'Pelanggaran Ringan',
+                                    type: 'line',
+                                    data: pelanggaran_ringan,
+                                    color: "#80D800"
+                                }, {
+                                    name: 'Teguran',
+                                    type: 'line',
+                                    data: teguran,
+                                    color: "#5400D8"
+                                }, ],
                                 chart: {
                                     height: 400,
                                     type: 'line',
@@ -875,59 +798,80 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            garlantassebelumnya = garlantas[0];
-
-                                            if (garlantas[0] < garlantas[1]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[0] > garlantas[1]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[0];
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            garlantassebelumnya = garlantas[1];
-                                            if (garlantas[1] < garlantas[2]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[1] > garlantas[2]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[1];
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
-                                            garlantassebelumnya = garlantas[2];
-                                            if (garlantas[2] < garlantas[3]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[2] > garlantas[3]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[2];
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
-                                            garlantassebelumnya = garlantas[3];
-                                            if (garlantas[3] < garlantas[4]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[3] > garlantas[4]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[3];
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[4]
-                                            garlantassebelumnya = garlantas[4];
-                                            if (garlantas[4] < garlantas[5]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[4] > garlantas[5]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[5];
                                         }
-
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[5];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[5];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            teguransebelumnya = teguran[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            teguransebelumnya = teguran[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            teguransebelumnya = teguran[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            teguransebelumnya = teguran[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            teguransebelumnya = teguran[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            teguransebelumnya = teguran[5];
+                                        }
                                         return (
                                             `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
                                         <div class="col-md-12">
@@ -939,10 +883,16 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
+                                                            <span class="fw-bold">Total PB</span><br>
+                                                            <span class="fw-bold">Total PS</span><br>
+                                                            <span class="fw-bold">Total PR</span><br>
+                                                            <span class="fw-bold">Total TG</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${garlantassebelumnya}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_beratsebelumnya}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_sedangsebelumnya}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_ringansebelumnya}</span><br>
+                                                            <span class="fw-bold">${teguransebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -952,17 +902,27 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
+                                                            <span class="fw-bold">Total PB</span><br>
+                                                            <span class="fw-bold">Total PS</span><br>
+                                                            <span class="fw-bold">Total PR</span><br>
+                                                            <span class="fw-bold">Total TG</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${pelanggaran_berat[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_sedang[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_ringan[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${teguran[dataPointIndex]}</span><br>        
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentasegarlantas}</span><br>
+                                                    <span class="fw-bold">${persentase_pb[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_ps[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_pr[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_tg[dataPointIndex]} %</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -971,11 +931,18 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
-                                                            </div>
+                                                            <span class="fw-bold">Total PB</span><br>
+                                                            <span class="fw-bold">Total PS</span><br>
+                                                            <span class="fw-bold">Total PR</span><br>
+                                                            <span class="fw-bold">Total TG</span><br>
+                                                        </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>
-                                                            </div>
+                                                            <span class="fw-bold">${pelanggaran_berat[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_sedang[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_ringan[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${teguran[dataPointIndex]}</span><br>         
+                                                        </div>
+                                                    </div>
                                                     </div>
                                                 </div>`}
                                             </div>
@@ -985,20 +952,58 @@
                                         );
                                     }
                                 }
-
                             };
 
                             var ditgakkumdakgarday = new ApexCharts(document.querySelector("#chartday3"), ditgakkumdakgarday);
                             ditgakkumdakgarday.render();
 
+                        }
+                    })
 
-                            var ditgakkumlakaday = {
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>ditgakkum/getChartTatib",
+                        data: {
+                            start_date: seven_daysAgo,
+                            end_date: today,
+                            filter: 'day'
+                        },
+                        dataType: "JSON",
+                        success: function(result) {
+                            let polda_month = result.data.polda_month
+                            let pengaturan = result.data.pengaturan
+                            let persentase_pengaturan = result.data.persentase_pengaturan
+                            let pengawalan = result.data.pengawalan
+                            let persentase_pengawalan = result.data.persentase_pengawalan
+                            let penjagaan = result.data.penjagaan
+                            let persentase_penjagaan = result.data.persentase_penjagaan
+                            let patroli = result.data.patroli
+                            let persentase_patroli = result.data.persentase_patroli
+                            $('#titletatibday').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA Tatib HARIAN (7 Harian)</h4>`);
+
+
+                            var ditgakkumtatibday = {
                                 series: [{
-                                    name: 'LAKA',
+                                    name: 'Pengaturan',
                                     type: 'line',
-                                    data: lakalantas,
-                                    color: "#EDF12D"
-                                }],
+                                    data: pengaturan,
+                                    color: "#5400D8"
+                                }, {
+                                    name: 'Pengawalan',
+                                    type: 'line',
+                                    data: pengawalan,
+                                    color: "#D80000"
+                                }, {
+                                    name: 'Penjagaan',
+                                    type: 'line',
+                                    data: penjagaan,
+                                    color: "#D8A700"
+                                }, {
+                                    name: 'Patroli',
+                                    type: 'line',
+                                    data: patroli,
+                                    color: "#80D800"
+                                }, ],
                                 chart: {
                                     height: 400,
                                     type: 'line',
@@ -1041,59 +1046,278 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            lakalantassebelumnya = lakalantas[0];
-
-                                            if (lakalantas[0] < lakalantas[1]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[0] > lakalantas[1]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
-
+                                            pengaturansebelumnya = pengaturan[0];
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            lakalantassebelumnya = lakalantas[1];
-                                            if (lakalantas[1] < lakalantas[2]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[1] > lakalantas[2]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
-
+                                            pengaturansebelumnya = pengaturan[1];
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
-                                            lakalantassebelumnya = lakalantas[2];
-                                            if (lakalantas[2] < lakalantas[3]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[2] > lakalantas[3]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
+                                            pengaturansebelumnya = pengaturan[2];
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
-                                            lakalantassebelumnya = lakalantas[3];
-                                            if (lakalantas[3] < lakalantas[4]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[3] > lakalantas[4]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
+                                            pengaturansebelumnya = pengaturan[3];
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[4]
-                                            lakalantassebelumnya = lakalantas[4];
-                                            if (lakalantas[4] < lakalantas[5]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[4] > lakalantas[5]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
+                                            pengaturansebelumnya = pengaturan[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            pengaturansebelumnya = pengaturan[5];
                                         }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pengawalansebelumnya = pengawalan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pengawalansebelumnya = pengawalan[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pengawalansebelumnya = pengawalan[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            pengawalansebelumnya = pengawalan[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            pengawalansebelumnya = pengawalan[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            pengawalansebelumnya = pengawalan[5];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            penjagaansebelumnya = penjagaan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            penjagaansebelumnya = penjagaan[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            penjagaansebelumnya = penjagaan[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            penjagaansebelumnya = penjagaan[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            penjagaansebelumnya = penjagaan[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            penjagaansebelumnya = penjagaan[5];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            patrolisebelumnya = patroli[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            patrolisebelumnya = patroli[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            patrolisebelumnya = patroli[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            patrolisebelumnya = patroli[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            patrolisebelumnya = patroli[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            patrolisebelumnya = patroli[5];
+                                        }
+                                        return (
+                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                        ${w.globals.labels[dataPointIndex] != 1 ? `
+                                            <div class="col-md-4">
+                                            <div class="my-2  text-center"">   
+                                                <span class="fs-6 fw-bold">${bulansebelumnya}</span>
+                                            </div>
+                                                <div class="row">
+                                                    <div class="col-md-8 ms-1">
+                                                        <span class="fw-bold">Total Pengaturan</span><br>
+                                                        <span class="fw-bold">Total Pengawalan</span><br>
+                                                        <span class="fw-bold">Total Penjagaan</span><br>
+                                                        <span class="fw-bold">Total Patroli</span><br>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <span class="fw-bold">${pengaturansebelumnya}</span><br>
+                                                        <span class="fw-bold">${pengawalansebelumnya}</span><br>
+                                                        <span class="fw-bold">${penjagaansebelumnya}</span><br>
+                                                        <span class="fw-bold">${patrolisebelumnya}</span><br>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            <div class="col-md-4">
+                                            <div class="my-2 text-center">    
+                                                <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-8">
+                                                        <span class="fw-bold">Total Pengaturan</span><br>
+                                                        <span class="fw-bold">Total Pengawalan</span><br>
+                                                        <span class="fw-bold">Total Penjagaan</span><br>
+                                                        <span class="fw-bold">Total Patroli</span><br>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span class="fw-bold">${pengaturan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${pengawalan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${penjagaan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${patroli[dataPointIndex]}</span><br>        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 text-center">
+                                            <div class="my-2 text-center">
+                                                <span class="fs-6 fw-bold">Presentase</span>
+                                            </div>
+                                                <span class="fw-bold">${persentase_pengaturan[dataPointIndex]} %</span><br>
+                                                <span class="fw-bold">${persentase_pengawalan[dataPointIndex]} %</span><br>
+                                                <span class="fw-bold">${persentase_penjagaan[dataPointIndex]} %</span><br>
+                                                <span class="fw-bold">${persentase_patroli[dataPointIndex]} %</span><br>
+                                            </div>
+                                            ` : `
+                                            <div class="col-md-12">
+                                            <div class="my-2 text-center">    
+                                                <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-7 ms-2">
+                                                        <span class="fw-bold">Total Pengaturan</span><br>
+                                                        <span class="fw-bold">Total Pengawalan</span><br>
+                                                        <span class="fw-bold">Total Penjagaan</span><br>
+                                                        <span class="fw-bold">Total Patroli</span><br>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span class="fw-bold">${pengaturan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${pengawalan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${penjagaan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${patroli[dataPointIndex]}</span><br>         
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>`}
+                                        </div>
+                                    </div>
+                                </div>`
 
+                                        );
+                                    }
+                                }
+                            };
+
+                            var ditgakkumtatibday = new ApexCharts(document.querySelector("#chartday2"), ditgakkumtatibday);
+                            ditgakkumtatibday.render();
+
+                        }
+                    })
+
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>ditgakkum/getChartWalPjr",
+                        data: {
+                            start_date: seven_daysAgo,
+                            end_date: today,
+                            filter: 'day'
+                        },
+                        dataType: "JSON",
+                        success: function(result) {
+                            let polda_month = result.data.polda_month
+                            let wal = result.data.wal
+                            let persentase_wal = result.data.persentase_wal
+                            let pjr = result.data.pjr
+                            let persentase_pjr = result.data.persentase_pjr
+
+
+                            $('#titlewalpjrday').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA WAL & PJR HARIAN (7 Harian)</h4>`);
+
+                            var ditgakkumwalpjrday = {
+                                series: [{
+                                    name: 'WAL',
+                                    type: 'line',
+                                    data: wal,
+                                    color: "#5400D8"
+                                }, {
+                                    name: 'PJR',
+                                    type: 'line',
+                                    data: pjr,
+                                    color: "#D80000"
+                                }, ],
+                                chart: {
+                                    height: 400,
+                                    type: 'line',
+                                    stacked: false
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: false,
+                                        columnWidth: '55%',
+                                        endingShape: 'rounded',
+                                        dataLabels: {
+                                            position: 'top'
+                                        }
+                                    },
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    style: {
+                                        colors: ['#333']
+                                    },
+                                    offsetY: -15
+                                },
+                                markers: {
+                                    size: 4,
+                                    colors: '#kkk',
+                                    fillOpacity: 0.9,
+                                    shape: "circle",
+                                    radius: 2,
+                                },
+                                xaxis: {
+                                    categories: polda_month,
+                                },
+
+                                tooltip: {
+                                    custom: function({
+                                        series,
+                                        seriesIndex,
+                                        dataPointIndex,
+                                        seriesName,
+                                        w
+                                    }) {
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            walsebelumnya = wal[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            walsebelumnya = wal[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            walsebelumnya = wal[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            walsebelumnya = wal[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            walsebelumnya = wal[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            walsebelumnya = wal[5];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pjrsebelumnya = pjr[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pjrsebelumnya = pjr[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pjrsebelumnya = pjr[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            pjrsebelumnya = pjr[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            pjrsebelumnya = pjr[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            pjrsebelumnya = pjr[5];
+                                        }
                                         return (
                                             `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
                                         <div class="col-md-12">
@@ -1105,10 +1329,12 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total WAL</span><br>
+                                                            <span class="fw-bold">Total PJR</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${lakalantassebelumnya}</span><br>
+                                                            <span class="fw-bold">${walsebelumnya}</span><br>
+                                                            <span class="fw-bold">${pjrsebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -1118,17 +1344,21 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total WAL</span><br>
+                                                            <span class="fw-bold">Total PJR</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${wal[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pjr[dataPointIndex]}</span><br>         
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentaselakalantas}</span><br>
+                                                    <span class="fw-bold">${persentase_wal[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_pjr[dataPointIndex]} %</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -1137,11 +1367,14 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total LAKA</span><br>
-                                                            </div>
+                                                            <span class="fw-bold">Total WAL</span><br>
+                                                            <span class="fw-bold">Total PJR</span><br>
+                                                        </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>
-                                                            </div>
+                                                            <span class="fw-bold">${wal[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pjr[dataPointIndex]}</span><br>
+                                                        </div>
+                                                    </div>
                                                     </div>
                                                 </div>`}
                                             </div>
@@ -1151,21 +1384,18 @@
                                         );
                                     }
                                 }
-
                             };
-
-                            var ditgakkumlakaday = new ApexCharts(document.querySelector("#chartday4"), ditgakkumlakaday);
-                            ditgakkumlakaday.render();
+                            var ditgakkumwalpjrday = new ApexCharts(document.querySelector("#chartday1"), ditgakkumwalpjrday);
+                            ditgakkumwalpjrday.render();
                         }
                     })
                 }
-
 
                 // Month
                 function getDitgakkummonth(firstDay, lastDay) {
                     $.ajax({
                         type: "POST",
-                        url: "<?php echo base_url(); ?>ditgakkum/getChartDitgakkum",
+                        url: "<?php echo base_url(); ?>ditgakkum/getChartLaka",
                         data: {
                             start_date: firstDay,
                             end_date: lastDay,
@@ -1174,701 +1404,42 @@
                         dataType: "JSON",
                         success: function(result) {
                             let polda_month = result.data.polda_month
-                            let walpjr = result.data.walpjr
-                            let turjagwali = result.data.turjagwali
-                            let garlantas = result.data.garlantas
-                            let lakalantas = result.data.lakalantas
-                            $('#titlewalpjrmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA WAL & PJR BULANAN</h4>`);
-                            $('#titletatibmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA TATIB BULANAN</h4>`);
-                            $('#titlegarlantasmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA GARLANTAS BULANAN</h4>`);
-                            $('#titlelakalantasmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA LAKA BULANAN</h4>`);
-
-                            var ditgakkumwalpjr = {
-                                series: [{
-                                    name: 'WAL & PJR',
-                                    type: 'line',
-                                    data: walpjr,
-                                    color: "#11347A"
-                                }],
-                                chart: {
-                                    height: 400,
-                                    type: 'line',
-                                    stacked: false
-                                },
-                                plotOptions: {
-                                    bar: {
-                                        horizontal: false,
-                                        columnWidth: '55%',
-                                        endingShape: 'rounded',
-                                        dataLabels: {
-                                            position: 'top'
-                                        }
-                                    },
-                                },
-                                dataLabels: {
-                                    enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
-                                    offsetY: -15
-                                },
-                                markers: {
-                                    size: 4,
-                                    colors: '#kkk',
-                                    fillOpacity: 0.9,
-                                    shape: "circle",
-                                    radius: 2,
-                                },
-                                xaxis: {
-                                    categories: polda_month,
-                                },
-                                tooltip: {
-                                    custom: function({
-                                        series,
-                                        seriesIndex,
-                                        dataPointIndex,
-                                        seriesName,
-                                        w
-                                    }) {
-                                        if (w.globals.labels[dataPointIndex] == 2) {
-                                            bulansebelumnya = polda_month[0]
-                                            walpjrsebelumnya = walpjr[0];
-
-                                            if (walpjr[0] < walpjr[1]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[0] > walpjr[1]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
-
-                                        } else if (w.globals.labels[dataPointIndex] == 3) {
-                                            bulansebelumnya = polda_month[1]
-                                            walpjrsebelumnya = walpjr[1];
-                                            if (walpjr[1] < walpjr[2]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[1] > walpjr[2]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
-
-                                        } else if (w.globals.labels[dataPointIndex] == 4) {
-                                            bulansebelumnya = polda_month[2]
-                                            walpjrsebelumnya = walpjr[2];
-                                            if (walpjr[2] < walpjr[3]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[2] > walpjr[3]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 5) {
-                                            bulansebelumnya = polda_month[3]
-                                            walpjrsebelumnya = walpjr[3];
-                                            if (walpjr[3] < walpjr[4]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[3] > walpjr[4]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 6) {
-                                            bulansebelumnya = polda_month[4]
-                                            walpjrsebelumnya = walpjr[4];
-                                            if (walpjr[4] < walpjr[5]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[4] > walpjr[5]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 7) {
-                                            bulansebelumnya = polda_month[5]
-                                            walpjrsebelumnya = walpjr[5];
-                                            if (walpjr[5] < walpjr[6]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[5] > walpjr[6]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 8) {
-                                            bulansebelumnya = polda_month[6]
-                                            walpjrsebelumnya = walpjr[6];
-                                            if (walpjr[6] < walpjr[7]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[6] > walpjr[7]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 9) {
-                                            bulansebelumnya = polda_month[7]
-                                            walpjrsebelumnya = walpjr[7];
-                                            if (walpjr[7] < walpjr[8]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[7] > walpjr[8]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 10) {
-                                            bulansebelumnya = polda_month[8]
-                                            walpjrsebelumnya = walpjr[8];
-                                            if (walpjr[8] < walpjr[9]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[8] > walpjr[9]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 11) {
-                                            bulansebelumnya = polda_month[9]
-                                            walpjrsebelumnya = walpjr[9];
-                                            if (walpjr[9] < walpjr[10]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[9] > walpjr[10]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = `Sama`
-                                            }
-
-                                        } else if (w.globals.labels[dataPointIndex] == 12) {
-                                            bulansebelumnya = polda_month[10]
-                                            walpjrsebelumnya = walpjr[10];
-                                            if (walpjr[10] < walpjr[11]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[10] > walpjr[11]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
-                                        }
-
-                                        return (
-                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                            ${w.globals.labels[dataPointIndex] != 1 ? `
-                                                <div class="col-md-4">
-                                                <div class="my-2  text-center"">   
-                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
-                                                </div>
-                                                    <div class="row">
-                                                        <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <span class="fw-bold">${walpjrsebelumnya}</span><br>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-8">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${walpjr[dataPointIndex]}</span><br>                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 text-center">
-                                                <div class="my-2 text-center">
-                                                    <span class="fs-6 fw-bold">Presentase</span>
-                                                </div>
-                                                    <span class="fw-bold">${persentasewalpjr}</span><br>
-                                                </div>
-                                                ` : `
-                                                <div class="col-md-12">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
-                                                            </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${walpjr[dataPointIndex]}</span><br>
-                                                            </div>
-                                                    </div>
-                                                </div>`}
-                                            </div>
-                                        </div>
-                                    </div>`
-                                        );
-                                    }
-                                }
-                            };
-
-                            var ditgakkumwalpjr = new ApexCharts(document.querySelector("#chart"), ditgakkumwalpjr);
-                            ditgakkumwalpjr.render();
-
-
-                            var ditgakkumtatib = {
-                                series: [{
-                                    name: 'Tatib',
-                                    type: 'line',
-                                    data: turjagwali,
-                                    color: "#CB2D3E"
-                                }],
-                                chart: {
-                                    height: 400,
-                                    type: 'line',
-                                    stacked: false
-                                },
-                                plotOptions: {
-                                    bar: {
-                                        horizontal: false,
-                                        columnWidth: '55%',
-                                        endingShape: 'rounded',
-                                        dataLabels: {
-                                            position: 'top'
-                                        }
-                                    },
-                                },
-                                dataLabels: {
-                                    enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
-                                    offsetY: -15
-                                },
-                                markers: {
-                                    size: 4,
-                                    colors: '#kkk',
-                                    fillOpacity: 0.9,
-                                    shape: "circle",
-                                    radius: 2,
-                                },
-                                xaxis: {
-                                    categories: polda_month,
-                                },
-                                tooltip: {
-                                    custom: function({
-                                        series,
-                                        seriesIndex,
-                                        dataPointIndex,
-                                        seriesName,
-                                        w
-                                    }) {
-                                        if (w.globals.labels[dataPointIndex] == 2) {
-                                            bulansebelumnya = polda_month[0]
-                                            turjagwalisebelumnya = turjagwali[0];
-
-                                            if (turjagwali[0] < turjagwali[1]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[0] > turjagwali[1]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-
-                                        } else if (w.globals.labels[dataPointIndex] == 3) {
-                                            bulansebelumnya = polda_month[1]
-                                            turjagwalisebelumnya = turjagwali[1];
-                                            if (turjagwali[1] < turjagwali[2]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[1] > turjagwali[2]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-
-                                        } else if (w.globals.labels[dataPointIndex] == 4) {
-                                            bulansebelumnya = polda_month[2]
-                                            turjagwalisebelumnya = turjagwali[2];
-                                            if (turjagwali[2] < turjagwali[3]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[2] > turjagwali[3]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 5) {
-                                            bulansebelumnya = polda_month[3]
-                                            turjagwalisebelumnya = turjagwali[3];
-                                            if (turjagwali[3] < turjagwali[4]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[3] > turjagwali[4]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 6) {
-                                            bulansebelumnya = polda_month[4]
-                                            turjagwalisebelumnya = turjagwali[4];
-                                            if (turjagwali[4] < turjagwali[5]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[4] > turjagwali[5]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 7) {
-                                            bulansebelumnya = polda_month[5]
-                                            turjagwalisebelumnya = turjagwali[5];
-                                            if (turjagwali[5] < turjagwali[6]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[5] > turjagwali[6]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 8) {
-                                            bulansebelumnya = polda_month[6]
-                                            turjagwalisebelumnya = turjagwali[6];
-                                            if (turjagwali[6] < turjagwali[7]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[6] > turjagwali[7]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 9) {
-                                            bulansebelumnya = polda_month[7]
-                                            turjagwalisebelumnya = turjagwali[7];
-                                            if (turjagwali[7] < turjagwali[8]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[7] > turjagwali[8]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 10) {
-                                            bulansebelumnya = polda_month[8]
-                                            turjagwalisebelumnya = turjagwali[8];
-                                            if (turjagwali[8] < turjagwali[9]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[8] > turjagwali[9]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 11) {
-                                            bulansebelumnya = polda_month[9]
-                                            turjagwalisebelumnya = turjagwali[9];
-                                            if (turjagwali[9] < turjagwali[10]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[9] > turjagwali[10]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = `Sama`
-                                            }
-
-                                        } else if (w.globals.labels[dataPointIndex] == 12) {
-                                            bulansebelumnya = polda_month[10]
-                                            turjagwalisebelumnya = turjagwali[10];
-                                            if (turjagwali[10] < turjagwali[11]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[10] > turjagwali[11]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-                                        }
-
-                                        return (
-                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                            ${w.globals.labels[dataPointIndex] != 1 ? `
-                                                <div class="col-md-4">
-                                                <div class="my-2  text-center"">   
-                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
-                                                </div>
-                                                    <div class="row">
-                                                        <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total TATIB</span><br>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <span class="fw-bold">${turjagwalisebelumnya}</span><br>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-8">
-                                                            <span class="fw-bold">Total TATIB</span><br>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 text-center">
-                                                <div class="my-2 text-center">
-                                                    <span class="fs-6 fw-bold">Presentase</span>
-                                                </div>
-                                                    <span class="fw-bold">${persentaseturjagwali}</span><br>
-                                                </div>
-                                                ` : `
-                                                <div class="col-md-12">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total TATIB</span><br>
-                                                            </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>
-                                                            </div>
-                                                    </div>
-                                                </div>`}
-                                            </div>
-                                        </div>
-                                    </div>`
-
-                                        );
-                                    }
-                                }
-
-                            };
-
-                            var ditgakkumtatib = new ApexCharts(document.querySelector("#chart2"), ditgakkumtatib);
-                            ditgakkumtatib.render();
-
-
-                            var ditgakkumdakgar = {
-                                series: [{
-                                    name: 'DAKGAR',
-                                    type: 'line',
-                                    data: garlantas,
-                                    color: "#3CA55C"
-                                }],
-                                chart: {
-                                    height: 400,
-                                    type: 'line',
-                                    stacked: false
-                                },
-                                plotOptions: {
-                                    bar: {
-                                        horizontal: false,
-                                        columnWidth: '55%',
-                                        endingShape: 'rounded',
-                                        dataLabels: {
-                                            position: 'top'
-                                        }
-                                    },
-                                },
-                                dataLabels: {
-                                    enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
-                                    offsetY: -15
-                                },
-                                markers: {
-                                    size: 4,
-                                    colors: '#kkk',
-                                    fillOpacity: 0.9,
-                                    shape: "circle",
-                                    radius: 2,
-                                },
-                                xaxis: {
-                                    categories: polda_month,
-                                },
-                                tooltip: {
-                                    custom: function({
-                                        series,
-                                        seriesIndex,
-                                        dataPointIndex,
-                                        seriesName,
-                                        w
-                                    }) {
-                                        if (w.globals.labels[dataPointIndex] == 2) {
-                                            bulansebelumnya = polda_month[0]
-                                            garlantassebelumnya = garlantas[0];
-
-                                            if (garlantas[0] < garlantas[1]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[0] > garlantas[1]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-
-                                        } else if (w.globals.labels[dataPointIndex] == 3) {
-                                            bulansebelumnya = polda_month[1]
-                                            garlantassebelumnya = garlantas[1];
-                                            if (garlantas[1] < garlantas[2]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[1] > garlantas[2]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-
-                                        } else if (w.globals.labels[dataPointIndex] == 4) {
-                                            bulansebelumnya = polda_month[2]
-                                            garlantassebelumnya = garlantas[2];
-                                            if (garlantas[2] < garlantas[3]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[2] > garlantas[3]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 5) {
-                                            bulansebelumnya = polda_month[3]
-                                            garlantassebelumnya = garlantas[3];
-                                            if (garlantas[3] < garlantas[4]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[3] > garlantas[4]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 6) {
-                                            bulansebelumnya = polda_month[4]
-                                            garlantassebelumnya = garlantas[4];
-                                            if (garlantas[4] < garlantas[5]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[4] > garlantas[5]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 7) {
-                                            bulansebelumnya = polda_month[5]
-                                            garlantassebelumnya = garlantas[5];
-                                            if (garlantas[5] < garlantas[6]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[5] > garlantas[6]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 8) {
-                                            bulansebelumnya = polda_month[6]
-                                            garlantassebelumnya = garlantas[6];
-                                            if (garlantas[6] < garlantas[7]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[6] > garlantas[7]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 9) {
-                                            bulansebelumnya = polda_month[7]
-                                            garlantassebelumnya = garlantas[7];
-                                            if (garlantas[7] < garlantas[8]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[7] > garlantas[8]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 10) {
-                                            bulansebelumnya = polda_month[8]
-                                            garlantassebelumnya = garlantas[8];
-                                            if (garlantas[8] < garlantas[9]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[8] > garlantas[9]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-                                        } else if (w.globals.labels[dataPointIndex] == 11) {
-                                            bulansebelumnya = polda_month[9]
-                                            garlantassebelumnya = garlantas[9];
-                                            if (garlantas[9] < garlantas[10]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[9] > garlantas[10]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = `Sama`
-                                            }
-
-                                        } else if (w.globals.labels[dataPointIndex] == 12) {
-                                            bulansebelumnya = polda_month[10]
-                                            garlantassebelumnya = garlantas[10];
-                                            if (garlantas[10] < garlantas[11]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[10] > garlantas[11]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-                                        }
-
-                                        return (
-                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                            ${w.globals.labels[dataPointIndex] != 1 ? `
-                                                <div class="col-md-4">
-                                                <div class="my-2  text-center"">   
-                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
-                                                </div>
-                                                    <div class="row">
-                                                        <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <span class="fw-bold">${garlantassebelumnya}</span><br>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-8">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 text-center">
-                                                <div class="my-2 text-center">
-                                                    <span class="fs-6 fw-bold">Presentase</span>
-                                                </div>
-                                                    <span class="fw-bold">${persentasegarlantas}</span><br>
-                                                </div>
-                                                ` : `
-                                                <div class="col-md-12">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
-                                                            </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>
-                                                            </div>
-                                                    </div>
-                                                </div>`}
-                                            </div>
-                                        </div>
-                                    </div>`
-
-                                        );
-                                    }
-                                }
-
-                            };
-
-                            var ditgakkumdakgar = new ApexCharts(document.querySelector("#chart3"), ditgakkumdakgar);
-                            ditgakkumdakgar.render();
+                            let insiden_kecelakaan = result.data.insiden_kecelakaan
+                            let persentase_kecelakaan = result.data.persentase_kecelakaan
+                            let meninggal_dunia = result.data.meninggal_dunia
+                            let persentase_md = result.data.persentase_md
+                            let luka_berat = result.data.luka_berat
+                            let persentase_lb = result.data.persentase_lb
+                            let luka_ringan = result.data.luka_ringan
+                            let persentase_lr = result.data.persentase_lr
+                            // $('#titlewalpjrmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA WAL & PJR BULANAN</h4>`);
+                            // $('#titletatibmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA TATIB BULANAN</h4>`);
+                            // $('#titlegarlantasmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA GARLANTAS BULANAN</h4>`);
+                            $('#titlelakalantasmonth').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA LAKA BULANAN</h4>`);
 
 
                             var ditgakkumlaka = {
                                 series: [{
-                                    name: 'LAKA',
+                                    name: 'Insiden Kecekalaan',
                                     type: 'line',
-                                    data: lakalantas,
-                                    color: "#EDF12D"
-                                }],
+                                    data: insiden_kecelakaan,
+                                    color: "#5400D8"
+                                }, {
+                                    name: 'Meninggal Dunia',
+                                    type: 'line',
+                                    data: meninggal_dunia,
+                                    color: "#D80000"
+                                }, {
+                                    name: 'Luka Berat',
+                                    type: 'line',
+                                    data: luka_berat,
+                                    color: "#D8A700"
+                                }, {
+                                    name: 'Luka Ringan',
+                                    type: 'line',
+                                    data: luka_ringan,
+                                    color: "#80D800"
+                                }, ],
                                 chart: {
                                     height: 400,
                                     type: 'line',
@@ -1911,118 +1482,140 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            lakalantassebelumnya = lakalantas[0];
-
-                                            if (lakalantas[0] < lakalantas[1]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[0] > lakalantas[1]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
-
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[0];
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            lakalantassebelumnya = lakalantas[1];
-                                            if (lakalantas[1] < lakalantas[2]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[1] > lakalantas[2]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
-
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[1];
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
-                                            lakalantassebelumnya = lakalantas[2];
-                                            if (lakalantas[2] < lakalantas[3]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[2] > lakalantas[3]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[2];
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
-                                            lakalantassebelumnya = lakalantas[3];
-                                            if (lakalantas[3] < lakalantas[4]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[3] > lakalantas[4]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[3];
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[4]
-                                            lakalantassebelumnya = lakalantas[4];
-                                            if (lakalantas[4] < lakalantas[5]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[4] > lakalantas[5]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[4];
                                         } else if (w.globals.labels[dataPointIndex] == 7) {
                                             bulansebelumnya = polda_month[5]
-                                            lakalantassebelumnya = lakalantas[5];
-                                            if (lakalantas[5] < lakalantas[6]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[5] > lakalantas[6]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[5];
                                         } else if (w.globals.labels[dataPointIndex] == 8) {
                                             bulansebelumnya = polda_month[6]
-                                            lakalantassebelumnya = lakalantas[6];
-                                            if (lakalantas[6] < lakalantas[7]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[6] > lakalantas[7]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[6];
                                         } else if (w.globals.labels[dataPointIndex] == 9) {
                                             bulansebelumnya = polda_month[7]
-                                            lakalantassebelumnya = lakalantas[7];
-                                            if (lakalantas[7] < lakalantas[8]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[7] > lakalantas[8]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[7];
                                         } else if (w.globals.labels[dataPointIndex] == 10) {
                                             bulansebelumnya = polda_month[8]
-                                            lakalantassebelumnya = lakalantas[8];
-                                            if (lakalantas[8] < lakalantas[9]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[8] > lakalantas[9]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[8];
                                         } else if (w.globals.labels[dataPointIndex] == 11) {
                                             bulansebelumnya = polda_month[9]
-                                            lakalantassebelumnya = lakalantas[9];
-                                            if (lakalantas[9] < lakalantas[10]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[9] > lakalantas[10]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = `Sama`
-                                            }
-
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[9];
                                         } else if (w.globals.labels[dataPointIndex] == 12) {
                                             bulansebelumnya = polda_month[10]
-                                            lakalantassebelumnya = lakalantas[10];
-                                            if (lakalantas[10] < lakalantas[11]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[10] > lakalantas[11]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[10];
+                                        }
+
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            meninggal_duniasebelumnya = meninggal_dunia[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            meninggal_duniasebelumnya = meninggal_dunia[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            meninggal_duniasebelumnya = meninggal_dunia[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            meninggal_duniasebelumnya = meninggal_dunia[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            meninggal_duniasebelumnya = meninggal_dunia[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            meninggal_duniasebelumnya = meninggal_dunia[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 8) {
+                                            bulansebelumnya = polda_month[6]
+                                            meninggal_duniasebelumnya = meninggal_dunia[6];
+                                        } else if (w.globals.labels[dataPointIndex] == 9) {
+                                            bulansebelumnya = polda_month[7]
+                                            meninggal_duniasebelumnya = meninggal_dunia[7];
+                                        } else if (w.globals.labels[dataPointIndex] == 10) {
+                                            bulansebelumnya = polda_month[8]
+                                            meninggal_duniasebelumnya = meninggal_dunia[8];
+                                        } else if (w.globals.labels[dataPointIndex] == 11) {
+                                            bulansebelumnya = polda_month[9]
+                                            meninggal_duniasebelumnya = meninggal_dunia[9];
+                                        } else if (w.globals.labels[dataPointIndex] == 12) {
+                                            bulansebelumnya = polda_month[10]
+                                            meninggal_duniasebelumnya = meninggal_dunia[10];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            luka_beratsebelumnya = luka_berat[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            luka_beratsebelumnya = luka_berat[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            luka_beratsebelumnya = luka_berat[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            luka_beratsebelumnya = luka_berat[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            luka_beratsebelumnya = luka_berat[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            luka_beratsebelumnya = luka_berat[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 8) {
+                                            bulansebelumnya = polda_month[6]
+                                            luka_beratsebelumnya = luka_berat[6];
+                                        } else if (w.globals.labels[dataPointIndex] == 9) {
+                                            bulansebelumnya = polda_month[7]
+                                            luka_beratsebelumnya = luka_berat[7];
+                                        } else if (w.globals.labels[dataPointIndex] == 10) {
+                                            bulansebelumnya = polda_month[8]
+                                            luka_beratsebelumnya = luka_berat[8];
+                                        } else if (w.globals.labels[dataPointIndex] == 11) {
+                                            bulansebelumnya = polda_month[9]
+                                            luka_beratsebelumnya = luka_berat[9];
+                                        } else if (w.globals.labels[dataPointIndex] == 12) {
+                                            bulansebelumnya = polda_month[10]
+                                            luka_beratsebelumnya = luka_berat[10];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            luka_ringansebelumnya = luka_ringan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            luka_ringansebelumnya = luka_ringan[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            luka_ringansebelumnya = luka_ringan[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            luka_ringansebelumnya = luka_ringan[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            luka_ringansebelumnya = luka_ringan[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            luka_ringansebelumnya = luka_ringan[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 8) {
+                                            bulansebelumnya = polda_month[6]
+                                            luka_ringansebelumnya = luka_ringan[6];
+                                        } else if (w.globals.labels[dataPointIndex] == 9) {
+                                            bulansebelumnya = polda_month[7]
+                                            luka_ringansebelumnya = luka_ringan[7];
+                                        } else if (w.globals.labels[dataPointIndex] == 10) {
+                                            bulansebelumnya = polda_month[8]
+                                            luka_ringansebelumnya = luka_ringan[8];
+                                        } else if (w.globals.labels[dataPointIndex] == 11) {
+                                            bulansebelumnya = polda_month[9]
+                                            luka_ringansebelumnya = luka_ringan[9];
+                                        } else if (w.globals.labels[dataPointIndex] == 12) {
+                                            bulansebelumnya = polda_month[10]
+                                            luka_ringansebelumnya = luka_ringan[10];
                                         }
 
                                         return (
@@ -2034,12 +1627,18 @@
                                                 <div class="my-2  text-center"">   
                                                     <span class="fs-6 fw-bold">${bulansebelumnya}</span>
                                                 </div>
-                                                    <div class="row">
+                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
                                                             <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total MD</span><br>
+                                                            <span class="fw-bold">Total LB</span><br>
+                                                            <span class="fw-bold">Total LR</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${lakalantassebelumnya}</span><br>
+                                                            <span class="fw-bold">${insiden_kecelakaansebelumnya}</span><br>
+                                                            <span class="fw-bold">${meninggal_duniasebelumnya}</span><br>
+                                                            <span class="fw-bold">${luka_beratsebelumnya}</span><br>
+                                                            <span class="fw-bold">${luka_ringansebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -2050,30 +1649,46 @@
                                                 <div class="row">
                                                         <div class="col-md-8">
                                                             <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total MD</span><br>
+                                                            <span class="fw-bold">Total LB</span><br>
+                                                            <span class="fw-bold">Total LR</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${insiden_kecelakaan[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${meninggal_dunia[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${luka_berat[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${luka_ringan[dataPointIndex]}</span><br>         
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentaselakalantas}</span><br>
+                                                    <span class="fw-bold">${persentase_kecelakaan[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_md[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_lb[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_lr[dataPointIndex]} %</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total LAKA</span><br>
-                                                            </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>
-                                                            </div>
+                                                    <div class="my-2 text-center">    
+                                                        <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
                                                     </div>
+                                                        <div class="row">
+                                                            <div class="col-md-8 ms-2">
+                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                                <span class="fw-bold">Total MD</span><br>
+                                                                <span class="fw-bold">Total LB</span><br>
+                                                                <span class="fw-bold">Total LR</span><br>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <span class="fw-bold">${insiden_kecelakaan[dataPointIndex]}</span><br>
+                                                                <span class="fw-bold">${meninggal_dunia[dataPointIndex]}</span><br>
+                                                                <span class="fw-bold">${luka_berat[dataPointIndex]}</span><br>
+                                                                <span class="fw-bold">${luka_ringan[dataPointIndex]}</span><br> 
+                                                            </div>
+                                                        </div>
                                                 </div>`}
                                             </div>
                                         </div>
@@ -2089,13 +1704,844 @@
                             ditgakkumlaka.render();
                         }
                     })
+
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>ditgakkum/getChartGarlantas",
+                        data: {
+                            start_date: firstDay,
+                            end_date: lastDay,
+                            filter: 'month'
+                        },
+                        dataType: "JSON",
+                        success: function(result) {
+                            let polda_month = result.data.polda_month
+                            let pelanggaran_berat = result.data.pelanggaran_berat
+                            let persentase_pb = result.data.persentase_pb
+                            let pelanggaran_sedang = result.data.pelanggaran_sedang
+                            let persentase_ps = result.data.persentase_ps
+                            let pelanggaran_ringan = result.data.pelanggaran_ringan
+                            let persentase_pr = result.data.persentase_pr
+                            let teguran = result.data.teguran
+                            let persentase_tg = result.data.persentase_tg
+                            $('#titlegarlantasmonth').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA GARLANTAS BULANAN</h4>`);
+
+
+
+                            var ditgakkumdakgar = {
+                                series: [{
+                                    name: 'Pelanggaran Berat',
+                                    type: 'line',
+                                    data: pelanggaran_berat,
+                                    color: "#D80000"
+                                }, {
+                                    name: 'Pelanggaran Sedang',
+                                    type: 'line',
+                                    data: pelanggaran_sedang,
+                                    color: "#D8A700"
+                                }, {
+                                    name: 'Pelanggaran Ringan',
+                                    type: 'line',
+                                    data: pelanggaran_ringan,
+                                    color: "#80D800"
+                                }, {
+                                    name: 'Teguran',
+                                    type: 'line',
+                                    data: teguran,
+                                    color: "#5400D8"
+                                }, ],
+                                chart: {
+                                    height: 400,
+                                    type: 'line',
+                                    stacked: false
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: false,
+                                        columnWidth: '55%',
+                                        endingShape: 'rounded',
+                                        dataLabels: {
+                                            position: 'top'
+                                        }
+                                    },
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    style: {
+                                        colors: ['#333']
+                                    },
+                                    offsetY: -15
+                                },
+                                markers: {
+                                    size: 4,
+                                    colors: '#kkk',
+                                    fillOpacity: 0.9,
+                                    shape: "circle",
+                                    radius: 2,
+                                },
+                                xaxis: {
+                                    categories: polda_month,
+                                },
+                                tooltip: {
+                                    custom: function({
+                                        series,
+                                        seriesIndex,
+                                        dataPointIndex,
+                                        seriesName,
+                                        w
+                                    }) {
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 8) {
+                                            bulansebelumnya = polda_month[6]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[6];
+                                        } else if (w.globals.labels[dataPointIndex] == 9) {
+                                            bulansebelumnya = polda_month[7]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[7];
+                                        } else if (w.globals.labels[dataPointIndex] == 10) {
+                                            bulansebelumnya = polda_month[8]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[8];
+                                        } else if (w.globals.labels[dataPointIndex] == 11) {
+                                            bulansebelumnya = polda_month[9]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[9];
+                                        } else if (w.globals.labels[dataPointIndex] == 12) {
+                                            bulansebelumnya = polda_month[10]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[10];
+                                        }
+
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 8) {
+                                            bulansebelumnya = polda_month[6]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[6];
+                                        } else if (w.globals.labels[dataPointIndex] == 9) {
+                                            bulansebelumnya = polda_month[7]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[7];
+                                        } else if (w.globals.labels[dataPointIndex] == 10) {
+                                            bulansebelumnya = polda_month[8]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[8];
+                                        } else if (w.globals.labels[dataPointIndex] == 11) {
+                                            bulansebelumnya = polda_month[9]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[9];
+                                        } else if (w.globals.labels[dataPointIndex] == 12) {
+                                            bulansebelumnya = polda_month[10]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[10];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 8) {
+                                            bulansebelumnya = polda_month[6]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[6];
+                                        } else if (w.globals.labels[dataPointIndex] == 9) {
+                                            bulansebelumnya = polda_month[7]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[7];
+                                        } else if (w.globals.labels[dataPointIndex] == 10) {
+                                            bulansebelumnya = polda_month[8]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[8];
+                                        } else if (w.globals.labels[dataPointIndex] == 11) {
+                                            bulansebelumnya = polda_month[9]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[9];
+                                        } else if (w.globals.labels[dataPointIndex] == 12) {
+                                            bulansebelumnya = polda_month[10]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[10];
+                                        }
+
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            teguransebelumnya = teguran[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            teguransebelumnya = teguran[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            teguransebelumnya = teguran[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            teguransebelumnya = teguran[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            teguransebelumnya = teguran[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            teguransebelumnya = teguran[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 8) {
+                                            bulansebelumnya = polda_month[6]
+                                            teguransebelumnya = teguran[6];
+                                        } else if (w.globals.labels[dataPointIndex] == 9) {
+                                            bulansebelumnya = polda_month[7]
+                                            teguransebelumnya = teguran[7];
+                                        } else if (w.globals.labels[dataPointIndex] == 10) {
+                                            bulansebelumnya = polda_month[8]
+                                            teguransebelumnya = teguran[8];
+                                        } else if (w.globals.labels[dataPointIndex] == 11) {
+                                            bulansebelumnya = polda_month[9]
+                                            teguransebelumnya = teguran[9];
+                                        } else if (w.globals.labels[dataPointIndex] == 12) {
+                                            bulansebelumnya = polda_month[10]
+                                            teguransebelumnya = teguran[10];
+                                        }
+
+                                        return (
+                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                            ${w.globals.labels[dataPointIndex] != 1 ? `
+                                                <div class="col-md-4">
+                                                <div class="my-2  text-center"">   
+                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
+                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-md-8 ms-1">
+                                                            <span class="fw-bold">Total PB</span><br>
+                                                            <span class="fw-bold">Total PS</span><br>
+                                                            <span class="fw-bold">Total PR</span><br>
+                                                            <span class="fw-bold">Total TG</span><br>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <span class="fw-bold">${pelanggaran_beratsebelumnya}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_sedangsebelumnya}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_ringansebelumnya}</span><br>
+                                                            <span class="fw-bold">${teguransebelumnya}</span><br>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="col-md-4">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-8">
+                                                            <span class="fw-bold">Total PB</span><br>
+                                                            <span class="fw-bold">Total PS</span><br>
+                                                            <span class="fw-bold">Total PR</span><br>
+                                                            <span class="fw-bold">Total TG</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${pelanggaran_berat[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_sedang[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_ringan[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${teguran[dataPointIndex]}</span><br>        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 text-center">
+                                                <div class="my-2 text-center">
+                                                    <span class="fs-6 fw-bold">Presentase</span>
+                                                </div>
+                                                    <span class="fw-bold">${persentase_pb[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_ps[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_pr[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_tg[dataPointIndex]} %</span><br>
+                                                </div>
+                                                ` : `
+                                                <div class="col-md-12">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-7 ms-2">
+                                                            <span class="fw-bold">Total PB</span><br>
+                                                            <span class="fw-bold">Total PS</span><br>
+                                                            <span class="fw-bold">Total PR</span><br>
+                                                            <span class="fw-bold">Total TG</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${pelanggaran_berat[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_sedang[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_ringan[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${teguran[dataPointIndex]}</span><br>         
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>`}
+                                            </div>
+                                        </div>
+                                    </div>`
+
+                                        );
+                                    }
+                                }
+                            }
+                            var ditgakkumdakgar = new ApexCharts(document.querySelector("#chart3"), ditgakkumdakgar);
+                            ditgakkumdakgar.render();
+                        }
+                    })
+
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>ditgakkum/getChartTatib",
+                        data: {
+                            start_date: firstDay,
+                            end_date: lastDay,
+                            filter: 'month'
+                        },
+                        dataType: "JSON",
+                        success: function(result) {
+                            let polda_month = result.data.polda_month
+                            let pengaturan = result.data.pengaturan
+                            let persentase_pengaturan = result.data.persentase_pengaturan
+                            let pengawalan = result.data.pengawalan
+                            let persentase_pengawalan = result.data.persentase_pengawalan
+                            let penjagaan = result.data.penjagaan
+                            let persentase_penjagaan = result.data.persentase_penjagaan
+                            let patroli = result.data.patroli
+                            let persentase_patroli = result.data.persentase_patroli
+                            $('#titletatibmonth').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA TATIB BULANAN</h4>`);
+
+
+                            var ditgakkumtatib = {
+                                series: [{
+                                    name: 'Pengaturan',
+                                    type: 'line',
+                                    data: pengaturan,
+                                    color: "#5400D8"
+                                }, {
+                                    name: 'Pengawalan',
+                                    type: 'line',
+                                    data: pengawalan,
+                                    color: "#D80000"
+                                }, {
+                                    name: 'Penjagaan',
+                                    type: 'line',
+                                    data: penjagaan,
+                                    color: "#D8A700"
+                                }, {
+                                    name: 'Patroli',
+                                    type: 'line',
+                                    data: patroli,
+                                    color: "#80D800"
+                                }, ],
+                                chart: {
+                                    height: 400,
+                                    type: 'line',
+                                    stacked: false
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: false,
+                                        columnWidth: '55%',
+                                        endingShape: 'rounded',
+                                        dataLabels: {
+                                            position: 'top'
+                                        }
+                                    },
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    style: {
+                                        colors: ['#333']
+                                    },
+                                    offsetY: -15
+                                },
+                                markers: {
+                                    size: 4,
+                                    colors: '#kkk',
+                                    fillOpacity: 0.9,
+                                    shape: "circle",
+                                    radius: 2,
+                                },
+                                xaxis: {
+                                    categories: polda_month,
+                                },
+                                tooltip: {
+                                    custom: function({
+                                        series,
+                                        seriesIndex,
+                                        dataPointIndex,
+                                        seriesName,
+                                        w
+                                    }) {
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pengaturansebelumnya = pengaturan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pengaturansebelumnya = pengaturan[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pengaturansebelumnya = pengaturan[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            pengaturansebelumnya = pengaturan[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            pengaturansebelumnya = pengaturan[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            pengaturansebelumnya = pengaturan[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 8) {
+                                            bulansebelumnya = polda_month[6]
+                                            pengaturansebelumnya = pengaturan[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 9) {
+                                            bulansebelumnya = polda_month[7]
+                                            pengaturansebelumnya = pengaturan[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 10) {
+                                            bulansebelumnya = polda_month[8]
+                                            pengaturansebelumnya = pengaturan[8];
+                                        } else if (w.globals.labels[dataPointIndex] == 11) {
+                                            bulansebelumnya = polda_month[9]
+                                            pengaturansebelumnya = pengaturan[9];
+                                        } else if (w.globals.labels[dataPointIndex] == 12) {
+                                            bulansebelumnya = polda_month[10]
+                                            pengaturansebelumnya = pengaturan[10];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pengawalansebelumnya = pengawalan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pengawalansebelumnya = pengawalan[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pengawalansebelumnya = pengawalan[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            pengawalansebelumnya = pengawalan[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            pengawalansebelumnya = pengawalan[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            pengawalansebelumnya = pengawalan[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 8) {
+                                            bulansebelumnya = polda_month[6]
+                                            pengawalansebelumnya = pengawalan[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 9) {
+                                            bulansebelumnya = polda_month[7]
+                                            pengawalansebelumnya = pengawalan[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 10) {
+                                            bulansebelumnya = polda_month[8]
+                                            pengawalansebelumnya = pengawalan[8];
+                                        } else if (w.globals.labels[dataPointIndex] == 11) {
+                                            bulansebelumnya = polda_month[9]
+                                            pengawalansebelumnya = pengawalan[9];
+                                        } else if (w.globals.labels[dataPointIndex] == 12) {
+                                            bulansebelumnya = polda_month[10]
+                                            pengawalansebelumnya = pengawalan[10];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            penjagaansebelumnya = penjagaan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            penjagaansebelumnya = penjagaan[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            penjagaansebelumnya = penjagaan[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            penjagaansebelumnya = penjagaan[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            penjagaansebelumnya = penjagaan[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            penjagaansebelumnya = penjagaan[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 8) {
+                                            bulansebelumnya = polda_month[6]
+                                            penjagaansebelumnya = penjagaan[6];
+                                        } else if (w.globals.labels[dataPointIndex] == 9) {
+                                            bulansebelumnya = polda_month[7]
+                                            penjagaansebelumnya = penjagaan[7];
+                                        } else if (w.globals.labels[dataPointIndex] == 10) {
+                                            bulansebelumnya = polda_month[8]
+                                            penjagaansebelumnya = penjagaan[8]
+                                        } else if (w.globals.labels[dataPointIndex] == 11) {
+                                            bulansebelumnya = polda_month[9]
+                                            penjagaansebelumnya = penjagaan[9]
+                                        } else if (w.globals.labels[dataPointIndex] == 12) {
+                                            bulansebelumnya = polda_month[10]
+                                            penjagaansebelumnya = penjagaan[10]
+                                        }
+
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            patrolisebelumnya = patroli[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            patrolisebelumnya = patroli[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            patrolisebelumnya = patroli[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            patrolisebelumnya = patroli[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            patrolisebelumnya = patroli[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            patrolisebelumnya = patroli[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 8) {
+                                            bulansebelumnya = polda_month[6]
+                                            patrolisebelumnya = patroli[6];
+                                        } else if (w.globals.labels[dataPointIndex] == 9) {
+                                            bulansebelumnya = polda_month[7]
+                                            patrolisebelumnya = patroli[7];
+                                        } else if (w.globals.label[dataPointIndex] == 10) {
+                                            bulansebelumnya = polda_month[8]
+                                            patrolisebelumnya = patroli[8]
+                                        } else if (w.globals.labels[dataPoin8Index] == 11) {
+                                            bulansebelumnya = polda_month[9]
+                                            patrolisebelumnya = patroli[9];
+                                        } else if (w.globals.labels[dataPointIndex] == 12) {
+                                            bulansebelumnya = polda_month[10]
+                                            patrolisebelumnya = patroli[10];
+                                        }
+                                        return (
+                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                        ${w.globals.labels[dataPointIndex] != 1 ? `
+                                            <div class="col-md-4">
+                                            <div class="my-2  text-center"">   
+                                                <span class="fs-6 fw-bold">${bulansebelumnya}</span>
+                                            </div>
+                                                <div class="row">
+                                                    <div class="col-md-8 ms-1">
+                                                        <span class="fw-bold">Total Pengaturan</span><br>
+                                                        <span class="fw-bold">Total Pengawalan</span><br>
+                                                        <span class="fw-bold">Total Penjagaan</span><br>
+                                                        <span class="fw-bold">Total Patroli</span><br>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <span class="fw-bold">${pengaturansebelumnya}</span><br>
+                                                        <span class="fw-bold">${pengawalansebelumnya}</span><br>
+                                                        <span class="fw-bold">${penjagaansebelumnya}</span><br>
+                                                        <span class="fw-bold">${patrolisebelumnya}</span><br>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            <div class="col-md-4">
+                                            <div class="my-2 text-center">    
+                                                <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-8">
+                                                        <span class="fw-bold">Total Pengaturan</span><br>
+                                                        <span class="fw-bold">Total Pengawalan</span><br>
+                                                        <span class="fw-bold">Total Penjagaan</span><br>
+                                                        <span class="fw-bold">Total Patroli</span><br>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span class="fw-bold">${pengaturan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${pengawalan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${penjagaan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${patroli[dataPointIndex]}</span><br>        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 text-center">
+                                            <div class="my-2 text-center">
+                                                <span class="fs-6 fw-bold">Presentase</span>
+                                            </div>
+                                                <span class="fw-bold">${persentase_pengaturan[dataPointIndex]} %</span><br>
+                                                <span class="fw-bold">${persentase_pengawalan[dataPointIndex]} %</span><br>
+                                                <span class="fw-bold">${persentase_penjagaan[dataPointIndex]} %</span><br>
+                                                <span class="fw-bold">${persentase_patroli[dataPointIndex]} %</span><br>
+                                            </div>
+                                            ` : `
+                                            <div class="col-md-12">
+                                            <div class="my-2 text-center">    
+                                                <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-7 ms-2">
+                                                        <span class="fw-bold">Total Pengaturan</span><br>
+                                                        <span class="fw-bold">Total Pengawalan</span><br>
+                                                        <span class="fw-bold">Total Penjagaan</span><br>
+                                                        <span class="fw-bold">Total Patroli</span><br>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span class="fw-bold">${pengaturan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${pengawalan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${penjagaan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${patroli[dataPointIndex]}</span><br>         
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>`}
+                                        </div>
+                                    </div>
+                                </div>`
+
+                                        );
+                                    }
+                                }
+                            };
+
+                            var ditgakkumtatib = new ApexCharts(document.querySelector("#chart2"), ditgakkumtatib);
+                            ditgakkumtatib.render();
+                        }
+                    })
+
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>ditgakkum/getChartWalPjr",
+                        data: {
+                            start_date: firstDay,
+                            end_date: lastDay,
+                            filter: 'month'
+                        },
+                        dataType: "JSON",
+                        success: function(result) {
+                            let polda_month = result.data.polda_month
+                            let wal = result.data.wal
+                            let persentase_wal = result.data.persentase_wal
+                            let pjr = result.data.pjr
+                            let persentase_pjr = result.data.persentase_pjr
+
+
+                            $('#titlewalpjrmonth').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA WAL & PJR BULANAN</h4>`);
+
+                            var ditgakkumwalpjr = {
+                                series: [{
+                                    name: 'WAL',
+                                    type: 'line',
+                                    data: wal,
+                                    color: "#5400D8"
+                                }, {
+                                    name: 'PJR',
+                                    type: 'line',
+                                    data: pjr,
+                                    color: "#D80000"
+                                }, ],
+                                chart: {
+                                    height: 400,
+                                    type: 'line',
+                                    stacked: false
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: false,
+                                        columnWidth: '55%',
+                                        endingShape: 'rounded',
+                                        dataLabels: {
+                                            position: 'top'
+                                        }
+                                    },
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    style: {
+                                        colors: ['#333']
+                                    },
+                                    offsetY: -15
+                                },
+                                markers: {
+                                    size: 4,
+                                    colors: '#kkk',
+                                    fillOpacity: 0.9,
+                                    shape: "circle",
+                                    radius: 2,
+                                },
+                                xaxis: {
+                                    categories: polda_month,
+                                },
+
+                                tooltip: {
+                                    custom: function({
+                                        series,
+                                        seriesIndex,
+                                        dataPointIndex,
+                                        seriesName,
+                                        w
+                                    }) {
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            walsebelumnya = wal[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            walsebelumnya = wal[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            walsebelumnya = wal[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            walsebelumnya = wal[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            walsebelumnya = wal[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            walsebelumnya = wal[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 8) {
+                                            bulansebelumnya = polda_month[6]
+                                            walsebelumnya = wal[6];
+                                        } else if (w.globals.labels[dataPointIndex] == 9) {
+                                            bulansebelumnya = polda_month[7]
+                                            walsebelumnya = wal[7];
+                                        } else if (w.globals.labels[dataPointIndex] == 10) {
+                                            bulansebelumnya = polda_month[8]
+                                            walsebelumnya = wal[8];
+                                        } else if (w.globals.labels[dataPointIndex] == 11) {
+                                            bulansebelumnya = polda_month[9]
+                                            walsebelumnya = wal[9];
+                                        } else if (w.globals.labels[dataPointIndex] == 12) {
+                                            bulansebelumnya = polda_month[10]
+                                            walsebelumnya = wal[10];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pjrsebelumnya = pjr[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pjrsebelumnya = pjr[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pjrsebelumnya = pjr[2];
+                                        } else if (w.globals.labels[dataPointIndex] == 5) {
+                                            bulansebelumnya = polda_month[3]
+                                            pjrsebelumnya = pjr[3];
+                                        } else if (w.globals.labels[dataPointIndex] == 6) {
+                                            bulansebelumnya = polda_month[4]
+                                            pjrsebelumnya = pjr[4];
+                                        } else if (w.globals.labels[dataPointIndex] == 7) {
+                                            bulansebelumnya = polda_month[5]
+                                            pjrsebelumnya = pjr[5];
+                                        } else if (w.globals.labels[dataPointIndex] == 8) {
+                                            bulansebelumnya = polda_month[6]
+                                            pjrsebelumnya = pjr[6];
+                                        } else if (w.globals.labels[dataPointIndex] == 9) {
+                                            bulansebelumnya = polda_month[7]
+                                            pjrsebelumnya = pjr[7];
+                                        } else if (w.globals.labels[dataPointIndex] == 10) {
+                                            bulansebelumnya = polda_month[8]
+                                            pjrsebelumnya = pjr[8];
+                                        } else if (w.globals.labels[dataPointIndex] == 11) {
+                                            bulansebelumnya = polda_month[9]
+                                            pjrsebelumnya = pjr[9];
+                                        } else if (w.globals.labels[dataPointIndex] == 12) {
+                                            bulansebelumnya = polda_month[10]
+                                            pjrsebelumnya = pjr[10];
+                                        }
+                                        return (
+                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                            ${w.globals.labels[dataPointIndex] != 1 ? `
+                                                <div class="col-md-4">
+                                                <div class="my-2  text-center"">   
+                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
+                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-md-8 ms-1">
+                                                            <span class="fw-bold">Total WAL</span><br>
+                                                            <span class="fw-bold">Total PJR</span><br>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <span class="fw-bold">${walsebelumnya}</span><br>
+                                                            <span class="fw-bold">${pjrsebelumnya}</span><br>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="col-md-4">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-8">
+                                                            <span class="fw-bold">Total WAL</span><br>
+                                                            <span class="fw-bold">Total PJR</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${wal[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pjr[dataPointIndex]}</span><br>         
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 text-center">
+                                                <div class="my-2 text-center">
+                                                    <span class="fs-6 fw-bold">Presentase</span>
+                                                </div>
+                                                    <span class="fw-bold">${persentase_wal[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_pjr[dataPointIndex]} %</span><br>
+                                                </div>
+                                                ` : `
+                                                <div class="col-md-12">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-7 ms-2">
+                                                            <span class="fw-bold">Total WAL</span><br>
+                                                            <span class="fw-bold">Total PJR</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${wal[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pjr[dataPointIndex]}</span><br>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>`}
+                                            </div>
+                                        </div>
+                                    </div>`
+
+                                        );
+                                    }
+                                }
+                            };
+                            var ditgakkumwalpjr = new ApexCharts(document.querySelector("#chart"), ditgakkumwalpjr);
+                            ditgakkumwalpjr.render();
+                        }
+                    })
                 }
+
 
                 // Year
                 function getDitgakkumyear(three_yearAgo, lastDay) {
                     $.ajax({
                         type: "POST",
-                        url: "<?php echo base_url(); ?>ditgakkum/getChartDitgakkum",
+                        url: "<?php echo base_url(); ?>ditgakkum/getChartLaka",
                         data: {
                             start_date: three_yearAgo,
                             end_date: lastDay,
@@ -2104,428 +2550,41 @@
                         dataType: "JSON",
                         success: function(result) {
                             let polda_month = result.data.polda_month
-                            let walpjr = result.data.walpjr
-                            let turjagwali = result.data.turjagwali
-                            let garlantas = result.data.garlantas
-                            let lakalantas = result.data.lakalantas
-                            $('#titlewalpjryear').html(`<h4 class="card-title mb-0 text-uppercase">DATA WAL & PJR TAHUNAN</h4>`);
-                            $('#titletatibyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA TATIB TAHUNAN</h4>`);
-                            $('#titlegarlantasyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA GARLANTAS TAHUNAN</h4>`);
-                            $('#titlelakalantasyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA LAKA TAHUNAN</h4>`);
-
-                            var ditgakkumwalpjryear = {
-                                series: [{
-                                    name: 'WAL & PJR',
-                                    type: 'line',
-                                    data: walpjr,
-                                    color: "#11347A"
-                                }],
-                                chart: {
-                                    height: 400,
-                                    type: 'line',
-                                    stacked: false
-                                },
-                                plotOptions: {
-                                    bar: {
-                                        horizontal: false,
-                                        columnWidth: '55%',
-                                        endingShape: 'rounded',
-                                        dataLabels: {
-                                            position: 'top'
-                                        }
-                                    },
-                                },
-                                dataLabels: {
-                                    enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
-                                    offsetY: -15
-                                },
-                                markers: {
-                                    size: 4,
-                                    colors: '#kkk',
-                                    fillOpacity: 0.9,
-                                    shape: "circle",
-                                    radius: 2,
-                                },
-                                xaxis: {
-                                    categories: polda_month,
-                                },
-                                tooltip: {
-                                    custom: function({
-                                        series,
-                                        seriesIndex,
-                                        dataPointIndex,
-                                        seriesName,
-                                        w
-                                    }) {
-                                        if (w.globals.labels[dataPointIndex] == 2) {
-                                            bulansebelumnya = polda_month[0]
-                                            walpjrsebelumnya = walpjr[0];
-
-                                            if (walpjr[0] < walpjr[1]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[0] > walpjr[1]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
-
-                                        } else if (w.globals.labels[dataPointIndex] == 3) {
-                                            bulansebelumnya = polda_month[1]
-                                            walpjrsebelumnya = walpjr[1];
-                                            if (walpjr[1] < walpjr[2]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[1] > walpjr[2]) {
-                                                persentasewalpjr = 'Turun'
-                                            } else {
-                                                persentasewalpjr = 'Sama'
-                                            }
-
-                                        }
-
-                                        return (
-                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                            ${w.globals.labels[dataPointIndex] != 1 ? `
-                                                <div class="col-md-4">
-                                                <div class="my-2  text-center"">   
-                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
-                                                </div>
-                                                    <div class="row">
-                                                        <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <span class="fw-bold">${walpjrsebelumnya}</span><br>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-8">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${walpjr[dataPointIndex]}</span><br>                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 text-center">
-                                                <div class="my-2 text-center">
-                                                    <span class="fs-6 fw-bold">Presentase</span>
-                                                </div>
-                                                    <span class="fw-bold">${persentasewalpjr}</span><br>
-                                                </div>
-                                                ` : `
-                                                <div class="col-md-12">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
-                                                            </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${walpjr[dataPointIndex]}</span><br>
-                                                            </div>
-                                                    </div>
-                                                </div>`}
-                                            </div>
-                                        </div>
-                                    </div>`
-                                        );
-                                    }
-                                }
-                            };
-
-                            var ditgakkumwalpjryear = new ApexCharts(document.querySelector("#chartyear"), ditgakkumwalpjryear);
-                            ditgakkumwalpjryear.render();
-
-
-                            var ditgakkumtatibyear = {
-                                series: [{
-                                    name: 'Tatib',
-                                    type: 'line',
-                                    data: turjagwali,
-                                    color: "#CB2D3E"
-                                }],
-                                chart: {
-                                    height: 400,
-                                    type: 'line',
-                                    stacked: false
-                                },
-                                plotOptions: {
-                                    bar: {
-                                        horizontal: false,
-                                        columnWidth: '55%',
-                                        endingShape: 'rounded',
-                                        dataLabels: {
-                                            position: 'top'
-                                        }
-                                    },
-                                },
-                                dataLabels: {
-                                    enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
-                                    offsetY: -15
-                                },
-                                markers: {
-                                    size: 4,
-                                    colors: '#kkk',
-                                    fillOpacity: 0.9,
-                                    shape: "circle",
-                                    radius: 2,
-                                },
-                                xaxis: {
-                                    categories: polda_month,
-                                },
-                                tooltip: {
-                                    custom: function({
-                                        series,
-                                        seriesIndex,
-                                        dataPointIndex,
-                                        seriesName,
-                                        w
-                                    }) {
-                                        if (w.globals.labels[dataPointIndex] == 2) {
-                                            bulansebelumnya = polda_month[0]
-                                            turjagwalisebelumnya = turjagwali[0];
-
-                                            if (turjagwali[0] < turjagwali[1]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[0] > turjagwali[1]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-
-                                        } else if (w.globals.labels[dataPointIndex] == 3) {
-                                            bulansebelumnya = polda_month[1]
-                                            turjagwalisebelumnya = turjagwali[1];
-                                            if (turjagwali[1] < turjagwali[2]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[1] > turjagwali[2]) {
-                                                persentaseturjagwali = 'Turun'
-                                            } else {
-                                                persentaseturjagwali = 'Sama'
-                                            }
-
-                                        }
-
-                                        return (
-                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                            ${w.globals.labels[dataPointIndex] != 1 ? `
-                                                <div class="col-md-4">
-                                                <div class="my-2  text-center"">   
-                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
-                                                </div>
-                                                    <div class="row">
-                                                        <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total TATIB</span><br>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <span class="fw-bold">${turjagwalisebelumnya}</span><br>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-8">
-                                                            <span class="fw-bold">Total TATIB</span><br>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 text-center">
-                                                <div class="my-2 text-center">
-                                                    <span class="fs-6 fw-bold">Presentase</span>
-                                                </div>
-                                                    <span class="fw-bold">${persentaseturjagwali}</span><br>
-                                                </div>
-                                                ` : `
-                                                <div class="col-md-12">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total TATIB</span><br>
-                                                            </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>
-                                                            </div>
-                                                    </div>
-                                                </div>`}
-                                            </div>
-                                        </div>
-                                    </div>`
-
-                                        );
-                                    }
-                                }
-
-                            };
-
-                            var ditgakkumtatibyear = new ApexCharts(document.querySelector("#chartyear2"), ditgakkumtatibyear);
-                            ditgakkumtatibyear.render();
-
-
-                            var ditgakkumdakgaryear = {
-                                series: [{
-                                    name: 'DAKGAR',
-                                    type: 'line',
-                                    data: garlantas,
-                                    color: "#3CA55C"
-                                }],
-                                chart: {
-                                    height: 400,
-                                    type: 'line',
-                                    stacked: false
-                                },
-                                plotOptions: {
-                                    bar: {
-                                        horizontal: false,
-                                        columnWidth: '55%',
-                                        endingShape: 'rounded',
-                                        dataLabels: {
-                                            position: 'top'
-                                        }
-                                    },
-                                },
-                                dataLabels: {
-                                    enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
-                                    offsetY: -15
-                                },
-                                markers: {
-                                    size: 4,
-                                    colors: '#kkk',
-                                    fillOpacity: 0.9,
-                                    shape: "circle",
-                                    radius: 2,
-                                },
-                                xaxis: {
-                                    categories: polda_month,
-                                },
-                                tooltip: {
-                                    custom: function({
-                                        series,
-                                        seriesIndex,
-                                        dataPointIndex,
-                                        seriesName,
-                                        w
-                                    }) {
-                                        if (w.globals.labels[dataPointIndex] == 2) {
-                                            bulansebelumnya = polda_month[0]
-                                            garlantassebelumnya = garlantas[0];
-
-                                            if (garlantas[0] < garlantas[1]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[0] > garlantas[1]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-
-                                        } else if (w.globals.labels[dataPointIndex] == 3) {
-                                            bulansebelumnya = polda_month[1]
-                                            garlantassebelumnya = garlantas[1];
-                                            if (garlantas[1] < garlantas[2]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[1] > garlantas[2]) {
-                                                persentasegarlantas = 'Turun'
-                                            } else {
-                                                persentasegarlantas = 'Sama'
-                                            }
-
-                                        }
-
-                                        return (
-                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                            ${w.globals.labels[dataPointIndex] != 1 ? `
-                                                <div class="col-md-4">
-                                                <div class="my-2  text-center"">   
-                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
-                                                </div>
-                                                    <div class="row">
-                                                        <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <span class="fw-bold">${garlantassebelumnya}</span><br>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-8">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 text-center">
-                                                <div class="my-2 text-center">
-                                                    <span class="fs-6 fw-bold">Presentase</span>
-                                                </div>
-                                                    <span class="fw-bold">${persentasegarlantas}</span><br>
-                                                </div>
-                                                ` : `
-                                                <div class="col-md-12">
-                                                <div class="my-2 text-center">    
-                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
-                                                            </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>
-                                                            </div>
-                                                    </div>
-                                                </div>`}
-                                            </div>
-                                        </div>
-                                    </div>`
-
-                                        );
-                                    }
-                                }
-
-                            };
-
-                            var ditgakkumdakgaryear = new ApexCharts(document.querySelector("#chartyear3"), ditgakkumdakgaryear);
-                            ditgakkumdakgaryear.render();
-
+                            let insiden_kecelakaan = result.data.insiden_kecelakaan
+                            let persentase_kecelakaan = result.data.persentase_kecelakaan
+                            let meninggal_dunia = result.data.meninggal_dunia
+                            let persentase_md = result.data.persentase_md
+                            let luka_berat = result.data.luka_berat
+                            let persentase_lb = result.data.persentase_lb
+                            let luka_ringan = result.data.luka_ringan
+                            let persentase_lr = result.data.persentase_lr
+                            // $('#titlewalpjryear').html(`<h4 class="card-title mb-0 text-uppercase">DATA WAL & PJR TAHUNAN</h4>`);
+                            // $('#titletatibyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA TATIB TAHUNAN</h4>`);
+                            // $('#titlegarlantasyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA GARLANTAS TAHUNAN</h4>`);
+                            $('#titlelakalantasyear').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA LAKA TAHUNAN</h4>`);
 
                             var ditgakkumlakayear = {
                                 series: [{
-                                    name: 'LAKA',
+                                    name: 'Insiden Kecekalaan',
                                     type: 'line',
-                                    data: lakalantas,
-                                    color: "#EDF12D"
-                                }],
+                                    data: insiden_kecelakaan,
+                                    color: "#5400D8"
+                                }, {
+                                    name: 'Meninggal Dunia',
+                                    type: 'line',
+                                    data: meninggal_dunia,
+                                    color: "#D80000"
+                                }, {
+                                    name: 'Luka Berat',
+                                    type: 'line',
+                                    data: luka_berat,
+                                    color: "#D8A700"
+                                }, {
+                                    name: 'Luka Ringan',
+                                    type: 'line',
+                                    data: luka_ringan,
+                                    color: "#80D800"
+                                }, ],
                                 chart: {
                                     height: 400,
                                     type: 'line',
@@ -2568,27 +2627,34 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            lakalantassebelumnya = lakalantas[0];
-
-                                            if (lakalantas[0] < lakalantas[1]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[0] > lakalantas[1]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
-
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[0];
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            lakalantassebelumnya = lakalantas[1];
-                                            if (lakalantas[1] < lakalantas[2]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[1] > lakalantas[2]) {
-                                                persentaselakalantas = 'Turun'
-                                            } else {
-                                                persentaselakalantas = 'Sama'
-                                            }
+                                            insiden_kecelakaansebelumnya = insiden_kecelakaan[1];
+                                        }
 
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            meninggal_duniasebelumnya = meninggal_dunia[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            meninggal_duniasebelumnya = meninggal_dunia[1];
+                                        }
+
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            luka_beratsebelumnya = luka_berat[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            luka_beratsebelumnya = luka_berat[1];
+                                        }
+
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            luka_ringansebelumnya = luka_ringan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            luka_ringansebelumnya = luka_ringan[1];
                                         }
 
                                         return (
@@ -2600,12 +2666,18 @@
                                                 <div class="my-2  text-center"">   
                                                     <span class="fs-6 fw-bold">${bulansebelumnya}</span>
                                                 </div>
-                                                    <div class="row">
+                                                <div class="row">
                                                         <div class="col-md-8 ms-1">
                                                             <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total MD</span><br>
+                                                            <span class="fw-bold">Total LB</span><br>
+                                                            <span class="fw-bold">Total LR</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${lakalantassebelumnya}</span><br>
+                                                            <span class="fw-bold">${insiden_kecelakaansebelumnya}</span><br>
+                                                            <span class="fw-bold">${meninggal_duniasebelumnya}</span><br>
+                                                            <span class="fw-bold">${luka_beratsebelumnya}</span><br>
+                                                            <span class="fw-bold">${luka_ringansebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -2614,31 +2686,48 @@
                                                     <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
                                                 </div>
                                                 <div class="row">
-                                                        <div class="col-md-8">
+                                                <div class="row">
+                                                        <div class="col-md-8 ms-1">
                                                             <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total MD</span><br>
+                                                            <span class="fw-bold">Total LB</span><br>
+                                                            <span class="fw-bold">Total LR</span><br>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <span class="fw-bold">${insiden_kecelakaan[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${meninggal_dunia[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${luka_berat[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${luka_ringan[dataPointIndex]}</span><br> 
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentaselakalantas}</span><br>
+                                                    <span class="fw-bold">${persentase_kecelakaan[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_md[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_lb[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_lr[dataPointIndex]} %</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
                                                 <div class="my-2 text-center">    
                                                     <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
                                                 </div>
-                                                <div class="row">
+                                                    <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total LAKA</span><br>
-                                                            </div>
+                                                        <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total MD</span><br>
+                                                            <span class="fw-bold">Total LB</span><br>
+                                                            <span class="fw-bold">Total LR</span><br>
+                                                        </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>
-                                                            </div>
+                                                            <span class="fw-bold">${insiden_kecelakaan[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${meninggal_dunia[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${luka_berat[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${luka_ringan[dataPointIndex]}</span><br> 
+                                                        </div>
                                                     </div>
                                                 </div>`}
                                             </div>
@@ -2653,6 +2742,593 @@
 
                             var ditgakkumlakayear = new ApexCharts(document.querySelector("#chartyear4"), ditgakkumlakayear);
                             ditgakkumlakayear.render();
+                        }
+                    })
+
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>ditgakkum/getChartGarlantas",
+                        data: {
+                            start_date: three_yearAgo,
+                            end_date: lastDay,
+                            filter: 'year'
+                        },
+                        dataType: "JSON",
+                        success: function(result) {
+                            let polda_month = result.data.polda_month
+                            let pelanggaran_berat = result.data.pelanggaran_berat
+                            let persentase_pb = result.data.persentase_pb
+                            let pelanggaran_sedang = result.data.pelanggaran_sedang
+                            let persentase_ps = result.data.persentase_ps
+                            let pelanggaran_ringan = result.data.pelanggaran_ringan
+                            let persentase_pr = result.data.persentase_pr
+                            let teguran = result.data.teguran
+                            let persentase_tg = result.data.persentase_tg
+                            $('#titlegarlantasyear').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA GARLANTAS TAHUNAN</h4>`);
+
+                            var ditgakkumdakgaryear = {
+                                series: [{
+                                    name: 'Pelanggaran Berat',
+                                    type: 'line',
+                                    data: pelanggaran_berat,
+                                    color: "#D80000"
+                                }, {
+                                    name: 'Pelanggaran Sedang',
+                                    type: 'line',
+                                    data: pelanggaran_sedang,
+                                    color: "#D8A700"
+                                }, {
+                                    name: 'Pelanggaran Ringan',
+                                    type: 'line',
+                                    data: pelanggaran_ringan,
+                                    color: "#80D800"
+                                }, {
+                                    name: 'Teguran',
+                                    type: 'line',
+                                    data: teguran,
+                                    color: "#5400D8"
+                                }, ],
+                                chart: {
+                                    height: 400,
+                                    type: 'line',
+                                    stacked: false
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: false,
+                                        columnWidth: '55%',
+                                        endingShape: 'rounded',
+                                        dataLabels: {
+                                            position: 'top'
+                                        }
+                                    },
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    style: {
+                                        colors: ['#333']
+                                    },
+                                    offsetY: -15
+                                },
+                                markers: {
+                                    size: 4,
+                                    colors: '#kkk',
+                                    fillOpacity: 0.9,
+                                    shape: "circle",
+                                    radius: 2,
+                                },
+                                xaxis: {
+                                    categories: polda_month,
+                                },
+                                tooltip: {
+                                    custom: function({
+                                        series,
+                                        seriesIndex,
+                                        dataPointIndex,
+                                        seriesName,
+                                        w
+                                    }) {
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pelanggaran_beratsebelumnya = pelanggaran_berat[2];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pelanggaran_sedangsebelumnya = pelanggaran_sedang[2];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pelanggaran_ringansebelumnya = pelanggaran_ringan[2];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            teguransebelumnya = teguran[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            teguransebelumnya = teguran[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            teguransebelumnya = teguran[2];
+                                        }
+                                        return (
+                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                            ${w.globals.labels[dataPointIndex] != 1 ? `
+                                                <div class="col-md-4">
+                                                <div class="my-2  text-center"">   
+                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
+                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-md-8 ms-1">
+                                                            <span class="fw-bold">Total PB</span><br>
+                                                            <span class="fw-bold">Total PS</span><br>
+                                                            <span class="fw-bold">Total PR</span><br>
+                                                            <span class="fw-bold">Total TG</span><br>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <span class="fw-bold">${pelanggaran_beratsebelumnya}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_sedangsebelumnya}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_ringansebelumnya}</span><br>
+                                                            <span class="fw-bold">${teguransebelumnya}</span><br>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="col-md-4">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-8">
+                                                            <span class="fw-bold">Total PB</span><br>
+                                                            <span class="fw-bold">Total PS</span><br>
+                                                            <span class="fw-bold">Total PR</span><br>
+                                                            <span class="fw-bold">Total TG</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${pelanggaran_berat[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_sedang[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_ringan[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${teguran[dataPointIndex]}</span><br>        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 text-center">
+                                                <div class="my-2 text-center">
+                                                    <span class="fs-6 fw-bold">Presentase</span>
+                                                </div>
+                                                    <span class="fw-bold">${persentase_pb[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_ps[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_pr[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_tg[dataPointIndex]} %</span><br>
+                                                </div>
+                                                ` : `
+                                                <div class="col-md-12">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-7 ms-2">
+                                                            <span class="fw-bold">Total PB</span><br>
+                                                            <span class="fw-bold">Total PS</span><br>
+                                                            <span class="fw-bold">Total PR</span><br>
+                                                            <span class="fw-bold">Total TG</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${pelanggaran_berat[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_sedang[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pelanggaran_ringan[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${teguran[dataPointIndex]}</span><br>         
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>`}
+                                            </div>
+                                        </div>
+                                    </div>`
+
+                                        );
+                                    }
+                                }
+                            };
+
+                            var ditgakkumdakgaryear = new ApexCharts(document.querySelector("#chartyear3"), ditgakkumdakgaryear);
+                            ditgakkumdakgaryear.render();
+
+                        }
+                    })
+
+
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>ditgakkum/getChartTatib",
+                        data: {
+                            start_date: three_yearAgo,
+                            end_date: lastDay,
+                            filter: 'year'
+                        },
+                        dataType: "JSON",
+                        success: function(result) {
+                            let polda_month = result.data.polda_month
+                            let pengaturan = result.data.pengaturan
+                            let persentase_pengaturan = result.data.persentase_pengaturan
+                            let pengawalan = result.data.pengawalan
+                            let persentase_pengawalan = result.data.persentase_pengawalan
+                            let penjagaan = result.data.penjagaan
+                            let persentase_penjagaan = result.data.persentase_penjagaan
+                            let patroli = result.data.patroli
+                            let persentase_patroli = result.data.persentase_patroli
+                            $('#titletatibyear').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA TATIB TAHUNAN</h4>`);
+
+
+                            var ditgakkumtatibyear = {
+                                series: [{
+                                    name: 'Pengaturan',
+                                    type: 'line',
+                                    data: pengaturan,
+                                    color: "#5400D8"
+                                }, {
+                                    name: 'Pengawalan',
+                                    type: 'line',
+                                    data: pengawalan,
+                                    color: "#D80000"
+                                }, {
+                                    name: 'Penjagaan',
+                                    type: 'line',
+                                    data: penjagaan,
+                                    color: "#D8A700"
+                                }, {
+                                    name: 'Patroli',
+                                    type: 'line',
+                                    data: patroli,
+                                    color: "#80D800"
+                                }, ],
+                                chart: {
+                                    height: 400,
+                                    type: 'line',
+                                    stacked: false
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: false,
+                                        columnWidth: '55%',
+                                        endingShape: 'rounded',
+                                        dataLabels: {
+                                            position: 'top'
+                                        }
+                                    },
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    style: {
+                                        colors: ['#333']
+                                    },
+                                    offsetY: -15
+                                },
+                                markers: {
+                                    size: 4,
+                                    colors: '#kkk',
+                                    fillOpacity: 0.9,
+                                    shape: "circle",
+                                    radius: 2,
+                                },
+                                xaxis: {
+                                    categories: polda_month,
+                                },
+                                tooltip: {
+                                    custom: function({
+                                        series,
+                                        seriesIndex,
+                                        dataPointIndex,
+                                        seriesName,
+                                        w
+                                    }) {
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pengaturansebelumnya = pengaturan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pengaturansebelumnya = pengaturan[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pengaturansebelumnya = pengaturan[2];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pengawalansebelumnya = pengawalan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pengawalansebelumnya = pengawalan[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pengawalansebelumnya = pengawalan[2];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            penjagaansebelumnya = penjagaan[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            penjagaansebelumnya = penjagaan[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            penjagaansebelumnya = penjagaan[2];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            patrolisebelumnya = patroli[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            patrolisebelumnya = patroli[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            patrolisebelumnya = patroli[2];
+                                        }
+                                        return (
+                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                        ${w.globals.labels[dataPointIndex] != 1 ? `
+                                            <div class="col-md-4">
+                                            <div class="my-2  text-center"">   
+                                                <span class="fs-6 fw-bold">${bulansebelumnya}</span>
+                                            </div>
+                                                <div class="row">
+                                                    <div class="col-md-8 ms-1">
+                                                        <span class="fw-bold">Total Pengaturan</span><br>
+                                                        <span class="fw-bold">Total Pengawalan</span><br>
+                                                        <span class="fw-bold">Total Penjagaan</span><br>
+                                                        <span class="fw-bold">Total Patroli</span><br>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <span class="fw-bold">${pengaturansebelumnya}</span><br>
+                                                        <span class="fw-bold">${pengawalansebelumnya}</span><br>
+                                                        <span class="fw-bold">${penjagaansebelumnya}</span><br>
+                                                        <span class="fw-bold">${patrolisebelumnya}</span><br>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            <div class="col-md-4">
+                                            <div class="my-2 text-center">    
+                                                <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-8">
+                                                        <span class="fw-bold">Total Pengaturan</span><br>
+                                                        <span class="fw-bold">Total Pengawalan</span><br>
+                                                        <span class="fw-bold">Total Penjagaan</span><br>
+                                                        <span class="fw-bold">Total Patroli</span><br>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span class="fw-bold">${pengaturan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${pengawalan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${penjagaan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${patroli[dataPointIndex]}</span><br>        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 text-center">
+                                            <div class="my-2 text-center">
+                                                <span class="fs-6 fw-bold">Presentase</span>
+                                            </div>
+                                                <span class="fw-bold">${persentase_pengaturan[dataPointIndex]} %</span><br>
+                                                <span class="fw-bold">${persentase_pengawalan[dataPointIndex]} %</span><br>
+                                                <span class="fw-bold">${persentase_penjagaan[dataPointIndex]} %</span><br>
+                                                <span class="fw-bold">${persentase_patroli[dataPointIndex]} %</span><br>
+                                            </div>
+                                            ` : `
+                                            <div class="col-md-12">
+                                            <div class="my-2 text-center">    
+                                                <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-7 ms-2">
+                                                        <span class="fw-bold">Total Pengaturan</span><br>
+                                                        <span class="fw-bold">Total Pengawalan</span><br>
+                                                        <span class="fw-bold">Total Penjagaan</span><br>
+                                                        <span class="fw-bold">Total Patroli</span><br>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span class="fw-bold">${pengaturan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${pengawalan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${penjagaan[dataPointIndex]}</span><br>
+                                                        <span class="fw-bold">${patroli[dataPointIndex]}</span><br>         
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>`}
+                                        </div>
+                                    </div>
+                                </div>`
+
+                                        );
+                                    }
+                                }
+                            };
+
+                            var ditgakkumtatibyear = new ApexCharts(document.querySelector("#chartyear2"), ditgakkumtatibyear);
+                            ditgakkumtatibyear.render();
+
+                        }
+                    })
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>ditgakkum/getChartWalPjr",
+                        data: {
+                            start_date: three_yearAgo,
+                            end_date: lastDay,
+                            filter: 'year'
+                        },
+                        dataType: "JSON",
+                        success: function(result) {
+                            let polda_month = result.data.polda_month
+                            let wal = result.data.wal
+                            let persentase_wal = result.data.persentase_wal
+                            let pjr = result.data.pjr
+                            let persentase_pjr = result.data.persentase_pjr
+
+
+                            $('#titlewalpjryear').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA WAL & PJR TAHUNAN</h4>`);
+
+                            var ditgakkumwalpjryear = {
+                                series: [{
+                                    name: 'WAL',
+                                    type: 'line',
+                                    data: wal,
+                                    color: "#5400D8"
+                                }, {
+                                    name: 'PJR',
+                                    type: 'line',
+                                    data: pjr,
+                                    color: "#D80000"
+                                }, ],
+                                chart: {
+                                    height: 400,
+                                    type: 'line',
+                                    stacked: false
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: false,
+                                        columnWidth: '55%',
+                                        endingShape: 'rounded',
+                                        dataLabels: {
+                                            position: 'top'
+                                        }
+                                    },
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    style: {
+                                        colors: ['#333']
+                                    },
+                                    offsetY: -15
+                                },
+                                markers: {
+                                    size: 4,
+                                    colors: '#kkk',
+                                    fillOpacity: 0.9,
+                                    shape: "circle",
+                                    radius: 2,
+                                },
+                                xaxis: {
+                                    categories: polda_month,
+                                },
+
+                                tooltip: {
+                                    custom: function({
+                                        series,
+                                        seriesIndex,
+                                        dataPointIndex,
+                                        seriesName,
+                                        w
+                                    }) {
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            walsebelumnya = wal[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            walsebelumnya = wal[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            walsebelumnya = wal[2];
+                                        }
+                                        if (w.globals.labels[dataPointIndex] == 2) {
+                                            bulansebelumnya = polda_month[0]
+                                            pjrsebelumnya = pjr[0];
+                                        } else if (w.globals.labels[dataPointIndex] == 3) {
+                                            bulansebelumnya = polda_month[1]
+                                            pjrsebelumnya = pjr[1];
+                                        } else if (w.globals.labels[dataPointIndex] == 4) {
+                                            bulansebelumnya = polda_month[2]
+                                            pjrsebelumnya = pjr[2];
+                                        }
+                                        return (
+                                            `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                            ${w.globals.labels[dataPointIndex] != 1 ? `
+                                                <div class="col-md-4">
+                                                <div class="my-2  text-center"">   
+                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
+                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-md-8 ms-1">
+                                                            <span class="fw-bold">Total WAL</span><br>
+                                                            <span class="fw-bold">Total PJR</span><br>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <span class="fw-bold">${walsebelumnya}</span><br>
+                                                            <span class="fw-bold">${pjrsebelumnya}</span><br>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="col-md-4">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-8">
+                                                            <span class="fw-bold">Total WAL</span><br>
+                                                            <span class="fw-bold">Total PJR</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${wal[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pjr[dataPointIndex]}</span><br>         
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 text-center">
+                                                <div class="my-2 text-center">
+                                                    <span class="fs-6 fw-bold">Presentase</span>
+                                                </div>
+                                                    <span class="fw-bold">${persentase_wal[dataPointIndex]} %</span><br>
+                                                    <span class="fw-bold">${persentase_pjr[dataPointIndex]} %</span><br>
+                                                </div>
+                                                ` : `
+                                                <div class="col-md-12">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-7 ms-2">
+                                                            <span class="fw-bold">Total WAL</span><br>
+                                                            <span class="fw-bold">Total PJR</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${wal[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${pjr[dataPointIndex]}</span><br>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>`}
+                                            </div>
+                                        </div>
+                                    </div>`
+
+                                        );
+                                    }
+                                }
+                            };
+                            var ditgakkumwalpjryear = new ApexCharts(document.querySelector("#chartyear"), ditgakkumwalpjryear);
+                            ditgakkumwalpjryear.render();
                         }
                     })
                 }
