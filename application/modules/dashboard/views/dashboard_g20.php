@@ -31,6 +31,38 @@
                 <div class="row">
                      
                     <div class="col-md-9" style="left: 330px;top: -53px;width: 80%;">
+
+                        <div class="cat" style="margin-left: 10px;">  
+                            <label>  
+                                <div class="dropdown-toggle" id="dropdownMenuButtonDisplay" style="padding-top: 3px;color: #1967d2;" data-bs-toggle="dropdown" aria-expanded="false">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fas fa-user-shield"></i>Petugas &nbsp;&nbsp;&nbsp;&nbsp;
+                                </div>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonDisplay"> 
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <input checked type="checkbox" value="r2Listrik" name="filter" id="r2ListrikDisplay"><span style="text-align: start;" id="loadR2ListrikDisplay">R2 Listrik</span> 
+                                    </label> 
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <input checked type="checkbox" value="r4Listrik" name="filter" id="r4ListrikDisplay"><span style="text-align: start;" id="loadR4ListrikDisplay">R4 Listrik</span> 
+                                    </label> 
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <input checked type="checkbox" value="r2Fosil" name="filter" id="r2FosilDisplay"><span style="text-align: start;" id="loadR2FosilDisplay">R2 Fosil</span> 
+                                    </label> 
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <input checked type="checkbox" value="r4Fosil" name="filter" id="r4FosilDisplay"><span style="text-align: start;" id="loadR4FosilDisplay">R4 Fosil</span> 
+                                    </label> 
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <input checked type="checkbox" value="gatur" name="filter" id="gaturDisplay"><span style="text-align: start;" id="loadGaturDisplay">Gatur</span> 
+                                    </label>  
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <button id="petugasFilterModal" class="btn" style="color: #5f95df; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                            List Personil Lantas
+                                        </button>
+                                    </label> 
+    
+    
+                                </div>
+                            </label> 
+                        </div>
                         <div class="cat poldaDisplay" style="margin-left: 10px; ">
                             <div class="btn-group">
                                 <label>
@@ -91,38 +123,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="cat" style="margin-left: 10px;">  
-                            <label>
-                                
-                                <div class="dropdown-toggle" id="dropdownMenuButtonDisplay" style="padding-top: 3px;color: #1967d2;" data-bs-toggle="dropdown" aria-expanded="false">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fas fa-user-shield"></i>Petugas &nbsp;&nbsp;&nbsp;&nbsp;
-                                </div>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonDisplay"> 
-                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                        <input checked type="checkbox" value="r2Listrik" name="filter" id="r2ListrikDisplay"><span style="text-align: start;" id="loadR2ListrikDisplay">R2 Listrik</span> 
-                                    </label> 
-                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                        <input checked type="checkbox" value="r4Listrik" name="filter" id="r4ListrikDisplay"><span style="text-align: start;" id="loadR4ListrikDisplay">R4 Listrik</span> 
-                                    </label> 
-                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                        <input checked type="checkbox" value="r2Fosil" name="filter" id="r2FosilDisplay"><span style="text-align: start;" id="loadR2FosilDisplay">R2 Fosil</span> 
-                                    </label> 
-                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                        <input checked type="checkbox" value="r4Fosil" name="filter" id="r4FosilDisplay"><span style="text-align: start;" id="loadR4FosilDisplay">R4 Fosil</span> 
-                                    </label> 
-                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                        <input checked type="checkbox" value="gatur" name="filter" id="gaturDisplay"><span style="text-align: start;" id="loadGaturDisplay">Gatur</span> 
-                                    </label>  
-                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                        <button id="petugasFilterModal" class="btn" style="color: #5f95df; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                            List Personil Lantas
-                                        </button>
-                                    </label> 
-    
-    
-                                </div>
-                            </label> 
-                        </div>
+                        
                         <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
@@ -6170,7 +6171,7 @@
             iconCreateFunction: function(cluster) {
                 return new L.DivIcon({
                     html: `
-                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#420fd4;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#a0b328;text-align: center;margin-top: -1px;margin-left: -1px;">
                 <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="fa fas fa-torii-gate"></i>${cluster.getChildCount()}</b>
                 </div>`
                 });
