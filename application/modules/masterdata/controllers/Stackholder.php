@@ -69,6 +69,10 @@ class Stackholder extends MY_Controller
                     'contents' => $input['namaStackholder'],
                 ],
                 [
+                    'name' => 'fullname',
+                    'contents' => $input['fullname'],
+                ],
+                [
                     'name' => 'alamat',
                     'contents' => $input['address'],
                 ],
@@ -124,6 +128,10 @@ class Stackholder extends MY_Controller
                 [
                     'name' => 'title',
                     'contents' => $input['namaStackholder'],
+                ],
+                [
+                    'name' => 'fullname',
+                    'contents' => $input['fullname'],
                 ],
                 [
                     'name' => 'alamat',
@@ -346,6 +354,10 @@ class Stackholder extends MY_Controller
                     'contents' => $input['namaStackholder'],
                 ],
                 [
+                    'name' => 'fullname',
+                    'contents' => $input['fullname'],
+                ],
+                [
                     'name' => 'alamat',
                     'contents' => $input['address'],
                 ],
@@ -401,6 +413,10 @@ class Stackholder extends MY_Controller
                 [
                     'name' => 'title',
                     'contents' => $input['namaStackholder'],
+                ],
+                [
+                    'name' => 'fullname',
+                    'contents' => $input['fullname'],
                 ],
                 [
                     'name' => 'alamat',

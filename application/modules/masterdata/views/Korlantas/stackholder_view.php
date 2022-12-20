@@ -53,6 +53,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="nama" name="fullname">
+                                <label for="nama">Fullname Stackholder</label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-12">
                         <div class="form-floating mb-3">
                             <textarea class="form-control" style="height: 100px" placeholder="Alamat" name="address"></textarea>
@@ -191,6 +199,12 @@
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" placeholder="nama" name="namaStackholder" id="nameStackholder">
                                         <label for="nama">Nama Stackholder</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" placeholder="nama" name="fullname" id="fullname">
+                                        <label for="nama">Nama Fullname</label>
                                     </div>
                                 </div>
                             </div>
@@ -829,6 +843,8 @@
                 $('.UbahPolda,#photo').data('data-default-file', `<?= url_api() ?>stakeholder/${results.icon}`)
                 $('.UbahPolda,#cordinateEdit').attr('disabled', false)
                 $('.UbahPolda,#nameStackholder').val('disabled', false)
+                $('.UbahPolda,#fullname').val('disabled', false)
+
                 $('.UbahPolda,#alamat').attr('disabled', false)
                 $('.UbahPolda,#latitude').attr('disabled', false)
                 $('.UbahPolda,#longitude').attr('disabled', false)
@@ -846,6 +862,7 @@
                 $('#id_stackholder').val(results.id)
 
                 $('.UbahPolda,#nameStackholder').val(results.title)
+                $('.UbahPolda,#fullname').val(results.fullname)
                 $('.UbahPolda,#alamat').val(results.alamat)
                 $('.UbahPolda,#cordinateEdit').val((results.latitude) + ',' + (results.longitude))
                 $('.UbahPolda,#latitude').val(results.latitude)
