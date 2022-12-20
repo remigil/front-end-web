@@ -2390,6 +2390,141 @@ class Statistik_executive extends MY_Controller
 
         echo json_encode($data['simDate']);
     }
+    public function getBpkbDate()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $firstDayMonth = $this->input->post('firstDayMonth');
+        $lastDayMonth = $this->input->post('lastDayMonth');
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url_thisDay = 'bpkb/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'bpkb/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'bpkb/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        $thisDay = guzzle_request('GET', $url_thisDay, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisMonth = guzzle_request('GET', $url_thisMonth, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisYear = guzzle_request('GET', $url_thisYear, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $totalDay = 0;
+        $totalMonth = 0;
+        $totalYear = 0;
+
+        $dbbn_1 = 0;
+        $dbbn_2 = 0;
+        $dmutasi_masuk = 0;
+        $dmutasi_keluar = 0;
+        $dperubahan_pergantian = 0;
+
+        foreach ($thisDay['data'] as $key) {
+            $dbbn_1 += $key['bbn_1'];
+            $dbbn_2 += $key['bbn_2'];
+            $dmutasi_masuk += $key['mutasi_masuk'];
+            $dmutasi_keluar += $key['mutasi_keluar'];
+            $dperubahan_pergantian += $key['perubahan_pergantian'];
+        }
+
+        $data['thisDay'] = [
+            'bbn_1' => $dbbn_1,
+            'bbn_2' => $dbbn_2,
+            'mutasi_masuk' => $dmutasi_masuk,
+            'mutasi_keluar' => $dmutasi_keluar,
+            'perubahan_pergantian' => $dperubahan_pergantian,
+            'date' => date("Y-m-d"),
+        ];
+
+        $mbbn_1 = 0;
+        $mbbn_2 = 0;
+        $mmutasi_masuk = 0;
+        $mmutasi_keluar = 0;
+        $mperubahan_pergantian = 0;
+
+        foreach ($thisMonth['data'] as $key) {
+            $mbbn_1 += $key['bbn_1'];
+            $mbbn_2 += $key['bbn_2'];
+            $mmutasi_masuk += $key['mutasi_masuk'];
+            $mmutasi_keluar += $key['mutasi_keluar'];
+            $mperubahan_pergantian += $key['perubahan_pergantian'];
+        }
+
+        $data['thisMonth'] = [
+            'bbn_1' => $mbbn_1,
+            'bbn_2' => $mbbn_2,
+            'mutasi_masuk' => $mmutasi_masuk,
+            'mutasi_keluar' => $mmutasi_keluar,
+            'perubahan_pergantian' => $mperubahan_pergantian,
+            'date' => date("F", strtotime($firstDay)),
+        ];
+
+        $ybbn_1 = 0;
+        $ybbn_2 = 0;
+        $ymutasi_masuk = 0;
+        $ymutasi_keluar = 0;
+        $yperubahan_pergantian = 0;
+
+        foreach ($thisYear['data'] as $key) {
+            $ybbn_1 += $key['bbn_1'];
+            $ybbn_2 += $key['bbn_2'];
+            $ymutasi_masuk += $key['mutasi_masuk'];
+            $ymutasi_keluar += $key['mutasi_keluar'];
+            $yperubahan_pergantian += $key['perubahan_pergantian'];
+        }
+
+        $data['thisYear'] = [
+            'bbn_1' => $ybbn_1,
+            'bbn_2' => $ybbn_2,
+            'mutasi_masuk' => $ymutasi_masuk,
+            'mutasi_keluar' => $ymutasi_keluar,
+            'perubahan_pergantian' => $yperubahan_pergantian,
+            'date' => date("Y", strtotime($firstDay)),
+        ];
+        // $dataDay = $data['thisDay'];
+        $dataDay = array_values($data['thisDay']);
+        array_pop($dataDay);
+        $dataMonth = array_values($data['thisMonth']);
+        array_pop($dataMonth);
+        $dataYear = array_values($data['thisYear']);
+        array_pop($dataYear);;
+
+
+
+        for ($i = 0; $i < count($dataDay); $i++) {
+            $totalDay += $dataDay[$i];
+        }
+        for ($i = 0; $i < count($dataMonth); $i++) {
+            $totalMonth += $dataMonth[$i];
+        }
+        for ($i = 0; $i < count($dataYear); $i++) {
+            $totalYear += $dataYear[$i];
+        }
+
+        $data['simDate'] = [
+            'thisDay' => number_format($totalDay),
+            'detailsthisDay' => $data['thisDay'],
+            'thisMonth' => number_format($totalMonth),
+            'detailsthisMonth' => $data['thisMonth'],
+            'thisYear' => number_format($totalYear),
+            'detailsthisYear' => $data['thisYear'],
+            // 'thisYear' => $data['thisYear']
+        ];
+
+        echo json_encode($data['simDate']);
+    }
     public function getDitgakkumDate()
     {
         $yesterday = $this->input->post('yesterday');
@@ -2661,11 +2796,11 @@ class Statistik_executive extends MY_Controller
         }
 
         $data['stnkDate'] = [
-            'thisDay' => $totalDay,
+            'thisDay' => number_format($totalDay),
             'detailsthisDay' => $thisDay['data'][0],
-            'thisMonth' => $totalMonth,
+            'thisMonth' => number_format($totalMonth),
             'detailsthisMonth' => $thisMonth['data'][0],
-            'thisYear' => $totalYear,
+            'thisYear' => number_format($totalYear),
             'detailsthisYear' => $data['thisYear'],
             // 'thisYear' => $data['thisYear']
         ];
@@ -2681,9 +2816,9 @@ class Statistik_executive extends MY_Controller
         $firstDay = $this->input->post('firstDay');
         $lastDay = $this->input->post('lastDay');
 
-        $url_thisDay = 'ditregident/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
-        $url_thisMonth = 'ditregident/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
-        $url_thisYear = 'ditregident/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+        $url_thisDay = 'ranmor/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'ranmor/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'ranmor/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
 
 
         $thisDay = guzzle_request('GET', $url_thisDay, [
@@ -2703,24 +2838,65 @@ class Statistik_executive extends MY_Controller
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
+        $totalDay = 0;
+        $totalMonth = 0;
+        $totalYear = 0;
 
-        $ranmor = 0;
+        $ymobil_penumpang = 0;
+        $ymobil_barang = 0;
+        $ymobil_bus = 0;
+        $ysepeda_motor = 0;
+        $yransus = 0;
 
         foreach ($thisYear['data'] as $key) {
-            $ranmor += $key['ranmor'];
+            $ymobil_penumpang += $key['mobil_penumpang'];
+            $ymobil_barang += $key['mobil_barang'];
+            $ymobil_bus += $key['mobil_bus'];
+            $ysepeda_motor += $key['sepeda_motor'];
+            $yransus += $key['ransus'];
         }
 
         $data['thisYear'] = [
-            'ranmor' => $ranmor,
+            'mobil_penumpang' => $ymobil_penumpang,
+            'mobil_barang' => $ymobil_barang,
+            'mobil_bus' => $ymobil_bus,
+            'sepeda_motor' => $ysepeda_motor,
+            'ransus' => $yransus,
+
+            'date' => date("Y", strtotime($firstDay)),
         ];
 
-        $data['ranmorDate'] = [
-            'thisDay' => $thisDay['data'],
-            'thisMonth' => $thisMonth['data'],
-            'thisYear' => $data['thisYear']
+        $dataDay = array_values($thisDay['data'][0]);
+        array_pop($dataDay);
+        $dataMonth = array_values($thisMonth['data'][0]);
+        array_pop($dataMonth);
+        $dataYear = array_values($data['thisYear']);
+        array_pop($dataYear);
+
+
+
+
+        for ($i = 0; $i < count($dataDay); $i++) {
+            $totalDay += $dataDay[$i];
+        }
+        for ($i = 0; $i < count($dataMonth); $i++) {
+            $totalMonth += $dataMonth[$i];
+        }
+        for ($i = 0; $i < count($dataYear); $i++) {
+            $totalYear += $dataYear[$i];
+        }
+
+        $data['stnkDate'] = [
+            'thisDay' => number_format($totalDay),
+            'detailsthisDay' => $thisDay['data'][0],
+            'thisMonth' => number_format($totalMonth),
+            'detailsthisMonth' => $thisMonth['data'][0],
+            'thisYear' => number_format($totalYear),
+            'detailsthisYear' => $data['thisYear'],
+            // 'thisYear' => $data['thisYear']
         ];
 
-        echo json_encode($data['ranmorDate']);
+        echo json_encode($data['stnkDate']);
     }
     public function getLineRanmor()
     {

@@ -22,11 +22,20 @@
                             <div class="card-body p-1">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
                                     <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Harian</h4>
+                                        <h4 class="mb-0 ms-3">Hari Ini</h4>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="bpkbThisDay"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="bpkbThisDay"></h1>
                                         <p class="text-center mb-0">BPKB</p>
+                                    </div>
+                                    <div class="col-md-12 ms-3">
+                                        <div class="row">
+                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalDay">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -37,11 +46,20 @@
                             <div class="card-body p-1">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
                                     <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Bulanan</h4>
+                                        <h4 class="mb-0 ms-3">Bulan Ini</h4>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="bpkbThisMonth"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="bpkbThisMonth"></h1>
                                         <p class="text-center mb-0">BPKB</p>
+                                    </div>
+                                    <div class="col-md-12 ms-3">
+                                        <div class="row">
+                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalMonth">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -52,11 +70,20 @@
                             <div class="card-body p-1">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
                                     <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Tahunan</h4>
+                                        <h4 class="mb-0 ms-3">Tahun Ini</h4>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="bpkbThisYear"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="bpkbThisYear"></h1>
                                         <p class="text-center mb-0">BPKB</p>
+                                    </div>
+                                    <div class="col-md-12 ms-3">
+                                        <div class="row">
+                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalYear">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -64,6 +91,160 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="ModalDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog modal-xl" role="document" style="min-width:40%;">
+        <div class="modal-content">
+            <div class=" modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Buku Kepemilikan Kendaraan Bermotor (BPKB) hari ini Seluruh Polda</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+            </div>
+            <div class="modal-body">
+                <div style="line-height: 0.8;">
+                    <table class="table table-bordered table-hover" id="tableBpkbDay" style="background:white;">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">No</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergantian</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
+                            </tr>
+                            <tr class="text-center" style="background-color:#5150D8; color:#fff;">
+                                <th style="text-align: center; vertical-align: middle" scope="col ">1</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col ">2</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col">Masuk</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col">Keluar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-bpkbDay">
+                        </tbody>
+                        <tfoot>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn1Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn2Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmDay"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkDay"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalppDay"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalDay"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <span class="fw-bold fs-5 text-danger"> * Data SIM diUpdate Setiap Bulan</span>
+            </div>
+            <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalMonth" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+    <div class=" modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Buku Kepemilikan Kendaraan Bermotor (BPKB) bulan ini Seluruh Polda</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+            </div>
+            <div class="modal-body">
+                <div style="line-height: 0.8;">
+                    <table class="table table-bordered table-hover" id="tableBpkbMonth" style="background:white;">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">No</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergantian</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
+                            </tr>
+                            <tr class="text-center" style="background-color:#5150D8; color:#fff;">
+                                <th style="text-align: center; vertical-align: middle" scope="col ">1</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col ">2</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col">Masuk</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col">Keluar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-bpkbMonth">
+                        </tbody>
+                        <tfoot>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn1Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn2Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmMonth"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkMonth"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalppMonth"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalMonth"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+        </div>
+    </div>
+</div>
+<div class="modal  fade" id="ModalYear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+    <div class=" modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Buku Kepemilikan Kendaraan Bermotor (BPKB) tahun ini Seluruh Polda</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+            </div>
+            <div class="modal-body">
+                <div style="line-height: 0.8;">
+                    <table class="table table-bordered table-hover" id="tableBpkbYear" style="background:white;">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">No</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergantian</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
+                            </tr>
+                            <tr class="text-center" style="background-color:#5150D8; color:#fff;">
+                                <th style="text-align: center; vertical-align: middle" scope="col ">1</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col ">2</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col">Masuk</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col">Keluar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-bpkbYear">
+                        </tbody>
+                        <tfoot>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn1Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn2Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmYear"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkYear"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalppYear"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalYear"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
         </div>
     </div>
 </div>
@@ -99,7 +280,7 @@ if ($mobile === true) { ?>
 
 <?php } ?>
 
-<div class="row m-3" style="font-size: 16px;">
+<!-- <div class="row m-3" style="font-size: 16px;">
     <div class="col-xl-12">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -119,83 +300,19 @@ if ($mobile === true) { ?>
                 <div class="row">
                     <div class="col-md-12 mt-5" style="line-height: 0.5;">
                         <h5 style="text-align: center;">Ranking Polda Data BPKB Tertinggi <?= date('d M Y'); ?></h5>
-                        <!-- <div class="card shadow-sm"> -->
                         <center>
-                            <table class="table table-bordered table-hover" id="tableBpkbDay" style="background:white; width:70%">
-                                <thead>
-                                    <tr class="text-white" style="background-color: #0007D8;">
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">No</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergantian</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
-                                    </tr>
-                                    <tr class="text-center" style="background-color:#5150D8; color:#fff;">
-                                        <th style="text-align: center; vertical-align: middle" scope="col ">1</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col ">2</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col">Masuk</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col">Keluar</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tbody-bpkbDay">
-                                </tbody>
-                                <tfoot>
-                                    <tr class="text-white" style="background-color: #0007D8;">
-                                        <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn1Day"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn2Day"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmDay"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkDay"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalppDay"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalDay"></span></th>
-                                    </tr>
-                                </tfoot>
-                            </table>
+
                         </center>
-                        <!-- </div> -->
-                    </div>
+                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="row">
                     <div class="col-md-12 mt-5" style="line-height: 0.5;">
                         <h5 style="text-align: center;">Ranking Polda Data BPKB Tertinggi <?= date('M Y'); ?></h5>
-                        <!-- <div class="card shadow-sm"> -->
                         <center>
-                            <table class="table table-bordered table-hover" id="tableBpkbMonth" style="background:white; width:70%">
-                                <thead>
-                                    <tr class="text-white" style="background-color: #0007D8;">
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">No</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergantian</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
-                                    </tr>
-                                    <tr class="text-center" style="background-color:#5150D8; color:#fff;">
-                                        <th style="text-align: center; vertical-align: middle" scope="col ">1</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col ">2</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col">Masuk</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col">Keluar</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tbody-bpkbMonth">
-                                </tbody>
-                                <tfoot>
-                                    <tr class="text-white" style="background-color: #0007D8;">
-                                        <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn1Month"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn2Month"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmMonth"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkMonth"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalppMonth"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalMonth"></span></th>
-                                    </tr>
-                                </tfoot>
-                            </table>
+
                         </center>
-                        <!-- </div> -->
                     </div>
                 </div>
             </div>
@@ -203,112 +320,89 @@ if ($mobile === true) { ?>
                 <div class="row">
                     <div class="col-md-12 mt-5" style="line-height: 0.5;">
                         <h5 style="text-align: center;">Ranking Polda Data Kecelakaan Tertinggi <?= date('Y'); ?></h5>
-                        <!-- <div class="card shadow-sm"> -->
                         <center>
-                            <table class="table table-bordered table-hover" id="tableBpkbYear" style="background:white; width:70%">
-                                <thead>
-                                    <tr class="text-white" style="background-color: #0007D8;">
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">No</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergantian</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
-                                    </tr>
-                                    <tr class="text-center" style="background-color:#5150D8; color:#fff;">
-                                        <th style="text-align: center; vertical-align: middle" scope="col ">1</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col ">2</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col">Masuk</th>
-                                        <th style="text-align: center; vertical-align: middle" scope="col">Keluar</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tbody-bpkbYear">
-                                </tbody>
-                                <tfoot>
-                                    <tr class="text-white" style="background-color: #0007D8;">
-                                        <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn1Year"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn2Year"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmYear"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkYear"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalppYear"></span></th>
-                                        <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalYear"></span></th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </center>
-                        <!-- </div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <hr style="width:97%; margin: auto">
-    <div class="filter mt-4" style=" height:125px;">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-9">
-                    <label for="waktu" class="form-label text-uppercase">Waktu</label>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
-                        </div>
-                        <div class="col-md-4">
-                            <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
-                        </div>
 
+                        </center>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-xl-12">
-        <div class="card">
-            <div class="card-header">
-                <div id="titleline"></div>
-            </div>
-            <div class="card-body">
-                <div class="main-chart">
-                    <div id="chartdate">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-xl-12">
-        <div class="card">
-            <div class="card-header">
-                <div id="title"></div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Show data</label>
-                            <select class="form-control" id="limit_showData">
-                                <option value="3">3</option>
-                                <option value="5" selected>5</option>
-                                <option value="7">7</option>
-                                <option value="10">10</option>
-                            </select>
+</div> -->
+<div class="container-fluid">
+    <div class="card">
+        <div class="row">
+            <div class="filter mt-4" style=" height:125px;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="start_date" id="start_date" value="<?= date('Y-m-d', strtotime("-6 days")); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="end_date" id="end_date" value="<?= date('Y-m-d'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-body">
-                <div class="main-chart">
-                    <div id="charta">
+        </div>
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <div id="titleline"></div>
+                </div>
+                <div class="card-body">
+                    <div class="main-chart">
+                        <div id="chartdate">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <div id="title"></div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Show data</label>
+                                <select class="form-control" id="limit_showData">
+                                    <option value="3">3</option>
+                                    <option value="5" selected>5</option>
+                                    <option value="7">7</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="main-chart">
+                        <div id="charta">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 </div>
@@ -330,7 +424,6 @@ if ($mobile === true) { ?>
 
         var limit = $('#limit_showData').val();
 
-        // console.log(firstDay, lastDay)
         $("#overlay").fadeIn(300);
         $.ajax({
             type: "POST",
@@ -475,7 +568,6 @@ if ($mobile === true) { ?>
             },
             dataType: "JSON",
             success: function(result) {
-                console.log(result.data)
                 $("#overlay").fadeOut(300);
                 $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                 $("#charta").html(`<div id="chart"></div>`);
@@ -600,12 +692,9 @@ if ($mobile === true) { ?>
             },
             success: function(result) {
                 $("#overlay").fadeOut(300);
-                $('#bpkbThisDay').text(result.thisDay[0].bpkb)
-                $('#bpkbThisDay').text(result.thisDay[0].bpkb)
-                $('#bpkbThisDay').text(result.thisDay[0].bpkb)
-                $('#bpkbThisDay').text(result.thisDay[0].bpkb)
-                $('#bpkbThisMonth').text(result.thisMonth[0].bpkb)
-                $('#bpkbThisYear').text(result.thisYear.bpkb)
+                $('#bpkbThisDay').text(result.thisDay)
+                $('#bpkbThisMonth').text(result.thisMonth)
+                $('#bpkbThisYear').text(result.thisYear)
 
             }
         })
@@ -646,7 +735,6 @@ if ($mobile === true) { ?>
                 },
                 dataType: "JSON",
                 success: function(result) {
-                    console.log(result)
                     $("#overlay").fadeOut(300);
                     $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                     $("#charta").html(`<div id="chart"></div>`);
@@ -767,26 +855,26 @@ if ($mobile === true) { ?>
                 end_date: yesterday
             },
             dataType: "JSON",
-            success: function(results) {
-                $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${results.title}</h1>`);
+            success: function(result) {
+                $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                 $("#chartdate").html(`<div id="chart2"></div>`);
-                console.log(results)
+
 
                 var chart2 = {
                     series: [{
                         name: '<h6>BPKB Baru</h6>',
                         type: 'line',
-                        data: results.data.polda_baru,
+                        data: result.data.polda_baru,
                         color: "#11347A"
                     }, {
                         name: '<h6>BPKB Perpanjangan</h6>',
                         type: 'line',
-                        data: results.data.polda_perpanjangan,
+                        data: result.data.polda_perpanjangan,
                         color: "#3CA55C"
                     }, {
                         name: '<h6>BPKB Rubentina</h6>',
                         type: 'line',
-                        data: results.data.polda_rubentina,
+                        data: result.data.polda_rubentina,
                         color: "#E8D42F"
                     }, ],
                     chart: {
@@ -819,7 +907,7 @@ if ($mobile === true) { ?>
                         radius: 2,
                     },
                     xaxis: {
-                        categories: results.data.polda_name,
+                        categories: result.data.polda_name,
                         labels: {
                             show: true,
                             style: {

@@ -96,7 +96,7 @@
 </div>
 
 <div class="modal fade " id="ModalDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class=" modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Detail Surat Tanda Nomor Kendaraan (STNK) hari ini Seluruh Polda</h5>
@@ -106,7 +106,65 @@
             </div>
             <div class="modal-body">
                 <div class="container" style="line-height: 0.8;">
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover" id="tableStnkDay">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">No</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Polda</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Bea Balik Nama</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perubahan</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perpanjangan</th>
+                                <th style="text-align: center; vertical-align: middle;" colspan="4" scope="col">Mutasi</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Pengesahan</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Samolnas</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Total</th>
+                            </tr>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R2</th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R4</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff; ">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                                <th style="text-align: center;" scope="col">Masuk</th>
+                                <th style="text-align: center;" scope="col">Keluar</th>
+                                <th style="text-align: center;" scope="col">Masuk</th>
+                                <th style="text-align: center;" scope="col">Keluar</th>
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-stnkDay">
+                        </tbody>
+
+                        <tfoot>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr2Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr4Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr2Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr4Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr2Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr4Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr2Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr4Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr2Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr4Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr2Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr4Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr2Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr4Day"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalDay"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- <table class="table table-bordered table-hover">
                         <thead>
                             <tr class="text-white" style="background-color: #0007D8;">
                                 <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Bea Balik Nama</th>
@@ -215,7 +273,7 @@
                                 <td style="text-align: center;"><span id="daysamolnasr4"></span></td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> -->
                 </div>
 
                 <!-- <span class="fw-bold fs-5 text-danger"> * Data SIM diUpdate Setiap Bulan</span> -->
@@ -228,7 +286,7 @@
 </div>
 
 <div class="modal fade" id="ModalMonth" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
-    <div class=" modal-dialog modal-lg" role="document">
+    <div class=" modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Detail Surat Tanda Nomor Kendaraan (STNK) bulan ini Seluruh Polda</h5>
@@ -238,7 +296,64 @@
             </div>
             <div class="modal-body">
                 <div class="container" style="line-height: 0.8;">
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover" id="tableStnkMonth">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">No</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Polda</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Bea Balik Nama</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perubahan</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perpanjangan</th>
+                                <th style="text-align: center; vertical-align: middle;" colspan="4" scope="col">Mutasi</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Pengesahan</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Samolnas</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Total</th>
+                            </tr>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R2</th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R4</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff; ">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                                <th style="text-align: center;" scope="col">Masuk</th>
+                                <th style="text-align: center;" scope="col">Keluar</th>
+                                <th style="text-align: center;" scope="col">Masuk</th>
+                                <th style="text-align: center;" scope="col">Keluar</th>
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-stnkMonth">
+                        </tbody>
+                        <tfoot>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr2Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr4Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr2Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr4Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr2Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr4Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr2Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr4Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr2Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr4Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr2Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr4Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr2Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr4Month"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalMonth"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- <table class="table table-bordered table-hover">
                         <thead>
                             <tr class="text-white" style="background-color: #0007D8;">
                                 <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Bea Balik Nama</th>
@@ -347,7 +462,7 @@
                                 <td style="text-align: center;"><span id="monthsamolnasr4"></span></td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> -->
                 </div>
             </div>
             <!-- <div class="modal-footer">
@@ -357,7 +472,7 @@
     </div>
 </div>
 <div class="modal  fade" id="ModalYear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
-    <div class=" modal-dialog modal-lg" role="document">
+    <div class=" modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Detail Surat Tanda Nomor Kendaraan (STNK) tahun ini Seluruh Polda</h5>
@@ -367,7 +482,64 @@
             </div>
             <div class="modal-body">
                 <div class="container" style="line-height: 0.8;">
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover" id="tableStnkYear">
+                        <thead>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">No</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Polda</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Bea Balik Nama</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perubahan</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perpanjangan</th>
+                                <th style="text-align: center; vertical-align: middle;" colspan="4" scope="col">Mutasi</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Pengesahan</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Samolnas</th>
+                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Total</th>
+                            </tr>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R2</th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R4</th>
+                            </tr>
+                            <tr style="background-color:#5150D8; color:#fff; ">
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                                <th style="text-align: center;" scope="col">Masuk</th>
+                                <th style="text-align: center;" scope="col">Keluar</th>
+                                <th style="text-align: center;" scope="col">Masuk</th>
+                                <th style="text-align: center;" scope="col">Keluar</th>
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                                <th style="text-align: center;" scope="col">R2</th>
+                                <th style="text-align: center;" scope="col">R4</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-stnkYear">
+                        </tbody>
+                        <tfoot>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr2Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr4Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr2Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr4Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr2Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr4Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr2Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr4Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr2Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr4Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr2Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr4Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr2Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr4Year"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalYear"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- <table class="table table-bordered table-hover">
                         <thead>
                             <tr class="text-white" style="background-color: #0007D8;">
                                 <th style="text-align: center; vertical-align: middle; font-size:20px" colspan="2" scope="col">Bea Balik Nama</th>
@@ -476,7 +648,7 @@
                                 <td style="text-align: center;"><span id="yearsamolnasr4"></span></td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> -->
                 </div>
             </div>
             <!-- <div class="modal-footer">
@@ -517,10 +689,8 @@ if ($mobile === true) { ?>
 
 <?php } ?>
 
-<div class="container-fluid">
 
-    <div class="card">
-        <div class="row m-3" style="font-size: 16px;">
+<!-- <div class="row m-3" style="font-size: 16px;">
             <div class="col-xl-12">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -541,64 +711,7 @@ if ($mobile === true) { ?>
                             <div class="col-md-12 mt-3" style="line-height: 0.5;">
                                 <h5>Ranking Polda Data STNK Tertinggi <?= date('d M Y'); ?></h5>
                                 <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover" id="tableStnkDay">
-                                        <thead>
-                                            <tr class="text-white" style="background-color: #0007D8;">
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">No</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Polda</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Bea Balik Nama</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perubahan</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perpanjangan</th>
-                                                <th style="text-align: center; vertical-align: middle;" colspan="4" scope="col">Mutasi</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Pengesahan</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Samolnas</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Total</th>
-                                            </tr>
-                                            <tr class="text-white" style="background-color: #0007D8;">
-                                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R2</th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R4</th>
-                                            </tr>
-                                            <tr style="background-color:#5150D8; color:#fff; ">
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                                <th style="text-align: center;" scope="col">Masuk</th>
-                                                <th style="text-align: center;" scope="col">Keluar</th>
-                                                <th style="text-align: center;" scope="col">Masuk</th>
-                                                <th style="text-align: center;" scope="col">Keluar</th>
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbody-stnkDay">
-                                        </tbody>
 
-                                        <tfoot>
-                                            <tr class="text-white" style="background-color: #0007D8;">
-                                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr2Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr4Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr2Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr4Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr2Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr4Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr2Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr4Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr2Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr4Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr2Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr4Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr2Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr4Day"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalDay"></span></th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -608,63 +721,7 @@ if ($mobile === true) { ?>
                             <div class="col-md-12 mt-3" style="line-height: 0.5;">
                                 <h5>Ranking Polda Data STNK Tertinggi <?= date('M Y'); ?></h5>
                                 <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover" id="tableStnkMonth">
-                                        <thead>
-                                            <tr class="text-white" style="background-color: #0007D8;">
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">No</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Polda</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Bea Balik Nama</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perubahan</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perpanjangan</th>
-                                                <th style="text-align: center; vertical-align: middle;" colspan="4" scope="col">Mutasi</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Pengesahan</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Samolnas</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Total</th>
-                                            </tr>
-                                            <tr class="text-white" style="background-color: #0007D8;">
-                                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R2</th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R4</th>
-                                            </tr>
-                                            <tr style="background-color:#5150D8; color:#fff; ">
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                                <th style="text-align: center;" scope="col">Masuk</th>
-                                                <th style="text-align: center;" scope="col">Keluar</th>
-                                                <th style="text-align: center;" scope="col">Masuk</th>
-                                                <th style="text-align: center;" scope="col">Keluar</th>
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbody-stnkMonth">
-                                        </tbody>
-                                        <tfoot>
-                                            <tr class="text-white" style="background-color: #0007D8;">
-                                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr2Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr4Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr2Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr4Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr2Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr4Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr2Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr4Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr2Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr4Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr2Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr4Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr2Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr4Month"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalMonth"></span></th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+
                                 </div>
                             </div>
                         </div>
@@ -674,136 +731,89 @@ if ($mobile === true) { ?>
                             <div class="col-md-12 mt-3" style="line-height: 0.5;">
                                 <h5>Ranking Polda Data STNK Tertinggi <?= date('Y'); ?></h5>
                                 <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover" id="tableStnkYear">
-                                        <thead>
-                                            <tr class="text-white" style="background-color: #0007D8;">
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">No</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Polda</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Bea Balik Nama</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perubahan</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Perpanjangan</th>
-                                                <th style="text-align: center; vertical-align: middle;" colspan="4" scope="col">Mutasi</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Pengesahan</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="2" scope="col">Samolnas</th>
-                                                <th style="text-align: center; vertical-align: middle;" rowspan="3" scope="col">Total</th>
-                                            </tr>
-                                            <tr class="text-white" style="background-color: #0007D8;">
-                                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R2</th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col" colspan="2">R4</th>
-                                            </tr>
-                                            <tr style="background-color:#5150D8; color:#fff; ">
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                                <th style="text-align: center;" scope="col">Masuk</th>
-                                                <th style="text-align: center;" scope="col">Keluar</th>
-                                                <th style="text-align: center;" scope="col">Masuk</th>
-                                                <th style="text-align: center;" scope="col">Keluar</th>
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                                <th style="text-align: center;" scope="col">R2</th>
-                                                <th style="text-align: center;" scope="col">R4</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbody-stnkYear">
-                                        </tbody>
-                                        <tfoot>
-                                            <tr class="text-white" style="background-color: #0007D8;">
-                                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr2Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbnr4Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr2Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalprr4Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr2Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpnr4Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr2Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmr4Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr2Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkr4Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr2Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpgr4Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr2Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalsmr4Year"></span></th>
-                                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalYear"></span></th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+<div class="container-fluid">
+    <div class="card">
         <div class="row">
-            <hr style="width:97%; margin: auto">
             <div class="filter mt-4" style=" height:125px;">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-9">
-                            <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
                                 </div>
                                 <div class="col-md-4">
-                                    <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="start_date" id="start_date" value="<?= date('Y-m-d', strtotime("-6 days")); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="end_date" id="end_date" value="<?= date('Y-m-d'); ?>">
                                 </div>
                                 <div class="col-md-2">
-                                    <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                                 </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div id="titleline"></div>
-                    </div>
-                    <div class="card-body">
-                        <div class="main-chart">
-                            <div id="chartdate">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div id="title"></div>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Show data</label>
-                                    <select class="form-control" id="limit_showData">
-                                        <option value="3">3</option>
-                                        <option value="5" selected>5</option>
-                                        <option value="7">7</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="main-chart">
-                            <div id="charta">
-                            </div>
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <div id="titleline"></div>
+                </div>
+                <div class="card-body">
+                    <div class="main-chart">
+                        <div id="chartdate">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <div id="title"></div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Show data</label>
+                                <select class="form-control" id="limit_showData">
+                                    <option value="3">3</option>
+                                    <option value="5" selected>5</option>
+                                    <option value="7">7</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="main-chart">
+                        <div id="charta">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </div>
 <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>

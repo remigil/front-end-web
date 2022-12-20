@@ -529,9 +529,7 @@
                                 },
                                 dataLabels: {
                                     enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
+
                                     offsetY: -15
                                 },
                                 markers: {
@@ -773,9 +771,7 @@
                                 },
                                 dataLabels: {
                                     enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
+
                                     offsetY: -15
                                 },
                                 markers: {
@@ -1021,9 +1017,7 @@
                                 },
                                 dataLabels: {
                                     enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
+
                                     offsetY: -15
                                 },
                                 markers: {
@@ -1256,9 +1250,7 @@
                                 },
                                 dataLabels: {
                                     enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
+
                                     offsetY: -15
                                 },
                                 markers: {
@@ -1457,9 +1449,7 @@
                                 },
                                 dataLabels: {
                                     enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
+
                                     offsetY: -15
                                 },
                                 markers: {
@@ -1767,9 +1757,7 @@
                                 },
                                 dataLabels: {
                                     enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
+
                                     offsetY: -15
                                 },
                                 markers: {
@@ -2077,9 +2065,7 @@
                                 },
                                 dataLabels: {
                                     enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
+
                                     offsetY: -15
                                 },
                                 markers: {
@@ -2378,9 +2364,7 @@
                                 },
                                 dataLabels: {
                                     enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
+
                                     offsetY: -15
                                 },
                                 markers: {
@@ -2609,9 +2593,7 @@
                                 },
                                 dataLabels: {
                                     enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
+
                                     offsetY: -15
                                 },
                                 markers: {
@@ -2693,7 +2675,6 @@
                                                     <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
                                                 </div>
                                                 <div class="row">
-                                                <div class="row">
                                                         <div class="col-md-8 ms-1">
                                                             <span class="fw-bold">Total LAKA</span><br>
                                                             <span class="fw-bold">Total MD</span><br>
@@ -2701,21 +2682,21 @@
                                                             <span class="fw-bold">Total LR</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${insiden_kecelakaan[dataPointIndex]}</span><br>                                                        </div>
-                                                            <span class="fw-bold">${meninggal_dunia[dataPointIndex]}</span><br>                                                        </div>
-                                                            <span class="fw-bold">${luka_berat[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${insiden_kecelakaan[dataPointIndex]}</span><br>                                                        
+                                                            <span class="fw-bold">${meninggal_dunia[dataPointIndex]}</span><br>                                                        
+                                                            <span class="fw-bold">${luka_berat[dataPointIndex]}</span><br>                                                        
                                                             <span class="fw-bold">${luka_ringan[dataPointIndex]}</span><br> 
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
-                                                <div class="my-2 text-center">
-                                                    <span class="fs-6 fw-bold">Presentase</span>
-                                                </div>
-                                                    <span class="fw-bold">${persentase_kecelakaan[dataPointIndex]} %</span><br>
-                                                    <span class="fw-bold">${persentase_md[dataPointIndex]} %</span><br>
-                                                    <span class="fw-bold">${persentase_lb[dataPointIndex]} %</span><br>
-                                                    <span class="fw-bold">${persentase_lr[dataPointIndex]} %</span><br>
+                                                    <div class="my-2 text-center">
+                                                        <span class="fs-6 fw-bold">Presentase</span>
+                                                    </div>
+                                                        <span class="fw-bold">${persentase_kecelakaan[dataPointIndex]} %</span><br>
+                                                        <span class="fw-bold">${persentase_md[dataPointIndex]} %</span><br>
+                                                        <span class="fw-bold">${persentase_lb[dataPointIndex]} %</span><br>
+                                                        <span class="fw-bold">${persentase_lr[dataPointIndex]} %</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -2724,15 +2705,15 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                        <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total LAKA</span><br>
                                                             <span class="fw-bold">Total MD</span><br>
                                                             <span class="fw-bold">Total LB</span><br>
                                                             <span class="fw-bold">Total LR</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${insiden_kecelakaan[dataPointIndex]}</span><br>                                                        </div>
-                                                            <span class="fw-bold">${meninggal_dunia[dataPointIndex]}</span><br>                                                        </div>
-                                                            <span class="fw-bold">${luka_berat[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${insiden_kecelakaan[dataPointIndex]}</span><br>                                                      
+                                                            <span class="fw-bold">${meninggal_dunia[dataPointIndex]}</span><br>                                                       
+                                                            <span class="fw-bold">${luka_berat[dataPointIndex]}</span><br>                                                      
                                                             <span class="fw-bold">${luka_ringan[dataPointIndex]}</span><br> 
                                                         </div>
                                                     </div>
@@ -2812,9 +2793,7 @@
                                 },
                                 dataLabels: {
                                     enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
+
                                     offsetY: -15
                                 },
                                 markers: {
@@ -3025,9 +3004,7 @@
                                 },
                                 dataLabels: {
                                     enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
+
                                     offsetY: -15
                                 },
                                 markers: {
@@ -3223,9 +3200,7 @@
                                 },
                                 dataLabels: {
                                     enabled: true,
-                                    style: {
-                                        colors: ['#333']
-                                    },
+
                                     offsetY: -15
                                 },
                                 markers: {

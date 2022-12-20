@@ -636,14 +636,20 @@
 
  <div class="container-fluid">
      <div class="card">
-
          <div class="row">
-             <hr style="width:97%; margin: auto">
              <div class="filter mt-4" style=" height:125px;">
                  <div class="container-fluid">
                      <div class="row">
                          <div class="col-md-9">
-                             <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                             <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                 </div>
+                             </div>
                              <div class="row">
                                  <div class="col-md-4">
                                      <input class="form-control form-control-lg" type="date" name="start_date" id="start_date" value="<?= date('Y-m-d', strtotime("-6 days")); ?>">
@@ -654,55 +660,55 @@
                                  <div class="col-md-2">
                                      <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                                  </div>
-
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <div class="col-xl-12">
-                 <div class="card">
-                     <div class="card-header">
-                         <div id="titleline"></div>
-                     </div>
-                     <div class="card-body">
-                         <div class="main-chart">
-                             <div id="chartdate">
                              </div>
                          </div>
                      </div>
                  </div>
              </div>
          </div>
-         <div class="row">
-             <div class="col-xl-12">
-                 <div class="card">
-                     <div class="card-header">
-                         <div id="title"></div>
-                         <div class="row">
-                             <div class="col-md-2">
-                                 <div class="form-group">
-                                     <label for="exampleFormControlSelect1">Show data</label>
-                                     <select class="form-control" id="limit_showData">
-                                         <option value="3">3</option>
-                                         <option value="5" selected>5</option>
-                                         <option value="7">7</option>
-                                         <option value="10">10</option>
-                                     </select>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="card-body">
-                         <div class="main-chart">
-                             <div id="charta">
-                             </div>
+         <div class="col-xl-12">
+             <div class="card">
+                 <div class="card-header">
+                     <div id="titleline"></div>
+                 </div>
+                 <div class="card-body">
+                     <div class="main-chart">
+                         <div id="chartdate">
                          </div>
                      </div>
                  </div>
              </div>
          </div>
      </div>
+     <div class="row">
+         <div class="col-xl-12">
+             <div class="card">
+                 <div class="card-header">
+                     <div id="title"></div>
+                     <div class="row">
+                         <div class="col-md-2">
+                             <div class="form-group">
+                                 <label for="exampleFormControlSelect1">Show data</label>
+                                 <select class="form-control" id="limit_showData">
+                                     <option value="3">3</option>
+                                     <option value="5" selected>5</option>
+                                     <option value="7">7</option>
+                                     <option value="10">10</option>
+                                 </select>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="card-body">
+                     <div class="main-chart">
+                         <div id="charta">
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
  </div>
  <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
@@ -1197,9 +1203,9 @@
                  end_date: yesterday
              },
              dataType: "JSON",
-             success: function(results) {
-                 console.log(results);
-                 $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${results.title}</h1>`);
+             success: function(result) {
+                 console.log(result);
+                 $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                  $("#chartdate").html(`<div id="chart2"></div>`);
 
 
@@ -1207,12 +1213,12 @@
                      series: [{
                          name: '<h6>Baru</h6>',
                          type: 'line',
-                         data: results.data.polda_baru,
+                         data: result.data.polda_baru,
                          color: "#CB2D3E"
                      }, {
                          name: '<h6>Perpanjangan</h6>',
                          type: 'line',
-                         data: results.data.polda_perpanjangan,
+                         data: result.data.polda_perpanjangan,
                          color: "#E8D42F"
                      }],
                      chart: {
@@ -1243,7 +1249,7 @@
                          radius: 2,
                      },
                      xaxis: {
-                         categories: results.data.polda_name,
+                         categories: result.data.polda_name,
                          labels: {
                              show: true,
                              style: {
