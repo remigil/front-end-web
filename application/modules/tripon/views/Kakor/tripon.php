@@ -47,6 +47,35 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <div class="material-selectfield">
+                            <div class="material-textfield">
+                                <input type="date" name="start_date" id="start_date" style="width:100% ;">
+                                <label class="labelmui">Filter tanggal mulai</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="material-selectfield">
+                            <div class="material-textfield">
+                                <input type="date" name="end_date" id="end_date" style="width:100% ;">
+                                <label class="labelmui">Filter tanggal selesai</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-primary mt-3" type="button" id="btn_pilih">Tampilkan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <div class="card p-3" style="display:none">
         <div class="row mb-2 align-items-center">
             <div class="col-md-1">
@@ -407,7 +436,8 @@
         let end_time = moment().add(3, 'hours').format('H:00:00')
         let start_date = moment().format('YYYY-MM-DD');
         let end_date = moment().format('YYYY-MM-DD');
-
+        $('#start_date').attr('type', 'time')
+        $('#end_date').attr('type', 'time')
 
         getPieTripOn(filter, time, start_time, end_time, start_date, end_date);
         getChartProv(filter, time, start_time, end_time, start_date, end_date, limit);
@@ -444,12 +474,16 @@
         let end_year = moment().endOf('year').format('YYYY-MM-DD');
 
         if (this.value == 'now') {
+            $('#start_date').attr('type', 'time')
+            $('#end_date').attr('type', 'time')
             getChartProv(filter, time, start_time, end_time, today, today, limit);
             getPieTripOn(filter, time, start_time, end_time, today, today);
             getStatistikTripOn(filter, time, start_time, end_time, today, today);
             getModelKendaraan(filter, time, start_time, end_time, today, today);
 
         } else if (this.value == 'today') {
+            $('#start_date').attr('type', 'date')
+            $('#end_date').attr('type', 'date')
             getChartProv(filter, time = false, start_time = null, end_time = null, today, today, limit);
             getPieTripOn(filter, time = false, start_time = null, end_time = null, today, today);
             getStatistikTripOn(filter, time = false, start_time = null, end_time = null, today, today);
@@ -457,6 +491,8 @@
 
 
         } else if (this.value == 'week') {
+            $('#start_date').attr('type', 'date')
+            $('#end_date').attr('type', 'date')
             getChartProv(filter, time = false, start_time = null, end_time = null, start_week, end_week, limit);
             getPieTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
             getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
@@ -464,6 +500,8 @@
 
 
         } else if (this.value == 'month') {
+            $('#start_date').attr('type', 'month')
+            $('#end_date').attr('type', 'month')
             getChartProv(filter, time = false, start_time = null, end_time = null, start_month, end_month, limit);
             getPieTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
             getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
@@ -472,6 +510,8 @@
 
 
         } else if (this.value == 'year') {
+            $('#start_date').attr('type', 'month')
+            $('#end_date').attr('type', 'month')
             getPieTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
             getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_year, end_year);
@@ -482,6 +522,53 @@
         // // console.log(tanggal[0]);
         // getStatistik();
     });
+
+
+    $('#btn_pilih').on('click', function(e) {
+        e.preventDefault();
+        var type_filter = $("[name=filter]:checked").val();
+        let filter = true;
+        let time = true;
+        let limit = $('#limit_showData').val()
+
+        if (type_filter == 'now') {
+            let start_time = $('#start_date').val();
+            let end_time = $('#end_date').val();
+            let today = moment().format('YYYY-MM-DD');
+            getChartProv(filter, time, start_time, end_time, today, today, limit);
+            getPieTripOn(filter, time, start_time, end_time, today, today);
+            getStatistikTripOn(filter, time, start_time, end_time, today, today);
+            getModelKendaraan(filter, time, start_time, end_time, today, today);
+        } else if (type_filter == 'today') {
+            let start_date = $('#start_date').val();
+            let end_date = $('#end_date').val();
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_date, end_date, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, today, today);
+            getStatistikTripOn(filter, time = false, start_time = null, end_time = null, today, today);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, today, today);
+        } else if (type_filter == 'week') {
+            let start_week = $('#start_date').val();
+            let end_week = $('#end_date').val();
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_week, end_week, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+            getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+        } else if (type_filter == 'month') {
+            let start_month = $('#start_date').val();
+            let end_month = $('#end_date').val();
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_month, end_month, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+            getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+        } else if (type_filter == 'year') {
+            let start_year = $('#start_date').val();
+            let end_year = $('#end_date').val();
+            getChartProv(filter, time = false, start_time = null, end_time = null, start_year, end_year, limit);
+            getPieTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+            getStatistikTripOn(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+            getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+        }
+    })
 
 
     $('#limit_showData').on('change', function() {

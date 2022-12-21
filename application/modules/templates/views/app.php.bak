@@ -1328,9 +1328,8 @@
                                         <span data-key="t-dashboard">SUB MONITORING CENTER</span>
                                     </a>
                                 </li>
-
                                 <li>
-                                    <a href="https://polri.go.id/polisiku" target="_blank">
+                                    <a href="javascript: void(0);" target="_blank">
                                         <img src="<?= base_url('assets/icon/external/dashboard_polisiku.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">DASHBOARD POLISIKU</span>
                                     </a>
@@ -1342,7 +1341,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://sot.granddatum.com/user/login" target="_blank">
+                                    <a href="javascript: void(0);" target="_blank">
                                         <img src="<?= base_url('assets/icon/external/sot_presisi.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">SOT PRESISI</span>
                                     </a>
@@ -1354,7 +1353,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://inarisk.bnpb.go.id/" target="_blank">
+                                    <a href="javascript: void(0);" target="_blank">
                                         <img src="<?= base_url('assets/icon/external/inarisk_bnpb.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">INARISK BNPB</span>
                                     </a>
@@ -1395,19 +1394,75 @@
                                         <span data-key="t-dashboard">SUB MONITORING CENTER</span>
                                     </a>
                                 </li>
+
+
+
                                 <li>
-                                    <a href="http://rttmc.dephub.go.id/" target="_blank">
+                                    <a href="https://polri.go.id/polisiku" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">DEPHUB</span>
+                                        <span data-key="t-dashboard">Polisiku</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <button type="button" class="btn aneh" data-toggle="modal" data-target="#myModalPoldaDisplay2" id="getPoldatable">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px; margin-left:-90px; ">
-                                        <span data-key="t-dashboard" style="color: white;">Kontak Penting</span>
-                                    </button>
+                                    <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">IRSMS</span>
+                                    </a>
                                 </li>
-
+                                <li>
+                                    <a href="https://etilang.polri.go.id/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">E-TILANG</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">ERI</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://103.154.174.26/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SBST ONLINE</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.digitalkorlantas.id/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">DIGITAL KORLANTAS</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://samsatdigital.id/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">Samsat Digital (SIGNAL)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.digitalkorlantas.id/sim/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SIM Nasional Presisi</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://siminternasional.korlantas.polri.go.id/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SIM Internasional</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://k3i.korlantas.polri.go.id/dis/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">DIS</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://1500669.com/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">Contact Center</span>
+                                    </a>
+                                </li>
 
                                 <!-- <li>
                                     <a href="<?php echo base_url(); ?>masterdata/bodycam">
@@ -2420,75 +2475,6 @@
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" id="tutupModalPolda"></button>
                         </div>
                         <div class="modal-body" id="openModalPoldaDisplay1" style="width: 300px;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal right fade" id="myModalPoldaDisplay2" id="getPoldatable" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPoldaDisplay1" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary ">
-                            <h5 class="modal-title text-white" id="myLargeModalLabelPoldaDisplay1">Kontak Penting</h5> &nbsp;<span class="badge bg-danger rounded-pill"></span>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" id="tutupModalPolda"></button>
-                        </div>
-                        <div class="modal-body" id="openModalPoldaDisplay1" style="width: 600px;">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Instansi</th>
-                                        <th>Nama</th>
-                                        <th>No Telp</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Perhubungan Laut</td>
-                                        <td>Yelda</td>
-                                        <td>0877 8112 2849</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Perhubungan Udara</td>
-                                        <td>Sastra</td>
-                                        <td>0813 3740 7552</td>
-                                    </tr>
-                                    <tr>
-                                        <td>ASDP Indonesia Ferry</td>
-                                        <td>Irfan</td>
-                                        <td>0857 8888 7805</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dirjen Perkeretaapian</td>
-                                        <td>Yuda</td>
-                                        <td>0857 42224 354</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Perhubungan Darat</td>
-                                        <td>Miranda</td>
-                                        <td>0859 5904 5616</td>
-                                    </tr>
-                                    <tr>
-                                        <td>BMKG</td>
-                                        <td>Narda</td>
-                                        <td>0856 9175 6148</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Basarnas</td>
-                                        <td>Joko Prasetyo</td>
-                                        <td>0882 1450 666</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jasa Marga</td>
-                                        <td>Yuda</td>
-                                        <td>0812 1924 1997</td>
-                                    </tr>
-                                    <tr>
-                                        <td>KNKT</td>
-                                        <td>Agnesa</td>
-                                        <td>0813 7212 4889</td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>

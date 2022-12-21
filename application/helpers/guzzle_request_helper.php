@@ -14,28 +14,28 @@ if (!function_exists('guzzle_request')) {
      * return array data
      */
     function guzzle_request($method, $uri, $body)
-    { 
+    {
         try {
-            $client = new Client(); 
+            $client = new Client();
             // $request = $client->request($method, 'http://localhost:3001/v1/' . $uri, $body); 
-            $request = $client->request($method, 'http://k3ig20korlantas.id:3001/v1/' . $uri, $body); 
+            $request = $client->request($method, ENV_API_BASE_URL . 'v1/' . $uri, $body);
             // $request = $client->request($method, 'http://34.143.227.90:3019/v1/' . $uri, $body); 
-            $response = $request->getBody()->getContents(); 
+            $response = $request->getBody()->getContents();
             $data = json_decode($response, true);
 
             return $data;
         } catch (Exception $e) {
-            return redirect(base_url('login/logout?'.$uri.''));
+            return redirect(base_url('login/logout?' . $uri . ''));
             // return location.reload();
         }
-    }  
+    }
 
     function url_api()
     {
         // return 'http://localhost:3002/uploads/';
-        return 'http://k3ig20korlantas.id:3001/uploads/';
+        return ENV_API_BASE_URL . 'uploads/';
         // return 'http://34.143.227.90:3019/uploads/'; 
-    } 
+    }
 }
 
 if (!function_exists('guzzle_requestTracking')) {
@@ -56,14 +56,11 @@ if (!function_exists('guzzle_requestTracking')) {
             $response = $request->getBody();
             $data = json_decode($response, true);
             return $data;
-            
         } catch (Exception $e) {
             return 'Cek sinyal';
         }
-
-
     }
-} 
+}
 
 if (!function_exists('guzzle_requestAnev')) {
     /**
@@ -79,19 +76,16 @@ if (!function_exists('guzzle_requestAnev')) {
         try {
             $client = new Client();
             // $request = $client->request($method, 'http://localhost:3002/' . $uri, $body);
-            $request = $client->request($method, 'http://k3ig20korlantas.id:3001/' . $uri, $body); 
+            $request = $client->request($method, ENV_API_BASE_URL . '' . $uri, $body);
             // $request = $client->request($method, 'http://34.143.227.90:3019/' . $uri, $body);
             $response = $request->getBody();
             $data = json_decode($response, true);
             return $data;
-            
         } catch (Exception $e) {
             return 'Cek sinyal';
         }
-
-
     }
-} 
+}
 
 if (!function_exists('guzzle_requestGpsId')) {
     /**
@@ -106,15 +100,12 @@ if (!function_exists('guzzle_requestGpsId')) {
     {
         try {
             $client = new Client();
-            $request = $client->request($method, 'https://svc-siwalpjr.gps.id/' . $uri, $body); 
+            $request = $client->request($method, 'https://svc-siwalpjr.gps.id/' . $uri, $body);
             $response = $request->getBody();
             $data = json_decode($response, true);
             return $data;
-            
         } catch (Exception $e) {
             return 'Cek sinyal';
         }
-
-
     }
 }

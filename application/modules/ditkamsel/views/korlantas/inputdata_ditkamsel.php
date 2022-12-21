@@ -39,7 +39,7 @@
                 <div class="isiRow">
 
                 </div>
-                <div class="col-md-12" id="asddd" style="display: none;">
+                <div class="col-md-12" id="asddd" style="display:none;">
                     <button type="button" id="btn_submit" class="btn btn-primary waves-effect float-end mt-3" style="width: 10%; letter-spacing: 2px;">SIMPAN</button>
                     <button type="button" class="btn btn-secondary waves-effect float-end mt-3 me-3" style="width: 10%; letter-spacing: 2px;">BATAL</button>
                 </div>
@@ -94,7 +94,7 @@
                             <div class="material-selectfield mb-3">
                                 <select name="jenis_satker" id="jenis_satker_dropdown">
                                     <option value="">Pilih</option>
-                                    <option value="1" selected>Ditgakkum</option>
+                                    <option value="2" selected>Ditkamsel</option>
                                 </select>
                                 <label class="labelmui">Satker</label>
                             </div>
@@ -139,12 +139,10 @@
             <div class="modal-body">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <h4>Ditgakkum</h4>
+                        <h4>Ditkamsel</h4>
                     </li>
-                    <!-- <li class="list-group-item"><button onclick="format(1)" id="btn-format" class="btn btn-xs btn-info">Format Import Dakgar Lantas</button></li> -->
-                    <li class="list-group-item"><button onclick="format(2)" id="btn-format" class="btn btn-xs btn-info">Format Import Pelanggaran Konvensional</button></li>
-                    <li class="list-group-item"><button onclick="format(3)" id="btn-format" class="btn btn-xs btn-info">Format Import Kecelakaan Lalu Lintas</button></li>
-                    <li class="list-group-item"><button onclick="format(4)" id="btn-format" class="btn btn-xs btn-info">Format Import Turjagwali</button></li>
+                    <li class="list-group-item"><button onclick="format(5)" id="btn-format" class="btn btn-xs btn-info">Format Import Dikmaslantas</button></li>
+                    <li class="list-group-item"><button onclick="format(6)" id="btn-format" class="btn btn-xs btn-info">Format Import Penyebaran dan Pemasangan</button></li>
                 </ul>
             </div>
         </div>
@@ -170,7 +168,7 @@
             serverMethod: 'POST',
             ajax: {
                 dataType: 'json',
-                url: '<?php echo base_url(); ?>ditgakkum/Ditgakkum/listof_import_file',
+                url: '<?php echo base_url(); ?>ditkamsel/Ditkamsel/listof_import_file',
                 data: function(data) {
                     $("#overlay").fadeIn(300);
                     data.orderField = data.order[0] != undefined ? data.order[0].column : '';
@@ -214,13 +212,12 @@
         const jenis_satker_name = $('#jenis_satker_dropdown option:selected').text();
         let jenis_satker_dropdown = $('#jenis_satker_dropdown').val();
         $('#jenis_laporan_dropdown').html('')
-        if (jenis_satker_dropdown == 1) {
+        if (jenis_satker_dropdown == 2) {
             $('#jenis_laporan_dropdown')
                 .append(`
                     <option value="">Pilih</option>
-                    <option value="3">Kecelakaan Lalu Lintas</option>
-                    <option value="2">Pelanggaran Lalu Lintas</option>
-                    <option value="4">Turjagwali</option>
+                    <option value="5">Dikmaslantas</option>
+                    <option value="6">Penyebaran / Pemasangan</option>
                 `)
         }
         $("#jenis_satker_name").val(jenis_satker_name);
@@ -228,8 +225,8 @@
 
     });
     $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>
-                                <option value="2">Pelanggaran</option>
-                                <option value="4">Turjagwali</option>`)
+                                        <option value="5">Dikmaslantas</option>
+                                        <option value="6">Penyebaran / Pemasangan</option>`)
 
 
     $('#btn_pilih').on('click', function() {

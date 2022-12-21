@@ -1203,7 +1203,7 @@
 
         let data = [];
         let connected = false;
-        var socket = io('http://103.163.139.100:3005/', {
+        var socket = io('<?= ENV_SOCKET_IO_HTTP ?>', {
             transports: ['websocket'],
             // socketRef.current = io('http://10.10.7.40:3001/', {
             path: '/socket.io',

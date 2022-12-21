@@ -1063,6 +1063,16 @@ h6 {
 	width: 100%;
 }
 
+.teks-berita marquee a{
+	color: yellow;
+	
+}
+.teks-berita marquee a:hover{
+	color: yellow;
+	background-color: #059652;
+	transition: 100ms;
+}
+
 
 /*--------------------------------------------------------------
 # Header

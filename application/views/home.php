@@ -71,22 +71,25 @@
 
       </div>
     </div>
-		<div class="container-fluid px-5">
+		<div class="container-fluid" style="padding-left: 150px; padding-right:150px">
 			<div class="row shadow mb-5 bg-body rounded">
 	
-				<div class="col-md-2">
+				<div class="col-md-1">
 					<div class="container-fluid">
 						<h4 class="text-black p-2">Informasi</h4>
 					</div>
 	
 				</div>
-				<div class="col-md-10">
-					<marquee behavior="" direction="" style="color: white; background-color:#073888;" class="p-2">
-						SELAMAT DATANG DI PORTAL PUSAT KENDALI KOORDINASI KOMUNIKASI DAN INFORMASI KORLANTAS POLRI
-						<?php foreach ($semuaberita as $data) : ?>
-							<a href="berita_front/detailberita/<?= $data['id'] ?>" class="mx-3 text-white" style="text-decoration: none;">|| <?= $data['title'] ?> ||</a>
-						<?php endforeach; ?>
-					</marquee>
+				<div class="col-md-11">
+					<div class="teks-berita">
+						<marquee behavior="" direction="" style="color: white; background-color:#073888;" class="p-2" onMouseOver="this.stop()" onMouseOut="this.start()">
+							SELAMAT DATANG DI PORTAL PUSAT KENDALI KOORDINASI KOMUNIKASI DAN INFORMASI KORLANTAS POLRI
+							<?php foreach ($semuaberita as $data) : ?>
+								<a href="berita_front/detailberita/<?= $data['id'] ?>" class="mx-3" style="text-decoration: none; color:#fff">|| <?= $data['title'] ?> ||</a>
+							<?php endforeach; ?>
+						</marquee>
+
+					</div>
 	
 				</div>
 			</div>
@@ -899,6 +902,7 @@
       L.control.zoom({
         position: 'topright'
       }).addTo(mapContainer);
+      
       
 
       mapContainer.doubleClickZoom.disable();

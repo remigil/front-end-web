@@ -94,7 +94,7 @@
                             <div class="material-selectfield mb-3">
                                 <select name="jenis_satker" id="jenis_satker_dropdown">
                                     <option value="">Pilih</option>
-                                    <option value="1" selected>Ditgakkum</option>
+                                    <option value="3" selected>Ditregident</option>
                                 </select>
                                 <label class="labelmui">Satker</label>
                             </div>
@@ -139,12 +139,12 @@
             <div class="modal-body">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <h4>Ditgakkum</h4>
+                        <h4>Ditregident</h4>
                     </li>
-                    <!-- <li class="list-group-item"><button onclick="format(1)" id="btn-format" class="btn btn-xs btn-info">Format Import Dakgar Lantas</button></li> -->
-                    <li class="list-group-item"><button onclick="format(2)" id="btn-format" class="btn btn-xs btn-info">Format Import Pelanggaran Konvensional</button></li>
-                    <li class="list-group-item"><button onclick="format(3)" id="btn-format" class="btn btn-xs btn-info">Format Import Kecelakaan Lalu Lintas</button></li>
-                    <li class="list-group-item"><button onclick="format(4)" id="btn-format" class="btn btn-xs btn-info">Format Import Turjagwali</button></li>
+                    <li class="list-group-item"><button onclick="format(7)" id="btn-format" class="btn btn-xs btn-info">Format Import SIM</button></li>
+                    <li class="list-group-item"><button onclick="format(8)" id="btn-format" class="btn btn-xs btn-info">Format Import BPKB</button></li>
+                    <li class="list-group-item"><button onclick="format(9)" id="btn-format" class="btn btn-xs btn-info">Format Import RANMOR</button></li>
+                    <li class="list-group-item"><button onclick="format(10)" id="btn-format" class="btn btn-xs btn-info">Format Import STNK</button></li>
                 </ul>
             </div>
         </div>
@@ -170,7 +170,7 @@
             serverMethod: 'POST',
             ajax: {
                 dataType: 'json',
-                url: '<?php echo base_url(); ?>ditgakkum/Ditgakkum/listof_import_file',
+                url: '<?php echo base_url(); ?>ditregident/Ditregident/listof_import_file',
                 data: function(data) {
                     $("#overlay").fadeIn(300);
                     data.orderField = data.order[0] != undefined ? data.order[0].column : '';
@@ -214,13 +214,14 @@
         const jenis_satker_name = $('#jenis_satker_dropdown option:selected').text();
         let jenis_satker_dropdown = $('#jenis_satker_dropdown').val();
         $('#jenis_laporan_dropdown').html('')
-        if (jenis_satker_dropdown == 1) {
+        if (jenis_satker_dropdown == 3) {
             $('#jenis_laporan_dropdown')
                 .append(`
                     <option value="">Pilih</option>
-                    <option value="3">Kecelakaan Lalu Lintas</option>
-                    <option value="2">Pelanggaran Lalu Lintas</option>
-                    <option value="4">Turjagwali</option>
+                    <option value="7">SIM</option>
+                    <option value="8">BPKB</option>
+                    <option value="9">RANMOR</option>
+                    <option value="10">STNK</option>
                 `)
         }
         $("#jenis_satker_name").val(jenis_satker_name);
@@ -228,8 +229,10 @@
 
     });
     $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>
-                                <option value="2">Pelanggaran</option>
-                                <option value="4">Turjagwali</option>`)
+                                <option value="7">SIM</option>
+                                <option value="8">BPKB</option>
+                                <option value="9">RANMOR</option>
+                                <option value="10">STNK</option>`)
 
 
     $('#btn_pilih').on('click', function() {
@@ -266,17 +269,17 @@
                     laporan.push('Stiker', 'Leaflet', 'Spanduk', 'Billboard', 'JEMENSOSPREK')
                     field_input.push(`<input type="number" name="stiker[]" class="form-control" value="0">`, `<input type="number" name="leaflet[]" class="form-control" value="0">`, `<input type="number" name="spanduk[]" class="form-control" value="0">`, `<input type="number" name="billboard[]" class="form-control" value="0">`, `<input type="number" name="jemensosprek[]" class="form-control" value="0">`)
                 } else if (jenis_laporan == 7) {
-                    laporan.push('Baru', 'Perpanjangan')
-                    field_input.push(`<input type="number" name="baru[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan[]" class="form-control" value="0">`)
+                    laporan.push('baru_a', 'baru_c', 'baru_c1', 'baru_c2', 'baru_d', 'baru_d1', 'perpanjangan_a', 'perpanjangan_au', 'perpanjangan_c', 'perpanjangan_c1', 'perpanjangan_c2', 'perpanjangan_d', 'perpanjangan_d1', 'perpanjangan_b1', 'perpanjangan_b1u', 'perpanjangan_b2', 'perpanjangan_b2u', 'peningkatan_au', 'peningkatan_b1', 'peningkatan_b1u', 'peningkatan_b2', 'peningkatan_b2u')
+                    field_input.push(`<input type="number" name="baru_a[]" class="form-control" value="0">`, `<input type="number" name="baru_c[]" class="form-control" value="0">`, `<input type="number" name="baru_c1[]" class="form-control" value="0">`, `<input type="number" name="baru_c2[]" class="form-control" value="0">`, `<input type="number" name="baru_d[]" class="form-control" value="0">`, `<input type="number" name="baru_d1[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan_a[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan_au[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan_c[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan_c1[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan_c2[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan_d[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan_d1[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan_b1[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan_b1u[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan_b2[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan_b2u[]" class="form-control" value="0">`, `<input type="number" name="peningkatan_au[]" class="form-control" value="0">`, `<input type="number" name="peningkatan_b1[]" class="form-control" value="0">`, `<input type="number" name="peningkatan_b1u[]" class="form-control" value="0">`, `<input type="number" name="peningkatan_b2[]" class="form-control" value="0">`, `<input type="number" name="peningkatan_b2u[]" class="form-control" value="0">`)
                 } else if (jenis_laporan == 8) {
-                    laporan.push('Baru', 'Perpanjangan', 'RUBENTINA')
-                    field_input.push(`<input type="number" name="baru[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan[]" class="form-control" value="0">`, `<input type="number" name="rubentina[]" class="form-control" value="0">`)
+                    laporan.push('BBN 1', 'BBN 2', 'Mutasi Masuk', 'Mutasi Keluar', 'Perubahan dan Pergantian')
+                    field_input.push(`<input type="number" name="bbn_1[]" class="form-control" value="0">`, `<input type="number" name="bbn_2[]" class="form-control" value="0">`, `<input type="number" name="mutasi_masuk[]" class="form-control" value="0">`, `<input type="number" name="mutasi_keluar[]" class="form-control" value="0">`, `<input type="number" name="perubahan_pergantian[]" class="form-control" value="0">`)
                 } else if (jenis_laporan == 9) {
                     laporan.push('Mobil Penumpang', 'Mobil Barang', 'Mobil Bus', 'Ransus', 'Sepeda Motor')
                     field_input.push(`<input type="number" name="mobil_penumpang[]" class="form-control" value="0">`, `<input type="number" name="mobil_barang[]" class="form-control" value="0">`, `<input type="number" name="mobil_bus[]" class="form-control" value="0">`, `<input type="number" name="ransus[]" class="form-control" value="0">`, `<input type="number" name="sepeda_motor[]" class="form-control" value="0">`)
                 } else if (jenis_laporan == 10) {
-                    laporan.push('Baru', 'Perpanjangan', 'RUBENTINA')
-                    field_input.push(`<input type="number" name="baru[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan[]" class="form-control" value="0">`, `<input type="number" name="rubentina[]" class="form-control" value="0">`)
+                    laporan.push('BBN 1 R2', 'BBN 1 R4', 'Perubahan R2', 'Perubahan R4', 'Perpanjangan R2', 'Perpanjangan R4', 'Mutasi Keluar R2', 'Mutasi Keluar R4', 'Mutasi Masuk R2', 'Mutasi Masuk R4', 'Pengesahan R2', 'Pengesahan R4', 'Samolnas R2', 'Samolnas R4')
+                    field_input.push(`<input type="number" name="bbn_1_r2[]" class="form-control" value="0">`, `<input type="number" name="bbn_1_r4[]" class="form-control" value="0">`, `<input type="number" name="perubahan_r2[]" class="form-control" value="0">`, `<input type="number" name="perubahan_r4[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan_r2[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan_r4[]" class="form-control" value="0">`, `<input type="number" name="mutasi_keluar_r2[]" class="form-control" value="0">`, `<input type="number" name="mutasi_keluar_r4[]" class="form-control" value="0">`, `<input type="number" name="mutasi_masuk_r2[]" class="form-control" value="0">`, `<input type="number" name="mutasi_masuk_r4[]" class="form-control" value="0">`, `<input type="number" name="pengesahan_r2[]" class="form-control" value="0">`, `<input type="number" name="pengesahan_r4[]" class="form-control" value="0">`, `<input type="number" name="samolnas_r2[]" class="form-control" value="0">`, `<input type="number" name="samolnas_r4[]" class="form-control" value="0">`)
                 }
 
                 let inputs = ''
@@ -316,6 +319,8 @@
                     ${body}
                 <tbody>
                 </table>
+
+               
                 `
                 } else {
                     master_tb = `<table id="datatable" class="table table-bordered dt-responsive w-100">

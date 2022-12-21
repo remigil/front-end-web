@@ -57,10 +57,15 @@ class Ditgakkum extends MY_Controller
         }
 
 
-
-
         $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
+    }
+
+    public function listof_import_file()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_ditgakkum->get_datatables_harian($postData);
+        echo json_encode($data);
     }
 
     public function getStatistik()

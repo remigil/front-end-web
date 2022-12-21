@@ -8,12 +8,12 @@ if (!isset($this->session->userdata['logged'])) {
     $headers = [
         'Authorization' => $this->session->userdata['token'],
     ];
- 
+
     $client = new \GuzzleHttp\Client();
     // $request = $client->request('POST', 'http://localhost:3020/v1/auth/validate_login', [
-    $request = $client->request('POST', 'http://k3ig20korlantas.id:3001/v1/auth/validate_login', [
-    // $request = $client->request('POST', 'http://34.143.227.90:3019/v1/auth/validate_login', [
-        'headers' => $headers 
+    $request = $client->request('POST', ENV_API_BASE_URL . 'v1/auth/validate_login', [
+        // $request = $client->request('POST', 'http://34.143.227.90:3019/v1/auth/validate_login', [
+        'headers' => $headers
     ]);
     $response = $request->getBody();
     $cek = json_decode($response, true);
