@@ -36,7 +36,7 @@ class Akun extends MY_Controller
         }
 
 
-        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=name_officer&orderDirection=asc&length=500&start=1', [
+        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=name_officer&orderDirection=asc&length=2000&start=1', [
             'headers' => $headers
         ]);
         $data['getOfficer'] = $getOfficer['data']['data'];
@@ -73,7 +73,7 @@ class Akun extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
         $input = $this->input->post();  
-        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=name_officer&orderDirection=asc&length=500&start=1', [
+        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=name_officer&orderDirection=asc&length=2000&start=1', [
             'headers' => $headers
         ]);
         $data = $getOfficer['data']['data'];
@@ -111,7 +111,7 @@ class Akun extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
 
-        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
+        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=id&orderDirection=desc&length=2000&start=1', [
             'headers' => $headers
         ]);
         $data = $getOfficer['data']['data'];
@@ -273,7 +273,7 @@ class Akun extends MY_Controller
         
         $data['getDetail'] = $getDetail['data'];
 
-        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
+        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=id&orderDirection=desc&length=2000&start=1', [
             'headers' => $headers
         ]);
         $data['getOfficer'] = $getOfficer['data']['data'];
