@@ -1328,6 +1328,7 @@
                                         <span data-key="t-dashboard">SUB MONITORING CENTER</span>
                                     </a>
                                 </li>
+
                                 <li>
                                     <a href="javascript: void(0);" target="_blank">
                                         <img src="<?= base_url('assets/icon/external/dashboard_polisiku.png') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -1394,7 +1395,18 @@
                                         <span data-key="t-dashboard">SUB MONITORING CENTER</span>
                                     </a>
                                 </li>
-
+                                <li>
+                                    <a href="http://rttmc.dephub.go.id/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">DEPHUB</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn aneh" data-toggle="modal" data-target="#myModalPoldaDisplay2" id="getPoldatable">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px; margin-left:-90px; ">
+                                        <span data-key="t-dashboard" style="color: white;">Kontak Penting</span>
+                                    </button>
+                                </li>
 
                                 <!--                                 
                                 <li>
@@ -2475,6 +2487,75 @@
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" id="tutupModalPolda"></button>
                         </div>
                         <div class="modal-body" id="openModalPoldaDisplay1" style="width: 300px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal right fade" id="myModalPoldaDisplay2" id="getPoldatable" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPoldaDisplay1" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary ">
+                            <h5 class="modal-title text-white" id="myLargeModalLabelPoldaDisplay1">Kontak Penting</h5> &nbsp;<span class="badge bg-danger rounded-pill"></span>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" id="tutupModalPolda"></button>
+                        </div>
+                        <div class="modal-body" id="openModalPoldaDisplay1" style="width: 600px;">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Instansi</th>
+                                        <th>Nama</th>
+                                        <th>No Telp</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Perhubungan Laut</td>
+                                        <td>Yelda</td>
+                                        <td>0877 8112 2849</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Perhubungan Udara</td>
+                                        <td>Sastra</td>
+                                        <td>0813 3740 7552</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ASDP Indonesia Ferry</td>
+                                        <td>Irfan</td>
+                                        <td>0857 8888 7805</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dirjen Perkeretaapian</td>
+                                        <td>Yuda</td>
+                                        <td>0857 42224 354</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Perhubungan Darat</td>
+                                        <td>Miranda</td>
+                                        <td>0859 5904 5616</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BMKG</td>
+                                        <td>Narda</td>
+                                        <td>0856 9175 6148</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Basarnas</td>
+                                        <td>Joko Prasetyo</td>
+                                        <td>0882 1450 666</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jasa Marga</td>
+                                        <td>Yuda</td>
+                                        <td>0812 1924 1997</td>
+                                    </tr>
+                                    <tr>
+                                        <td>KNKT</td>
+                                        <td>Agnesa</td>
+                                        <td>0813 7212 4889</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
