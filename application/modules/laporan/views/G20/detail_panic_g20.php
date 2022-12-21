@@ -50,14 +50,14 @@
                         <div class="col-6">
                             <div class="rounded float-end" style="background-color: grey; height:27vh; width: 60vh;"></div>
                         </div>
-                    </div> --> 
+                    </div> -->
                     <div class="row mb-3">
                         <div class="col-3"></div>
                         <div class="col-6">
-                            <img src="http://k3ig20korlantas.id:3001/uploads/laporan/<?= $data['getDetail']['foto']; ?>" class="rounded float-end" style="height:100%; width: 100%;">
+                            <img src=ENV_API_BASE_URL."uploads/laporan/<?= $data['getDetail']['foto']; ?>" class="rounded float-end" style="height:100%; width: 100%;">
                         </div>
                         <div class="col-3"></div>
-                    </div> 
+                    </div>
                     <div class="row">
                         <div class="col-md-4">
                             <p>NAMA PETUGAS PELAPOR</p>
@@ -79,7 +79,7 @@
                             <p>NOMOR LAPORAN</p>
                         </div>
                         <div class="col-md-8">
-                            <p>: <?= ($data['getDetail']['code'] != null ? $data['getDetail']['code'] : '-' ); ?></p>
+                            <p>: <?= ($data['getDetail']['code'] != null ? $data['getDetail']['code'] : '-'); ?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -117,7 +117,7 @@
             </div>
             <div class="modal-body">
                 <form action="">
-                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
+                    <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
                     <div class="material-selectfield mb-3">
                         <select name="" id="" class="form-select">
                             <option value="">Pilih Tim</option>
@@ -183,7 +183,7 @@
             zoomControl: false,
             layers: [googleSatelite]
         }).setView(initialCenter, initialZoom);
- 
+
         var icon = L.icon({
             iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
             iconSize: [80, 80], // size of the icon
@@ -194,9 +194,9 @@
 
         // console.log({a:coordLat , b:coordLng});
 
-        L.marker([parseFloat(coordLat), parseFloat(coordLng)]).addTo(mapContainer);  
+        L.marker([parseFloat(coordLat), parseFloat(coordLng)]).addTo(mapContainer);
 
-       
+
         mapContainer.setView(initialCenter, initialZoom);
 
         var baseMaps = {
@@ -213,7 +213,7 @@
             position: 'bottomleft'
         }).addTo(mapContainer);
 
-        mapContainer.flyTo([parseFloat(coordLat), parseFloat(coordLng)], 20); 
+        mapContainer.flyTo([parseFloat(coordLat), parseFloat(coordLng)], 20);
 
 
     });

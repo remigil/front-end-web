@@ -1329,7 +1329,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://polri.go.id/polisiku" target="_blank">
+                                    <a href="javascript: void(0);" target="_blank">
                                         <img src="<?= base_url('assets/icon/external/dashboard_polisiku.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">DASHBOARD POLISIKU</span>
                                     </a>
@@ -1341,7 +1341,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://sot.granddatum.com/user/login" target="_blank">
+                                    <a href="javascript: void(0);" target="_blank">
                                         <img src="<?= base_url('assets/icon/external/sot_presisi.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">SOT PRESISI</span>
                                     </a>
@@ -1353,7 +1353,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://inarisk.bnpb.go.id/" target="_blank">
+                                    <a href="javascript: void(0);" target="_blank">
                                         <img src="<?= base_url('assets/icon/external/inarisk_bnpb.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">INARISK BNPB</span>
                                     </a>
@@ -1395,6 +1395,74 @@
                                     </a>
                                 </li>
 
+
+
+                                <li>
+                                    <a href="https://polri.go.id/polisiku" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">Polisiku</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">IRSMS</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://etilang.polri.go.id/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">E-TILANG</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">ERI</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://103.154.174.26/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SBST ONLINE</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.digitalkorlantas.id/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">DIGITAL KORLANTAS</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://samsatdigital.id/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">Samsat Digital (SIGNAL)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.digitalkorlantas.id/sim/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SIM Nasional Presisi</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://siminternasional.korlantas.polri.go.id/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SIM Internasional</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://k3i.korlantas.polri.go.id/dis/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">DIS</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://1500669.com/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">Contact Center</span>
+                                    </a>
+                                </li>
 
                                 <!-- <li>
                                     <a href="<?php echo base_url(); ?>masterdata/bodycam">
