@@ -111,7 +111,7 @@ class Akun extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
 
-        $getOfficer = guzzle_request('GET', 'officer', [
+        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=id&orderDirection=desc&length=1000&start=1', [
             'headers' => $headers
         ]);
         $data = $getOfficer['data']['data'];
@@ -273,7 +273,7 @@ class Akun extends MY_Controller
         
         $data['getDetail'] = $getDetail['data'];
 
-        $getOfficer = guzzle_request('GET', 'officer', [
+        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=id&orderDirection=desc&length=1000&start=1', [
             'headers' => $headers
         ]);
         $data['getOfficer'] = $getOfficer['data']['data'];
