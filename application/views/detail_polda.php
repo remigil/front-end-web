@@ -38,6 +38,9 @@
   </div>
   <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63458.9587091969!2d106.803352!3d-6.239342!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2388a7a048cd514e!2sBaharkam%20Polri!5e0!3m2!1sid!2sid!4v1665878384384!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mt-5"></iframe> -->
 </section><!-- End Breadcrumbs -->
+
+						
+
 <!-- ======= Featured Services Section ======= -->
 <section id="featured-services" class="featured-services">
 
@@ -50,39 +53,51 @@
 
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
         <div class="service-item position-relative" style="background-color: #ff555b; border-radius:10px; color:#3b3b3b">
-          <div class="icon text-center">
-            <iconify-icon icon="bxs:car-crash" width="50"></iconify-icon>
-          </div>
-          <h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5" style="color:#3b3b3b">Kecelakaan Lalu Lintas</a></h4>
-          <h1 id="lakalantas" class="text-center fw-bold"><?= number_format($ditgakkum['data'][0]['lakalantas'], 0, '', '.');  ?></h1>
+					<div class="service-item-upper">
+						<div class="icon text-center">
+							<iconify-icon icon="bxs:car-crash" width="50"></iconify-icon>
+						</div>
+						<h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5" style="color:#3b3b3b">Kecelakaan Lalu Lintas</a></h4>
+						<h1 id="lakalantas" class="text-center fw-bold mb-5"><?= number_format($ditgakkum['data'][0]['lakalantas'], 0, '', '.');  ?></h1>
+						
+					</div>
         </div>
       </div><!-- End Service Item -->
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
         <div class="service-item position-relative" style="background-color: #fffd51; border-radius:10px; color:#3b3b3b">
-          <div class="icon text-center">
-            <iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon>
-          </div>
-          <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5" style="color:#3b3b3b">Pelanggaran Lalu Lintas</a></h4>
-          <h1 id="garlantas" class="text-center fw-bold"><?= number_format($ditgakkum['data'][0]['garlantas'], 0, '', '.');  ?></h1>
+					<div class="service-item-upper">
+						<div class="icon text-center">
+							<iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon>
+						</div>
+						<h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5" style="color:#3b3b3b">Pelanggaran Lalu Lintas</a></h4>
+						<h1 id="garlantas" class="text-center fw-bold mb-5"><?= number_format($ditgakkum['data'][0]['garlantas'], 0, '', '.');  ?></h1>
+						
+					</div>
         </div>
       </div><!-- End Service Item -->
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
         <div class="service-item position-relative" style="background-color: #40e48a; border-radius:10px; color:#3b3b3b">
-          <div class="icon text-center">
-            <iconify-icon icon="mdi:car-multiple" width="50"></iconify-icon>
-            <iconify-icon icon="mdi:atv" width="50"></iconify-icon>
-          </div>
-          <h4 class="text-center"><a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" class="stretched-link fs-5" style="color:#3b3b3b">Kendaraan Bermotor</a></h4>
-          <h1 id="motor" class="text-center fw-bold"><?= number_format($ditregident['data'][0]['ranmor'], 0, '', '.');  ?></h1>
+					<div class="service-item-upper">
+						<div class="icon text-center">
+							<iconify-icon icon="mdi:car-multiple" width="50"></iconify-icon>
+							<iconify-icon icon="mdi:atv" width="50"></iconify-icon>
+						</div>
+						<h4 class="text-center"><a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" class="stretched-link fs-5" style="color:#3b3b3b">Kendaraan Bermotor</a></h4>
+						<h1 id="motor" class="text-center fw-bold mb-5"><?= number_format($ditregident['data'][0]['ranmor'], 0, '', '.');  ?></h1>
+						
+					</div>
         </div>
       </div><!-- End Service Item -->
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
         <div class="service-item position-relative" style="background-color: #5a8cff; border-radius:10px; color:#3b3b3b">
-          <div class="icon text-center">
-            <iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon>
-          </div>
-          <h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5" style="color:#3b3b3b">SIM Nasional</a></h4>
-          <h1 id="sim" class="text-center fw-bold"><?= number_format($ditregident['data'][0]['sim'], 0, '', '.');  ?></h1>
+					<div class="service-item-upper">
+						<div class="icon text-center">
+							<iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon>
+						</div>
+						<h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5" style="color:#3b3b3b">SIM Nasional</a></h4>
+						<h1 id="sim" class="text-center fw-bold mb-5"><?= number_format($ditregident['data'][0]['sim'], 0, '', '.');  ?></h1>
+						
+					</div>
         </div>
       </div><!-- End Service Item -->
 
@@ -318,6 +333,7 @@
                         minZoom: 1,
                         zoomSnap: 0.25,
                         zoomControl: false,
+												fullscreenControl: true,
                         layers: [googleHybrid, shpFile]
                     }).setView(initialCenter, initialZoom);
 

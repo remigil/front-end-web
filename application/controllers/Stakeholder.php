@@ -5,8 +5,27 @@ class Stakeholder extends MX_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->model('m_stakeholder');
     }
- 
+	public function index($id)
+	{
+		$url = 'stackholder/getId/' . $id;
+        $getStakeholder = guzzle_request('GET', $url, [
+        ]);
+		$getStakeholder = $getStakeholder['data']['data'];
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+		
+		$data['title'] = $getStakeholder['title']." | K3I Korlantas";
+		$data['stakeholder'] = $getStakeholder;
+		
+        $data['breadcrumb'] = $getStakeholder['title'];
+        $data['headline'] = $getStakeholder['fullname'];
+		
+		// var_dump($data);die;
+		$this->template->load('templates/template', 'detail_stakeholder', $data);
+	}
+
 	public function kemendagri()
 	{ 
 		$title = "Kementerian Dalam Negeri | INDONESIA";
