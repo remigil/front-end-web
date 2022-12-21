@@ -156,14 +156,18 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="material-selectfield mb-3">
-                                <select required name="id_accountR[]" id="id_accountR" style="height: 200px;" multiple>
-                                    <?php foreach ($data['getAccount'] as $row) : ?>
-                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['name_account']; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Unit Pengawalan</label>
-                            </div>
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <div class="material-selectfield mb-3">
+                                        <select required name="id_accountR[]" id="id_accountR" style="width: 350px;" multiple> 
+                                        </select>
+                                        <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Unit Pengawalan</label> 
+                                    </div>
+                                </div>
+                                <div class="col-md-1" style="margin-left: -25px;margin-top: 4px;">
+                                    <div class="btn btn-primary" id="load_data"> <i class="fa fas fa-search "></i> </div>
+                                </div>
+                            </div> 
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
@@ -470,6 +474,10 @@
     var userDataTable;
     var userDataTableRD;
     var ressFasumKhusus;
+
+    var nomor = 1;
+    const optionData = new Array();
+    var id_accountR;
 
     $(document).ready(function() {
         // $('#datepicker').datepicker(); 
@@ -864,14 +872,36 @@
             },
         });
 
-        new Choices('#id_accountR', {
-            searchEnabled: true,
-            removeItemButton: true,
-            removeItems: true,
-            itemSelectText: '',
-            classNames: {
-                containerOuter: 'choices select-choices',
-            },
+        if(optionData.length == 0){
+            id_accountR = new Choices(document.querySelector('#id_accountR'), {
+                removeItemButton: true,
+                maxItemCount: 10,
+            });
+            getAkuns(nomor, null);
+        } 
+
+        $("#load_data").on('click', function(e) {
+            // nomor += 1;
+            // getAkuns(nomor, this.value);
+            $('#myModalR').modal('hide');
+            Swal.fire({ 
+                title: 'Cari NRP agar data terload!',
+                input: 'text',
+                inputAttributes: {
+                    autocapitalize: 'off'
+                },
+                showCancelButton: true,
+                confirmButtonText: 'Search',
+                showLoaderOnConfirm: true,
+                preConfirm: (value) => {
+                    getAkuns(nomor, value);
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#myModalR').modal('show');
+                }
+            });  
         });
 
 
@@ -973,6 +1003,41 @@
                 .openOn(mapContainerInstruksi);
         });
     });
+
+
+    function getAkuns(no, search){
+        // console.log({a:no, b:search});
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>operasi/renpam/getAkun",
+            data: { 
+                "start": no,
+                "search": search,
+            },
+            dataType: "JSON",
+            success: function(ress) {
+                // console.log(ress);
+                if(ress.length > 0){
+                    ress.forEach(el => {
+                        optionData.push({value: el.id, label: el.name_account});
+                    });
+                    // console.log(optionData);
+                    id_accountR.setChoices(
+                        optionData,
+                        'value',
+                        'label',
+                        false,
+                    );
+                }else{
+                    Swal.fire(
+                        `Data Tidak ada, Mohon Keyword di cek kembali!`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
+            }
+        }); 
+    }
 
 
     $(".formR").submit(function(e) {

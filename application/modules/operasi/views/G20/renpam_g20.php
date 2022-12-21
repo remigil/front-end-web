@@ -70,8 +70,7 @@
                                     <div class="material-selectfield mb-3">
                                         <select required name="id_account[]" id="id_account" style="width: 350px;" multiple> 
                                         </select>
-                                        <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Unit Pengawalan</label>
-                                        
+                                        <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Unit Pengawalan</label> 
                                     </div>
                                 </div>
                                 <div class="col-md-1" style="margin-left: -25px;margin-top: 4px;">

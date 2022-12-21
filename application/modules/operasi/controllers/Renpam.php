@@ -81,10 +81,10 @@ class Renpam extends MY_Controller
         ]);
         $data['getVip'] = $getVip['data']['data'];
 
-        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
-            'headers' => $headers
-        ]);
-        $data['getAccount'] = $getAccount['data']['data'];
+        // $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
+        //     'headers' => $headers
+        // ]);
+        // $data['getAccount'] = $getAccount['data']['data'];
         // echo json_encode($data['getAccount']);
         // die;
 
@@ -123,10 +123,10 @@ class Renpam extends MY_Controller
         ]);
         $data['getVip'] = $getVip['data']['data'];
 
-        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
-            'headers' => $headers
-        ]);
-        $data['getAccount'] = $getAccount['data']['data'];
+        // $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
+        //     'headers' => $headers
+        // ]);
+        // $data['getAccount'] = $getAccount['data']['data'];
         // echo json_encode($data['getAccount']);
         // die;
 
@@ -232,12 +232,15 @@ class Renpam extends MY_Controller
         $dummy['title_start']    = $input['title_start'];
         $dummy['title_end']    = $input['title_end'];
 
-        $dummy['route']    = $input['ruteawal'];
         $dummy['note_kakor'] = $input['note_kakor'];
-        $dummy['route_alternatif_1']    = $input['coordsAlternative1'];
-        $dummy['route_alternatif_2']    = $input['coordsAlternative2'];
-        $dummy['route_masyarakat']    = $input['coordsAlternative3'];
-        $dummy['route_umum']    = $input['coordsAlternative4'];
+
+        if($input['subjek'] != 3){
+            $dummy['route']    = $input['ruteawal'];
+            $dummy['route_alternatif_1']    = $input['coordsAlternative1'];
+            $dummy['route_alternatif_2']    = $input['coordsAlternative2'];
+            $dummy['route_masyarakat']    = $input['coordsAlternative3'];
+            $dummy['route_umum']    = $input['coordsAlternative4'];
+        }
 
         
 
@@ -475,18 +478,16 @@ class Renpam extends MY_Controller
             die;
         }
         $data['getDetail'] = $getDetail['data'];
-        // echo json_encode($data['getDetail']['data']);
-        // die;
-
+        
         $getVip = guzzle_request('GET', 'vip', [
             'headers' => $headers
         ]);
-        $data['getVip'] = $getVip['data']['data'];
+        $data['getVip'] = $getVip['data']['data']; 
 
-        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
-            'headers' => $headers
-        ]);
-        $data['getAccount'] = $getAccount['data']['data'];
+        // $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1&search=', [
+        //     'headers' => $headers
+        // ]);
+        // $data['getAccount'] = $getAccount['data']['data'];
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -546,11 +547,15 @@ class Renpam extends MY_Controller
         $dummy['order_renpam']    = $input['order_renpam'];
         $dummy['title_start']    = $input['title_start'];
         $dummy['title_end']    = $input['title_end'];
-        $dummy['route']    = $input['ruteawal'];
-        $dummy['route_alternatif_1']    = $input['coordsAlternative1'];
-        $dummy['route_alternatif_2']    = $input['coordsAlternative2'];
-        $dummy['route_masyarakat']    = $input['coordsAlternative3'];
-        $dummy['route_umum']    = $input['coordsAlternative4'];
+
+        if($input['subjek'] != 3){
+            $dummy['route']    = $input['ruteawal'];
+            $dummy['route_alternatif_1']    = $input['coordsAlternative1'];
+            $dummy['route_alternatif_2']    = $input['coordsAlternative2'];
+            $dummy['route_masyarakat']    = $input['coordsAlternative3'];
+            $dummy['route_umum']    = $input['coordsAlternative4']; 
+        }
+
         $dummy['note_kakor'] = $input['note_kakor'];
 
         // echo json_encode($dummy);
