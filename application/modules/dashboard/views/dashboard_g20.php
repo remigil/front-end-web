@@ -7662,7 +7662,7 @@
                                     // iconAnchor: [10, 33]
                                 })
                             }).bindPopup(`
-                                        <div class="text-center" style="width: 400px;height: 300px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                        <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                             <div class="row mt-3">
                                                 <div class="col-md-12 col-12" style="margin-bottom: 10px;">
                                                     <img src="${ressRestArea[i].fasum_logo}" alt="" class="float-center" style="width: 100%;"> 
@@ -7808,7 +7808,7 @@
                                         // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                            <div class="text-center" style="width: 400px;height: 300px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                                 <div class="row mt-3"> 
                                                     <div class="col-md-12 col-12 mt-3">
                                                         <h5>${ressPosPam[i].name_renpam}</h5> 
@@ -7940,7 +7940,7 @@
                                         // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                            <div class="text-center" style="width: 400px;height: 300px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                                 <div class="row mt-3"> 
                                                     <div class="col-md-12 col-12 mt-3">
                                                         <h5>${ressPosYan[i].name_renpam}</h5> 
@@ -8069,7 +8069,7 @@
                                         // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                            <div class="text-center" style="width: 400px;height: 300px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                                 <div class="row mt-3"> 
                                                     <div class="col-md-12 col-12 mt-3">
                                                         <h5>${ressPosTerpadu[i].name_renpam}</h5> 
@@ -8198,7 +8198,7 @@
                                         // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                            <div class="text-center" style="width: 400px;height: 300px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                                 <div class="row mt-3"> 
                                                     <div class="col-md-12 col-12 mt-3">
                                                         <h5>${ressPosko[i].name_renpam}</h5> 
@@ -8328,7 +8328,7 @@
                                         // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                            <div class="text-center" style="width: 400px;height: 300px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                                 <div class="row mt-3">  
                                                     <div class="col-md-12 col-12 mt-3">
                                                         <h5>${ressSatPjr[i].name_renpam}</h5> 
@@ -8487,7 +8487,7 @@
                                         // iconAnchor: [10, 33] 
                                     })
                                 }).bindPopup(`
-                                        <div class="text-center" style="width: 400px;height: 300px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                        <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                             <div class="row mt-3"> 
                                                 <div class="col-md-12 col-12 mt-3">
                                                     <h5>${ressGerbangtol[i].fasum_name}</h5> 
@@ -8607,7 +8607,7 @@
                                     // iconAnchor: [10, 33]
                                 })
                             }).bindPopup(`
-                                        <div class="text-center" style="width: 400px;height: 300px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                        <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                             <div class="row mt-3">
                                                 <div class="col-md-12 col-12" style="margin-left: 210px;margin-bottom: 10px;">
                                                     <div class="avatar-xl me-3">
@@ -9409,7 +9409,7 @@
                                         // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                        <div class="text-center" style="width: 400px;height: 300px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                        <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                             <div class="row mt-3">
                                                 <div class="col-md-12 col-12 mt-3">
                                                     <h5>${ressFasumKhusus[i].fasum_name}</h5> 
