@@ -40,10 +40,10 @@ class Renpam extends MY_Controller
         ]);
         $data['getVip'] = $getVip['data']['data'];
 
-        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=10000&start=1', [
-            'headers' => $headers
-        ]);
-        $data['getAccount'] = $getAccount['data']['data'];
+        // $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
+        //     'headers' => $headers
+        // ]);
+        // $data['getAccount'] = $getAccount['data']['data'];
         // echo json_encode($data['getAccount']);
         // die;
 
@@ -81,7 +81,7 @@ class Renpam extends MY_Controller
         ]);
         $data['getVip'] = $getVip['data']['data'];
 
-        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=10000&start=1', [
+        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
             'headers' => $headers
         ]);
         $data['getAccount'] = $getAccount['data']['data'];
@@ -123,7 +123,7 @@ class Renpam extends MY_Controller
         ]);
         $data['getVip'] = $getVip['data']['data'];
 
-        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=10000&start=1', [
+        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
             'headers' => $headers
         ]);
         $data['getAccount'] = $getAccount['data']['data'];
@@ -134,6 +134,24 @@ class Renpam extends MY_Controller
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
+    }
+
+    public function getAkun()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input = $this->input->post(); 
+
+
+        $url = 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1&search='.$input['search'].'';
+        $getAccount = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getAccount'] = $getAccount['data']['data'];
+
+        echo json_encode($data['getAccount']);
     }
 
     public function getFasus()
@@ -465,7 +483,7 @@ class Renpam extends MY_Controller
         ]);
         $data['getVip'] = $getVip['data']['data'];
 
-        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=10000&start=1', [
+        $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
             'headers' => $headers
         ]);
         $data['getAccount'] = $getAccount['data']['data'];
