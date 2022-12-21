@@ -9,14 +9,14 @@ class Petugas extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model('operasi/m_petugas'); 
+        $this->load->model('operasi/m_petugas');
     }
 
     public function index()
     {
 
         $headers = [
-            'Authorization' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -31,25 +31,25 @@ class Petugas extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/petugas_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/petugas_polres";
-        }else{
+        } else {
             redirect(base_url('dashboard'));
         }
 
 
-        $getRank = guzzle_request('GET', 'rank_officer?order=name_rankOfficer&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  
-            'headers' => $headers 
-        ]); 
-        $data['getRank'] = $getRank['data']['data']; 
+        $getRank = guzzle_request('GET', 'rank_officer?order=name_rankOfficer&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [
+            'headers' => $headers
+        ]);
+        $data['getRank'] = $getRank['data']['data'];
 
-        $getStructural = guzzle_request('GET', 'structural?order=name_structural&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  
-            'headers' => $headers 
-        ]); 
-        $data['getStructural'] = $getStructural['data']['data']; 
+        $getStructural = guzzle_request('GET', 'structural?order=name_structural&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [
+            'headers' => $headers
+        ]);
+        $data['getStructural'] = $getStructural['data']['data'];
 
-        $getPolda = guzzle_request('GET', 'polda/getNoEncrypt', [  
-            'headers' => $headers 
-        ]); 
-        $data['getPolda'] = $getPolda['data']['data']; 
+        $getPolda = guzzle_request('GET', 'polda/getNoEncrypt', [
+            'headers' => $headers
+        ]);
+        $data['getPolda'] = $getPolda['data']['data'];
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -59,7 +59,7 @@ class Petugas extends MY_Controller
     {
 
         $headers = [
-            'Authorization' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -74,42 +74,42 @@ class Petugas extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/petugas_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/petugas_polres";
-        }else{
+        } else {
             redirect(base_url('dashboard'));
         }
 
         // print_r($this->uri->segment(3));
         // die;
 
-        $getRank = guzzle_request('GET', 'rank_officer?order=name_rankOfficer&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  
-            'headers' => $headers 
-        ]); 
-        $data['getRank'] = $getRank['data']['data']; 
+        $getRank = guzzle_request('GET', 'rank_officer?order=name_rankOfficer&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [
+            'headers' => $headers
+        ]);
+        $data['getRank'] = $getRank['data']['data'];
 
-        $getStructural = guzzle_request('GET', 'structural?order=name_structural&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  
-            'headers' => $headers 
-        ]); 
-        $data['getStructural'] = $getStructural['data']['data']; 
+        $getStructural = guzzle_request('GET', 'structural?order=name_structural&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [
+            'headers' => $headers
+        ]);
+        $data['getStructural'] = $getStructural['data']['data'];
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 
-    public function serverSideTable() 
-    {  
-        $postData = $this->input->post();   
-        $data = $this->m_petugas->get_datatables($postData);  
-		echo json_encode($data); 
+    public function serverSideTable()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_petugas->get_datatables($postData);
+        echo json_encode($data);
     }
 
-    public function store() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
+    public function store()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
 
-        if( 
+        if (
             backdoorCek($input['namapetugas']) == 1 ||
             backdoorCek($input['nrp']) == 1 ||
             backdoorCek($input['replacementNrp_officer']) == 1 ||
@@ -117,7 +117,7 @@ class Petugas extends MY_Controller
             backdoorCek($input['struktural']) == 1 ||
             backdoorCek($input['pam']) == 1 ||
             backdoorCek($input['noHp']) == 1
-        ){
+        ) {
             $res = array(
                 'status' => false,
                 'message' => 'Terindikasi inputan tidak sesuai standart!',
@@ -127,7 +127,7 @@ class Petugas extends MY_Controller
             die;
         }
 
-        if($_FILES['photo']['name']){ 
+        if ($_FILES['photo']['name']) {
             $path = $_FILES['photo']['tmp_name'];
             $filename = $_FILES['photo']['name'];
             $dummy = [
@@ -162,12 +162,12 @@ class Petugas extends MY_Controller
                 [
                     'name' => 'status_officer',
                     'contents' => $input['status'],
-                ], 
+                ],
                 [
                     'name' => 'photo_officer',
-                    'contents' => fopen($path,'r'),
+                    'contents' => fopen($path, 'r'),
                     'filename' => $filename
-                ] 
+                ]
             ];
         } else {
             $dummy = [
@@ -206,34 +206,33 @@ class Petugas extends MY_Controller
             ];
         }
 
-        $data = guzzle_request('POST', 'officer/add', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('POST', 'officer/add', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil tambah data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal tambah data.',
                 'data' => $data
             );
         }
-        
-        echo json_encode($res);
 
+        echo json_encode($res);
     }
 
     public function Detail($id)
     {
 
         $headers = [
-            'Authorization' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -250,16 +249,16 @@ class Petugas extends MY_Controller
             $page_content["page"] = "operasi/Polres/detail_petugas_polres";
         }
 
-        $getDetail = guzzle_request('GET', 'officer/getId/'.$id.'', [  
-            'headers' => $headers 
+        $getDetail = guzzle_request('GET', 'officer/getId/' . $id . '', [
+            'headers' => $headers
         ]);
-        if($getDetail['isSuccess'] == false){
+        if ($getDetail['isSuccess'] == false) {
             redirect(base_url('404_notfound'));
             die;
         }
         $data['getDetail'] = $getDetail['data'];
-        // echo json_encode($data['getDetail']['data']['name']);
-        // die;
+        //echo json_encode($data['getDetail']);
+        //die;
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -268,7 +267,7 @@ class Petugas extends MY_Controller
     {
 
         $headers = [
-            'Authorization' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -285,38 +284,38 @@ class Petugas extends MY_Controller
             $page_content["page"] = "operasi/Polres/edit_petugas_polres";
         }
 
-        $getDetail = guzzle_request('GET', 'officer/getId/'.$id.'', [  
-            'headers' => $headers 
+        $getDetail = guzzle_request('GET', 'officer/getId/' . $id . '', [
+            'headers' => $headers
         ]);
-        if($getDetail['isSuccess'] == false){
+        if ($getDetail['isSuccess'] == false) {
             redirect(base_url('404_notfound'));
             die;
         }
         $data['getDetail'] = $getDetail['data'];
 
-        $getRank = guzzle_request('GET', 'rank_officer?order=name_rankOfficer&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  
-            'headers' => $headers 
-        ]); 
-        $data['getRank'] = $getRank['data']['data']; 
+        $getRank = guzzle_request('GET', 'rank_officer?order=name_rankOfficer&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [
+            'headers' => $headers
+        ]);
+        $data['getRank'] = $getRank['data']['data'];
 
-        $getStructural = guzzle_request('GET', 'structural?order=name_structural&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  
-            'headers' => $headers 
-        ]); 
-        $data['getStructural'] = $getStructural['data']['data']; 
+        $getStructural = guzzle_request('GET', 'structural?order=name_structural&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [
+            'headers' => $headers
+        ]);
+        $data['getStructural'] = $getStructural['data']['data'];
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 
 
-    public function storeEdit() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
+    public function storeEdit()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
 
-        if( 
+        if (
             backdoorCek($input['namapetugas']) == 1 ||
             backdoorCek($input['nrp']) == 1 ||
             backdoorCek($input['replacementNrp_officer']) == 1 ||
@@ -324,7 +323,7 @@ class Petugas extends MY_Controller
             backdoorCek($input['struktural']) == 1 ||
             backdoorCek($input['pam']) == 1 ||
             backdoorCek($input['noHp']) == 1
-        ){
+        ) {
             $res = array(
                 'status' => false,
                 'message' => 'Terindikasi inputan tidak sesuai standart!',
@@ -334,7 +333,7 @@ class Petugas extends MY_Controller
             die;
         }
 
-        if($_FILES['photo']['name']){ 
+        if ($_FILES['photo']['name']) {
             $path = $_FILES['photo']['tmp_name'];
             $filename = $_FILES['photo']['name'];
             $dummy = [
@@ -369,12 +368,12 @@ class Petugas extends MY_Controller
                 [
                     'name' => 'status_officer',
                     'contents' => $input['status'],
-                ], 
+                ],
                 [
                     'name' => 'photo_officer',
-                    'contents' => fopen($path,'r'),
+                    'contents' => fopen($path, 'r'),
                     'filename' => $filename
-                ] 
+                ]
             ];
         } else {
             $dummy = [
@@ -412,67 +411,64 @@ class Petugas extends MY_Controller
                 ]
             ];
         }
-        $data = guzzle_request('PUT', 'officer/edit/'.$input['id'].'', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('PUT', 'officer/edit/' . $input['id'] . '', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
         // echo json_encode($data);
         // die;
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil edit data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal edit data.',
                 'data' => $data
             );
         }
-        
-        echo json_encode($res);
 
+        echo json_encode($res);
     }
 
 
-    public function delete() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ];  
+    public function delete()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
 
-        $input      = $this->input->post(); 
+        $input      = $this->input->post();
         $dummy = [
             [
                 'name' => 'id',
                 'contents' => $input['id'],
-            ] 
+            ]
         ];
 
-        $data = guzzle_request('DELETE', 'officer/delete', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('DELETE', 'officer/delete', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil hapus data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal hapus data.',
                 'data' => $data
             );
         }
-        
+
         echo json_encode($res);
-
     }
-
 }
