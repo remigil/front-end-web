@@ -1236,13 +1236,13 @@
                                 <li>
                                     <a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">ERI</span>
+                                        <span data-key="t-dashboard">ERI <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">IRSMS</span>
+                                        <span data-key="t-dashboard">IRSMS <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
                                 <li>
@@ -1275,14 +1275,14 @@
                                 <li>
                                     <a href="http://pjrstream.com/" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">BODYCAM</span>
+                                        <span data-key="t-dashboard">BODYCAM <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
 
                                 <li>
                                     <a href="https://vo.1data.tech/" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">SAMAPTA</span>
+                                        <span data-key="t-dashboard">E-SAMAPTA <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
 
@@ -1349,7 +1349,7 @@
                                 <li>
                                     <a href="https://k3i.mhews.id/" target="_blank">
                                         <img src="<?= base_url('assets/icon/external/info_bmkg_dan_cuaca.png') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">INFO BMKG DAN CUACA</span>
+                                        <span data-key="t-dashboard">INFO BMKG </br>DAN CUACA <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
                                 <li>
@@ -1863,7 +1863,7 @@
                                 <li class="mb-n2">
                                     <a href="https://vo.1data.tech/" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                        <span class="" style="font-size:13px" data-key="t-dashboard">SAMAPTA</span>
+                                        <span class="" style="font-size:13px" data-key="t-dashboard">E-SAMAPTA</span>
                                     </a>
                                 </li>
 

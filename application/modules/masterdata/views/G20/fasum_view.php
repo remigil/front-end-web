@@ -68,7 +68,13 @@
                 <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="row">
 						<div class="col-md-12 mb-3"> 
+                            <label for="namaFasum">Upload Logo</label>
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
+                        </div>
+
+                        <div class="col-md-12 mb-3"> 
+                            <label for="namaFasum">Upload Gambar</label>
+                            <input type="file" name="photo2" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
                         </div>
                         
                         <div class="col-md-12">
@@ -196,6 +202,9 @@
 					    <div class="col-md-12 mb-3" id="detailViewFoto"> 
                            
                         </div>
+                        <div class="col-md-12 mb-3" id="detailViewFoto2"> 
+                           
+                        </div>
                         <div class="col-md-6">
 							<div class="form-floating mb-3">
 								<input type="text" class="form-control" id="namaFasum" name="namaFasum">
@@ -294,6 +303,10 @@
 				<div class="row">
 						<div class="col-md-12 mb-3" id="fotoEdit"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/>
+                        </div>
+
+                        <div class="col-md-12 mb-3" id="fotoEdit2"> 
+                            <input type="file" name="photo2" class="dropify" data-allowed-file-extensions="jpg png jpeg"/>
                         </div>
                         
 
@@ -893,7 +906,18 @@
                 }else{
                     fotoFas = `data-default-file="<?php echo base_url();?>assets/no_image.png"`;
                 }
+
+                var fotoFas2 = '';
+                if(results.fasum_image != null){
+                    fotoFas2 = `data-default-file="<?php echo url_api();?>fasum_khusus/${results.fasum_image}"`;
+                }else{
+                    fotoFas2 = `data-default-file="<?php echo base_url();?>assets/no_image.png"`;
+                }
+
                 $(`#detailViewFoto`).html(`<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" ${fotoFas} />`);
+				$('.dropify').dropify(); 
+
+                $(`#detailViewFoto2`).html(`<input type="file" name="photo2" class="dropify" data-allowed-file-extensions="jpg png jpeg" ${fotoFas2} />`);
 				$('.dropify').dropify(); 
                 
                 $('.DetailFasum,#namaFasum').attr('disabled', true)
@@ -941,8 +965,19 @@
                 }else{
                     fotoFas = `data-default-file="<?php echo base_url();?>assets/no_image.png"`;
                 }
+
+                var fotoFas2 = '';
+                if(results.fasum_image != null){
+                    fotoFas2 = `data-default-file="<?php echo url_api();?>fasum_khusus/${results.fasum_image}"`;
+                }else{
+                    fotoFas2 = `data-default-file="<?php echo base_url();?>assets/no_image.png"`;
+                }
+
                 $(`#fotoEdit`).html(`<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" ${fotoFas} />`);
-				$('.dropify').dropify(); 
+				$('.dropify').dropify();
+                
+                $(`#fotoEdit2`).html(`<input type="file" name="photo2" class="dropify" data-allowed-file-extensions="jpg png jpeg" ${fotoFas2} />`);
+				$('.dropify').dropify();
 
                 $('.UbahFasum,#namaFasum').attr('disabled', false)
                 $('.UbahFasum,#jenisFasum').attr('disabled', false)

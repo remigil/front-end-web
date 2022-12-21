@@ -269,14 +269,157 @@ class Fasilitasumum extends MY_Controller
             $fasum_color = null;
         }
 
-        if($_FILES['photo']['name'] != null){ 
+        if($_FILES['photo']['name'] != null && $_FILES['photo2']['name'] != null){ 
             $path = $_FILES['photo']['tmp_name'];
             $filename = $_FILES['photo']['name'];
+
+            $path2 = $_FILES['photo2']['tmp_name'];
+            $filename2 = $_FILES['photo2']['name'];
             $dummy = [
 				[
 					'name' => 'fasum_logo',
 					'contents' => fopen($path,'r'),
 					'filename' => $filename
+				],
+                [
+					'name' => 'fasum_image',
+					'contents' => fopen($path2,'r'),
+					'filename' => $filename2
+				],
+                [
+                    'name' => 'fasum_name',
+                    'contents' => $input['namaFasum'],
+                ],
+                [
+                    'name' => 'fasum_type',
+                    'contents' => $input['jenisFasum'],
+                ],
+                [
+                    'name' => 'fasum_address',
+                    'contents' => $input['address'],
+                ],
+                [
+                    'name' => 'fasum_lat',
+                    'contents' => $input['latitude'],
+                ],
+				[
+                    'name' => 'fasum_lng',
+                    'contents' => $input['longitude'],
+                ],
+				[
+                    'name' => 'fasum_description',
+                    'contents' => $input['deskripsiFasum'],
+                ],
+				[
+                    'name' => 'fasum_phone',
+                    'contents' => $input['kontakFasum'],
+                ],
+				[
+                    'name' => 'fasum_status',
+                    'contents' => $input['statusFasum'],
+                ],
+				[
+                    'name' => 'fasum_radius',
+                    'contents' => $kilometres,
+                ],
+				[
+                    'name' => 'fasum_open_time',
+                    'contents' => $input['jamBuka'],
+                ],
+				[
+                    'name' => 'fasum_close_time',
+                    'contents' => $input['jamTutup'],
+                ], 
+				[
+                    'name' => 'fasum_geoJson',
+                    'contents' => $drawer,
+                ],
+				[
+                    'name' => 'route',
+                    'contents' => $fasum_route,
+                ],
+				[
+                    'name' => 'fasum_color',
+                    'contents' => $fasum_color,
+                ],
+            ];
+        } else if($_FILES['photo']['name'] != null){ 
+            $path = $_FILES['photo']['tmp_name'];
+            $filename = $_FILES['photo']['name'];
+ 
+            $dummy = [
+				[
+					'name' => 'fasum_logo',
+					'contents' => fopen($path,'r'),
+					'filename' => $filename
+				], 
+                [
+                    'name' => 'fasum_name',
+                    'contents' => $input['namaFasum'],
+                ],
+                [
+                    'name' => 'fasum_type',
+                    'contents' => $input['jenisFasum'],
+                ],
+                [
+                    'name' => 'fasum_address',
+                    'contents' => $input['address'],
+                ],
+                [
+                    'name' => 'fasum_lat',
+                    'contents' => $input['latitude'],
+                ],
+				[
+                    'name' => 'fasum_lng',
+                    'contents' => $input['longitude'],
+                ],
+				[
+                    'name' => 'fasum_description',
+                    'contents' => $input['deskripsiFasum'],
+                ],
+				[
+                    'name' => 'fasum_phone',
+                    'contents' => $input['kontakFasum'],
+                ],
+				[
+                    'name' => 'fasum_status',
+                    'contents' => $input['statusFasum'],
+                ],
+				[
+                    'name' => 'fasum_radius',
+                    'contents' => $kilometres,
+                ],
+				[
+                    'name' => 'fasum_open_time',
+                    'contents' => $input['jamBuka'],
+                ],
+				[
+                    'name' => 'fasum_close_time',
+                    'contents' => $input['jamTutup'],
+                ], 
+				[
+                    'name' => 'fasum_geoJson',
+                    'contents' => $drawer,
+                ],
+				[
+                    'name' => 'route',
+                    'contents' => $fasum_route,
+                ],
+				[
+                    'name' => 'fasum_color',
+                    'contents' => $fasum_color,
+                ],
+            ];
+        }if($_FILES['photo2']['name'] != null){ 
+         
+
+            $path2 = $_FILES['photo2']['tmp_name'];
+            $filename2 = $_FILES['photo2']['name'];
+            $dummy = [ 
+                [
+					'name' => 'fasum_image',
+					'contents' => fopen($path2,'r'),
+					'filename' => $filename2
 				],
                 [
                     'name' => 'fasum_name',
@@ -524,12 +667,153 @@ class Fasilitasumum extends MY_Controller
         
         if($_FILES['photo']['name'] != null){ 
             $path = $_FILES['photo']['tmp_name'];
-            $filename = $_FILES['photo']['name'];
+            $filename = $_FILES['photo']['name']; 
             $dummy = [
 				[
 					'name' => 'fasum_logo',
 					'contents' => fopen($path,'r'),
 					'filename' => $filename
+				], 
+                [
+                    'name' => 'fasum_name',
+                    'contents' => $input['namaFasum'],
+                ],
+                [
+                    'name' => 'fasum_type',
+                    'contents' => $input['jenisFasum'],
+                ],
+                [
+                    'name' => 'fasum_address',
+                    'contents' => $input['address'],
+                ],
+                [
+                    'name' => 'fasum_lat',
+                    'contents' => $input['latitude'],
+                ],
+				[
+                    'name' => 'fasum_lng',
+                    'contents' => $input['longitude'],
+                ],
+				[
+                    'name' => 'fasum_description',
+                    'contents' => $input['deskripsiFasum'],
+                ],
+				[
+                    'name' => 'fasum_phone',
+                    'contents' => $input['kontakFasum'],
+                ],
+				[
+                    'name' => 'fasum_status',
+                    'contents' => $input['statusFasum'],
+                ],
+				[
+                    'name' => 'fasum_radius',
+                    'contents' => $kilometres,
+                ],
+				[
+                    'name' => 'fasum_open_time',
+                    'contents' => $input['jamBuka'],
+                ],
+				[
+                    'name' => 'fasum_close_time',
+                    'contents' => $input['jamTutup'],
+                ], 
+				[
+                    'name' => 'fasum_geoJson',
+                    'contents' => $drawer,
+                ],
+				[
+                    'name' => 'route',
+                    'contents' => $fasum_route,
+                ],
+				[
+                    'name' => 'fasum_color',
+                    'contents' => $fasum_color,
+                ],
+            ];
+        } else if($_FILES['photo2']['name'] != null){  
+
+            $path2 = $_FILES['photo2']['tmp_name'];
+            $filename2 = $_FILES['photo2']['name'];
+            $dummy = [ 
+                [
+					'name' => 'fasum_image',
+					'contents' => fopen($path2,'r'),
+					'filename' => $filename2
+				],
+                [
+                    'name' => 'fasum_name',
+                    'contents' => $input['namaFasum'],
+                ],
+                [
+                    'name' => 'fasum_type',
+                    'contents' => $input['jenisFasum'],
+                ],
+                [
+                    'name' => 'fasum_address',
+                    'contents' => $input['address'],
+                ],
+                [
+                    'name' => 'fasum_lat',
+                    'contents' => $input['latitude'],
+                ],
+				[
+                    'name' => 'fasum_lng',
+                    'contents' => $input['longitude'],
+                ],
+				[
+                    'name' => 'fasum_description',
+                    'contents' => $input['deskripsiFasum'],
+                ],
+				[
+                    'name' => 'fasum_phone',
+                    'contents' => $input['kontakFasum'],
+                ],
+				[
+                    'name' => 'fasum_status',
+                    'contents' => $input['statusFasum'],
+                ],
+				[
+                    'name' => 'fasum_radius',
+                    'contents' => $kilometres,
+                ],
+				[
+                    'name' => 'fasum_open_time',
+                    'contents' => $input['jamBuka'],
+                ],
+				[
+                    'name' => 'fasum_close_time',
+                    'contents' => $input['jamTutup'],
+                ], 
+				[
+                    'name' => 'fasum_geoJson',
+                    'contents' => $drawer,
+                ],
+				[
+                    'name' => 'route',
+                    'contents' => $fasum_route,
+                ],
+				[
+                    'name' => 'fasum_color',
+                    'contents' => $fasum_color,
+                ],
+            ];
+        } else if($_FILES['photo']['name'] != null && $_FILES['photo2']['name'] != null){ 
+            $path = $_FILES['photo']['tmp_name'];
+            $filename = $_FILES['photo']['name'];
+
+            $path2 = $_FILES['photo2']['tmp_name'];
+            $filename2 = $_FILES['photo2']['name'];
+            $dummy = [
+				[
+					'name' => 'fasum_logo',
+					'contents' => fopen($path,'r'),
+					'filename' => $filename
+				],
+                [
+					'name' => 'fasum_image',
+					'contents' => fopen($path2,'r'),
+					'filename' => $filename2
 				],
                 [
                     'name' => 'fasum_name',
