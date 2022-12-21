@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="col-2">
                             <p>SUBJEK</p>
-                            <p>INSTRUKSI</p> 
+                            <p>INSTRUKSI</p>
                             <p>LOKASI</p>
                             <p>TANGGAL</p>
                             <p>WAKTU</p>
@@ -43,23 +43,23 @@
                         </div>
                         <div class="col-3">
                             <p>
-                                <?php if($data['getDetail']['data']['type_renpam'] == 1) {?> 
+                                <?php if ($data['getDetail']['data']['type_renpam'] == 1) { ?>
                                     Patroli
-                                <?php } else if($data['getDetail']['data']['type_renpam'] == 2) { ?>
+                                <?php } else if ($data['getDetail']['data']['type_renpam'] == 2) { ?>
                                     Pengawalan
-                                <?php } else if($data['getDetail']['data']['type_renpam'] == 3) { ?>
+                                <?php } else if ($data['getDetail']['data']['type_renpam'] == 3) { ?>
                                     Penjagaan
-                                <?php } else if($data['getDetail']['data']['type_renpam'] == 4) { ?>
+                                <?php } else if ($data['getDetail']['data']['type_renpam'] == 4) { ?>
                                     Pengaturan
-                                <?php } else if($data['getDetail']['data']['type_renpam'] == 5) { ?>
+                                <?php } else if ($data['getDetail']['data']['type_renpam'] == 5) { ?>
                                     Penutupan
                                 <?php } ?>
-                            </p> 
-                            <p><?php echo $data['getDetail']['data']['name_renpam'];?></p> 
-                            <p><?php echo ($data['getDetail']['data']['title_start'] != null ? $data['getDetail']['data']['title_start'] : '-'); ?> To <?php echo ($data['getDetail']['data']['title_end'] !=  null ? $data['getDetail']['data']['title_end'] : '-'); ?></p> 
-                            <p><?php echo format_indo($data['getDetail']['data']['date']);?></p>
-                            <p><?php echo $data['getDetail']['data']['start_time'];?> - <?php echo $data['getDetail']['data']['start_time'];?>  WITA</p>
-                            <p><?php echo ($data['getDetail']['data']['note_kakor'] != null ? $data['getDetail']['data']['note_kakor'] : '-');?></p>
+                            </p>
+                            <p><?php echo $data['getDetail']['data']['name_renpam']; ?></p>
+                            <p><?php echo ($data['getDetail']['data']['title_start'] != null ? $data['getDetail']['data']['title_start'] : '-'); ?> To <?php echo ($data['getDetail']['data']['title_end'] !=  null ? $data['getDetail']['data']['title_end'] : '-'); ?></p>
+                            <p><?php echo format_indo($data['getDetail']['data']['date']); ?></p>
+                            <p><?php echo $data['getDetail']['data']['start_time']; ?> - <?php echo $data['getDetail']['data']['start_time']; ?> WITA</p>
+                            <p><?php echo ($data['getDetail']['data']['note_kakor'] != null ? $data['getDetail']['data']['note_kakor'] : '-'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
 <textarea name="route1" id="" cols="30" rows="10"><?php echo json_encode($data['getDetail']['data']['route_alternatif_1']) ?></textarea>
 <textarea name="route2" id="" cols="30" rows="10"><?php echo json_encode($data['getDetail']['data']['route_alternatif_2']) ?></textarea>
 <textarea name="route3" id="" cols="30" rows="10"><?php echo json_encode($data['getDetail']['data']['route_masyarakat']) ?></textarea>
-<textarea name="route4" id="" cols="30" rows="10"><?php echo json_encode($data['getDetail']['data']['route_umum']) ?></textarea> 
+<textarea name="route4" id="" cols="30" rows="10"><?php echo json_encode($data['getDetail']['data']['route_umum']) ?></textarea>
 
 
 <script>
@@ -104,13 +104,13 @@
     var route4 = $("[name=route4]").val();
     var route = $("[name=routeUtama]").val();
     // console.log(JSON.parse(route));
- 
+
     var typeRenpam = '<?php echo json_encode($data['getDetail']['data']['type_renpam']) ?>';
 
     $(document).ready(function() {
 
-        var initialCenter = [-8.751740, 115.149643];
-        var initialZoom = 11.65;
+        var initialCenter = [-0.8458708, 118.8661073];
+        var initialZoom = 4.5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -142,7 +142,7 @@
         }).setView(initialCenter, initialZoom);
 
 
-        
+
         if (typeRenpam == 3) { //penjagaan
             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
             markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
@@ -166,8 +166,8 @@
         }
 
 
-       
-        
+
+
         if (route1 != 'null') {
             routingRenpam1[0] = L.Routing.control({
                 show: false,
@@ -239,7 +239,7 @@
             }).addTo(mapContainer);
         }
 
-        
+
         if (route2 != 'null') {
             routingRenpam2[0] = L.Routing.control({
                 show: false,
@@ -311,7 +311,7 @@
             }).addTo(mapContainer);
         }
 
-        
+
         if (route3 != 'null') {
             routingRenpam3[0] = L.Routing.control({
                 show: false,
@@ -383,7 +383,7 @@
             }).addTo(mapContainer);
         }
 
-        
+
         if (route4 != 'null') {
             routingRenpam4[0] = L.Routing.control({
                 show: false,
@@ -455,7 +455,7 @@
             }).addTo(mapContainer);
         }
 
-        
+
         if (route != 'null') {
             routingRenpam[0] = L.Routing.control({
                 show: false,

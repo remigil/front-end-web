@@ -26,7 +26,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                
+
             </table>
 
         </div>
@@ -44,11 +44,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-				<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
+                <form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
                     <div class="row">
-						<div class="col-md-12 mb-3" style="display: none;"> 
-                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
+                        <div class="col-md-12 mb-3" style="display: none;">
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" />
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
@@ -62,24 +62,24 @@
                                 <label for="namaFasum">Warna Jalur</label>
                             </div>
                         </div>
-                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="12" name="jenisFasum"> 
-						<input hidden type="text" class="kilometres" name="kilometres" placeholder="15" value="0" />
+                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="12" name="jenisFasum">
+                        <input hidden type="text" class="kilometres" name="kilometres" placeholder="15" value="0" />
 
-                        <div class="col-md-6"  style="display: none;">
-                            <div class="form-floating mb-3"> 
+                        <div class="col-md-6" style="display: none;">
+                            <div class="form-floating mb-3">
                                 <input type="text" class="form-control" placeholder="Alamat" name="address">
                                 <label for="">Alamat</label>
-                            </div>  
-                        </div> 
+                            </div>
+                        </div>
                         <div id="listAddress" class="col-md-12"></div>
                         <div class="col-md-6" style="display: none;">
                             <div class="material-textfield mb-3">
-                            <input style="width: 100%;" name="cordinate" placeholder="" type="text">
+                                <input style="width: 100%;" name="cordinate" placeholder="" type="text">
                                 <label for="">Coordinate</label>
                             </div>
                         </div>
                     </div>
-					<div class="row"  style="display: none;">
+                    <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="latitude" placeholder="latitude">
@@ -99,7 +99,7 @@
                     <div class="col-md-12 mt-3">
                         <textarea hidden name="fasum_route" id="fasum_route" cols="30" rows="30"></textarea>
                     </div>
-					<div class="row mt-3">
+                    <div class="row mt-3">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" name="deskripsiFasum"></textarea>
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-					<div class="row"  style="display: none;">
+                    <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="kontakFasum" placeholder="kontak">
@@ -115,18 +115,18 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                        	<div class="form-floating mb-3">
+                            <div class="form-floating mb-3">
                                 <select name="statusFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
-									<option selected value="">Pilih Status Fasum</option>
-                            		<option value="0">Nonaktif</option>
-                            		<option selected value="1">Aktif</option>
+                                    <option selected value="">Pilih Status Fasum</option>
+                                    <option value="0">Nonaktif</option>
+                                    <option selected value="1">Aktif</option>
                                 </select>
                                 <label for="">Status</label>
                             </div>
-						</div>
+                        </div>
                     </div>
-					
-                    <div class="row"  style="display: none;">
+
+                    <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="time" class="form-control" name="jamBuka">
@@ -156,15 +156,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-				<form action="" class="form">
-                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
-				<div class="row">
-					    <div class="col-md-12 mb-3"  style="display: none;" id="detailViewFoto"> 
-                           
+                <form action="" class="form">
+                    <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
+                    <div class="row">
+                        <div class="col-md-12 mb-3" style="display: none;" id="detailViewFoto">
+
                         </div>
                         <div class="col-md-12">
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" id="namaFasum" name="namaFasum">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="namaFasum" name="namaFasum">
                                 <label for="namaFasum">Nama Jalur</label>
                             </div>
                         </div>
@@ -173,21 +173,21 @@
                                 <select name="jenisFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
 									<option selected value="">Pilih Jenis Fasum</option>
                                     <?php
-                        				foreach ($data['getCategory'] as $row) : ?>
+                                    foreach ($data['getCategory'] as $row) : ?>
                             			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_fasum']; ?></option>
                         			<?php endforeach; ?>
                                 </select>
                                 <label for="">Jenis Fasum</label>
                             </div>
 						</div> -->
-                        <div class="col-md-6"  style="display: none;">
+                        <div class="col-md-6" style="display: none;">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="address" name="address"> 
+                                <input type="text" class="form-control" id="address" name="address">
                                 <label for="">Alamat</label>
                             </div>
                         </div>
-                    </div> 
-					<div class="row"  style="display: none;">
+                    </div>
+                    <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="latitude" name="latitude">
@@ -201,7 +201,7 @@
                             </div>
                         </div>
                     </div>
-					<div class="row">
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
@@ -209,7 +209,7 @@
                             </div>
                         </div>
                     </div>
-					<div class="row"  style="display: none;">
+                    <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
@@ -217,17 +217,17 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" id="statusFasum" name="statusFasum">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="statusFasum" name="statusFasum">
                                 <label for="statusFasum">Status</label>
                             </div>
                         </div>
                     </div>
-					
+
                     <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="jamBuka" name="jamBuka" >
+                                <input type="text" class="form-control" id="jamBuka" name="jamBuka">
                                 <label for="jamBuka">Jam Buka</label>
                             </div>
                         </div>
@@ -238,7 +238,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </form>
             </div>
         </div>
@@ -254,12 +254,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-				<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
-				<input type="hidden" name="id" value="" id="id_fasum" type="text">
-				<div class="row">
-						<div class="col-md-12 mb-3"  style="display: none;" id="fotoEdit"> 
-                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/>
+                <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
+                    <input type="hidden" name="id" value="" id="id_fasum" type="text">
+                    <div class="row">
+                        <div class="col-md-12 mb-3" style="display: none;" id="fotoEdit">
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" />
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
@@ -273,26 +273,26 @@
                                 <label for="namaFasum">Warna Jalur</label>
                             </div>
                         </div>
-                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="12" name="jenisFasum"> 
+                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="12" name="jenisFasum">
                         <input hidden type="text" class="kilometres" name="kilometres" placeholder="15" value="0" />
 
 
                         <div class="col-md-6" style="display: none;">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="address" name="address"> 
+                                <input type="text" class="form-control" id="address" name="address">
                                 <label for="">Alamat</label>
                             </div>
                         </div>
                         <div id="listAddressEdit" class="col-md-12"></div>
-                        <div class="col-md-6" style="display: none;"> 
+                        <div class="col-md-6" style="display: none;">
                             <div class="material-textfield mb-3">
-                            <input style="width: 100%;" name="cordinateEdit" id="cordinateEdit" placeholder="" type="text">
+                                <input style="width: 100%;" name="cordinateEdit" id="cordinateEdit" placeholder="" type="text">
                                 <label class="labelmui">Coordinate</label>
                             </div>
                         </div>
                     </div>
-                         
-					<div class="row" style="display: none;">
+
+                    <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="latitude" name="latitude">
@@ -309,10 +309,10 @@
                     <div class="col-md-12 mt-3">
                         <div id="mapEdit" style="height: 500px"></div>
                     </div>
-                    <div class="col-md-12 mt-3"> 
+                    <div class="col-md-12 mt-3">
                         <textarea hidden name="fasum_routeEdit" id="fasum_routeEdit" cols="30" rows="30"></textarea>
                     </div>
-					<div class="row mt-3">
+                    <div class="row mt-3">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
@@ -320,7 +320,7 @@
                             </div>
                         </div>
                     </div>
-					<div class="row" style="display: none;">
+                    <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
@@ -328,13 +328,13 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" id="statusFasum" name="statusFasum">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="statusFasum" name="statusFasum">
                                 <label for="statusFasum">Status</label>
                             </div>
                         </div>
                     </div>
-					
+
                     <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
@@ -355,10 +355,9 @@
         </div>
     </div>
 </div>
- 
+
 
 <script>
-
     let arrayWaypointUtama = [];
     var routeAlternativeUtama;
     var routingAlternativeUtama;
@@ -368,10 +367,10 @@
     var routingAlternativeUtamaEdit;
 
     var mapContainerEdit;
-	$(document).ready(function() {
+    $(document).ready(function() {
         $('.dropify').dropify();
 
-		$('[name=cordinate]').val('-1.5707209, 115.4875168');
+        $('[name=cordinate]').val('-1.5707209, 115.4875168');
         var initialCenter = [-1.5707209, 115.4875168];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -403,7 +402,7 @@
             zoomControl: false,
             layers: [googleStreet]
         }).setView(initialCenter, initialZoom);
-  
+
         var baseMaps = {
             "Google Map Street": googleStreet,
             "Google Map Satelite": googleSatelite,
@@ -417,14 +416,14 @@
         L.control.zoom({
             position: 'bottomleft'
         }).addTo(mapContainer);
-		
-	$('#myModal').on('shown.bs.modal', function() {
+
+        $('#myModal').on('shown.bs.modal', function() {
             mapContainer.invalidateSize();
 
-            $('.dropify').dropify(); 
+            $('.dropify').dropify();
 
             let countlist = 0;
-            let list = ""; 
+            let list = "";
             // $('[name=address]').on("change", function (e) {
             //     // console.log(this.value);
             //     $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
@@ -446,15 +445,15 @@
             //             $('#listAddress').html(list); 
             //         }
 
-                    
+
             //         for (let i = 0; i < ress.length; i++){ 
             //             $(`#list${i+1}`).click(function(){  
             //                 var latlong =  $(this).data('cords').split(',');
             //                 var latitude = parseFloat(latlong[0]);
             //                 var longitude = parseFloat(latlong[1]); 
 
-			// 				$("[name=latitude]").val(latitude);
-			// 				$("[name=longitude]").val(longitude);
+            // 				$("[name=latitude]").val(latitude);
+            // 				$("[name=longitude]").val(longitude);
 
             //                 // console.log({a:latitude, b:longitude});
             //                 $('[name=address]').val($(this).data('alamat'));
@@ -491,8 +490,8 @@
             //     var corLng = mapContainer.getCenter()['lng'];
             //     var cord = `${corLat},${corLng}`;
 
-			// 	$("[name=latitude]").val(corLat);
-			// 	$("[name=longitude]").val(corLng);
+            // 	$("[name=latitude]").val(corLat);
+            // 	$("[name=longitude]").val(corLng);
             //     $('[name=cordinate]').val(cord);
 
             //     $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
@@ -502,7 +501,7 @@
             //     }); 
 
             // });
-			
+
 
 
             routeAlternativeUtama = L.Routing.control({
@@ -541,9 +540,9 @@
                     $('#fasum_route').val(JSON.stringify(routingAlternativeUtama));
                 });
                 L.popup()
-                .setContent(container)
-                .setLatLng(e.latlng)
-                .openOn(mapContainer); 
+                    .setContent(container)
+                    .setLatLng(e.latlng)
+                    .openOn(mapContainer);
             });
 
         });
@@ -635,20 +634,20 @@
                 // {
                 //     data: 'category_fasum'
                 // },
-				// {
+                // {
                 //     data: 'fasum_address'
                 // },
-				// {
+                // {
                 //     data: 'fasum_phone'
                 // },
-				// {
+                // {
                 //     data: 'jam_operasional',
                 //     orderable: false
                 // },
                 {
                     data: 'fasum_color'
                 },
-				{
+                {
                     data: 'fasum_description'
                 },
                 {
@@ -671,14 +670,14 @@
 
         });
 
-			
+
 
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
             e.preventDefault();
-            
-            if(routingAlternativeUtama){
-                $('#fasum_route').val(JSON.stringify(routingAlternativeUtama)); 
+
+            if (routingAlternativeUtama) {
+                $('#fasum_route').val(JSON.stringify(routingAlternativeUtama));
                 var formData = new FormData($('.form')[0]);
                 $.ajax({
                     url: "<?php echo base_url(); ?>masterdata/Fasilitasumum/store",
@@ -697,7 +696,7 @@
                             ).then(function() {
                                 $(".TambahFasum").modal('hide');
                                 // userDataTable.draw();
-                                location.reload(); 
+                                location.reload();
                             });
                         } else {
                             Swal.fire(
@@ -705,12 +704,12 @@
                                 '',
                                 'error'
                             ).then(function() {
-                                location.reload(); 
+                                location.reload();
                             });
                         }
                     }
                 });
-            }else{
+            } else {
                 $("#overlay").fadeOut(300);
                 Swal.fire(
                     `Jalur Wajib Di Isi !`,
@@ -721,15 +720,15 @@
         });
     });
 
-    
 
 
 
-	// map pada form edit
-	$(document).ready(function() {
 
-		// $('[name=cordinateEdit]').val($('#latitude').val(samsat_lat) + ',' + $('#longitude').val(samsat_lng));
-        var initialCenter = [-8.751740, 115.149643];
+    // map pada form edit
+    $(document).ready(function() {
+
+        // $('[name=cordinateEdit]').val($('#latitude').val(samsat_lat) + ',' + $('#longitude').val(samsat_lng));
+        var initialCenter = [-0.8458708, 118.8661073];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
@@ -760,7 +759,7 @@
             zoomControl: false,
             layers: [googleStreet]
         }).setView(initialCenter, initialZoom);
-  
+
         var baseMaps = {
             "Google Map Street": googleStreet,
             "Google Map Satelite": googleSatelite,
@@ -779,10 +778,10 @@
 
 
 
-        
-		
-		
-	});
+
+
+
+    });
 
     function detail(id) {
         $.ajax({
@@ -795,14 +794,14 @@
             success: function(results) {
 
                 var fotoFas = '';
-                if(results.fasum_logo != null){
-                    fotoFas = `data-default-file="<?php echo url_api();?>fasum_khusus/${results.fasum_logo}"`;
-                }else{
-                    fotoFas = `data-default-file="<?php echo base_url();?>assets/no_image.png"`;
+                if (results.fasum_logo != null) {
+                    fotoFas = `data-default-file="<?php echo url_api(); ?>fasum_khusus/${results.fasum_logo}"`;
+                } else {
+                    fotoFas = `data-default-file="<?php echo base_url(); ?>assets/no_image.png"`;
                 }
                 $(`#detailViewFoto`).html(`<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" ${fotoFas} />`);
-				$('.dropify').dropify(); 
-                
+                $('.dropify').dropify();
+
                 $('.DetailFasum,#namaFasum').attr('disabled', true)
                 $('.DetailFasum,#jenisFasum').attr('disabled', true)
                 $('.DetailFasum,#address').attr('disabled', true)
@@ -830,8 +829,8 @@
         })
     }
 
-    function detailEdit(id) { 
-        $("#overlay").fadeIn(300);   
+    function detailEdit(id) {
+        $("#overlay").fadeIn(300);
         $.ajax({
             url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
             type: 'POST',
@@ -840,16 +839,16 @@
             },
             dataType: 'JSON',
             success: function(results) {
-				// console.log(results);
+                // console.log(results);
 
                 var fotoFas = '';
-                if(results.fasum_logo != null){
-                    fotoFas = `data-default-file="<?php echo url_api();?>fasum_khusus/${results.fasum_logo}"`;
-                }else{
-                    fotoFas = `data-default-file="<?php echo base_url();?>assets/no_image.png"`;
+                if (results.fasum_logo != null) {
+                    fotoFas = `data-default-file="<?php echo url_api(); ?>fasum_khusus/${results.fasum_logo}"`;
+                } else {
+                    fotoFas = `data-default-file="<?php echo base_url(); ?>assets/no_image.png"`;
                 }
                 $(`#fotoEdit`).html(`<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" ${fotoFas} />`);
-				$('.dropify').dropify(); 
+                $('.dropify').dropify();
 
                 $('.UbahFasum,#namaFasum').attr('disabled', false)
                 $('.UbahFasum,#jenisFasum').attr('disabled', false)
@@ -879,11 +878,11 @@
                 $('.UbahFasum,#jamBuka').val(results.fasum_open_time)
                 $('.UbahFasum,#jamTutup').val(results.fasum_close_time)
                 $('.UbahFasum,#fasum_color').val(results.fasum_color)
-              
-                $('.UbahFasum,#fasum_routeEdit').val(JSON.stringify(results.route)) 
+
+                $('.UbahFasum,#fasum_routeEdit').val(JSON.stringify(results.route))
                 arrayWaypointUtamaEdit = results.route;
                 // console.log(arrayWaypointUtamaEdit);
-                $("#overlay").fadeOut(300);   
+                $("#overlay").fadeOut(300);
                 $("#myModalEdit").modal('show');
             }
         })
@@ -894,7 +893,7 @@
         mapContainerEdit.invalidateSize();
 
         let countlist = 0;
-        let list = ""; 
+        let list = "";
         // $('[name=address]').on("change", function (e) {
         //     // console.log(this.value);
         //     $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
@@ -916,7 +915,7 @@
         //             $('#listAddressEdit').html(list); 
         //         }
 
-                
+
         //         for (let i = 0; i < ress.length; i++){ 
         //             $(`#list${i+1}`).click(function(){  
         //                 var latlong =  $(this).data('cords').split(',');
@@ -1011,14 +1010,14 @@
                 $('#fasum_routeEdit').val(JSON.stringify(routingAlternativeUtamaEdit));
             });
             L.popup()
-            .setContent(container)
-            .setLatLng(e.latlng)
-            .openOn(mapContainerEdit); 
+                .setContent(container)
+                .setLatLng(e.latlng)
+                .openOn(mapContainerEdit);
         });
-        
-         
 
-    }); 
+
+
+    });
 
     function hapus(id) {
         Swal.fire({
@@ -1084,7 +1083,7 @@
                     ).then(function() {
                         $(".UbahFasum").modal('hide');
                         // userDataTable.draw();
-                        location.reload(); 
+                        location.reload();
                     });
                 } else {
                     Swal.fire(
@@ -1092,7 +1091,7 @@
                         '',
                         'error'
                     ).then(function() {
-                        location.reload(); 
+                        location.reload();
                     });
                 }
             }
@@ -1100,11 +1099,10 @@
     });
     $('#myModalEdit').on('hidden.bs.modal', function() {
         $("#overlay").fadeIn(300);
-        location.reload(); 
+        location.reload();
     });
 
-	$('#btnTambah').on('click', function(e){
-		$('#form_tambah')[0].reset()
-	})
-        
+    $('#btnTambah').on('click', function(e) {
+        $('#form_tambah')[0].reset()
+    })
 </script>

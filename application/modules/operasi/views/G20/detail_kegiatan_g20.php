@@ -16,7 +16,7 @@
                     <p class="fs-4 fw-bold">DETAIL JADWAL KEGIATAN</p>
                 </div>
                 <div class="col-md-6">
-                    <a href="<?php echo base_url()?>operasi/Kegiatan/Edit/<?php echo $data['getDetail']['data']['id'];?>"> 
+                    <a href="<?php echo base_url() ?>operasi/Kegiatan/Edit/<?php echo $data['getDetail']['data']['id']; ?>">
                         <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
                     </a>
                 </div>
@@ -24,9 +24,9 @@
 
             <div class="card">
                 <div class="card-body">
-                    <div class="row"> 
+                    <div class="row">
                         <div class="col-2">
-                            <p>KEGIATAN</p> 
+                            <p>KEGIATAN</p>
                             <p>TANGGAL</p>
                             <p>WAKTU</p>
                             <p>LOKASI</p>
@@ -38,10 +38,10 @@
                             <p>:</p>
                         </div>
                         <div class="col-3">
-                            <p><?php echo $data['getDetail']['data']['activity'];?></p> 
-                            <p><?php echo format_indo($data['getDetail']['data']['date_schedule']);?></p>
-                            <p><?php echo $data['getDetail']['data']['start_time'];?> - <?php echo $data['getDetail']['data']['start_time'];?>  WITA</p>
-                            <p><?php echo $data['getDetail']['data']['address_schedule'];?></p>
+                            <p><?php echo $data['getDetail']['data']['activity']; ?></p>
+                            <p><?php echo format_indo($data['getDetail']['data']['date_schedule']); ?></p>
+                            <p><?php echo $data['getDetail']['data']['start_time']; ?> - <?php echo $data['getDetail']['data']['start_time']; ?> WITA</p>
+                            <p><?php echo $data['getDetail']['data']['address_schedule']; ?></p>
                         </div>
                     </div>
                 </div>
@@ -64,8 +64,8 @@
 <script>
     $(document).ready(function() {
 
-        var initialCenter = [-8.751740, 115.149643];
-        var initialZoom = 11.65;
+        var initialCenter = [-0.8458708, 118.8661073];
+        var initialZoom = 4.5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -94,30 +94,31 @@
             zoomSnap: 0.25,
             zoomControl: false,
             layers: [googleHybrid]
-        }).setView(initialCenter, initialZoom); 
+        }).setView(initialCenter, initialZoom);
 
-        var cords = "<?php echo $data['getDetail']['data']['coordinate_schedule'];?>";
-        var latlongJadwal =  cords.split(',');
+        var cords = "<?php echo $data['getDetail']['data']['coordinate_schedule']; ?>";
+        var latlongJadwal = cords.split(',');
         var latitudeJadwal = parseFloat(latlongJadwal[0]);
-        var longitudeJadwal = parseFloat(latlongJadwal[1]); 
+        var longitudeJadwal = parseFloat(latlongJadwal[1]);
         // console.log({a:latitudeJadwal , b:longitudeJadwal});
 
-        var idCategoriS = "<?php echo $data['getDetail']['data']['id_category_schedule'];?>";
-        var fotoJadwal = "<?php echo $data['getDetail']['data']['photo_schedule'];?>";
+        var idCategoriS = "<?php echo $data['getDetail']['data']['id_category_schedule']; ?>";
+        var fotoJadwal = "<?php echo $data['getDetail']['data']['photo_schedule']; ?>";
         var iconJadwal = '';
 
-        if(idCategoriS == '4'){
-            iconJadwal = `<img src="<?php echo url_api();?>schedule/${fotoJadwal}" style="width: 30px;margin-top: -35px;margin-left: -13.5px;">`;
-        }else{
-            iconJadwal = `<img src="<?php echo url_api();?>schedule/${fotoJadwal}" style="width: 22px;margin-top: -45px;margin-left: -9.5px;">`;
+        if (idCategoriS == '4') {
+            iconJadwal = `<img src="<?php echo url_api(); ?>schedule/${fotoJadwal}" style="width: 30px;margin-top: -35px;margin-left: -13.5px;">`;
+        } else {
+            iconJadwal = `<img src="<?php echo url_api(); ?>schedule/${fotoJadwal}" style="width: 22px;margin-top: -45px;margin-left: -9.5px;">`;
         }
 
-        L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({ 
+        L.marker([latitudeJadwal, longitudeJadwal], {
+            icon: L.divIcon({
                 html: iconJadwal,
                 iconSize: [5, 5],
                 iconAnchor: [5, 10]
-            }) 
-        }).addTo(mapContainer);  
+            })
+        }).addTo(mapContainer);
 
         var baseMaps = {
             "Google Map Street": googleStreet,

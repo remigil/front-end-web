@@ -13,7 +13,7 @@
     <div class="card">
         <div class="card-body">
             <form class="form" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
+                <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
                 <input hidden name="id" value="<?php echo $data['getDetail']['data']['id']; ?>" type="text">
                 <div class="row">
                     <div class="col-md-6">
@@ -37,16 +37,7 @@
                                 <div class="material-selectfield mb-3">
                                     <select required name="id_account[]" id="id_account" style="height: 200px;" multiple>
                                         <?php foreach ($data['getAccount'] as $row) : ?>
-                                            <option 
-                                                <?php foreach ($data['getDetail']['data']['accounts'] as $rowSelect) : ?> 
-                                                    <?php if ($rowSelect['name_account'] == $row['name_account']){?>
-                                                        selected
-                                                    <?php }else{ ?>
-
-                                                    <?php } ?> 
-                                                <?php endforeach; ?> 
-
-                                                value="<?php echo $row['id']; ?>"><?php echo $row['name_account']; ?>
+                                            <option <?php foreach ($data['getDetail']['data']['accounts'] as $rowSelect) : ?> <?php if ($rowSelect['name_account'] == $row['name_account']) { ?> selected <?php } else { ?> <?php } ?> <?php endforeach; ?> value="<?php echo $row['id']; ?>"><?php echo $row['name_account']; ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -64,11 +55,7 @@
                                 <div class="material-selectfield mb-3">
                                     <select name="id_vip[]" id="id_vip" style="height: 200px" multiple>
                                         <?php foreach ($data['getVip'] as $row) : ?>
-                                            <option 
-                                                <?php foreach ($data['getDetail']['data']['vips'] as $rowSelect) : ?> 
-                                                    <?php echo ($rowSelect['name_vip'] == $row['name_vip'] ? 'selected' : ''); ?>
-                                                <?php endforeach; ?> 
-                                                value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?> ( <?= $row['country_arrival_vip'] ?> )
+                                            <option <?php foreach ($data['getDetail']['data']['vips'] as $rowSelect) : ?> <?php echo ($rowSelect['name_vip'] == $row['name_vip'] ? 'selected' : ''); ?> <?php endforeach; ?> value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?> ( <?= $row['country_arrival_vip'] ?> )
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -83,7 +70,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select required name="subjek" id="select" >
+                                    <select required name="subjek" id="select">
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == null ? 'selected' : ''); ?> value="">Pilih Subjek</option>
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == '1' ? 'selected' : ''); ?> value="1">Patroli</option>
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == '2' ? 'selected' : ''); ?> value="2">Pengawalan</option>
@@ -101,7 +88,7 @@
                                     <label class="labelmui">Jumlah kendaraan yang dikawal</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
                                     <input style="width: 100%;" name="order_renpam" placeholder="" value="<?php echo $data['getDetail']['data']['order_renpam']; ?>" type="text">
@@ -149,7 +136,7 @@
                             <textarea hidden name="coordsAlternative4" id="coordsAlternative4" cols="5" rows="5"></textarea>
 
 
-                            <textarea hidden name="dummyUtama" id="dummyUtama" cols="5" rows="5"><?php echo json_encode($data['getDetail']['data']['route'])?></textarea>
+                            <textarea hidden name="dummyUtama" id="dummyUtama" cols="5" rows="5"><?php echo json_encode($data['getDetail']['data']['route']) ?></textarea>
 
 
                             <div class="col-md-12 mt-3">
@@ -270,8 +257,8 @@
         var ressFasumKhusus;
 
         $(document).ready(function() {
-            $( '[name=total_vehicle]' ).mask('000000000');
-            $( '[name=order_renpam]' ).mask('000000000');
+            $('[name=total_vehicle]').mask('000000000');
+            $('[name=order_renpam]').mask('000000000');
 
             new Choices('#select', {
                 searchEnabled: true,
@@ -281,8 +268,8 @@
                 classNames: {
                     containerOuter: 'choices select-choices',
                 },
-            }); 
-            
+            });
+
             $('#startTime').clockpicker({
                 autoclose: true
             });
@@ -311,32 +298,34 @@
             });
 
             $.ajax({
-                type : "POST",
-                url : "<?php echo base_url();?>operasi/renpam/getFasus", 
-                data : { 
-                    "radius" : 1, 
-                }, 
-                dataType : "JSON",
-                success : function(result){  
+                type: "POST",
+                url: "<?php echo base_url(); ?>operasi/renpam/getFasus",
+                data: {
+                    "radius": 1,
+                },
+                dataType: "JSON",
+                success: function(result) {
                     ressFasumKhusus = result['data'];
                     console.log(ressFasumKhusus);
 
-                    for (let i = 0; i < ressFasumKhusus.length; i++) { 
-            
+                    for (let i = 0; i < ressFasumKhusus.length; i++) {
+
                         var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
-                        var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
-                        L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
-                            // className: 'location-pin',
-                            html: `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
-                            iconSize: [5, 5],
-                            iconAnchor: [5, 10]
-                            // iconAnchor: [10, 33]
-                            }) }).bindPopup(`
+                        var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng);
+                        L.marker([latitudeFasum, longitudeFasum], {
+                            icon: L.divIcon({
+                                // className: 'location-pin',
+                                html: `<img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                iconSize: [5, 5],
+                                iconAnchor: [5, 10]
+                                // iconAnchor: [10, 33]
+                            })
+                        }).bindPopup(`
                                 <div class="text-center" style="width: 300px;"> 
                                     <div class="row mt-3">
                                         <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                             <div class="avatar-xl me-3">
-                                                <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                <img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-12 mt-3">
@@ -385,13 +374,17 @@
                                         </div>   
                                     </div>
                                 </div> 
-                        `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                        `, {
+                            minWidth: 100,
+                            maxWidth: 560,
+                            width: 400
+                        }).addTo(mapContainer);
                     }
                 }
             });
 
-            var initialCenter = [-8.751740, 115.149643];
-            var initialZoom = 11.65;
+            var initialCenter = [-0.8458708, 118.8661073];
+            var initialZoom = 4.5;
             var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
                 maxZoom: 20,
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -422,7 +415,7 @@
                 layers: [googleHybrid]
             }).setView(initialCenter, initialZoom);
 
-            
+
             var route = $("#dummyUtama").val();
             routingRenpam[0] = L.Routing.control({
                 waypoints: JSON.parse(route),
@@ -434,13 +427,13 @@
                 routeWhileDragging: false,
                 geocoder: L.Control.Geocoder.nominatim({})
             }).addTo(mapContainer);
-         
-            $('#ruteawal').val(JSON.stringify(routingRenpam[0].getWaypoints())); 
+
+            $('#ruteawal').val(JSON.stringify(routingRenpam[0].getWaypoints()));
 
 
-            
-            
-            function createButton(label, container) { 
+
+
+            function createButton(label, container) {
 
                 var btn = L.DomUtil.create('button', '', container);
                 btn.setAttribute('type', 'button');
@@ -481,7 +474,7 @@
             }).addTo(mapContainer);
             L.control.zoom({
                 position: 'bottomleft'
-            }).addTo(mapContainer); 
+            }).addTo(mapContainer);
 
         });
 
@@ -524,8 +517,8 @@
 
         $('#myModal').on('shown.bs.modal', function() {
             console.log(ressFasumKhusus);
-            var initialCenter = [-8.751740, 115.149643];
-            var initialZoom = 11.65;
+            var initialCenter = [-0.8458708, 118.8661073];
+            var initialZoom = 4.5;
             var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
                 maxZoom: 20,
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -573,22 +566,24 @@
 
             mapContainerRenpam.invalidateSize();
 
-            for (let i = 0; i < ressFasumKhusus.length; i++) { 
-            
+            for (let i = 0; i < ressFasumKhusus.length; i++) {
+
                 var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
-                var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
-                L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
-                    // className: 'location-pin',
-                    html: `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
-                    iconSize: [5, 5],
-                    iconAnchor: [5, 10]
-                    // iconAnchor: [10, 33]
-                    }) }).bindPopup(`
+                var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng);
+                L.marker([latitudeFasum, longitudeFasum], {
+                    icon: L.divIcon({
+                        // className: 'location-pin',
+                        html: `<img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                        iconSize: [5, 5],
+                        iconAnchor: [5, 10]
+                        // iconAnchor: [10, 33]
+                    })
+                }).bindPopup(`
                         <div class="text-center" style="width: 300px;"> 
                             <div class="row mt-3">
                                 <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                     <div class="avatar-xl me-3">
-                                        <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                        <img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-12 mt-3">
@@ -637,7 +632,11 @@
                                 </div>   
                             </div>
                         </div> 
-                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainerRenpam);  
+                `, {
+                    minWidth: 100,
+                    maxWidth: 560,
+                    width: 400
+                }).addTo(mapContainerRenpam);
             }
 
             var routeDataAlternative1 = '<?php echo json_encode($data['getDetail']['data']['route_alternatif_1']) ?>';
@@ -697,8 +696,8 @@
 
         $('#myModal2').on('shown.bs.modal', function() {
 
-            var initialCenter = [-8.751740, 115.149643];
-            var initialZoom = 11.65;
+            var initialCenter = [-0.8458708, 118.8661073];
+            var initialZoom = 4.5;
             var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
                 maxZoom: 20,
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -746,22 +745,24 @@
 
             mapContainerRenpam2.invalidateSize();
 
-            for (let i = 0; i < ressFasumKhusus.length; i++) { 
-            
+            for (let i = 0; i < ressFasumKhusus.length; i++) {
+
                 var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
-                var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
-                L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
-                    // className: 'location-pin',
-                    html: `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
-                    iconSize: [5, 5],
-                    iconAnchor: [5, 10]
-                    // iconAnchor: [10, 33]
-                    }) }).bindPopup(`
+                var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng);
+                L.marker([latitudeFasum, longitudeFasum], {
+                    icon: L.divIcon({
+                        // className: 'location-pin',
+                        html: `<img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                        iconSize: [5, 5],
+                        iconAnchor: [5, 10]
+                        // iconAnchor: [10, 33]
+                    })
+                }).bindPopup(`
                         <div class="text-center" style="width: 300px;"> 
                             <div class="row mt-3">
                                 <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                     <div class="avatar-xl me-3">
-                                        <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                        <img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-12 mt-3">
@@ -810,7 +811,11 @@
                                 </div>   
                             </div>
                         </div> 
-                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainerRenpam2);  
+                `, {
+                    minWidth: 100,
+                    maxWidth: 560,
+                    width: 400
+                }).addTo(mapContainerRenpam2);
             }
 
             var routeDataAlternative2 = '<?php echo json_encode($data['getDetail']['data']['route_alternatif_2']) ?>';
@@ -869,8 +874,8 @@
 
         $('#myModal3').on('shown.bs.modal', function() {
 
-            var initialCenter = [-8.751740, 115.149643];
-            var initialZoom = 11.65;
+            var initialCenter = [-0.8458708, 118.8661073];
+            var initialZoom = 4.5;
             var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
                 maxZoom: 20,
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -918,22 +923,24 @@
 
             mapContainerRenpam3.invalidateSize();
 
-for (let i = 0; i < ressFasumKhusus.length; i++) { 
+            for (let i = 0; i < ressFasumKhusus.length; i++) {
 
-    var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
-    var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
-    L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
-        // className: 'location-pin',
-        html: `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
-        iconSize: [5, 5],
-        iconAnchor: [5, 10]
-        // iconAnchor: [10, 33]
-        }) }).bindPopup(`
+                var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
+                var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng);
+                L.marker([latitudeFasum, longitudeFasum], {
+                    icon: L.divIcon({
+                        // className: 'location-pin',
+                        html: `<img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                        iconSize: [5, 5],
+                        iconAnchor: [5, 10]
+                        // iconAnchor: [10, 33]
+                    })
+                }).bindPopup(`
             <div class="text-center" style="width: 300px;"> 
                 <div class="row mt-3">
                     <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                         <div class="avatar-xl me-3">
-                            <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                            <img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
                         </div>
                     </div>
                     <div class="col-md-12 col-12 mt-3">
@@ -982,8 +989,12 @@ for (let i = 0; i < ressFasumKhusus.length; i++) {
                     </div>   
                 </div>
             </div> 
-    `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainerRenpam3);  
-}
+    `, {
+                    minWidth: 100,
+                    maxWidth: 560,
+                    width: 400
+                }).addTo(mapContainerRenpam3);
+            }
 
             var routeDataAlternative3 = '<?php echo json_encode($data['getDetail']['data']['route_masyarakat']) ?>';
             var resAlternative3 = JSON.parse(routeDataAlternative3);
@@ -1041,8 +1052,8 @@ for (let i = 0; i < ressFasumKhusus.length; i++) {
 
         $('#myModal4').on('shown.bs.modal', function() {
 
-            var initialCenter = [-8.751740, 115.149643];
-            var initialZoom = 11.65;
+            var initialCenter = [-0.8458708, 118.8661073];
+            var initialZoom = 4.5;
             var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
                 maxZoom: 20,
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -1090,22 +1101,24 @@ for (let i = 0; i < ressFasumKhusus.length; i++) {
 
             mapContainerRenpam4.invalidateSize();
 
-for (let i = 0; i < ressFasumKhusus.length; i++) { 
+            for (let i = 0; i < ressFasumKhusus.length; i++) {
 
-    var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
-    var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
-    L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
-        // className: 'location-pin',
-        html: `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
-        iconSize: [5, 5],
-        iconAnchor: [5, 10]
-        // iconAnchor: [10, 33]
-        }) }).bindPopup(`
+                var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
+                var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng);
+                L.marker([latitudeFasum, longitudeFasum], {
+                    icon: L.divIcon({
+                        // className: 'location-pin',
+                        html: `<img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                        iconSize: [5, 5],
+                        iconAnchor: [5, 10]
+                        // iconAnchor: [10, 33]
+                    })
+                }).bindPopup(`
             <div class="text-center" style="width: 300px;"> 
                 <div class="row mt-3">
                     <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                         <div class="avatar-xl me-3">
-                            <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                            <img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
                         </div>
                     </div>
                     <div class="col-md-12 col-12 mt-3">
@@ -1154,8 +1167,12 @@ for (let i = 0; i < ressFasumKhusus.length; i++) {
                     </div>   
                 </div>
             </div> 
-    `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainerRenpam4);  
-}
+    `, {
+                    minWidth: 100,
+                    maxWidth: 560,
+                    width: 400
+                }).addTo(mapContainerRenpam4);
+            }
 
             var routeDataAlternative4 = '<?php echo json_encode($data['getDetail']['data']['route_umum']) ?>';
             var resAlternative4 = JSON.parse(routeDataAlternative4);
@@ -1212,7 +1229,7 @@ for (let i = 0; i < ressFasumKhusus.length; i++) {
         });
 
         $(".form").submit(function(e) {
-            $('#ruteawal').val(JSON.stringify(routingRenpam[0].getWaypoints())); 
+            $('#ruteawal').val(JSON.stringify(routingRenpam[0].getWaypoints()));
             $("#overlay").fadeIn(300);
             e.preventDefault();
             var formData = new FormData($('.form')[0]);

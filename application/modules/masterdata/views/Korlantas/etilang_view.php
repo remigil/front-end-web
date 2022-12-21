@@ -10,7 +10,7 @@
 <div class="row align-items-center">
     <div class="col-md-6">
         <div class="mb-3">
-		<button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahETLE">Tambah ETLE</button>
+            <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahETLE">Tambah ETLE</button>
         </div>
     </div>
 
@@ -19,13 +19,13 @@
             <div>
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo base_url()?>masterdata/etilang" data-bs-toggle="tooltip" data-bs-placement="top" title="List"><i class="bx bx-list-ul"></i></a>
+                        <a class="nav-link active" href="<?php echo base_url() ?>masterdata/etilang" data-bs-toggle="tooltip" data-bs-placement="top" title="List"><i class="bx bx-list-ul"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="<?php echo base_url()?>masterdata/etilang/thumbnail" data-bs-toggle="tooltip" data-bs-placement="top" title="Grid"><i class="bx bx-grid-alt"></i></a>
+                        <a class="nav-link " href="<?php echo base_url() ?>masterdata/etilang/thumbnail" data-bs-toggle="tooltip" data-bs-placement="top" title="Grid"><i class="bx bx-grid-alt"></i></a>
                     </li>
                 </ul>
-            </div> 
+            </div>
         </div>
 
     </div>
@@ -33,7 +33,7 @@
 <!-- end row -->
 
 <!-- </div> -->
-<div class="page">  
+<div class="page">
     <div class="card">
 
         <div class="card-body">
@@ -50,7 +50,7 @@
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
-                </thead> 
+                </thead>
             </table>
 
         </div>
@@ -68,41 +68,41 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-				<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
-					<div class="row">
+                <form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" name="tipeETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" name="tipeETLE" placeholder="ETLE">
                                 <label for="tipeETLE">Type ETLE</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" name="jenisETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" name="jenisETLE" placeholder="ETLE">
                                 <label for="jenisETLE">Jenis ETLE</label>
                             </div>
                         </div>
-						<div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" name="ipETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" name="ipETLE" placeholder="ETLE">
                                 <label for="ipETLE">IP ETLE</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" name="merekETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" name="merekETLE" placeholder="ETLE">
                                 <label for="merekETLE">Merek ETLE</label>
                             </div>
                         </div>
-						<div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" name="gatewayETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" name="gatewayETLE" placeholder="ETLE">
                                 <label for="gatewayETLE">Gateway ETLE</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" name="linkETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" name="linkETLE" placeholder="ETLE">
                                 <label for="linkETLE">Link ETLE</label>
                             </div>
                         </div>
@@ -112,64 +112,64 @@
                             <div class="form-floating mb-3">
                                 <input name="lokasiETLE" class="form-control" placeholder="Alamat" type="text" required>
                                 <label for="address">Lokasi ETLE</label>
-                            </div> 
+                            </div>
                             <div class="list-group" id="listAddress"></div>
-                        </div> 
+                        </div>
                         <div class="col-md-6" style="display: none;">
                             <div class="form-floating mb-3">
-                            <input style="width: 100%;" name="cordinate" class="form-control" type="text">
+                                <input style="width: 100%;" name="cordinate" class="form-control" type="text">
                                 <label for="cordinate">Coordinate</label>
                             </div>
                         </div>
                         <div class="col-md-12 mt-3 mb-3">
                             <div id="mapG20Dashboard" style="height: 400px">
-                                <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
+                                <img src="<?php echo base_url(); ?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                             </div>
                         </div>
                     </div>
-					<div class="row">
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" name="vmsETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" name="vmsETLE" placeholder="ETLE">
                                 <label for="vmsETLE">VMS ETLE</label>
                             </div>
                         </div>
-						<div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" name="username" placeholder="ETLE">
+                                <input type="text" class="form-control" name="username" placeholder="ETLE">
                                 <label for="username">Username</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" name="password" placeholder="ETLE">
+                                <input type="text" class="form-control" name="password" placeholder="ETLE">
                                 <label for="password">Password</label>
                             </div>
                         </div>
                     </div>
-					<div class="row mb-3">
-                                <div class="material-textfield">
-                                    <input type="hidden" name="status">
-                                    <label for="" class="labelmui">Status</label>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh">
-                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="active" checked>
-                                        <label class="form-check-label" for="active">
-                                            ACTIVE
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh">
-                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="inactive">
-                                        <label class="form-check-label" for="inactive">
-                                            INACTIVE
-                                        </label>
-                                    </div>
-                                </div>
+                    <div class="row mb-3">
+                        <div class="material-textfield">
+                            <input type="hidden" name="status">
+                            <label for="" class="labelmui">Status</label>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-check" style="margin: -1vh 0 0 2.7vh">
+                                <input class=" form-check-input" type="radio" name="flexRadioDefault" id="active" checked>
+                                <label class="form-check-label" for="active">
+                                    ACTIVE
+                                </label>
                             </div>
-                     
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-check" style="margin: -1vh 0 0 2.7vh">
+                                <input class=" form-check-input" type="radio" name="flexRadioDefault" id="inactive">
+                                <label class="form-check-label" for="inactive">
+                                    INACTIVE
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
                     <button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
                 </form>
             </div>
@@ -186,42 +186,42 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="id" value="" id="id_etle" type="text">
-					<div class="row">
+                <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="" id="id_etle" type="text">
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="tipeETLE" name="tipeETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="tipeETLE" name="tipeETLE" placeholder="ETLE">
                                 <label for="tipeETLE">Type ETLE</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="jenisETLE" name="jenisETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="jenisETLE" name="jenisETLE" placeholder="ETLE">
                                 <label for="jenisETLE">Jenis ETLE</label>
                             </div>
                         </div>
-						<div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="ipETLE" name="ipETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="ipETLE" name="ipETLE" placeholder="ETLE">
                                 <label for="ipETLE">IP ETLE</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="merekETLE" name="merekETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="merekETLE" name="merekETLE" placeholder="ETLE">
                                 <label for="merekETLE">Merek ETLE</label>
                             </div>
                         </div>
-						<div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="gatewayETLE" name="gatewayETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="gatewayETLE" name="gatewayETLE" placeholder="ETLE">
                                 <label for="gatewayETLE">Gateway ETLE</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="linkETLE" name="linkETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="linkETLE" name="linkETLE" placeholder="ETLE">
                                 <label for="linkETLE">Link ETLE</label>
                             </div>
                         </div>
@@ -231,46 +231,46 @@
                             <div class="form-floating mb-3">
                                 <input name="lokasiETLE" class="form-control" id="lokasiETLE" placeholder="Alamat" type="text" required>
                                 <label for="address">Lokasi ETLE</label>
-                            </div> 
+                            </div>
                             <div class="list-group" id="listAddress"></div>
-                        </div> 
+                        </div>
                         <div class="col-md-6" style="display: none;">
                             <div class="form-floating mb-3">
-                            <input style="width: 100%;" name="cordinateEdit" id="cordinateEdit" class="form-control" type="text">
+                                <input style="width: 100%;" name="cordinateEdit" id="cordinateEdit" class="form-control" type="text">
                                 <label for="cordinate">Coordinate</label>
                             </div>
                         </div>
                         <div class="col-md-12 mt-3 mb-3">
                             <div id="mapEdit" style="height: 400px">
-                                <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
+                                <img src="<?php echo base_url(); ?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                             </div>
                         </div>
                     </div>
-					<div class="row">
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="vmsETLE" name="vmsETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="vmsETLE" name="vmsETLE" placeholder="ETLE">
                                 <label for="vmsETLE">VMS ETLE</label>
                             </div>
                         </div>
-						<div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="username" name="username" placeholder="ETLE">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="ETLE">
                                 <label for="username">Username</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="password" name="password" placeholder="ETLE">
+                                <input type="text" class="form-control" id="password" name="password" placeholder="ETLE">
                                 <label for="password">Password</label>
                             </div>
                         </div>
                     </div>
 
-					<div class="col-md-12">
-                                <button type="submit" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
-                            </div>
-                    
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                    </div>
+
                 </form>
             </div>
         </div>
@@ -287,40 +287,40 @@
             </div>
             <div class="modal-body">
                 <form action="">
-					<div class="row">
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="tipeETLE" name="tipeETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="tipeETLE" name="tipeETLE" placeholder="ETLE">
                                 <label for="tipeETLE">Type ETLE</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="jenisETLE" name="jenisETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="jenisETLE" name="jenisETLE" placeholder="ETLE">
                                 <label for="jenisETLE">Jenis ETLE</label>
                             </div>
                         </div>
-						<div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="ipETLE" name="ipETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="ipETLE" name="ipETLE" placeholder="ETLE">
                                 <label for="ipETLE">IP ETLE</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="merekETLE" name="merekETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="merekETLE" name="merekETLE" placeholder="ETLE">
                                 <label for="merekETLE">Merek ETLE</label>
                             </div>
                         </div>
-						<div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="gatewayETLE" name="gatewayETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="gatewayETLE" name="gatewayETLE" placeholder="ETLE">
                                 <label for="gatewayETLE">Gateway ETLE</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="linkETLE" name="linkETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="linkETLE" name="linkETLE" placeholder="ETLE">
                                 <label for="linkETLE">Link ETLE</label>
                             </div>
                         </div>
@@ -330,32 +330,32 @@
                             <div class="form-floating mb-3">
                                 <input name="lokasiETLE" id="lokasiETLE" class="form-control" placeholder="Alamat" type="text" required>
                                 <label for="address">Lokasi ETLE</label>
-                            </div> 
+                            </div>
                             <div class="list-group" id="listAddress"></div>
-                        </div> 
-                        
+                        </div>
+
                     </div>
-					<div class="row">
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="vmsETLE" name="vmsETLE" placeholder="ETLE">
+                                <input type="text" class="form-control" id="vmsETLE" name="vmsETLE" placeholder="ETLE">
                                 <label for="vmsETLE">VMS ETLE</label>
                             </div>
                         </div>
-						<div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="username" name="username" placeholder="ETLE">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="ETLE">
                                 <label for="username">Username</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="password" name="password" placeholder="ETLE">
+                                <input type="text" class="form-control" id="password" name="password" placeholder="ETLE">
                                 <label for="password">Password</label>
                             </div>
                         </div>
                     </div>
-                    
+
                 </form>
             </div>
         </div>
@@ -365,7 +365,7 @@
 
 
 <script>
-    $(document).ready(function() { 
+    $(document).ready(function() {
 
         var userDataTable = $('#datatable').DataTable({
 
@@ -450,22 +450,22 @@
                 },
                 {
                     data: 'type_etle'
-                }, 
+                },
                 {
                     data: 'ip_etle'
                 },
                 {
                     data: 'address_etle'
-                }, 
+                },
                 {
                     data: 'lat_etle'
-                }, 
+                },
                 {
                     data: 'lng_etle'
-                }, 
+                },
                 {
                     data: 'status_etle'
-                }, 
+                },
                 {
                     data: 'action',
                     orderable: false
@@ -519,7 +519,7 @@
             zoomControl: false,
             layers: [googleStreet]
         }).setView(initialCenter, initialZoom);
-  
+
         var baseMaps = {
             "Google Map Street": googleStreet,
             "Google Map Satelite": googleSatelite,
@@ -534,15 +534,15 @@
             position: 'bottomleft'
         }).addTo(mapContainer);
 
-        $('#myModal').on('shown.bs.modal', function() { 
+        $('#myModal').on('shown.bs.modal', function() {
             mapContainer.invalidateSize();
 
             let countlist = 0;
-            let list = ""; 
-            $('[name=lokasiETLE]').on("change", function (e) {
+            let list = "";
+            $('[name=lokasiETLE]').on("change", function(e) {
                 // console.log(this.value);
-                $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
-                    console.log(ress);  
+                $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress) {
+                    console.log(ress);
                     countlist = 0;
                     list = "";
                     ress.forEach(el => {
@@ -551,26 +551,26 @@
                         id="list${countlist}"   
                         data-alamat="${el.display_name}"
                         data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
-                        $('#listAddress').html(list); 
-                    });  
+                        $('#listAddress').html(list);
+                    });
 
-                    if(list == ""){
+                    if (list == "") {
                         countlist = 0;
                         list = "";
-                        $('#listAddress').html(list); 
+                        $('#listAddress').html(list);
                     }
 
-                    
-                    for (let i = 0; i < ress.length; i++){ 
-                        $(`#list${i+1}`).click(function(){  
-                            var latlong =  $(this).data('cords').split(',');
+
+                    for (let i = 0; i < ress.length; i++) {
+                        $(`#list${i+1}`).click(function() {
+                            var latlong = $(this).data('cords').split(',');
                             var latitude = parseFloat(latlong[0]);
-                            var longitude = parseFloat(latlong[1]); 
+                            var longitude = parseFloat(latlong[1]);
 
                             // console.log({a:latitude, b:longitude});
                             $('[name=lokasiETLE]').val($(this).data('alamat'));
                             $('[name=cordinate]').val($(this).data('cords'));
-                            mapContainer.flyTo([latitude, longitude], 17);    
+                            mapContainer.flyTo([latitude, longitude], 17);
                         });
                     }
                 });
@@ -578,38 +578,38 @@
             });
 
 
-            $('[name=cordinate]').on("change", function (e) {
+            $('[name=cordinate]').on("change", function(e) {
 
-                var cordLatLong =  this.value.split(','); 
-                var cordLat = parseFloat(cordLatLong[0]); 
-                var corLong = parseFloat(cordLatLong[1]); 
+                var cordLatLong = this.value.split(',');
+                var cordLat = parseFloat(cordLatLong[0]);
+                var corLong = parseFloat(cordLatLong[1]);
 
                 // console.log({a:cordLat, b:corLong});
 
-                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-                    $('[name=lokasiETLE]').val(data['display_name']); 
-                    mapContainer.flyTo([cordLat, corLong], 17);  
-                }); 
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data) {
+                    $('[name=lokasiETLE]').val(data['display_name']);
+                    mapContainer.flyTo([cordLat, corLong], 17);
+                });
             });
 
 
-            mapContainer.on("dragend", function (e) {
+            mapContainer.on("dragend", function(e) {
 
                 var corLat = mapContainer.getCenter()['lat'];
                 var corLng = mapContainer.getCenter()['lng'];
                 var cord = `${corLat},${corLng}`;
                 $('[name=cordinate]').val(cord);
 
-                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data) {
 
-                    $('[name=lokasiETLE]').val(data['display_name']); 
+                    $('[name=lokasiETLE]').val(data['display_name']);
 
-                }); 
+                });
 
-            }); 
+            });
 
 
-        }); 
+        });
 
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
@@ -645,146 +645,146 @@
         });
     });
 
-	// map pada form edit
+    // map pada form edit
 
-	$(document).ready(function() {
+    $(document).ready(function() {
 
-// $('[name=cordinateEdit]').val($('#latitude').val(samsat_lat) + ',' + $('#longitude').val(samsat_lng));
-var initialCenter = [-8.751740, 115.149643];
-var initialZoom = 5;
-var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-	maxZoom: 20,
-	subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-	attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-});
-var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-	maxZoom: 20,
-	subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-	attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-});
-var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-	maxZoom: 20,
-	subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-	attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-});
-var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-	maxZoom: 20,
-	subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-	attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-});
+        // $('[name=cordinateEdit]').val($('#latitude').val(samsat_lat) + ',' + $('#longitude').val(samsat_lng));
+        var initialCenter = [-0.8458708, 118.8661073];
+        var initialZoom = 5;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
 
-// StART MAP SECTION
-var mapContainer = L.map('mapEdit', {
-	maxZoom: 20,
-	minZoom: 1,
-	zoomSnap: 0.25,
-	zoomControl: false,
-	layers: [googleStreet]
-}).setView(initialCenter, initialZoom);
+        // StART MAP SECTION
+        var mapContainer = L.map('mapEdit', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
 
-var baseMaps = {
-	"Google Map Street": googleStreet,
-	"Google Map Satelite": googleSatelite,
-	"Google Map Hybrid": googleHybrid,
-	"Google Map Terrain": googleTerrain,
-};
-var overlayMaps = {};
-L.control.layers(baseMaps, overlayMaps, {
-	position: 'topright'
-}).addTo(mapContainer);
-L.control.zoom({
-	position: 'bottomleft'
-}).addTo(mapContainer);
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topright'
+        }).addTo(mapContainer);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainer);
 
-$('#myModalEdit').on('shown.bs.modal', function() {
-	mapContainer.invalidateSize();
+        $('#myModalEdit').on('shown.bs.modal', function() {
+            mapContainer.invalidateSize();
 
-	let countlist = 0;
-	let list = ""; 
-	$('[name=lokasiETLE]').on("change", function (e) {
-		// console.log(this.value);
-		$.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
-			console.log(ress);  
-			countlist = 0;
-			list = "";
-			ress.forEach(el => {
-				countlist += 1;
-				list += `<a class="list-group-item" 
+            let countlist = 0;
+            let list = "";
+            $('[name=lokasiETLE]').on("change", function(e) {
+                // console.log(this.value);
+                $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress) {
+                    console.log(ress);
+                    countlist = 0;
+                    list = "";
+                    ress.forEach(el => {
+                        countlist += 1;
+                        list += `<a class="list-group-item" 
 				id="list${countlist}"   
 				data-alamat="${el.display_name}"
 				data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
-				$('#listAddress').html(list); 
-			});  
+                        $('#listAddress').html(list);
+                    });
 
-			if(list == ""){
-				countlist = 0;
-				list = "";
-				$('#listAddress').html(list); 
-			}
-
-			
-			for (let i = 0; i < ress.length; i++){ 
-				$(`#list${i+1}`).click(function(){  
-					var latlong =  $(this).data('cords').split(',');
-					var latitude = parseFloat(latlong[0]);
-					var longitude = parseFloat(latlong[1]); 
-
-					$("[name=latitude]").val(latitude);
-					$("[name=longitude]").val(longitude);
-
-					// console.log({a:latitude, b:longitude});
-					$('[name=lokasiETLE]').val($(this).data('alamat'));
-					$('[name=cordinateEdit]').val($(this).data('cords'));
-					mapContainer.flyTo([latitude, longitude], 17);    
-				});
-			}
-		});
-
-	});
+                    if (list == "") {
+                        countlist = 0;
+                        list = "";
+                        $('#listAddress').html(list);
+                    }
 
 
-	$('[name=cordinateEdit]').on("change", function (e) {
+                    for (let i = 0; i < ress.length; i++) {
+                        $(`#list${i+1}`).click(function() {
+                            var latlong = $(this).data('cords').split(',');
+                            var latitude = parseFloat(latlong[0]);
+                            var longitude = parseFloat(latlong[1]);
 
-		var cordLatLong =  this.value.split(','); 
-		var cordLat = parseFloat(cordLatLong[0]); 
-		var corLong = parseFloat(cordLatLong[1]); 
+                            $("[name=latitude]").val(latitude);
+                            $("[name=longitude]").val(longitude);
 
-		// console.log({a:cordLat, b:corLong});
+                            // console.log({a:latitude, b:longitude});
+                            $('[name=lokasiETLE]').val($(this).data('alamat'));
+                            $('[name=cordinateEdit]').val($(this).data('cords'));
+                            mapContainer.flyTo([latitude, longitude], 17);
+                        });
+                    }
+                });
 
-		$.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-			$('[name=lokasiETLE]').val(data['display_name']); 
-			mapContainer.flyTo([cordLat, corLong], 17);  
-		}); 
-	});
+            });
 
 
-	mapContainer.on("dragend", function (e) {
+            $('[name=cordinateEdit]').on("change", function(e) {
 
-		var corLat = mapContainer.getCenter()['lat'];
-		var corLng = mapContainer.getCenter()['lng'];
-		var cord = `${corLat},${corLng}`;
+                var cordLatLong = this.value.split(',');
+                var cordLat = parseFloat(cordLatLong[0]);
+                var corLong = parseFloat(cordLatLong[1]);
 
-		$("[name=latitude]").val(corLat);
-		$("[name=longitude]").val(corLng);
-		$('[name=cordinateEdit]').val(cord);
+                // console.log({a:cordLat, b:corLong});
 
-		$.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data) {
+                    $('[name=lokasiETLE]').val(data['display_name']);
+                    mapContainer.flyTo([cordLat, corLong], 17);
+                });
+            });
 
-			$('[name=lokasiETLE]').val(data['display_name']); 
 
-		}); 
+            mapContainer.on("dragend", function(e) {
 
-	});
-	
+                var corLat = mapContainer.getCenter()['lat'];
+                var corLng = mapContainer.getCenter()['lng'];
+                var cord = `${corLat},${corLng}`;
 
-});
+                $("[name=latitude]").val(corLat);
+                $("[name=longitude]").val(corLng);
+                $('[name=cordinateEdit]').val(cord);
 
-var latlong11 =  $('[name=cordinateEdit]').val().split(',');
-var latitude11 = parseFloat(latlong11[0]);
-var longitude11 = parseFloat(latlong11[1]); 
-mapContainer.flyTo([latitude11, longitude11], 17);
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data) {
 
-});
+                    $('[name=lokasiETLE]').val(data['display_name']);
+
+                });
+
+            });
+
+
+        });
+
+        var latlong11 = $('[name=cordinateEdit]').val().split(',');
+        var latitude11 = parseFloat(latlong11[0]);
+        var longitude11 = parseFloat(latlong11[1]);
+        mapContainer.flyTo([latitude11, longitude11], 17);
+
+    });
 
     function detail(id) {
         $.ajax({
@@ -795,7 +795,7 @@ mapContainer.flyTo([latitude11, longitude11], 17);
             },
             dataType: 'JSON',
             success: function(results) {
-                
+
                 $('.DetailETLE,#tipeETLE').attr('disabled', true)
                 $('.DetailETLE,#jenisETLE').attr('disabled', true)
                 $('.DetailETLE,#ipETLE').attr('disabled', true)
@@ -935,10 +935,10 @@ mapContainer.flyTo([latitude11, longitude11], 17);
         })
     })
 
-	$('#btnTambah').on('click', function(e){
-		$('#form_tambah')[0].reset()
-	})
-	$('#btnEdit').on('click', function(e){
-		$('#form_edit')[0].reset()
-	})
+    $('#btnTambah').on('click', function(e) {
+        $('#form_tambah')[0].reset()
+    })
+    $('#btnEdit').on('click', function(e) {
+        $('#form_edit')[0].reset()
+    })
 </script>
