@@ -1396,7 +1396,7 @@
                                 </li>
 
 
-                                
+                                <!--                                 
                                 <li>
                                     <a href="https://polri.go.id/polisiku" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -1462,7 +1462,7 @@
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">Contact Center</span>
                                     </a>
-                                </li>
+                                </li> -->
 
                                 <!-- <li>
                                     <a href="<?php echo base_url(); ?>masterdata/bodycam">

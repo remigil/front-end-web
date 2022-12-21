@@ -110,6 +110,7 @@ class M_petugasnasional extends CI_Model
         $no = 1;
 
         foreach ($result['data']['data'] as $field) {
+            $status = '';
             if ($field['status_officer'] == '1') {
                 $status = "Active";
             } else if ($field['status_officer'] == '0') {
