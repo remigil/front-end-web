@@ -127,7 +127,7 @@
                         <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
-                                    <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
+                                    <input type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
                                 </label>
                                 <button id="fasumFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -1604,7 +1604,7 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleHybrid]
+            layers: [googleStreet]
         }).setView(initialCenter, initialZoom);
 
         var myRenderer = L.canvas({
