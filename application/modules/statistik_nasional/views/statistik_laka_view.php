@@ -14,7 +14,7 @@
      <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
              <div class="col-sm-3 col-md-4 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">Kecelakaan <span style="color:#000;">Nasional</span></span> </h2>
+                 <h2>DATAA <span style="text-transform:uppercase ; color:#0007D8">Kecelakaan <span style="color:#000;">Nasional</span></span> </h2>
              </div>
              <div class="col-sm-9 col-md-8">
                  <div class="row m-2">

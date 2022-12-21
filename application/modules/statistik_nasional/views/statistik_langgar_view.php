@@ -11,7 +11,7 @@
      <div class="card mt-5 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
              <div class="col-sm-2 col-md-2 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">Pelanggaran <span style="color:#000;">Nasional</span></span> </h2>
+                 <h2>DATAA <span style="text-transform:uppercase ; color:#0007D8">Pelanggaran <span style="color:#000;">Nasional</span></span> </h2>
              </div>
              <div class="col-sm-10 col-md-10">
                  <div class="row m-2">
