@@ -8,14 +8,14 @@
 
 
 <div class="page">
-    <div class="card"> 
+    <div class="card">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
                     <p class="fs-4 fw-bold">DETAIL AKUN</p>
                 </div>
                 <div class="col-md-6">
-                    <a href="<?= base_url('operasi/Petugas/Edit/'.$data['getDetail']['data']['id'].''); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
+                    <a href="<?= base_url('operasi/Petugas/Edit/' . $data['getDetail']['data']['id'] . ''); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
                 </div>
             </div>
             <div class="card">
@@ -24,7 +24,7 @@
                         <div class="col-12">
                             <div class="row text-primary">
                                 <div class="col-md-3">
-                                    <img src="<?php echo ($data['getDetail']['data']['photo_officer'] != null ? ''.url_api().'public/uploads/officer/'.$data['getDetail']['data']['photo_officer'].'' : '');?>" alt="">
+                                    <img src="<?php echo ($data['getDetail']['data']['photo_officer'] != null ? '' . url_api() . '/officer/' . $data['getDetail']['data']['photo_officer'] . '' : ''); ?>" alt="">
                                 </div>
                                 <div class="col-md-2">
                                     <p>NAMA PETUGAS</p>
@@ -45,13 +45,13 @@
                                     <p>:</p>
                                 </div>
                                 <div class="col-md-6">
-                                    <p><?php echo $data['getDetail']['data']['name_officer'];?></p>
-                                    <p><?php echo $data['getDetail']['data']['nrp_officer'];?></p>
-                                    <p><?php echo $data['getDetail']['data']['rank_officer'];?></p>
-                                    <p><?php echo $data['getDetail']['data']['structural_officer'];?></p>
-                                    <p><?php echo $data['getDetail']['data']['pam_officer'];?></p>
-                                    <p><?php echo $data['getDetail']['data']['phone_officer'];?></p>
-                                    <p><?php echo ($data['getDetail']['data']['status_officer'] == '1' ? 'Active' : 'Nonactive');?></p>
+                                    <p><?php echo $data['getDetail']['data']['name_officer']; ?></p>
+                                    <p><?php echo $data['getDetail']['data']['nrp_officer']; ?></p>
+                                    <p><?php echo $data['getDetail']['data']['rank_officer']; ?></p>
+                                    <p><?php echo $data['getDetail']['data']['structural_officer']; ?></p>
+                                    <p><?php echo $data['getDetail']['data']['pam_officer']; ?></p>
+                                    <p><?php echo $data['getDetail']['data']['phone_officer']; ?></p>
+                                    <p><?php echo ($data['getDetail']['data']['status_officer'] == '1' ? 'Active' : 'Nonactive'); ?></p>
                                 </div>
                             </div>
                         </div>
