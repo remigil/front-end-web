@@ -10829,8 +10829,8 @@
 
         $('#myModalUtama').on('shown.bs.modal', function() {
 
-            var initialCenter = [-8.751740, 115.149643];
-            var initialZoom = 11.65;
+            var initialCenter = [-0.8458708, 118.8661073];
+            var initialZoom = 4.5;
             var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
                 maxZoom: 20,
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -11018,8 +11018,8 @@
 
         $('#myModal1').on('shown.bs.modal', function() {
 
-            var initialCenter = [-8.751740, 115.149643];
-            var initialZoom = 11.65;
+            var initialCenter = [-0.8458708, 118.8661073];
+            var initialZoom = 4.5;
             var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
                 maxZoom: 20,
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -11207,8 +11207,8 @@
 
         $('#myModal2').on('shown.bs.modal', function() {
 
-            var initialCenter = [-8.751740, 115.149643];
-            var initialZoom = 11.65;
+            var initialCenter = [-0.8458708, 118.8661073];
+            var initialZoom = 4.5;
             var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
                 maxZoom: 20,
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -11394,8 +11394,8 @@
 
         $('#myModal3').on('shown.bs.modal', function() {
 
-            var initialCenter = [-8.751740, 115.149643];
-            var initialZoom = 11.65;
+            var initialCenter = [-0.8458708, 118.8661073];
+            var initialZoom = 4.5;
             var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
                 maxZoom: 20,
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -11582,8 +11582,8 @@
 
         $('#myModal4').on('shown.bs.modal', function() {
 
-            var initialCenter = [-8.751740, 115.149643];
-            var initialZoom = 11.65;
+            var initialCenter = [-0.8458708, 118.8661073];
+            var initialZoom = 4.5;
             var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
                 maxZoom: 20,
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],

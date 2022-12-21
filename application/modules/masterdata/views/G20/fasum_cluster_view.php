@@ -25,7 +25,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                
+
             </table>
 
         </div>
@@ -43,11 +43,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-				<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
+                <form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
                     <div class="row">
-						<div class="col-md-12 mb-3" style="display:none;"> 
-                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
+                        <div class="col-md-12 mb-3" style="display:none;">
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" />
                         </div>
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
@@ -56,24 +56,24 @@
                             </div>
                         </div>
 
-                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="11" name="jenisFasum"> 
-						 
+                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="11" name="jenisFasum">
+
                         <div class="col-md-6" style="display: none;">
-                            <div class="form-floating mb-3"> 
+                            <div class="form-floating mb-3">
                                 <input type="text" class="form-control" placeholder="Alamat" name="address">
                                 <label for="">Alamat</label>
-                            </div>  
-                        </div> 
+                            </div>
+                        </div>
                         <div id="listAddress" class="col-md-12"></div>
                         <div class="col-md-6" style="display: none;">
                             <div class="material-textfield mb-3">
-                            <input style="width: 100%;" name="cordinate" placeholder="" type="text">
+                                <input style="width: 100%;" name="cordinate" placeholder="" type="text">
                                 <label for="">Coordinate</label>
                             </div>
                         </div>
                     </div>
-                    
-					<div class="row" style="display: none;">
+
+                    <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="latitude" id="latitude" placeholder="latitude">
@@ -85,15 +85,15 @@
                                 <input type="text" class="form-control" name="longitude" id="longitude" placeholder="longitude">
                                 <label for="longitude">Longitude</label>
                             </div>
-                        </div>  
+                        </div>
                     </div>
                     <div class="col-md-12 mt-3">
                         <div id="mapG20Kegiatan" style="height: 400px">
-                            <!-- <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;"> -->
+                            <!-- <img src="<?php echo base_url(); ?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;"> -->
                         </div>
                     </div>
                     <textarea hidden name="fasum_geoJson" id="fasum_geoJson" cols="50" rows="10"></textarea>
-					<div class="row mt-3">
+                    <div class="row mt-3">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" name="deskripsiFasum"></textarea>
@@ -101,26 +101,26 @@
                             </div>
                         </div>
                     </div>
-					<div class="row">
+                    <div class="row">
                         <div class="col-md-6" style="display: none;">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="kontakFasum" placeholder="kontak">
                                 <label for="kontakFasum">Kontak Fasilitas Khusus</label>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
-                        	<div class="form-floating mb-3">
+                            <div class="form-floating mb-3">
                                 <select name="statusFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
-									<option selected value="">Pilih Status Fasum</option>
-                            		<option value="0">Nonaktif</option>
-                            		<option selected value="1">Aktif</option>
+                                    <option selected value="">Pilih Status Fasum</option>
+                                    <option value="0">Nonaktif</option>
+                                    <option selected value="1">Aktif</option>
                                 </select>
                                 <label for="">Status</label>
                             </div>
-						</div>
+                        </div>
                     </div>
-					
+
                     <div class="row" style="display:none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
@@ -151,27 +151,27 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-				<form action="" class="formDet">
-                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
-				<div class="row">
-					    <div class="col-md-12 mb-3" style="display:none;" id="detailViewFoto"> 
-                           
+                <form action="" class="formDet">
+                    <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
+                    <div class="row">
+                        <div class="col-md-12 mb-3" style="display:none;" id="detailViewFoto">
+
                         </div>
                         <div class="col-md-6">
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" id="namaFasum" name="namaFasum">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="namaFasum" name="namaFasum">
                                 <label for="namaFasum">Nama Fasilitas Khusus</label>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6" style="display: none;">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="address" name="address"> 
+                                <input type="text" class="form-control" id="address" name="address">
                                 <label for="">Alamat</label>
                             </div>
                         </div>
-                    </div> 
-					<div class="row" style="display: none;">
+                    </div>
+                    <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="latitudeDet" name="latitude">
@@ -185,7 +185,7 @@
                             </div>
                         </div>
                     </div>
-					<div class="row">
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
@@ -193,25 +193,25 @@
                             </div>
                         </div>
                     </div>
-					<div class="row">
+                    <div class="row">
                         <div class="col-md-6" style="display:none;">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
                                 <label for="kontakFasum">Kontak Fasilitas Khusus</label>
                             </div>
-                        </div> 
+                        </div>
                         <div class="col-md-6">
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" id="statusFasum" name="statusFasum">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="statusFasum" name="statusFasum">
                                 <label for="statusFasum">Status</label>
                             </div>
                         </div>
                     </div>
-					
+
                     <div class="row" style="display:none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="jamBuka" name="jamBuka" >
+                                <input type="text" class="form-control" id="jamBuka" name="jamBuka">
                                 <label for="jamBuka">Jam Buka</label>
                             </div>
                         </div>
@@ -222,7 +222,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </form>
             </div>
         </div>
@@ -238,12 +238,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-				<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
-                    <input hidden type="text" name="id"  id="id_fasum" type="text">
-				<div class="row">
-						<div class="col-md-12 mb-3" id="fotoEdit" style="display:none;"> 
-                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/>
+                <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
+                    <input hidden type="text" name="id" id="id_fasum" type="text">
+                    <div class="row">
+                        <div class="col-md-12 mb-3" id="fotoEdit" style="display:none;">
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" />
                         </div>
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
@@ -251,26 +251,26 @@
                                 <label for="">Nama Fasilitas Khusus</label>
                             </div>
                         </div>
-                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="11" name="jenisFasum"> 
-                        
+                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="11" name="jenisFasum">
+
 
 
                         <div class="col-md-6" style="display: none;">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="address" name="address"> 
+                                <input type="text" class="form-control" id="address" name="address">
                                 <label for="">Alamat</label>
                             </div>
                         </div>
                         <div id="listAddressEdit" class="col-md-12"></div>
-                        <div class="col-md-6" style="display: none;"> 
+                        <div class="col-md-6" style="display: none;">
                             <div class="material-textfield mb-3">
-                            <input style="width: 100%;" name="cordinateEdit" id="cordinateEdit" placeholder="" type="text">
+                                <input style="width: 100%;" name="cordinateEdit" id="cordinateEdit" placeholder="" type="text">
                                 <label class="labelmui">Coordinate</label>
                             </div>
                         </div>
                     </div>
-                         
-					<div class="row" style="display: none;">
+
+                    <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="latitudeEdit" name="latitude">
@@ -282,15 +282,15 @@
                                 <input type="text" class="form-control" id="longitudeEdit" name="longitude">
                                 <label for="longitude">Longitude</label>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                     <div class="col-md-12 mt-3">
                         <div id="mapEdit" style="height: 400px">
-                            <!-- <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;"> -->
+                            <!-- <img src="<?php echo base_url(); ?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;"> -->
                         </div>
                     </div>
                     <textarea hidden name="fasum_geoJson" id="fasum_geoJsonEdit" cols="50" rows="10"></textarea>
-					<div class="row mt-3">
+                    <div class="row mt-3">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
@@ -298,25 +298,25 @@
                             </div>
                         </div>
                     </div>
-					<div class="row">
+                    <div class="row">
                         <div class="col-md-6" style="display:none;">
-                            <div class="form-floating mb-3" >
+                            <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
                                 <label for="kontakFasum">Kontak Fasilitas Khusus</label>
                             </div>
-                        </div> 
+                        </div>
                         <div class="col-md-6">
-							<div class="form-floating mb-3"> 
+                            <div class="form-floating mb-3">
                                 <select name="statusFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
-									<option selected value="">Pilih Status Fasum</option>
-                            		<option value="0">Nonaktif</option>
-                            		<option selected value="1">Aktif</option>
+                                    <option selected value="">Pilih Status Fasum</option>
+                                    <option value="0">Nonaktif</option>
+                                    <option selected value="1">Aktif</option>
                                 </select>
                                 <label for="statusFasum">Status</label>
                             </div>
                         </div>
                     </div>
-					
+
                     <div class="row" style="display: none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
@@ -337,20 +337,19 @@
         </div>
     </div>
 </div>
- 
+
 
 <script>
-
     var convertedData;
     var featureGroup;
 
-	$(document).ready(function() {
-        $( '[name=kontakFasum]' ).mask('000000000');
+    $(document).ready(function() {
+        $('[name=kontakFasum]').mask('000000000');
         $('.dropify').dropify();
 
-	  
-        var initialCenter = [<?= $this->session->userdata['latlng_center']?>];
-        var initialZoom = <?= $this->session->userdata['zoom_level']?>;
+
+        var initialCenter = [<?= $this->session->userdata['latlng_center'] ?>];
+        var initialZoom = <?= $this->session->userdata['zoom_level'] ?>;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -380,7 +379,7 @@
             zoomControl: false,
             layers: [googleHybrid]
         }).setView(initialCenter, initialZoom);
-  
+
         var baseMaps = {
             "Google Map Street": googleStreet,
             "Google Map Satelite": googleSatelite,
@@ -394,29 +393,29 @@
         L.control.zoom({
             position: 'bottomleft'
         }).addTo(mapContainer);
-		
-	    $('#myModal').on('shown.bs.modal', function() {
-            mapContainer.invalidateSize(); 
-            $('.dropify').dropify(); 
 
-            $('[name=latitude]').val('-8.751740');
-            $('[name=longitude]').val('115.149643'); 
+        $('#myModal').on('shown.bs.modal', function() {
+            mapContainer.invalidateSize();
+            $('.dropify').dropify();
 
- 
+            $('[name=latitude]').val('-0.8458708');
+            $('[name=longitude]').val('118.8661073');
 
 
-             // Initialise the FeatureGroup to store editable layers
+
+
+            // Initialise the FeatureGroup to store editable layers
             var featureGroup = new L.FeatureGroup();
             mapContainer.addLayer(featureGroup);
 
             // define custom marker
             var MyCustomMarker = L.Icon.extend({
-            options: {
-                shadowUrl: null,
-                iconAnchor: new L.Point(12, 12),
-                iconSize: new L.Point(24, 24),
-                iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Information_icon4_orange.svg'
-            }
+                options: {
+                    shadowUrl: null,
+                    iconAnchor: new L.Point(12, 12),
+                    iconSize: new L.Point(24, 24),
+                    iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Information_icon4_orange.svg'
+                }
             });
 
             var drawPluginOptions = {
@@ -462,7 +461,7 @@
 
 
             featureGroup = new L.FeatureGroup();
-            mapContainer.addLayer(featureGroup); 
+            mapContainer.addLayer(featureGroup);
 
             mapContainer.on('draw:created', function(e) {
                 var type = e.layerType,
@@ -484,7 +483,7 @@
             //     $("#fasum_geoJson").val(JSON.stringify(data));
 
             //     console.log(data);
-                
+
             //     // Create export
             //     document.getElementById('export').setAttribute('href', 'data:' + convertedData);
             //     document.getElementById('export').setAttribute('download','data.geojson');
@@ -492,15 +491,15 @@
             // }); 
 
 
-            
-             
+
+
 
             let countlist = 0;
-            let list = ""; 
-            $('[name=address]').on("change", function (e) {
+            let list = "";
+            $('[name=address]').on("change", function(e) {
                 // console.log(this.value);
-                $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
-                    console.log(ress);  
+                $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress) {
+                    console.log(ress);
                     countlist = 0;
                     list = "";
                     ress.forEach(el => {
@@ -509,36 +508,36 @@
                         id="list${countlist}"   
                         data-alamat="${el.display_name}"
                         data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
-                        $('#listAddress').html(list); 
-                    });  
+                        $('#listAddress').html(list);
+                    });
 
-                    if(list == ""){
+                    if (list == "") {
                         countlist = 0;
                         list = "";
-                        $('#listAddress').html(list); 
+                        $('#listAddress').html(list);
                     }
 
-                    
-                    for (let i = 0; i < ress.length; i++){ 
-                        $(`#list${i+1}`).click(function(){  
-                            var latlong =  $(this).data('cords').split(',');
-                            var latitude = parseFloat(latlong[0]);
-                            var longitude = parseFloat(latlong[1]); 
 
-							$("[name=latitude]").val(latitude);
-							$("[name=longitude]").val(longitude);
+                    for (let i = 0; i < ress.length; i++) {
+                        $(`#list${i+1}`).click(function() {
+                            var latlong = $(this).data('cords').split(',');
+                            var latitude = parseFloat(latlong[0]);
+                            var longitude = parseFloat(latlong[1]);
+
+                            $("[name=latitude]").val(latitude);
+                            $("[name=longitude]").val(longitude);
 
                             // console.log({a:latitude, b:longitude});
                             $('[name=address]').val($(this).data('alamat'));
                             $('[name=cordinate]').val($(this).data('cords'));
-                            mapContainer.flyTo([latitude, longitude], 17);  
+                            mapContainer.flyTo([latitude, longitude], 17);
 
-                           
-                            initialCenter = [latitude, longitude];  
+
+                            initialCenter = [latitude, longitude];
 
                             list = "";
-                            $('#listAddress').html(list); 
-                            $('#listAddress').hide();   
+                            $('#listAddress').html(list);
+                            $('#listAddress').hide();
                         });
                     }
                 });
@@ -546,22 +545,22 @@
             });
 
 
-            $('[name=cordinate]').on("change", function (e) {
+            $('[name=cordinate]').on("change", function(e) {
 
-                var cordLatLong =  this.value.split(','); 
-                var cordLat = parseFloat(cordLatLong[0]); 
-                var corLong = parseFloat(cordLatLong[1]); 
+                var cordLatLong = this.value.split(',');
+                var cordLat = parseFloat(cordLatLong[0]);
+                var corLong = parseFloat(cordLatLong[1]);
 
                 // console.log({a:cordLat, b:corLong});
 
-                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-                    $('[name=address]').val(data['display_name']); 
-                    mapContainer.flyTo([cordLat, corLong], 17);  
-                }); 
-            }); 
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data) {
+                    $('[name=address]').val(data['display_name']);
+                    mapContainer.flyTo([cordLat, corLong], 17);
+                });
+            });
 
 
-            mapContainer.on("dragend", function (e) {
+            mapContainer.on("dragend", function(e) {
 
                 var corLat = mapContainer.getCenter()['lat'];
                 var corLng = mapContainer.getCenter()['lng'];
@@ -571,11 +570,11 @@
                 $("#longitude").val(corLng);
                 $('#cordinate').val(cord);
 
-                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data) {
 
-                    $('[name=address]').val(data['display_name']); 
+                    $('[name=address]').val(data['display_name']);
 
-                }); 
+                });
 
             });
 
@@ -620,11 +619,11 @@
                             ).then(function() {});
                         }
                     }
-                }); 
+                });
             });
- 
+
         });
-        
+
 
 
         userDataTable = $('#datatable').DataTable({
@@ -714,13 +713,13 @@
                 // {
                 //     data: 'category_fasum'
                 // },
-				{
+                {
                     data: 'fasum_address'
                 },
-				{
+                {
                     data: 'fasum_phone'
                 },
-				{
+                {
                     data: 'jam_operasional',
                     orderable: false
                 },
@@ -742,13 +741,13 @@
             }
 
 
-        }); 
-        
+        });
 
-        
+
+
     });
-    
- 
+
+
 
 
     function detail(id) {
@@ -762,14 +761,14 @@
             success: function(results) {
 
                 var fotoFas = '';
-                if(results.fasum_logo != null){
-                    fotoFas = `data-default-file="<?php echo url_api();?>fasum_khusus/${results.fasum_logo}"`;
-                }else{
-                    fotoFas = `data-default-file="<?php echo base_url();?>assets/no_image.png"`;
+                if (results.fasum_logo != null) {
+                    fotoFas = `data-default-file="<?php echo url_api(); ?>fasum_khusus/${results.fasum_logo}"`;
+                } else {
+                    fotoFas = `data-default-file="<?php echo base_url(); ?>assets/no_image.png"`;
                 }
                 $(`#detailViewFoto`).html(`<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" ${fotoFas} />`);
-				$('.dropify').dropify(); 
-                
+                $('.dropify').dropify();
+
                 $('.DetailFasum,#namaFasum').attr('disabled', true)
                 $('.DetailFasum,#jenisFasum').attr('disabled', true)
                 $('.DetailFasum,#address').attr('disabled', true)
@@ -799,9 +798,9 @@
         })
     }
 
-    function detailEdit(id) { 
-       
-        $("#overlay").fadeIn(300);    
+    function detailEdit(id) {
+
+        $("#overlay").fadeIn(300);
         $.ajax({
             url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
             type: 'POST',
@@ -810,7 +809,7 @@
             },
             dataType: 'JSON',
             success: function(results) {
-				console.log(results); 
+                console.log(results);
 
                 $('.UbahFasum,#namaFasum').attr('disabled', false)
                 $('.UbahFasum,#jenisFasum').attr('disabled', false)
@@ -839,8 +838,8 @@
                 $('.UbahFasum,#kilometres').val(results.fasum_radius)
                 $('.UbahFasum,#range').val(results.fasum_radius)
 
-                  
-                
+
+
                 $('.UbahFasum,#statusFasum').val(results.fasum_status)
                 $('.UbahFasum,#photo').val(results.fasum_logo)
                 // $('.UbahFasum,#jamBuka').val(results.fasum_open_time)
@@ -879,7 +878,7 @@
                     zoomControl: false,
                     layers: [googleHybrid]
                 }).setView(initialCenter, initialZoom);
-        
+
                 var baseMaps = {
                     "Google Map Street": googleStreet,
                     "Google Map Satelite": googleSatelite,
@@ -892,27 +891,27 @@
                 }).addTo(mapContainer);
                 L.control.zoom({
                     position: 'bottomleft'
-                }).addTo(mapContainer); 
-                
-               
+                }).addTo(mapContainer);
+
+
                 $('#myModalEdit').on('shown.bs.modal', function() {
                     mapContainer.invalidateSize();
 
                     $('[name=latitude]').val(results.fasum_lat);
                     $('[name=longitude]').val(results.fasum_lng);
- 
+
 
                     var featureGroup = new L.FeatureGroup();
                     mapContainer.addLayer(featureGroup);
 
                     // define custom marker
                     var MyCustomMarker = L.Icon.extend({
-                    options: {
-                        shadowUrl: null,
-                        iconAnchor: new L.Point(12, 12),
-                        iconSize: new L.Point(24, 24),
-                        iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Information_icon4_orange.svg'
-                    }
+                        options: {
+                            shadowUrl: null,
+                            iconAnchor: new L.Point(12, 12),
+                            iconSize: new L.Point(24, 24),
+                            iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Information_icon4_orange.svg'
+                        }
                     });
 
                     var drawPluginOptions = {
@@ -958,7 +957,7 @@
 
 
                     featureGroup = new L.FeatureGroup();
-                    mapContainer.addLayer(featureGroup); 
+                    mapContainer.addLayer(featureGroup);
 
                     mapContainer.on('draw:created', function(e) {
                         var type = e.layerType,
@@ -972,11 +971,11 @@
                     });
 
                     let countlist = 0;
-                    let list = ""; 
-                    $('[name=address]').on("change", function (e) {
+                    let list = "";
+                    $('[name=address]').on("change", function(e) {
                         // console.log(this.value);
-                        $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
-                            console.log(ress);  
+                        $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress) {
+                            console.log(ress);
                             countlist = 0;
                             list = "";
                             ress.forEach(el => {
@@ -985,39 +984,42 @@
                                 id="list${countlist}"   
                                 data-alamat="${el.display_name}"
                                 data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
-                                $('#listAddressEdit').html(list); 
-                            });  
+                                $('#listAddressEdit').html(list);
+                            });
 
-                            if(list == ""){
+                            if (list == "") {
                                 countlist = 0;
                                 list = "";
-                                $('#listAddressEdit').html(list); 
+                                $('#listAddressEdit').html(list);
                             }
 
-                            
-                            for (let i = 0; i < ress.length; i++){ 
-                                $(`#list${i+1}`).click(function(){  
-                                    var latlong =  $(this).data('cords').split(',');
+
+                            for (let i = 0; i < ress.length; i++) {
+                                $(`#list${i+1}`).click(function() {
+                                    var latlong = $(this).data('cords').split(',');
                                     var latitude = parseFloat(latlong[0]);
-                                    var longitude = parseFloat(latlong[1]); 
+                                    var longitude = parseFloat(latlong[1]);
 
                                     $("[name=latitude]").val(latitude);
                                     $("[name=longitude]").val(longitude);
 
-                                    console.log({a:latitude, b:longitude});
+                                    console.log({
+                                        a: latitude,
+                                        b: longitude
+                                    });
                                     $('[name=address]').val($(this).data('alamat'));
                                     $('[name=cordinateEdit]').val($(this).data('cords'));
-                                    mapContainer.flyTo([latitude, longitude], 17);  
+                                    mapContainer.flyTo([latitude, longitude], 17);
 
-                                    initialCenter = [latitude, longitude]; 
+                                    initialCenter = [latitude, longitude];
 
-                                  
 
-                                    
-                                    
+
+
+
                                     list = "";
-                                    $('#listAddressEdit').html(list);   
-                                    $('#listAddressEdit').hide(); 
+                                    $('#listAddressEdit').html(list);
+                                    $('#listAddressEdit').hide();
                                 });
                             }
                         });
@@ -1025,22 +1027,22 @@
                     });
 
 
-                    $('[name=cordinateEdit]').on("change", function (e) {
+                    $('[name=cordinateEdit]').on("change", function(e) {
 
-                        var cordLatLong =  this.value.split(','); 
-                        var cordLat = parseFloat(cordLatLong[0]); 
-                        var corLong = parseFloat(cordLatLong[1]); 
+                        var cordLatLong = this.value.split(',');
+                        var cordLat = parseFloat(cordLatLong[0]);
+                        var corLong = parseFloat(cordLatLong[1]);
 
                         // console.log({a:cordLat, b:corLong});
 
-                        $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-                            $('[name=address]').val(data['display_name']); 
-                            mapContainer.flyTo([cordLat, corLong], 17);  
-                        }); 
+                        $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data) {
+                            $('[name=address]').val(data['display_name']);
+                            mapContainer.flyTo([cordLat, corLong], 17);
+                        });
                     });
 
 
-                    mapContainer.on("dragend", function (e) {
+                    mapContainer.on("dragend", function(e) {
 
                         var corLat = mapContainer.getCenter()['lat'];
                         var corLng = mapContainer.getCenter()['lng'];
@@ -1050,11 +1052,11 @@
                         $("#longitudeEdit").val(corLng);
                         $('#cordinateEdit').val(cord);
 
-                        $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+                        $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data) {
 
-                            $('[name=address]').val(data['display_name']); 
+                            $('[name=address]').val(data['display_name']);
 
-                        }); 
+                        });
 
                     });
 
@@ -1087,7 +1089,7 @@
                                         // $(".UbahFasum").modal('hide');
                                         // userDataTable.draw();
                                         $("#overlay").fadeIn(300);
-                                        location.reload(); 
+                                        location.reload();
                                     });
                                 } else {
                                     Swal.fire(
@@ -1104,15 +1106,15 @@
 
                 $('#myModalEdit').on('hidden.bs.modal', function() {
                     $("#overlay").fadeIn(300);
-                    location.reload(); 
+                    location.reload();
                 });
 
-                var latlong11 =  $('[name=cordinateEdit]').val().split(',');
+                var latlong11 = $('[name=cordinateEdit]').val().split(',');
                 var latitude11 = parseFloat(latlong11[0]);
-                var longitude11 = parseFloat(latlong11[1]); 
+                var longitude11 = parseFloat(latlong11[1]);
                 mapContainer.flyTo([latitude11, longitude11], 17);
 
-                $("#overlay").fadeOut(300);   
+                $("#overlay").fadeOut(300);
                 $("#myModalEdit").modal('show');
             }
         })
@@ -1147,7 +1149,7 @@
                                 // $(".TambahFasum").modal('hide');
                                 // userDataTable.draw();
                                 $("#overlay").fadeIn(300);
-                                location.reload(); 
+                                location.reload();
                             });
                         } else {
                             Swal.fire(
@@ -1162,10 +1164,9 @@
         })
     }
 
-    
 
-	$('#btnTambah').on('click', function(e){
-		$('#form_tambah')[0].reset()
-	}); 
-        
+
+    $('#btnTambah').on('click', function(e) {
+        $('#form_tambah')[0].reset()
+    });
 </script>

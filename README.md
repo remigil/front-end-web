@@ -12,6 +12,7 @@
 define("ENV_API_BASE_URL", "base url");
 define("ENV_CI", "production/developement");
 define("ENV_SOCKET_IO_HTTP", "base url socket");
+define("ENV_API_TRACK_LOCATION", "url track-location");
 ```
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.

@@ -52,7 +52,7 @@ if (!function_exists('guzzle_requestTracking')) {
         try {
             $client = new Client();
             // $request = $client->request($method, 'http://localhost:3002/track-location/' . $uri, $body);
-            $request = $client->request($method, 'http://103.163.139.100:3001/track-location/' . $uri, $body);
+            $request = $client->request($method, ENV_API_TRACK_LOCATION . $uri, $body);
             $response = $request->getBody();
             $data = json_decode($response, true);
             return $data;
