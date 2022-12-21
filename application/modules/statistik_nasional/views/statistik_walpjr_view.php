@@ -22,12 +22,21 @@
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Harian</h4>
+                                         <h4 class="mb-0 ms-3">Hari Ini</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="walpjrThisDay"></h1>
                                          <p class="text-center mb-0">WAL & PJR</p>
                                      </div>
+                                     <div class="col-md-12 ms-3">
+                                         <div class="row">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                 <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalDay">
+                                                     Detail
+                                                 </button>
+                                             </div>
+                                         </div>
+                                     </div>
                                  </div>
                              </div>
                          </div>
@@ -37,12 +46,21 @@
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Bulanan</h4>
+                                         <h4 class="mb-0 ms-3">Bulan Ini</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="walpjrThisMonth"></h1>
                                          <p class="text-center mb-0">WAL & PJR</p>
                                      </div>
+                                     <div class="col-md-12 ms-3">
+                                         <div class="row">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                 <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalMonth">
+                                                     Detail
+                                                 </button>
+                                             </div>
+                                         </div>
+                                     </div>
                                  </div>
                              </div>
                          </div>
@@ -52,11 +70,20 @@
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Tahunan</h4>
+                                         <h4 class="mb-0 ms-3">Tahun Ini</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="walpjrThisYear"></h1>
                                          <p class="text-center mb-0">WAL & PJR</p>
+                                     </div>
+                                     <div class="col-md-12 ms-3">
+                                         <div class="row">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                 <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalYear">
+                                                     Detail
+                                                 </button>
+                                             </div>
+                                         </div>
                                      </div>
                                  </div>
                              </div>
@@ -68,6 +95,99 @@
      </div>
  </div>
 
+ <div class="modal fade " id="ModalDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+     <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+             <div class=" modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Detail Wal & PJR hari ini Seluruh Polda</h5>
+                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+             </div>
+             <div class="modal-body">
+                 <div style="line-height: 0.8;">
+                     <table class="table table-bordered table-hover" id="tableWalpjrDay" style="background: white;">
+                         <thead style="background-color:#0007D8; color:#fff;">
+                             <tr class="text-center">
+                                 <th scope="col">No</th>
+                                 <th scope="col">Polda</th>
+                                 <th scope="col">WAL & PJR</th>
+                             </tr>
+                         </thead>
+                         <tbody id="tbody-walpjrDay">
+                         </tbody>
+                     </table>
+                 </div>
+
+             </div>
+             <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+         </div>
+     </div>
+ </div>
+ <div class="modal fade " id="ModalMonth" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+     <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+             <div class=" modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Detail Wal & PJR hari ini Seluruh Polda</h5>
+                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+             </div>
+             <div class="modal-body">
+                 <div style="line-height: 0.8;">
+                     <table class="table table-bordered table-hover" id="tableWalpjrMonth" style="background: white;">
+                         <thead style="background-color:#0007D8; color:#fff;">
+                             <tr class="text-center">
+                                 <th scope="col">No</th>
+                                 <th scope="col">Polda</th>
+                                 <th scope="col">Wal & PJR</th>
+                             </tr>
+                         </thead>
+                         <tbody id="tbody-walpjrMonth">
+                         </tbody>
+                     </table>
+                 </div>
+
+             </div>
+             <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+         </div>
+     </div>
+ </div>
+ <div class="modal fade " id="ModalYear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+     <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+             <div class=" modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Detail Wal & PJR hari ini Seluruh Polda</h5>
+                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+             </div>
+             <div class="modal-body">
+                 <div style="line-height: 0.8;">
+                     <table class="table table-bordered table-hover" id="tableWalpjrYear" style="background: white;">
+                         <thead style="background-color:#0007D8; color:#fff;">
+                             <tr class="text-center">
+                                 <th scope="col">No</th>
+                                 <th scope="col">Polda</th>
+                                 <th scope="col">Wal & PJR</th>
+                             </tr>
+                         </thead>
+                         <tbody id="tbody-walpjrYear">
+                         </tbody>
+                     </table>
+                 </div>
+
+             </div>
+             <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+         </div>
+     </div>
+ </div>
 
  <?php $mobile = detect_mobile();
     if ($mobile === true) { ?>
@@ -99,7 +219,7 @@
 
  <?php } ?>
 
- <div class="row m-3" style="font-size: 16px;">
+ <!-- <div class="row m-3" style="font-size: 16px;">
      <div class="col-xl-12">
          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
              <li class="nav-item" role="presentation">
@@ -132,21 +252,9 @@
                      </div>
                      <div class="col-md-12 mt-5" style="line-height: 0.5;">
                          <h5 style="text-align: center;">Ranking Polda Data WAL & PJR Tertinggi <?= date('d M Y'); ?></h5>
-                         <!-- <div class="card shadow-sm"> -->
                          <center>
-                             <table class="table table-bordered table-hover" id="tableWalpjrDay" style="background: white; width:50%">
-                                 <thead style="background-color:#0007D8; color:#fff;">
-                                     <tr class="text-center">
-                                         <th scope="col">No</th>
-                                         <th scope="col">Polda</th>
-                                         <th scope="col">WAL & PJR</th>
-                                     </tr>
-                                 </thead>
-                                 <tbody id="tbody-walpjrDay">
-                                 </tbody>
-                             </table>
+
                          </center>
-                         <!-- </div> -->
                      </div>
                  </div>
              </div>
@@ -167,21 +275,9 @@
                      </div>
                      <div class="col-md-12 mt-5" style="line-height: 0.5;">
                          <h5 style="text-align: center;">Ranking Polda Data WAL & PJR Tertinggi <?= date('M Y'); ?></h5>
-                         <!-- <div class="card shadow-sm"> -->
                          <center>
-                             <table class="table table-bordered table-hover" id="tableWalpjrMonth" style="background: white; width:50%">
-                                 <thead style="background-color:#0007D8; color:#fff;">
-                                     <tr class="text-center">
-                                         <th scope="col">No</th>
-                                         <th scope="col">Polda</th>
-                                         <th scope="col">Wal & PJR</th>
-                                     </tr>
-                                 </thead>
-                                 <tbody id="tbody-walpjrMonth">
-                                 </tbody>
-                             </table>
+
                          </center>
-                         <!-- </div> -->
                      </div>
                  </div>
              </div>
@@ -202,27 +298,15 @@
                      </div>
                      <div class="col-md-12 mt-5" style="line-height: 0.5;">
                          <h5 style="text-align: center;">Ranking Polda Data WAL & PJR Tertinggi <?= date('Y'); ?></h5>
-                         <!-- <div class="card shadow-sm"> -->
                          <center>
-                             <table class="table table-bordered table-hover" id="tableWalpjrYear" style="background: white; width:50%">
-                                 <thead style="background-color:#0007D8; color:#fff;">
-                                     <tr class="text-center">
-                                         <th scope="col">No</th>
-                                         <th scope="col">Polda</th>
-                                         <th scope="col">Wal & PJR</th>
-                                     </tr>
-                                 </thead>
-                                 <tbody id="tbody-walpjrYear">
-                                 </tbody>
-                             </table>
+
                          </center>
-                         <!-- </div> -->
                      </div>
                  </div>
              </div>
          </div>
      </div>
- </div>
+ </div> -->
  <div class="row">
      <hr style="width:97%; margin: auto">
      <div class="filter mt-4" style=" height:125px;">

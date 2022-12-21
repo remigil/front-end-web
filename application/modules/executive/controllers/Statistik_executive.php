@@ -128,6 +128,72 @@ class Statistik_executive extends MY_Controller
 
         echo json_encode($data['lakaDate']);
     }
+    public function getTurjagwaliDate()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $firstDayMonth = $this->input->post('firstDayMonth');
+        $lastDayMonth = $this->input->post('lastDayMonth');
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url_thisDay = 'laka_lantas/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'laka_lantas/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'laka_lantas/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        $thisDay = guzzle_request('GET', $url_thisDay, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisMonth = guzzle_request('GET', $url_thisMonth, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisYear = guzzle_request('GET', $url_thisYear, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+        $insiden_kecelakaan = 0;
+        $luka_ringan = 0;
+        $luka_berat = 0;
+        $meninggal_dunia = 0;
+        foreach ($thisYear['data'] as $key) {
+            $insiden_kecelakaan += $key['insiden_kecelakaan'];
+            $luka_ringan += $key['luka_ringan'];
+            $luka_berat += $key['luka_berat'];
+            $meninggal_dunia  += $key['meninggal_dunia'];
+        }
+
+        $data['thisYear'] = [
+            'insiden_kecelakaan' => $insiden_kecelakaan,
+            'luka_ringan' => $luka_ringan,
+            'luka_berat' => $luka_berat,
+            'meninggal_dunia' => $meninggal_dunia
+        ];
+
+        $data['lakaDate'] = [
+            'thisDay' => number_format($thisDay['data'][0]['insiden_kecelakaan']),
+            'thisDayLR' => number_format($thisDay['data'][0]['luka_ringan']),
+            'thisDayLB' => number_format($thisDay['data'][0]['luka_berat']),
+            'thisDayMD' => number_format($thisDay['data'][0]['meninggal_dunia']),
+            'thisMonth' => number_format($thisMonth['data'][0]['insiden_kecelakaan']),
+            'thisMonthLR' => number_format($thisMonth['data'][0]['luka_ringan']),
+            'thisMonthLB' => number_format($thisMonth['data'][0]['luka_berat']),
+            'thisMonthMD' => number_format($thisMonth['data'][0]['meninggal_dunia']),
+            'thisYear' => number_format($insiden_kecelakaan),
+            'thisYearLR' => number_format($luka_ringan),
+            'thisYearLB' => number_format($luka_berat),
+            'thisYearMD' => number_format($meninggal_dunia)
+
+        ];
+
+        echo json_encode($data['lakaDate']);
+    }
     public function getDetailStatistikLakaLantas()
     {
         $title = 'TOP DATA KECELAKAAN LALU LINTAS';
@@ -782,14 +848,34 @@ class Statistik_executive extends MY_Controller
     {
         $yesterday = $this->input->post('yesterday');
         $url = 'turjagwali/daily?date=' . $yesterday . '&topPolda=true';
-        $lakaTopPolda = guzzle_request('GET', $url, [
+        $turjagwaliTopPolda = guzzle_request('GET', $url, [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
 
-        $data['topTurjagwali'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topTurjagwali']);
+        $pengaturan = 0;
+        $penjagaan = 0;
+        $pengawalan = 0;
+        $patroli = 0;
+        $total = 0;
+
+        foreach ($turjagwaliTopPolda['data']['rows'] as $key) {
+            $pengaturan += $key['pengaturan'];
+            $penjagaan += $key['penjagaan'];
+            $pengawalan += $key['pengawalan'];
+            $patroli += $key['patroli'];
+            $total += $key['total'];
+        }
+        $data = [
+            'topTurjagwali' => $turjagwaliTopPolda['data']['rows'],
+            'pengaturan' => number_format($pengaturan),
+            'penjagaan' => number_format($penjagaan),
+            'pengawalan' => number_format($pengawalan),
+            'patroli' => number_format($patroli),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
 
     public function getTurjagwaliMonth()
@@ -798,14 +884,34 @@ class Statistik_executive extends MY_Controller
         $lastDay = $this->input->post('lastDay');
 
         $url = 'turjagwali/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
-        $lakaTopPolda = guzzle_request('GET', $url, [
+        $turjagwaliTopPolda = guzzle_request('GET', $url, [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
 
-        $data['topTurjagwali'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topTurjagwali']);
+        $pengaturan = 0;
+        $penjagaan = 0;
+        $pengawalan = 0;
+        $patroli = 0;
+        $total = 0;
+
+        foreach ($turjagwaliTopPolda['data']['rows'] as $key) {
+            $pengaturan += $key['pengaturan'];
+            $penjagaan += $key['penjagaan'];
+            $pengawalan += $key['pengawalan'];
+            $patroli += $key['patroli'];
+            $total += $key['total'];
+        }
+        $data = [
+            'topTurjagwali' => $turjagwaliTopPolda['data']['rows'],
+            'pengaturan' => number_format($pengaturan),
+            'penjagaan' => number_format($penjagaan),
+            'pengawalan' => number_format($pengawalan),
+            'patroli' => number_format($patroli),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
 
     public function getTurjagwaliYear()
@@ -814,14 +920,34 @@ class Statistik_executive extends MY_Controller
         $lastDay = $this->input->post('lastDay');
 
         $url = 'turjagwali/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
-        $lakaTopPolda = guzzle_request('GET', $url, [
+        $turjagwaliTopPolda = guzzle_request('GET', $url, [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
 
-        $data['topTurjagwali'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topTurjagwali']);
+        $pengaturan = 0;
+        $penjagaan = 0;
+        $pengawalan = 0;
+        $patroli = 0;
+        $total = 0;
+
+        foreach ($turjagwaliTopPolda['data']['rows'] as $key) {
+            $pengaturan += $key['pengaturan'];
+            $penjagaan += $key['penjagaan'];
+            $pengawalan += $key['pengawalan'];
+            $patroli += $key['patroli'];
+            $total += $key['total'];
+        }
+        $data = [
+            'topTurjagwali' => $turjagwaliTopPolda['data']['rows'],
+            'pengaturan' => number_format($pengaturan),
+            'penjagaan' => number_format($penjagaan),
+            'pengawalan' => number_format($pengawalan),
+            'patroli' => number_format($patroli),
+            'total' => number_format($total)
+        ];
+        echo json_encode($data);
     }
 
     public function getLineTurjagwali()

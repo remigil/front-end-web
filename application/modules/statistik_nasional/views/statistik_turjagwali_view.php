@@ -12,7 +12,7 @@
     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
         <div class="row m-2">
             <div class="col-sm-4 col-md-5 align-self-center">
-                <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">Turjagwali <span style="color:#000;">Nasional</span></span> </h2>
+                <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">Turjagwali <span style="color:#000;">Nasional</span></span> </h2>
             </div>
             <div class="col-sm-8 col-md-7">
                 <div class="row m-2">
@@ -21,11 +21,20 @@
                             <div class="card-body p-1">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
                                     <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Harian</h4>
+                                        <h4 class="mb-0 ms-3">Hari Ini</h4>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="turjagwaliThisDay"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="turjagwaliThisDay"></h1>
                                         <p class="text-center mb-0">Kegiatan</p>
+                                    </div>
+                                    <div class="col-md-12 ms-3">
+                                        <div class="row">
+                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalDay">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -36,11 +45,20 @@
                             <div class="card-body p-1">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
                                     <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Bulanan</h4>
+                                        <h4 class="mb-0 ms-3">Bulan Ini</h4>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="turjagwaliThisMonth"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="turjagwaliThisMonth"></h1>
                                         <p class="text-center mb-0">Kegiatan</p>
+                                    </div>
+                                    <div class="col-md-12 ms-3">
+                                        <div class="row">
+                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalMonth">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -51,11 +69,20 @@
                             <div class="card-body p-1">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
                                     <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Tahunan</h4>
+                                        <h4 class="mb-0 ms-3">Tahun Ini</h4>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="turjagwaliThisYear"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="turjagwaliThisYear"></h1>
                                         <p class="text-center mb-0">Kegiatan</p>
+                                    </div>
+                                    <div class="col-md-12 ms-3">
+                                        <div class="row">
+                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                <button type="button" class="btn btn-outline-info text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalYear">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -66,8 +93,142 @@
         </div>
     </div>
 </div>
+<div class="modal fade " id="ModalDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class=" modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Turjagwali Hari ini Seluruh Polda</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+            </div>
+            <div class="modal-body">
+                <div class="container" style="line-height: 0.8;">
+                    <table class="table table-bordered table-hover" id="tableLakaDay" style="background: white;">
+                        <thead style="background-color:#0007D8; color:#fff;">
+                            <tr class="text-center">
+                                <th scope="col">No</th>
+                                <th scope="col">Polda</th>
+                                <th scope="col">Pengaturan</th>
+                                <th scope="col">Penjagaan</th>
+                                <th scope="col">Pengawalan</th>
+                                <th scope="col">Patroli</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-lakaDay">
+                        </tbody>
+                        <tfoot>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpengaturanDay"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpenjagaanDay"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpengawalanDay"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpatroliDay"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalDay"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+        </div>
+    </div>
+</div>
 
-<div class="row m-3" style="font-size: 16px;">
+<div class="modal fade" id="ModalMonth" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+    <div class=" modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Turjagwali Bulan ini Seluruh Polda</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+            </div>
+            <div class="modal-body">
+                <div class="container" style="line-height: 0.8;">
+                    <table class="table table-bordered table-hover" id="tableLakaMonth" style=" background: white;">
+                        <thead style="background-color:#0007D8; color:#fff;">
+                            <tr class="text-center">
+                                <th scope="col">No</th>
+                                <th scope="col">Polda</th>
+                                <th scope="col">Pengaturan</th>
+                                <th scope="col">Penjagaan</th>
+                                <th scope="col">Pengawalan</th>
+                                <th scope="col">Patroli</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-lakaMonth">
+                        </tbody>
+                        <tfoot>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpengaturanMonth"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpenjagaanMonth"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpengawalanMonth"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpatroliMonth"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalMonth"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+        </div>
+    </div>
+</div>
+<div class="modal  fade" id="ModalYear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+    <div class=" modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Turjagwali Tahun ini Seluruh Polda</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+            </div>
+            <div class="modal-body">
+                <div class="container" style="line-height: 0.8;">
+                    <table class="table table-bordered table-hover" id="tableLakaYear" style="background: white;">
+                        <thead style="background-color:#0007D8; color:#fff;">
+                            <tr class="text-center">
+                                <th scope="col">No</th>
+                                <th scope="col">Polda</th>
+                                <th scope="col">Pengaturan</th>
+                                <th scope="col">Penjagaan</th>
+                                <th scope="col">Pengawalan</th>
+                                <th scope="col">Patroli</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-lakaYear">
+                        </tbody>
+                        <tfoot>
+                            <tr class="text-white" style="background-color: #0007D8;">
+                                <th style="text-align: center; vertical-align: middle;" colspan="2" scope="col">Total</th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpengaturanYear"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpenjagaanYear"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpengawalanYear"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalpatroliYear"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalYear"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="row m-3" style="font-size: 16px;">
     <div class="col-xl-12">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -99,24 +260,8 @@
                     <div class="col-md-12 mt-5" style="line-height: 0.5;">
                         <h5 style="text-align:center">Ranking Polda Data Turjagwali Tertinggi <?= date('d M Y', strtotime("-1 days")); ?></h5>
                         <center>
-                            <!-- <div class="card shadow-sm"> -->
-                            <table class="table table-bordered table-hover" id="tableLakaDay" style="background: white;width:70%">
-                                <thead style="background-color:#0007D8; color:#fff;">
-                                    <tr class="text-center">
-                                        <th scope="col">No</th>
-                                        <th scope="col">Polda</th>
-                                        <th scope="col">Pengaturan</th>
-                                        <th scope="col">Penjagaan</th>
-                                        <th scope="col">Pengawalan</th>
-                                        <th scope="col">Patroli</th>
-                                        <th scope="col">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tbody-lakaDay">
-                                </tbody>
-                            </table>
+
                         </center>
-                        <!-- </div> -->
                     </div>
                 </div>
             </div>
@@ -138,24 +283,8 @@
                     <div class="col-md-12 mt-5" style="line-height: 0.5;">
                         <h5 style="text-align: center;">Ranking Polda Data Turjagwali Tertinggi <?= date('M Y'); ?></h5>
                         <center>
-                            <!-- <div class="card shadow-sm"> -->
-                            <table class="table table-bordered table-hover" id="tableLakaMonth" style=" background: white;width:70%">
-                                <thead style="background-color:#0007D8; color:#fff;">
-                                    <tr class="text-center">
-                                        <th scope="col">No</th>
-                                        <th scope="col">Polda</th>
-                                        <th scope="col">Pengaturan</th>
-                                        <th scope="col">Penjagaan</th>
-                                        <th scope="col">Pengawalan</th>
-                                        <th scope="col">Patroli</th>
-                                        <th scope="col">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tbody-lakaMonth">
-                                </tbody>
-                            </table>
+
                         </center>
-                        <!-- </div> -->
                     </div>
                 </div>
             </div>
@@ -177,99 +306,91 @@
                     <div class="col-md-12 mt-5" style="line-height: 0.5;">
                         <h5 style="text-align: center;">Ranking Polda Data Turjagwali Tertinggi <?= date('Y'); ?></h5>
                         <center>
-                            <!-- <div class="card shadow-sm"> -->
-                            <table class="table table-bordered table-hover" id="tableLakaYear" style="background: white;width:70%">
-                                <thead style="background-color:#0007D8; color:#fff;">
-                                    <tr class="text-center">
-                                        <th scope="col">No</th>
-                                        <th scope="col">Polda</th>
-                                        <th scope="col">Pengaturan</th>
-                                        <th scope="col">Penjagaan</th>
-                                        <th scope="col">Pengawalan</th>
-                                        <th scope="col">Patroli</th>
-                                        <th scope="col">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tbody-lakaYear">
-                                </tbody>
-                            </table>
+
                         </center>
-                        <!-- </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <hr style="width:97%; margin: auto">
-    <div class="filter mt-4" style=" height:125px;">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-9">
-                    <label for="waktu" class="form-label text-uppercase">Waktu</label>
+</div> -->
+<div class="container-fluid">
+    <div class="card">
+        <div class="row">
+            <div class="filter mt-4" style=" height:125px;">
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-4">
-                            <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="start_date" id="start_date" value="<?= date('Y-m-d', strtotime("-6 days")); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="end_date" id="end_date" value="<?= date('Y-m-d'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div id="titleline"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="main-chart">
+                            <div id="chartdate">
+                            </div>
                         </div>
-                        <div class="col-md-2">
-                            <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div id="title"></div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Show data</label>
+                                    <select class="form-control" id="limit_showData">
+                                        <option value="3">3</option>
+                                        <option value="5" selected>5</option>
+                                        <option value="7">7</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-
+                    </div>
+                    <div class="card-body">
+                        <div class="main-chart">
+                            <div id="charta">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-xl-12">
-        <div class="card">
-            <div class="card-header">
-                <div id="titleline"></div>
-            </div>
-            <div class="card-body">
-                <div class="main-chart">
-                    <div id="chartdate">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-xl-12">
-        <div class="card">
-            <div class="card-header">
-                <div id="title"></div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Show data</label>
-                            <select class="form-control" id="limit_showData">
-                                <option value="3">3</option>
-                                <option value="5" selected>5</option>
-                                <option value="7">7</option>
-                                <option value="10">10</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="main-chart">
-                    <div id="charta">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
 
 
-<!-- <div class="row">
+    <!-- <div class="row">
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
@@ -589,7 +710,7 @@
     function ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>executive/statistik_executive/getDitgakkumDate",
+            url: "<?php echo base_url(); ?>executive/statistik_executive/getTurjagwaliDate",
             dataType: "JSON",
             data: {
                 yesterday,
@@ -600,9 +721,9 @@
             },
             success: function(result) {
                 $("#overlay").fadeOut(300);
-                $('#turjagwaliThisDay').text(result.thisDay[0].turjagwali)
-                $('#turjagwaliThisMonth').text(result.thisMonth[0].turjagwali)
-                $('#turjagwaliThisYear').text(result.thisYear.turjagwali)
+                $('#turjagwaliThisDay').text(result.thisDay)
+                $('#turjagwaliThisMonth').text(result.thisMonth)
+                $('#turjagwaliThisYear').text(result.thisYear)
             }
         })
     }
@@ -893,21 +1014,28 @@
             success: function(result) {
                 $("#overlay").fadeOut(300);
                 var table = '';
+                var resultturjagwali = result.topTurjagwali;
+                console.log(resultturjagwali);
                 let nf = new Intl.NumberFormat('en-US');
-                for (let i = 0; i < result.length; i++) {
+                for (let i = 0; i < resultturjagwali.length; i++) {
                     let x = parseInt(i)
                     let no = x + 1
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].pengaturan}  </td> 
-                            <td>  ${result[i].penjagaan}  </td> 
-                            <td>  ${result[i].pengawalan}  </td> 
-                            <td>  ${result[i].patroli}  </td>
-                            <td>  ${result[i].total}  </td> 
+                            <td>  ${resultturjagwali[i].name_polda}  </td> 
+                            <td>  ${nf.format(resultturjagwali[i].pengaturan)}  </td> 
+                            <td>  ${nf.format(resultturjagwali[i].penjagaan)}  </td> 
+                            <td>  ${nf.format(resultturjagwali[i].pengawalan)}  </td> 
+                            <td>  ${nf.format(resultturjagwali[i].patroli)}  </td>
+                            <td>  ${nf.format(resultturjagwali[i].total)}  </td>
                             </tr>`
                 }
                 $('#tbody-lakaDay').html(table);
+                $('#totalpengaturanDay').text(result.pengaturan)
+                $('#totalpenjagaanDay').text(result.penjagaan)
+                $('#totalpengawalanDay').text(result.pengawalan)
+                $('#totalpatroliDay').text(result.patroli)
+                $('#totalDay').text(result.total)
                 <?php $mobile = detect_mobile();
                 if ($mobile === true) { ?>
 
@@ -942,21 +1070,27 @@
             success: function(result) {
                 $("#overlay").fadeOut(300);
                 var table = '';
+                var resultturjagwali = result.topTurjagwali;
                 let nf = new Intl.NumberFormat('en-US');
-                for (let i = 0; i < result.length; i++) {
+                for (let i = 0; i < resultturjagwali.length; i++) {
                     let x = parseInt(i)
                     let no = x + 1
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].pengaturan}  </td> 
-                            <td>  ${result[i].penjagaan}  </td> 
-                            <td>  ${result[i].pengawalan}  </td> 
-                            <td>  ${result[i].patroli}  </td>
-                            <td>  ${result[i].total}  </td>
+                            <td>  ${resultturjagwali[i].name_polda}  </td> 
+                            <td>  ${nf.format(resultturjagwali[i].pengaturan)}  </td> 
+                            <td>  ${nf.format(resultturjagwali[i].penjagaan)}  </td> 
+                            <td>  ${nf.format(resultturjagwali[i].pengawalan)}  </td> 
+                            <td>  ${nf.format(resultturjagwali[i].patroli)}  </td>
+                            <td>  ${nf.format(resultturjagwali[i].total)}  </td>
                             </tr>`
                 }
                 $('#tbody-lakaMonth').html(table);
+                $('#totalpengaturanMonth').text(result.pengaturan)
+                $('#totalpenjagaanMonth').text(result.penjagaan)
+                $('#totalpengawalanMonth').text(result.pengawalan)
+                $('#totalpatroliMonth').text(result.patroli)
+                $('#totalMonth').text(result.total)
                 <?php $mobile = detect_mobile();
                 if ($mobile === true) { ?>
 
@@ -991,21 +1125,27 @@
             success: function(result) {
                 $("#overlay").fadeOut(300);
                 var table = '';
+                var resultturjagwali = result.topTurjagwali;
                 let nf = new Intl.NumberFormat('en-US');
-                for (let i = 0; i < result.length; i++) {
+                for (let i = 0; i < resultturjagwali.length; i++) {
                     let x = parseInt(i)
                     let no = x + 1
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].pengaturan}  </td> 
-                            <td>  ${result[i].penjagaan}  </td> 
-                            <td>  ${result[i].pengawalan}  </td> 
-                            <td>  ${result[i].patroli}  </td>
-                            <td>  ${result[i].total}  </td>
+                            <td>  ${resultturjagwali[i].name_polda}  </td> 
+                            <td>  ${nf.format(resultturjagwali[i].pengaturan)}  </td> 
+                            <td>  ${nf.format(resultturjagwali[i].penjagaan)}  </td> 
+                            <td>  ${nf.format(resultturjagwali[i].pengawalan)}  </td> 
+                            <td>  ${nf.format(resultturjagwali[i].patroli)}  </td>
+                            <td>  ${nf.format(resultturjagwali[i].total)}  </td>
                             </tr>`
                 }
                 $('#tbody-lakaYear').html(table);
+                $('#totalpengaturanYear').text(result.pengaturan)
+                $('#totalpenjagaanYear').text(result.penjagaan)
+                $('#totalpengawalanYear').text(result.pengawalan)
+                $('#totalpatroliYear').text(result.patroli)
+                $('#totalYear').text(result.total)
                 <?php $mobile = detect_mobile();
                 if ($mobile === true) { ?>
 
