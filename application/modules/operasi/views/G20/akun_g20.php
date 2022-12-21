@@ -8,7 +8,13 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".TambahAkun">Tambah Akun</button>
+    <button type="button" class="btn btn-primary waves-effect aksiTambah" data-bs-toggle="modal" data-bs-target=".TambahAkun"> 
+        Tambah Akun
+    </button>
+    <button type="button" class="btn btn-primary waves-effect loadTambah">
+        <i class="bx bx-loader bx-spin font-size-16 align-middle me-2 "></i>
+        Tambah Akun
+    </button>
     
     <div class="card mt-3">
         <div class="card-body">
@@ -144,9 +150,9 @@
 
 <script>
  
-    var Petugas; 
-    var PetugasOrigin;
-    var Petugasbaru;
+    var Petugas = new Array(); 
+    var PetugasOrigin = new Array();
+    var Petugasbaru = new Array();
 
    
     let PetugasUntukSelectLain = [];
@@ -161,22 +167,8 @@
     
     $(document).ready(function() {
         
-        
+        getOfficerList(null);
 
-        $.ajax({
-            type : "POST",
-            url : "<?php echo base_url();?>operasi/Akun/GetPetugasList", 
-            data : {
-                "search" : null, 
-            }, 
-            dataType : "JSON",
-            success : function(result){ 
-                // console.log(result);
-                Petugas = result;
-                PetugasOrigin = result;
-                Petugasbaru = result;
-            }
-        });
 
         new Choices('#filterNegara', {
             searchEnabled: true,
@@ -382,10 +374,51 @@
         });
     });
  
+    function getOfficerList(search){ 
+        $(".aksiTambah").hide();
+        $(".loadTambah").show();
+        
+        for (let ii = 0; ii < 70; ii++) {
+            // console.log(ii+1);
+            setTimeout(() => {
+                $.ajax({
+                    type : "POST",
+                    url : "<?php echo base_url();?>operasi/Akun/GetPetugasList", 
+                    data : {
+                        "search" : search, 
+                        "start": ii+1,
+                    }, 
+                    dataType : "JSON",
+                    success : function(result){ 
+                        // console.log(result);
+                        if(result.length > 0){
+                            for (let i = 0; i < result.length; i++) {
+                                Petugas.push(result[i]);
+                                PetugasOrigin.push(result[i]);
+                                Petugasbaru.push(result[i]); 
+                            }
+                        }else{
+                            $(".aksiTambah").show(); 
+                            $(".loadTambah").hide();
+                        }
+                        
+                        // Petugas = result;
+                        // PetugasOrigin = result;
+                        // Petugasbaru = result;
+                    }
+                });
+                
+            }, ii * 200);
+        }
 
+        // setTimeout(() => {
+        //     $(".aksiTambah").show(); 
+        //     $(".loadTambah").hide();
+        // }, 61 * 1000);
+    }
 
     function getOption(no) {
-       
+        console.log(Petugas.length);
         let select = $('#select' + no).find(":selected").val();
         let list = '';
         if (select == '') {
@@ -402,28 +435,17 @@
         for (let i = 0; i < Petugasbaru.length; i++) {
             list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']} - ${Petugasbaru[i]['nrp_officer']}</option>`;
         }
-        $('#select' + no).html(list);
-        // $('#select' + no).select2({
-        //     dropdownParent: $(".modal")
-        // })
+        $('#select' + no).html(list); 
+        
         new Choices('#select'+no , {
-                searchEnabled: true,
-                removeItemButton: true,
-                removeItems: true,
-                itemSelectText: '',
-                classNames: {
-                    containerOuter: 'choices select-choices',
-                },
-            });  
-    //   new Choices('#select' + no, {
-    //             searchEnabled: true,
-    //             removeItemButton: true,
-    //             removeItems: true,
-    //             itemSelectText: '',
-    //             classNames: {
-    //                 containerOuter: 'choices select-choices',
-    //             },
-    //         });   
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });   
     }
 
 
