@@ -25,11 +25,11 @@
                 <div class="card-body">
                     <div class="row">
 
-                        <div class="col-12"> 
+                        <div class="col-12">
                             <div class="row mb-3">
                                 <div class="col-3"></div>
                                 <div class="col-6">
-                                    <img src="http://k3ig20korlantas.id:3001/uploads/laporan/<?= $data['getDetail']['foto']; ?>" class="rounded float-end" style="height:100%; width: 100%;">
+                                    <img src=ENV_API_BASE_URL."uploads/laporan/<?= $data['getDetail']['foto']; ?>" class="rounded float-end" style="height:100%; width: 100%;">
                                 </div>
                                 <div class="col-3"></div>
                             </div>
@@ -123,7 +123,7 @@
             zoomControl: false,
             layers: [googleSatelite]
         }).setView(initialCenter, initialZoom);
- 
+
         var icon = L.icon({
             iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
             iconSize: [80, 80], // size of the icon
@@ -134,11 +134,11 @@
 
         // console.log({a:coordLat , b:coordLng});
 
-        L.marker([parseFloat(coordLat), parseFloat(coordLng)]).addTo(mapContainer);  
+        L.marker([parseFloat(coordLat), parseFloat(coordLng)]).addTo(mapContainer);
 
-         
 
-        
+
+
         mapContainer.setView(initialCenter, initialZoom);
 
         var baseMaps = {
@@ -155,7 +155,7 @@
             position: 'bottomleft'
         }).addTo(mapContainer);
 
-        mapContainer.flyTo([parseFloat(coordLat), parseFloat(coordLng)], 20); 
+        mapContainer.flyTo([parseFloat(coordLat), parseFloat(coordLng)], 20);
 
 
 

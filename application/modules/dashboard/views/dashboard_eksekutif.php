@@ -30,7 +30,7 @@
 
                 <div class="row">
                     <div class="col-md-9" style="left: 330px;top: -53px;width: 80%;">
-    
+
                         <div class="cat poldaDisplay" style="margin-left: 10px; ">
                             <div class="btn-group">
                                 <label>
@@ -63,7 +63,7 @@
                         </div>
                         <div class="cat" style="margin-left: 10px; ">
                             <label>
-    
+
                                 <div class="dropdown-toggle" id="dropdownMenuButtonDisplay" style="padding-top: 3px;color: #1967d2;" data-bs-toggle="dropdown" aria-expanded="false">
                                     &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fas fa-user-shield"></i> Petugas&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
@@ -88,8 +88,8 @@
                                             List Personil Lantas
                                         </button>
                                     </label>
-    
-    
+
+
                                 </div>
                             </label>
                         </div>
@@ -124,13 +124,13 @@
                                 </button>
                             </div>
                         </div>
-    
+
                         <!-- <div class="cat gpsIdDisplay" style="margin-left: 10px;">  
                             <label>
                                 <input type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan Listrik</span>
                             </label>  
                         </div> -->
-    
+
                         <div class="cat kegiatanDisplay" style="display:none">
                             <div class="btn-group">
                                 <label>
@@ -141,7 +141,7 @@
                                 </button>
                             </div>
                         </div>
-    
+
                         <div class="cat cctvDisplay">
                             <div class="btn-group">
                                 <label>
@@ -162,7 +162,7 @@
                                 </button>
                             </div>
                         </div>
-    
+
                         <div class="cat panicDisplay" style="margin-left: 10px; display:none">
                             <div class="btn-group">
                                 <label>
@@ -173,7 +173,7 @@
                                 </button>
                             </div>
                         </div>
-    
+
                         <div class="cat samsatDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
@@ -184,7 +184,7 @@
                                 </button>
                             </div>
                         </div>
-    
+
                         <div class="cat trouble_spotDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
@@ -195,7 +195,7 @@
                                 </button>
                             </div>
                         </div>
-    
+
                         <div class="cat blank_spotDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
@@ -206,7 +206,7 @@
                                 </button>
                             </div>
                         </div>
-    
+
                     </div>
                 </div>
 
@@ -1145,7 +1145,7 @@
 
 <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script> -->
- 
+
 
 <script src="<?php echo base_url(); ?>assets/admin/bataspolda/data/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1.js"></script>
 <script>
@@ -1155,7 +1155,7 @@
     let data = [];
     let connected = false;
     // var socket = io('http://34.143.227.90:3019/', {
-    var socket = io('http://103.163.139.100:3005/', { 
+    var socket = io('<?= ENV_SOCKET_IO_HTTP ?>', {
         transports: ['websocket'],
         // socketRef.current = io('http://10.10.7.40:3001/', {
         path: '/socket.io',
@@ -1169,7 +1169,7 @@
         }
     });
     // var socketKe2 = io('http://34.143.227.90:3019/', {
-    var socketKe2 = io('http://103.163.139.100:3001/', { 
+    var socketKe2 = io('http://103.163.139.100:3001/', {
         transports: ['websocket'],
         // socketRef.current = io('http://10.10.7.40:3001/', {
         path: '/socket.io',
@@ -1289,27 +1289,29 @@
             type: "roadmap",
         }).addGoogleLayer("TrafficLayer");
 
-        var shpFile = new L.Shapefile(`<?php echo base_url();?>assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
+        var shpFile = new L.Shapefile(`<?php echo base_url(); ?>assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
             pointToLayer: function(feature, latlng) {
-                
+
                 var smallIcon = new L.divIcon({
                     iconAnchor: [20, 51],
                     popupAnchor: [0, -51],
                     className: 'listeo-marker-icon',
                     html: '<div class="marker-container">' +
-                    '<div class="marker-card">' +
-                    '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
-                    '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
-                    '<div class="marker-arrow"></div>' +
-                    '</div>' +
-                    '</div>'
+                        '<div class="marker-card">' +
+                        '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
+                        '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
+                        '<div class="marker-arrow"></div>' +
+                        '</div>' +
+                        '</div>'
                 });
-                
-           
-                var mark = L.marker(latlng, {icon: smallIcon})
+
+
+                var mark = L.marker(latlng, {
+                    icon: smallIcon
+                })
                 cluster.addLayer(mark)
-                return  cluster;
-                
+                return cluster;
+
             },
             onEachFeature: function(feature, layer) {
                 if (feature.properties) {
@@ -1317,7 +1319,7 @@
                         return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
                     }).join("<hr>"), {
                         maxWidth: 400,
-                        maxHeight: 250, 
+                        maxHeight: 250,
                         scrollbarWidth: 'thin',
                         className: 'leaflet-infoBox'
                     });
@@ -1344,8 +1346,8 @@
         var icon = L.icon({
             iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
             iconSize: [80, 80], // size of the icon
-        }); 
-  
+        });
+
 
         var baseMaps = {
             "Google Map Street": googleStreet,
@@ -1370,7 +1372,7 @@
 
 
 
- 
+
 
 
 
@@ -2012,7 +2014,7 @@
                         id = i;
                         var latitude = parseFloat(ressData[i].latitude);
                         var longitude = parseFloat(ressData[i].longitude);
-                         
+
                         var resource = '';
 
                         markerPolda[i] = L.marker([latitude, longitude], {
@@ -6098,10 +6100,10 @@
                 samsatClusterGroup.removeLayer(markerSamsat[i]);
             }
             markerSamsat = new Array();
- 
+
             for (let i = 0; i < markerTroubleSpot.length; i++) {
                 // mapContainer.removeLayer(markerTroubleSpot[i]);
-                if(markerTroubleSpot[i]){
+                if (markerTroubleSpot[i]) {
                     troubleSpotClusterGroup.removeLayer(markerTroubleSpot[i]);
                 }
             }
@@ -6109,7 +6111,7 @@
 
             for (let i = 0; i < markerBlankSpot.length; i++) {
                 // mapContainer.removeLayer(markerBlankSpot[i]);
-                if(markerBlankSpot[i]){
+                if (markerBlankSpot[i]) {
                     blankSpotClusterGroup.removeLayer(markerBlankSpot[i]);
                 }
             }
@@ -6180,7 +6182,7 @@
                     // var ressFasumKhusus = result['data']['fasum_khusus'];
                     ressFasumKhusus = result['data']['fasum_khusus'];
 
-                    var ressCluster = result['data']['cluster']; 
+                    var ressCluster = result['data']['cluster'];
                     var ressSchedule = result['data']['jadwal_kegiatan'];
                     var ressOperasi = result['data']['operasi'];
                     console.log(result['data']);
@@ -6599,11 +6601,11 @@
                             var checkedTroubleSpot1 = [];
 
                             for (let i = 0; i < filterTroubleSpot.length; i++) {
-                                countTroubleSpotDisplay += 1; 
+                                countTroubleSpotDisplay += 1;
                                 countlistTroubleSpot += 1;
                                 id = i;
 
-                                if(filterTroubleSpot[i].route == null){
+                                if (filterTroubleSpot[i].route == null) {
                                     listTroubleSpotDisplay += `
                                         <tr>
                                             <td>${countTroubleSpotDisplay}</td>
@@ -6621,9 +6623,9 @@
                                         </tr>
                                     `;
                                     $('#isiModalTroubleSpotDisplay').html(listTroubleSpotDisplay);
-                                    
+
                                     var latitudeTroubleSpot = parseFloat(filterTroubleSpot[i].latitude);
-                                    var longitudeTroubleSpot = parseFloat(filterTroubleSpot[i].longitude); 
+                                    var longitudeTroubleSpot = parseFloat(filterTroubleSpot[i].longitude);
                                     troubleSpotClusterGroup.addLayer(markerTroubleSpot[i] = L.marker([latitudeTroubleSpot, longitudeTroubleSpot], {
                                         icon: L.divIcon({
                                             // className: 'location-pin',
@@ -6647,8 +6649,8 @@
                                         minWidth: 100,
                                         maxWidth: 560,
                                         width: 400
-                                    })); 
-                                }else{
+                                    }));
+                                } else {
                                     listTroubleSpotDisplay += `
                                         <tr>
                                             <td>${countTroubleSpotDisplay}</td>
@@ -6664,8 +6666,8 @@
                                         </tr>
                                     `;
                                     $('#isiModalTroubleSpotDisplay').html(listTroubleSpotDisplay);
-                                    
-                                    
+
+
                                     checkedTroubleSpot1.push({
                                         reporter_name: filterTroubleSpot[i]['reporter_name'],
                                         checked: 0,
@@ -6675,7 +6677,7 @@
 
                             for (let i = 0; i < countlistTroubleSpot; i++) {
                                 $(`#listTsDisplay${i+1}`).on("change", function(e) {
-                                    
+
                                     var cordRute = $(this).data('cord');
                                     if (cordRute != null && cordRute[0]['latLng'] != null) {
                                         if ($(this).is(':checked')) {
@@ -6708,7 +6710,7 @@
                                                         //         draggable: this.draggableWaypoints,
                                                         //     },
                                                         //     marker = L.marker(wp.latLng);
-    
+
                                                         // return marker;
                                                     }
                                                 },
@@ -6777,11 +6779,11 @@
                             var checkedBlankSpot1 = [];
 
                             for (let i = 0; i < filterBlankSpot.length; i++) {
-                                countBlankSpotDisplay += 1; 
+                                countBlankSpotDisplay += 1;
                                 countlistBlankSpot += 1;
                                 id = i;
 
-                                if(filterBlankSpot[i].route == null){
+                                if (filterBlankSpot[i].route == null) {
                                     listBlankSpotDisplay += `
                                         <tr>
                                             <td>${countBlankSpotDisplay}</td>
@@ -6799,9 +6801,9 @@
                                         </tr>
                                     `;
                                     $('#isiModalBlankSpotDisplay').html(listBlankSpotDisplay);
-                                    
+
                                     var latitudeBlankSpot = parseFloat(filterBlankSpot[i].latitude);
-                                    var longitudeBlankSpot = parseFloat(filterBlankSpot[i].longitude); 
+                                    var longitudeBlankSpot = parseFloat(filterBlankSpot[i].longitude);
                                     troubleSpotClusterGroup.addLayer(markerBlankSpot[i] = L.marker([latitudeBlankSpot, longitudeBlankSpot], {
                                         icon: L.divIcon({
                                             // className: 'location-pin',
@@ -6825,8 +6827,8 @@
                                         minWidth: 100,
                                         maxWidth: 560,
                                         width: 400
-                                    })); 
-                                }else{
+                                    }));
+                                } else {
                                     listBlankSpotDisplay += `
                                         <tr>
                                             <td>${countBlankSpotDisplay}</td>
@@ -6842,8 +6844,8 @@
                                         </tr>
                                     `;
                                     $('#isiModalBlankSpotDisplay').html(listBlankSpotDisplay);
-                                    
-                                    
+
+
                                     checkedBlankSpot1.push({
                                         reporter_name: filterBlankSpot[i]['reporter_name'],
                                         checked: 0,
@@ -6853,7 +6855,7 @@
 
                             for (let i = 0; i < countlistBlankSpot; i++) {
                                 $(`#listTsDisplay${i+1}`).on("change", function(e) {
-                                    
+
                                     var cordRute = $(this).data('cord');
                                     if (cordRute != null && cordRute[0]['latLng'] != null) {
                                         if ($(this).is(':checked')) {
@@ -6886,7 +6888,7 @@
                                                         //         draggable: this.draggableWaypoints,
                                                         //     },
                                                         //     marker = L.marker(wp.latLng);
-    
+
                                                         // return marker;
                                                     }
                                                 },
@@ -7625,7 +7627,7 @@
                             }
                         }
                     }
-                    
+
 
                     if (ressSchedule && ressSchedule.length > 0) {
                         var filterSchedule = ressSchedule.filter(function(e) {
@@ -8083,7 +8085,7 @@
 
         $("#samsatFilterModal").on("click", function(e) {
             $("#myModalSamsatDisplay").modal('show');
-        }); 
+        });
         $("#troubleSpotFilterModal").on("click", function(e) {
             $("#myModalTroubleSpotDisplay").modal('show');
         });

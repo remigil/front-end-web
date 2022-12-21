@@ -6,10 +6,10 @@ use GuzzleHttp\Client;
 if (!function_exists('token')) {
     function token()
     {
-        $client = new Client();  
+        $client = new Client();
         // $request = $client->request('POST', 'http://localhost:3002/v1/', [
-        $request = $client->request('POST', 'http://k3ig20korlantas.id:3001/v1/', [ 
-        // $request = $client->request('POST', 'http://34.143.227.90:3019/v1/', [ 
+        $request = $client->request('POST', ENV_API_BASE_URL . 'v1/', [
+            // $request = $client->request('POST', 'http://34.143.227.90:3019/v1/', [ 
             'form_params' => [
                 'username' => 'Kakor',
                 'password' => 'a'
