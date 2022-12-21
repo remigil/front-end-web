@@ -12,7 +12,7 @@
     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
         <div class="row m-2">
             <div class="col-sm-4 col-md-5 align-self-center">
-                <h2>DATAA <span style="text-transform:uppercase ; color:#0007D8">Turjagwali <span style="color:#000;">Nasional</span></span> </h2>
+                <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">Turjagwali <span style="color:#000;">Nasional</span></span> </h2>
             </div>
             <div class="col-sm-8 col-md-7">
                 <div class="row m-2">
