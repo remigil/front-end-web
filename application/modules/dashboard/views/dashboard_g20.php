@@ -2746,7 +2746,7 @@
                                         });
                                     });
                                 } else {
-                                    markerArray[dummyGetTracking[i].id_officer] = L.marker([Rlat, Rlng], {
+                                    markerArray[dummyGetTracking[i].id_officer] = L.marker([cordLat, corLong], {
                                         renderer: myRenderer,
                                         icon: L.divIcon({
                                             // className: 'location-pin',
