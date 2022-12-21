@@ -184,6 +184,7 @@
 <script>
 	$(document).ready(function() {  
 		let id= '<?= $polda['id'] ?>';
+		let marker = []
 		$.ajax({
 			type: "POST",
 			url: "<?= base_url(); ?>ditlantas_polda/getDetailPolda",
@@ -194,6 +195,7 @@
 			success: function(result) {
 				var ressPolda = result.polda;
 				var ressPolres = result.polres;
+				// console.log(ressPolres);
 
 							
 							let zxc = ressPolda.zoomview.split(",")
@@ -237,55 +239,7 @@
           type: "roadmap",
        	}).addGoogleLayer("TrafficLayer");
 
-				//  for (let i = 0; i < ressPolres.length; i++) {
-        //             id = i;
-        //             var latitude = parseFloat(ressPolres[i].latitude);
-        //             var longitude = parseFloat(ressPolres[i].longitude);
-
-        //             var resource = '';
-
-        //             marker[i] = L.marker([latitude, longitude], {
-        //                 icon: L.divIcon({
-        //                     // className: 'location-pin',
-        //                     html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
-        //                     // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressPolres[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
-        //                     iconSize: [5, 5],
-        //                     iconAnchor: [5, 10]
-        //                 })
-        //             }).bindPopup(
-        //                 `<div style="width: 450px;">
-				// 		<div class="row">
-							
-				// 			<div class="col-md-10">
-				// 				<span class="fs-5 text-uppercase">Polda <b>${ressPolres[i].name_polres}</b></span><br>
-								
-				// 			</div>
-				// 			<div class="col-md-12 mt-3 text-center">
-				// 				<div class="row">
-				// 					<div class="col-md-3">
-				// 						<span class="fs-6">Total <b> Kecelakaan</b> Lalu Lintas</span>
-				// 					</div>
-				// 					<div class="col-md-3">
-				// 						<span class="fs-6">Total <b>Pelanggaran</b> Lalu Lintas</span>
-				// 					</div>
-				// 					<div class="col-md-3">
-				// 						<span class="fs-6">Total <b>Turjagwali</b></span>
-				// 					</div>    
-				// 					<div class="col-md-3">
-				// 						<span class="fs-6">Total <b>Kendaraan Bermotor</b></span>
-				// 					</div>
-				// 				</div>    
-				// 			</div>
-							
-				// 			</div>
-				// 	</div>
-						
-				// `, {
-        //                     minWidth: 100,
-        //                     maxWidth: 560,
-        //                     width: 400
-        //                 }).addTo(mapContainer);
-        //         }
+			
 
         var shpFile = new L.Shapefile(`<?php echo base_url(); ?>assets/admin/shp/SHP/${ressPolda.file_shp}`, {
         	pointToLayer: function(feature, latlng) {
@@ -323,6 +277,25 @@
           }
           }
           });
+
+						//  for (let i = 0; i < ressPolres.length; i++) {
+            //         id = i;
+            //         var latitude = parseFloat(ressPolres[i].latitude);
+            //         var longitude = parseFloat(ressPolres[i].longitude);
+
+            //         var resource = '';
+
+            //         marker = L.marker([latitude, longitude], {
+            //             icon: L.divIcon({
+            //                 // className: 'location-pin',
+            //                 html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
+            //                 // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressPolres[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
+            //                 iconSize: [5, 5],
+            //                 iconAnchor: [5, 10]
+            //             })
+            //         }).addTo(mapContainer)
+												
+            //     }
 
 					
 

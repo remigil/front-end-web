@@ -6,37 +6,46 @@ class Kontak extends MX_Controller {
 	public function __construct(){
 		parent::__construct();
     }
+	public function index()
+	{
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
+
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+	}
  
 	public function survey_kepuasan()
 	{ 
-		$title = "Survey Kepuasan | K3I Korlantas";
-		$breadcrumb = "survey";
-		$headline = "SURVEY KEPUASAN";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		$data['title'] = "Survey Kepuasan | K3I Korlantas";
+		$data['breadcrumb'] = "survey";
+		$data['headline'] = "SURVEY KEPUASAN";
+
 		
-	];
-        
         $this->template->load('templates/template','kontak/survey_kepuasan', $data); 
         
 	}
 
 	public function layanan_pengaduan()
 	{ 
-		$title = "Layanan Pengaduan | K3I Korlantas";
-		$breadcrumb = "pengaduan";
-		$headline = "LAYANAN PENGADUAN";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		$data['title'] = "Layanan Pengaduan | K3I Korlantas";
+		$data['breadcrumb'] = "pengaduan";
+		$data['headline'] = "LAYANAN PENGADUAN";
+
 		
-	];
-        
         $this->template->load('templates/template','kontak/layanan_pengaduan', $data); 
         
 	}

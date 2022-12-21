@@ -10,6 +10,7 @@ class Cctv_streaming extends MX_Controller {
  
 	public function index()
 	{ 
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 		$headers = [
             // 'Authorization' => $this->session->userdata['token']
         ];
@@ -18,6 +19,8 @@ class Cctv_streaming extends MX_Controller {
 		$data['title'] = "CCTV Streaming | K3I Korlantas";
 		$data['breadcrumb'] = "cctv";
 		$data['headline'] = "CCTV STREAMING";
+
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
 
 		$getCCTV = guzzle_request('GET', 'cctv', [
             // 'headers' => $headers

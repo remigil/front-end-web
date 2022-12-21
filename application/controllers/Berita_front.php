@@ -10,11 +10,14 @@ class Berita_front extends MX_Controller {
  
 	public function index()
 	{ 
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash(); 
         $data['title'] = "Berita | K3I Korlantas";
         $data['breadcrumb'] = "Berita";
         $data['headline'] = "Berita";
+
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
 		  
 		
 		// $url = 'news?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
@@ -55,9 +58,13 @@ class Berita_front extends MX_Controller {
 
 	public function detailBerita($id)
     {
+
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash(); 
         $data['title'] = "Berita | K3I Korlantas";  
+
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
 
 		$getBerita = guzzle_request('GET', 'news', [
             // 'headers' => $headers

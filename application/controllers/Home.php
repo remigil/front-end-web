@@ -10,9 +10,13 @@ class Home extends MX_Controller {
  
 	public function index()
 	{ 
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
+		
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash(); 
         $data['title'] = "Home | K3I Korlantas";  
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		
 		
 		// $url = 'news?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 

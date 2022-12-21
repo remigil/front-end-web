@@ -6,19 +6,29 @@ class Satker extends MX_Controller {
 	public function __construct(){
 		parent::__construct();
     }
+	public function index()
+	{
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
+
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+	}
  
 	public function ditgakkum()
 	{ 
-		$title = "Direktorat Penegak Hukum | K3I Korlantas";
-		$breadcrumb = "ditgakkum";
-		$headline = "DIREKTORAT PENEGAK HUKUM";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['title'] = "Direktorat Penegak Hukum | K3I Korlantas";
+		$data['breadcrumb'] = "ditgakkum";
+		$data['headline'] = "DIREKTORAT PENEGAK HUKUM";
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
 		
-	];
         
         $this->template->load('templates/template','satker/ditgakkum', $data); 
         
@@ -26,16 +36,17 @@ class Satker extends MX_Controller {
 
 	public function ditregident()
 	{ 
-		$title = "Direktorat Registrasi dan Identifikasi | K3I Korlantas";
-		$breadcrumb = "ditregident";
-		$headline = "DIREKTORAT REGISTRASI DAN IDENTIFIKASI";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['title'] = "Direktorat Registrasi dan Identifikasi | K3I Korlantas";
+		$data['breadcrumb'] = "ditregident";
+		$data['headline'] = "DIREKTORAT REGISTRASI DAN IDENTIFIKASI";
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
 		
-	];
         
         $this->template->load('templates/template','satker/ditregident', $data); 
         
@@ -43,16 +54,17 @@ class Satker extends MX_Controller {
 
 	public function ditkamsel()
 	{ 
-		$title = "Direktorat Keamanan dan Keselamatan | K3I Korlantas";
-		$breadcrumb = "ditkamsel";
-		$headline = "DIREKTORAT KEAMANAN DAN KESELAMATAN";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['title'] = "Direktorat Keamanan dan Keselamatan | K3I Korlantas";
+		$data['breadcrumb'] = "ditkamsel";
+		$data['headline'] = "DIREKTORAT KEAMANAN DAN KESELAMATAN";
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
 		
-	];
         
         $this->template->load('templates/template','satker/ditkamsel', $data); 
         
@@ -60,16 +72,17 @@ class Satker extends MX_Controller {
 
 	public function bagrenmin()
 	{ 
-		$title = "Bagian Perencanaan dan Administrasi | K3I Korlantas";
-		$breadcrumb = "bagrenmin";
-		$headline = "BAGIAN PERENCANAAN DAN ADMINISTRASI";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['title'] = "Bagian Perencanaan dan Administrasi | K3I Korlantas";
+		$data['breadcrumb'] = "bagrenmin";
+		$data['headline'] = "BAGIAN PERENCANAAN DAN ADMINISTRASI";
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
 		
-	];
         
         $this->template->load('templates/template','satker/bagrenmin', $data); 
         
@@ -77,135 +90,136 @@ class Satker extends MX_Controller {
 
 	public function bagops()
 	{ 
-		$title = "Bagian Operasional | K3I Korlantas";
-		$breadcrumb = "bagops";
-		$headline = "BAGIAN OPERASIONAL";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['title'] = "Bagian Operasional | K3I Korlantas";
+		$data['breadcrumb'] = "bagops";
+		$data['headline'] = "BAGIAN OPERASIONAL";
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
 		
-	];
-        
         $this->template->load('templates/template','satker/bagops', $data); 
         
 	}
 
 	public function bagtik()
 	{ 
-		$title = "Bagian Teknologi Informasi Korlantas | K3I Korlantas";
-		$breadcrumb = "bagtik";
-		$headline = "BAGIAN TEKNOLOGI INFORMASI KORLANTAS";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['title'] = "Bagian Teknologi Informasi Korlantas | K3I Korlantas";
+		$data['breadcrumb'] = "bagtik";
+		$data['headline'] = "BAGIAN TEKNOLOGI INFORMASI KORLANTAS";
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
 		
-	];
-        
         $this->template->load('templates/template','satker/bagtik', $data); 
         
 	}
 
 	public function baharkam()
 	{ 
-		$title = "BAHARKAM POLRI | K3I Korlantas";
-		$breadcrumb = "baharkam";
-		$headline = "BAHARKAM POLRI";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['title'] = "BAHARKAM POLRI | K3I Korlantas";
+		$data['breadcrumb'] = "baharkam";
+		$data['headline'] = "BAHARKAM POLRI";
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
 		
-	];
-    
         $this->template->load('templates/template','satker/baharkam', $data); 
         
 	}
 
 	public function asops()
 	{ 
-		$title = "Asisten Kapolri Bidang Operasi | K3I Korlantas";
-		$breadcrumb = "asops";
-		$headline = "ASISTEN KAPOLRI BIDANG OPERASI";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['title'] = "Asisten Kapolri Bidang Operasi | K3I Korlantas";
+		$data['breadcrumb'] = "asops";
+		$data['headline'] = "ASISTEN KAPOLRI BIDANG OPERASI";
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
 		
-	];
         $this->template->load('templates/template','satker/asops', $data); 
         
 	}
 
 	public function divtik()
 	{ 
-		$title = "DIVTIK POLRI | K3I Korlantas";
-		$breadcrumb = "divtik";
-		$headline = "DIVISI TEKNOLOGI INFORMASI DAN KOMUNIKASI POLRI";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['title'] = "DIVTIK POLRI | K3I Korlantas";
+		$data['breadcrumb'] = "divtik";
+		$data['headline'] = "DIVISI TEKNOLOGI INFORMASI DAN KOMUNIKASI POLRI";
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
 		
-	];
-        
         $this->template->load('templates/template','satker/divtik', $data); 
         
 	}
 
 	public function bareskrim()
 	{ 
-		$title = "BARESKRIM POLRI | K3I Korlantas";
-		$breadcrumb = "bareskrim";
-		$headline = "BARESKRIM POLRI";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['title'] = "BARESKRIM POLRI | K3I Korlantas";
+		$data['breadcrumb'] = "bareskrim";
+		$data['headline'] = "BARESKRIM POLRI";
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
 		
-	];
-        
         $this->template->load('templates/template','satker/bareskrim', $data); 
         
 	}
 
 	public function divhumas()
 	{ 
-		$title = "Div HUMAS POLRI | K3I Korlantas";
-		$breadcrumb = "div humas";
-		$headline = "DIVISI HUMAS POLRI";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['title'] = "Div HUMAS POLRI | K3I Korlantas";
+		$data['breadcrumb'] = "div humas";
+		$data['headline'] = "DIVISI HUMAS POLRI";
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
 		
-	];
-        
         $this->template->load('templates/template','satker/divhumas', $data); 
         
 	}
 
 	public function itwasum()
 	{ 
-		$title = "ITWASUM POLRI | K3I Korlantas";
-		$breadcrumb = "itwasum";
-		$headline = "ITWASUM POLRI";
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
-        $data = [
-			'title' => $title,
-			'breadcrumb' => $breadcrumb,
-			'headline' => $headline
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+
+		$data['title'] = "ITWASUM POLRI | K3I Korlantas";
+		$data['breadcrumb'] = "itwasum";
+		$data['headline'] = "ITWASUM POLRI";
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
 		
-	];
-        
         $this->template->load('templates/template','satker/itwasum', $data); 
         
 	}

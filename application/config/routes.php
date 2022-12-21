@@ -61,3 +61,4 @@ $route["dashboard"] = "dashboard/dashboard";
 $route['executive/Polda_executive/(:any)'] = 'executive/Polda_executive/index/$1';
 $route['ditgakkum/subditgakkum/(:any)'] = 'ditgakkum/subditgakkum/index/$1';
 $route['Ditlantas_polda/(:any)'] = 'Ditlantas_polda/index/$1';
+$route['Stakeholder/(:any)'] = 'Stakeholder/index/$1';

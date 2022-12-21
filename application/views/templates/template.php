@@ -172,55 +172,34 @@
             </ul>
           </li>
 		<li class="dropdown megamenu"><a href="#"><span>stakeholder</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+					
             <ul>
-              <li>
-			  				<a href="<?= base_url('Stakeholder/')?>VTJGc2RHVmtYMTlVLzEzNTE2T2NPRmpqSUNITklXVkZMM1FrSVdJb0NBRT0">KEMENDAGRI</a>
-								<!-- <a href="http://www.dephub.go.id/" target="_blank">KEMENHUB</a>
-                <a href="https://www.kemkes.go.id/" target="_blank">KEMENKES</a>
-								<a href="https://kemenperin.go.id/" target="_blank">KEMENPERIN</a>
-								<a href="https://www.pu.go.id/" target="_blank">KEMENPUPR</a>
-								<a href="https://www.brin.go.id/" target="_blank">BADAN RISET DAN INOVASI NASIONAL</a>
-								<a href="https://www.kemenkeu.go.id/" target="_blank">KEMENKEU</a> -->
-			  				<!-- <a href="<?= base_url()?>stakeholder/kemendagri">KEMENDAGRI</a> -->
-								<a href="<?= base_url()?>stakeholder/kemenhub">KEMENHUB</a>
-                <a href="<?= base_url()?>stakeholder/kemenkes">KEMENKES</a>
-								<a href="<?= base_url()?>stakeholder/kemenperin">KEMENPERIN</a>
-								<a href="<?= base_url()?>stakeholder/kemenpupr">KEMENPUPR</a>
-								<a href="<?= base_url()?>stakeholder/badan_riset">BADAN RISET DAN INOVASI NASIONAL</a>
-								<a href="<?= base_url()?>stakeholder/kemenkeu">KEMENKEU</a>
-              </li>
-              <li>
-			  				<!-- <a href="https://www.kemdikbud.go.id/" target="_blank">KEMENDIKBUD</a>
-								<a href="https://www.kemhan.go.id/" target="_blank">KEMENHAN</a>
-                <a href="https://binamarga.pu.go.id/" target="_blank">DITJEN BINA WARGA</a>
-								<a href="https://dukcapil.kemendagri.go.id/" target="_blank">DUKCAPIL</a>
-								<a href="https://www.jasaraharja.co.id/" target="_blank">PT JASA RAHARJA</a>
-								<a href="https://www.jasamarga.com/public/id/home.aspx" target="_blank">JASA MARGA</a> -->
-			  				<a href="<?= base_url()?>stakeholder/kemendikbud">KEMENDIKBUD</a>
-								<a href="<?= base_url()?>stakeholder/kemenhan">KEMENHAN</a>
-                <a href="<?= base_url()?>stakeholder/bina_marga">DITJEN BINA WARGA</a>
-								<a href="<?= base_url()?>stakeholder/dukcapil">DUKCAPIL</a>
-								<a href="<?= base_url()?>stakeholder/jasa_raharja">PT JASA RAHARJA</a>
-								<a href="<?= base_url()?>stakeholder/jasa_marga">JASA MARGA</a>
+							<li>
+										<?php foreach($getStakeholder as $i => $data) :  ?>
+										<?php if ($i <= 6) : ?>
+											<a href="<?= base_url('Stakeholder/'.$data['id'])?>" style="text-transform: uppercase;"><?= $data['title']?></a>				
+										<?php endif ?> 
+										<?php endforeach ?> 
               </li>
 							<li>
-								<!-- <a href="https://tni.mil.id/" target="_blank">MABES TNI</a>
-								<a href="https://covid19.go.id/" target="_blank">SATGAS COVID</a>
-								<a href="https://www.bmkg.go.id/" target="_blank">BMKG</a>
-								<a href="https://bnn.go.id/" target="_blank">BNN</a>
-								<a href="https://www.bnpb.go.id/" target="_blank">BNPB</a>
-								<a href="https://www.bnpt.go.id/" target="_blank">BNPT</a>
-								<a href="https://www.bps.go.id/" target="_blank">BPS</a> -->
-								<a href="<?= base_url()?>stakeholder/mabes_tni">MABES TNI</a>
-								<a href="<?= base_url()?>stakeholder/satgas_covid">SATGAS COVID</a>
-								<a href="<?= base_url()?>stakeholder/bmkg">BMKG</a>
-								<a href="<?= base_url()?>stakeholder/bnn">BNN</a>
-								<a href="<?= base_url()?>stakeholder/bnpb">BNPB</a>
-								<a href="<?= base_url()?>stakeholder/bnpt">BNPT</a>
-								<a href="<?= base_url()?>stakeholder/bps">BPS</a>
-							</li>
+										<?php foreach($getStakeholder as $i => $data) :  ?>
+										<?php if ($i >= 7  && $i <= 12) : ?>
+											<a href="<?= base_url('Stakeholder/'.$data['id'])?>" style="text-transform: uppercase;"><?= $data['title']?></a>				
+										<?php endif ?> 
+										<?php endforeach ?> 
+              </li>
+							<li>
+										<?php foreach($getStakeholder as $i => $data) :  ?>
+										<?php if ($i >= 13  && $i <= 20) : ?>
+											<a href="<?= base_url('Stakeholder/'.$data['id'])?>" style="text-transform: uppercase;"><?= $data['title']?></a>				
+										<?php endif ?> 
+										<?php endforeach ?> 
+              </li>
+              
               
             </ul>
+
+					
           </li>
 		
           

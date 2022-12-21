@@ -14,6 +14,7 @@ class Ditlantas_polda extends MX_Controller {
         $url = 'polda_front/getId/' . $id;
         $getPolda = guzzle_request('GET', $url, [
         ]);
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
         $getPolda = $getPolda['data']['data'];
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
@@ -23,6 +24,8 @@ class Ditlantas_polda extends MX_Controller {
 
 		$data['title'] = "Ditlantas Polda ".$getPolda['name_polda']." | K3I Korlantas";
 		$data['polda'] = $getPolda;
+
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
 
 
 		$getBerita = guzzle_request('GET', 'news', [

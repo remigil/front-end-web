@@ -9,18 +9,22 @@ class Stakeholder extends MX_Controller {
     }
 	public function index($id)
 	{
-		$url = 'stackholder/getId/' . $id;
-        $getStakeholder = guzzle_request('GET', $url, [
+		$getStakeholder = guzzle_request('GET', 'stackholder', [
         ]);
-		$getStakeholder = $getStakeholder['data']['data'];
+		$url = 'stackholder/getId/' . $id;
+        $getbyid = guzzle_request('GET', $url, [
+        ]);
+		$getbyid = $getbyid['data']['data'];
+		
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
 		
-		$data['title'] = $getStakeholder['title']." | K3I Korlantas";
-		$data['stakeholder'] = $getStakeholder;
+		$data['title'] = $getbyid['title']." | K3I Korlantas";
+		$data['stakeholder'] = $getbyid;
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
 		
-        $data['breadcrumb'] = $getStakeholder['title'];
-        $data['headline'] = $getStakeholder['fullname'];
+        $data['breadcrumb'] = $getbyid['title'];
+        $data['headline'] = $getbyid['fullname'];
 		
 		// var_dump($data);die;
 		$this->template->load('templates/template', 'detail_stakeholder', $data);
