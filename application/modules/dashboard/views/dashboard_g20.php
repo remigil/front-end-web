@@ -2656,14 +2656,14 @@
                                 }
 
 
-                                var Rlat = Math.random() * (latBounds[1] - latBounds[0] + 1) + latBounds[0];
-                                var Rlng = Math.random() * (lngBounds[1] - lngBounds[0] + 1) + lngBounds[0];
+                                // var Rlat = Math.random() * (latBounds[1] - latBounds[0] + 1) + latBounds[0];
+                                // var Rlng = Math.random() * (lngBounds[1] - lngBounds[0] + 1) + lngBounds[0];
                                 // if(dummyGetTracking[i].status_login == 1){
                                 if (markerArray[dummyGetTracking[i].id_officer] != null) {
                                     var fotoPetugas = "";
 
                                     markerArray[dummyGetTracking[i].id_officer].remove();
-                                    markerArray[dummyGetTracking[i].id_officer] = L.marker([Rlat, Rlng], {
+                                    markerArray[dummyGetTracking[i].id_officer] = L.marker([cordLat, corLong], {
                                         renderer: myRenderer,
                                         icon: L.divIcon({
                                             //   className: 'location-pin',
