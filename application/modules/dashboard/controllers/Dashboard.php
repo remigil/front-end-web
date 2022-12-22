@@ -498,14 +498,14 @@ class Dashboard extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
-
+        $input = $this->input->post();
 
         // $date = date('Y-m-d');
         // $date = strtotime($date);
         // $date = strtotime("-1 day", $date);
         // echo date('Y-m-d', $date);
 
-        $url = 'filterPetugas?limit=5000&page=1';
+        $url = 'filterPetugas?limit='.$input['limit'].'&page='.$input['page'].'';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
