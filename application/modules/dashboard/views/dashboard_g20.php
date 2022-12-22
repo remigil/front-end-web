@@ -2534,7 +2534,7 @@
                     totalDocs = hasilRes['data']['totalDocs'];
                     totalPages = hasilRes['data']['totalPages'];
                     
-                    // LOAD LOOPING PERPAGE GETTRACKING
+                    // LOAD LOOPING PERPAGE GETTRACKING 
                     for (let ix = 0; ix < totalPages+1; ix++) {
                         setTimeout(() => {
                             console.log({a:`looping detik ${ix * 100000}`, b:totalDocs});
