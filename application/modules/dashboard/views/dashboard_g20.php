@@ -54,6 +54,11 @@
                                         <input checked type="checkbox" value="gatur" name="filter" id="gaturDisplay"><span style="text-align: start;" id="loadGaturDisplay">Gatur</span>
                                     </label>
                                     <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <button data-bs-toggle="modal" data-bs-target="#myModalPoldaPetugasDisplay" class="btn" style="color: #5f95df; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                            Filter Personil Per Polda
+                                        </button>
+                                    </label>
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
                                         <button id="petugasFilterModal" class="btn" style="color: #5f95df; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                             List Personil Lantas
                                         </button>
@@ -1157,6 +1162,21 @@
         </div>
     </div>
 </div>
+<div class="modal right fade" id="myModalPoldaPetugasDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPoldaPetugasDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPoldaPetugasDisplay">Filter Personil Per Polda</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalPoldaPetugasDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="width: 550px;">
+                <div class="accordion row" id="openModalPoldaPetugasDisplay">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal right fade" id="myModalPosPamDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPosPamDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -2253,6 +2273,10 @@
                     `);
                     var countPoldaDisplay = 0;
                     var listPoldaDisplay = '';
+
+
+                    var listPoldaPetugasDisplay = '';
+
                     var listLIPoldaDisplay = '';
                     var listPosYanPoldaDisplay = '';
 
@@ -2353,6 +2377,8 @@
 
 
 
+                            
+
                             listLIPoldaDisplay += ` 
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
@@ -2433,6 +2459,22 @@
                                     </div>
                                 </div>
                             `;
+
+
+                            listPoldaPetugasDisplay += `
+                                <div class="col-md-12">
+                                    <div class="cat" style="margin-left: 10px; ">
+                                        <div class="btn-group">
+                                            <label>
+                                                <input type="checkbox" value="${ressData[i].id}" name="poldaPetugas" id="listIsiPoldaPetugas${ressData[i].id}"><span>${ressData[i].name_polda}</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            $('#openModalPoldaPetugasDisplay').html(listPoldaPetugasDisplay);
+                            
+                            
                             $('#isiModalPoldaDisplay').html(listPoldaDisplay);
                             $('#openModalPosPamDisplay').html(listLIPoldaDisplay);
                             $('#openModalPosYanDisplay').html(listPosYanPoldaDisplay);
@@ -3928,7 +3970,7 @@
                                     console.log("gagal connect Tracking");
                                 }
                             });
-                        }, ix * 1000000);
+                        }, ix * 100000);
                     }
 
                     // LOAD PERTAMA KALI GETTRACKING
@@ -7047,7 +7089,7 @@
                 },
                 dataType: "JSON",
                 success: function(result) {
-                    console.log(result);
+                    // console.log(result);
 
                     $("#overlay").fadeOut(300);
                     var ressTurjawali = result['data']['turjawali'];
@@ -8193,7 +8235,7 @@
                                 listPosPamDisplay += `
                                         <tr>
                                             <td>${countPosPamDisplay}</td>
-                                            <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosPam[i].polda_id}" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
                                             <td>${ressPosPam[i].title_start != null ? ressPosPam[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
@@ -8240,8 +8282,8 @@
                                                 
                                             
                                                     <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].date}</p>
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].title_start}</p>
                                                     </div> 
                                                     
                                                     <div class="col-md-12 col-12 text-start" id="isiPospam${ressPosPam[i].id}">
@@ -8360,7 +8402,7 @@
                                 listPosYanDisplay += `
                                         <tr>
                                             <td>${countPosYanDisplay}</td>
-                                            <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressPosYan[i].name_renpam}</a></td> 
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosYan[i].polda_id}" target="_blank">${ressPosYan[i].name_renpam}</a></td> 
                                             <td>${ressPosYan[i].title_start != null ? ressPosYan[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
@@ -8405,8 +8447,8 @@
                                                 
                                             
                                                     <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].date}</p>
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].title_start}</p>
                                                     </div> 
                                                     <div class="col-md-12 col-12 text-start" id="isiPosyan${ressPosYan[i].id}">
                                                     
@@ -8521,7 +8563,7 @@
                                 listPosTerpaduDisplay += `
                                         <tr>
                                             <td>${countPosTerpaduDisplay}</td>
-                                            <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressPosTerpadu[i].name_renpam}</a></td> 
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosTerpadu[i].polda_id}" target="_blank">${ressPosTerpadu[i].name_renpam}</a></td> 
                                             <td>${ressPosTerpadu[i].title_start != null ? ressPosTerpadu[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
@@ -8566,8 +8608,8 @@
                                                 
                                             
                                                     <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosTerpadu[i].date}</p>
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosTerpadu[i].title_start}</p>
                                                     </div> 
                                                     <div class="col-md-12 col-12 text-start" id="isiPosTerpadu${ressPosPam[i].id}">
                                                     
@@ -8682,7 +8724,7 @@
                                 listPoskoDisplay += `
                                         <tr>
                                             <td>${countPoskoDisplay}</td>
-                                            <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressPosko[i].name_renpam}</a></td> 
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosko[i].polda_id}" target="_blank">${ressPosko[i].name_renpam}</a></td> 
                                             <td>${ressPosko[i].title_start != null ? ressPosko[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
@@ -8842,7 +8884,7 @@
                                 listSatPjrDisplay += `
                                         <tr>
                                             <td>${countSatPjrDisplay}</td>
-                                            <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressSatPjr[i].name_renpam}</a></td> 
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressSatPjr[i].polda_id}" target="_blank">${ressSatPjr[i].name_renpam}</a></td> 
                                             <td>${ressSatPjr[i].title_start != null ? ressSatPjr[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
