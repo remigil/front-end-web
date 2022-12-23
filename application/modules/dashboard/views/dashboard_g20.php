@@ -2360,7 +2360,7 @@
                                         ${ressData[i].name_polda}
                                         </button>
                                     </h2>
-                                    <div id="collapse${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="heading${countPoldaDisplay}" data-bs-parent="#openModalPosPamDisplay">
+                                    <div id="collapse${countPoldaDisplay}" class="accordion-collapse multi-collapse collapse" aria-labelledby="heading${countPoldaDisplay}" data-bs-parent="#openModalPosPamDisplay">
                                         <div class="accordion-body">
                                             <div class="text-muted" id="isiPoldaPosPam${ressData[i].id}"> 
                                                 
@@ -8173,7 +8173,7 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody id="isiModalPosPamDisplay">
+                                <tbody id="isiModalPosPamDisplay${polda_id}">
                                 </tbody>
                             </table>                     
                         `);
@@ -8206,7 +8206,7 @@
                                             </td>
                                         </tr>
                                     `;
-                                $('#isiModalPosPamDisplay').html(listPosPamDisplay);
+                                $(`#isiModalPosPamDisplay${polda_id}`).html(listPosPamDisplay);
 
 
                                 var latitudeFasum = parseFloat(ressPosPam[i].coordinate_guarding.lat);
@@ -8342,7 +8342,7 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody id="isiModalPosYanDisplay">
+                                <tbody id="isiModalPosYanDisplay${polda_id}">
                                 </tbody>
                             </table>                     
                         `);
@@ -8373,7 +8373,7 @@
                                             </td>
                                         </tr>
                                     `;
-                                $('#isiModalPosYanDisplay').html(listPosYanDisplay);
+                                $(`#isiModalPosYanDisplay${polda_id}`).html(listPosYanDisplay);
 
 
                                 var latitudeFasum = parseFloat(ressPosYan[i].coordinate_guarding.lat);
@@ -8503,7 +8503,7 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody id="isiModalPosTerpaduDisplay">
+                                <tbody id="isiModalPosTerpaduDisplay${polda_id}">
                                 </tbody>
                             </table>                     
                         `);
@@ -8534,7 +8534,7 @@
                                             </td>
                                         </tr>
                                     `;
-                                $('#isiModalPosTerpaduDisplay').html(listPosTerpaduDisplay);
+                                $(`#isiModalPosTerpaduDisplay${polda_id}`).html(listPosTerpaduDisplay);
 
 
                                 var latitudeFasum = parseFloat(ressPosTerpadu[i].coordinate_guarding.lat);
@@ -8664,7 +8664,7 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody id="isiModalPoskoDisplay">
+                                <tbody id="isiModalPoskoDisplay${polda_id}">
                                 </tbody>
                             </table>                     
                         `);
@@ -8695,7 +8695,7 @@
                                             </td>
                                         </tr>
                                     `;
-                                $('#isiModalPoskoDisplay').html(listPoskoDisplay);
+                                $(`#isiModalPoskoDisplay${polda_id}`).html(listPoskoDisplay);
 
 
                                 var latitudeFasum = parseFloat(ressPosko[i].coordinate_guarding.lat);
@@ -8824,7 +8824,7 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody id="isiModalSatPjrDisplay">
+                                <tbody id="isiModalSatPjrDisplay${polda_id}">
                                 </tbody>
                             </table>                     
                         `);
@@ -8855,7 +8855,7 @@
                                             </td>
                                         </tr>
                                     `;
-                                $('#isiModalSatPjrDisplay').html(listSatPjrDisplay);
+                                $(`#isiModalSatPjrDisplay${polda_id}`).html(listSatPjrDisplay);
 
 
                                 var latitudeFasum = parseFloat(ressSatPjr[i].coordinate_guarding.lat);
