@@ -46,7 +46,7 @@ class Petugas extends MY_Controller
         ]);
         $data['getStructural'] = $getStructural['data']['data'];
 
-        $getPolda = guzzle_request('GET', 'polda/getNoEncrypt', [
+        $getPolda = guzzle_request('GET', 'polda', [
             'headers' => $headers
         ]);
         $data['getPolda'] = $getPolda['data']['data'];
@@ -152,6 +152,10 @@ class Petugas extends MY_Controller
                     'contents' => $input['struktural'],
                 ],
                 [
+                    'name' => 'polda_id',
+                    'contents' => $input['polda_id'],
+                ],
+                [
                     'name' => 'pam_officer',
                     'contents' => $input['pam'],
                 ],
@@ -190,6 +194,10 @@ class Petugas extends MY_Controller
                 [
                     'name' => 'structural_officer',
                     'contents' => $input['struktural'],
+                ],
+                [
+                    'name' => 'polda_id',
+                    'contents' => $input['polda_id'],
                 ],
                 [
                     'name' => 'pam_officer',
@@ -303,6 +311,11 @@ class Petugas extends MY_Controller
         ]);
         $data['getStructural'] = $getStructural['data']['data'];
 
+        $getPolda = guzzle_request('GET', 'polda', [
+            'headers' => $headers
+        ]);
+        $data['getPolda'] = $getPolda['data']['data'];
+
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
@@ -358,6 +371,10 @@ class Petugas extends MY_Controller
                     'contents' => $input['struktural'],
                 ],
                 [
+                    'name' => 'polda_id',
+                    'contents' => $input['polda_id'],
+                ],
+                [
                     'name' => 'pam_officer',
                     'contents' => $input['pam'],
                 ],
@@ -396,6 +413,10 @@ class Petugas extends MY_Controller
                 [
                     'name' => 'structural_officer',
                     'contents' => $input['struktural'],
+                ],
+                [
+                    'name' => 'polda_id',
+                    'contents' => $input['polda_id'],
                 ],
                 [
                     'name' => 'pam_officer',

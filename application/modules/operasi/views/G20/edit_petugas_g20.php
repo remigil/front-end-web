@@ -89,6 +89,19 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <div class="material-selectfield mb-3">
+                                    <select class="form-select" name="pangkat" id="select2">
+                                        <option <?php echo ($data['getDetail']['data']['polda_id'] == null ? 'selected' : '');?> value="">Pilih Polda</option>
+
+                                        <?php foreach($data['getPolda'] as $row): ?>
+                                            <option <?php echo ($data['getDetail']['data']['polda_id'] == $row['polda_id'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['name_polda'];?></option> 
+                                        <?php endforeach; ?>  
+                                         
+                                    </select>
+                                    <!-- <label class="labelmui">Pangkat </label> -->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="material-textfield mb-3">
                                     <input style="width: 100%;" name="noHp" value="<?php echo $data['getDetail']['data']['phone_officer'];?>" type="text">
                                     <label class="labelmui">Nomor Handphone</label>

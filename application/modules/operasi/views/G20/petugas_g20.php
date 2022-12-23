@@ -21,7 +21,7 @@
                         
                             <option selected value="">Pilih Polda</option>
                             <?php foreach($data['getPolda'] as $row): ?>
-                                <option value="<?php echo $row['id'];?>"><?php echo $row['name_polda'];?></option> 
+                                <option value="<?php echo $row['polda_id'];?>"><?php echo $row['name_polda'];?></option> 
                             <?php endforeach; ?> 
                         </select>
                         <!-- <label for="filterPolda">Kategori Peraturan</label> -->
@@ -117,6 +117,16 @@
                         </div>
                     </div>
                     <div class="col-md-12">
+                        <div class="material-selectfield mb-3">
+                            <select name="polda_id" id="polda_id" class="form-select" style="width:100%" required>  
+                                <option selected value="">Pilih Polda</option>
+                                <?php foreach($data['getPolda'] as $row): ?>
+                                    <option value="<?php echo $row['id'];?>"><?php echo $row['name_polda'];?></option> 
+                                <?php endforeach; ?> 
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
                         <div class="material-textfield mb-3">
                             <input style="width: 100%;" name="pam" placeholder="" type="text">
                             <label class="labelmui">Dalam PAM</label>
@@ -173,6 +183,16 @@
         }); 
 
         new Choices('#filterPolda', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });  
+
+        new Choices('#polda_id', {
             searchEnabled: true,
             removeItemButton: true,
             removeItems: true,
