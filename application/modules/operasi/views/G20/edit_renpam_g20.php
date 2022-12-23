@@ -23,18 +23,22 @@
                         <button type="submit" class=" btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Simpan</button>
                         <a href="javascript(0);" id="delete" data-id="<?php echo $data['getDetail']['data']['id']; ?>" class=" btn btn-danger waves-effect float-end" style="width: 25%;">Hapus<i class="mdi mdi-trash-can-outline"></i></a>
                     
-                        <div class="alert alert-success alert-dismissible fade show " style="margin-top: 50px;" role="alert">
-                            <i class="mdi mdi-check-all me-2"></i>
-                            <?php if(count($data['getDetail']['data']['accounts']) > 0){?>
-                                <b> NRP Unit Pengawalan : </b>
+                        <?php if(count($data['getDetail']['data']['accounts']) > 0){?>
+                            <div class="alert alert-success alert-dismissible fade show " style="margin-top: 50px;" role="alert">
+                                <i class="mdi mdi-check-all me-2"></i>
+                                <b> Unit Pengawalan : </b>
                                 <?php foreach ($data['getDetail']['data']['accounts'] as $rowSelect) : ?>
                                     <?php echo $rowSelect['name_account']?>
                                 <?php endforeach; ?>
-                            <?php }else{?>
-                                Tidak Ada Unit Pengawalan
-                            <?php }?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php }else{?>
+                            <div class="alert alert-danger alert-dismissible fade show" style="margin-top: 50px;" role="alert">
+                                <i class="mdi mdi-block-helper me-2"></i>
+                                <b> Tidak Ada Unit Pengawalan </b> 
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div> 
+                        <?php }?>
                     </div>
                 </div>
                 <div class="card">
