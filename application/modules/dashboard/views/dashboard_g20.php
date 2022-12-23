@@ -8252,13 +8252,57 @@
                                                         <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
                                                         <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].date}</p>
                                                     </div> 
-                                                        
+                                                    
+                                                    <div class="col-md-12 col-12 text-start" id="isiPospam${ressPosPam[i].id}">
+                                                    
+                                                    </div>
                                                 </div>
                                             </div> 
                                     `, {
                                     minWidth: 100,
                                     maxWidth: 900,
                                     width: 300
+                                })).on("click", function(e) {
+                                    $("#overlayMenu").fadeIn(300);
+                                    var akuns = ressPosPam[i].accounts;
+                                    var dataAkuns = '';
+                                    if (akuns.length > 0) {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                            data: {
+                                                "id": akuns[0]['id'],
+                                            },
+                                            dataType: "JSON",
+                                            success: function(result) {
+                                                var ress = result['data'];
+                                                console.log({
+                                                    a: 'ada',
+                                                    b: ress
+                                                });
+                                                // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+
+                                                $(`#isiPospam${ressPosPam[i].id}`).html(`
+                                                            <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
+                                                            <div style="text-align: center">
+                                                                <img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true"></br>
+                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                    <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
+                                                                    <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
+                                                                    <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officer']['phone_officer']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officer']['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
+                                                                </p>
+                                                            </div>
+
+                                                        `);
+                                                $("#overlayMenu").fadeOut(300);
+                                            }
+                                        });
+                                    } else {
+                                        console.log({
+                                            a: 'ga ada'
+                                        });
+                                    }
                                 }));
                                 // }, i * 200);
                             }
