@@ -1409,19 +1409,19 @@
             type: "Admin"
         }
     });
-    var socketKe2 = io('http://103.163.139.100:3001/', {
-        transports: ['websocket'],
-        // socketRef.current = io('http://10.10.7.40:3001/', {
-        path: '/socket.io',
-        query: {
+    // var socketKe2 = io('http://103.163.139.100:3001/', {
+    //     transports: ['websocket'],
+    //     // socketRef.current = io('http://10.10.7.40:3001/', {
+    //     path: '/socket.io',
+    //     query: {
 
 
-            username: "Kakor",
-            password: "a",
+    //         username: "Kakor",
+    //         password: "a",
 
-            type: "Admin"
-        }
-    });
+    //         type: "Admin"
+    //     }
+    // });
     // var socketGps = io('http://gps-so.korlantaspolri.id');
 
     // console.log({a:'ini soket' ,b:socket});
@@ -1642,11 +1642,11 @@
             console.log(resSocket);
             console.log('ido1');
         });
-        socketKe2.on("connected", function(resSocket) {
-            console.log(socketKe2.id);
-            console.log(resSocket);
-            console.log('ido1');
-        });
+        // socketKe2.on("connected", function(resSocket) {
+        //     console.log(socketKe2.id);
+        //     console.log(resSocket);
+        //     console.log('ido1');
+        // });
         // socket.emit("trackingUser", {
         //     lat: 1234,
         //     lon: 1234234
@@ -4703,305 +4703,305 @@
 
 
             });
-            socketKe2.on('sendToAdminMobile', function(ress) {
-                console.log(`get Track Nama Petugas: A. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
-                // console.log(ress); 
-                var flagVip = '';
-                var iconflagVip = '';
+            // socketKe2.on('sendToAdminMobile', function(ress) {
+            //     console.log(`get Track Nama Petugas: A. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
+            //     // console.log(ress); 
+            //     var flagVip = '';
+            //     var iconflagVip = '';
 
-                // console.log(result); 
+            //     // console.log(result); 
 
-                var cordLat = parseFloat(ress.latitude);
-                var corLong = parseFloat(ress.longitude);
-                var bendera = '';
-                var jenis = '';
-
-
+            //     var cordLat = parseFloat(ress.latitude);
+            //     var corLong = parseFloat(ress.longitude);
+            //     var bendera = '';
+            //     var jenis = '';
 
 
 
-                // for (let i = 0; i < ress.length; i++) {  
 
 
-                // if(ress.type_vehicle == 'Sepeda Motor'){
-                //     // jenis = `<img src="<?php echo base_url(); ?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
-                //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
-                // }else if(ress.type_vehicle == 'Mobil'){
-                //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
-                // }else{
-                //     // jenis = `<img src="<?php echo base_url(); ?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
-                //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
-                // } 
+            //     // for (let i = 0; i < ress.length; i++) {  
 
 
-                if (ress.bawa_penumpang == 1) {
-                    // iconflagVip = `<a href="javascript:void(0);"><img src="${ress.photo_country != '-' ? ress.photo_country : '<?php echo base_url(); ?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;"></a>
-                    //             <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
-                    //                 <span class="badge rounded-pill" style="background-color: black; color: white;">${ress.name_country}</span>
-                    //             </div>`;  
-                    iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
-                } else {
-                    iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
-                }
-
-                jenis = '';
-                if (ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Fosil") {
+            //     // if(ress.type_vehicle == 'Sepeda Motor'){
+            //     //     // jenis = `<img src="<?php echo base_url(); ?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+            //     //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
+            //     // }else if(ress.type_vehicle == 'Mobil'){
+            //     //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
+            //     // }else{
+            //     //     // jenis = `<img src="<?php echo base_url(); ?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+            //     //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
+            //     // } 
 
 
+            //     if (ress.bawa_penumpang == 1) {
+            //         // iconflagVip = `<a href="javascript:void(0);"><img src="${ress.photo_country != '-' ? ress.photo_country : '<?php echo base_url(); ?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;"></a>
+            //         //             <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
+            //         //                 <span class="badge rounded-pill" style="background-color: black; color: white;">${ress.name_country}</span>
+            //         //             </div>`;  
+            //         iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
+            //     } else {
+            //         iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
+            //     }
 
-                    jenis = `
-                            <div>
-                                <div style="position: relative;">
-                                    ${iconflagVip}
-                                    <img src="<?php echo base_url(); ?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                </div>
-                                <div style="position: absolute;margin-top: -29px;">
-                                    <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
-                                </div>
-                            </div>`;
-                } else if (ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil") {
+            //     jenis = '';
+            //     if (ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Fosil") {
 
 
 
-                    jenis = `
-                            <div>
-                                <div style="position: relative;">
-                                    ${iconflagVip}
-                                    <img src="<?php echo base_url(); ?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                </div>
-                                <div style="position: absolute;margin-top: -29px;">
-                                    <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
-                                </div>
-                            </div>`;
-                } else if (ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Listrik") {
+            //         jenis = `
+            //                 <div>
+            //                     <div style="position: relative;">
+            //                         ${iconflagVip}
+            //                         <img src="<?php echo base_url(); ?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+            //                     </div>
+            //                     <div style="position: absolute;margin-top: -29px;">
+            //                         <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+            //                     </div>
+            //                 </div>`;
+            //     } else if (ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil") {
 
 
 
-                    jenis = `
-                            <div>
-                                <div>
-                                    ${iconflagVip}
-                                    <img src="<?php echo base_url(); ?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                </div>
-                                <div style="margin-top: -30px;">
-                                    <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
-                                </div>
-                            </div>`;
-                } else if (ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Listrik") {
+            //         jenis = `
+            //                 <div>
+            //                     <div style="position: relative;">
+            //                         ${iconflagVip}
+            //                         <img src="<?php echo base_url(); ?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+            //                     </div>
+            //                     <div style="position: absolute;margin-top: -29px;">
+            //                         <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+            //                     </div>
+            //                 </div>`;
+            //     } else if (ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Listrik") {
 
 
 
-                    jenis = `
-                            <div>
-                                <div>
-                                    ${iconflagVip}
-                                    <img src="<?php echo base_url(); ?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                </div>
-                                <div style="margin-top: -30px;">
-                                    <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
-                                </div>
-                            </div>`;
-                } else {
+            //         jenis = `
+            //                 <div>
+            //                     <div>
+            //                         ${iconflagVip}
+            //                         <img src="<?php echo base_url(); ?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+            //                     </div>
+            //                     <div style="margin-top: -30px;">
+            //                         <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
+            //                     </div>
+            //                 </div>`;
+            //     } else if (ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Listrik") {
 
 
 
-                    jenis = `
-                            <div>
-                                <div style="position: relative;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                </div> 
-                                <div style="position: absolute;margin-top: -29px;">
-                                    <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
-                                </div>
-                            </div>`;
-                }
+            //         jenis = `
+            //                 <div>
+            //                     <div>
+            //                         ${iconflagVip}
+            //                         <img src="<?php echo base_url(); ?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+            //                     </div>
+            //                     <div style="margin-top: -30px;">
+            //                         <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
+            //                     </div>
+            //                 </div>`;
+            //     } else {
 
-                if (ress.photo_officer || ress.photo_officer != null) {
-                    fotoPetugas = `<img src="<?php echo url_api(); ?>officer/${ress.photo_officer}" alt="" class="img-fluid rounded-circle d-block  float-center">`;
-                } else {
-                    fotoPetugas = `<img src="<?php echo base_url(); ?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
-                }
 
-                if (ress.name_country || ress.name_country != '-' || ress.name_country != null) {
-                    bendera = `${ress.name_country}`;
-                } else {
-                    bendera = `-`;
-                }
 
-                if (ress.photo_country || ress.photo_country != '-' || ress.photo_country != null) {
-                    fotoBendera = `<img src="${ress.photo_country}" alt="" style="width: 20%;margin-bottom: 10px;">`;
-                } else {
-                    fotoBendera = ``;
-                }
+            //         jenis = `
+            //                 <div>
+            //                     <div style="position: relative;">
+            //                         <img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+            //                     </div> 
+            //                     <div style="position: absolute;margin-top: -29px;">
+            //                         <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
+            //                     </div>
+            //                 </div>`;
+            //     }
 
-                // if(ress.status_login == 1){
-                if (markerArray[ress.id_officer] != null) {
-                    markerArray[ress.id_officer].remove();
-                    markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
-                        renderer: myRenderer,
-                        icon: L.divIcon({
-                            //   className: 'location-pin',
-                            html: jenis,
-                            iconSize: [5, 5],
-                            iconAnchor: [5, 10]
-                            // iconAnchor: [10, 33]
-                        })
-                    }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;"> 
-                                        <div class="row mt-3"> 
-                                            <div class="col-md-12">
-                                                <a href="javascript:void(0);">
-                                                ${fotoBendera}
-                                                </a>
-                                            </div>
-                                            ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
-                                        </div>
+            //     if (ress.photo_officer || ress.photo_officer != null) {
+            //         fotoPetugas = `<img src="<?php echo url_api(); ?>officer/${ress.photo_officer}" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+            //     } else {
+            //         fotoPetugas = `<img src="<?php echo base_url(); ?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+            //     }
+
+            //     if (ress.name_country || ress.name_country != '-' || ress.name_country != null) {
+            //         bendera = `${ress.name_country}`;
+            //     } else {
+            //         bendera = `-`;
+            //     }
+
+            //     if (ress.photo_country || ress.photo_country != '-' || ress.photo_country != null) {
+            //         fotoBendera = `<img src="${ress.photo_country}" alt="" style="width: 20%;margin-bottom: 10px;">`;
+            //     } else {
+            //         fotoBendera = ``;
+            //     }
+
+            //     // if(ress.status_login == 1){
+            //     if (markerArray[ress.id_officer] != null) {
+            //         markerArray[ress.id_officer].remove();
+            //         markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
+            //             renderer: myRenderer,
+            //             icon: L.divIcon({
+            //                 //   className: 'location-pin',
+            //                 html: jenis,
+            //                 iconSize: [5, 5],
+            //                 iconAnchor: [5, 10]
+            //                 // iconAnchor: [10, 33]
+            //             })
+            //         }).bindPopup(`
+            //                         <div class="text-center" style="width: 300px;"> 
+            //                             <div class="row mt-3"> 
+            //                                 <div class="col-md-12">
+            //                                     <a href="javascript:void(0);">
+            //                                     ${fotoBendera}
+            //                                     </a>
+            //                                 </div>
+            //                                 ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
+            //                             </div>
             
             
-                                            <div class="row text-start mt-3">
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-                                                </div> 
+            //                                 <div class="row text-start mt-3">
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
+            //                                     </div> 
         
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${bendera}</span>
-                                                </div> 
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
+            //                                     </div> 
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         <span style="font-size: 12px;">${bendera}</span>
+            //                                     </div> 
         
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                                </div> 
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+            //                                     </div> 
                 
-                                                <div class="col-md-12 text-center  mt-3">
-                                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                                    <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-                                                </div> 
-                                            </div>  
+            //                                     <div class="col-md-12 text-center  mt-3">
+            //                                         <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+            //                                         <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
+            //                                     </div> 
+            //                                 </div>  
                                         
-                                    </div>
-                                `).addTo(mapContainer).on('click', function(e) {
-                        // console.log(e.latlng);
-                        $.ajax({
-                            type: "POST",
-                            url: "<?php echo base_url(); ?>dashboard/getAddres",
-                            data: {
-                                "lat": e.latlng['lat'],
-                                "lng": e.latlng['lng'],
-                            },
-                            dataType: "JSON",
-                            success: function(result) {
-                                // console.log(result['responseMessage']);
-                                $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
-                            }
-                        });
-                    });
-                } else {
-                    markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
-                        renderer: myRenderer,
-                        icon: L.divIcon({
-                            //   className: 'location-pin',
-                            html: jenis,
-                            iconSize: [5, 5],
-                            iconAnchor: [5, 10]
-                            // iconAnchor: [10, 33]
-                        })
-                    }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;"> 
-                                        <div class="row mt-3"> 
-                                            <div class="col-md-12">
-                                                ${fotoBendera}
-                                            </div>
-                                            ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
-                                        </div>
+            //                         </div>
+            //                     `).addTo(mapContainer).on('click', function(e) {
+            //             // console.log(e.latlng);
+            //             $.ajax({
+            //                 type: "POST",
+            //                 url: "<?php echo base_url(); ?>dashboard/getAddres",
+            //                 data: {
+            //                     "lat": e.latlng['lat'],
+            //                     "lng": e.latlng['lng'],
+            //                 },
+            //                 dataType: "JSON",
+            //                 success: function(result) {
+            //                     // console.log(result['responseMessage']);
+            //                     $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
+            //                 }
+            //             });
+            //         });
+            //     } else {
+            //         markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
+            //             renderer: myRenderer,
+            //             icon: L.divIcon({
+            //                 //   className: 'location-pin',
+            //                 html: jenis,
+            //                 iconSize: [5, 5],
+            //                 iconAnchor: [5, 10]
+            //                 // iconAnchor: [10, 33]
+            //             })
+            //         }).bindPopup(`
+            //                         <div class="text-center" style="width: 300px;"> 
+            //                             <div class="row mt-3"> 
+            //                                 <div class="col-md-12">
+            //                                     ${fotoBendera}
+            //                                 </div>
+            //                                 ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
+            //                             </div>
             
             
-                                            <div class="row text-start mt-3">
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-                                                </div> 
+            //                                 <div class="row text-start mt-3">
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
+            //                                     </div> 
 
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${bendera}</span>
-                                                </div> 
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
+            //                                     </div> 
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         <span style="font-size: 12px;">${bendera}</span>
+            //                                     </div> 
                 
-                                                <div class="col-md-12 text-center  mt-3">
-                                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                                    <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-                                                </div> 
-                                            </div>  
+            //                                     <div class="col-md-12 text-center  mt-3">
+            //                                         <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+            //                                         <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
+            //                                     </div> 
+            //                                 </div>  
                                         
-                                    </div>
-                                `).addTo(mapContainer).on('click', function(e) {
-                        // console.log(e.latlng);
-                        $.ajax({
-                            type: "POST",
-                            url: "<?php echo base_url(); ?>dashboard/getAddres",
-                            data: {
-                                "lat": e.latlng['lat'],
-                                "lng": e.latlng['lng'],
-                            },
-                            dataType: "JSON",
-                            success: function(result) {
-                                // console.log(result['responseMessage']);
-                                $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
-                            }
-                        });
-                    });
-                }
-                // }
+            //                         </div>
+            //                     `).addTo(mapContainer).on('click', function(e) {
+            //             // console.log(e.latlng);
+            //             $.ajax({
+            //                 type: "POST",
+            //                 url: "<?php echo base_url(); ?>dashboard/getAddres",
+            //                 data: {
+            //                     "lat": e.latlng['lat'],
+            //                     "lng": e.latlng['lng'],
+            //                 },
+            //                 dataType: "JSON",
+            //                 success: function(result) {
+            //                     // console.log(result['responseMessage']);
+            //                     $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
+            //                 }
+            //             });
+            //         });
+            //     }
+            //     // }
 
 
-                // } 
+            //     // } 
 
 
-            });
+            // });
         }
 
 
@@ -8236,16 +8236,7 @@
                                                         <span>- ${ressPosPam[i].schedule.activity} -</span>
                                                     </div> 
                                                     
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].title_start != null ? ressPosPam[i].title_start.replace(/\n/g, "<br />") : "-"}</p>
-                                                    </div> 
-                                                
-                                            
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Note</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].note_kakor != null ? ressPosPam[i].note_kakor.replace(/\n/g, "<br />") : "-"}</p>
-                                                    </div> 
+                                                  
                                                 
                                             
                                                     <div class="col-md-12 col-12 text-start">
@@ -8411,30 +8402,62 @@
                                                         <h5>${ressPosYan[i].name_renpam}</h5> 
                                                         <span>- ${ressPosYan[i].schedule.activity} -</span>
                                                     </div> 
-                                                    
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].title_start != null ? ressPosYan[i].title_start.replace(/\n/g, "<br />") : "-"}</p>
-                                                    </div> 
-                                                
-                                            
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Note</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].note_kakor != null ? ressPosYan[i].note_kakor.replace(/\n/g, "<br />") : "-"}</p>
-                                                    </div> 
                                                 
                                             
                                                     <div class="col-md-12 col-12 text-start">
                                                         <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
                                                         <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].date}</p>
                                                     </div> 
-                                                        
+                                                    <div class="col-md-12 col-12 text-start" id="isiPosyan${ressPosYan[i].id}">
+                                                    
+                                                    </div>
                                                 </div>
                                             </div> 
                                     `, {
                                     minWidth: 100,
                                     maxWidth: 900,
                                     width: 300
+                                }).on("click", function(e) {
+                                    $("#overlayMenu").fadeIn(300);
+                                    var akuns = ressPosYan[i].accounts;
+                                    var dataAkuns = '';
+                                    if (akuns.length > 0) {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                            data: {
+                                                "id": akuns[0]['id'],
+                                            },
+                                            dataType: "JSON",
+                                            success: function(result) {
+                                                var ress = result['data'];
+                                                console.log({
+                                                    a: 'ada',
+                                                    b: ress
+                                                });
+                                                // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+
+                                                $(`#isiPosyan${ressPosYan[i].id}`).html(`
+                                                            <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
+                                                            <div style="text-align: center">
+                                                                <img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true"></br>
+                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                    <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
+                                                                    <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
+                                                                    <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officer']['phone_officer']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officer']['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
+                                                                </p>
+                                                            </div>
+
+                                                        `);
+                                                $("#overlayMenu").fadeOut(300);
+                                            }
+                                        });
+                                    } else {
+                                        console.log({
+                                            a: 'ga ada'
+                                        });
+                                    }
                                 }));
                                 // }, i * 500);
                             }
@@ -8540,30 +8563,62 @@
                                                         <h5>${ressPosTerpadu[i].name_renpam}</h5> 
                                                         <span>- ${ressPosTerpadu[i].schedule.activity} -</span>
                                                     </div> 
-                                                    
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosTerpadu[i].title_start != null ? ressPosTerpadu[i].title_start.replace(/\n/g, "<br />") : "-"}</p>
-                                                    </div> 
-                                                
-                                            
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Note</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosTerpadu[i].note_kakor != null ? ressPosTerpadu[i].note_kakor.replace(/\n/g, "<br />") : "-"}</p>
-                                                    </div> 
                                                 
                                             
                                                     <div class="col-md-12 col-12 text-start">
                                                         <p style="font-size: 12px;font-weight: bold;">Tanggal</p>  
                                                         <p style="font-size: 12px; margin-top: -15px;">${ressPosTerpadu[i].date}</p>
                                                     </div> 
-                                                        
+                                                    <div class="col-md-12 col-12 text-start" id="isiPosTerpadu${ressPosPam[i].id}">
+                                                    
+                                                    </div>
                                                 </div>
                                             </div> 
                                     `, {
                                     minWidth: 100,
                                     maxWidth: 900,
                                     width: 300
+                                }).on("click", function(e) {
+                                    $("#overlayMenu").fadeIn(300);
+                                    var akuns = ressPosTerpadu[i].accounts;
+                                    var dataAkuns = '';
+                                    if (akuns.length > 0) {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                            data: {
+                                                "id": akuns[0]['id'],
+                                            },
+                                            dataType: "JSON",
+                                            success: function(result) {
+                                                var ress = result['data'];
+                                                console.log({
+                                                    a: 'ada',
+                                                    b: ress
+                                                });
+                                                // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+
+                                                $(`#isiPosTerpadu${ressPosTerpadu[i].id}`).html(`
+                                                            <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
+                                                            <div style="text-align: center">
+                                                                <img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true"></br>
+                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                    <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
+                                                                    <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
+                                                                    <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officer']['phone_officer']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officer']['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
+                                                                </p>
+                                                            </div>
+
+                                                        `);
+                                                $("#overlayMenu").fadeOut(300);
+                                            }
+                                        });
+                                    } else {
+                                        console.log({
+                                            a: 'ga ada'
+                                        });
+                                    }
                                 }));
                                 // }, i * 500);
                             }
