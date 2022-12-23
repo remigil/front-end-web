@@ -384,9 +384,9 @@ class Dashboard extends MY_Controller
             $filter = '';
         }
         if ($input['radius']) {
-            $radius = '?radius=' . $input['radius'] . '';
+            $radius = '&radius=' . $input['radius'] . '';
         } else {
-            $radius = '?radius=1500';
+            $radius = '&radius=1500';
         }
         if ($input['coordinate']) {
             $coordinate = '&coordinate=' . $input['coordinate'] . '';
@@ -399,6 +399,7 @@ class Dashboard extends MY_Controller
         } else {
             $polda_id = '';
         }
+ 
 
         if ($input['type']) {
             $type = '&type=' . $input['type'] . '';
@@ -407,7 +408,7 @@ class Dashboard extends MY_Controller
             $type = '&type=mosque';
         }
 
-        $url = 'filter-search' . $radius . '' . $filter . '' . $coordinate . '' . $type . '' . $polda_id . '';
+        $url = 'filter-search?device=web' . $radius . '' . $filter . '' . $coordinate . '' . $type . '' . $polda_id . '';
         // echo json_encode($url);
         // die;
         $getMe = guzzle_request('GET', $url, [
