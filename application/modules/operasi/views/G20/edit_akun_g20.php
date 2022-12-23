@@ -33,8 +33,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="material-textfield mb-3" style="margin:0 -0.18vh 0 -0.18vh">
-                            <input hidden type="text" name="oldPassword" value="g20">
-                            <input style="width: 100%; " name="password" value="g20" type="text" required>
+                            <input hidden type="text" name="oldPassword" value="operasi_korlantas">
+                            <input style="width: 100%; " name="password" value="operasi_korlantas" type="text" required>
                             <label class="labelmui">Password</label>
                         </div>
                     </div> 
