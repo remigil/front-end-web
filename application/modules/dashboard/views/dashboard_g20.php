@@ -8262,7 +8262,7 @@
                                     minWidth: 100,
                                     maxWidth: 900,
                                     width: 300
-                                })).on("click", function(e) {
+                                }).on("click", function(e) {
                                     $("#overlayMenu").fadeIn(300);
                                     var akuns = ressPosPam[i].accounts;
                                     var dataAkuns = '';
