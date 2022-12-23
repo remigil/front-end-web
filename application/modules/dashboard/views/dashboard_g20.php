@@ -8235,7 +8235,7 @@
                                 listPosPamDisplay += `
                                         <tr>
                                             <td>${countPosPamDisplay}</td>
-                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosPam[i].polda_id}" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosPam[i].id}" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
                                             <td>${ressPosPam[i].title_start != null ? ressPosPam[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
@@ -8404,7 +8404,7 @@
                                 listPosYanDisplay += `
                                         <tr>
                                             <td>${countPosYanDisplay}</td>
-                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosYan[i].polda_id}" target="_blank">${ressPosYan[i].name_renpam}</a></td> 
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosYan[i].id}" target="_blank">${ressPosYan[i].name_renpam}</a></td> 
                                             <td>${ressPosYan[i].title_start != null ? ressPosYan[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
@@ -8565,7 +8565,7 @@
                                 listPosTerpaduDisplay += `
                                         <tr>
                                             <td>${countPosTerpaduDisplay}</td>
-                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosTerpadu[i].polda_id}" target="_blank">${ressPosTerpadu[i].name_renpam}</a></td> 
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosTerpadu[i].id}" target="_blank">${ressPosTerpadu[i].name_renpam}</a></td> 
                                             <td>${ressPosTerpadu[i].title_start != null ? ressPosTerpadu[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
@@ -8726,7 +8726,7 @@
                                 listPoskoDisplay += `
                                         <tr>
                                             <td>${countPoskoDisplay}</td>
-                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosko[i].polda_id}" target="_blank">${ressPosko[i].name_renpam}</a></td> 
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosko[i].id}" target="_blank">${ressPosko[i].name_renpam}</a></td> 
                                             <td>${ressPosko[i].title_start != null ? ressPosko[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
@@ -8886,7 +8886,7 @@
                                 listSatPjrDisplay += `
                                         <tr>
                                             <td>${countSatPjrDisplay}</td>
-                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressSatPjr[i].polda_id}" target="_blank">${ressSatPjr[i].name_renpam}</a></td> 
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressSatPjr[i].id}" target="_blank">${ressSatPjr[i].name_renpam}</a></td> 
                                             <td>${ressSatPjr[i].title_start != null ? ressSatPjr[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
