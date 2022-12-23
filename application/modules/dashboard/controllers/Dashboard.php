@@ -505,7 +505,7 @@ class Dashboard extends MY_Controller
         // $date = strtotime("-1 day", $date);
         // echo date('Y-m-d', $date);
 
-        $url = 'filterPetugas?limit='.$input['limit'].'&page='.$input['page'].'';
+        $url = 'filterPetugas?polda_id=11&limit='.$input['limit'].'&page='.$input['page'].'';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
