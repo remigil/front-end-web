@@ -802,6 +802,56 @@
                 font-size: 18px;
             }
         }
+
+
+
+
+
+        .catList {
+            margin: 4px;
+            background-color: white;
+            border-radius: 50rem !important;
+            border: 1px solid #fff;
+            overflow: hidden;
+            float: left;
+            width: 100%;
+        
+        }
+
+        .catList label {
+            float: left;
+            line-height: 1.7em;
+            width: 100%;
+            height: 1.7em;
+            cursor: pointer;
+        }
+
+        .catList label span {
+            text-align: left;
+            padding: 3px 0;
+            display: block;
+            font-size: 13px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .catList label input {
+            position: absolute;
+            display: none;
+            color: #000 !important;
+        }
+
+        /* selects all of the text within the input element and changes the color of the text */
+        .catList label input+span {
+            color: #000;
+        }
+
+
+        /* This will declare how a selected input will look giving generic properties */
+        .catList input:checked+span {
+            color: #1967d2;
+            text-shadow: 0 0 6px rgba(44, 16, 245, 0.66);
+        }
     </style>
 
     <!-- JAVASCRIPT -->
@@ -1286,7 +1336,7 @@
                                     </a>
                                 </li>
 
-                                <li>
+                                <!-- <li>
                                     <a href="javascript: void(0);" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">LICENCE PLATE RECOGNITION</span>
@@ -1327,7 +1377,7 @@
                                         <img src="<?= base_url('assets/icon/external/sub_monitoring_center.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">SUB MONITORING CENTER</span>
                                     </a>
-                                </li>
+                                </li> -->
 
                                 <li>
                                     <a href="https://polri.go.id/polisiku" target="_blank">
@@ -1335,12 +1385,12 @@
                                         <span data-key="t-dashboard">DASHBOARD POLISIKU</span>
                                     </a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="javascript: void(0);" target="_blank">
                                         <img src="<?= base_url('assets/icon/external/dashboard_110.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">DASHBOARD 110</span>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a href="https://sot.granddatum.com/user/login" target="_blank">
                                         <img src="<?= base_url('assets/icon/external/sot_presisi.png') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -1377,7 +1427,7 @@
                                         <span data-key="t-dashboard">PASANG SURUT AIR DAN TINGGI GELOMBANG</span>
                                     </a>
                                 </li> -->
-                                <li>
+                                <!-- <li>
                                     <a href="javascript: void(0);" target="_blank">
                                         <img src="<?= base_url('assets/icon/external/flight_radar.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">FLIGHT RADAR</span>
@@ -1394,7 +1444,7 @@
                                         <img src="<?= base_url('assets/icon/external/sub_monitoring_center1.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">SUB MONITORING CENTER</span>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a href="http://rttmc.dephub.go.id/" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
