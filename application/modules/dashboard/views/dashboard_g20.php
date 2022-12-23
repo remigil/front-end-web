@@ -8339,21 +8339,7 @@
                                 }));
                                 // }, i * 200);
                             }
-                            // $(`#datatablePosPamOnDisplay${polda_id}`).DataTable({
-                            //     responsive: true,
-
-                            //     scrollX: true,
-
-                            //     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            //     buttons: ["excel", "csv", "pdf"],
-                            //     processing: true,
-                            //     oLanguage: {
-
-                            //         sSearch: 'Search:'
-
-                            //     },
-                            // }); 
+                            
                         }
 
 
@@ -8368,6 +8354,22 @@
 
                             // }, countPosPamDisplay.length * 200); 
                         }
+
+                        $(`#datatablePosPamOnDisplay${polda_id}`).DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        }); 
 
                         $("#overlayMenu").fadeOut(300);
                         mapContainer.addLayer(posPamClusterGroup);
@@ -8515,21 +8517,21 @@
                                 mapContainer.flyTo([latitude, longitude], 17);
                             });
                         }
-                        // $(`#datatablePosYanOnDisplay${polda_id}`).DataTable({
-                        //     responsive: true,
+                        $(`#datatablePosYanOnDisplay${polda_id}`).DataTable({
+                            responsive: true,
 
-                        //     scrollX: true,
+                            scrollX: true,
 
-                        //     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                        //     buttons: ["excel", "csv", "pdf"],
-                        //     processing: true,
-                        //     oLanguage: {
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
 
-                        //         sSearch: 'Search:'
+                                sSearch: 'Search:'
 
-                        //     },
-                        // }); 
+                            },
+                        }); 
                         mapContainer.addLayer(posYanClusterGroup);
                         // }, countPosYanDisplay.length * 500);
                     }
@@ -8676,21 +8678,21 @@
                                 mapContainer.flyTo([latitude, longitude], 17);
                             });
                         }
-                        // $(`#datatablePosTerpaduOnDisplay${polda_id}`).DataTable({
-                        //     responsive: true,
+                        $(`#datatablePosTerpaduOnDisplay${polda_id}`).DataTable({
+                            responsive: true,
 
-                        //     scrollX: true,
+                            scrollX: true,
 
-                        //     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                        //     buttons: ["excel", "csv", "pdf"],
-                        //     processing: true,
-                        //     oLanguage: {
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
 
-                        //         sSearch: 'Search:'
+                                sSearch: 'Search:'
 
-                        //     },
-                        // }); 
+                            },
+                        }); 
                         mapContainer.addLayer(posTerpaduClusterGroup);
                         // }, countPosTerpaduDisplay.length * 500);
                     }
@@ -8836,21 +8838,21 @@
                                 mapContainer.flyTo([latitude, longitude], 17);
                             });
                         }
-                        // $(`#datatablePoskoOnDisplay${polda_id}`).DataTable({
-                        //     responsive: true,
+                        $(`#datatablePoskoOnDisplay${polda_id}`).DataTable({
+                            responsive: true,
 
-                        //     scrollX: true,
+                            scrollX: true,
 
-                        //     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                        //     buttons: ["excel", "csv", "pdf"],
-                        //     processing: true,
-                        //     oLanguage: {
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
 
-                        //         sSearch: 'Search:'
+                                sSearch: 'Search:'
 
-                        //     },
-                        // }); 
+                            },
+                        }); 
                         mapContainer.addLayer(poskoClusterGroup);
                         // }, countPoskoDisplay.length * 500);
                     }
@@ -8999,21 +9001,21 @@
                                 mapContainer.flyTo([latitude, longitude], 17);
                             });
                         }
-                        // $(`#datatableSatPjrOnDisplay${polda_id}`).DataTable({
-                        //     responsive: true,
+                        $(`#datatableSatPjrOnDisplay${polda_id}`).DataTable({
+                            responsive: true,
 
-                        //     scrollX: true,
+                            scrollX: true,
 
-                        //     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                        //     buttons: ["excel", "csv", "pdf"],
-                        //     processing: true,
-                        //     oLanguage: {
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
 
-                        //         sSearch: 'Search:'
+                                sSearch: 'Search:'
 
-                        //     },
-                        // }); 
+                            },
+                        }); 
                         mapContainer.addLayer(satPjrClusterGroup);
                         // }, countSatPjrDisplay.length * 500);
                     }
