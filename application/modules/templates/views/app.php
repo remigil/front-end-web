@@ -1239,7 +1239,7 @@
                                     </li> -->
 
                                 <li>
-                                    <a target="_blank" href="https://www.google.com/maps/place/Bali/@-8.6359009,115.1440683,61521m/data=!3m1!1e3!4m5!3m4!1s0x2dd141d3e8100fa1:0x24910fb14b24e690!8m2!3d-8.4095178!4d115.188916">
+                                    <a target="_blank" href="https://www.google.com/maps/@-0.6222779,118.652389,5.34z">
                                         <img src="<?= base_url('assets/sidebar/peta.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">Peta</span>
                                     </a>
@@ -1323,7 +1323,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="http://pjrstream.com/" target="_blank">
+                                    <a href="https://pjrstream.com:8443" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">BODYCAM <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
@@ -1392,7 +1392,7 @@
                                     </a>
                                 </li> -->
                                 <li>
-                                    <a href="https://sot.granddatum.com/user/login" target="_blank">
+                                    <a href="http://sot.sopspolri.id" target="_blank">
                                         <img src="<?= base_url('assets/icon/external/sot_presisi.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">SOT PRESISI</span>
                                     </a>
