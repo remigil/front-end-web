@@ -8154,6 +8154,18 @@
                                                     b: ress
                                                 });
                                                 // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                let noTelpF = ress['officer']['phone_officer'];
+                                                let noDepanF = noTelpF.substring(0, 2);
+                                                if (noDepanF === "62") {
+                                                    noTelpF = noTelpF;
+                                                } else if (noDepanF === "08") {
+                                                    noTelpF = "62" + noTelpF.substring(1);
+                                                } else if (noDepanF === "+6") {
+                                                    noTelpF = noTelpF.substring(1);
+                                                } else {
+                                                    noTelpF = noTelpF;
+                                                }
+
 
                                                 $(`#isiPosyan${ressPosYan[i].id}`).html(`
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
@@ -8162,7 +8174,7 @@
                                                                 <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
                                                                     <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
                                                                     <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
-                                                                    <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officer']['phone_officer']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
+                                                                    <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${noTelpF}" target="_blank"><i class="fa fas fa-phone "></i></a>  
                                                                     <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officer']['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
                                                                 </p>
                                                             </div>
@@ -8315,6 +8327,17 @@
                                                     b: ress
                                                 });
                                                 // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                let noTelpF = ress['officer']['phone_officer'];
+                                                let noDepanF = noTelpF.substring(0, 2);
+                                                if (noDepanF === "62") {
+                                                    noTelpF = noTelpF;
+                                                } else if (noDepanF === "08") {
+                                                    noTelpF = "62" + noTelpF.substring(1);
+                                                } else if (noDepanF === "+6") {
+                                                    noTelpF = noTelpF.substring(1);
+                                                } else {
+                                                    noTelpF = noTelpF;
+                                                }
 
                                                 $(`#isiPosTerpadu${ressPosTerpadu[i].id}`).html(`
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
@@ -8323,7 +8346,7 @@
                                                                 <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
                                                                     <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
                                                                     <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
-                                                                    <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officer']['phone_officer']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
+                                                                    <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${noTelpF}" target="_blank"><i class="fa fas fa-phone "></i></a>  
                                                                     <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officer']['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
                                                                 </p>
                                                             </div>
@@ -8477,6 +8500,17 @@
                                                     b: ress
                                                 });
                                                 // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                let noTelpF = ress['officer']['phone_officer'];
+                                                let noDepanF = noTelpF.substring(0, 2);
+                                                if (noDepanF === "62") {
+                                                    noTelpF = noTelpF;
+                                                } else if (noDepanF === "08") {
+                                                    noTelpF = "62" + noTelpF.substring(1);
+                                                } else if (noDepanF === "+6") {
+                                                    noTelpF = noTelpF.substring(1);
+                                                } else {
+                                                    noTelpF = noTelpF;
+                                                }
 
                                                 $(`#isi${ressPosko[i].id}`).html(`
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
@@ -8485,7 +8519,7 @@
                                                                 <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
                                                                     <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
                                                                     <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
-                                                                    <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officer']['phone_officer']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
+                                                                    <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${noTelpF}" target="_blank"><i class="fa fas fa-phone "></i></a>  
                                                                     <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officer']['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
                                                                 </p>
                                                             </div>
