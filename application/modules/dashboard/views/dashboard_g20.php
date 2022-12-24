@@ -7015,7 +7015,7 @@
                                     var longitudeCCTV = parseFloat(filterCctv[i].lng_cctv);
 
                                     var resource = '';
-                                    if (filterCctv[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv') {
+                                    if (filterCctv[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv' || filterCctv[i].merek_cctv == 'video') {
                                         resource = `<iframe id="myIframe" src="${filterCctv[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
                                     } else {
                                         resource = `<img style="width: 300px;" src="${filterCctv[i].link_cctv}" />`;

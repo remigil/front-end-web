@@ -1739,7 +1739,7 @@
                         var countBali;
 
                         var ressMainCctv = ress.filter(function (e) {
-                            return e.type_cctv == "CCTV";
+                            return e.type_cctv == "CCTV" || e.type_cctv == "cctv";
                         }); 
                         var openCctv = false;
                         var countCctv;

@@ -42,7 +42,7 @@
                 <option value="CCTV RAMP">CCTV RAMP</option>
                 <option value="CCTV ETHLE">CCTV ETHLE</option>
                 <option value="BALISATUDATA">BALI SATU DATA</option>
-                <option value="CCTV">CCTV</option> 
+                <option value="cctv">CCTV</option> 
             </select>
             <label for="kategoriFilter">Filter CCTV</label>
         </div>
@@ -203,11 +203,7 @@
                 dataType : "JSON",
                 success : function(result){  
                     let ressData = result['data'];
-                    if(ressData.length > 0){
-
-                    }else{
-
-                    } 
+                     
                     let ress = ressData.filter(function (e) {
                         return e.lat_cctv != null && e.lng_cctv != null;
                     });   
