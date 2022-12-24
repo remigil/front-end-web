@@ -90,7 +90,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select class="form-select" name="pangkat" id="select2">
+                                    <select class="form-select" name="polda_id" id="select2">
                                         <option <?php echo ($data['getDetail']['data']['polda_id'] == null ? 'selected' : '');?> value="">Pilih Polda</option>
 
                                         <?php foreach($data['getPolda'] as $row): ?>
