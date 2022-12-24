@@ -8595,7 +8595,7 @@
                                         <tr>
                                             <td>${countSatPjrDisplay}</td>
                                             <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressSatPjr[i].id}" target="_blank">${ressSatPjr[i].name_renpam}</a></td> 
-                                            <td>${ressSatPjr[i].title_start != null ? ressSatPjr[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>${ressSatPjr[i].alamat != null ? ressSatPjr[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
                                                     id="flyToMapFilterSatPjr${countSatPjrDisplay}"
@@ -8640,7 +8640,7 @@
                                                     
                                                     <div class="col-md-12 col-12 text-start">
                                                         <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressSatPjr[i].title_start != null ? ressSatPjr[i].title_start.replace(/\n/g, "<br />") : "-"}</p>
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressSatPjr[i].alamat != null ? ressSatPjr[i].alamat.replace(/\n/g, "<br />") : "-"}</p>
                                                     </div>   
 
                                                     <div class="col-md-12 col-12 text-start" id="isi${ressSatPjr[i].id}">
