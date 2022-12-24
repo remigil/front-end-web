@@ -1581,7 +1581,7 @@
         }).addGoogleLayer("TrafficLayer");
 
 
-        var shpFile = new L.Shapefile(`<?php echo base_url(); ?>assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
+        var shpFile = new L.Shapefile(`http://103.163.139.100/assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
             pointToLayer: function(feature, latlng) {
 
                 var smallIcon = new L.divIcon({
