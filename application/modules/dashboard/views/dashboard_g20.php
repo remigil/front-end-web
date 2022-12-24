@@ -7903,7 +7903,7 @@
                                             <td>${ressPosPam[i].alamat != null ? ressPosPam[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
-                                                    id="flyToMapFilterPosPam${countPosPamDisplay}"
+                                                    id="flyToMapFilterPosPam${polda_id}${countPosPamDisplay}"
                                                     data-akun="${ressPosPam[i].accounts}"
                                                     data-cord="${ressPosPam[i].coordinate_guarding.lat},${ressPosPam[i].coordinate_guarding.lng}" 
                                                     href="javascript:void(0)">
@@ -8019,7 +8019,7 @@
 
                         for (let i = 0; i < countPosPamDisplay; i++) {
                             // setTimeout(() => {
-                            $(`#flyToMapFilterPosPam${i+1}`).on("click", function(e) {
+                            $(`#flyToMapFilterPosPam${polda_id}${i+1}`).on("click", function(e) {
                                 var latlong = $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]);
@@ -8082,7 +8082,7 @@
                                             <td>${ressPosYan[i].alamat != null ? ressPosYan[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
-                                                    id="flyToMapFilterPosYan${countPosYanDisplay}"
+                                                    id="flyToMapFilterPosYan${polda_id}${countPosYanDisplay}"
                                                     data-akun="${ressPosYan[i].accounts}"
                                                     data-cord="${ressPosYan[i].coordinate_guarding.lat},${ressPosYan[i].coordinate_guarding.lng}" 
                                                     href="javascript:void(0)">
@@ -8196,7 +8196,7 @@
 
                         // setTimeout(() => {
                         for (let i = 0; i < countPosYanDisplay; i++) {
-                            $(`#flyToMapFilterPosYan${i+1}`).on("click", function(e) {
+                            $(`#flyToMapFilterPosYan${polda_id}${i+1}`).on("click", function(e) {
                                 var latlong = $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]);
@@ -8255,7 +8255,7 @@
                                             <td>${ressPosTerpadu[i].alamat != null ? ressPosTerpadu[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
-                                                    id="flyToMapFilterPosTerpadu${countPosTerpaduDisplay}"
+                                                    id="flyToMapFilterPosTerpadu${polda_id}${countPosTerpaduDisplay}"
                                                     data-akun="${ressPosTerpadu[i].accounts}"
                                                     data-cord="${ressPosTerpadu[i].coordinate_guarding.lat},${ressPosTerpadu[i].coordinate_guarding.lng}" 
                                                     href="javascript:void(0)">
@@ -8368,7 +8368,7 @@
 
                         // setTimeout(() => {
                         for (let i = 0; i < countPosTerpaduDisplay; i++) {
-                            $(`#flyToMapFilterPosTerpadu${i+1}`).on("click", function(e) {
+                            $(`#flyToMapFilterPosTerpadu${polda_id}${i+1}`).on("click", function(e) {
                                 var latlong = $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]);
@@ -8427,7 +8427,7 @@
                                             <td>${ressPosko[i].alamat != null ? ressPosko[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
-                                                    id="flyToMapFilterPosko${countPoskoDisplay}"
+                                                    id="flyToMapFilterPosko${polda_id}${countPoskoDisplay}"
                                                     data-akun="${ressPosko[i].accounts}"
                                                     data-cord="${ressPosko[i].coordinate_guarding.lat},${ressPosko[i].coordinate_guarding.lng}" 
                                                     href="javascript:void(0)">
@@ -8539,7 +8539,7 @@
 
                         // setTimeout(() => {
                         for (let i = 0; i < countPoskoDisplay; i++) {
-                            $(`#flyToMapFilterPosko${i+1}`).on("click", function(e) {
+                            $(`#flyToMapFilterPosko${polda_id}${i+1}`).on("click", function(e) {
                                 var latlong = $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]);
@@ -8598,7 +8598,7 @@
                                             <td>${ressSatPjr[i].alamat != null ? ressSatPjr[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
-                                                    id="flyToMapFilterSatPjr${countSatPjrDisplay}"
+                                                    id="flySatPjr${polda_id}${countSatPjrDisplay}"
                                                     data-akun="${ressSatPjr[i].accounts}"
                                                     data-cord="${ressSatPjr[i].coordinate_guarding.lat},${ressSatPjr[i].coordinate_guarding.lng}" 
                                                     href="javascript:void(0)">
@@ -8713,7 +8713,7 @@
 
                         // setTimeout(() => {
                         for (let i = 0; i < countSatPjrDisplay; i++) {
-                            $(`#flyToMapFilterSatPjr${i+1}`).on("click", function(e) {
+                            $(`#flySatPjr${polda_id}${i+1}`).on("click", function(e) {
                                 var latlong = $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]);
