@@ -5,6 +5,7 @@ class Publikasi extends MX_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->helper('guzzle_request_helper');
     }
 	public function index()
 	{
@@ -23,10 +24,10 @@ class Publikasi extends MX_Controller {
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
 
-		$data['getStakeholder'] = $getStakeholder['data']['data'];
 		$data['title'] = "Konferensi Pers | K3I Korlantas";
 		$data['breadcrumb'] = "konferensi pers";
 		$data['headline'] = "KONFERENSI PERS";
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
 
 		
         

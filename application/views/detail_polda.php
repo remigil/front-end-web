@@ -109,13 +109,13 @@
 </section><!-- End Featured Services Section -->
 
 <section>
-	<div class="container">
+	<div class="container-fluid">
 	<div class="section-title">
       <h2>Peta Lokasi Polres Jajaran <?= $headline ?></h2>
       <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
     </div>
 		<div class="col-md-12 mt-3">
-			<div style="height: 450px;" class="mt-3" id="mapG20Dashboard"></div>
+			<div style="height: 800px;" class="mt-3" id="mapG20Dashboard"></div>
 		
 		</div>
 

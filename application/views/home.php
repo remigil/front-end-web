@@ -27,22 +27,22 @@
 						if (++$i == 7) break;
 					?>
             <!-- Slide 2 -->
-            <div class="carousel-item" style="background-image:url(assets/fe/hero-wall.png)">
-              <div class="carousel-container">
+            <div class="carousel-item" style="background-image:url(assets/fe/hero-wall.png); padding-top:100px">
+              <div class="carousel-container" style="padding-top: 100px;">
                 <div class="carousel-content">
                   <!-- <img src="<?= base_url() ?>assets/logo-nav.png" alt=""> -->
-									<div class="container">
+									<div class="container pt-5">
 										<div class="row">
 											<div class="col-md-5">
 												<div class="news_image">
-													<img width="500"  height="200" src="<?= url_api() ?>news/<?= $key['picture'] ?>" class="img-fluid">
+													<img width="500" src="<?= url_api() ?>news/<?= $key['picture'] ?>" class="img-fluid" style="height:300px">
 												</div>
 												
 											</div>
 											<div class="col-md-7">
-												<h2 class="animate__animated fanimate__adeInDown fs-5" style="text-align: left;color:#fffd51;">berita</h2>
-												<h2 class="animate__animated fanimate__adeInDown fs-2" style="text-align: left;"><?= $key['title'] ?></h2>
-												<p class="animate__animated animate__fadeInUp fs-5" style="text-shadow: 2px 2px #000; text-align:left; width:100% !important"><?= substr($key['content'], 0, 250) . '. . .' ?></p>
+												<h2 class="animate__animated fanimate__adeInDown fs-6" style="text-align: left;color:#fffd51; margin-bottom:10px !important">berita</h2>
+												<h2 class="animate__animated fanimate__adeInDown fs-4" style="text-align: left;"><?= $key['title'] ?></h2>
+												<p class="animate__animated animate__fadeInUp fs-7" style="text-shadow: 2px 2px #000; text-align:left; width:100% !important"><?= substr($key['content'], 0, 250) . '. . .' ?></p>
 												<a href="berita_front/detailberita/<?= $key['id'] ?>" class="btn-get-started animate__animated animate__fadeInUp">Baca Selengkapnya</a>
 	
 											</div>
@@ -74,13 +74,13 @@
 		<div class="container-fluid" style="padding-left: 150px; padding-right:150px">
 			<div class="row shadow mb-5 bg-body rounded">
 	
-				<div class="col-md-1">
+				<div class="col-md-2">
 					<div class="container-fluid">
 						<h4 class="text-black p-2">Informasi</h4>
 					</div>
 	
 				</div>
-				<div class="col-md-11">
+				<div class="col-md-10">
 					<div class="teks-berita">
 						<marquee behavior="" direction="" style="color: white; background-color:#073888;" class="p-2" onMouseOver="this.stop()" onMouseOut="this.start()">
 							SELAMAT DATANG DI PORTAL PUSAT KENDALI KOORDINASI KOMUNIKASI DAN INFORMASI KORLANTAS POLRI
@@ -171,7 +171,7 @@
                 <div class="icon text-center">
                   <iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon>
                 </div>
-                <h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5" style="color:#3b3b3b" target="_blank">SIM Nasional</a></h4>
+                <h4 class="text-center"><a href="#" class="stretched-link fs-5" style="color:#3b3b3b" target="_blank">SIM Nasional</a></h4>
                 <h1 id="sim" class="text-center fw-bold"></h1>
                 <div class="text-center mt-4">
                   <h6>Data Sim s.d </h6>

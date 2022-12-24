@@ -5,6 +5,7 @@ class Kontak extends MX_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->helper('guzzle_request_helper');
     }
 	public function index()
 	{
