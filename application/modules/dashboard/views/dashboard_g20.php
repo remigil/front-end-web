@@ -2286,18 +2286,7 @@
                     var listPosTerpaduPoldaDisplay = '';
                     var listPoskoPoldaDisplay = '';
                     var listSatPjrPoldaDisplay = '';
-
-
-
-
-                    listPoldaPetugasDisplay += `
-                        <div class="col-md-6">
-                            <div class="form-check form-switch mb-3" dir="ltr">
-                                <input type="checkbox" class="form-check-input" id="customSwitchsizesm" checked>
-                                <label class="form-check-label" for="customSwitchsizesm">Small Size Switch</label>
-                            </div>
-                        </div>
-                    `;
+ 
                     
                     for (let i = 0; i < ressData.length; i++) {
 
@@ -4231,7 +4220,7 @@
                 }  
                 
                 
-                console.log({a:iniHasilCariArray, b:arrayFilterPetugas, c:ress.polda_id});
+                console.log({a:iniHasilCariArray, b:arrayFilterPetugas, c:ress.polda_id, d:ress});
                 if(iniHasilCariArray){
                     if (markerArray[ress.id_officer] != null) {
                         console.log(`UPDATE Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle} - ST.PENUMPANG: ${ress.bawa_penumpang}`);
