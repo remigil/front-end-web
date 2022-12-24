@@ -7900,7 +7900,7 @@
                                         <tr>
                                             <td>${countPosPamDisplay}</td>
                                             <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosPam[i].id}" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
-                                            <td>${ressPosPam[i].title_start != null ? ressPosPam[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>${ressPosPam[i].alamat != null ? ressPosPam[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
                                                     id="flyToMapFilterPosPam${countPosPamDisplay}"
@@ -7947,7 +7947,7 @@
                                             
                                                     <div class="col-md-12 col-12 text-start">
                                                         <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].title_start}</p>
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].alamat}</p>
                                                     </div> 
                                                     
                                                     <div class="col-md-12 col-12 text-start" id="isiPospam${ressPosPam[i].id}">
@@ -8079,7 +8079,7 @@
                                         <tr>
                                             <td>${countPosYanDisplay}</td>
                                             <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosYan[i].id}" target="_blank">${ressPosYan[i].name_renpam}</a></td> 
-                                            <td>${ressPosYan[i].title_start != null ? ressPosYan[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>${ressPosYan[i].alamat != null ? ressPosYan[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
                                                     id="flyToMapFilterPosYan${countPosYanDisplay}"
@@ -8124,7 +8124,7 @@
                                             
                                                     <div class="col-md-12 col-12 text-start">
                                                         <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].title_start}</p>
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].alamat}</p>
                                                     </div> 
                                                     <div class="col-md-12 col-12 text-start" id="isiPosyan${ressPosYan[i].id}">
                                                     
@@ -8252,7 +8252,7 @@
                                         <tr>
                                             <td>${countPosTerpaduDisplay}</td>
                                             <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosTerpadu[i].id}" target="_blank">${ressPosTerpadu[i].name_renpam}</a></td> 
-                                            <td>${ressPosTerpadu[i].title_start != null ? ressPosTerpadu[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>${ressPosTerpadu[i].alamat != null ? ressPosTerpadu[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
                                                     id="flyToMapFilterPosTerpadu${countPosTerpaduDisplay}"
@@ -8297,7 +8297,7 @@
                                             
                                                     <div class="col-md-12 col-12 text-start">
                                                         <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosTerpadu[i].title_start}</p>
+                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosTerpadu[i].alamat}</p>
                                                     </div> 
                                                     <div class="col-md-12 col-12 text-start" id="isiPosTerpadu${ressPosPam[i].id}">
                                                     
@@ -8424,7 +8424,7 @@
                                         <tr>
                                             <td>${countPoskoDisplay}</td>
                                             <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosko[i].id}" target="_blank">${ressPosko[i].name_renpam}</a></td> 
-                                            <td>${ressPosko[i].title_start != null ? ressPosko[i].title_start.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>${ressPosko[i].alamat != null ? ressPosko[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
                                                     id="flyToMapFilterPosko${countPoskoDisplay}"
@@ -8468,7 +8468,7 @@
                                             
                                             <div class="col-md-12 col-12 text-start">
                                                 <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                <p style="font-size: 12px; margin-top: -15px;">${ressPosko[i].title_start != null ? ressPosko[i].title_start.replace(/\n/g, "<br />") : "-"}</p>
+                                                <p style="font-size: 12px; margin-top: -15px;">${ressPosko[i].alamat != null ? ressPosko[i].alamat.replace(/\n/g, "<br />") : "-"}</p>
                                             </div>   
 
                                             <div class="col-md-12 col-12 text-start" id="isi${ressPosko[i].id}">
