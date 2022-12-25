@@ -7007,7 +7007,14 @@
                                     if (filterCctv[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv' || filterCctv[i].merek_cctv == 'video') {
                                         resource = `<iframe id="myIframe" src="${filterCctv[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
                                     } else {
-                                        resource = `<img style="width: 300px;" src="${filterCctv[i].link_cctv}" />`;
+                                        resource = `<div>
+                                        <img class="cctv-${filterCctv[i].id}" style="width: 300px;" src="${filterCctv[i].link_cctv}" />
+                                        </div>`;
+                                        window.setInterval(function () {
+                                            var d = new Date();
+                                            console.log("is refresh")
+                                            $(`.cctv-${filterCctv[i].id}`).attr("src", filterCctv[i].link_cctv + d.getTime());
+                                        }, 1000);
                                     }
 
                                     cctvClusterGroup.addLayer(markerCCTV[i] = L.marker([latitudeCCTV, longitudeCCTV], {
@@ -14809,7 +14816,7 @@
 
     }
 
-
+    
     function openNav() {
         document.getElementById("mySidenav").style.width = "50%";
     }
