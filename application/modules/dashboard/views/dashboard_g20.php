@@ -1355,6 +1355,19 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">              
+      <div class="modal-body">
+      <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      	<!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+        <img src="" class="imagepreview" style="width: 100%;" >
+      </div>
+    </div>
+  </div>
+</div>
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 
 <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"></script>
@@ -1411,6 +1424,14 @@
 
 
 <script>
+
+                        $('.pop').on('click', function() {
+                                    console.log("oke")
+			$('.imagepreview').attr('src', $(this).find('img').attr('src'));
+			$('#imagemodal').modal('show');   
+		});		
+
+
     let app_url = '<%-app_url%>'
     let path = '<%-path%>'
 
@@ -9103,7 +9124,7 @@
                                     <div>
                                         <div class="row">
                                             <div class="col-md-12" style="text-align: center;">
-                                                <a href="javascript:void(0);"><img src="<?php echo url_api() ?>/laporan/${filterLaporan[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
+                                                <a href="#" onCLick="$('.imagepreview').attr('src', $(this).find('img').attr('src'));$('#imagemodal').modal('show');"><img src="<?php echo url_api() ?>/laporan/${filterLaporan[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
                                             </div>
                                             <div class="col-md-12" style="text-align: center;">
                                                 ${call_wa_dan_biasa(filterLaporan[i].officer.phone_officer, filterLaporan[i].officer.id, 'encrypt')}
@@ -9144,6 +9165,7 @@
                                                 <span style="font-size: 12px;"> : ${filterLaporan[i].description.replace(/\n/g, "<br />")} </span> 
                                             </div>  
                                         </div> 
+                                      
                                     </div>
                                         
                                 `, {
@@ -9151,6 +9173,8 @@
                                     maxWidth: 560,
                                     width: 400
                                 }));
+        
+                             
                             }
 
 
