@@ -29,7 +29,7 @@
                             <div class="row mb-3">
                                 <div class="col-3"></div>
                                 <div class="col-6">
-                                    <img src=ENV_API_BASE_URL."uploads/laporan/<?= $data['getDetail']['foto']; ?>" class="rounded float-end" style="height:100%; width: 100%;">
+                                    <img src="<?= ENV_API_BASE_URL?>uploads/laporan/<?= $data['getDetail']['foto']; ?>" class="rounded float-end" style="height:100%; width: 100%;">
                                 </div>
                                 <div class="col-3"></div>
                             </div>
