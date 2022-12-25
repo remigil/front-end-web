@@ -692,6 +692,26 @@
                             </div>
                         </div> 
 
+                        <div class="accordion-item" id="clickArteri">
+                            <h2 class="accordion-header" id="flush-heading4">
+                                <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapse7" aria-expanded="false" aria-controls="flush-collapse7">
+                                    CCTV ARTERI &nbsp;<span class="badge bg-danger rounded-pill" id="tlistArteri"></span>
+                                </button>
+                            </h2>
+                            <div id="flush-collapse7" class="accordion-collapse collapse" aria-labelledby="flush-heading4"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body text-muted">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="drag-container" id="listArteri"> 
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
                         <div class="accordion-item" id="clickBaliSatu">
                             <h2 class="accordion-header" id="flush-heading5">
                                 <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
@@ -780,7 +800,8 @@
                                         <option value="CCTV RAMP">CCTV RAMP</option>
                                         <option value="CCTV ETHLE">CCTV ETHLE</option>
                                         <option value="BALISATUDATA">BALI SATU DATA</option>
-                                        <option value="CCTV">CCTV</option> 
+                                        <option value="cctv arteri">CCTV ARTERI</option> 
+                                        <option value="cctv">CCTV</option> 
                                     </select>
                                     <label for="kategoriFilter">Filter CCTV</label>
                                 </div>
@@ -1428,7 +1449,12 @@
                             }else{
                                 resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
                                 <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
-                                <img style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                                <img class="cctv-${filterDummyCCTV[0]['id']}" style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                                window.setInterval(function () {
+                                    var d = new Date();
+                                    console.log("is refresh")
+                                    $(`.cctv-${filterDummyCCTV[0]['id']}`).attr("src", filterDummyCCTV[0]['link_cctv'] + d.getTime());
+                                }, 1000);
                             } 
                         }else{
                             resource = ``;
@@ -1473,7 +1499,12 @@
                             }else{
                                 resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
                                 <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
-                                <img style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                                <img class="cctv-${filterDummyCCTV[0]['id']}" style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                                window.setInterval(function () {
+                                    var d = new Date();
+                                    console.log("is refresh")
+                                    $(`.cctv-${filterDummyCCTV[0]['id']}`).attr("src", filterDummyCCTV[0]['link_cctv'] + d.getTime());
+                                }, 1000);
                             } 
                         }else{
                             resource = ``;
@@ -1518,7 +1549,12 @@
                             }else{
                                 resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
                                 <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
-                                <img style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                                <img class="cctv-${filterDummyCCTV[0]['id']}" style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                                window.setInterval(function () {
+                                    var d = new Date();
+                                    console.log("is refresh")
+                                    $(`.cctv-${filterDummyCCTV[0]['id']}`).attr("src", filterDummyCCTV[0]['link_cctv'] + d.getTime());
+                                }, 1000);
                             } 
                         }else{
                             resource = ``;
@@ -1563,7 +1599,62 @@
                             }else{
                                 resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
                                 <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
-                                <img style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                                <img class="cctv-${filterDummyCCTV[0]['id']}" style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                                window.setInterval(function () {
+                                    var d = new Date();
+                                    console.log("is refresh")
+                                    $(`.cctv-${filterDummyCCTV[0]['id']}`).attr("src", filterDummyCCTV[0]['link_cctv'] + d.getTime());
+                                }, 1000);
+                            } 
+                        }else{
+                            resource = ``;
+                            console.log('Data tidak ada');
+                        }
+                        
+                        switch (type) { 
+                            case "text":
+                                item.innerHTML = `
+                                    ${resource}
+                                `;
+                                $(".taro .drag-item").removeClass("col-md-12");
+                                $(".taro .drag-item").addClass('col-md-4');
+                                break; 
+                            default:
+                                break;
+                        }
+                    }
+                });
+
+                const draggableArteri = new Dragoned(document.querySelector("#listArteri"), {
+                    // draggable:".item",
+                    // handle:".handle",
+                    sort: false,
+                    clone: true,
+                    group: "blocks-group",
+                    onEnd: (data) => {
+                        const { item } = data;
+                        const type = item.dataset.type;
+                        const vms = item.dataset.vms;
+                        const no = item.dataset.no;
+                        var filterDummyCCTV = dummyCCTV.filter(function (e) {
+                                                return e.vms_cctv == vms;
+                                            }); 
+                        // console.log(filterDummyCCTV);
+                        if(filterDummyCCTV.length > 0){
+                            
+                            if(filterDummyCCTV[0]['ip_cctv'] == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <iframe id="myIframe"  src="${filterDummyCCTV[0]['link_cctv']}" style="width: 100%; height: 100%;"   ></iframe>`;
+                            }else{
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <img class="cctv-${filterDummyCCTV[0]['id']}" style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                                window.setInterval(function () {
+                                    var d = new Date();
+                                    console.log("is refresh")
+                                    $(`.cctv-${filterDummyCCTV[0]['id']}`).attr("src", filterDummyCCTV[0]['link_cctv'] + d.getTime());
+                                }, 1000);
                             } 
                         }else{
                             resource = ``;
@@ -1608,7 +1699,12 @@
                             }else{
                                 resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
                                 <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
-                                <img style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                                <img class="cctv-${filterDummyCCTV[0]['id']}" style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                                window.setInterval(function () {
+                                    var d = new Date();
+                                    console.log("is refresh")
+                                    $(`.cctv-${filterDummyCCTV[0]['id']}`).attr("src", filterDummyCCTV[0]['link_cctv'] + d.getTime());
+                                }, 1000);
                             } 
                         }else{
                             resource = ``;
@@ -1653,7 +1749,12 @@
                             }else{
                                 resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
                                 <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
-                                <img style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                                <img class="cctv-${filterDummyCCTV[0]['id']}" style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                                window.setInterval(function () {
+                                    var d = new Date();
+                                    console.log("is refresh")
+                                    $(`.cctv-${filterDummyCCTV[0]['id']}`).attr("src", filterDummyCCTV[0]['link_cctv'] + d.getTime());
+                                }, 1000);
                             } 
                         }else{
                             resource = ``;
@@ -1732,6 +1833,12 @@
                         var openEthle = false;
                         var countEthle;
 
+                        var ressMainArteri = ress.filter(function (e) {
+                            return e.type_cctv == "cctv arteri";
+                        }); 
+                        var openArteri = false;
+                        var countArteri;
+
                         var ressMainBali = ress.filter(function (e) {
                             return e.type_cctv == "BALISATUDATA";
                         }); 
@@ -1744,7 +1851,7 @@
                         var openCctv = false;
                         var countCctv;
 
-                        // console.log(ressMainRoad);
+                      
                         
                         if(ressMainRoad.length > 0){ 
                             if(openMainRoad == false){
@@ -1836,6 +1943,28 @@
                             }
                         }else{
                             $("#tlistRamp").html(``);
+                        }
+
+                        if(ressMainArteri.length > 0){
+                            if(openArteri == false){
+                                // $("#clickArteri").on("click", function (e) { 
+                                    listSideCCTV = '';
+                                    $("#tlistArteri").html(`${ressMainArteri.length}`);
+                                    ressMainArteri.forEach(el => {
+                                        countlistCCTV += 1; 
+
+                                        listSideCCTV += `    
+                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                                <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
+                                            </div>  
+                                        `;
+                                        $("#listArteri").html(listSideCCTV); 
+                                    });   
+                                // });
+                                openArteri = true;
+                            }
+                        }else{
+                            $("#tlistArteri").html(`0`);
                         }
 
                         if(ressMainEthle.length > 0){

@@ -42,6 +42,7 @@
                 <option value="CCTV RAMP">CCTV RAMP</option>
                 <option value="CCTV ETHLE">CCTV ETHLE</option>
                 <option value="BALISATUDATA">BALI SATU DATA</option>
+                <option value="cctv arteri">CCTV ARTERI</option> 
                 <option value="cctv">CCTV</option> 
             </select>
             <label for="kategoriFilter">Filter CCTV</label>
@@ -218,7 +219,12 @@
                             if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
                                 resource = `<iframe id="myIframe" src="${el.link_cctv}" style="width: 230px; height: 250.25px;"></iframe>`;
                             }else{
-                                resource = `<img style="width: 230px;" src="${el.link_cctv}" />`;
+                                resource = `<img class="cctv-${el.id}" style="width: 230px;" src="${el.link_cctv}" />`;
+                                window.setInterval(function () {
+                                    var d = new Date();
+                                    console.log("is refresh")
+                                    $(`.cctv-${el.id}`).attr("src", el.link_cctv + d.getTime());
+                                }, 1000);
                             }
                             countlistCCTV += 1;
                             listCCTV += `
