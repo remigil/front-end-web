@@ -6528,20 +6528,19 @@
             // });
 
 
-          
-            if ($("#cctvDisplay").is(':checked')) {
+            // $("#cctvDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
 
-            }else{ 
-                // for (let i = 0; i < markerCCTV.length; i++) {
-                //     // mapContainer.removeLayer(markerCCTV[i]);
-                //     if (markerCCTV[i]) {
-                //         cctvClusterGroup.removeLayer(markerCCTV[i]);
-                //     }
-                // }
-                // markerCCTV = new Array();
-                mapContainer.removeLayer(geoJsonCctv[0]); 
+            //     }else{ 
+            for (let i = 0; i < markerCCTV.length; i++) {
+                // mapContainer.removeLayer(markerCCTV[i]);
+                if (markerCCTV[i]) {
+                    cctvClusterGroup.removeLayer(markerCCTV[i]);
+                }
             }
-            
+            markerCCTV = new Array();
+            //     }
+            // });
 
 
             // $("#samsatDisplay").on("change", function(e) {
@@ -10847,6 +10846,7 @@
                 openDisplay = '';
                 $("#cctv").prop('checked', false);
                 $("#cctv").val();
+                mapContainer.removeLayer(geoJsonCctv[0]);
             }
             serverSideFilter();
         });
