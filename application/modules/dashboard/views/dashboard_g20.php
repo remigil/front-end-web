@@ -7350,27 +7350,27 @@
                                 $('#totalCctvDisplay').html(filterCctv.length);
 
 
-                                for (let i = 0; i < filterCctv.length; i++) {
-                                        console.log(filterCctv[i].geometry.coordinates.replace(/[/], "'"));
-                                        countCctvDisplay += 1;
-                                        listCctvDisplay += `
-                                            <tr>
-                                                <td>${countCctvDisplay}</td>
-                                                <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].properties.nama}</a></td> 
-                                                <td>${filterCctv[i].properties.merk}</td> 
-                                                <td>
-                                                    <a class="btn" style="margin-top: -10px;"  
-                                                        id="flyToMapFilterCctv${countCctvDisplay}"
-                                                        data-cord="${filterCctv[i].geometry.coordinates.replace(/[/], "'")}" 
-                                                        href="javascript:void(0)">
-                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                    </a> 
-                                                </td>
-                                            </tr>
-                                        `;
-                                        $('#isiModalCctvDisplay').html(listCctvDisplay);
+                                // for (let i = 0; i < filterCctv.length; i++) {
+                                //         console.log(filterCctv[i].geometry.coordinates.replace(/[/], "'"));
+                                //         countCctvDisplay += 1;
+                                //         listCctvDisplay += `
+                                //             <tr>
+                                //                 <td>${countCctvDisplay}</td>
+                                //                 <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].properties.nama}</a></td> 
+                                //                 <td>${filterCctv[i].properties.merk}</td> 
+                                //                 <td>
+                                //                     <a class="btn" style="margin-top: -10px;"  
+                                //                         id="flyToMapFilterCctv${countCctvDisplay}"
+                                //                         data-cord="${filterCctv[i].geometry.coordinates.replace(/[/], "'")}" 
+                                //                         href="javascript:void(0)">
+                                //                         <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                //                     </a> 
+                                //                 </td>
+                                //             </tr>
+                                //         `;
+                                //         $('#isiModalCctvDisplay').html(listCctvDisplay);
   
-                                } 
+                                // } 
                                 for (let i = 0; i < countCctvDisplay; i++) {
                                     // console.log(`${i+1}`);
                                     $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
