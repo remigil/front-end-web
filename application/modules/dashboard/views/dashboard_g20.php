@@ -6528,19 +6528,20 @@
             // });
 
 
-            // $("#cctvDisplay").on("change", function(e) {
-            //     if ($(this).is(':checked')) {
+          
+            if ($("#cctvDisplay").is(':checked')) {
 
-            //     }else{ 
-            for (let i = 0; i < markerCCTV.length; i++) {
-                // mapContainer.removeLayer(markerCCTV[i]);
-                if (markerCCTV[i]) {
-                    cctvClusterGroup.removeLayer(markerCCTV[i]);
-                }
+            }else{ 
+                // for (let i = 0; i < markerCCTV.length; i++) {
+                //     // mapContainer.removeLayer(markerCCTV[i]);
+                //     if (markerCCTV[i]) {
+                //         cctvClusterGroup.removeLayer(markerCCTV[i]);
+                //     }
+                // }
+                // markerCCTV = new Array();
+                mapContainer.removeLayer(geoJsonCctv[0]); 
             }
-            markerCCTV = new Array();
-            //     }
-            // });
+            
 
 
             // $("#samsatDisplay").on("change", function(e) {
@@ -7124,6 +7125,28 @@
                             dataType: "JSON",
                             success: function(result) {
                                 // console.log(result);
+                                // var filterCctv = result.filter(function(e) {
+                                //     return e.lat_cctv != null && e.lng_cctv != null;
+                                // });
+                                // $('#openModalCctvDisplay').html(`
+                                //     <table id="datatableCctvOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                //         <thead>
+                                //             <tr>
+                                //                 <th>No</th>
+                                //                 <th>Type</th> 
+                                //                 <th>Nama</th> 
+                                //                 <th>Aksi</th>
+                                //             </tr>
+                                //         </thead>
+                                //         <tbody id="isiModalCctvDisplay">
+                                //         </tbody>
+                                //     </table>                     
+                                // `);
+                                // var countCctvDisplay = 0;
+                                // var listCctvDisplay = '';
+                                // $('#totalCctvDisplay').html(filterCctv.length);
+
+
                                 const vector = {
                                     'tol': {
                                         'title': 'Jalan Tol',
