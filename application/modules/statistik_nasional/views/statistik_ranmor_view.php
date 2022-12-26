@@ -89,13 +89,37 @@
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class=" modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Surat Tanda Nomor Kendaraan (STNK) hari ini Seluruh Polda</h5>
+                <h5 class="modal-title" id="modalLabelDay">Detail Ranmor Tanggal <?= format_indo(date('Y-m-d'))  ?> Seluruh Polda</h5>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
             </div>
             <div class="modal-body">
                 <div class="container" style="line-height: 0.8;">
+                    <div class="row mb-3">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="start_date_table" id="start_date_table" value="<?= date('Y-m-d'); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="end_date_table" id="end_date_table" value="<?= date('Y-m-d'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('day')">Tampilkan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <table class="table table-bordered table-hover" id="tableLakaDay" style="background:white ">
                         <thead style="background-color:#0007D8; color:#fff; ">
                             <tr class="text-center">
@@ -138,13 +162,37 @@
     <div class=" modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Surat Tanda Nomor Kendaraan (STNK) bulan ini Seluruh Polda</h5>
+                <h5 class="modal-title" id="modalLabelMonth">Detail Ranmor Bulan <?= format_indo(date('Y-m'))  ?> Seluruh Polda</h5>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
             </div>
             <div class="modal-body">
                 <div class="container" style="line-height: 0.8;">
+                    <div class="row mb-3">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="month" name="start_date_table" id="start_date_table_m" value="<?= date('Y-m'); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="month" name="end_date_table" id="end_date_table_m" value="<?= date('Y-m'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('month')">Tampilkan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <table class="table table-bordered table-hover" id="tableLakaMonth" style="background:white ">
                         <thead style="background-color:#0007D8; color:#fff; ">
                             <tr class="text-center">
@@ -185,13 +233,37 @@
     <div class=" modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Surat Tanda Nomor Kendaraan (STNK) tahun ini Seluruh Polda</h5>
+                <h5 class="modal-title" id="modalLabelYear">Detail Ranmor Tahun <?= format_indo(date('Y')) ?> Seluruh Polda</h5>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
             </div>
             <div class="modal-body">
                 <div class="container" style="line-height: 0.8;">
+                    <div class="row mb-3">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="number" name="start_date_table" id="start_date_table_y" value="<?= date('Y'); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="number" name="end_date_table" id="end_date_table_y" value="<?= date('Y'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('year')">Tampilkan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <table class="table table-bordered table-hover" id="tableLakaYear" style="background:white ">
                         <thead style="background-color:#0007D8; color:#fff; ">
                             <tr class="text-center">
@@ -550,7 +622,7 @@ if ($mobile === true) { ?>
             }
         })
 
-        topRanmorDay(yesterday);
+        topRanmorDay(yesterday, yesterday);
         topRanmorMonth(firstDayMonth, lastDayMonth);
         topRanmorYear(firstDay, lastDay);
 
@@ -816,6 +888,29 @@ if ($mobile === true) { ?>
         })
     }
 
+    function ButtonFilterOnTable(type) {
+        let filter = 1;
+        let start_date = '';
+        let end_date = '';
+        if (type === 'day') {
+            start_date = $('#start_date_table').val();
+            end_date = $('#end_date_table').val()
+            topRanmorDay(start_date, end_date);
+            $('#modalLabelDay').text(`Detail Ranmor Tanggal ${moment(start_date).format('DD MM YYYY')} s.d ${moment(end_date).format('DD MM YYYY')} Seluruh Polda`)
+        } else if (type === 'month') {
+            start_date = moment($('#start_date_table_m').val()).startOf('month').format('YYYY-MM-DD');
+            end_date = moment($('#end_date_table_m').val()).endOf('month').format('YYYY-MM-DD')
+            topRanmorMonth(start_date, end_date);
+            $('#modalLabelMonth').text(`Detail Ranmor Bulan ${moment(start_date).format('MM YYYY')} s.d ${moment(end_date).format('MM YYYY')} Seluruh Polda`)
+        } else if (type === 'year') {
+            start_date = moment($('#start_date_table_y').val()).startOf('year').format('YYYY-MM-DD');
+            end_date = moment($('#end_date_table_y').val()).endOf('year').format('YYYY-MM-DD')
+            topRanmorYear(start_date, end_date)
+            $('#modalLabelYear').text(`Detail Ranmor Tahun ${moment(start_date).format('YYYY')} s.d ${moment(end_date).format('YYYY')} Seluruh Polda`)
+        }
+
+    }
+
     function ButtonFilter() {
         let filter = 1;
         let start_date = $('#start_date').val()
@@ -1021,13 +1116,14 @@ if ($mobile === true) { ?>
     }
 
 
-    function topRanmorDay(yesterday) {
+    function topRanmorDay(start_date, end_date) {
         $.ajax({
             type: "POST",
             url: "<?php echo base_url(); ?>executive/statistik_executive/getTopRanmor",
             dataType: "JSON",
             data: {
-                yesterday: yesterday
+                start_date: start_date,
+                end_date: end_date
             },
             success: function(result) {
                 console.log(result);

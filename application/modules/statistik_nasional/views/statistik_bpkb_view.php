@@ -99,13 +99,37 @@
     <div class="modal-dialog modal-xl" role="document" style="min-width:40%;">
         <div class="modal-content">
             <div class=" modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Buku Kepemilikan Kendaraan Bermotor (BPKB) hari ini Seluruh Polda</h5>
+                <h5 class="modal-title" id="modalLabelDay">Detail Buku Kepemilikan Kendaraan Bermotor (BPKB) Tanggal <?= format_indo(date('Y-m-d'))  ?> Seluruh Polda</h5>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
             </div>
             <div class="modal-body">
                 <div style="line-height: 0.8;">
+                    <div class="row mb-3">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="start_date_table" id="start_date_table" value="<?= date('Y-m-d'); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="end_date_table" id="end_date_table" value="<?= date('Y-m-d'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('day')">Tampilkan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <table class="table table-bordered table-hover" id="tableBpkbDay" style="background:white;">
                         <thead>
                             <tr class="text-white" style="background-color: #0007D8;">
@@ -151,13 +175,37 @@
     <div class=" modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Buku Kepemilikan Kendaraan Bermotor (BPKB) bulan ini Seluruh Polda</h5>
+                <h5 class="modal-title" id="modalLabelMonth">Detail Buku Kepemilikan Kendaraan Bermotor (BPKB) Bulan <?= format_indo(date('Y-m'))  ?> Seluruh Polda</h5>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
             </div>
             <div class="modal-body">
                 <div style="line-height: 0.8;">
+                    <div class="row mb-3">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="month" name="start_date_table" id="start_date_table_m" value="<?= date('Y-m'); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="month" name="end_date_table" id="end_date_table_m" value="<?= date('Y-m'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('month')">Tampilkan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <table class="table table-bordered table-hover" id="tableBpkbMonth" style="background:white;">
                         <thead>
                             <tr class="text-white" style="background-color: #0007D8;">
@@ -200,13 +248,37 @@
     <div class=" modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Buku Kepemilikan Kendaraan Bermotor (BPKB) tahun ini Seluruh Polda</h5>
+                <h5 class="modal-title" id="modalLabelYear">Detail Buku Kepemilikan Kendaraan Bermotor (BPKB) Tahun <?= format_indo(date('Y')) ?> Seluruh Polda</h5>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
             </div>
             <div class="modal-body">
                 <div style="line-height: 0.8;">
+                    <div class="row mb-3">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="number" name="start_date_table" id="start_date_table_y" value="<?= date('Y'); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="number" name="end_date_table" id="end_date_table_y" value="<?= date('Y'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('year')">Tampilkan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <table class="table table-bordered table-hover" id="tableBpkbYear" style="background:white;">
                         <thead>
                             <tr class="text-white" style="background-color: #0007D8;">
@@ -540,7 +612,7 @@ if ($mobile === true) { ?>
             }
         })
 
-        topBpkbDay(yesterday);
+        topBpkbDay(yesterday, yesterday);
         topBpkbMonth(firstDayMonth, lastDayMonth);
         topBpkbYear(firstDay, lastDay)
 
@@ -695,6 +767,29 @@ if ($mobile === true) { ?>
 
             }
         })
+    }
+
+    function ButtonFilterOnTable(type) {
+        let filter = 1;
+        let start_date = '';
+        let end_date = '';
+        if (type === 'day') {
+            start_date = $('#start_date_table').val();
+            end_date = $('#end_date_table').val()
+            topBpkbDay(start_date, end_date);
+            $('#modalLabelDay').text(`Detail BPKB Tanggal ${moment(start_date).format('DD MM YYYY')} s.d ${moment(end_date).format('DD MM YYYY')} Seluruh Polda`)
+        } else if (type === 'month') {
+            start_date = moment($('#start_date_table_m').val()).startOf('month').format('YYYY-MM-DD');
+            end_date = moment($('#end_date_table_m').val()).endOf('month').format('YYYY-MM-DD')
+            topBpkbMonth(start_date, end_date);
+            $('#modalLabelMonth').text(`Detail BPKB Bulan ${moment(start_date).format('MM YYYY')} s.d ${moment(end_date).format('MM YYYY')} Seluruh Polda`)
+        } else if (type === 'year') {
+            start_date = moment($('#start_date_table_y').val()).startOf('year').format('YYYY-MM-DD');
+            end_date = moment($('#end_date_table_y').val()).endOf('year').format('YYYY-MM-DD')
+            topBpkbYear(start_date, end_date)
+            $('#modalLabelYear').text(`Detail BPKB Tahun ${moment(start_date).format('YYYY')} s.d ${moment(end_date).format('YYYY')} Seluruh Polda`)
+        }
+
     }
 
 
@@ -957,13 +1052,14 @@ if ($mobile === true) { ?>
         }
     }
 
-    function topBpkbDay(yesterday) {
+    function topBpkbDay(start_date, end_date) {
         $.ajax({
             type: "POST",
             url: "<?php echo base_url(); ?>executive/statistik_executive/getTopBpkb",
             dataType: "JSON",
             data: {
-                yesterday: yesterday
+                start_date: start_date,
+                end_date: end_date
             },
             success: function(result) {
                 $("#overlay").fadeOut(300);

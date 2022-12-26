@@ -1108,8 +1108,11 @@ class Statistik_executive extends MY_Controller
 
     public function getTopSim()
     {
-        $yesterday = $this->input->post('yesterday');
-        $url = 'sim/daily?date=' . $yesterday . '&topPolda=true';
+        // $yesterday = $this->input->post('yesterday');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        // $url = 'garlantas/daily?date=' . $yesterday . '&topPolda=true';
+        $url = 'sim/daily?filter=true&start_date=' . $start_date . '&end_date=' . $end_date . '&topPolda=true';
         $simTopPolda = guzzle_request('GET', $url, [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
@@ -1472,8 +1475,11 @@ class Statistik_executive extends MY_Controller
 
     public function getTopStnk()
     {
-        $yesterday = $this->input->post('yesterday');
-        $url = 'stnk/daily?date=' . $yesterday . '&topPolda=true';
+        // $yesterday = $this->input->post('yesterday');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        // $url = 'garlantas/daily?date=' . $yesterday . '&topPolda=true';
+        $url = 'stnk/daily?filter=true&start_date=' . $start_date . '&end_date=' . $end_date . '&topPolda=true';
         $lakaTopPolda = guzzle_request('GET', $url, [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
@@ -1739,8 +1745,11 @@ class Statistik_executive extends MY_Controller
 
     public function getTopBpkb()
     {
-        $yesterday = $this->input->post('yesterday');
-        $url = 'bpkb/daily?date=' . $yesterday . '&topPolda=true';
+        // $yesterday = $this->input->post('yesterday');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        // $url = 'garlantas/daily?date=' . $yesterday . '&topPolda=true';
+        $url = 'bpkb/daily?filter=true&start_date=' . $start_date . '&end_date=' . $end_date . '&topPolda=true';
         $lakaTopPolda = guzzle_request('GET', $url, [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
@@ -2311,8 +2320,10 @@ class Statistik_executive extends MY_Controller
     }
     public function getTopRanmor()
     {
-        $yesterday = $this->input->post('yesterday');
-        $url = 'ranmor/daily?date=' . $yesterday . '&topPolda=true';
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        // $url = 'garlantas/daily?date=' . $yesterday . '&topPolda=true';
+        $url = 'ranmor/daily?filter=true&start_date=' . $start_date . '&end_date=' . $end_date . '&topPolda=true';
         $lakaTopPolda = guzzle_request('GET', $url, [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
@@ -3025,7 +3036,7 @@ class Statistik_executive extends MY_Controller
 
         $url_thisDay = 'stnk/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
         $url_thisMonth = 'stnk/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
-        $url_thisYear = 'stnk/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+        $url_thisYear = 'stnk/date?type=year&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
 
 
         $thisDay = guzzle_request('GET', $url_thisDay, [
@@ -3045,6 +3056,7 @@ class Statistik_executive extends MY_Controller
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
+
 
         $totalDay = 0;
         $totalMonth = 0;
@@ -3107,8 +3119,6 @@ class Statistik_executive extends MY_Controller
         array_pop($dataYear);
 
 
-
-
         for ($i = 0; $i < count($dataDay); $i++) {
             $totalDay += $dataDay[$i];
         }
@@ -3120,12 +3130,12 @@ class Statistik_executive extends MY_Controller
         }
 
         $data['stnkDate'] = [
-            'thisDay' => number_format($totalDay),
-            'detailsthisDay' => $thisDay['data'][0],
-            'thisMonth' => number_format($totalMonth),
-            'detailsthisMonth' => $thisMonth['data'][0],
-            'thisYear' => number_format($totalYear),
-            'detailsthisYear' => $data['thisYear'],
+            'thisDay' => number_format($thisDay['data'][0]['total']),
+            // 'detailsthisDay' => $thisDay['data'][0],
+            'thisMonth' => number_format($thisMonth['data'][0]['total']),
+            // 'detailsthisMonth' => $thisMonth['data'][0],
+            'thisYear' => number_format($thisYear['data'][0]['total']),
+            // 'detailsthisYear' => $data['thisYear'],
             // 'thisYear' => $data['thisYear']
         ];
 

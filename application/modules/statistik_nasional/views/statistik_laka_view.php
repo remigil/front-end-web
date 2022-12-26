@@ -212,7 +212,7 @@
      <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
          <div class="modal-content">
              <div class=" modal-header">
-                 <h5 class="modal-title" id="modalLabelMonth">Detail Kecelakaan bulan <?= format_indo(date('Y-m'))  ?> Seluruh Polda</h5>
+                 <h5 class="modal-title" id="modalLabelMonth">Detail Kecelakaan Bulan <?= format_indo(date('Y-m'))  ?> Seluruh Polda</h5>
                  <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
@@ -281,7 +281,7 @@
      <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
          <div class="modal-content">
              <div class=" modal-header">
-                 <h5 class="modal-title" id="modalLabelYear">Detail Kecelakaan tahun <?= format_indo(date('Y')) ?> Seluruh Polda</h5>
+                 <h5 class="modal-title" id="modalLabelYear">Detail Kecelakaan Tahun <?= format_indo(date('Y')) ?> Seluruh Polda</h5>
                  <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
