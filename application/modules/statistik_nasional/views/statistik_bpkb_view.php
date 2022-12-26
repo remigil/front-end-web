@@ -510,29 +510,43 @@ if ($mobile === true) { ?>
 
                 let polda_id = result.data.polda_id
                 let polda_name = result.data.polda_name
-                let polda_baru = result.data.polda_baru
-                let polda_perpanjangan = result.data.polda_perpanjangan
-                let polda_rubentina = result.data.polda_rubentina
+                // let polda_baru = result.data.polda_baru
+                // let polda_perpanjangan = result.data.polda_perpanjangan
+                // let polda_rubentina = result.data.polda_rubentina
                 // Chart Kecelakaan Lalu Lintas
 
                 // chart laka
                 var chart = {
                     series: [{
-                        name: '<h6>BPKB Baru</h6>',
-                        type: 'column',
-                        data: polda_baru,
-                        color: "#11347A"
-                    }, {
-                        name: '<h6>BPKB Perpanjang</h6>',
-                        type: 'column',
-                        data: polda_perpanjangan,
-                        color: "#3CA55C"
-                    }, {
-                        name: '<h6>BPKB Rubentina</h6>',
-                        type: 'column',
-                        data: polda_rubentina,
-                        color: "#E8D42F"
-                    }, ],
+                            name: '<h6>BBN 1</h6>',
+                            type: 'column',
+                            data: result.data.polda_bbn_1,
+                            color: "#11347A"
+                        }, {
+                            name: '<h6>BBN 2</h6>',
+                            type: 'column',
+                            data: result.data.polda_bbn_2,
+                            color: "#3CA55C"
+                        }, {
+                            name: '<h6>Mutasi Masuk</h6>',
+                            type: 'column',
+                            data: result.data.polda_mutasi_masuk,
+                            color: "#E8D42F"
+                        },
+                        {
+                            name: '<h6>Mutasi Keluar</h6>',
+                            type: 'column',
+                            data: result.data.polda_mutasi_keluar,
+                            color: "#a85e32"
+                        },
+                        {
+                            name: '<h6>Perubahan dan Pergantian</h6>',
+                            type: 'column',
+                            data: result.data.polda_perubahan_pergantian,
+                            color: "#a83281"
+                        },
+
+                    ],
                     chart: {
                         height: '400',
                         type: 'line',
@@ -643,29 +657,42 @@ if ($mobile === true) { ?>
 
                 let polda_id = result.data.polda_id
                 let polda_name = result.data.polda_name
-                let polda_baru = result.data.polda_baru
-                let polda_perpanjangan = result.data.polda_perpanjangan
-                let polda_rubentina = result.data.polda_rubentina
+                // let polda_baru = result.data.polda_baru
+                // let polda_perpanjangan = result.data.polda_perpanjangan
+                // let polda_rubentina = result.data.polda_rubentina
                 // Chart Kecelakaan Lalu Lintas
 
                 // chart laka
                 var chart = {
                     series: [{
-                        name: '<h6>BPKB Baru</h6>',
-                        type: 'column',
-                        data: polda_baru,
-                        color: "#11347A"
-                    }, {
-                        name: '<h6>BPKB Perpanjangan</h6>',
-                        type: 'column',
-                        data: polda_perpanjangan,
-                        color: "#3CA55C"
-                    }, {
-                        name: '<h6>BPKB Rubentina</h6>',
-                        type: 'column',
-                        data: polda_rubentina,
-                        color: "#E8D42F"
-                    }, ],
+                            name: '<h6>BBN 1</h6>',
+                            type: 'column',
+                            data: result.data.polda_bbn_1,
+                            color: "#11347A"
+                        }, {
+                            name: '<h6>BBN 2</h6>',
+                            type: 'column',
+                            data: result.data.polda_bbn_2,
+                            color: "#3CA55C"
+                        }, {
+                            name: '<h6>Mutasi Masuk</h6>',
+                            type: 'column',
+                            data: result.data.polda_mutasi_masuk,
+                            color: "#E8D42F"
+                        },
+                        {
+                            name: '<h6>Mutasi Keluar</h6>',
+                            type: 'column',
+                            data: result.data.polda_mutasi_keluar,
+                            color: "#a85e32"
+                        },
+                        {
+                            name: '<h6>Perubahan dan Pergantian</h6>',
+                            type: 'column',
+                            data: result.data.polda_perubahan_pergantian,
+                            color: "#a83281"
+                        },
+                    ],
                     chart: {
                         height: '400',
                         type: 'line',
@@ -834,27 +861,40 @@ if ($mobile === true) { ?>
 
                     let polda_id = result.data.polda_id
                     let polda_name = result.data.polda_name
-                    let polda_baru = result.data.polda_baru
-                    let polda_perpanjangan = result.data.polda_perpanjangan
-                    let polda_rubentina = result.data.polda_rubentina
+                    // let polda_baru = result.data.polda_baru
+                    // let polda_perpanjangan = result.data.polda_perpanjangan
+                    // let polda_rubentina = result.data.polda_rubentina
 
                     var chart = {
                         series: [{
-                            name: '<h6>BPKB Baru</h6>',
-                            type: 'column',
-                            data: polda_baru,
-                            color: "#11347A"
-                        }, {
-                            name: '<h6>BPKB Perpanjangan</h6>',
-                            type: 'column',
-                            data: polda_perpanjangan,
-                            color: "#3CA55C"
-                        }, {
-                            name: '<h6>BPKB Rubentina</h6>',
-                            type: 'column',
-                            data: polda_rubentina,
-                            color: "#E8D42F"
-                        }, ],
+                                name: '<h6>BBN 1</h6>',
+                                type: 'column',
+                                data: result.data.polda_bbn_1,
+                                color: "#11347A"
+                            }, {
+                                name: '<h6>BBN 2</h6>',
+                                type: 'column',
+                                data: result.data.polda_bbn_2,
+                                color: "#3CA55C"
+                            }, {
+                                name: '<h6>Mutasi Masuk</h6>',
+                                type: 'column',
+                                data: result.data.polda_mutasi_masuk,
+                                color: "#E8D42F"
+                            },
+                            {
+                                name: '<h6>Mutasi Keluar</h6>',
+                                type: 'column',
+                                data: result.data.polda_mutasi_keluar,
+                                color: "#a85e32"
+                            },
+                            {
+                                name: '<h6>Perubahan dan Pergantian</h6>',
+                                type: 'column',
+                                data: result.data.polda_perubahan_pergantian,
+                                color: "#a83281"
+                            },
+                        ],
                         chart: {
                             height: '400',
                             type: 'line',
@@ -954,21 +994,34 @@ if ($mobile === true) { ?>
 
                 var chart2 = {
                     series: [{
-                        name: '<h6>BPKB Baru</h6>',
-                        type: 'line',
-                        data: result.data.polda_baru,
-                        color: "#11347A"
-                    }, {
-                        name: '<h6>BPKB Perpanjangan</h6>',
-                        type: 'line',
-                        data: result.data.polda_perpanjangan,
-                        color: "#3CA55C"
-                    }, {
-                        name: '<h6>BPKB Rubentina</h6>',
-                        type: 'line',
-                        data: result.data.polda_rubentina,
-                        color: "#E8D42F"
-                    }, ],
+                            name: '<h6>BBN 1</h6>',
+                            type: 'line',
+                            data: result.data.polda_bbn_1,
+                            color: "#11347A"
+                        }, {
+                            name: '<h6>BBN 2</h6>',
+                            type: 'line',
+                            data: result.data.polda_bbn_2,
+                            color: "#3CA55C"
+                        }, {
+                            name: '<h6>Mutasi Masuk</h6>',
+                            type: 'line',
+                            data: result.data.polda_mutasi_masuk,
+                            color: "#E8D42F"
+                        },
+                        {
+                            name: '<h6>Mutasi Keluar</h6>',
+                            type: 'line',
+                            data: result.data.polda_mutasi_keluar,
+                            color: "#a85e32"
+                        },
+                        {
+                            name: '<h6>Perubahan dan Pergantian</h6>',
+                            type: 'line',
+                            data: result.data.polda_perubahan_pergantian,
+                            color: "#a83281"
+                        },
+                    ],
                     chart: {
                         height: 400,
                         type: 'line',
@@ -991,13 +1044,7 @@ if ($mobile === true) { ?>
                         },
                         offsetY: -15
                     },
-                    markers: {
-                        size: 4,
-                        colors: '#kkk',
-                        fillOpacity: 0.9,
-                        shape: "circle",
-                        radius: 2,
-                    },
+
                     xaxis: {
                         categories: result.data.polda_name,
                         labels: {

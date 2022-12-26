@@ -780,16 +780,20 @@ class M_detail_statistik extends CI_Model
         foreach ($bpkbnasional['data']['rows'] as $key) {
             $poldaID[] = $key['id'];
             $poldaName[] = $key['name_polda'];
-            $polda_baru[] = $key['baru'];
-            $polda_perpanjangan[] = $key['perpanjangan'];
-            $polda_rubentina[] = $key['rubentina'];
+            $polda_bbn_1[] = $key['bbn_1'];
+            $polda_bbn_2[] = $key['bbn_2'];
+            $polda_mutasi_masuk[] = $key['mutasi_masuk'];
+            $polda_mutasi_keluar[] = $key['mutasi_keluar'];
+            $polda_perubahan_pergantian[] = $key['perubahan_pergantian'];
         }
         return [
             'polda_id' => $poldaID,
             'polda_name' => $poldaName,
-            'polda_baru' => $polda_baru,
-            'polda_perpanjangan' => $polda_perpanjangan,
-            'polda_rubentina' => $polda_rubentina,
+            'polda_bbn_1' => $polda_bbn_1,
+            'polda_bbn_2' => $polda_bbn_2,
+            'polda_mutasi_masuk' => $polda_mutasi_masuk,
+            'polda_mutasi_keluar' => $polda_mutasi_keluar,
+            'polda_perubahan_pergantian' => $polda_perubahan_pergantian,
         ];
     }
 
@@ -818,16 +822,20 @@ class M_detail_statistik extends CI_Model
         $polda_rubentina = array();
         foreach ($lakalantasnasional['data'] as $key) {
             $polda_date[] = $key['date'];
-            $polda_baru[] = $key['baru'];
-            $polda_perpanjangan[] = $key['perpanjangan'];
-            $polda_rubentina[] = $key['rubentina'];
+            $polda_bbn_1[] = $key['bbn_1'];
+            $polda_bbn_2[] = $key['bbn_2'];
+            $polda_mutasi_masuk[] = $key['mutasi_masuk'];
+            $polda_mutasi_keluar[] = $key['mutasi_keluar'];
+            $polda_perubahan_pergantian[] = $key['perubahan_pergantian'];
         }
 
         return [
             'polda_name' => $polda_date,
-            'polda_baru' => $polda_baru,
-            'polda_perpanjangan' => $polda_perpanjangan,
-            'polda_rubentina' => $polda_rubentina,
+            'polda_bbn_1' => $polda_bbn_1,
+            'polda_bbn_2' => $polda_bbn_2,
+            'polda_mutasi_masuk' => $polda_mutasi_masuk,
+            'polda_mutasi_keluar' => $polda_mutasi_keluar,
+            'polda_perubahan_pergantian' => $polda_perubahan_pergantian,
         ];
     }
     // END BPKB
