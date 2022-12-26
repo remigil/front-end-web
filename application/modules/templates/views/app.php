@@ -2753,6 +2753,9 @@
             <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/labels.js"></script>
 
             <script src="<?php echo base_url(); ?>assets/admin/js/leaflet.shpfile.js"></script>
+            <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/js/leaflet.ajax.js"></script>
+
+
             <script src="<?php echo base_url(); ?>assets/admin/js/shp.js"></script>
 
             <script src="https://unpkg.com/supercluster@7.1.2/dist/supercluster.min.js"></script>
