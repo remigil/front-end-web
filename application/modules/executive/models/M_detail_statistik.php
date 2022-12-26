@@ -36,6 +36,13 @@ class M_detail_statistik extends CI_Model
         $polda_kerugian_material = array();
         $polda_insiden_kecelakaan = array();
         $polda_jumlah = array();
+
+        $insiden_kecelakaan = 0;
+        $kerugian_material = 0;
+        $luka_berat = 0;
+        $luka_ringan = 0;
+        $meninggal_dunia = 0;
+        $total = 0;
         foreach ($lakalantasnasional['data']['rows'] as $key) {
             $poldaID[] = $key['id'];
             $poldaName[] = $key['name_polda'];
@@ -45,6 +52,13 @@ class M_detail_statistik extends CI_Model
             $polda_kerugian_material[] = $key['kerugian_material'];
             $polda_insiden_kecelakaan[] = $key['insiden_kecelakaan'];
             $polda_jumlah[] = $key['total'];
+
+            $insiden_kecelakaan += $key['insiden_kecelakaan'];
+            $kerugian_material += $key['kerugian_material'];
+            $luka_berat += $key['luka_berat'];
+            $luka_ringan += $key['luka_ringan'];
+            $meninggal_dunia += $key['meninggal_dunia'];
+            $total += $key['total'];
         }
 
 
@@ -58,6 +72,17 @@ class M_detail_statistik extends CI_Model
             'polda_kerugian_material' => $polda_kerugian_material,
             'insiden_kecelakaan' => $polda_insiden_kecelakaan,
             'polda_jumlah' => $polda_jumlah,
+
+            'total_insiden_kecelakaan' => number_format($insiden_kecelakaan),
+            'total_kerugian_material' => number_format($kerugian_material),
+            'total_luka_berat' => number_format($luka_berat),
+            'total_luka_ringan' => number_format($luka_ringan),
+            'total_meninggal_dunia' => number_format($meninggal_dunia),
+            'total' => number_format($total),
+
+            'start_date' => format_indo($filterbaru['start_date']),
+            'end_date' => format_indo($filterbaru['end_date'])
+
         ];
     }
 
@@ -461,7 +486,7 @@ class M_detail_statistik extends CI_Model
             $polda_pengaturan[] = $key['pengaturan'];
             $polda_penjagaan[] = $key['penjagaan'];
             $polda_pengawalan[] = $key['pengawalan'];
-            $polda_patroi[] = $key['patroli'];
+            $polda_patroli[] = $key['patroli'];
         }
 
         return [

@@ -136,9 +136,9 @@ class Statistik_executive extends MY_Controller
         $firstDay = $this->input->post('firstDay');
         $lastDay = $this->input->post('lastDay');
 
-        $url_thisDay = 'laka_lantas/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
-        $url_thisMonth = 'laka_lantas/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
-        $url_thisYear = 'laka_lantas/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+        $url_thisDay = 'turjagwali/daily?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'turjagwali/daily?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'turjagwali/daily?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
 
 
         $thisDay = guzzle_request('GET', $url_thisDay, [
@@ -158,41 +158,87 @@ class Statistik_executive extends MY_Controller
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
-        $insiden_kecelakaan = 0;
-        $luka_ringan = 0;
-        $luka_berat = 0;
-        $meninggal_dunia = 0;
-        foreach ($thisYear['data'] as $key) {
-            $insiden_kecelakaan += $key['insiden_kecelakaan'];
-            $luka_ringan += $key['luka_ringan'];
-            $luka_berat += $key['luka_berat'];
-            $meninggal_dunia  += $key['meninggal_dunia'];
+
+        $thisDayTUR = 0;
+        $thisDayJAG = 0;
+        $thisDayWAL = 0;
+        $thisDayLI = 0;
+        $thisDayTL = 0;
+        foreach ($thisDay['data']['rows'] as $key) {
+            $thisDayTUR += $key['pengaturan'];
+            $thisDayJAG += $key['penjagaan'];
+            $thisDayWAL += $key['pengawalan'];
+            $thisDayLI  += $key['patroli'];
+            $thisDayTL  += $key['total'];
+        }
+
+        $data['thisDay'] = [
+            'pengaturan' => $thisDayTUR,
+            'penjagaan' => $thisDayJAG,
+            'pengawalan' => $thisDayWAL,
+            'patroli' => $thisDayLI,
+            'total' => $thisDayTL,
+        ];
+        $thisMonthTUR = 0;
+        $thisMonthJAG = 0;
+        $thisMonthWAL = 0;
+        $thisMonthLI = 0;
+        $thisMonthTL = 0;
+        foreach ($thisMonth['data']['rows'] as $key) {
+            $thisMonthTUR += $key['pengaturan'];
+            $thisMonthJAG += $key['penjagaan'];
+            $thisMonthWAL += $key['pengawalan'];
+            $thisMonthLI += $key['patroli'];
+            $thisMonthTL  += $key['total'];
+        }
+
+        $data['thisMonth'] = [
+            'pengaturan' => $thisMonthTUR,
+            'penjagaan' => $thisMonthJAG,
+            'pengawalan' => $thisMonthWAL,
+            'patroli' => $thisMonthLI,
+            'total' => $thisMonthTL,
+        ];
+        $thisYearTUR = 0;
+        $thisYearJAG = 0;
+        $thisYearWAL = 0;
+        $thisYearLI = 0;
+        $thisYearTL = 0;
+        foreach ($thisYear['data']['rows'] as $key) {
+            $thisYearTUR += $key['pengaturan'];
+            $thisYearJAG += $key['penjagaan'];
+            $thisYearWAL += $key['pengawalan'];
+            $thisYearLI  += $key['patroli'];
+            $thisYearTL  += $key['total'];
         }
 
         $data['thisYear'] = [
-            'insiden_kecelakaan' => $insiden_kecelakaan,
-            'luka_ringan' => $luka_ringan,
-            'luka_berat' => $luka_berat,
-            'meninggal_dunia' => $meninggal_dunia
+            'pengaturan' => $thisYearTUR,
+            'penjagaan' => $thisYearJAG,
+            'pengawalan' => $thisYearWAL,
+            'patroli' => $thisYearLI,
+            'total' => $thisYearTL,
         ];
 
-        $data['lakaDate'] = [
-            'thisDay' => number_format($thisDay['data'][0]['insiden_kecelakaan']),
-            'thisDayLR' => number_format($thisDay['data'][0]['luka_ringan']),
-            'thisDayLB' => number_format($thisDay['data'][0]['luka_berat']),
-            'thisDayMD' => number_format($thisDay['data'][0]['meninggal_dunia']),
-            'thisMonth' => number_format($thisMonth['data'][0]['insiden_kecelakaan']),
-            'thisMonthLR' => number_format($thisMonth['data'][0]['luka_ringan']),
-            'thisMonthLB' => number_format($thisMonth['data'][0]['luka_berat']),
-            'thisMonthMD' => number_format($thisMonth['data'][0]['meninggal_dunia']),
-            'thisYear' => number_format($insiden_kecelakaan),
-            'thisYearLR' => number_format($luka_ringan),
-            'thisYearLB' => number_format($luka_berat),
-            'thisYearMD' => number_format($meninggal_dunia)
-
+        $data['TurjagwaliDate'] = [
+            'thisDayTotal' => number_format($data['thisDay']['total']),
+            'thisDayTUR' => number_format($data['thisDay']['pengaturan']),
+            'thisDayJAG' => number_format($data['thisDay']['penjagaan']),
+            'thisDayWAL' => number_format($data['thisDay']['pengawalan']),
+            'thisDayLI' => number_format($data['thisDay']['patroli']),
+            'thisMonthTotal' => number_format($data['thisMonth']['total']),
+            'thisMonthTUR' => number_format($data['thisMonth']['pengaturan']),
+            'thisMonthJAG' => number_format($data['thisMonth']['penjagaan']),
+            'thisMonthWAL' => number_format($data['thisMonth']['pengawalan']),
+            'thisMonthLI' => number_format($data['thisMonth']['patroli']),
+            'thisYearTotal' => number_format($data['thisYear']['total']),
+            'thisYearTUR' => number_format($data['thisYear']['pengaturan']),
+            'thisYearJAG' => number_format($data['thisYear']['penjagaan']),
+            'thisYearWAL' => number_format($data['thisYear']['pengawalan']),
+            'thisYearLI' => number_format($data['thisYear']['patroli']),
         ];
 
-        echo json_encode($data['lakaDate']);
+        echo json_encode($data['TurjagwaliDate']);
     }
     public function getDetailStatistikLakaLantas()
     {
@@ -295,8 +341,12 @@ class Statistik_executive extends MY_Controller
     }
     public function getTopLaka()
     {
-        $yesterday = $this->input->post('yesterday');
-        $url = 'laka_lantas/daily?date=' . $yesterday . '&topPolda=true';
+        // $yesterday = $this->input->post('yesterday');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $url = 'laka_lantas/daily?filter=true&start_date=' . $start_date . '&end_date=' . $end_date . '&topPolda=true';
+        // $url = 'laka_lantas/daily?date=' . $yesterday . '&topPolda=true';
         $lakaTopPolda = guzzle_request('GET', $url, [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
@@ -324,6 +374,8 @@ class Statistik_executive extends MY_Controller
             'luka_berat' => number_format($luka_berat),
             'luka_ringan' => number_format($luka_ringan),
             'meninggal_dunia' => number_format($meninggal_dunia),
+            'start_date' => format_indo($start_date),
+            'end_date' => format_indo($end_date),
             'total' => number_format($total)
         ];
 
@@ -644,8 +696,12 @@ class Statistik_executive extends MY_Controller
 
     public function getTopGarlantas()
     {
-        $yesterday = $this->input->post('yesterday');
-        $url = 'garlantas/daily?date=' . $yesterday . '&topPolda=true';
+        // $yesterday = $this->input->post('yesterday');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        // $url = 'garlantas/daily?date=' . $yesterday . '&topPolda=true';
+        $url = 'garlantas/daily?filter=true&start_date=' . $start_date . '&end_date=' . $end_date . '&topPolda=true';
+
         $garlantasTopPolda = guzzle_request('GET', $url, [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
@@ -672,6 +728,8 @@ class Statistik_executive extends MY_Controller
             'pelanggaran_sedang' => number_format($pelanggaran_sedang),
             'pelanggaran_ringan' => number_format($pelanggaran_ringan),
             'teguran' => number_format($teguran),
+            'start_date' => format_indo($start_date),
+            'end_date' => format_indo($end_date),
             'total' => number_format($total)
         ];
         echo json_encode($data);
@@ -846,8 +904,13 @@ class Statistik_executive extends MY_Controller
     }
     public function getTopTurjagwali()
     {
-        $yesterday = $this->input->post('yesterday');
-        $url = 'turjagwali/daily?date=' . $yesterday . '&topPolda=true';
+        // $yesterday = $this->input->post('yesterday');
+        // $url = 'turjagwali/daily?date=' . $yesterday . '&topPolda=true';
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $url = 'turjagwali/daily?filter=true&start_date=' . $start_date . '&end_date=' . $end_date . '&topPolda=true';
+
         $turjagwaliTopPolda = guzzle_request('GET', $url, [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
@@ -873,7 +936,10 @@ class Statistik_executive extends MY_Controller
             'penjagaan' => number_format($penjagaan),
             'pengawalan' => number_format($pengawalan),
             'patroli' => number_format($patroli),
-            'total' => number_format($total)
+            'total' => number_format($total),
+
+            'start_date' => format_indo($start_date),
+            'end_date' => format_indo($end_date)
         ];
         echo json_encode($data);
     }

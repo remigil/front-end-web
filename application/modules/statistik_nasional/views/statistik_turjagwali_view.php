@@ -11,10 +11,10 @@
 
     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
         <div class="row m-2">
-            <div class="col-sm-4 col-md-5 align-self-center">
+            <div class="col-sm-4 col-md-3 align-self-center">
                 <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">Turjagwali <span style="color:#000;">Nasional</span></span> </h2>
             </div>
-            <div class="col-sm-8 col-md-7">
+            <div class="col-sm-8 col-md-9">
                 <div class="row m-2">
                     <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
@@ -26,6 +26,22 @@
                                     <div class="col-md-5 float-end">
                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="turjagwaliThisDay"></h1>
                                         <p class="text-center mb-0">Kegiatan</p>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-3 ms-n1">
+                                                <span class="fw-bold">TR : <span class="text-danger" style="padding:5px" id="turjagwaliThisDayTR"></span></span>
+                                            </div>
+                                            <div class="col-md-3 ms-n1">
+                                                <span class="fw-bold">PJ : <span class="text-warning" style="padding:5px" id="turjagwaliThisDayPJ"></span></span>
+                                            </div>
+                                            <div class="col-md-3 ms-n1">
+                                                <span class="fw-bold">PW : <span class="text-success" style="padding:5px" id="turjagwaliThisDayPW"></span></span>
+                                            </div>
+                                            <div class="col-md-3 ms-n1">
+                                                <span class="fw-bold">PT : <span class="text-primary" style="padding:5px" id="turjagwaliThisDayPT"></span></span>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-md-12 ms-3">
                                         <div class="row">
@@ -51,6 +67,22 @@
                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="turjagwaliThisMonth"></h1>
                                         <p class="text-center mb-0">Kegiatan</p>
                                     </div>
+                                    <div class="col-md-12 ">
+                                        <div class="row">
+                                            <div class="col-md-3 ms-n1">
+                                                <span class="fw-bold">TR : <span class="text-danger" style="padding:5px" id="turjagwaliThisMonthTR"></span></span>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="fw-bold">PJ : <span class="text-warning" style="padding:5px" id="turjagwaliThisMonthPJ"></span></span>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="fw-bold">PW : <span class="text-success" style="padding:5px" id="turjagwaliThisMonthPW"></span></span>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="fw-bold">PT : <span class="text-primary" style="padding:5px" id="turjagwaliThisMonthPT"></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-md-12 ms-3">
                                         <div class="row">
                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
@@ -75,6 +107,22 @@
                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="turjagwaliThisYear"></h1>
                                         <p class="text-center mb-0">Kegiatan</p>
                                     </div>
+                                    <div class="col-md-12 ">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <span class="fw-bold">TR : <span class="text-danger" style="padding:5px" id="turjagwaliThisYearTR"></span></span>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="fw-bold">PJ : <span class="text-warning" style="padding:5px" id="turjagwaliThisYearPJ"></span></span>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="fw-bold">PW : <span class="text-success" style="padding:5px" id="turjagwaliThisYearPW"></span></span>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="fw-bold">PT : <span class="text-primary" style="padding:5px" id="turjagwaliThisYearPT"></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-md-12 ms-3">
                                         <div class="row">
                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
@@ -97,13 +145,37 @@
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class=" modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Turjagwali Hari ini Seluruh Polda</h5>
+                <h5 class="modal-title" id="modalLabelDay">Detail Turjagwali Tanggal <?= format_indo(date('Y-m-d')) ?> Seluruh Polda</h5>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
             </div>
             <div class="modal-body">
                 <div class="container" style="line-height: 0.8;">
+                    <div class="row mb-3">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="start_date_table" id="start_date_table" value="<?= date('Y-m-d'); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="end_date_table" id="end_date_table" value="<?= date('Y-m-d'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('day')">Tampilkan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <table class="table table-bordered table-hover" id="tableLakaDay" style="background: white;">
                         <thead style="background-color:#0007D8; color:#fff;">
                             <tr class="text-center">
@@ -142,13 +214,37 @@
     <div class=" modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Turjagwali Bulan ini Seluruh Polda</h5>
+                <h5 class="modal-title" id="modalLabelMonth">Detail Turjagwali Bulan <?= format_indo(date('Y-m')) ?> Seluruh Polda</h5>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
             </div>
             <div class="modal-body">
                 <div class="container" style="line-height: 0.8;">
+                    <div class="row mb-3">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="month" name="start_date_table" id="start_date_table_m" value="<?= date('Y-m'); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="month" name="end_date_table" id="end_date_table_m" value="<?= date('Y-m'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('month')">Tampilkan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <table class="table table-bordered table-hover" id="tableLakaMonth" style=" background: white;">
                         <thead style="background-color:#0007D8; color:#fff;">
                             <tr class="text-center">
@@ -186,13 +282,37 @@
     <div class=" modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Turjagwali Tahun ini Seluruh Polda</h5>
+                <h5 class="modal-title" id="modalLabelYear">Detail Turjagwali Tahun <?= format_indo(date('Y')) ?> Seluruh Polda</h5>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
             </div>
             <div class="modal-body">
                 <div class="container" style="line-height: 0.8;">
+                    <div class="row mb-3">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="number" name="start_date_table" id="start_date_table_y" value="<?= date('Y'); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="number" name="end_date_table" id="end_date_table_y" value="<?= date('Y'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('year')">Tampilkan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <table class="table table-bordered table-hover" id="tableLakaYear" style="background: white;">
                         <thead style="background-color:#0007D8; color:#fff;">
                             <tr class="text-center">
@@ -458,7 +578,7 @@
                         name: 'Total Turjawali',
                         type: 'column',
                         data: polda_jumlah,
-                        color: "#11347A"
+                        color: "#008B8B"
                     }, {
                         name: 'Pengaturan',
                         type: 'column',
@@ -478,7 +598,7 @@
                         name: 'Patroli',
                         type: 'column',
                         data: polda_patroli,
-                        color: "#E8D42F"
+                        color: "#3CA55C"
 
                     }],
 
@@ -560,7 +680,7 @@
             }
         })
 
-        topTurjagwaliDay(yesterday);
+        topTurjagwaliDay(yesterday, yesterday);
         topTurjagwaliMonth(firstDayMonth, lastDayMonth)
         topTurjagwaliYear(firstDay, lastDay)
 
@@ -604,7 +724,7 @@
                         name: 'Total Turjawali',
                         type: 'column',
                         data: polda_jumlah,
-                        color: "#11347A"
+                        color: "#008B8B"
                     }, {
                         name: 'Pengaturan',
                         type: 'column',
@@ -624,7 +744,7 @@
                         name: 'Patroli',
                         type: 'column',
                         data: polda_patroli,
-                        color: "#E8D42F"
+                        color: "#3CA55C"
 
                     }],
 
@@ -720,12 +840,98 @@
                 lastDay
             },
             success: function(result) {
+                console.log(result);
                 $("#overlay").fadeOut(300);
-                $('#turjagwaliThisDay').text(result.thisDay)
-                $('#turjagwaliThisMonth').text(result.thisMonth)
-                $('#turjagwaliThisYear').text(result.thisYear)
+                $('#turjagwaliThisDay').text(result.thisDayTotal)
+                $('#turjagwaliThisDayTR').text(result.thisDayTUR)
+                $('#turjagwaliThisDayPJ').text(result.thisDayJAG)
+                $('#turjagwaliThisDayPW').text(result.thisDayWAL)
+                $('#turjagwaliThisDayPT').text(result.thisDayLI)
+                $('#turjagwaliThisMonth').text(result.thisMonthTotal)
+                $('#turjagwaliThisMonthTR').text(result.thisMonthTUR)
+                $('#turjagwaliThisMonthPJ').text(result.thisMonthJAG)
+                $('#turjagwaliThisMonthPW').text(result.thisMonthWAL)
+                $('#turjagwaliThisMonthPT').text(result.thisMonthLI)
+                $('#turjagwaliThisYear').text(result.thisYearTotal)
+                $('#turjagwaliThisYearTR').text(result.thisYearTUR)
+                $('#turjagwaliThisYearPJ').text(result.thisYearJAG)
+                $('#turjagwaliThisYearPW').text(result.thisYearWAL)
+                $('#turjagwaliThisYearPT').text(result.thisYearLI)
             }
         })
+    }
+
+    function ButtonFilterOnTable(type) {
+        let filter = 1;
+        let start_date = '';
+        let end_date = '';
+        if (type === 'day') {
+            start_date = $('#start_date_table').val();
+            end_date = $('#end_date_table').val()
+            topTurjagwaliDay(start_date, end_date);
+            $('#modalLabelDay').text(`Detail Turjagwali Tanggal ${moment(start_date).format('DD MM YYYY')} s.d ${moment(end_date).format('DD MM YYYY')} Seluruh Polda`)
+        } else if (type === 'month') {
+            start_date = moment($('#start_date_table_m').val()).startOf('month').format('YYYY-MM-DD');
+            end_date = moment($('#end_date_table_m').val()).endOf('month').format('YYYY-MM-DD')
+            topTurjagwaliMonth(start_date, end_date);
+            $('#modalLabelMonth').text(`Detail Turjagwali Bulan ${moment(start_date).format('MM YYYY')} s.d ${moment(end_date).format('MM YYYY')} Seluruh Polda`)
+        } else if (type === 'year') {
+            start_date = moment($('#start_date_table_y').val()).startOf('year').format('YYYY-MM-DD');
+            end_date = moment($('#end_date_table_y').val()).endOf('year').format('YYYY-MM-DD')
+            topTurjagwaliYear(start_date, end_date)
+            $('#modalLabelYear').text(`Detail Turjagwali Tahun ${moment(start_date).format('YYYY')} s.d ${moment(end_date).format('YYYY')} Seluruh Polda`)
+        }
+        //  $.ajax({
+        //      url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas",
+        //      data: {
+        //          filter: filter,
+        //          start_date: start_date,
+        //          end_date: end_date,
+        //          limit: 34
+        //      },
+        //      type: 'POST',
+        //      dataType: 'JSON',
+        //      success: function(results) {
+        //          console.log(results);
+        //          $("#overlay").fadeOut(300);
+        //          $('#modalLabelDay').text(`Detail Kecelakaan tanggal ${results.data.start_date} s.d ${results.data.end_date} Seluruh Polda`)
+        //          var table = '';
+        //          let resultlaka = results.data;
+        //          let nf = new Intl.NumberFormat('en-US');
+
+        //          for (let i = 0; i < resultlaka.polda_name.length; i++) {
+        //              let x = parseInt(i)
+        //              let no = x + 1
+        //              table += `<tr class="text-center"> 
+        //                  <td>  ${no}  </td> 
+        //                  <td>  ${resultlaka.polda_name[i]}  </td> 
+        //                  <td>  ${nf.format(resultlaka.polda_meninggal_dunia[i])}  </td> 
+        //                  <td>  ${nf.format(resultlaka.polda_luka_berat[i])}  </td> 
+        //                  <td>  ${nf.format(resultlaka.polda_luka_ringan[i])}  </td> 
+        //                  <td>  ${nf.format(resultlaka.insiden_kecelakaan[i])}  </td>
+        //                  <td>  ${nf.format(resultlaka.polda_kerugian_material[i])}  </td> 
+        //                  </tr>`
+        //          }
+
+
+        //          if (type == 'day') {
+        //              $('#tbody-lakaDay').html(table);
+        //              $('#totalmdDay').text(resultlaka.total_meninggal_dunia)
+        //              $('#totallbDay').text(resultlaka.total_luka_berat)
+        //              $('#totallrDay').text(resultlaka.total_luka_ringan)
+        //              $('#totalikDay').text(resultlaka.total_insiden_kecelakaan)
+        //              $('#totalkmDay').text(resultlaka.total_kerugian_material)
+        //          } else if (type == 'month') {
+        //              $('#tbody-lakaMonth').html(table);
+        //              $('#totalmdMonth').text(result.meninggal_dunia)
+        //              $('#totallbMonth').text(result.luka_berat)
+        //              $('#totallrMonth').text(result.luka_ringan)
+        //              $('#totalikMonth').text(result.insiden_kecelakaan)
+        //              $('#totalkmMonth').text(result.kerugian_material)
+        //          }
+
+        //      }
+        //  })
     }
 
     function ButtonFilter() {
@@ -782,7 +988,7 @@
                             name: 'Total Turjawali',
                             type: 'column',
                             data: polda_jumlah,
-                            color: "#11347A"
+                            color: "#008B8B"
                         }, {
                             name: 'Pengaturan',
                             type: 'column',
@@ -802,7 +1008,7 @@
                             name: 'Patroli',
                             type: 'column',
                             data: polda_patroli,
-                            color: "#E8D42F"
+                            color: "#3CA55C"
 
                         }],
 
@@ -1003,13 +1209,14 @@
         }
     }
 
-    function topTurjagwaliDay(yesterday) {
+    function topTurjagwaliDay(start_date, end_date) {
         $.ajax({
             type: "POST",
             url: "<?php echo base_url(); ?>executive/statistik_executive/getTopTurjagwali",
             dataType: "JSON",
             data: {
-                yesterday: yesterday
+                start_date: start_date,
+                end_date: end_date
             },
             success: function(result) {
                 $("#overlay").fadeOut(300);

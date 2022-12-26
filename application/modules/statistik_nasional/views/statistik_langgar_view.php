@@ -146,22 +146,46 @@
      <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
          <div class="modal-content">
              <div class=" modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Detail Pelanggaran Hari ini Seluruh Polda</h5>
+                 <h5 class="modal-title" id="modalLabelDay">Detail Pelanggaran tanggal <?= format_indo(date('Y-m-d'))  ?> Seluruh Polda</h5>
                  <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
              </div>
              <div class="modal-body">
                  <div style="line-height: 0.8;">
+                     <div class="row mb-3">
+                         <div class="col-md-9">
+                             <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="start_date_table" id="start_date_table" value="<?= date('Y-m-d'); ?>">
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="end_date_table" id="end_date_table" value="<?= date('Y-m-d'); ?>">
+                                 </div>
+                                 <div class="col-md-2">
+                                     <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('day')">Tampilkan</button>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
                      <table class="table table-bordered table-hover" id="tableGarlantasDay" style="background:white; ">
                          <thead style="background-color:#0007D8; color:#fff;">
                              <tr class="text-center">
                                  <th scope="col">No</th>
                                  <th scope="col">Polda</th>
-                                 <th scope="col">Meninggal Dunia</th>
-                                 <th scope="col">Luka Berat</th>
-                                 <th scope="col">Luka Ringan</th>
-                                 <th scope="col">Insiden Kejadian</th>
+                                 <th scope="col">Pelanggaran Berat</th>
+                                 <th scope="col">Pelanggaran Sedang</th>
+                                 <th scope="col">Pelanggaran Ringan</th>
+                                 <th scope="col">Teguran</th>
                                  <th scope="col">Total</th>
                              </tr>
                          </thead>
@@ -191,22 +215,46 @@
      <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
          <div class="modal-content">
              <div class=" modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Detail Pelanggaran Bulan ini Seluruh Polda</h5>
+                 <h5 class="modal-title" id="modalLabelMonth">Detail Pelanggaran Bulan <?= format_indo(date('Y-m')) ?> Seluruh Polda</h5>
                  <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
              </div>
              <div class="modal-body">
                  <div style="line-height: 0.8;">
+                     <div class="row mb-3">
+                         <div class="col-md-9">
+                             <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="month" name="start_date_table" id="start_date_table_m" value="<?= date('Y-m'); ?>">
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="month" name="end_date_table" id="end_date_table_m" value="<?= date('Y-m'); ?>">
+                                 </div>
+                                 <div class="col-md-2">
+                                     <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('month')">Tampilkan</button>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
                      <table class="table table-bordered table-hover" id="tableGarlantasMonth" style="background:white; ">
                          <thead style="background-color:#0007D8; color:#fff;">
                              <tr class="text-center">
                                  <th scope="col">No</th>
                                  <th scope="col">Polda</th>
-                                 <th scope="col">Meninggal Dunia</th>
-                                 <th scope="col">Luka Berat</th>
-                                 <th scope="col">Luka Ringan</th>
-                                 <th scope="col">Insiden Kejadian</th>
+                                 <th scope="col">Pelanggaran Berat</th>
+                                 <th scope="col">Pelanggaran Sedang</th>
+                                 <th scope="col">Pelanggaran Ringan</th>
+                                 <th scope="col">Teguran</th>
                                  <th scope="col">Total</th>
                              </tr>
                          </thead>
@@ -236,22 +284,46 @@
      <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
          <div class="modal-content">
              <div class=" modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Detail Pelanggaran Tahun ini Seluruh Polda</h5>
+                 <h5 class="modal-title" id="modalLabelYear">Detail Pelanggaran Tahun <?= format_indo(date('Y')) ?> Seluruh Polda</h5>
                  <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button> -->
              </div>
              <div class="modal-body">
                  <div style="line-height: 0.8;">
+                     <div class="row mb-3">
+                         <div class="col-md-9">
+                             <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="number" name="start_date_table" id="start_date_table_y" value="<?= date('Y'); ?>">
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="number" name="end_date_table" id="end_date_table_y" value="<?= date('Y'); ?>">
+                                 </div>
+                                 <div class="col-md-2">
+                                     <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('year')">Tampilkan</button>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
                      <table class="table table-bordered table-hover" id="tableGarlantasYear" style="background:white; ">
                          <thead style="background-color:#0007D8; color:#fff;">
                              <tr class="text-center">
                                  <th scope="col">No</th>
                                  <th scope="col">Polda</th>
-                                 <th scope="col">Meninggal Dunia</th>
-                                 <th scope="col">Luka Berat</th>
-                                 <th scope="col">Luka Ringan</th>
-                                 <th scope="col">Insiden Kejadian</th>
+                                 <th scope="col">Pelanggaran Berat</th>
+                                 <th scope="col">Pelanggaran Sedang</th>
+                                 <th scope="col">Pelanggaran Ringan</th>
+                                 <th scope="col">Teguran</th>
                                  <th scope="col">Total</th>
                              </tr>
                          </thead>
@@ -659,7 +731,7 @@
              }
          })
 
-         topGarlantasDay(yesterday);
+         topGarlantasDay(yesterday, yesterday);
          topGarlantasMonth(firstDayMonth, lastDayMonth)
          topGarlantasYear(firstDay, lastDay)
 
@@ -834,6 +906,79 @@
                  $('#garlantasThisYearT').text(result.thisYearT)
              }
          })
+     }
+
+     function ButtonFilterOnTable(type) {
+         let filter = 1;
+         let start_date = '';
+         let end_date = '';
+         if (type === 'day') {
+             start_date = $('#start_date_table').val();
+             end_date = $('#end_date_table').val()
+             topGarlantasDay(start_date, end_date);
+             $('#modalLabelDay').text(`Detail Pelanggaran Tanggal ${moment(start_date).format('DD MM YYYY')} s.d ${moment(end_date).format('DD MM YYYY')} Seluruh Polda`)
+         } else if (type === 'month') {
+             start_date = moment($('#start_date_table_m').val()).startOf('month').format('YYYY-MM-DD');
+             end_date = moment($('#end_date_table_m').val()).endOf('month').format('YYYY-MM-DD')
+             topGarlantasMonth(start_date, end_date);
+             $('#modalLabelMonth').text(`Detail Pelanggaran Bulan ${moment(start_date).format('MM YYYY')} s.d ${moment(end_date).format('MM YYYY')} Seluruh Polda`)
+         } else if (type === 'year') {
+             start_date = moment($('#start_date_table_y').val()).startOf('year').format('YYYY-MM-DD');
+             end_date = moment($('#end_date_table_y').val()).endOf('year').format('YYYY-MM-DD')
+             topGarlantasYear(start_date, end_date)
+             $('#modalLabelYear').text(`Detail Pelanggaran Tahun ${moment(start_date).format('YYYY')} s.d ${moment(end_date).format('YYYY')} Seluruh Polda`)
+         }
+         //  $.ajax({
+         //      url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas",
+         //      data: {
+         //          filter: filter,
+         //          start_date: start_date,
+         //          end_date: end_date,
+         //          limit: 34
+         //      },
+         //      type: 'POST',
+         //      dataType: 'JSON',
+         //      success: function(results) {
+         //          console.log(results);
+         //          $("#overlay").fadeOut(300);
+         //          $('#modalLabelDay').text(`Detail Kecelakaan tanggal ${results.data.start_date} s.d ${results.data.end_date} Seluruh Polda`)
+         //          var table = '';
+         //          let resultlaka = results.data;
+         //          let nf = new Intl.NumberFormat('en-US');
+
+         //          for (let i = 0; i < resultlaka.polda_name.length; i++) {
+         //              let x = parseInt(i)
+         //              let no = x + 1
+         //              table += `<tr class="text-center"> 
+         //                  <td>  ${no}  </td> 
+         //                  <td>  ${resultlaka.polda_name[i]}  </td> 
+         //                  <td>  ${nf.format(resultlaka.polda_meninggal_dunia[i])}  </td> 
+         //                  <td>  ${nf.format(resultlaka.polda_luka_berat[i])}  </td> 
+         //                  <td>  ${nf.format(resultlaka.polda_luka_ringan[i])}  </td> 
+         //                  <td>  ${nf.format(resultlaka.insiden_kecelakaan[i])}  </td>
+         //                  <td>  ${nf.format(resultlaka.polda_kerugian_material[i])}  </td> 
+         //                  </tr>`
+         //          }
+
+
+         //          if (type == 'day') {
+         //              $('#tbody-lakaDay').html(table);
+         //              $('#totalmdDay').text(resultlaka.total_meninggal_dunia)
+         //              $('#totallbDay').text(resultlaka.total_luka_berat)
+         //              $('#totallrDay').text(resultlaka.total_luka_ringan)
+         //              $('#totalikDay').text(resultlaka.total_insiden_kecelakaan)
+         //              $('#totalkmDay').text(resultlaka.total_kerugian_material)
+         //          } else if (type == 'month') {
+         //              $('#tbody-lakaMonth').html(table);
+         //              $('#totalmdMonth').text(result.meninggal_dunia)
+         //              $('#totallbMonth').text(result.luka_berat)
+         //              $('#totallrMonth').text(result.luka_ringan)
+         //              $('#totalikMonth').text(result.insiden_kecelakaan)
+         //              $('#totalkmMonth').text(result.kerugian_material)
+         //          }
+
+         //      }
+         //  })
      }
 
      function ButtonFilter() {
@@ -1109,13 +1254,14 @@
          }
      }
 
-     function topGarlantasDay(yesterday) {
+     function topGarlantasDay(start_date, end_date) {
          $.ajax({
              type: "POST",
              url: "<?php echo base_url(); ?>executive/statistik_executive/getTopGarlantas",
              dataType: "JSON",
              data: {
-                 yesterday: yesterday
+                 start_date: start_date,
+                 end_date: end_date
              },
              success: function(result) {
                  $("#overlay").fadeOut(300);
