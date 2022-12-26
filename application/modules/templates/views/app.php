@@ -19,7 +19,7 @@
     <?php } ?>
 
     <!-- twitter-bootstrap-wizard css -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/libs/twitter-bootstrap-wizard/prettify.css">
+    <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/libs/twitter-bootstrap-wizard/prettify.css"> -->
 
     <!-- datepicker css -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
@@ -75,7 +75,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/bataspolda/css/qgis2web.css">
-    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <!-- <link rel="stylesheet" href="css/fontawesome-all.min.css"> -->
 
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
 
@@ -2841,7 +2841,7 @@
             </script>
 
 
-            <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+            <!-- <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
             <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js"></script>
             <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
                 <script>
@@ -3036,7 +3036,7 @@
                     //     });
                     // }, 10000);
                 </script>
-            <?php } ?>
+            <?php } ?> -->
 
             <!-- <script src="<?php echo base_url(); ?>firebase-messaging-sw.js"></script> -->
 

@@ -7331,70 +7331,9 @@
                             success: function(result) {
                                 // console.log(result);
                                 var filterCctv = result.features;
-                                $('#openModalCctvDisplay').html(`
-                                    <table id="datatableCctvOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Type</th> 
-                                                <th>Nama</th> 
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="isiModalCctvDisplay">
-                                        </tbody>
-                                    </table>                     
-                                `);
-                                var countCctvDisplay = 0;
-                                var listCctvDisplay = '';
-                                $('#totalCctvDisplay').html(filterCctv.length);
 
 
-                                // for (let i = 0; i < filterCctv.length; i++) {
-                                //         console.log(filterCctv[i].geometry.coordinates.replace(/[/], "'"));
-                                //         countCctvDisplay += 1;
-                                //         listCctvDisplay += `
-                                //             <tr>
-                                //                 <td>${countCctvDisplay}</td>
-                                //                 <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].properties.nama}</a></td> 
-                                //                 <td>${filterCctv[i].properties.merk}</td> 
-                                //                 <td>
-                                //                     <a class="btn" style="margin-top: -10px;"  
-                                //                         id="flyToMapFilterCctv${countCctvDisplay}"
-                                //                         data-cord="${filterCctv[i].geometry.coordinates.replace(/[/], "'")}" 
-                                //                         href="javascript:void(0)">
-                                //                         <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                //                     </a> 
-                                //                 </td>
-                                //             </tr>
-                                //         `;
-                                //         $('#isiModalCctvDisplay').html(listCctvDisplay);
-  
-                                // } 
-                                for (let i = 0; i < countCctvDisplay; i++) {
-                                    // console.log(`${i+1}`);
-                                    $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
-                                        var latlong = $(this).data('cord').split(',');
-                                        var latitude = parseFloat(latlong[0]);
-                                        var longitude = parseFloat(latlong[1]);
-                                        mapContainer.flyTo([latitude, longitude], 20);
-                                    });
-                                }
-                                $('#datatableCctvOnDisplay').DataTable({
-                                    responsive: true,
-
-                                    scrollX: true,
-
-                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                                    buttons: ["excel", "csv", "pdf"],
-                                    processing: true,
-                                    oLanguage: {
-
-                                        sSearch: 'Search:'
-
-                                    },
-                                });
+                                
 
                                 
                                 
@@ -7480,6 +7419,75 @@
                                     }
                                 }
                                 geoJsonCctv[0] = L.geoJSON(result,options2).addTo(mapContainer);
+
+
+
+                                $('#openModalCctvDisplay').html(`
+                                    <table id="datatableCctvOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Type</th> 
+                                                <th>Nama</th> 
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="isiModalCctvDisplay">
+                                        </tbody>
+                                    </table>                     
+                                `);
+                                var countCctvDisplay = 0;
+                                var listCctvDisplay = '';
+                                $('#totalCctvDisplay').html(filterCctv.length);
+
+                                for (let i = 0; i < filterCctv.length; i++) {
+                                    // console.log(JSON.stringify(filterCctv[i].geometry.coordinates));
+                                    setTimeout(() => {
+                                        countCctvDisplay += 1;
+                                        listCctvDisplay += `
+                                            <tr>
+                                                <td>${countCctvDisplay}</td>
+                                                <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].properties.nama}</a></td> 
+                                                <td>${filterCctv[i].properties.merk}</td> 
+                                                <td>
+                                                    <a class="btn" style="margin-top: -10px;"  
+                                                        id="flyToMapFilterCctv${countCctvDisplay}"
+                                                        data-cord="${JSON.stringify(filterCctv[i].geometry.coordinates)}" 
+                                                        href="javascript:void(0)">
+                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                    </a> 
+                                                </td>
+                                            </tr>
+                                        `;
+                                        $('#isiModalCctvDisplay').html(listCctvDisplay); 
+                                    }, i * 500);
+                                }
+
+                                for (let i = 0; i < countCctvDisplay; i++) {
+                                    $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
+                                        var latlong = $(this).data('cord').split(',');
+                                        var latitude = parseFloat(latlong[0]);
+                                        var longitude = parseFloat(latlong[1]);
+                                        mapContainer.flyTo([latitude, longitude], 20);
+                                    }); 
+                                }
+                                setTimeout(() => {
+                                    $('#datatableCctvOnDisplay').DataTable({
+                                        responsive: true,
+
+                                        scrollX: true,
+
+                                        sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                        buttons: ["excel", "csv", "pdf"],
+                                        processing: true,
+                                        oLanguage: {
+
+                                            sSearch: 'Search:'
+
+                                        },
+                                    });
+                                }, countCctvDisplay * 500);
 
                             }
                         });
@@ -8301,6 +8309,7 @@
                         listPosPamDisplay = '';
                         for (let i = 0; i < ressPosPam.length; i++) {
                             if (ressPosPam[i].coordinate_guarding && ressPosPam[i].coordinate_guarding.lat != null && ressPosPam[i].coordinate_guarding.lng != null) {
+                                console.log(ressPosPam[i].coordinate_guarding);
                                 // setTimeout(() => {
                                 countPosPamDisplay += 1;
                                 listPosPamDisplay += `
