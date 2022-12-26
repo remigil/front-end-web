@@ -1561,7 +1561,213 @@
 
     var statusSocket = true;
 
-
+    const vector = {
+        'tol': {
+            'title': 'Jalan Tol',
+            'file': true,
+            'type': 'line',
+            'noPop': true
+        },
+        'apjt': {
+            'title': 'Wilayah Operasi APJT',
+            'file': true,
+            'type': 'line',
+            'hide': ['idx','id segment','no urut','no sub segment'],
+            'noPop': true
+        },
+        'cabang': {
+            'title': 'Wilayah Operasi Cabang',
+            'file': true,
+            'type': 'line',
+            'hide': ['idx','id segment','no urut','no sub segment'],
+            'noPop': true
+        },
+        'km': {
+            'title': 'Batas KM',
+            'file': false,
+            'type': 'point',
+            'minZoom': 15,
+            'maxZoom': 20,
+            'hide': ['id'],
+            'noPop': true
+        },
+        'ramp': {
+            'title': 'Jalan Penghubung',
+            'file': true,
+            'type': 'line',
+            'minZoom': 15,
+            'noPop': true
+        },
+        'gate': {
+            'title': 'Gerbang Tol',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 14,
+            'hide': ['id','status','kode cabang','kode gerbang','nama gerbang','nama cabang apjt','lalin shift 1','lalin shift 2','lalin shift 3','lalin perjam saatini','keterangan'],
+            'pop': 'table4',
+            'stamp': 'last update'
+        },
+        'cctv': {
+            'title': 'CCTV MainRoad',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['camera id','trace','status','enabled','arteri','petunjuk','merk','zm','ServerId','MonitorId','key id'],
+            'pop': 'movie'
+        },
+        'cctv1': {
+            'title': 'CCTV Arteri',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['camera id','trace','status','enabled','arteri','petunjuk','merk','zm','ServerId','MonitorId','key id'],
+            'pop': 'movie'
+        },
+        'cctv2': {
+            'title': 'CCTV Pemantuan',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['camera id','trace','status','enabled','arteri','petunjuk','merk','zm','ServerId','MonitorId','key id'],
+            'pop': 'movie'
+        },
+        'cctv3': {
+            'title': 'CCTV Gerbang',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['camera id','trace','status','enabled','arteri','petunjuk','merk','zm','ServerId','MonitorId','key id'],
+            'pop': 'movie'
+        },
+        'cctv4': {
+            'title': 'CCTV SS',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['camera id','trace','status','enabled','arteri','petunjuk','merk','zm','ServerId','MonitorId','key id'],
+            'pop': 'movie'
+        },
+        'cctv5': {
+            'title': 'CCTV Ramp',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['camera id','trace','status','enabled','arteri','petunjuk','merk','zm','ServerId','MonitorId','key id'],
+            'pop': 'movie'
+        },
+        'rtms': {
+            'title': 'Traffic Counting (RTMS)',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['id','nama lokasi','status','total volume jalur a','total volume jalur b','speed jalur a','speed jalur b','id segment jalur a','id segment jalur b'],
+            'pop': 'table1',
+            'stamp': 'waktu update'
+        },
+        'rtms2': {
+            'title': 'Smart Traffic Counting (CCTV)',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['status','camera id','id tc','nama lokasi','cabang','car','bus','truck','total volume','id','nama area','id server','id segment'],
+            'pop': 'table2',
+            'stamp': 'waktu update'
+        },
+        'radar': {
+            'title': 'Monitoring Traffic (Radar)',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 10,
+            'maxZoom': 28,
+            'hide': ['idx','nama lokasi','id ruas','link', 'vcr jalur a','vcr jalur b', 'kec jalur a','kec jalur b', 'id radar jalur a','id radar jalur b', 'midas a','midas b', 'event id','status'],
+            'pop': 'table7',
+            'stamp': 'last update'
+        },
+        'speed': {
+            'title': 'Speed Cam',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['status','camera id','id sc','nama lokasi','cabang','is dalam kota','kec 1','kec 2','kec 3','total volume','url cctv','no urut','no polisi','kecepatan','waktu','ip','etle'],
+            'pop': 'table3',
+            'stamp': 'waktu update'
+        },
+        'rams': {
+            'title': 'Rest Area',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['id rest area','id ruas','id arus','kend besar tersedia','kend kecil tersedia','kapasitas kend besar','kapasitas kend kecil','total','nama rest area','cctv 1','cctv 2','cctv 3'],
+            'pop': 'multiTv',
+            'stamp': 'waktu update'
+        },
+        'wim': {
+            'title': 'WIM Bridge',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['id','id wim','nama lokasi','id ruas','total volume','vol overload 5 20','vol overload 20 50','vol overload 50 100','vol overload 100','vol total','tanggal kalibrasi','status'],
+            'pop': 'table5',
+            'stamp': 'waktu update'
+        },
+        'crash': {
+            'title': 'Gangguan Lalin',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 7,
+            'hide': ['idx'],
+            'stamp': 'tgl entri'
+        },
+        'repair': {
+            'title': 'Pemeliharaan',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 7,
+            'hide': ['idx'],
+            'stamp': 'tgl entri'
+        },
+        'control': {
+            'title': 'Rekayasa Lalin',
+            'file': false,
+            'save': true,
+            'type': 'mix',
+            'minZoom': 7,
+            'hide': ['idx','rekayasa lalin'],
+            'stamp': 'tgl entri'
+        },
+        'track': {
+            'title': 'Tracking',
+            'file': false,
+            'save': true,
+            'type': 'mix',
+            'hide': ['idx','rec','vehicle id'],
+            'stamp': 'waktu update',
+            'noPop': true
+        },
+        'road': {
+            'title': 'Kondisi Traffic',
+            'file': false,
+            'save': true,
+            'type': 'line',
+            'hide': ['idx','id segment','no sub segment','no urut','kode'],
+            'pop': 'predict'
+        },
+    };
 
 
     var dataTablePetugasDisplay;
@@ -1605,43 +1811,43 @@
         }).addGoogleLayer("TrafficLayer");
 
 
-        var shpFile = new L.Shapefile(`http://103.163.139.100/assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
-            pointToLayer: function(feature, latlng) {
+        // var shpFile = new L.Shapefile(`http://103.163.139.100/assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
+        //     pointToLayer: function(feature, latlng) {
 
-                var smallIcon = new L.divIcon({
-                    iconAnchor: [20, 51],
-                    popupAnchor: [0, -51],
-                    className: 'listeo-marker-icon',
-                    html: '<div class="marker-container">' +
-                        '<div class="marker-card">' +
-                        '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
-                        '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
-                        '<div class="marker-arrow"></div>' +
-                        '</div>' +
-                        '</div>'
-                });
+        //         var smallIcon = new L.divIcon({
+        //             iconAnchor: [20, 51],
+        //             popupAnchor: [0, -51],
+        //             className: 'listeo-marker-icon',
+        //             html: '<div class="marker-container">' +
+        //                 '<div class="marker-card">' +
+        //                 '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
+        //                 '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
+        //                 '<div class="marker-arrow"></div>' +
+        //                 '</div>' +
+        //                 '</div>'
+        //         });
 
 
-                var mark = L.marker(latlng, {
-                    icon: smallIcon
-                })
-                cluster.addLayer(mark)
-                return cluster;
+        //         var mark = L.marker(latlng, {
+        //             icon: smallIcon
+        //         })
+        //         cluster.addLayer(mark)
+        //         return cluster;
 
-            },
-            onEachFeature: function(feature, layer) {
-                if (feature.properties) {
-                    layer.bindPopup(Object.keys(feature.properties).map(function(k) {
-                        return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
-                    }).join("<hr>"), {
-                        maxWidth: 400,
-                        maxHeight: 250,
-                        scrollbarWidth: 'thin',
-                        className: 'leaflet-infoBox'
-                    });
-                }
-            }
-        });
+        //     },
+        //     onEachFeature: function(feature, layer) {
+        //         if (feature.properties) {
+        //             layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+        //                 return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
+        //             }).join("<hr>"), {
+        //                 maxWidth: 400,
+        //                 maxHeight: 250,
+        //                 scrollbarWidth: 'thin',
+        //                 className: 'leaflet-infoBox'
+        //             });
+        //         }
+        //     }
+        // });
 
         // StART MAP SECTION
         var mapContainer = L.map('mapG20Dashboard', {
@@ -1673,7 +1879,7 @@
             "MappBox Traffic": gl,
         };
         var overlayMaps = {
-            "Batas Wilayah": shpFile,
+            // "Batas Wilayah": shpFile,
         };
         L.control.layers(baseMaps, overlayMaps, {
             position: 'topright'
@@ -7124,235 +7330,73 @@
                             dataType: "JSON",
                             success: function(result) {
                                 // console.log(result);
-                                // var filterCctv = result.filter(function(e) {
-                                //     return e.lat_cctv != null && e.lng_cctv != null;
-                                // });
-                                // $('#openModalCctvDisplay').html(`
-                                //     <table id="datatableCctvOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                                //         <thead>
-                                //             <tr>
-                                //                 <th>No</th>
-                                //                 <th>Type</th> 
-                                //                 <th>Nama</th> 
-                                //                 <th>Aksi</th>
-                                //             </tr>
-                                //         </thead>
-                                //         <tbody id="isiModalCctvDisplay">
-                                //         </tbody>
-                                //     </table>                     
-                                // `);
-                                // var countCctvDisplay = 0;
-                                // var listCctvDisplay = '';
-                                // $('#totalCctvDisplay').html(filterCctv.length);
+                                var filterCctv = result.features;
+                                $('#openModalCctvDisplay').html(`
+                                    <table id="datatableCctvOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Type</th> 
+                                                <th>Nama</th> 
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="isiModalCctvDisplay">
+                                        </tbody>
+                                    </table>                     
+                                `);
+                                var countCctvDisplay = 0;
+                                var listCctvDisplay = '';
+                                $('#totalCctvDisplay').html(filterCctv.length);
 
 
-                                const vector = {
-                                    'tol': {
-                                        'title': 'Jalan Tol',
-                                        'file': true,
-                                        'type': 'line',
-                                        'noPop': true
+                                for (let i = 0; i < filterCctv.length; i++) {
+                                        console.log(filterCctv[i].geometry.coordinates.replace(/[/], "'"));
+                                        countCctvDisplay += 1;
+                                        listCctvDisplay += `
+                                            <tr>
+                                                <td>${countCctvDisplay}</td>
+                                                <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].properties.nama}</a></td> 
+                                                <td>${filterCctv[i].properties.merk}</td> 
+                                                <td>
+                                                    <a class="btn" style="margin-top: -10px;"  
+                                                        id="flyToMapFilterCctv${countCctvDisplay}"
+                                                        data-cord="${filterCctv[i].geometry.coordinates.replace(/[/], "'")}" 
+                                                        href="javascript:void(0)">
+                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                    </a> 
+                                                </td>
+                                            </tr>
+                                        `;
+                                        $('#isiModalCctvDisplay').html(listCctvDisplay);
+  
+                                } 
+                                for (let i = 0; i < countCctvDisplay; i++) {
+                                    // console.log(`${i+1}`);
+                                    $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
+                                        var latlong = $(this).data('cord').split(',');
+                                        var latitude = parseFloat(latlong[0]);
+                                        var longitude = parseFloat(latlong[1]);
+                                        mapContainer.flyTo([latitude, longitude], 20);
+                                    });
+                                }
+                                $('#datatableCctvOnDisplay').DataTable({
+                                    responsive: true,
+
+                                    scrollX: true,
+
+                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                    buttons: ["excel", "csv", "pdf"],
+                                    processing: true,
+                                    oLanguage: {
+
+                                        sSearch: 'Search:'
+
                                     },
-                                    'apjt': {
-                                        'title': 'Wilayah Operasi APJT',
-                                        'file': true,
-                                        'type': 'line',
-                                        'hide': ['idx','id segment','no urut','no sub segment'],
-                                        'noPop': true
-                                    },
-                                    'cabang': {
-                                        'title': 'Wilayah Operasi Cabang',
-                                        'file': true,
-                                        'type': 'line',
-                                        'hide': ['idx','id segment','no urut','no sub segment'],
-                                        'noPop': true
-                                    },
-                                    'km': {
-                                        'title': 'Batas KM',
-                                        'file': false,
-                                        'type': 'point',
-                                        'minZoom': 15,
-                                        'maxZoom': 20,
-                                        'hide': ['id'],
-                                        'noPop': true
-                                    },
-                                    'ramp': {
-                                        'title': 'Jalan Penghubung',
-                                        'file': true,
-                                        'type': 'line',
-                                        'minZoom': 15,
-                                        'noPop': true
-                                    },
-                                    'gate': {
-                                        'title': 'Gerbang Tol',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 14,
-                                        'hide': ['id','status','kode cabang','kode gerbang','nama gerbang','nama cabang apjt','lalin shift 1','lalin shift 2','lalin shift 3','lalin perjam saatini','keterangan'],
-                                        'pop': 'table4',
-                                        'stamp': 'last update'
-                                    },
-                                    'cctv': {
-                                        'title': 'CCTV MainRoad',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 13,
-                                        'hide': ['camera id','trace','status','enabled','arteri','petunjuk','merk','zm','ServerId','MonitorId','key id'],
-                                        'pop': 'movie'
-                                    },
-                                    'cctv1': {
-                                        'title': 'CCTV Arteri',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 13,
-                                        'hide': ['camera id','trace','status','enabled','arteri','petunjuk','merk','zm','ServerId','MonitorId','key id'],
-                                        'pop': 'movie'
-                                    },
-                                    'cctv2': {
-                                        'title': 'CCTV Pemantuan',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 13,
-                                        'hide': ['camera id','trace','status','enabled','arteri','petunjuk','merk','zm','ServerId','MonitorId','key id'],
-                                        'pop': 'movie'
-                                    },
-                                    'cctv3': {
-                                        'title': 'CCTV Gerbang',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 13,
-                                        'hide': ['camera id','trace','status','enabled','arteri','petunjuk','merk','zm','ServerId','MonitorId','key id'],
-                                        'pop': 'movie'
-                                    },
-                                    'cctv4': {
-                                        'title': 'CCTV SS',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 13,
-                                        'hide': ['camera id','trace','status','enabled','arteri','petunjuk','merk','zm','ServerId','MonitorId','key id'],
-                                        'pop': 'movie'
-                                    },
-                                    'cctv5': {
-                                        'title': 'CCTV Ramp',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 13,
-                                        'hide': ['camera id','trace','status','enabled','arteri','petunjuk','merk','zm','ServerId','MonitorId','key id'],
-                                        'pop': 'movie'
-                                    },
-                                    'rtms': {
-                                        'title': 'Traffic Counting (RTMS)',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 13,
-                                        'hide': ['id','nama lokasi','status','total volume jalur a','total volume jalur b','speed jalur a','speed jalur b','id segment jalur a','id segment jalur b'],
-                                        'pop': 'table1',
-                                        'stamp': 'waktu update'
-                                    },
-                                    'rtms2': {
-                                        'title': 'Smart Traffic Counting (CCTV)',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 13,
-                                        'hide': ['status','camera id','id tc','nama lokasi','cabang','car','bus','truck','total volume','id','nama area','id server','id segment'],
-                                        'pop': 'table2',
-                                        'stamp': 'waktu update'
-                                    },
-                                    'radar': {
-                                        'title': 'Monitoring Traffic (Radar)',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 10,
-                                        'maxZoom': 28,
-                                        'hide': ['idx','nama lokasi','id ruas','link', 'vcr jalur a','vcr jalur b', 'kec jalur a','kec jalur b', 'id radar jalur a','id radar jalur b', 'midas a','midas b', 'event id','status'],
-                                        'pop': 'table7',
-                                        'stamp': 'last update'
-                                    },
-                                    'speed': {
-                                        'title': 'Speed Cam',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 13,
-                                        'hide': ['status','camera id','id sc','nama lokasi','cabang','is dalam kota','kec 1','kec 2','kec 3','total volume','url cctv','no urut','no polisi','kecepatan','waktu','ip','etle'],
-                                        'pop': 'table3',
-                                        'stamp': 'waktu update'
-                                    },
-                                    'rams': {
-                                        'title': 'Rest Area',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 13,
-                                        'hide': ['id rest area','id ruas','id arus','kend besar tersedia','kend kecil tersedia','kapasitas kend besar','kapasitas kend kecil','total','nama rest area','cctv 1','cctv 2','cctv 3'],
-                                        'pop': 'multiTv',
-                                        'stamp': 'waktu update'
-                                    },
-                                    'wim': {
-                                        'title': 'WIM Bridge',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 13,
-                                        'hide': ['id','id wim','nama lokasi','id ruas','total volume','vol overload 5 20','vol overload 20 50','vol overload 50 100','vol overload 100','vol total','tanggal kalibrasi','status'],
-                                        'pop': 'table5',
-                                        'stamp': 'waktu update'
-                                    },
-                                    'crash': {
-                                        'title': 'Gangguan Lalin',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 7,
-                                        'hide': ['idx'],
-                                        'stamp': 'tgl entri'
-                                    },
-                                    'repair': {
-                                        'title': 'Pemeliharaan',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'point',
-                                        'minZoom': 7,
-                                        'hide': ['idx'],
-                                        'stamp': 'tgl entri'
-                                    },
-                                    'control': {
-                                        'title': 'Rekayasa Lalin',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'mix',
-                                        'minZoom': 7,
-                                        'hide': ['idx','rekayasa lalin'],
-                                        'stamp': 'tgl entri'
-                                    },
-                                    'track': {
-                                        'title': 'Tracking',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'mix',
-                                        'hide': ['idx','rec','vehicle id'],
-                                        'stamp': 'waktu update',
-                                        'noPop': true
-                                    },
-                                    'road': {
-                                        'title': 'Kondisi Traffic',
-                                        'file': false,
-                                        'save': true,
-                                        'type': 'line',
-                                        'hide': ['idx','id segment','no sub segment','no urut','kode'],
-                                        'pop': 'predict'
-                                    },
-                                };
+                                });
+
+                                
                                 
                                 var options2 = {
                                     style: function(feature){
