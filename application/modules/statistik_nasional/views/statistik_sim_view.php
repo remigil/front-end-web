@@ -12,10 +12,10 @@
      </div>
      <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
-             <div class="col-sm-4 col-md-5 align-self-center">
+             <div class="col-sm-4 col-md-4 align-self-center">
                  <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">Sim <span style="color:#000;">Nasional</span></span> </h2>
              </div>
-             <div class="col-sm-8 col-md-7">
+             <div class="col-sm-8 col-md-8">
                  <div class="row m-2">
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
                          <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">

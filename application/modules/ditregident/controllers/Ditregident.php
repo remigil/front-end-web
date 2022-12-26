@@ -81,10 +81,12 @@ class Ditregident extends MY_Controller
         $totalsim = 0;
         $totalbpkb = 0;
         $totalstnk = 0;
+        $totalranmor = 0;
         for ($i = 0; $i < count($getregident); $i++) {
             $totalsim += $getregident[$i]['sim'];
             $totalbpkb += $getregident[$i]['bpkb'];
             $totalstnk += $getregident[$i]['stnk'];
+            $totalranmor += $getregident[$i]['ranmor'];
         }
 
 
@@ -93,6 +95,7 @@ class Ditregident extends MY_Controller
             'sim' => number_format($totalsim, 0, '', '.'),
             'bpkb' =>  number_format($totalbpkb, 0, '', '.'),
             'stnk' => number_format($totalstnk, 0, '', '.'),
+            'ranmor' => number_format($totalranmor, 0, '', '.'),
             'sbst' => 0,
         ];
         echo json_encode($data);
@@ -125,6 +128,108 @@ class Ditregident extends MY_Controller
 
         echo json_encode($data);
     }
+    public function getChartSim()
+    {
+        $filter = $this->input->post('filter');
+        $title = 'DATA SIM ' . $filter;
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditregident->getChartSim($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+
+    public function getChartBpkb()
+    {
+        $filter = $this->input->post('filter');
+        $title = 'DATA BPKB ' . $filter;
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditregident->getChartBpkb($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+    public function getChartStnk()
+    {
+        $filter = $this->input->post('filter');
+        $title = 'DATA STNK ' . $filter;
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditregident->getChartStnk($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+    public function getChartSbst()
+    {
+        $filter = $this->input->post('filter');
+        $title = 'DATA SBST ' . $filter;
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditregident->getChartSbst($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+    public function getChartRanmor()
+    {
+        $filter = $this->input->post('filter');
+        $title = 'DATA RANMOR ' . $filter;
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditregident->getChartRanmor($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+
 
 
     public function data_dakgar_lantas()

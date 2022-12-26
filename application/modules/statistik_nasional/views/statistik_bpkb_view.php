@@ -112,15 +112,14 @@
                                 <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">No</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
-                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Mutasi Masuk</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergantian</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Mutasi Keluar</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
                             </tr>
                             <tr class="text-center" style="background-color:#5150D8; color:#fff;">
                                 <th style="text-align: center; vertical-align: middle" scope="col ">1</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col ">2</th>
-                                <th style="text-align: center; vertical-align: middle" scope="col">Masuk</th>
-                                <th style="text-align: center; vertical-align: middle" scope="col">Keluar</th>
                             </tr>
                         </thead>
                         <tbody id="tbody-bpkbDay">
@@ -131,15 +130,15 @@
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn1Day"></span></th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn2Day"></span></th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmDay"></span></th>
-                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkDay"></span></th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalppDay"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkDay"></span></th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalDay"></span></th>
                             </tr>
                         </tfoot>
                     </table>
                 </div>
 
-                <span class="fw-bold fs-5 text-danger"> * Data SIM diUpdate Setiap Bulan</span>
+                <!-- <span class="fw-bold fs-5 text-danger"> * Data SIM diUpdate Setiap Bulan</span> -->
             </div>
             <!-- <div class="modal-footer">
                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -165,15 +164,14 @@
                                 <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">No</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
-                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Mutasi Masuk</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergantian</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Mutasi Keluar</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
                             </tr>
                             <tr class="text-center" style="background-color:#5150D8; color:#fff;">
                                 <th style="text-align: center; vertical-align: middle" scope="col ">1</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col ">2</th>
-                                <th style="text-align: center; vertical-align: middle" scope="col">Masuk</th>
-                                <th style="text-align: center; vertical-align: middle" scope="col">Keluar</th>
                             </tr>
                         </thead>
                         <tbody id="tbody-bpkbMonth">
@@ -184,8 +182,8 @@
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn1Month"></span></th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn2Month"></span></th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmMonth"></span></th>
-                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkMonth"></span></th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalppMonth"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkMonth"></span></th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalMonth"></span></th>
                             </tr>
                         </tfoot>
@@ -215,15 +213,14 @@
                                 <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">No</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Polda</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Bea Balik Nama</th>
-                                <th style="text-align: center; vertical-align: middle" scope="col" colspan="2">Mutasi</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Mutasi Masuk</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Perubahan Pergantian</th>
+                                <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Mutasi Keluar</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col" rowspan="2">Total</th>
                             </tr>
                             <tr class="text-center" style="background-color:#5150D8; color:#fff;">
                                 <th style="text-align: center; vertical-align: middle" scope="col ">1</th>
                                 <th style="text-align: center; vertical-align: middle" scope="col ">2</th>
-                                <th style="text-align: center; vertical-align: middle" scope="col">Masuk</th>
-                                <th style="text-align: center; vertical-align: middle" scope="col">Keluar</th>
                             </tr>
                         </thead>
                         <tbody id="tbody-bpkbYear">
@@ -234,8 +231,8 @@
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn1Year"></span></th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalbbn2Year"></span></th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmmYear"></span></th>
-                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkYear"></span></th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalppYear"></span></th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalmkYear"></span></th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col"><span id="totalYear"></span></th>
                             </tr>
                         </tfoot>
@@ -982,8 +979,8 @@ if ($mobile === true) { ?>
                             <td>  ${resultbpkb[i].bbn_1}  </td> 
                             <td>  ${resultbpkb[i].bbn_2}  </td> 
                             <td>  ${resultbpkb[i].mutasi_masuk}  </td> 
-                            <td>  ${resultbpkb[i].mutasi_keluar}  </td> 
                             <td>  ${resultbpkb[i].perubahan_pergantian}  </td> 
+                            <td>  ${resultbpkb[i].mutasi_keluar}  </td> 
                             <td>  ${resultbpkb[i].total}  </td> 
                              
                             </tr>`
@@ -992,8 +989,8 @@ if ($mobile === true) { ?>
                 $('#totalbbn1Day').text(result.bbn_1)
                 $('#totalbbn2Day').text(result.bbn_2)
                 $('#totalmmDay').text(result.mutasi_masuk)
-                $('#totalmkDay').text(result.mutasi_keluar)
                 $('#totalppDay').text(result.perubahan_pergantian)
+                $('#totalmkDay').text(result.mutasi_keluar)
                 $('#totalDay').text(result.total)
                 <?php $mobile = detect_mobile();
                 if ($mobile === true) { ?>
@@ -1040,8 +1037,8 @@ if ($mobile === true) { ?>
                             <td>  ${resultbpkb[i].bbn_1}  </td> 
                             <td>  ${resultbpkb[i].bbn_2}  </td> 
                             <td>  ${resultbpkb[i].mutasi_masuk}  </td> 
-                            <td>  ${resultbpkb[i].mutasi_keluar}  </td> 
                             <td>  ${resultbpkb[i].perubahan_pergantian}  </td> 
+                            <td>  ${resultbpkb[i].mutasi_keluar}  </td> 
                             <td>  ${resultbpkb[i].total}  </td> 
                              
                             </tr>`
@@ -1050,8 +1047,8 @@ if ($mobile === true) { ?>
                 $('#totalbbn1Month').text(result.bbn_1)
                 $('#totalbbn2Month').text(result.bbn_2)
                 $('#totalmmMonth').text(result.mutasi_masuk)
-                $('#totalmkMonth').text(result.mutasi_keluar)
                 $('#totalppMonth').text(result.perubahan_pergantian)
+                $('#totalmkMonth').text(result.mutasi_keluar)
                 $('#totalMonth').text(result.total)
                 <?php $mobile = detect_mobile();
                 if ($mobile === true) { ?>
@@ -1098,8 +1095,8 @@ if ($mobile === true) { ?>
                             <td>  ${resultbpkb[i].bbn_1}  </td> 
                             <td>  ${resultbpkb[i].bbn_2}  </td> 
                             <td>  ${resultbpkb[i].mutasi_masuk}  </td> 
-                            <td>  ${resultbpkb[i].mutasi_keluar}  </td> 
                             <td>  ${resultbpkb[i].perubahan_pergantian}  </td> 
+                            <td>  ${resultbpkb[i].mutasi_keluar}  </td> 
                             <td>  ${resultbpkb[i].total}  </td> 
                              
                             </tr>`
@@ -1108,8 +1105,8 @@ if ($mobile === true) { ?>
                 $('#totalbbn1Year').text(result.bbn_1)
                 $('#totalbbn2Year').text(result.bbn_2)
                 $('#totalmmYear').text(result.mutasi_masuk)
-                $('#totalmkYear').text(result.mutasi_keluar)
                 $('#totalppYear').text(result.perubahan_pergantian)
+                $('#totalmkYear').text(result.mutasi_keluar)
                 $('#totalYear').text(result.total)
                 <?php $mobile = detect_mobile();
                 if ($mobile === true) { ?>
