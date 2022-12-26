@@ -7461,7 +7461,12 @@
                                             </tr>
                                         `;
                                         $('#isiModalCctvDisplay').html(listCctvDisplay); 
-                                        for (let i = 0; i < countCctvDisplay; i++) {
+                                        
+                                    }, i * 500);
+                                }
+
+                                setTimeout(() => {
+                                    for (let i = 0; i < countCctvDisplay; i++) {
                                         $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
                                             var latlong = $(this).data('cord').split(',');
                                             var latitude = parseFloat(latlong[0]);
@@ -7484,12 +7489,7 @@
 
                                         },
                                     });
-                                    }, i * 500);
-                                }
-
-                                // setTimeout(() => {
-                                    
-                                // }, countCctvDisplay * 500);
+                                }, countCctvDisplay * 500);
 
                             }
                         });
