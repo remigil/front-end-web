@@ -2692,7 +2692,8 @@
                                     <div class="catList" style="margin-left: 10px; width:100%;">
                                         <div class="btn-group" style="width:100%;">
                                             <label>
-                                                <input type="checkbox" value="${ressData[i].polda_id}" name="poldaPetugas" id="listIsiPoldaPetugas${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].polda_id}"><span>${ressData[i].name_polda}</span>
+                                                <input type="checkbox" value="${ressData[i].polda_id}" name="poldaPetugas" id="listIsiPoldaPetugas${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].polda_id}">
+                                                <span>${ressData[i].name_polda} &nbsp;&nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasPolda${ressData[i].polda_id}"></span></span> 
                                             </label>
                                         </div>
                                     </div>
@@ -7460,18 +7461,14 @@
                                             </tr>
                                         `;
                                         $('#isiModalCctvDisplay').html(listCctvDisplay); 
-                                    }, i * 500);
-                                }
-
-                                for (let i = 0; i < countCctvDisplay; i++) {
-                                    $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
-                                        var latlong = $(this).data('cord').split(',');
-                                        var latitude = parseFloat(latlong[0]);
-                                        var longitude = parseFloat(latlong[1]);
-                                        mapContainer.flyTo([latitude, longitude], 20);
-                                    }); 
-                                }
-                                setTimeout(() => {
+                                        for (let i = 0; i < countCctvDisplay; i++) {
+                                        $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
+                                            var latlong = $(this).data('cord').split(',');
+                                            var latitude = parseFloat(latlong[0]);
+                                            var longitude = parseFloat(latlong[1]);
+                                            mapContainer.flyTo([latitude, longitude], 20);
+                                        }); 
+                                    }
                                     $('#datatableCctvOnDisplay').DataTable({
                                         responsive: true,
 
@@ -7487,7 +7484,12 @@
 
                                         },
                                     });
-                                }, countCctvDisplay * 500);
+                                    }, i * 500);
+                                }
+
+                                // setTimeout(() => {
+                                    
+                                // }, countCctvDisplay * 500);
 
                             }
                         });
@@ -8318,12 +8320,12 @@
                                             <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosPam[i].id}" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
                                             <td>${ressPosPam[i].alamat != null ? ressPosPam[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
                                             <td>
-                                                <a class="btn" style="margin-top: -10px;"  
+                                                <a class="btn" style="margin-top: -10px; "  
                                                     id="flyToMapFilterPosPam${polda_id}${countPosPamDisplay}"
                                                     data-akun="${ressPosPam[i].accounts}"
                                                     data-cord="${ressPosPam[i].coordinate_guarding.lat},${ressPosPam[i].coordinate_guarding.lng}" 
                                                     href="javascript:void(0)">
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                    <i style="color:${ressPosPam[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
                                                 </a> 
                                             </td>
                                         </tr>
@@ -8503,7 +8505,7 @@
                                                     data-akun="${ressPosYan[i].accounts}"
                                                     data-cord="${ressPosYan[i].coordinate_guarding.lat},${ressPosYan[i].coordinate_guarding.lng}" 
                                                     href="javascript:void(0)">
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                    <i style="color:${ressPosYan[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
                                                 </a> 
                                             </td>
                                         </tr>
@@ -8680,7 +8682,7 @@
                                                     data-akun="${ressPosTerpadu[i].accounts}"
                                                     data-cord="${ressPosTerpadu[i].coordinate_guarding.lat},${ressPosTerpadu[i].coordinate_guarding.lng}" 
                                                     href="javascript:void(0)">
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                    <i style="color:${ressPosTerpadu[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
                                                 </a> 
                                             </td>
                                         </tr>
@@ -8855,7 +8857,7 @@
                                                     data-akun="${ressPosko[i].accounts}"
                                                     data-cord="${ressPosko[i].coordinate_guarding.lat},${ressPosko[i].coordinate_guarding.lng}" 
                                                     href="javascript:void(0)">
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                    <i style="color:${ressPosko[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
                                                 </a> 
                                             </td>
                                         </tr>
@@ -9029,7 +9031,7 @@
                                                     data-akun="${ressSatPjr[i].accounts}"
                                                     data-cord="${ressSatPjr[i].coordinate_guarding.lat},${ressSatPjr[i].coordinate_guarding.lng}" 
                                                     href="javascript:void(0)">
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                    <i style="color:${ressSatPjr[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
                                                 </a> 
                                             </td>
                                         </tr>
