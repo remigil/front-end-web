@@ -326,17 +326,6 @@
                                 <div class="col-xl-3 col-sm-6">
                                     <div class="card text-center">
                                         <div class="card-body">
-                                            <div class="dropdown text-end">
-                                                <a class="text-muted dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                    <i class="bx bx-dots-horizontal-rounded"></i>
-                                                </a>
-                                                
-                                                <div class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item" href="#">Edit</a> 
-                                                    <a class="dropdown-item" href="#">Hapus</a>
-                                                </div>
-                                            </div>
-                                            
                                             <div class="row mb-4">
                                                 <div class="col-md-12">
                                                 ${resource}
