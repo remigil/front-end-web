@@ -1359,6 +1359,12 @@
                                         <span data-key="t-dashboard">CCTV Pelindo <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="https://cctvcipali.lintasmarga.com/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV cipali <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
 
                                 <!-- <li>
                                     <a href="javascript: void(0);" target="_blank">
