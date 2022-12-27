@@ -7428,8 +7428,8 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Type</th> 
                                                 <th>Nama</th> 
+                                                <th>Type</th> 
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -7460,11 +7460,14 @@
                                                 </td>
                                             </tr>
                                         `;
+                                        
                                         $('#isiModalCctvDisplay').html(listCctvDisplay); 
                                         
                                     }, i * 500);
                                 }
+                                
 
+                                
                                 setTimeout(() => {
                                     for (let i = 0; i < countCctvDisplay; i++) {
                                         $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
@@ -7473,6 +7476,8 @@
                                             var longitude = parseFloat(latlong[1]);
                                             mapContainer.flyTo([latitude, longitude], 20);
                                         }); 
+                                        
+                                        
                                     }
                                     $('#datatableCctvOnDisplay').DataTable({
                                         responsive: true,
@@ -7490,6 +7495,7 @@
                                         },
                                     });
                                 }, countCctvDisplay * 500);
+                                
 
                             }
                         });

@@ -130,7 +130,7 @@ class Statistik_nasional extends MY_Controller
             $totalstnk += $getRegident[$i]['stnk'];
             $totalsim += $getRegident[$i]['sim'];
             $totalranmor += $getRegident[$i]['ranmor'];
-            // $totalsim += 0;
+            $totalsbst += 0;
         }
 
         // $getOps = guzzle_request('GET', 'bagops/daily', [
@@ -281,7 +281,7 @@ class Statistik_nasional extends MY_Controller
                 'stnk' => $findComparestnk,
                 'sim' => $findComparesim,
                 'ranmor' => $findCompareranmor,
-                // 'sbst' => '',
+                'sbst' => '',
 
                 'dikmas' => $findComparedikmas,
                 'jemenopsrek' => '',
@@ -303,7 +303,7 @@ class Statistik_nasional extends MY_Controller
             'stnk' =>  number_format($totalstnk, 0, '', '.'),
             'sim' =>  number_format($totalsim, 0, '', '.'),
             'ranmor' => number_format($totalranmor, 0, '', '.'),
-            // 'sbst' => number_format($totalsbst, 0, '', '.'),
+            'sbst' => number_format($totalsbst, 0, '', '.'),
 
             'dikmas' => number_format($totaldikmas, 0, '', '.'),
             'jemenopsrek' =>  number_format($totaljemenopsrek, 0, '', '.'),

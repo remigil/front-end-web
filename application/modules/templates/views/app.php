@@ -1338,25 +1338,37 @@
                                 <li>
                                     <a href="http://rttmc.dephub.go.id/rttmc/livecctv" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">CCTV Perhubungan Darat <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                        <span data-key="t-dashboard">CCTV PERHUBUNGAN DARAT <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="http://36.67.85.252" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">CCTV Wilayah Ambon <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                        <span data-key="t-dashboard">CCTV WILAYAH AMBON <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="http://cctv.priokport.co.id/" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">CCTV Wilayah Priok <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                        <span data-key="t-dashboard">CCTV WILAYAH PRIOK <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="http://cctvonline.pelindo.co.id:8081" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">CCTV Pelindo <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                        <span data-key="t-dashboard">CCTV PELINDO <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://cctvcipali.lintasmarga.com/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV CIPALI <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://cctvap2.angkasapura2.co.id:8081" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV ANGKASAPURA <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
 

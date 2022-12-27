@@ -149,6 +149,31 @@
                     <span class="fs-4 fw-bold text-white text-uppercase">Ditregident</span>
                 </div>
                 <div class="col-md-12">
+                    <a href="<?= base_url('statistik_nasional/ranmor'); ?>">
+                        <div class="card" style="border-color: #9747f3;  border-radius: 20px !important; background-color:#9747f3">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold"> RANMOR</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="ranmor"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailranmor"></span>
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/LAKA.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-12">
                     <a href="<?= base_url('statistik_nasional/Sim'); ?>">
                         <div class="card" style="border-color: #f3478f;  border-radius: 20px !important; background-color:#f3478f">
                             <div class="card-body">
@@ -223,23 +248,23 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-12">
-                    <a href="<?= base_url('statistik_nasional/ranmor'); ?>">
+
+                <!-- <div class="col-md-12">
+                    <a href="<?= base_url('statistik_nasional/sbst'); ?>">
                         <div class="card" style="border-color: #f34799;  border-radius: 20px !important; background-color:#f34799">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style=" height: 60px;">
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
-                                            <span class="fw-bold"> RANMOR</span>
+                                            <span class="fw-bold"> SBST</span>
                                             <br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="ranmor"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailranmor"></span>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="sbst"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsbst"></span>
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/LAKA.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
-                                    </div>
+                                        <img src="<?= base_url('assets/icon/dashboard/FASMAT_SBST.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
+                                   </div>
                                 </div>
                             </div>
                             <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
@@ -247,7 +272,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> -->
             </div>
             <div class="col-md-3">
                 <div class="col-md-12  text-center mb-2">
@@ -696,6 +721,9 @@
 
                         $('#stnk').html(`<span class="fs-5" >${result.stnk}</span >`);
                         $('#detailstnk').html(`${result['compare']['stnk']}`);
+
+                        $('#sbst').html(`<span class="fs-5" >${result.sbst}</span >`);
+                        $('#detailsbst').html(`${result['compare']['sbst']}`);
 
                         $('#sim').html(`<span class="fs-5" >${result.sim}</span>`);
                         $('#detailsim').html(`${result['compare']['sim']}`);

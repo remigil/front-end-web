@@ -2295,7 +2295,7 @@
 
 
 
-        serverSideGet();
+        // serverSideGet();
 
         function serverSideGet() {
             $("#overlay").fadeIn(300);
@@ -6064,7 +6064,7 @@
 
 
 
-        serverSideFilter();
+        // serverSideFilter();
 
         function serverSideFilter() {
             // userDataTable.draw();
