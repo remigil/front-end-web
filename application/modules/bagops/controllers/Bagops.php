@@ -19,6 +19,21 @@ class Bagops extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "";
 
+
+        $getPolda = guzzle_request('GET', 'polda', [
+            'headers' => ['Authorization' => $this->session->userdata['token']]
+        ]);
+
+        $getOperasi = guzzle_request('GET', 'operation-profile', [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['getPolda'] = $getPolda['data']['data'];
+        $data['getOperasi'] = $getOperasi['data']['data'];
+
+
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
@@ -34,9 +49,7 @@ class Bagops extends MY_Controller
         }
 
 
-
-
-        $page_content["data"] = '';
+        $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 

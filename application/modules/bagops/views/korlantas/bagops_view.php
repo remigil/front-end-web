@@ -4,7 +4,7 @@
             <div id="nama">
                 <div style="display: flex;">
                     <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i>|</a></h3>
-                    &nbsp;&nbsp; <h3 style="text-transform: uppercase; color:#007DD8;"> Bagops</h3>
+                    &nbsp;&nbsp; <h3 style="text-transform: uppercase; color:#007DD8;">Bagian Operasi</h3>
 
                 </div>
             </div>
@@ -12,32 +12,31 @@
         </div>
         <?php $mobile = detect_mobile();
         if ($mobile === true) { ?>
-            <div class="col-md-12" style="margin-left: -15px;">
+            <!-- <div class="col-md-12" style="margin-left: -15px;">
                 <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
                 </button>
                 <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
-            </div>
+            </div> -->
         <?php } else { ?>
-            <div class="col-md-1 text-end align-self-center">
+            <!-- <div class="col-md-1 text-end align-self-center">
                 <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
                 </button>
             </div>
             <div class="col-md-3 text-end align-self-center">
                 <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
-            </div>
+            </div> -->
         <?php } ?>
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
 
         <div class="col-md-12 mt-5">
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-4 mb-3">
-                    <h4 style="text-transform: uppercase; color:#007DD8;">Statistik Nasional</h4>
+                    <h4 style="text-transform: uppercase; color:#007DD8;">Operasi</h4>
                 </div>
-
             </div>
             <div class="row">
                 <div class="col-md-3">
@@ -54,7 +53,7 @@
                                 </div>
                                 <div class=" col-md-2">
                                     <img src="<?= base_url('assets/icon/dashboard/SUBBAG_RENOP.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                    <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
+                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +74,7 @@
                                 </div>
                                 <div class=" col-md-2">
                                     <img src="<?= base_url('assets/icon/dashboard/SUBBAG_DALOPS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                    <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
+                                    <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +96,7 @@
                                 </div>
                                 <div class=" col-md-2">
                                     <img src="<?= base_url('assets/icon/dashboard/SUBBAG_KERMA.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                    <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
+                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +117,7 @@
                                 </div>
                                 <div class=" col-md-2">
                                     <img src="<?= base_url('assets/icon/dashboard/SUBBAG_ANEV.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                    <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
+                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
                                 </div>
                             </div>
                         </div>
@@ -126,10 +125,9 @@
                 </div>
             </div>
         </div>
-        <!-- end statistik -->
-    </div>
+    </div> -->
 
-    <ul class="nav nav-pills  mt-3" id="pills-tab" role="tablist">
+    <!-- <ul class="nav nav-pills  mt-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
         </li>
@@ -139,8 +137,8 @@
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
         </li>
-    </ul>
-    <div class="tab-content" id="pills-tabContent">
+    </ul> -->
+    <!-- <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <section class="shadow-sm mt-5">
                 <div class="row">
@@ -352,7 +350,1038 @@
                 </div>
             </section>
         </div>
+    </div> -->
+</div>
+
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Pilih Operasi</label>
+                <select class="form-control" name="operasi_id" id="operasi_id">
+                    <?php foreach ($data['getOperasi'] as $key) : ?>
+                        <option value="<?= $key['id'] ?>"><?= $key['name_operation'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
     </div>
+    <div class="row">
+        <div class="card">
+            <div class="card-body row">
+                <div id="tableLL" class="table-editable col-md-6">
+                    <h5>Lalu Lintas</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>MEDIA CETAK</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>MEDIA ELEKTRONIK</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>MEDIA SOSIAL</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>LAIN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="tableMP1" class="table-editable  col-md-6">
+                    <h5>Media Penyuluhan 1</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Spanduk</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Leaflet</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Sticker</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Bilboard</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body row">
+                <div id="tableKLL1" class="table-editable col-md-6">
+                    <h5>Kegiatan Lalu Lintas 1</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>PENGATURAN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>PENJAGAAN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>PENGAWALAN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>PATROLI</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="tableJE" class="table-editable  col-md-6">
+                    <h5>Jenis Etle</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>ETLE STATIS</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>ETLE MOBILE</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>TEGURAN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body row">
+                <div id="tablePR2" class="table-editable col-md-6">
+                    <h5>Pelanggaran Roda 2</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>HELM SNI</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>MELAWAN ARUS</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>GUN HP SAAT BERKENDARA</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>PENGARUH ALKOHOL</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>MELEBIHI BATAS KECEPATAN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>PENGEDARA DIBAWAH UMUR</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>LAIN-LAIN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="tablePR4" class="table-editable col-md-6">
+                    <h5>Pelanggaran Roda 4</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>MELAWAN ARUS</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>GUN HP</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>PENGARUH ALKOHOL</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>OVER SPEED</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>DIBAWAH UMUR</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>SAFETY BELT</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>LAIN-LAIN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body row">
+                <div id="tableBB" class="table-editable col-md-6">
+                    <h5>Barang Bukti</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>SIM</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>STNK</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>RANMOR</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="tableR" class="table-editable col-md-6">
+                    <h5>Ranmor</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>SEPEDA MOTOR</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>MOBIL PENUMPANG</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>BUS</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>MOBIL BARANG</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>RANSUS</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body row">
+                <div id="tablePP" class="table-editable col-md-6">
+                    <h5>Profesi Pelanggar</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>PNS</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>KARYAWAN / SWASTA</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>PELAJAR / MAHASISWA</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>PENGEMUDI (SUPIR)</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>TNI</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>POLRI</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>LAIN - LAIN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="tableUP" class="table-editable col-md-6">
+                    <h5>Usia Pelanggaran</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0 - 15</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>16 - 20</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>21 - 25</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>26 - 30</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>31-35</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>36 - 40</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>41 - 45</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>46 - 50</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>46 - 50</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>51 - 60</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>> 60</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body row">
+                <div id="tableSP" class="table-editable col-md-6">
+                    <h5>Sim Pelanggar</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>A</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>A UMUM</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>B I</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>B I UMUM</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>B II</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>B II UMUM</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>C</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>D</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>SIM INTERNASIONAL</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>TANPA SIM</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="tableLP" class="table-editable col-md-6">
+                    <h5>Lokasi Pelanggar</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>PEMUKIMAN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>PERBELANJAAN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>PERKANTORAN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>WISATA</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body row">
+                <div id="tableJJ" class="table-editable col-md-6">
+                    <h5>Jenis Jalan</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>PEMUKIMAN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>PERBELANJAAN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>PERKANTORAN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>WISATA</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="tableK" class="table-editable col-md-6">
+                    <h5>Kecelakaan</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>JUMLAH KEJADIAN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>KORBAN MD</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>KORBAN LB</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>KORBAN LR</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>RUMAT</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body row">
+                <div id="tableKBU" class="table-editable col-md-6">
+                    <h5>Kecelakaan Berd Usia</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0 - 4</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>5 - 9</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>10 - 14</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>15 - 19</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>21 - 24</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>24 - 29</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>30 - 34</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>35 - 39</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>40 - 44</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>45 - 49</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>50 - 54</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="tablePK" class="table-editable col-md-6">
+                    <h5>Profesi Korban</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>PNS</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>KARYAWAN / SWASTA</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>PELAJAR / MAHASISWA</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>PENGEMUDI (SUPIR)</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>TNI</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>POLRI</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>LAIN - LAIN</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body row">
+                <div id="tableKBP" class="table-editable col-md-6">
+                    <h5>Kecelakaan Berd Pendidikan</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>SD</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>SLTP</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>SLTA</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>D 3</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>S1</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>S2</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>TDK DIKETAHUI</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="tableKBK" class="table-editable col-md-6">
+                    <h5>Kecelakaan Berd Kendaraan</h5>
+                    <table class="table table-bordered dt-responsive  nowrap w-100">
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>angka</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>SEPEDA MOTOR</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>MOBIL PENUMPANG</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>BUS</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>MOBIL BARANG</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>RANSUS</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr class="hide">
+                            <td contenteditable="true">Untitled</td>
+                            <td contenteditable="true">undefined</td>
+                            <td>
+                                <span class="table-remove glyphicon glyphicon-remove">X</span>
+                            </td>
+                            <td>
+                                <span class="table-up glyphicon glyphicon-arrow-up">I</span>
+                                <span class="table-down glyphicon glyphicon-arrow-down">J</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="card">
+            <h3>GIAT DIKMASLANTAS (PRE-EMTIF)</h3>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-header">
+                            <div id="title">PENLUH</div>
+                        </div>
+                        <div class="card-body">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-header">
+                            <div id="title">PENYEBARAN / PEMASANGAN</div>
+                        </div>
+                        <div class="card-body">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div> -->
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -375,6 +1404,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.3/apexcharts.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 <script>
+    $(document).ready(function() {
+        console.log('ok')
+    })
+
+
     var date = new Date();
     var year = new Date();
     var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
