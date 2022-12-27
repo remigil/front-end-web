@@ -51,23 +51,32 @@
 
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+				<div class="service-item-upper">
 					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/dis/" class="stretched-link fs-5">DIS</a></h4>
-					<p class="text-center">Dynamic Infographic System (DIS) Suatu portal Korlantas Polri berisi Dynamic Infographic System adalah system aplikasi yang menghasilkan informasi kondisi lalu lintas terkini di jalan Tol maupun spot-spot pendukung seperti reas area, gate tol, kondisi lalu di jalan alteri, Pelabuhan, bandara dan lainnya yang didukung camera, cctv terupdate secara real time</p>
+					<p class="text-center mb-5">Dynamic Infographic System (DIS) Suatu portal Korlantas Polri berisi Dynamic Infographic System adalah system aplikasi yang menghasilkan informasi kondisi lalu lintas terkini di jalan Tol maupun spot-spot pendukung seperti reas area, gate tol, kondisi lalu di jalan alteri, Pelabuhan, bandara dan lainnya yang didukung camera, cctv terupdate secara real time</p>
+
+				</div>
 				</div>
 			</div><!-- End Service Item -->
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+				<div class="service-item-upper">
 					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href=http://sislapops.com/home" class="stretched-link fs-5">SISLAPOPS</a></h4>
-					<p class="text-center">Sistem Sislapops adalah suatu portal Korlantas Polri berisi system pelaporan aplikasi operasi Lalu Lintas Online</p>
+					<p class="text-center mb-5">Sistem Sislapops adalah suatu portal Korlantas Polri berisi system pelaporan aplikasi operasi Lalu Lintas Online</p>
+
+				</div>
 				</div>
 			</div><!-- End Service Item -->
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+				<div class="service-item-upper">
 					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="https://ntmcpolri.info/" class="stretched-link fs-5">NTMC</a></h4>
-					<p class="text-center">Suatu portal Korlantas Polri berisi informasi dan kegiatan operasional korlantas POLRI mapun stakeholder terkait dalam rangka memenuhi kebutuhan masyarakat terkait informasi bidang lalu lintas guna mewujudkan Kamseltibcar lantas.</p>
+					<p class="text-center mb-5">Suatu portal Korlantas Polri berisi informasi dan kegiatan operasional korlantas POLRI mapun stakeholder terkait dalam rangka memenuhi kebutuhan masyarakat terkait informasi bidang lalu lintas guna mewujudkan Kamseltibcar lantas.</p>
+
+				</div>
 				</div>
 			</div><!-- End Service Item -->
 		</div>
@@ -124,22 +133,22 @@
 		</div>
 
 		<div class="row margin-top-20">
-			<div class="col-md-8 border-end shadows">
-				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-			<div class="col-md-4">
-				<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
-					<div class="col-md-12">
-						<iframe width="100%" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-					<div class="col-md-12">
-						<iframe width="100%" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-					<div class="col-md-12">
-						<iframe width="100%" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
+		<div class="col-md-8 border-end shadows">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="col-md-4">
+                <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+                  <div class="col-md-12">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhr68Y7Q3pYszu3xwwGGEWo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <div class="col-md-12">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZiRhVpxCG_GIkU8qIDuVsoL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <div class="col-md-12">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhPvc90jNW4o-6KH6gLSLm9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                </div>
+              </div>
 		</div>
 	</div>
 </section><!-- End Events Section -->
@@ -157,18 +166,23 @@
 			<div class="swiper-wrapper align-items-center">
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagops/bagops1.jpg"><img src="<?= base_url() ?>assets/fe/bagops/bagops1.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">Kabag Ops Korlantas Polri Kombes Pol Edy Djunaedi saat wawancara bersama radio RRI Pro1 FM, Kamis(21/4/2022).</p>
 				</div>
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagops/bagops2.jpg"><img src="<?= base_url() ?>assets/fe/bagops/bagops2.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">Kegiatan pelatihan dipimpin oleh Kabag Ops Korlantas Polri Kombes Pol Eddy Djunaedi di Gedung NTMC Polri Jakarta. Rabu 23-2-2022</p>
 				</div>
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagops/bagops3.jpg"><img src="<?= base_url() ?>assets/fe/bagops/bagops3.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">KabagOps dan Dirgakkum Korlantas Polri saat dampingi Kakorlantas Menghadiri Raker Komisi V DPR Mengenai Infrastruktur dan Transportasi 6/4/2022</p>
 				</div>
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagops/bagops4.jpg"><img src="<?= base_url() ?>assets/fe/bagops/bagops4.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">Pelantikan Kabagops Kombespol Eddy Junaidi Januari 2022</p>
 				</div>
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagops/bagops5.jpg"><img src="<?= base_url() ?>assets/fe/bagops/bagops5.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">Kombes Pol Eddy Djunaedi Siapkan Personel Guna Ajak Supir dan Penumpang Lakukan Streching/Peregangan Otot di Rest Area</p>
 				</div>
 				<div class="swiper-pagination"></div>
 			</div>

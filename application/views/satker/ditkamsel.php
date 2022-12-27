@@ -52,16 +52,22 @@
 
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+				<div class="service-item-upper">
 					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/rarirosa.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="https://rasirosakorlantas.id/" class="stretched-link fs-5">RASIROSA</a></h4>
-					<p class="text-center">Rasirosa adalah portal KORLANTAS POLRI berisi berbagai informasi yang dapat dipelajari dan digunakan baik oleh anggota POLRI maupun masyarakat untuk memahami berbagai hal yang berhubungan dengan lalu lintas pada umumnya dan Keselamatan berkendaraan pada khususnya, juga dikenal sebagai Literasi Road Safety</p>
+					<p class="text-center mb-5">Rasirosa adalah portal KORLANTAS POLRI berisi berbagai informasi yang dapat dipelajari dan digunakan baik oleh anggota POLRI maupun masyarakat untuk memahami berbagai hal yang berhubungan dengan lalu lintas pada umumnya dan Keselamatan berkendaraan pada khususnya, juga dikenal sebagai Literasi Road Safety</p>
+
+				</div>
 				</div>
 			</div><!-- End Service Item -->
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+				<div class="service-item-upper">
 					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="#" class="stretched-link fs-5">Film Pendek</a></h4>
 					<p class="text-center">Suatu Portal Korlantas Polri yang berisikan film pendek tentang tertib lalu lintas sebagai sarana sosialisasi dan edukasi pada masyarakat dalam tertib berlalu lintas di jalan agar terwujud KAMSELTIBCARLANTAS</p>
+
+				</div>
 				</div>
 			</div><!-- End Service Item -->
 		</div>
@@ -118,22 +124,22 @@
 		</div>
 
 		<div class="row margin-top-20">
-			<div class="col-md-8 border-end shadows">
-				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-			<div class="col-md-4">
-				<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
-					<div class="col-md-12">
-						<iframe width="100%" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-					<div class="col-md-12">
-						<iframe width="100%" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-					<div class="col-md-12">
-						<iframe width="100%" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
+		<div class="col-md-8 border-end shadows">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="col-md-4">
+                <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+                  <div class="col-md-12">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhr68Y7Q3pYszu3xwwGGEWo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <div class="col-md-12">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZiRhVpxCG_GIkU8qIDuVsoL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <div class="col-md-12">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhPvc90jNW4o-6KH6gLSLm9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                </div>
+              </div>
 		</div>
 	</div>
 </section><!-- End Events Section -->
@@ -151,18 +157,23 @@
 			<div class="swiper-wrapper align-items-center">
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/ditkamsel/ditkamsel1.jpg"><img src="<?= base_url() ?>assets/fe/ditkamsel/ditkamsel1.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">Direktur Keamanan dan Keselamatan (Dirkamsel) Korlantas Polri, Brigjen Pol. Dr. Chryshnanda Dwilaksana,</p>
 				</div>
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/ditkamsel/ditkamsel2.jpg"><img src="<?= base_url() ?>assets/fe/ditkamsel/ditkamsel2.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">Dirkamsel Korlantas Polri saat dampingi Kakorlantas Menghadiri Raker Komisi V DPR Mengenai Infrastruktur dan Transportasi 6/4/2022</p>
 				</div>
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/ditkamsel/ditkamsel3.jpg"><img src="<?= base_url() ?>assets/fe/ditkamsel/ditkamsel3.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">Dirkamsel Korlantas Polri Brigjen Pol Chryshnanda DL Dirgakkum Korlantas Polri Brigjen Pol Aan Suhanan, Kabagops Korlantas Polri Kombes Pol Eddi Djunaedi, Dirut PT Jasa Raharja Rivan Purwantono serta Dirlantas Jatim Kombes Pol Latif Usman Dampingi Kakorlantas POLRI tinjau persiapan pelaksanaan Operasi Ketupat 2022 di Surabaya, Jawa Timur. Kamis 10 Maret 2022.</p>
 				</div>
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/ditkamsel/ditkamsel4.jpg"><img src="<?= base_url() ?>assets/fe/ditkamsel/ditkamsel4.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">Kasubdit Jemen Opsrek Ditkamsel Korlantas Polri Kombes Pol Indra Jafar meninjau Pos Pam di terminal Lamongan.</p>
 				</div>
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/ditkamsel/ditkamsel5.jpg"><img src="<?= base_url() ?>assets/fe/ditkamsel/ditkamsel5.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">Direktur Keamanan dan Keselamatan (Dirkamsel) Korlantas Polri, Brigjen Pol. Dr. Chryshnanda Dwilaksana, saat Mendampingi Kakorlantas berkunjung ke gedung TV One, 19 Januari 2021</p>
 				</div>
 				<div class="swiper-pagination"></div>
 			</div>

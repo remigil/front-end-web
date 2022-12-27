@@ -405,6 +405,10 @@ class Stackholder extends MY_Controller
                     'name' => 'url',
                     'contents' => $input['url'],
                 ],
+                [
+                    'name' => 'link_playlist',
+                    'contents' => $input['link_playlist'],
+                ],
 
 
             ];
@@ -465,6 +469,10 @@ class Stackholder extends MY_Controller
                 [
                     'name' => 'url',
                     'contents' => $input['url'],
+                ],
+                [
+                    'name' => 'link_playlist',
+                    'contents' => $input['link_playlist'],
                 ],
 
             ];

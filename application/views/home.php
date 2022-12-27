@@ -359,7 +359,7 @@
                 </div>
 								<div class="row">
 									<div class="col-md-12 d-block">
-									<h4 class="post-title fs-5" style="height: 100px;"><?= substr($data['title'],0,150); ?></h4>
+									<h4 class="post-title fs-6" style="height: 80px;"><?= substr($data['title'],0,150); ?></h4>
 									</div>
 									<div class="col-md-12 d-block">
 									<p style="text-align: justify;" style="height: 100px;"><?= substr($data['content'], 0, 260) . '. . .' ?></p>

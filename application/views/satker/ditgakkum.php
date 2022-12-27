@@ -52,30 +52,42 @@
 
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
             <div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
-              <div class="icon text-center"><img src="<?= base_url()?>assets/fe/client/irsms.png" alt=""  width="70px" height="70px"></div>
+            <div class="service-item-upper">
+            <div class="icon text-center"><img src="<?= base_url()?>assets/fe/client/irsms.png" alt=""  width="70px" height="70px"></div>
               <h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5">IRSMS</a></h4>
-              <p class="text-center">Integrated Road Safety Management System adalah pendataan secara elektronik fenomena kecelakaan lalu lintas dan analisanya</p>
+              <p class="text-center mb-5">Integrated Road Safety Management System adalah pendataan secara elektronik fenomena kecelakaan lalu lintas dan analisanya</p>
+            </div>
+              
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
             <div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+            <div class="service-item-upper">
               <div class="icon text-center"><img src="<?= base_url()?>assets/fe/client/etle-pmj.png" alt="" width="70px" height="70px"></div>
               <h4 class="text-center"><a href="https://www.etle-pmj.info/id/" class="stretched-link fs-5">E-TLE</a></h4>
-              <p class="text-center">Electronic Traffic Law Enforcement adalah sistem penegakkan hukum lalu lintas berbasis elektronik dengan bukti – bukti pelanggaran dalam format elektronik</p>
+              <p class="text-center mb-5">Electronic Traffic Law Enforcement adalah sistem penegakkan hukum lalu lintas berbasis elektronik dengan bukti – bukti pelanggaran dalam format elektronik</p>
+
+            </div>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
             <div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+            <div class="service-item-upper">
               <div class="icon text-center"><img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
               <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5">E-DAKGAR</a></h4>
-              <p class="text-center">E – Dakgar adalah sistem Penindakan Pelanggaran Secara Online dan Transparan yang dicatat secara elektronik dan, dapat di cek secara online.</p>
+              <p class="text-center mb-5">E – Dakgar adalah sistem Penindakan Pelanggaran Secara Online dan Transparan yang dicatat secara elektronik dan, dapat di cek secara online.</p>
+
+            </div>
             </div>
           </div><!-- End Service Item -->
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
             <div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+            <div class="service-item-upper">
               <div class="icon text-center"><img src="<?= base_url()?>assets/fe/client/eturjawali.png" alt="" width="70px" height="70px"></div>
               <h4 class="text-center"><a href="https://eturjawali.korlantas.polri.go.id/secure/login?redir=aHR0cHM6Ly9ldHVyamF3YWxpLmtvcmxhbnRhcy5wb2xyaS5nby5pZC8=#" class="stretched-link fs-5">E-TURJAWALI</a></h4>
-              <p class="text-center">Portal Korlantas untuk pengawasan dan pengendalian kegiatan polantas dalam melaksanakan tugas pengaturan, penjagaan dan patroli atau turjawali</p>
+              <p class="text-center mb-5">Portal Korlantas untuk pengawasan dan pengendalian kegiatan polantas dalam melaksanakan tugas pengaturan, penjagaan dan patroli atau turjawali</p>
+
+            </div>
             </div>
           </div><!-- End Service Item -->
 
@@ -141,22 +153,22 @@
         </div>
 
 		<div class="row margin-top-20">
-                            <div class="col-md-8 border-end shadows">
-                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287WCl8x8yRe5PSd3VROvZ4Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
-                                    <div class="col-md-12">
-                                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/PtXnDn8UPN0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="col-md-8 border-end shadows">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="col-md-4">
+                <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+                  <div class="col-md-12">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhr68Y7Q3pYszu3xwwGGEWo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <div class="col-md-12">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZiRhVpxCG_GIkU8qIDuVsoL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <div class="col-md-12">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhPvc90jNW4o-6KH6gLSLm9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                </div>
+              </div>
                         </div>
 
         

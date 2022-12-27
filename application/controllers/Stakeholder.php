@@ -15,6 +15,8 @@ class Stakeholder extends MX_Controller {
         $getbyid = guzzle_request('GET', $url, [
         ]);
 		$getbyid = $getbyid['data']['data'];
+
+		// var_dump($getbyid);die;
 		
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();

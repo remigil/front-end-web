@@ -51,16 +51,22 @@
 
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+				<div class="service-item-upper">
 					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="http://satudata.korlantas.polri.go.id/#/pages/dashboard" class="stretched-link fs-5">BIG DATA</a></h4>
-					<p class="text-center">Big Data adalah suatu platform data terintegrasi dari seluruh data di Korlantas POLRI</p>
+					<p class="text-center mb-5">Big Data adalah suatu platform data terintegrasi dari seluruh data di Korlantas POLRI</p>
+
+				</div>
 				</div>
 			</div><!-- End Service Item -->
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+				<div class="service-item-upper">
 					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="<?= base_url() ?>cctv_streaming" class="stretched-link fs-5">CCTV</a></h4>
-					<p class="text-center">Platform CCTV Korlantas merupakan platform terintegrasi dari seluruh kamera yang dimiliki Korlantas POLRI dan CCTV Integrasi stakeholder terkait</p>
+					<p class="text-center mb-5">Platform CCTV Korlantas merupakan platform terintegrasi dari seluruh kamera yang dimiliki Korlantas POLRI dan CCTV Integrasi stakeholder terkait</p>
+
+				</div>
 				</div>
 			</div><!-- End Service Item -->
 		</div>
@@ -116,50 +122,27 @@
 		</div>
 
 		<div class="row margin-top-20">
-			<div class="col-md-8 border-end shadows">
-				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-			<div class="col-md-4">
-				<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
-					<div class="col-md-12">
-						<iframe width="100%" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-					<div class="col-md-12">
-						<iframe width="100%" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-					<div class="col-md-12">
-						<iframe width="100%" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
+		<div class="col-md-8 border-end shadows">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="col-md-4">
+                <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+                  <div class="col-md-12">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhr68Y7Q3pYszu3xwwGGEWo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <div class="col-md-12">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZiRhVpxCG_GIkU8qIDuVsoL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <div class="col-md-12">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhPvc90jNW4o-6KH6gLSLm9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                </div>
+              </div>
 		</div>
 	</div>
 </section><!-- End Events Section -->
 
-<!-- Media Channel -->
-<div class="row">
-	<div class="col-md-12">
-		<h3 style="text-transform:uppercase ;">Media Channel</h3>
-		<img src="<?php echo base_url(); ?>assets/fe/banner.png" alt="">
-	</div>
-	<div class="col-md-8">
-		<iframe width="760" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	</div>
-	<div class="col-md-4">
-		<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
-			<div class="col-md-12">
-				<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-			<div class="col-md-12">
-				<iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-			<div class="col-md-12">
-				<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-		</div>
-	</div>
-</div>
-<hr>
+
 
 <!-- ======= Gallery Section ======= -->
 <section id="gallery" class="gallery section-bg">
@@ -174,19 +157,21 @@
 			<div class="swiper-wrapper align-items-center">
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagtik/bagtik1.jpg"><img src="<?= base_url() ?>assets/fe/bagtik/bagtik1.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">Upacara serah terima jabatan Kabag TIK Korlantas Polri dan Korps raport kenaikan pangkat personel Korlantas Polri, di aula Djayusman Korlantas Polri, Jakarta, Senin 30 Desember 2021</p>
 				</div>
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagtik/bagtik2.jpg"><img src="<?= base_url() ?>assets/fe/bagtik/bagtik2.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">Kakorlantas Polri Irjen Pol Drs. Istiono, M.H., memimpin upacara serah terima jabatan Kabag TIK Korlantas Polri. 30 Desember 2021</p>
 				</div>
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagtik/bagtik3.jpg"><img src="<?= base_url() ?>assets/fe/bagtik/bagtik3.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">Korlantas Polri Gelar Pelatihan Peningkatan Kemampuan di Bidang TIK</p>
 				</div>
 				<div class="swiper-slide">
 					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagtik/bagtik4.jpg"><img src="<?= base_url() ?>assets/fe/bagtik/bagtik4.jpg" class="img-fluid" alt="" width="100%"></a>
+					<p class="fs-7">Kasubbag Anbangsistek Bag TIK Korlantas Polri, AKBP Dwi Santoso saat berada di Kota Balikpapan,akan ada penambahan fungsi di beberapa CCTV di jalan raya. Rincinya, 6 unit untuk e-tilang atau e-tle dan 10 unit untuk pemantauan pada tanggal 08 Januari 2022</p>
 				</div>
-				<div class="swiper-slide">
-					<a class="glightbox" data-gallery="images-gallery" href="<?= base_url() ?>assets/fe/bagtik/bagtik5.jpg"><img src="<?= base_url() ?>assets/fe/bagtik/bagtik5.jpg" class="img-fluid" alt="" width="100%"></a>
-				</div>
+				
 				<div class="swiper-pagination"></div>
 			</div>
 		</div>
