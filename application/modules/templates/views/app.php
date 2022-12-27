@@ -1335,6 +1335,30 @@
                                         <span data-key="t-dashboard">E-SAMAPTA <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="http://rttmc.dephub.go.id/rttmc/livecctv" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV Perhubungan Darat <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://36.67.85.252" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV Wilayah Ambon <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://cctv.priokport.co.id/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV Wilayah Priok <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://cctvonline.pelindo.co.id:8081" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV Pelindo <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
 
                                 <!-- <li>
                                     <a href="javascript: void(0);" target="_blank">
