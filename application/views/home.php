@@ -216,7 +216,12 @@
 			</div> -->
 
       <!-- get logo polda manual -->
-      <div class="container-fluid">
+      
+      <div class="container mt-5 ">
+      <div class="section-title">
+        <h2>Link Kewilayahan Se-Indonesia</h2>
+        <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+      </div>
 
         <div class="row">
           <div class="col-md-12">
@@ -226,144 +231,144 @@
                 
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMS9wTkR4R0lkWkcxdkwydkp5dmNEcEJxMmtMUURqdzllTT0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Aceh.png" alt="" width="50px" class="m-2">
-                  <p>Aceh</p>
+                  <p class="nama_polda">Aceh</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMStoeEZZVmN6MmE1TGRnQm5TMkJxV2tDc2N6V1l5Sk1QND0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Sumut.png" alt="" width="50px" class="m-2">
-                  <p>Sumut</p>
+                  <p class="nama_polda">Sumut</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMStYeHJqNjJTZjZyc2N5RzVsbDlpeGs3UFN2cEp1SjFrWT0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Sumbar.png" alt="" width="50px" class="m-2">
-                  <p>Sumbar</p>
+                  <p class="nama_polda">Sumbar</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMStkRnMvVi9ZaWFxTVc4Qm9ZUHM5Z2VOQy9RcWplSkYraz0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Riau.png" alt="" width="50px" class="m-2">
-                  <p>Riau</p>
+                  <p class="nama_polda">Riau</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMThmY3hwZUJHYWdFN3VpYUlFeVcrYWhpeTZWa1BXV0tHMD0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Bengkulu.png" alt="" width="50px" class="m-2">
-                  <p>Bengkulu</p>
+                  <p class="nama_polda">Bengkulu</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMS9YUHMvc3JBMkZLSHdhUEs3VW1hQlBleHlWbEVzN0lSST0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Jambi.png" alt="" width="50px" class="m-2">
-                  <p>Jambi</p>
+                  <p class="nama_polda">Jambi</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMTl3aFlmWHd2NjFHbHB1aE96UWhQLzh3MmdlYThsTlBsRT0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Sumsel.png" alt="" width="50px" class="m-2">
-                  <p>Sumsel</p>
+                  <p class="nama_polda">Sumsel</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMSsrOHBCZGZoM1ZLWnZvdHFEYkFrVGxkOXpiYWczK0FPMD0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Lampung.png" alt="" width="50px" class="m-2">
-                  <p>Lampung</p>
+                  <p class="nama_polda">Lampung</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMStBOGVndlZMV3JpRGVwV0IraGFTRWg3Z2c3VFJKYXVhND0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Metro_Jaya.png" alt="" width="50px" class="m-2">
-                  <p>Metro Jaya</p>
+                  <p class="nama_polda">Metro Jaya</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMTk5TVRlWVA4REh6L2ZqSFI4R215ZlJsaHM3OHVJT0ViND0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Jabar.png" alt="" width="50px" class="m-2">
-                  <p>Jabar</p>
+                  <p class="nama_polda">Jabar</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMS9RakZNK1Z4SEUyY3ZCcTFTbzRnRmt2SmlVOGtRUzBwaz0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Jateng.png" alt="" width="50px" class="m-2">
-                  <p>Jateng</p>
+                  <p class="nama_polda">Jateng</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMTlvenVBR01YRVh3OWhDV1RCK1JoSEVpRzc5Sk5kV0FJWT0">
                   <img src="<?= url_api() ?>polda/logo/Polda_DIY.png" alt="" width="50px" class="m-2">
-                  <p>DIY</p>
+                  <p class="nama_polda">DIY</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMS9xdkozcXlWVXFXc0JCT013NHdDdUpVRWp3aWFETVR6ST0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Jatim.png" alt="" width="50px" class="m-2">
-                  <p>Jatim</p>
+                  <p class="nama_polda">Jatim</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMTh6TVlublVIQjlhUU5YMS9xWDlKOHFpbE55QTRYU0E3Zz0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Bali.png" alt="" width="50px" class="m-2">
-                  <p>Bali</p>
+                  <p class="nama_polda">Bali</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMThPcnJzZkFKbGxFdjVvYW1QTEhMejJNV3dFOStTNnRGST0">
                   <img src="<?= url_api() ?>polda/logo/Polda_NTB.png" alt="" width="50px" class="m-2">
-                  <p>NTB</p>
+                  <p class="nama_polda">NTB</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMThmQXNxeUgyMzhMTFBDTlAzQkpJUzJsZmxJeVNHTks1dz0">
                   <img src="<?= url_api() ?>polda/logo/Polda_NTT.png" alt="" width="50px" class="m-2">
-                  <p>NTT</p>
+                  <p class="nama_polda">NTT</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMStVajlYaXd3YzNwWEd0cmNyeDlWbDltRElEQS9leVhUOD0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Kalbar.png" alt="" width="50px" class="m-2">
-                  <p>Kalbar</p>
-                </a>
-                <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMS9yOGxua3ZCQ2lxQW0vMlA3TE0wejBacjIzbzlVQnAyZz0">
-                  <img src="<?= url_api() ?>polda/logo/Polda_Kalsel.png" alt="" width="50px" class="m-2">
-                  <p>Kalsel</p>
+                  <p class="nama_polda">Kalbar</p>
                 </a>
                 
                 
                 
               </div>
               <div class="d-flex justify-content-between">
+                <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMS9yOGxua3ZCQ2lxQW0vMlA3TE0wejBacjIzbzlVQnAyZz0">
+                  <img src="<?= url_api() ?>polda/logo/Polda_Kalsel.png" alt="" width="50px" class="m-2">
+                  <p class="nama_polda">Kalsel</p>
+                </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMTlqMktVMnRFVGZWekdXTUVydkJyaWNuZmcxdXYxeE5PST0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Kalteng.png" alt="" width="50px" class="m-2">
-                  <p>Kalteng</p>
+                  <p class="nama_polda">Kalteng</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMStseGQyTko2eUwxY0RqKzNYTHpKQ1NUaXArK1p3ZEdrMD0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Kaltim.png" alt="" width="50px" class="m-2">
-                  <p>Kaltim</p>
+                  <p class="nama_polda">Kaltim</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMTlGb29lT25WR251VklHZ0Ewcm5sS2JOc2wrNGhBZktnTT0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Sulsel.png" alt="" width="50px" class="m-2">
-                  <p>Sulsel</p>
+                  <p class="nama_polda">Sulsel</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMTlwNHRrckZGSG1hc2ZXQ1ROa2tNdTUybnMvOU94alJlVT0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Sultra.png" alt="" width="50px" class="m-2">
-                  <p>Sultra</p>
+                  <p class="nama_polda">Sultra</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMThPOGR2emEyd3VXMUZPbXNSZDFWRVJJVksxV2Z0am0zRT0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Sulteng.png" alt="" width="50px" class="m-2">
-                  <p>Sulteng</p>
+                  <p class="nama_polda">Sulteng</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMS91eW1ycmtYSW50UGhzRi9xV0FCQktBTHNNRkRqWG04VT0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Sulawesi_Utara.png" alt="" width="50px" class="m-2">
-                  <p>Sulut</p>
+                  <p class="nama_polda">Sulut</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMTlQU1FmWHZHTit0WGdmd3pxSHhLTTFqbENFUEhnUkpHMD0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Maluku.png" alt="" width="50px" class="m-2">
-                  <p>Maluku</p>
+                  <p class="nama_polda">Maluku</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMThXMksvT1ZWc08wY09LODdOL1VBNHJIRU1WWWN2Ynh5RT0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Papua.png" alt="" width="50px" class="m-2">
-                  <p>Papua</p>
+                  <p class="nama_polda">Papua</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMTlkSlBrT0FZRmxDbXA1eXIwdWhZZFdicVFSM1gweEFvYz0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Kep_Babel.png" alt="" width="50px" class="m-2">
-                  <p>Babel</p>
+                  <p class="nama_polda">Babel</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMS92elB1ZWt1SkdhNE5nU01lYzdDTk9IOExvTm1nVC85bz0">
                   <img src="<?= url_api() ?>polda/logo/polda_Banten.png" alt="" width="50px" class="m-2">
-                  <p>Banten</p>
+                  <p class="nama_polda">Banten</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMTlHQmIxSzlFTmlaVytmVTJld2ZKZjZmVUhjdktiRnlOVT0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Gorontalo.png" alt="" width="50px" class="m-2">
-                  <p>Gorontalo</p>
+                  <p class="nama_polda">Gorontalo</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMThHYVFTaUwweFNOdUNMNEFZZkpZS2dkMUhLNFFNRXBhcz0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Maluku_Utara.png" alt="" width="50px" class="m-2">
-                  <p>Malut</p>
+                  <p class="nama_polda">Malut</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMThJTEE1NUNwT1JTd2xQZnFka2dPWFlNZ2duT0Q3UWZyST0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Kep_Riau.png" alt="" width="50px" class="m-2">
-                  <p>Kepri</p>
+                  <p class="nama_polda">Kepri</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMThZQVJPVWpqZWYwUzBnOVNrVERUM3MyRkVrM2pOL0FkUT0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Papua_Barat.png" alt="" width="50px" class="m-2">
-                  <p>Papua Barat</p>
+                  <p class="nama_polda">Papua Barat</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMTlvYzF5QTU4YmpWMzkxNFBNUldFY2ZMWVFYRjBsbkNoYz0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Sulbar.png" alt="" width="50px" class="m-2">
-                  <p>Sulbar</p>
+                  <p class="nama_polda">Sulbar</p>
                 </a>
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMS9UaGVKL1J6Z0FjWTBEV3dsdDBGUTFOS1BLUXVWVk1hcz0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Kaltara.png" alt="" width="50px" class="m-2">
-                  <p>Kaltara</p>
+                  <p class="nama_polda">Kaltara</p>
                 </a>
               </div>
   
