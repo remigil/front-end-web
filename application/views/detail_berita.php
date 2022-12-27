@@ -54,7 +54,7 @@
             </article><!-- End blog entry -->
 
             <div class="blog-author d-flex align-items-center">
-              <img src="<?= base_url()?>assets/fe/client/korlantas.png" class="rounded-circle float-left" alt="">
+              <img src="<?= base_url()?>assets/korlantas-hd.png" class="rounded-circle float-left" alt="">
               <div>
                 <h4>Korlantas Polri</h4>
                 <div class="social-links">

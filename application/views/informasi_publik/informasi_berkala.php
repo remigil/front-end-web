@@ -104,9 +104,9 @@
 					Kepala Korps Lalu Lintas Polri;
 					<ul>
 						<li>Inspektur Jenderal Polisi Drs. Firman Santyabudi, M.Si.</li>
-						<div class="row">
+						<div class="row mt-3">
 							<div class="col-md-2">
-								<img src="<?= base_url()?>assets/fe/profil/KAKOR-PAK-FIRMAN.jpg" alt="">
+								<img src="<?= base_url()?>assets/fe/profil/KAKOR-PAK-FIRMAN.jpg" alt="" width="100%">
 							</div>
 							<div class="col-md-10">
 								<p style="text-align: justify;">Alamat kantor JI. MT. Haryono Kav. 37-38 Jakarta Selatan 12770 Telp. (021) 1500669. Lahir di Jakarta pada tanggal 17 November 1965. Menempuh pendidikan AKABRI Tahun 1988, PTIK Tahun 1996, SESPIM Tahun 2002 dan SESPIMTI Tahun 2012. Pernah menjabat sebagai Kaurbinopsnal Satreskrim Polres Bogon (1988) , Gadik Muda Pusdik Lantas Lemdiklat Polri (1991), Gadik Madya Pusdik Lantas Lemdiklat Polri (1994), Pama Polda Metro Jaya (1996) , PS. PJS Kapuskodal Ops Polres Metro Jakpus (1997), Kapolsek Metro Menteng Metro Jakpus (1997) , Kasatlantas Polresta Banjarmasin (2001) ,Pamen Sespim Dediklat Lemdiklat Polri (2002)  , Kabagdiklat Pusdik Lantas Lemdiklat (2002) , Kasubdit Dikyasa Polda Metro Jaya (2003) ,Kapolresmetro Bandara (2003)  ,Kapolresta Depok (2005), Wadirlantas Polda Metro Jaya(2007), KASPN Polda Metro Jaya (2008), Kapolres Metro Jaksel (2009), Kasubdit Jianmas Ditlantas Babinkam Polri (2009), Dirlantas Polda Sumsel (2010), Analis Kebijakan Madya Bidang Korlantas Polri (2012) , Kabagrenops Robinops Sops Polri (2013), Karodalaops Sops Polri (2013), Direktur Kerjasama dan Humas PPATK (2014), Deputi Bidang Pemberantasan PPATK (2017), Kapolda Jambi (2020), Asisten Logistik Kapolri (2020), Kakorlantas Polri (2021). Pendidikan Pengembangan & Pelatihan yang pernah diikuti yaitu Dikjurdas Pewira Lantas (1991) , Env Law Enforcement Leiden (1991) dan Pendidikan Perwira Pertama Dasar Brimob (1988). Tanda Kehormatan yang pernah diperoleh yaitu : Satyalancana Bhakti Buana Tahun 2021, Satyalancana Pengabdian 32 Tahun 2021, Bintang Bhayangkara Pratama Tahun  2019, Tanda Kehormatan Veteran Perdamaian Republik Indonesia Tahun 2017, Bintang Bhayangkara Narariya Tahun 2014, Satyalancana Pengabdian 24 Tahun 2013, Satyalancana Pengabdian 16 Tahun 2005, Satyalancana Pengabdian 8 Tahun 1997, Satyalancana Santi Darma Tahun 1993, Sayalancana Dwidya Sistha Tahun 1993, The Unamid Medal Tahun 1993 serta The Unamid Medal Tahun 1992.</p>
@@ -118,9 +118,9 @@
 					Direktur Kamsel Korlantas Polri;
 					<ul>
 						<li>Brigjen Pol Prof. Dr. Chryshnanda Dwilaksana, M.Si.</li>
-						<div class="row">
+						<div class="row mt-3">
 							<div class="col-md-2">
-								<img src="<?= base_url()?>assets/fe/profil/DIRKAMSEL-CRYSHNANDA.png" alt="">
+								<img src="<?= base_url()?>assets/fe/profil/DIRKAMSEL-CRYSHNANDA.png" alt="" width="100%">
 							</div>
 							<div class="col-md-10">
 								<p style="text-align: justify;">Lahir di Kabupaten Magelang pada tanggal 3 Desember 1967. Menyelesaikan pendidikan Akabri Tahun 1989, PTIK Tahun 1998, Sespim Tahun 2014 dan Lemhanas tahun 2019. Pernah menjabat sebagai Kabidbingakkum Ditgakkum Korlantas Polri 31-12-2015 Kaprodi S3 Ditprog Pascasarjana STIK Lemdiklat Polri 05-03-2015 Analis Kebijakan Madya Bidang Jianstra Sops Polri (Dlm Rangka Dik Sespimti Dikreg-23 T.A 2014) 26-03-2014 Karoops Polda Jambi 14-12-2013 Dirlantas Polda Metro Jaya Polri 23-11-2012 Dirlantas Polda Riau 26-04-2011, Memiliki latar belakang pendidikan yaitu Sekolah Dasar Negeri Kedungsari II Magelang Utara (1979), Sekolah Menengah Pertama Negeri 3 Magelang (1982), Sekolah Menengah Atas Swasta Katolik Pendowo Magelang Utara (1985). Menyelesaikan gelar doktoralnya S3 (2005), diangkat Professor Sekolah Ilmu Tinggi Kepolisian (2020). Memperoleh Tanda Kehormatan Satyalancana Santi Darma 2000 Satyalancana Dwidya Sistha 1995 Satyalancana Pengabdian 16 Tahun 1991 Satyalancana Pengabdian 8 Tahun 1990. Saat ini Beliau menjabat sebagai Dirkamsel Korlantas Polri. Alamat kantor kantor JI. MT. Haryono Kav. 37-38 Jakarta Selatan 12770 Telp. (021) 1500669. LHKPN Brigjen Pol Prof. Dr. Chryshnanda Dwilaksana, M.Si.</p>
@@ -132,9 +132,9 @@
 					Direktur Gakkum Korlantas Polri;
 					<ul>
 						<li>BRIGJEN POL Drs. Aan Suhanan, M.Si.</li>
-						<div class="row">
+						<div class="row mt-3">
 							<div class="col-md-2">
-								<img src="<?= base_url()?>assets/fe/profil/DIRGAKKUM-AAN-RAHANAN.jpg" alt="">
+								<img src="<?= base_url()?>assets/fe/profil/DIRGAKKUM-AAN-RAHANAN.jpg" alt="" width="100%">
 							</div>
 							<div class="col-md-10">
 								<p style="text-align: justify;">Alamat Kantor Jalan MT. Haryono Kav. 37-38 Jakarta Selatan 12770 Telp. (021) 1500669. Lahir di Kabupaten Kuningan, 31 Januari 1967. Menyelesaikan pendidikan Akabri Tahun 1988, PTIK tahun 1997, Sespim tahun 2002 dan Lemhanas Tahun 2014. Pernah menjabat Dirsamapta Korsabhara Baharkam Polri Tahun 2020, Kabagrogar Rojianstra Sops Polri Tahun 2020, Kasubdit STNK Ditregident Korlantas Polri Tahun 2017, Wakapolda Banten Tahun 2016, Irbid Itwil I Itwasum Polri Tahun 2016, Dirpamovbit Polda Metro Jaya Tahun 2015, Analis Kebijakan Madya Bidang STIK Lemdikpol Lemdiklat Polri Tahun 2014, Kabagren Waketbidminwa STIK Lemdiklat Polri Tahun 2013, Dirsabhara Polda Kalteng Tahun 2011, Wakapolres Metro Jakbar Polda Metro Jaya Tahun 2009, Kapolres Sukoharjo Polwil Surakarta Polda Jateng Tahun 2008, Kapolres Pekalongan Polwil Pekalongan Polda Jateng Tahun 2007, Koorspripim Polda Metro Jaya Tahun 2006, Kabagbinops Roops Polda Metro Jaya Tahun 2005, Wakapolres Metro Tangerang Kota Polda Metro Jaya Tahun 2004, Kasat Dalmas Ditsamapta Polda Metro Jaya Tahun 2003, Kasubbidwabprof Bidpropam Polda Metro Jaya Tahun 2002, Kasatlantas Polresta Pontianak Kota Polda Kalbar Tahun 2001, Kasubbag Kur Set Fik PTIK STIK Lemdikpol Lemdiklat Polri Tahun 1999,  Kasubbag Mufi Bag Listik PPITK PTIK STIK Lemdikpol Lemdiklat Polri Tahun 1999, Waka Polres Ermera Timtim Polri Tahun 1998, Kapuskodal Ops Polres Ambeno Timtim Polri Tahun 1997, Instruktur Madya Dankie Tar-Akpol Lemdikpol Lemdiklat Polri Tahun 1995, Pama PTIK STIK Lemdikpol Lemdiklat Polri Tahun 1995, Danki Tar Akpol Lemdikpol Lemdiklat Polri Tahun 1994, Kasatlantas Polres Banjarnegara Polda Jateng Tahun 1992, Kapolsek Sukaraja Res Banyumas Polda Jateng Tahun 1991, Kaurbinopsnal Satlantas Polres Banyumas Polda Jateng Tahun 1990, Pama Polresta Surakarta Polda Jateng Tahun 1989  . Akhirnya bergabung di Korlantas Polri pada 31 Oktober 2021 sampai dengan sekarang ini menjabat sebagai Direktur Gakkum Korlantas Polri. Memiliki Pendidikan Pengembangan & Pelatihan  yaitu Pembentukan Auditor Ahli Tahun 2016, Dikjur Das PA Brimob Mahasiswa PTIK Tahun 1995 serta Dikjurlan PA IDIK Laka Lantas Tahun 1990. Tanda Kehormatan yang pernah diperoleh yaitu Bintang Bhayangkara Narariya Tahun 2014, Satyalancana Seroja Tahun 1998, Satyalancana Pengabdian 8 Tahun 1997 serta Satyalancana Dwidya Sistha Tahun 1994.</p>
@@ -146,9 +146,9 @@
 					Direktur Regident Korlantas Polri;
 					<ul>
 						<li>BRIGJEN POL Drs. Yusri Yunus.</li>
-						<div class="row">
+						<div class="row mt-3">
 							<div class="col-md-2">
-								<img src="<?= base_url()?>assets/fe/profil/DIRREGIDENT-YUSRI-YUNUS.jpg" alt="">
+								<img src="<?= base_url()?>assets/fe/profil/DIRREGIDENT-YUSRI-YUNUS.jpg" alt="" width="100%">
 							</div>
 							<div class="col-md-10">
 								<p style="text-align: justify;">Alamat Kantor Jalan MT. Haryono Kav. 37-38 Jakarta Selatan 12770 Telp. (021) 1500669. Lahir di Kabupaten Polewali Mandar, pada 21 Desember Tahun 1966. Menyelesaikan pendidikan Akabri Tahun 1991, PTIK Tahun 1998 , Sespim Tahun 2006 dan Diklatpim TK.I  Tahun 2018. Pernah menjabat  sebagai Kabidhumas Polda Metro Jaya Tahun 2019, Kabagpensat Ropenmas Divhumas Polri Tahun 2018 , Kabidhumas Polda Jabar Tahun 2016, Dirpamobvit Polda Kepri Tahun 2013, Kasubbagopinev Bagpenum Ropenmas Divhumas Polri Tahun 2011, Kasubbid Dokliput Bid Prodok Div Humas Polri Tahun 2009, Kapolres Tanjung Pinang Polda Kepri Tahun 2008, Kapolres Bintan Polda Kepri Tahun 2007, Kabagbinkar ROSDM Polda Kepri Tahun 2006, Gadik SPN Purwokerto Polda Jateng Tahun 2005, Wakapolres Cilacap Polda Jateng Tahun 2003, Kabag Lantas Polwil Banyumas Satlantas Polres Banyumas Polda Jateng Tahun 2002, Kasubbag Ops Dit Lantas Polda Jateng Tahun 2001, Kasubbag STNK  Dit Lantas Polda Jateng Tahun 2001, Kasubbag BPKB Dit Lantas Polda Jateng Tahun 2000, Kasubbag Laka Dit Lantas Polda Jateng Tahun 2000, Gadik Pusdik Lantas Lemdiklat Pusdik Lantas Lemdikpol Lemdiklat Polri Tahun 1998, Pama PTIK STIK Lemdikpol STIK Lemdiklat Polri Tahun 1996, Kasatlantas Polres Maros Polda Sulsel Tahun 1995, Kaurbinopsnal Satlantas Polrestabes Makassar Polda Sulsel Tahun 1994, Danton Gassus Satlantas Poltabes Makassar Polda Sulsel Tahun 1993, PA Subdit Pol Udara Dit Samapta Korsabhara Baharkam Polri Tahun 1992,  akhirnya  bergabung di Korlantas Polri pada 31 Oktober 2021 sampai dengan sekarang ini menjabat sebagai Direktur Regident Korlantas Polri. Memiliki Pendidikan Pengembangan & Pelatihan yaitu Dikbangspes Pasen Lantas Tahun 2012, Jur Lan PA Reg Ident Lantas Tahun 1995, Dikjurlan PA Idik Laka Lantas Tahun 1995. Tanda Kehormatan yang pernah diperoleh yaitu Satyalancana Pengabdian 8 Tahun 2004 serta Satyalancana Dwidya Sistha Tahun 2002</p>
@@ -160,9 +160,9 @@
 					Kabag Ops Korlantas Polri;
 					<ul>
 						<li>Kombes Pol Eddy Djunaedi, S.I.K., .</li>
-						<div class="row">
+						<div class="row mt=3">
 							<div class="col-md-2">
-								<img src="<?= base_url()?>assets/fe/profil/BAGOPS-EDDY-DJUNAED.jpg" alt="">
+								<img src="<?= base_url()?>assets/fe/profil/BAGOPS-EDDY-DJUNAED.jpg" alt="" width="100%">
 							</div>
 							<div class="col-md-10">
 								<p style="text-align: justify;">Alamat Kantor Jalan MT. Haryono Kav. 37-38 Jakarta Selatan 12770 Telp. (021) 1500669. Lahir di Kabupaten Magetan pada tanggal 25 Desember 1970. Menyelesaikan pendidikan Akpol Tahun 1993, PTIK tahun 2001, Sespim tahun 2007 dan Sespimti Tahun 2017. Pernah menjabat sebagai Dirlantas Polda Jabar Tahun 2019 , Dirlantas Polda Kaltim Tahun 2019, Analis Kebijakan Madya Korlantas Polri ( Bidang Jianma) Tahun 2016, Dirsabhara Polda Lampung Tahun 2016, Dirlantas Polda Sumbar Tahun 2015, Wadirlantas Polda Sumbar Ditlantas Polda Sumbar Tahun 2013, Kapolres Ngawi Polda Jatim Tahun 2011, Kapolres Gayo Lues Polda Aceh Tahun 2010, Kapolres Aceh Barat Daya Polda Aceh Tahun 2008, Kasat PJR Ditlantas Polda Aceh Tahun 2008, Kabag Bintibmas Polda Aceh Tahun 2007, Wakapolres Tanjabar Polri Tahun 2005, Kasubag Renops Bag Binops Roops Polda Jambi Tahun 2004, Kasi STNK Polda Jambi Ditlantas Polda Jambi Tahun 2003, Pasiaga 2 Bagdalops Roops Polda Jambi Tahun 2001, Kasatlantas Polres Manokwari Polda Papua Barat Tahun 1997, Kanitregident Satlantas Polres Manokwari Polda Papua Barat Tahun 1996, Kaur Binops Sabhara Polres Yapen Waropen Polda Papua Tahun 1996. Akhirnya bergabung di Korlantas Polri pada 5 Januari 2022 sampai dengan sekarang ini menjabat sebagai Kabag Ops Korlantas Polri. Memiliki Pendidikan Pengembangan & Pelatihan yaitu Dikbangspes PA Regident Pengemudi Tahun 1998, Kejuruan Lan PA Rekayasa Lantas Tahun 1995 serta Kejuruan Perwira PJR Lantas Tahun 1994,. Tanda Kehormatan yang pernah diperoleh yaitu Satyalancana Pengabdian 8 Tahun 2002.</p>
@@ -174,9 +174,9 @@
 					Kabag Renmin Korlantas Polri;
 					<ul>
 						<li>Kombes Pol Singgamata, S.I.K., M.H.</li>
-						<div class="row">
+						<div class="row mt-3">
 							<div class="col-md-2">
-								<img src="<?= base_url()?>assets/fe/profil/BAGRENMIN-Singgamata.jpg" alt="">
+								<img src="<?= base_url()?>assets/fe/profil/BAGRENMIN-Singgamata.jpg" alt="" width="100%">
 							</div>
 							<div class="col-md-10">
 								<p style="text-align: justify;">Alamat Kantor Jalan MT. Haryono Kav. 37-38 Jakarta Selatan 12770 Telp. (021) 1500669. Lahir di Kota Jakarta Selatan  pada tanggal 23 Agustus 1973. Menyelesaikan pendidikan Akpol Tahun 1995, PTIK tahun 2004, Sespim tahun 2009 dan Sespimti Tahun 2019. Pernah menjabat sebagai Dirlantas Polda Kaltim Tahun 2020, Kasubdit SIM Ditregident Korlantas Polri Tahun 2020, Analis Kebijakan Madya Bidang Paminal Divpropam Polri Tahun 2018, Dirlantas Polda Sumbar Tahun 2018, Pamen SSDM Polri ( SPRI Presiden RI  ke-IV ) Tahun 2017,  Assesor Utama Polri Bagpenkompeten Robinkar Tahun 2016, Kasubbagkompeten Bagpenkompeten Robinkar Ssdm Polri Tahun 2015, Kapolresta Malang Kota Polda Jatim Tahun 2014, Kapolres Lumajang Polda Jatim Tahun 2013, Kasubbidpaminal Bidpropam Polda Jatim Tahun 2012, Kasubbidwabprof Bidpropam Polda Jatim Tahun 2011, Anjak Muda Bidang Bagbinopsnal Ditlantas Polda Jatim Tahun 2011, Kasubbaggiatjarnat Korsis Sespimma Sespim Polri Lemdikpol Tahun 2010, Kakorsis Sespimma Sespim Lemdiklat Polri Tahun 2010, Pamen Lemdiklat Polri Tahun 2009 , Kasi STNK Ditlantas Polda Bali Polri Tahun 2008, Kasat Lantas Poltabes Denpasar Polda Bali Pori Tahun 2007, Kasi Dikmas Ditlantas Polda Bali Polri Tahun 2005, Kapolsek Denpasar Barat Tabes Denpasar Polda Bali Polri Tahun 2004, Kapolsek Denpasar Selatan Tabes Denpasar Polda Bali Polri Tahun 2004, Pama PTIK Polri Tahun 2002, Kapolsektif Wlingi Res Blitar Polda Jatim Polri Tahun 2002, Wakasat Lantas Res Jember Polda Jatim Polri Tahun 2000, Pama Polda Jatim Tahun 2000, Danton Tar Mentaris Akpol Lemdikpol Lemdiklat Polri Tahun 1998 dan menjabat Kabagrenmin Korlantas Polri pada 17 Desember 2021 sampai dengan sekarang ini. Memiliki Pendidikan Pengembangan & Pelatihan yaitu Asesor Assesment Center 2021, ESQ Basic Training 2019, Kibi Paja Akpol 1998, Dikjur Lanjutan PA Dikmas Lantas 1997 dan Dkjur DAS PA Lantas 1996. Tanda Kehormatan yang diperoleh yaitu : Satyalancana Pengabdian 24 Tahun, Satyalancana Dharma Nusa, Satyalancana Bhakti Pendidikan, Satyalancana Jana Utama, Satyalancana Karya Bhakti , Satyalancana Ksatria, Bhayangkara, Satyalancana Bhakti Nusa, Satyalancana Kebaktian Sosial , Satyalancana Pengabdian 16 Tahun, Satyalancana Pengabdian 8 Tahun 2002</p>
@@ -188,9 +188,9 @@
 					Kabag TIK Korlantas Polri;
 					<ul>
 						<li>Kombes Pol Abdul Syukur, S.H.</li>
-						<div class="row">
+						<div class="row mt-3">
 							<div class="col-md-2">
-								<img src="<?= base_url()?>assets/fe/profil/BAGTIK-AGUS PRASATYA.jpg" alt="">
+								<img src="<?= base_url()?>assets/fe/profil/BAGTIK-AGUS PRASATYA.jpg" alt="" width="100%">
 							</div>
 							<div class="col-md-10">
 								<p style="text-align: justify;">Alamat Kantor Jalan MT. Haryono Kav. 37-38 Jakarta Selatan 12770 Telp. (021) 1500669. Lahir di Kabupaten Batang Jateng pada tanggal 15 September 1965. Menyelesaikan pendidikan Akabri Tahun 1988, Selapa tahun 1999, Sespim tahun 2005. Pernah menjabat Auditor Itwil I Itwasum Polri (28-04-2016), Dirlantas Polda Maluku (2-04-2015), KASPN Polda NTT (3-12-2008) Kapolres Timor Tengah Utara Polda NTT (16-03-2008), Kapolres Flores Timur Polda NTT (9-02-2006). Dan menjabat Kabag TIK Korlantas Polri pada 5 Desember 2019 sampai dengan sekarang ini. Memiliki latar belakang pendidikan yaitu Sekolah Dasar Negeri Karang Malang (1979), Sekolah Menengah Pertama Negeri 1 Pekalongan (1982), Sekolah Menengah Atas Negeri 1 Pekalongan Timur (1985) dan menyelesaikan gelar S1 (2007),. Tanda Kehormatan yang pernah diperoleh yaitu Satyalancana Pengabdian 8 Tahun 1970, Satyalancana Pengabdian 16 Tahun 1970, Bintang Bhayangkara Narariya 1970.</p>

@@ -550,7 +550,7 @@
               <p>SBST</p>
             </div>
             <div class="swiper-slide">
-              <a target="_blank" href="http://sislapops.com/home"><img src="<?php echo base_url(); ?>assets/fe/client/sislapops-hd.png" alt="" width="100"></a>
+              <a target="_blank" href="http://sislapops.com/home"><img src="<?php echo base_url(); ?>assets/fe/client/sislapops-hd.png" alt="" width="100" class="mb-4"></a>
               <p>SISLAPOPS</p>
             </div>
             <div class="swiper-slide">
