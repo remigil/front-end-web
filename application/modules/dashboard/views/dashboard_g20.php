@@ -10793,10 +10793,27 @@
                 openDisplay = this.value;
                 $("#pos_pam").prop('checked', true);
                 $("#myModalPosPamDisplay").modal('show');
+                if(markerPosPam.length > 0){ 
+                    for (let i = 0; i < markerPosPam.length; i++) {
+                        // mapContainer.removeLayer(markerPosPam[i]);
+                        if (markerPosPam[i]) {
+                            posPamClusterGroup.addLayer(markerPosPam[i]);
+                        }
+                    }
+                    mapContainer.addLayer(posPamClusterGroup);
+                }
             } else {
                 openDisplay = '';
                 $("#pos_pam").prop('checked', false);
                 $("#pos_pam").val();
+
+                for (let i = 0; i < markerPosPam.length; i++) {
+                    // mapContainer.removeLayer(markerPosPam[i]);
+                    if (markerPosPam[i]) {
+                        posPamClusterGroup.removeLayer(markerPosPam[i]);
+                    }
+                }
+                // markerPosPam = new Array(); 
             }
             // serverSideFilter();
         });
@@ -10806,10 +10823,28 @@
                 openDisplay = this.value;
                 $("#pos_yan").prop('checked', true);
                 $("#myModalPosYanDisplay").modal('show');
+
+                if(markerPosYan.length > 0){ 
+                    for (let i = 0; i < markerPosYan.length; i++) {
+                        // mapContainer.removeLayer(markerPosYan[i]);
+                        if (markerPosYan[i]) {
+                            posYanClusterGroup.addLayer(markerPosYan[i]);
+                        }
+                    }
+                    mapContainer.addLayer(posYanClusterGroup);
+                }
             } else {
                 openDisplay = '';
                 $("#pos_yan").prop('checked', false);
                 $("#pos_yan").val();
+
+                for (let i = 0; i < markerPosYan.length; i++) {
+                    // mapContainer.removeLayer(markerPosYan[i]);
+                    if (markerPosYan[i]) {
+                        posYanClusterGroup.removeLayer(markerPosYan[i]);
+                    }
+                }
+                // markerPosYan = new Array(); 
             }
             // serverSideFilter();
         });
@@ -10819,10 +10854,27 @@
                 openDisplay = this.value;
                 $("#pos_terpadu").prop('checked', true);
                 $("#myModalPosTerpaduDisplay").modal('show');
+
+                if(markerPosTerpadu.length > 0){ 
+                    for (let i = 0; i < markerPosTerpadu.length; i++) {
+                        // mapContainer.removeLayer(markerPosTerpadu[i]);
+                        if (markerPosTerpadu[i]) {
+                            posTerpaduClusterGroup.addLayer(markerPosTerpadu[i]);
+                        }
+                    }
+                    mapContainer.addLayer(posTerpaduClusterGroup);
+                }
             } else {
                 openDisplay = '';
                 $("#pos_terpadu").prop('checked', false);
                 $("#pos_terpadu").val();
+
+                for (let i = 0; i < markerPosTerpadu.length; i++) {
+                    // mapContainer.removeLayer(markerPosTerpadu[i]);
+                    if (markerPosTerpadu[i]) {
+                        posTerpaduClusterGroup.removeLayer(markerPosTerpadu[i]);
+                    }
+                }
             }
             // serverSideFilter();
         });
@@ -10832,10 +10884,27 @@
                 openDisplay = this.value;
                 $("#posko").prop('checked', true);
                 $("#myModalPoskoDisplay").modal('show');
+
+                if(markerPosko.length > 0){ 
+                    for (let i = 0; i < markerPosko.length; i++) {
+                        // mapContainer.removeLayer(markerPosko[i]);
+                        if (markerPosko[i]) {
+                            poskoClusterGroup.addLayer(markerPosko[i]);
+                        }
+                    }
+                    mapContainer.addLayer(poskoClusterGroup);
+                }
             } else {
                 openDisplay = '';
                 $("#posko").prop('checked', false);
                 $("#posko").val();
+
+                for (let i = 0; i < markerPosko.length; i++) {
+                    // mapContainer.removeLayer(markerPosko[i]);
+                    if (markerPosko[i]) {
+                        poskoClusterGroup.removeLayer(markerPosko[i]);
+                    }
+                }
             }
             // serverSideFilter();
         });
@@ -10845,10 +10914,27 @@
                 openDisplay = this.value;
                 $("#satPjr").prop('checked', true);
                 $("#myModalSatPjrDisplay").modal('show');
+
+                if(markerSatPjr.length > 0){ 
+                    for (let i = 0; i < markerSatPjr.length; i++) {
+                        // mapContainer.removeLayer(markerSatPjr[i]);
+                        if (markerSatPjr[i]) {
+                            satPjrClusterGroup.addLayer(markerSatPjr[i]);
+                        }
+                    }
+                    mapContainer.addLayer(satPjrClusterGroup);
+                }
             } else {
                 openDisplay = '';
                 $("#satPjr").prop('checked', false);
                 $("#satPjr").val();
+
+                for (let i = 0; i < markerSatPjr.length; i++) {
+                    // mapContainer.removeLayer(markerSatPjr[i]);
+                    if (markerSatPjr[i]) {
+                        satPjrClusterGroup.removeLayer(markerSatPjr[i]);
+                    }
+                }
             }
             // serverSideFilter();
         });
