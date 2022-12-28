@@ -312,6 +312,8 @@ class M_renpam extends CI_Model
                 $row['lokasi']    = '-';
             }
 
+            $row['title_start']    = $field['title_start'];
+
             if ($field['choose_rute'] == 1) {
                 $row['choose_rute']    = 'Route';
             } else if ($field['choose_rute'] == 2) {

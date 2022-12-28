@@ -1284,7 +1284,7 @@
 
                                 <li class="menu-title mt-2" data-key="t-components">Sistem Pendukung</li>
                                 <li>
-                                    <a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php" target="_blank">
+                                    <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">ERI <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
@@ -1328,13 +1328,37 @@
                                         <span data-key="t-dashboard">BODYCAM <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
-
                                 <li>
-                                    <a href="https://vo.1data.tech/" target="_blank">
+                                    <a href="https://maps.korlantas.polri.go.id/portal/home/" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">E-SAMAPTA <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                        <span data-key="t-dashboard">INTAN <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="https://satudata.korlantas.polri.go.id/#/pages/dashboard" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">BIGDATA <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://sislapops.com/home" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SISLAPOPS <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://sislapops.com/home" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SISLAPOPS <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://digitalkorlantas.id" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">DIGITAL KORLANTAS <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+
                                 <li>
                                     <a href="http://rttmc.dephub.go.id/rttmc/livecctv" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -1344,13 +1368,13 @@
                                 <li>
                                     <a href="http://36.67.85.252" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">CCTV WILAYAH AMBON <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                        <span data-key="t-dashboard">CCTV WILAYAH </br>AMBON <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="http://cctv.priokport.co.id/" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">CCTV WILAYAH PRIOK <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                        <span data-key="t-dashboard">CCTV WILAYAH </br>PRIOK <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
                                 <li>
@@ -1368,7 +1392,7 @@
                                 <li>
                                     <a href="http://cctvap2.angkasapura2.co.id:8081" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">CCTV ANGKASAPURA <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                        <span data-key="t-dashboard">CCTV </br>ANGKASAPURA <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
 
@@ -1488,9 +1512,15 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="https://1500669.com/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CONTACK CENTER</span>
+                                    </a>
+                                </li>
+                                <li>
                                     <button type="button" class="btn aneh" data-toggle="modal" data-target="#myModalPoldaDisplay2" id="getPoldatable">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px; margin-left:-90px; ">
-                                        <span data-key="t-dashboard" style="color: white;">Kontak Penting</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px; margin-left:-75px; ">
+                                        <span data-key="t-dashboard" style="color: white;">KONTAK PENTING</span>
                                     </button>
                                 </li>
 

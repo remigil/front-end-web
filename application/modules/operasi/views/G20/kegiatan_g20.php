@@ -1181,7 +1181,7 @@
                     data: 'name_renpam'
                 },
                 {
-                    data: 'lokasi'
+                    data: 'title_start'
                 },
                 {
                     data: 'date'
@@ -1315,6 +1315,8 @@
 
                         // console.log({a:latitude, b:longitude});
                         $('[name=addressR]').val($(this).data('alamat'));
+                        $('[name=title_start]').val($(this).data('alamat'));
+                        $('[name=title_end]').val($(this).data('alamat'));
                         // $('[name=cordinateR]').val($(this).data('cords'));
                         $('[name=cordinateR]').val(JSON.stringify(arrayCord));
 
@@ -1339,6 +1341,8 @@
 
             $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data) {
                 $('[name=addressR]').val(data['display_name']);
+                $('[name=title_start]').val(data['display_name']);
+                $('[name=title_end]').val(data['display_name']);
                 mapContainerRenpam1Titik.flyTo([cordLat, corLong], 17);
             });
         });
@@ -1360,6 +1364,9 @@
             $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data) {
 
                 $('[name=addressR]').val(data['display_name']);
+                $('[name=title_start]').val(data['display_name']);
+                $('[name=title_end]').val(data['display_name']);
+                
 
             });
 
