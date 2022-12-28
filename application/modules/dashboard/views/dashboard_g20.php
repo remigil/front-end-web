@@ -6815,7 +6815,7 @@
                     posPamClusterGroup.removeLayer(markerPosPam[i]);
                 }
             }
-            markerPosPam = new Array();
+            markerPosPam = new Array(); 
 
             for (let i = 0; i < markerPosYan.length; i++) {
                 // mapContainer.removeLayer(markerPosYan[i]);
@@ -8290,8 +8290,8 @@
                         });
                         mapContainer.addLayer(restAreaClusterGroup);
                     }
-
-                    if (ressPosPam && ressPosPam.length > 0) {
+                   
+                    if (ressPosPam && ressPosPam.length > 0 && $("#posPamDisplay").is(':checked')) {
                         $(`#isiPoldaPosPam${polda_id}`).html(`
                             <table id="datatablePosPamOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
@@ -8416,8 +8416,7 @@
                                                 $(`#isiPospam${ressPosPam[i].id}`).html(`
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
                                                             <div style="text-align: center">
-                                                                ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true"></br>
-                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">` : `<img src="<?= base_url() ?>/assets/icon/no-image.jpeg" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true"></br>
+                                                                ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="200" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="200" data-holder-rendered="true"></br>
                                                                 <p class="mt-3" style="font-size: 12px; margin-top: -15px;">`}
                                                                     <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
                                                                     <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
