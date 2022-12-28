@@ -4244,7 +4244,7 @@
 
         const call_wa_dan_biasa = (noTelp, officer_id, statusEncrypt) => {
             // let castNoTelp = noTelp.sub
-
+            // console.log(officer_id);
 
             if (statusEncrypt == 'no-encrypt') {
                 sendNotifZ = `onClick="sendZoomNonEncrypt('${officer_id}')"`;
@@ -8317,14 +8317,24 @@
                         listPosPamDisplay = '';
                         for (let i = 0; i < ressPosPam.length; i++) {
                             if (ressPosPam[i].coordinate_guarding && ressPosPam[i].coordinate_guarding.lat != null && ressPosPam[i].coordinate_guarding.lng != null) {
-                                console.log(ressPosPam[i].coordinate_guarding);
+                                // console.log(ressPosPam[i].coordinate_guarding);
                                 // setTimeout(() => {
                                 countPosPamDisplay += 1;
+
+                                if(ressPosPam[i].title_start){
+                                    alamatlokasi = ressPosPam[i].title_start;
+                                }else{
+                                    if(ressPosPam[i].alamat){
+                                        alamatlokasi = ressPosPam[i].alamat.replace(/\n/g, "<br />");
+                                    }else{
+                                        alamatlokasi = "-";
+                                    }
+                                }
                                 listPosPamDisplay += `
                                         <tr>
                                             <td>${countPosPamDisplay}</td>
                                             <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosPam[i].id}" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
-                                            <td>${ressPosPam[i].alamat != null ? ressPosPam[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>${alamatlokasi}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px; "  
                                                     id="flyToMapFilterPosPam${polda_id}${countPosPamDisplay}"
@@ -8359,7 +8369,7 @@
                                         // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="text-center" style="width: 300px;height: 350px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                                 <div class="row mt-3"> 
                                                     <div class="col-md-12 col-12 mt-3">
                                                         <h5>${ressPosPam[i].name_renpam}</h5> 
@@ -8371,7 +8381,7 @@
                                             
                                                     <div class="col-md-12 col-12 text-start">
                                                         <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosPam[i].alamat}</p>
+                                                        <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
                                                     </div> 
                                                     
                                                     <div class="col-md-12 col-12 text-start" id="isiPospam${ressPosPam[i].id}">
@@ -8402,17 +8412,7 @@
                                                     b: ress
                                                 });
                                                 // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                let noTelpF = ress['officer']['phone_officer'];
-                                                let noDepanF = noTelpF.substring(0, 2);
-                                                if (noDepanF === "62") {
-                                                    noTelpF = noTelpF;
-                                                } else if (noDepanF === "08") {
-                                                    noTelpF = "62" + noTelpF.substring(1);
-                                                } else if (noDepanF === "+6") {
-                                                    noTelpF = noTelpF.substring(1);
-                                                } else {
-                                                    noTelpF = noTelpF;
-                                                }
+                                                let noTelpF = ress['officer']['phone_officer']; 
                                                 $(`#isiPospam${ressPosPam[i].id}`).html(`
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
                                                             <div style="text-align: center">
@@ -8421,8 +8421,8 @@
                                                                 <p class="mt-3" style="font-size: 12px; margin-top: -15px;">`}
                                                                     <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
                                                                     <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
-                                                                    <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${noTelpF}" target="_blank"><i class="fa fas fa-phone "></i></a>  
-                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officer']['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
+
+                                                                    ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                                 </p>
                                                             </div>
 
@@ -8499,12 +8499,22 @@
 
                             if (ressPosYan[i].coordinate_guarding && ressPosYan[i].coordinate_guarding.lat != null && ressPosYan[i].coordinate_guarding.lng != null) {
                                 // setTimeout(() => {
+
+                                if(ressPosYan[i].title_start){
+                                    alamatlokasi = ressPosYan[i].title_start;
+                                }else{
+                                    if(ressPosYan[i].alamat){
+                                        alamatlokasi = ressPosYan[i].alamat.replace(/\n/g, "<br />");
+                                    }else{
+                                        alamatlokasi = "-";
+                                    }
+                                }
                                 countPosYanDisplay += 1;
                                 listPosYanDisplay += `
                                         <tr>
                                             <td>${countPosYanDisplay}</td>
                                             <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosYan[i].id}" target="_blank">${ressPosYan[i].name_renpam}</a></td> 
-                                            <td>${ressPosYan[i].alamat != null ? ressPosYan[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>${alamatlokasi}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
                                                     id="flyToMapFilterPosYan${polda_id}${countPosYanDisplay}"
@@ -8539,24 +8549,24 @@
                                         // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                                <div class="row mt-3"> 
-                                                    <div class="col-md-12 col-12 mt-3">
-                                                        <h5>${ressPosYan[i].name_renpam}</h5> 
-                                                        <span>- ${ressPosYan[i].schedule.activity} -</span>
-                                                    </div> 
-                                                
+                                        <div class="text-center" style="width: 300px;height: 350px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="row mt-3"> 
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>${ressPosYan[i].name_renpam}</h5> 
+                                                    <span>- ${ressPosYan[i].schedule.activity} -</span>
+                                                </div> 
                                             
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosYan[i].alamat}</p>
-                                                    </div> 
-                                                    <div class="col-md-12 col-12 text-start" id="isiPosyan${ressPosYan[i].id}">
-                                                    
-                                                    </div>
+                                        
+                                                <div class="col-md-12 col-12 text-start">
+                                                    <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                    <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
+                                                </div> 
+                                                <div class="col-md-12 col-12 text-start" id="isiPosyan${ressPosYan[i].id}">
+                                                
                                                 </div>
-                                            </div> 
-                                    `, {
+                                            </div>
+                                        </div> 
+                                `, {
                                     minWidth: 100,
                                     maxWidth: 900,
                                     width: 300
@@ -8579,17 +8589,7 @@
                                                     b: ress
                                                 });
                                                 // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                let noTelpF = ress['officer']['phone_officer'];
-                                                let noDepanF = noTelpF.substring(0, 2);
-                                                if (noDepanF === "62") {
-                                                    noTelpF = noTelpF;
-                                                } else if (noDepanF === "08") {
-                                                    noTelpF = "62" + noTelpF.substring(1);
-                                                } else if (noDepanF === "+6") {
-                                                    noTelpF = noTelpF.substring(1);
-                                                } else {
-                                                    noTelpF = noTelpF;
-                                                }
+                                                let noTelpF = ress['officer']['phone_officer']; 
 
 
                                                 $(`#isiPosyan${ressPosYan[i].id}`).html(`
@@ -8603,8 +8603,7 @@
                                                                 <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
                                                                     <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
                                                                     <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
-                                                                    <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${noTelpF}" target="_blank"><i class="fa fas fa-phone "></i></a>  
-                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officer']['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
+                                                                    ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                                 </p>
                                                             </div>
 
@@ -8676,12 +8675,21 @@
 
                             if (ressPosTerpadu[i].coordinate_guarding && ressPosTerpadu[i].coordinate_guarding.lat != null && ressPosTerpadu[i].coordinate_guarding.lng != null) {
                                 // setTimeout(() => {
+                                if(ressPosTerpadu[i].title_start){
+                                    alamatlokasi = ressPosTerpadu[i].title_start;
+                                }else{
+                                    if(ressPosTerpadu[i].alamat){
+                                        alamatlokasi = ressPosTerpadu[i].alamat.replace(/\n/g, "<br />");
+                                    }else{
+                                        alamatlokasi = "-";
+                                    }
+                                }
                                 countPosTerpaduDisplay += 1;
                                 listPosTerpaduDisplay += `
                                         <tr>
                                             <td>${countPosTerpaduDisplay}</td>
                                             <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosTerpadu[i].id}" target="_blank">${ressPosTerpadu[i].name_renpam}</a></td> 
-                                            <td>${ressPosTerpadu[i].alamat != null ? ressPosTerpadu[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>${alamatlokasi}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
                                                     id="flyToMapFilterPosTerpadu${polda_id}${countPosTerpaduDisplay}"
@@ -8716,23 +8724,23 @@
                                         // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                                <div class="row mt-3"> 
-                                                    <div class="col-md-12 col-12 mt-3">
-                                                        <h5>${ressPosTerpadu[i].name_renpam}</h5> 
-                                                        <span>- ${ressPosTerpadu[i].schedule.activity} -</span>
-                                                    </div> 
-                                                
+                                        <div class="text-center" style="width: 300px;height: 350px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="row mt-3"> 
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>${ressPosTerpadu[i].name_renpam}</h5> 
+                                                    <span>- ${ressPosTerpadu[i].schedule.activity} -</span>
+                                                </div> 
                                             
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressPosTerpadu[i].alamat}</p>
-                                                    </div> 
-                                                    <div class="col-md-12 col-12 text-start" id="isiPosTerpadu${ressPosTerpadu[i].id}">
-                                                    
-                                                    </div>
+                                        
+                                                <div class="col-md-12 col-12 text-start">
+                                                    <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                    <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
+                                                </div> 
+                                                <div class="col-md-12 col-12 text-start" id="isiPosTerpadu${ressPosTerpadu[i].id}">
+                                                
                                                 </div>
-                                            </div> 
+                                            </div>
+                                        </div> 
                                     `, {
                                     minWidth: 100,
                                     maxWidth: 900,
@@ -8756,17 +8764,7 @@
                                                     b: ress
                                                 });
                                                 // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                let noTelpF = ress['officer']['phone_officer'];
-                                                let noDepanF = noTelpF.substring(0, 2);
-                                                if (noDepanF === "62") {
-                                                    noTelpF = noTelpF;
-                                                } else if (noDepanF === "08") {
-                                                    noTelpF = "62" + noTelpF.substring(1);
-                                                } else if (noDepanF === "+6") {
-                                                    noTelpF = noTelpF.substring(1);
-                                                } else {
-                                                    noTelpF = noTelpF;
-                                                }
+                                                let noTelpF = ress['officer']['phone_officer']; 
 
                                                 $(`#isiPosTerpadu${ressPosTerpadu[i].id}`).html(`
                                                     <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
@@ -8778,8 +8776,7 @@
                                                         <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
                                                             <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
                                                             <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
-                                                            <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${noTelpF}" target="_blank"><i class="fa fas fa-phone "></i></a>  
-                                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officer']['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
+                                                            ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                         </p>
                                                     </div>
 
@@ -8851,12 +8848,21 @@
 
                             if (ressPosko[i].coordinate_guarding && ressPosko[i].coordinate_guarding.lat != null && ressPosko[i].coordinate_guarding.lng != null) {
                                 // setTimeout(() => {
+                                if(ressPosko[i].title_start){
+                                    alamatlokasi = ressPosko[i].title_start;
+                                }else{
+                                    if(ressPosko[i].alamat){
+                                        alamatlokasi = ressPosko[i].alamat.replace(/\n/g, "<br />");
+                                    }else{
+                                        alamatlokasi = "-";
+                                    }
+                                }
                                 countPoskoDisplay += 1;
                                 listPoskoDisplay += `
                                         <tr>
                                             <td>${countPoskoDisplay}</td>
                                             <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosko[i].id}" target="_blank">${ressPosko[i].name_renpam}</a></td> 
-                                            <td>${ressPosko[i].alamat != null ? ressPosko[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>${alamatlokasi}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
                                                     id="flyToMapFilterPosko${polda_id}${countPoskoDisplay}"
@@ -8891,7 +8897,7 @@
                                         // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                    <div class="text-center" style="width: 300px;height: 350px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                         <div class="row mt-3">  
                                             <div class="col-md-12 col-12 mt-3">
                                                 <h5>${ressPosko[i].name_renpam}</h5> 
@@ -8900,7 +8906,7 @@
                                             
                                             <div class="col-md-12 col-12 text-start">
                                                 <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                <p style="font-size: 12px; margin-top: -15px;">${ressPosko[i].alamat != null ? ressPosko[i].alamat.replace(/\n/g, "<br />") : "-"}</p>
+                                                <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
                                             </div>   
 
                                             <div class="col-md-12 col-12 text-start" id="isi${ressPosko[i].id}">
@@ -8932,17 +8938,7 @@
                                                     b: ress
                                                 });
                                                 // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                let noTelpF = ress['officer']['phone_officer'];
-                                                let noDepanF = noTelpF.substring(0, 2);
-                                                if (noDepanF === "62") {
-                                                    noTelpF = noTelpF;
-                                                } else if (noDepanF === "08") {
-                                                    noTelpF = "62" + noTelpF.substring(1);
-                                                } else if (noDepanF === "+6") {
-                                                    noTelpF = noTelpF.substring(1);
-                                                } else {
-                                                    noTelpF = noTelpF;
-                                                }
+                                                let noTelpF = ress['officer']['phone_officer']; 
 
                                                 $(`#isi${ressPosko[i].id}`).html(`
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
@@ -8954,8 +8950,7 @@
                                                                 <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
                                                                     <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
                                                                     <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
-                                                                    <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${noTelpF}" target="_blank"><i class="fa fas fa-phone "></i></a>  
-                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officer']['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
+                                                                    ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                                 </p>
                                                             </div>
 
@@ -9025,12 +9020,22 @@
 
                             if (ressSatPjr[i].coordinate_guarding && ressSatPjr[i].coordinate_guarding.lat != null && ressSatPjr[i].coordinate_guarding.lng != null) {
                                 // setTimeout(() => {
+
+                                if(ressSatPjr[i].title_start){
+                                    alamatlokasi = ressSatPjr[i].title_start;
+                                }else{
+                                    if(ressSatPjr[i].alamat){
+                                        alamatlokasi = ressSatPjr[i].alamat.replace(/\n/g, "<br />");
+                                    }else{
+                                        alamatlokasi = "-";
+                                    }
+                                }
                                 countSatPjrDisplay += 1;
                                 listSatPjrDisplay += `
                                         <tr>
                                             <td>${countSatPjrDisplay}</td>
                                             <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressSatPjr[i].id}" target="_blank">${ressSatPjr[i].name_renpam}</a></td> 
-                                            <td>${ressSatPjr[i].alamat != null ? ressSatPjr[i].alamat.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>${alamatlokasi}</td> 
                                             <td>
                                                 <a class="btn" style="margin-top: -10px;"  
                                                     id="flySatPjr${polda_id}${countSatPjrDisplay}"
@@ -9066,7 +9071,7 @@
                                         // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="text-center" style="width: 300px;height: 350px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                                 <div class="row mt-3">  
                                                     <div class="col-md-12 col-12 mt-3">
                                                         <h5>${ressSatPjr[i].name_renpam}</h5> 
@@ -9075,7 +9080,7 @@
                                                     
                                                     <div class="col-md-12 col-12 text-start">
                                                         <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${ressSatPjr[i].alamat != null ? ressSatPjr[i].alamat.replace(/\n/g, "<br />") : "-"}</p>
+                                                        <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
                                                     </div>   
 
                                                     <div class="col-md-12 col-12 text-start" id="isi${ressSatPjr[i].id}">
@@ -9107,17 +9112,7 @@
                                                     b: ress
                                                 });
                                                 // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                let noTelpF = ress['officer']['phone_officer'];
-                                                let noDepanF = noTelpF.substring(0, 2);
-                                                if (noDepanF === "62") {
-                                                    noTelpF = noTelpF;
-                                                } else if (noDepanF === "08") {
-                                                    noTelpF = "62" + noTelpF.substring(1);
-                                                } else if (noDepanF === "+6") {
-                                                    noTelpF = noTelpF.substring(1);
-                                                } else {
-                                                    noTelpF = noTelpF;
-                                                }
+                                                let noTelpF = ress['officer']['phone_officer']; 
 
                                                 $(`#isi${ressSatPjr[i].id}`).html(`
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
@@ -9129,8 +9124,7 @@
                                                                 <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
                                                                     <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
                                                                     <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
-                                                                    <a class="btn" style="margin-top: -9px; color: #495057;" href="https://api.whatsapp.com/send?phone=${noTelpF}" target="_blank"><i class="fa fas fa-phone "></i></a>  
-                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officer']['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
+                                                                    ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                                 </p>
                                                             </div>
 
@@ -15241,7 +15235,7 @@
                     });
                 } else {
                     Swal.fire(
-                        `${data['message']}`,
+                        `Petugas tidak menggunakan aplikasi K3I Korlantas`,
                         '',
                         'error'
                     ).then(function() {});
