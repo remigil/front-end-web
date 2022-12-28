@@ -312,7 +312,15 @@ class M_renpam extends CI_Model
                 $row['lokasi']    = '-';
             }
 
-            $row['title_start']    = $field['title_start'];
+            if($field['title_start']){
+                $row['title_start']    = $field['title_start'];
+            }else{
+                if($field['alamat']){
+                    $row['title_start']    = $field['alamat'];
+                }else{
+                    $row['title_start']    = "-";
+                }
+            }
 
             if ($field['choose_rute'] == 1) {
                 $row['choose_rute']    = 'Route';
