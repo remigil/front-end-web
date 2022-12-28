@@ -8416,9 +8416,9 @@
                                                 $(`#isiPospam${ressPosPam[i].id}`).html(`
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
                                                             <div style="text-align: center">
-                                                                ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="200" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="200" data-holder-rendered="true"></br>
-                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">`}
-                                                                    <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
+                                                                ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="200" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="200" data-holder-rendered="true"></br>`}
+                                                                    <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                    <b>Nama : </b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} - ` : ''} ${ress['officer']['name_officer']} </br>
                                                                     <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
 
                                                                     ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
@@ -8594,13 +8594,9 @@
                                                 $(`#isiPosyan${ressPosYan[i].id}`).html(`
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
                                                             <div style="text-align: center">
-                                                            ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true">
-                                                                ` : `<img src="<?= base_url() ?>/assets/icon/no-image.jpeg" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true"></br>
-                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">`}
-                                                                
-                                                                </br>
-                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                                    <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
+                                                            ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="200" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="200" data-holder-rendered="true"></br>`}
+                                                                    <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                    <b>Nama : </b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} - ` : ''} ${ress['officer']['name_officer']} </br>
                                                                     <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
                                                                     ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                                 </p>
@@ -8768,12 +8764,9 @@
                                                 $(`#isiPosTerpadu${ressPosTerpadu[i].id}`).html(`
                                                     <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
                                                     <div style="text-align: center">
-                                                    ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true">
-                                                                ` : `<img src="<?= base_url() ?>/assets/icon/no-image.jpeg" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true"></br>
-                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">`}    
-                                                    </br>
-                                                        <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                            <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
+                                                        ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="200" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="200" data-holder-rendered="true"></br>`}
+                                                            <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                            <b>Nama : </b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} - ` : ''} ${ress['officer']['name_officer']} </br>
                                                             <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
                                                             ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                         </p>
@@ -8942,12 +8935,9 @@
                                                 $(`#isi${ressPosko[i].id}`).html(`
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
                                                             <div style="text-align: center">
-                                                            ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true">
-                                                                ` : `<img src="<?= base_url() ?>/assets/icon/no-image.jpeg" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true"></br>
-                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">`}    
-                                                            </br>
-                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                                    <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
+                                                            ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="200" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="200" data-holder-rendered="true"></br>`}
+                                                                    <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                    <b>Nama : </b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} - ` : ''} ${ress['officer']['name_officer']} </br>
                                                                     <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
                                                                     ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                                 </p>
@@ -9116,12 +9106,9 @@
                                                 $(`#isi${ressSatPjr[i].id}`).html(`
                                                             <p style="font-size: 12px;font-weight: bold;">Petugas</p>  
                                                             <div style="text-align: center">
-                                                            ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true">
-                                                                ` : `<img src="<?= base_url() ?>/assets/icon/no-image.jpeg" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true"></br>
-                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">`}
-                                                                </br>
-                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                                    <b>Nama : </b> ${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']} </br>
+                                                            ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="200" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="200" data-holder-rendered="true"></br>`}
+                                                                    <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                    <b>Nama : </b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} - ` : ''} ${ress['officer']['name_officer']} </br>
                                                                     <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
                                                                     ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                                 </p>
