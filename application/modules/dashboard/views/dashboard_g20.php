@@ -7849,11 +7849,24 @@
                                     }).bindPopup(`
                                         <div style="width: 300px;">
                                             <div class="row">
-                                                <div class="col-md-12" style="text-align: center;">
-                                                    <h5>${filterTroubleSpot[i].reporter_name}</h5>
+                                                <div class="col-md-12 col-12 mt-3 text-center">
+                                                    <h5>${filterTroubleSpot[i].reporter_name}</h5>  
                                                 </div>
-                                                <div class="col-md-12"> 
-                                                        
+                                                <div class="col-md-12 col-12 text-start">
+                                                    <p style="font-size: 12px;font-weight: bold;">Polda</p>  
+                                                    <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polda ? filterTroubleSpot[i].polda.name_polda : '-'}</p>
+                                                </div> 
+                                                <div class="col-md-12 col-12 text-start">
+                                                    <p style="font-size: 12px;font-weight: bold;">Polres</p>  
+                                                    <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polre ? filterTroubleSpot[i].polre.name_polres : '-'}</p>
+                                                </div> 
+                                                <div class="col-md-12 col-12 text-start">
+                                                    <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>  
+                                                    <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].problem ? filterTroubleSpot[i].problem.replace(/\n/g, "<br />") : '-'}</p>
+                                                </div> 
+                                                <div class="col-md-12 col-12 text-start">
+                                                    <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>  
+                                                    <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].location ? filterTroubleSpot[i].location : '-'}</p>
                                                 </div> 
                                             </div>
                                         </div> 
