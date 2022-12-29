@@ -1082,13 +1082,15 @@ class M_ditregident extends CI_Model
     }
     public function getChartSbst($filter)
     {
-        $url = 'sbst/date?type=' . $filter['type']  . '&filter=true'  . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
+        $url = 'ditregident/sbst/date?type=' . $filter['type']  . '&filter=true'  . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
 
         $sbst = guzzle_request('GET', $url, [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
+
+
 
         $poldaMonth = [];
         $sim = [];
@@ -1109,6 +1111,7 @@ class M_ditregident extends CI_Model
 
         $sbst = $sbst['data'];
 
+
         for ($i = 0; $i < count($sbst); $i++) {
             if ($i == 0) {
                 if ($sbst[0]['sim'] == 0) {
@@ -1124,9 +1127,9 @@ class M_ditregident extends CI_Model
                 }
 
                 if ($sbst[0]['stnk'] == 0) {
-                    $stnk[] = 0;
+                    $presentase_stnk[] = 0;
                 } else {
-                    $stnk[] = $sbst[0]['stnk'] / 100;
+                    $presentase_stnk[] = $sbst[0]['stnk'] / 100;
                 }
 
                 if ($sbst[0]['tnkb'] == 0) {
@@ -1236,6 +1239,7 @@ class M_ditregident extends CI_Model
             $stck[] = $key['stck'];
             $skukp[] = $key['skukp'];
         }
+
 
         return [
             'polda_month' => $poldaMonth,

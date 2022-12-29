@@ -119,7 +119,7 @@
                 </div>
                 <div class="col-md-12">
                     <a href="<?= base_url('statistik_nasional/Walpjr'); ?>">
-                    <!-- <a href="<?= base_url('statistik_nasional/Walpjr'); ?>"> -->
+                        <!-- <a href="<?= base_url('statistik_nasional/Walpjr'); ?>"> -->
                         <div class="card" style="border-color: #babf01;  border-radius: 20px !important; background-color:#babf01">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style=" height: 60px;">
@@ -280,8 +280,83 @@
                     <span class="fs-4 fw-bold text-white text-uppercase">Ditkamsel</span>
                 </div>
                 <div class="col-md-12">
-                    <a href="<?= base_url('statistik_nasional/Dikmas'); ?>">
+                    <a href="<?= base_url('statistik_nasional/Blackspot'); ?>">
                         <div class="card" style="border-color: #7b113f;  border-radius: 20px !important; background-color:#7b113f">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold"> BLACKSPOT</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="blackspot"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailblackspot"></span>
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/SPOT.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-12">
+                    <a href="<?= base_url('statistik_nasional/Troublespot'); ?>">
+                        <div class="card" style="border-color: #e2ab1d;  border-radius: 20px !important; background-color:#e2ab1d">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold"> TROUBLESPOT</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="troublespot"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailtroublespot"></span>
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/SPOT.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA; padding-top:-20px">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-12">
+                    <a href="<?= base_url('statistik_nasional/Rekalantas'); ?>">
+                        <div class="card" style="border-color: #7b113f;  border-radius: 20px !important; background-color:#7b113f">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold"> REKA LANTAS</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="rekalantas"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailrekalantas"></span>
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/REKA.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-12">
+                    <a href="<?= base_url('statistik_nasional/Dikmas'); ?>">
+                        <div class="card" style="border-color: #36c602;  border-radius: 20px !important; background-color:#36c602">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style=" height: 60px;">
                                     <div class="col-md-10 float-start">
@@ -303,81 +378,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
-                <div class="col-md-12">
-                    <a href="<?= base_url('statistik_nasional/Jemenopsrek'); ?>">
-                        <div class="card" style="border-color: #e2ab1d;  border-radius: 20px !important; background-color:#e2ab1d">
-                            <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
-                                    <div class="col-md-10 float-start">
-                                        <p class="fs-5 float-start" style="color:#ffffff;">
-                                            <span class="fw-bold"> JEMENOPSREK</span>
-                                            <br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="jemenopsrek"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailjemenopsrek"></span>
-                                        </p>
-                                    </div>
-                                    <div class=" col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/JEMENOPSREK.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA; padding-top:-20px">
-                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-12">
-                    <a href="<?= base_url('statistik_nasional/Cegah'); ?>">
-                        <div class="card" style="border-color: #7b113f;  border-radius: 20px !important; background-color:#7b113f">
-                            <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
-                                    <div class="col-md-10 float-start">
-                                        <p class="fs-5 float-start" style="color:#ffffff;">
-                                            <span class="fw-bold"> CEGAH</span>
-                                            <br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="cegah"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailcegah"></span>
-                                        </p>
-                                    </div>
-                                    <div class=" col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/CEGAH.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
-                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-12">
-                    <a href="<?= base_url('statistik_nasional/Audit'); ?>">
-                        <div class="card" style="border-color: #36c602;  border-radius: 20px !important; background-color:#36c602">
-                            <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
-                                    <div class="col-md-10 float-start">
-                                        <p class="fs-5 float-start" style="color:#ffffff;">
-                                            <span class="fw-bold"> AUDIT</span>
-                                            <br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="audit"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailaudit"></span>
-                                        </p>
-                                    </div>
-                                    <div class=" col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/AUDIT.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
-                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
-                            </div>
-                        </div>
-                    </a>
+
                 </div>
             </div>
             <div class="col-md-3">

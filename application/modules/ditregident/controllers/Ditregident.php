@@ -77,16 +77,21 @@ class Ditregident extends MY_Controller
             'headers' => $headers
         ]);
         $getregident = $getregident["data"];
+        // echo "<pre>";
+        // var_dump($getregident);
+        // die;
 
         $totalsim = 0;
         $totalbpkb = 0;
         $totalstnk = 0;
         $totalranmor = 0;
+        $totalsbst = 0;
         for ($i = 0; $i < count($getregident); $i++) {
             $totalsim += $getregident[$i]['sim'];
             $totalbpkb += $getregident[$i]['bpkb'];
             $totalstnk += $getregident[$i]['stnk'];
             $totalranmor += $getregident[$i]['ranmor'];
+            $totalsbst += $getregident[$i]['total_sbst'];
         }
 
 
@@ -96,7 +101,7 @@ class Ditregident extends MY_Controller
             'bpkb' =>  number_format($totalbpkb, 0, '', '.'),
             'stnk' => number_format($totalstnk, 0, '', '.'),
             'ranmor' => number_format($totalranmor, 0, '', '.'),
-            'sbst' => 0,
+            'sbst' => number_format($totalsbst, 0, '', '.'),
         ];
         echo json_encode($data);
     }
@@ -206,7 +211,6 @@ class Ditregident extends MY_Controller
             'data' => $getdata,
             'title' => $title,
         ];
-
         echo json_encode($data);
     }
     public function getChartRanmor()

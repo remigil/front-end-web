@@ -527,32 +527,32 @@ class Statistik_nasional extends MY_Controller
         // $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
-    public function Jemenopsrek()
+    public function Troublespot()
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Jemenopsrek Nasional";
-        $page_content["page"] = "statistik_nasional/statistik_jemenopsrek_view";
+        $page_content["title"] = "Data Troublespot Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_troublespot_view";
         $page_content["data"] = '';
         // $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
-    public function Cegah()
+    public function Blackspot()
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Cegah Nasional";
-        $page_content["page"] = "statistik_nasional/statistik_cegah_view";
+        $page_content["title"] = "Data Blackspot Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_blackspot_view";
         $page_content["data"] = '';
         // $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
-    public function Audit()
+    public function Rekalantas()
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Audit Nasional";
-        $page_content["page"] = "statistik_nasional/statistik_audit_view";
+        $page_content["title"] = "Data Reka Lantas Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_rekalantas_view";
         $page_content["data"] = '';
         // $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);

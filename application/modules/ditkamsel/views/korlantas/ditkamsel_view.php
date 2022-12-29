@@ -1,14 +1,15 @@
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-8 align-self-center">
-                        <div style="display: flex;">
-                            <?php if ($this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'Kakorlantas') { ?>
-                                <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i>|</a></h3>
-                                &nbsp;&nbsp; <h3 style="text-transform: uppercase; color:#007DD8;"> Ditkamsel</h3>
-                            <?php } else { ?>
-                                <h3 style="text-transform: uppercase; color:#007DD8;"> Ditkamsel</h3>
-                            <?php } ?>
-
+                    <div class="col-md-8 ">
+                        <div id="nama">
+                            <div style="display: flex;">
+                                <?php if ($this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'Kakorlantas') { ?>
+                                    <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i>|</a></h3>
+                                    &nbsp;&nbsp; <h3 style="text-transform: uppercase; color:#007DD8;"> Ditkamsel</h3>
+                                <?php } else { ?>
+                                    <h3 style="text-transform: uppercase; color:#007DD8;"> Ditkamsel</h3>
+                                <?php } ?>
+                            </div>
                         </div>
                         <p>Today is <?= date('l, j F Y') ?></p>
                     </div>
@@ -31,24 +32,27 @@
                             </div>
                         </div>
                     <?php } else { ?>
-                        <div class=" col-md-1 text-end align-self-center">
-                            <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
+                        <div class="col-md-2 text-end align-self-center" style="margin-left: 4%;">
+                            <button type="button" class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <!-- <iconify-icon icon="mdi:file-document-multiple"></iconify-icon> -->
+                                Struktur Organisasi
                             </button>
                         </div>
-                        <div class="col-md-3 text-end align-self-center">
-
+                        <div class="col-md-2 text-end align-self-center" style="margin-left: -4%;">
                             <div class="btn-group">
-                                <button type="button" class="btn dropdown-toggle btn-outline-primary" data-toggle="dropdown" aria-expanded="false" style="width: 200px; border-color:#007DD8;">
-                                    Export Laporan
+                                <button type="button" class="btn dropdown-toggle btn-outline-primary" data-bs-toggle="dropdown" aria-expanded="false" style="width: 200px; border-color:#007DD8;">
+                                    Pilih Laporan <i class="fas fa-caret-down"></i>
                                 </button>
 
-                                <div class="dropdown-menu" style="width: 200px;">
-                                    <a class="dropdown-item" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
-                                    <a class="dropdown-item" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=weeks&date=<?= date('Y-m-d'); ?>">Mingguan</a>
-                                    <a class="dropdown-item" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=month&date=<?= date('m'); ?>">Bulanan</a>
-                                    <a class="dropdown-item" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=triwulan&date=<?= date('m'); ?>">Triwulan</a>
-                                    <a class="dropdown-item" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=years&date=<?= date('Y'); ?>">Tahunan</a>
+                                <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"  aria-expanded="false">
+                                    Dropdown button
+                                </button> -->
+                                <div class="dropdown-menu" style="width: 200px; background-color:#D9D9D9">
+                                    <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
+                                    <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=weeks&date=<?= date('Y-m-d'); ?>">Mingguan</a>
+                                    <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=month&date=<?= date('m'); ?>">Bulanan</a>
+                                    <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=triwulan&date=<?= date('m'); ?>">Triwulan</a>
+                                    <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=years&date=<?= date('Y'); ?>">Tahunan</a>
                                 </div>
                             </div>
                         </div>

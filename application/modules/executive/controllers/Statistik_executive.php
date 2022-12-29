@@ -1121,6 +1121,44 @@ class Statistik_executive extends MY_Controller
         ];
         echo json_encode($data);
     }
+    public function getDetailStatistikBlackspot()
+    {
+        $title = 'DATA BLACKSPOT';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => '',
+                'end_date' => '',
+                'limit' => $limit,
+            ];
+            $url = 'blackspot/daily';
+            $blackspot = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $url = 'blackspot/daily?topPolda=true&limit=' . $filterbaru['limit'] . '&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $blackspot = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+        $getdata = $blackspot;
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
 
     public function getTopSim()
     {

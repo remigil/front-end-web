@@ -815,7 +815,7 @@
             overflow: hidden;
             float: left;
             width: 100%;
-        
+
         }
 
         .catList label {
@@ -1646,25 +1646,29 @@
                                         </div> -->
                                 <li>
                                     <a href="<?php echo base_url(); ?>dashboard">
-                                        <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/sidebar/icon_beranda.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <!-- <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
                                         <span data-key="t-dashboard" style="color: white;">Beranda</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url(); ?>statistik_nasional">
-                                        <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/sidebar/icon_stat_nasional.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <!-- <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
                                         <span data-key="t-dashboard" style="color: white;">Statistik Nasional</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow">
-                                        <img src="<?= base_url('assets/sidebar/Subsatker.svg') ?>" alt="" style="width: 20px; margin-right:10px; fill:#123123">
+                                        <img src="<?= base_url('assets/sidebar/icon_sub_satker.png') ?>" alt="" style="width: 20px; margin-right:10px; fill:#123123">
+                                        <!-- <img src="<?= base_url('assets/sidebar/Subsatker.svg') ?>" alt="" style="width: 20px; margin-right:10px; fill:#123123"> -->
                                         <span data-key="t-authentication" style="color: white;">Subsatker Korlantas</span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
 
                                         <li>
                                             <a href="<?php echo base_url('ditgakkum'); ?>" data-key="t-login">
+                                                <!-- <img src="<?= base_url('assets/sidebar/icon_sub_satker.png') ?>" alt="" style="width: 15px; margin-right:10px"> -->
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">DITGAKKUM</span>
                                             </a>
@@ -1703,7 +1707,7 @@
                                 </li>
                                 <li>
                                     <button type="button" class="btn aneh" data-toggle="modal" data-target="#myModalPoldaDisplay1" id="getPoldatable">
-                                        <img src="<?= base_url('assets/sidebar/WILAYAH.svg') ?>" alt="" style="width: 20px; margin-right:10px; margin-left:-90px; ">
+                                        <img src="<?= base_url('assets/sidebar/icon_kewilayahan.png') ?>" alt="" style="width: 20px; margin-right:10px; margin-left:-90px; ">
                                         <span data-key="t-dashboard" style="color: white;">Kewilayahan</span>
                                     </button>
                                     <!-- <a href="<?php echo base_url(); ?>#">
@@ -1713,13 +1717,13 @@
                                 <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagOps') { ?>
                                     <li>
                                         <a href="javascript: void(0);" class="has-arrow">
-                                            <img src="<?= base_url('assets/sidebar/satker_polri.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <img src="<?= base_url('assets/sidebar/icon_satker_polri.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <span data-key="t-authentication" style="color: white;">Satker Polri</span>
                                         </a>
                                         <ul class="sub-menu" aria-expanded="false">
                                             <li>
                                                 <a href="<?php echo base_url('divtik/div_tik'); ?>" data-key="t-login">
-                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <img src="<?= base_url('assets/sidebar/icon_satker_polri.png') ?>" alt="" style="width: 15px; margin-right:10px">
                                                     <span data-key="t-dashboard" style="color: white;">DIVTIK MABES POLRI</span>
                                                 </a>
                                             </li>
@@ -1759,7 +1763,7 @@
 
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow">
-                                        <img src="<?= base_url('assets/sidebar/Subsatker.svg') ?>" alt="" style="width: 20px; margin-right:10px; fill:#123123">
+                                        <img src="<?= base_url('assets/sidebar/icon_laporan.png') ?>" alt="" style="width: 20px; margin-right:10px; fill:#123123">
                                         <span data-key="t-authentication" style="color: white;">Laporan</span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
@@ -1798,7 +1802,7 @@
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow">
-                                        <img src="<?= base_url('assets/sidebar/Subsatker.svg') ?>" alt="" style="width: 20px; margin-right:10px; fill:#123123">
+                                        <img src="<?= base_url('assets/sidebar/icon_laporan_anev.png') ?>" alt="" style="width: 20px; margin-right:10px; fill:#123123">
                                         <span data-key="t-authentication" style="color: white;">Laporan Anev</span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
@@ -1852,7 +1856,7 @@
                                 <!-- Ini nanti dilanjut -->
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow">
-                                        <img src="<?= base_url('assets/sidebar/icon-profile.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/sidebar/icon_masyarakat.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-authentication" style="color: white;">Masyarakat</span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
