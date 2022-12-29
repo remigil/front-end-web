@@ -119,6 +119,7 @@
                 </div>
                 <div class="col-md-12">
                     <a href="<?= base_url('statistik_nasional/Walpjr'); ?>">
+                    <!-- <a href="<?= base_url('statistik_nasional/Walpjr'); ?>"> -->
                         <div class="card" style="border-color: #babf01;  border-radius: 20px !important; background-color:#babf01">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style=" height: 60px;">

@@ -1,6 +1,6 @@
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-8 align-self-center">
+                    <div class="col-md-7 align-self-center">
                         <div id="nama">
                             <div style="display: flex;">
                                 <?php if ($this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'Kakorlantas') { ?>
@@ -20,8 +20,8 @@
                             <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
                             </button>
-                            <button type="button" class="btn dropdown-toggle btn-outline-primary" data-toggle="dropdown" aria-expanded="false" style="width: 200px; border-color:#007DD8;">
-                                Export Laporan
+                            <button type="button" class="btn dropdown-toggle btn-outline-primary" data-bs-toggle="dropdown" aria-expanded="false" style="width: 200px; border-color:#007DD8;">
+                                Pilih Laporan
                             </button>
 
                             <div class="dropdown-menu" style="width: 200px;">
@@ -33,19 +33,24 @@
                             </div>
                         </div>
                     <?php } else { ?>
-                        <div class="col-md-1 text-end align-self-center">
-                            <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
+                        <div class="col-md-1 text-end align-self-center"></div>
+                        <div class="col-md-2 text-end align-self-center">
+                            <button type="button" class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <!-- <iconify-icon icon="mdi:file-document-multiple"></iconify-icon> -->
+                                Struktur Organisasi
                             </button>
                         </div>
-                        <div class="col-md-3 text-end align-self-center">
+                        <div class="col-md-1 text-end align-self-center">
 
                             <div class="btn-group">
-                                <button type="button" class="btn dropdown-toggle btn-outline-primary" data-toggle="dropdown" aria-expanded="false" style="width: 200px; border-color:#007DD8;">
-                                    Export Laporan
+                                <button type="button" class="btn dropdown-toggle btn-outline-primary" data-bs-toggle="dropdown" aria-expanded="false" style="width: 200px; border-color:#007DD8;">
+                                    Pilih Laporan <i class="fas fa-caret-down"></i>
                                 </button>
 
-                                <div class="dropdown-menu" style="width: 200px;">
+                                <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"  aria-expanded="false">
+                                    Dropdown button
+                                </button> -->
+                                <div class="dropdown-menu" style="width: 200px; background-color:#D9D9D9">
                                     <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_gakkum?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
                                     <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_gakkum?type=weeks&date=<?= date('Y-m-d'); ?>">Mingguan</a>
                                     <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_gakkum?type=month&date=<?= date('m'); ?>">Bulanan</a>
@@ -975,7 +980,7 @@
                             let persentase_penjagaan = result.data.persentase_penjagaan
                             let patroli = result.data.patroli
                             let persentase_patroli = result.data.persentase_patroli
-                            $('#titletatibday').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA Tatib HARIAN (7 Harian)</h4>`);
+                            $('#titletatibday').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA TURJAGWALI HARIAN (7 Harian)</h4>`);
 
 
                             var ditgakkumtatibday = {
@@ -2023,7 +2028,7 @@
                             let persentase_penjagaan = result.data.persentase_penjagaan
                             let patroli = result.data.patroli
                             let persentase_patroli = result.data.persentase_patroli
-                            $('#titletatibmonth').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA TATIB BULANAN</h4>`);
+                            $('#titletatibmonth').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA TURJAGWALI BULANAN</h4>`);
 
 
                             var ditgakkumtatib = {
@@ -2962,7 +2967,7 @@
                             let persentase_penjagaan = result.data.persentase_penjagaan
                             let patroli = result.data.patroli
                             let persentase_patroli = result.data.persentase_patroli
-                            $('#titletatibyear').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA TATIB TAHUNAN</h4>`);
+                            $('#titletatibyear').html(`<h4 class="card-title mb-0 text-uppercase">PERBANDINGAN DATA TURJAGWALI TAHUNAN</h4>`);
 
 
                             var ditgakkumtatibyear = {

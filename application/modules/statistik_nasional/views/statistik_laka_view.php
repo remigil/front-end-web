@@ -5,40 +5,39 @@
          </div>
          <div class="col-md-6 text-end align-self-center">
              <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary btn-lg" style="width: 200px; border-color:#0007D8;">Export Laporan</a>
-             <!-- <button type="button" class="btn btn-outline-primary float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#0007D8;">Tampilkan</button> -->
-             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-primary" style="width: 200px; border-color:#0007D8;">Export Laporan</button></a> -->
-             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#0007D8;">Export Laporan</button></a> -->
          </div>
      </div>
 
-     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
+     <div class="card mt-5 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
-             <div class="col-sm-3 col-md-4 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">Kecelakaan <span style="color:#000;">Nasional</span></span> </h2>
+             <div class="col-sm-2 col-md-2 align-self-center">
+                 <h4>STATISTIK DATA</h4>
+                 <h4> <span style="text-transform:uppercase ; color:#0007D8">Kecelakaan Lalu Lintas</span> </h4>
+                 <h4>SELURUH INDONESIA </h4>
              </div>
-             <div class="col-sm-9 col-md-8">
+             <div class="col-sm-10 col-md-10">
                  <div class="row m-2">
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9; width:105%">
-                             <div class="card-body p-1">
-                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
+                         <div class="card  mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9;">
+                             <div class="card-body ">
+                                 <div class="row justify-content-between align-items-center" style="height: 120px;">
                                      <div class="col-md-7">
                                          <h5 class="mb-0 ms-3">Hari Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="lakaThisDay"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="lakaThisDay"></h1>
                                          <p class="text-center mb-0">Kejadian</p>
                                      </div>
-                                     <div class="col-md-12 ms-3">
+                                     <div class="col-md-12 ">
                                          <div class="row">
                                              <div class="col-md-4">
-                                                 <span class="fw-bold">MD : <span class="text-danger" style=" padding:5px" id="lakaThisDayMD"></span></span>
+                                                 <span class="fw-bold" style="font-size:12px">MD : <span class="text-danger" style=" padding:5px" id="lakaThisDayMD"></span></span>
                                              </div>
                                              <div class="col-md-4">
-                                                 <span class="fw-bold">LB : <span class="text-warning" style=" padding:5px" id="lakaThisDayLB"></span></span>
+                                                 <span class="fw-bold" style="font-size:12px">LB : <span class="text-warning" style=" padding:5px" id="lakaThisDayLB"></span></span>
                                              </div>
                                              <div class="col-md-4">
-                                                 <span class="fw-bold">LR : <span class="text-success" style=" padding:5px" id="lakaThisDayLR"></span></span>
+                                                 <span class="fw-bold" style="font-size:12px">LR : <span class="text-success" style=" padding:5px" id="lakaThisDayLR"></span></span>
                                              </div>
                                          </div>
                                      </div>
@@ -53,30 +52,31 @@
                                      </div>
                                  </div>
                              </div>
-
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9; width:105%">
-                             <div class="card-body p-1">
-                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9;">
+                             <div class=" card-body">
+                                 <div class="row justify-content-between align-items-center" style="height: 120px;">
                                      <div class="col-md-7">
-                                         <h5 class="mb-0 ms-3">Bulan Ini</h5>
+                                         <!-- <h5 class="mb-0 ms-3">Bulan Ini (<?= format_indo(date('m'))  ?>) </h5> -->
+                                         <!-- <h5 class="mb-0 ms-3">Bulan Ini <span class="text-danger">(Des)</span></h5> -->
+                                         <h5 class="mb-0 ms-3">Bulan Ini <span class="text-danger">(<?= date('M'); ?>)</span></h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="lakaThisMonth"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="lakaThisMonth"></h1>
                                          <p class="text-center mb-0">Kejadian</p>
                                      </div>
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
                                              <div class="col-md-4">
-                                                 <span class="fw-bold">MD : <span class="text-danger" style=" padding:5px" id="lakaThisMonthMD"></span></span>
+                                                 <span class="fw-bold" style="font-size:12px">MD : <span class="text-danger" style=" padding:5px" id="lakaThisMonthMD"></span></span>
                                              </div>
                                              <div class="col-md-4">
-                                                 <span class="fw-bold">LB : <span class="text-warning" style=" padding:5px" id="lakaThisMonthLB"></span></span>
+                                                 <span class="fw-bold" style="font-size:12px">LB : <span class="text-warning" style=" padding:5px" id="lakaThisMonthLB"></span></span>
                                              </div>
                                              <div class="col-md-4">
-                                                 <span class="fw-bold">LR : <span class="text-success" style=" padding:5px" id="lakaThisMonthLR"></span></span>
+                                                 <span class="fw-bold" style="font-size:12px">LR : <span class="text-success" style=" padding:5px" id="lakaThisMonthLR"></span></span>
                                              </div>
                                          </div>
                                      </div>
@@ -94,28 +94,29 @@
                              </div>
                          </div>
                      </div>
+                     <!-- <div class="col-md-4 col-sm-4 col-xl-4 align-self-center" style="display:none"> -->
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9;  width:105%">
-                             <div class="card-body p-1">
-                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9; ">
+                             <div class=" card-body">
+                                 <div class="row justify-content-between align-items-center" style="height: 120px;">
                                      <div class="col-md-7">
                                          <h5 class="mb-0 ms-3">Tahun Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="lakaThisYear"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="lakaThisYear"></h1>
                                          <p class="text-center mb-0">Kejadian</p>
                                      </div>
                                      <div class="col-md-12 ms-3">
                                          <div class="row">
                                              <div class="col-md-4">
-                                                 <span class="fw-bold">MD : <span class="text-danger" style=" padding:5px" id="lakaThisYearMD"></span></span>
+                                                 <span class="fw-bold" style="font-size:12px">MD : <span class="text-danger" style=" padding:5px" id="lakaThisYearMD"></span></span>
                                              </div>
                                              <div class="col-md-4">
-                                                 <span class="fw-bold">LB : <span class="text-warning" style=" padding:5px" id="lakaThisYearLB"></span></span>
+                                                 <span class="fw-bold" style="font-size:12px">LB : <span class="text-warning" style=" padding:5px" id="lakaThisYearLB"></span></span>
 
                                              </div>
                                              <div class="col-md-4">
-                                                 <span class="fw-bold">LR : <span class="text-success" style=" padding:5px" id="lakaThisYearLR"></span></span>
+                                                 <span class="fw-bold" style="font-size:12px">LR : <span class="text-success" style=" padding:5px" id="lakaThisYearLR"></span></span>
                                              </div>
                                          </div>
                                      </div>
@@ -135,6 +136,28 @@
                      </div>
                  </div>
              </div>
+             <div class="col-md-12">
+                 <div class="d-flex justify-content-center">
+                     <div class="col-md-1">
+                         <div class="fw-bold" style="height:25px; width:25px; line-height:25px; background-color:#ff0000; border-radius:50%; text-align:center; font-size:12px; color:white;">MD</div>
+                     </div>
+                     <div class="col-md-1 me-n5">
+                         <span style="margin-left:-90px">Meninggal Dunia</span>
+                     </div>
+                     <div class="col-md-1">
+                         <div class="fw-bold" style="height:25px; width:25px; line-height:25px; background-color:#FFFF00; border-radius:50%; text-align:center; font-size:12px; color:black;">LB</div>
+                     </div>
+                     <div class="col-md-1 me-n5">
+                         <span style="margin-left:-90px">Luka Berat</span>
+                     </div>
+                     <div class="col-md-1">
+                         <div class="fw-bold" style="height:25px; width:25px; line-height:25px; background-color:#00FF00; border-radius:50%; text-align:center; font-size:12px; color:black;">LR</div>
+                     </div>
+                     <div class="col-md-1 me-n5">
+                         <span style="margin-left:-90px">Luka Ringan</span>
+                     </div>
+                 </div>
+             </div>
          </div>
      </div>
  </div>
@@ -142,7 +165,8 @@
      <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
          <div class="modal-content">
              <div class=" modal-header">
-                 <h5 class="modal-title" id="modalLabelDay">Detail Kecelakaan tanggal <?= format_indo(date('Y-m-d'))  ?> Seluruh Polda</h5>
+                 <h5 class="modal-title" id="modalLabelDay">Detail Kecelakaan tanggal <?= format_indo(date('Y-m-d'))  ?> Seluruh Polda </h5>
+                 <!-- <h5 class="modal-title" id="modalLabelDay">Detail Kecelakaan tanggal <?= format_indo(date('Y-m-d'))  ?> Seluruh Polda <span class="fs-5">sasdasdasd</span></h5> -->
 
                  <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
@@ -177,12 +201,12 @@
                      <table class="table table-bordered table-hover" id="tableLakaDay" style="background:white; ">
                          <thead style="background-color:#0007D8; color:#fff;">
                              <tr class="text-center">
-                                 <th scope="col">No</th>
+                                 <th scope="col">Ranking</th>
                                  <th scope="col">Polda</th>
                                  <th scope="col">Meninggal Dunia</th>
                                  <th scope="col">Luka Berat</th>
                                  <th scope="col">Luka Ringan</th>
-                                 <th scope="col">Insiden Kejadian</th>
+                                 <th scope="col">Total Kejadian</th>
                                  <th scope="col">Kerugian Material</th>
                              </tr>
                          </thead>
@@ -199,6 +223,8 @@
                              </tr>
                          </tfoot>
                      </table>
+                     <span class="fw-bold">Sumber Data IRSMS - <span class="text-danger">Data Aktif November 2022 - <?= date('d F Y'); ?></span></span>
+
                  </div>
 
              </div>
@@ -246,7 +272,7 @@
                      <table class="table table-bordered table-hover" id="tableLakaMonth" style="background:white; ">
                          <thead style="background-color:#0007D8; color:#fff;">
                              <tr class="text-center">
-                                 <th scope="col">No</th>
+                                 <th scope="col">Ranking</th>
                                  <th scope="col">Polda</th>
                                  <th scope="col">Meninggal Dunia</th>
                                  <th scope="col">Luka Berat</th>
@@ -268,6 +294,8 @@
                              </tr>
                          </tfoot>
                      </table>
+                     <span class="fw-bold">Sumber Data IRSMS - <span class="text-danger">Data Aktif November 2022 - <?= date('d F Y'); ?></span></span>
+
                  </div>
 
              </div>
@@ -315,12 +343,12 @@
                      <table class="table table-bordered table-hover" id="tableLakaYear" style="background:white; ">
                          <thead style="background-color:#0007D8; color:#fff;">
                              <tr class="text-center">
-                                 <th scope="col">No</th>
+                                 <th scope="col">Ranking</th>
                                  <th scope="col">Polda</th>
                                  <th scope="col">Meninggal Dunia</th>
                                  <th scope="col">Luka Berat</th>
                                  <th scope="col">Luka Ringan</th>
-                                 <th scope="col">Insiden Kejadian</th>
+                                 <th scope="col">Total Kejadian</th>
                                  <th scope="col">Kerugian Material</th>
                              </tr>
                          </thead>
@@ -337,6 +365,7 @@
                              </tr>
                          </tfoot>
                      </table>
+                     <span class="fw-bold">Sumber Data IRSMS - <span class="text-danger">Data Aktif November 2022 - <?= date('d F Y'); ?></span></span>
                  </div>
 
              </div>
@@ -515,12 +544,13 @@
                          <div class="row">
                              <div class="col-md-2">
                                  <div class="form-group">
-                                     <label for="exampleFormControlSelect1">Show data</label>
-                                     <select class="form-control" id="limit_showData">
-                                         <option value="3">3</option>
-                                         <option value="5" selected>5</option>
-                                         <option value="7">7</option>
-                                         <option value="10">10</option>
+                                     <label for="exampleFormControlSelect1">Pilih Jumlah Polda</label>
+                                     <select class="form-control form-select" id="limit_showData">
+                                         <option value="3">3 Polda</option>
+                                         <option value="5" selected>5 Polda</option>
+                                         <option value="7">7 Polda</option>
+                                         <option value="10">10 Polda</option>
+                                         <option value="34">Seluruh Polda</option>
                                      </select>
                                  </div>
                              </div>
@@ -1093,99 +1123,197 @@
                  $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                  $("#chartdate").html(`<div id="chart2"></div>`);
 
-
-                 var chart2 = {
-                     series: [{
-                         name: '<h6>Total Laka</h6>',
-                         type: 'line',
-                         data: result.data.polda_insiden_kecelakaan,
-                         color: "#11347A"
-                     }, {
-                         name: '<h6>Meninggal Dunia</h6>',
-                         type: 'line',
-                         data: result.data.polda_meninggal_dunia,
-                         color: "#CB2D3E"
-                     }, {
-                         name: '<h6>Luka Berat</h6>',
-                         type: 'line',
-                         data: result.data.polda_luka_berat,
-                         color: "#E8D42F"
-                     }, {
-                         name: '<h6>Luka Ringan</h6>',
-                         type: 'line',
-                         data: result.data.polda_luka_ringan,
-                         color: "#3CA55C"
-                     }],
-                     chart: {
-                         height: 400,
-                         type: 'line',
-                         stacked: false
-                     },
-                     plotOptions: {
-                         bar: {
-                             horizontal: false,
-                             columnWidth: '55%',
-                             endingShape: 'rounded',
-                             dataLabels: {
-                                 position: 'top'
-                             }
+                 if (seven_daysAgo == yesterday) {
+                     var chart2 = {
+                         series: [{
+                             name: '<h6>Total Laka</h6>',
+                             type: 'column',
+                             data: result.data.polda_insiden_kecelakaan,
+                             color: "#11347A"
+                         }, {
+                             name: '<h6>Meninggal Dunia</h6>',
+                             type: 'column',
+                             data: result.data.polda_meninggal_dunia,
+                             color: "#CB2D3E"
+                         }, {
+                             name: '<h6>Luka Berat</h6>',
+                             type: 'column',
+                             data: result.data.polda_luka_berat,
+                             color: "#E8D42F"
+                         }, {
+                             name: '<h6>Luka Ringan</h6>',
+                             type: 'column',
+                             data: result.data.polda_luka_ringan,
+                             color: "#3CA55C"
+                         }],
+                         chart: {
+                             height: 400,
+                             type: 'line',
+                             stacked: false
                          },
-                     },
-                     dataLabels: {
-                         enabled: true,
-                         //   style: {
-                         //       colors: ['#333']
-                         //   },
-                         offsetY: -15
-                     },
-                     grid: {
-                         show: true,
-                         borderColor: '#000',
-                         strokeDashArray: 2,
-                         //  position: 'back',
-                         //  xaxis: {
-                         //      lines: {
-                         //          show: true
-                         //      }
-                         //  },
-                         //  yaxis: {
-                         //      lines: {
-                         //          show: false
-                         //      }
-                         //  },
-
-                         //  column: {
-                         //      colors: '#000',
-                         //      opacity: 0.5
-                         //  },
-                         //  padding: {
-                         //      top: 0,
-                         //      right: 0,
-                         //      bottom: 0,
-                         //      left: 0
-                         //  },
-                     },
-                     markers: {
-                         size: 4,
-                         colors: '#kkk',
-                         fillOpacity: 0.9,
-                         shape: "circle",
-                         radius: 2,
-                     },
-                     xaxis: {
-                         categories: result.data.polda_name,
-                         labels: {
+                         plotOptions: {
+                             bar: {
+                                 horizontal: false,
+                                 columnWidth: '55%',
+                                 endingShape: 'rounded',
+                                 dataLabels: {
+                                     position: 'top'
+                                 }
+                             },
+                         },
+                         dataLabels: {
+                             enabled: true,
+                             //   style: {
+                             //       colors: ['#333']
+                             //   },
+                             offsetY: -15
+                         },
+                         grid: {
                              show: true,
-                             style: {
-                                 colors: ['#f70505'],
-                                 fontSize: '18px',
-                                 fontWeight: 400,
-                             }
-                         },
-                         tickPlacement: 'between'
-                     }
+                             borderColor: '#000',
+                             strokeDashArray: 2,
+                             //  position: 'back',
+                             //  xaxis: {
+                             //      lines: {
+                             //          show: true
+                             //      }
+                             //  },
+                             //  yaxis: {
+                             //      lines: {
+                             //          show: false
+                             //      }
+                             //  },
 
-                 };
+                             //  column: {
+                             //      colors: '#000',
+                             //      opacity: 0.5
+                             //  },
+                             //  padding: {
+                             //      top: 0,
+                             //      right: 0,
+                             //      bottom: 0,
+                             //      left: 0
+                             //  },
+                         },
+                         markers: {
+                             size: 4,
+                             colors: '#kkk',
+                             fillOpacity: 0.9,
+                             shape: "circle",
+                             radius: 2,
+                         },
+                         xaxis: {
+                             categories: result.data.polda_name,
+                             labels: {
+                                 show: true,
+                                 style: {
+                                     colors: ['#f70505'],
+                                     fontSize: '18px',
+                                     fontWeight: 400,
+                                 }
+                             },
+                             tickPlacement: 'between'
+                         }
+
+                     };
+                 } else {
+
+
+                     var chart2 = {
+                         series: [{
+                             name: '<h6>Total Laka</h6>',
+                             type: 'line',
+                             data: result.data.polda_insiden_kecelakaan,
+                             color: "#11347A"
+                         }, {
+                             name: '<h6>Meninggal Dunia</h6>',
+                             type: 'line',
+                             data: result.data.polda_meninggal_dunia,
+                             color: "#CB2D3E"
+                         }, {
+                             name: '<h6>Luka Berat</h6>',
+                             type: 'line',
+                             data: result.data.polda_luka_berat,
+                             color: "#E8D42F"
+                         }, {
+                             name: '<h6>Luka Ringan</h6>',
+                             type: 'line',
+                             data: result.data.polda_luka_ringan,
+                             color: "#3CA55C"
+                         }],
+                         chart: {
+                             height: 400,
+                             type: 'line',
+                             stacked: false
+                         },
+                         plotOptions: {
+                             bar: {
+                                 horizontal: false,
+                                 columnWidth: '55%',
+                                 endingShape: 'rounded',
+                                 dataLabels: {
+                                     position: 'top'
+                                 }
+                             },
+                         },
+                         dataLabels: {
+                             enabled: true,
+                             //   style: {
+                             //       colors: ['#333']
+                             //   },
+                             offsetY: -15
+                         },
+                         grid: {
+                             show: true,
+                             borderColor: '#000',
+                             strokeDashArray: 2,
+                             //  position: 'back',
+                             //  xaxis: {
+                             //      lines: {
+                             //          show: true
+                             //      }
+                             //  },
+                             //  yaxis: {
+                             //      lines: {
+                             //          show: false
+                             //      }
+                             //  },
+
+                             //  column: {
+                             //      colors: '#000',
+                             //      opacity: 0.5
+                             //  },
+                             //  padding: {
+                             //      top: 0,
+                             //      right: 0,
+                             //      bottom: 0,
+                             //      left: 0
+                             //  },
+                         },
+                         markers: {
+                             size: 4,
+                             colors: '#kkk',
+                             fillOpacity: 0.9,
+                             shape: "circle",
+                             radius: 2,
+                         },
+                         xaxis: {
+                             categories: result.data.polda_name,
+                             labels: {
+                                 show: true,
+                                 style: {
+                                     colors: ['#f70505'],
+                                     fontSize: '18px',
+                                     fontWeight: 400,
+                                 }
+                             },
+                             tickPlacement: 'between'
+                         }
+
+                     };
+
+                 }
+
 
                  var ditgakkum = new ApexCharts(document.querySelector("#chart2"), chart2);
                  ditgakkum.render();
@@ -1237,7 +1365,7 @@
              },
              success: function(result) {
                  $("#overlay").fadeOut(300);
-                 console.log(result);
+                 //  console.log(result);
                  var table = '';
                  let resultlaka = result.topLaka;
                  let nf = new Intl.NumberFormat('en-US');
@@ -1351,7 +1479,7 @@
                  $("#overlay").fadeOut(300);
                  var table = '';
                  let resultlaka = result.topLaka;
-                 console.log(result);
+                 //  console.log(result);
 
 
                  for (let i = 0; i < resultlaka.length; i++) {

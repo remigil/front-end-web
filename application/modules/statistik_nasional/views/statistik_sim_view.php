@@ -10,22 +10,24 @@
              <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
          </div>
      </div>
-     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
+     <div class="card mt-5 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
-             <div class="col-sm-4 col-md-4 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">Sim <span style="color:#000;">Nasional</span></span> </h2>
+             <div class="col-sm-2 col-md-2 align-self-center">
+                 <h4>STATISTIK DATA </h4>
+                 <h4><span style="text-transform:uppercase ; color:#0007D8">SIM</span> </h4>
+                 <h4>SELURUH INDONESIA </h4>
              </div>
-             <div class="col-sm-8 col-md-8">
+             <div class="col-sm-10 col-md-10">
                  <div class="row m-2">
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
-                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
+                                 <div class="row justify-content-between align-items-center" style="height: 120px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Hari Ini</h4>
+                                         <h5 class="mb-0 ms-3">Hari Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="simThisDay"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#2e93e6;" id="simThisDay"></h1>
                                          <p class="text-center mb-0">Sim</p>
                                      </div>
                                      <div class="col-md-12 ms-3">
@@ -42,14 +44,14 @@
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
-                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
+                                 <div class="row justify-content-between align-items-center" style="height: 120px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Bulan Ini</h4>
+                                         <h5 class="mb-0 ms-3">Bulan Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="simThisMonth"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#2e93e6;" id="simThisMonth"></h1>
                                          <p class="text-center mb-0">Sim</p>
                                      </div>
                                      <div class="col-md-12 ms-3">
@@ -66,14 +68,14 @@
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
-                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
+                                 <div class="row justify-content-between align-items-center" style="height: 120px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Tahun Ini</h4>
+                                         <h5 class="mb-0 ms-3">Tahun Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="simThisYear"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#2e93e6;" id="simThisYear"></h1>
                                          <p class="text-center mb-0">Sim</p>
                                      </div>
                                      <div class="col-md-12 ms-3">
@@ -760,12 +762,13 @@
                      <div class="row">
                          <div class="col-md-2">
                              <div class="form-group">
-                                 <label for="exampleFormControlSelect1">Show data</label>
+                                 <label for="exampleFormControlSelect1">Pilih Jumlah Polda</label>
                                  <select class="form-control" id="limit_showData">
-                                     <option value="3">3</option>
-                                     <option value="5" selected>5</option>
-                                     <option value="7">7</option>
-                                     <option value="10">10</option>
+                                     <option value="3">3 Polda</option>
+                                     <option value="5" selected>5 Polda</option>
+                                     <option value="7">7 Polda</option>
+                                     <option value="10">10 Polda</option>
+                                     <option value="34">Seluruh Polda</option>
                                  </select>
                              </div>
                          </div>
@@ -815,36 +818,107 @@
                  $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                  $("#charta").html(`<div id="chart"></div>`);
 
-                 let polda_id = result.data.polda_id
                  let polda_name = result.data.polda_name
-                 let polda_baru = result.data.polda_baru
-                 let polda_perpanjangan = result.data.polda_perpanjangan
-                 // Chart Kecelakaan Lalu Lintas
+                 let baru_a = result.data.baru_a
+                 let baru_c = result.data.baru_c
+                 let baru_c1 = result.data.baru_c1
+                 let baru_c2 = result.data.baru_c2
+                 let baru_d = result.data.baru_d
+                 let baru_d1 = result.data.baru_d1
 
-                 // chart laka
+                 let perpanjangan_a = result.data.perpanjangan_a
+                 let perpanjangan_au = result.data.perpanjangan_au
+                 let perpanjangan_c = result.data.perpanjangan_c
+                 let perpanjangan_c1 = result.data.perpanjangan_c1
+                 let perpanjangan_c2 = result.data.perpanjangan_c2
+                 let perpanjangan_d = result.data.perpanjangan_d
+                 let perpanjangan_d1 = result.data.perpanjangan_d1
+                 let perpanjangan_b1 = result.data.perpanjangan_b1
+                 let perpanjangan_b1u = result.data.perpanjangan_b1u
+                 let perpanjangan_b2 = result.data.perpanjangan_b2
+                 let perpanjangan_b2u = result.data.perpanjangan_b2u
+
+                 let peningkatan_au = result.data.peningkatan_au
+                 let peningkatan_b1 = result.data.peningkatan_b1
+                 let peningkatan_b1u = result.data.peningkatan_b1u
+                 let peningkatan_b2 = result.data.peningkatan_b2
+                 let peningkatan_b2u = result.data.peningkatan_b2u
+
                  var chart = {
                      series: [{
-
-                         name: '<h6>Sim Baru</h6>',
+                         name: 'Baru A',
                          type: 'column',
-                         data: polda_baru,
-                         color: "#CB2D3E"
+                         data: baru_a
                      }, {
-                         name: '<h6>Perpanjangan</h6>',
+                         name: 'Baru C',
                          type: 'column',
-                         data: polda_perpanjangan,
-                         color: "#E8D42F"
+                         data: baru_c
+                     }, {
+                         name: 'Baru CI',
+                         type: 'column',
+                         data: baru_c1
+                     }, {
+                         name: 'Baru CII',
+                         type: 'column',
+                         data: baru_c2
+                     }, {
+                         name: 'Baru D',
+                         type: 'column',
+                         data: baru_d
+                     }, {
+                         name: 'Baru DI',
+                         type: 'column',
+                         data: baru_d1
+                     }, {
+                         name: 'Perpanjangan A',
+                         type: 'column',
+                         data: perpanjangan_a
+                     }, {
+                         name: 'Perpanjangan C',
+                         type: 'column',
+                         data: perpanjangan_c
+                     }, {
+                         name: 'Perpanjangan CI',
+                         type: 'column',
+                         data: perpanjangan_c1
+                     }, {
+                         name: 'Perpanjangan CII',
+                         type: 'column',
+                         data: perpanjangan_c2
+                     }, {
+                         name: 'Perpanjangan D',
+                         type: 'column',
+                         data: perpanjangan_d
+                     }, {
+                         name: 'Perpanjangan DI',
+                         type: 'column',
+                         data: perpanjangan_d1
+                     }, {
+                         name: 'Perpanjangan AU',
+                         type: 'column',
+                         data: perpanjangan_au
+                     }, {
+                         name: 'Perpanjangan BI',
+                         type: 'column',
+                         data: perpanjangan_b1
+                     }, {
+                         name: 'Perpanjangan BIU',
+                         type: 'column',
+                         data: perpanjangan_b1u
+                     }, {
+                         name: 'Perpanjangan BII',
+                         type: 'column',
+                         data: perpanjangan_b2
+                     }, {
+                         name: 'Perpanjangan BIIU',
+                         type: 'column',
+                         data: perpanjangan_b2u
                      }],
                      chart: {
                          height: '400',
                          type: 'line',
                          stacked: false,
-                         events: {
-                             dataPointSelection: (event, chartContext, config) => {
-                                 // var selectedpolda = pad(config.dataPointIndex);
-                                 window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
-                             }
-                         },
+
 
                      },
                      tooltip: {
@@ -942,33 +1016,107 @@
                  $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                  $("#charta").html(`<div id="chart"></div>`);
 
-                 let polda_id = result.data.polda_id
+
                  let polda_name = result.data.polda_name
-                 let polda_baru = result.data.polda_baru
-                 let polda_perpanjangan = result.data.polda_perpanjangan
+                 let baru_a = result.data.baru_a
+                 let baru_c = result.data.baru_c
+                 let baru_c1 = result.data.baru_c1
+                 let baru_c2 = result.data.baru_c2
+                 let baru_d = result.data.baru_d
+                 let baru_d1 = result.data.baru_d1
+
+                 let perpanjangan_a = result.data.perpanjangan_a
+                 let perpanjangan_au = result.data.perpanjangan_au
+                 let perpanjangan_c = result.data.perpanjangan_c
+                 let perpanjangan_c1 = result.data.perpanjangan_c1
+                 let perpanjangan_c2 = result.data.perpanjangan_c2
+                 let perpanjangan_d = result.data.perpanjangan_d
+                 let perpanjangan_d1 = result.data.perpanjangan_d1
+                 let perpanjangan_b1 = result.data.perpanjangan_b1
+                 let perpanjangan_b1u = result.data.perpanjangan_b1u
+                 let perpanjangan_b2 = result.data.perpanjangan_b2
+                 let perpanjangan_b2u = result.data.perpanjangan_b2u
+
+                 let peningkatan_au = result.data.peningkatan_au
+                 let peningkatan_b1 = result.data.peningkatan_b1
+                 let peningkatan_b1u = result.data.peningkatan_b1u
+                 let peningkatan_b2 = result.data.peningkatan_b2
+                 let peningkatan_b2u = result.data.peningkatan_b2u
 
                  var chart = {
                      series: [{
-                         name: '<h6>Sim Baru</h6>',
+                         name: 'Baru A',
                          type: 'column',
-                         data: polda_baru,
-                         color: "#11347A"
+                         data: baru_a
                      }, {
-                         name: '<h6>Sim Perpanjangan</h6>',
+                         name: 'Baru C',
                          type: 'column',
-                         data: polda_perpanjangan,
-                         color: "#CB2D3E"
-                     }],
+                         data: baru_c
+                     }, {
+                         name: 'Baru CI',
+                         type: 'column',
+                         data: baru_c1
+                     }, {
+                         name: 'Baru CII',
+                         type: 'column',
+                         data: baru_c2
+                     }, {
+                         name: 'Baru D',
+                         type: 'column',
+                         data: baru_d
+                     }, {
+                         name: 'Baru DI',
+                         type: 'column',
+                         data: baru_d1
+                     }, {
+                         name: 'Perpanjangan A',
+                         type: 'column',
+                         data: perpanjangan_a
+                     }, {
+                         name: 'Perpanjangan C',
+                         type: 'column',
+                         data: perpanjangan_c
+                     }, {
+                         name: 'Perpanjangan CI',
+                         type: 'column',
+                         data: perpanjangan_c1
+                     }, {
+                         name: 'Perpanjangan CII',
+                         type: 'column',
+                         data: perpanjangan_c2
+                     }, {
+                         name: 'Perpanjangan D',
+                         type: 'column',
+                         data: perpanjangan_d
+                     }, {
+                         name: 'Perpanjangan DI',
+                         type: 'column',
+                         data: perpanjangan_d1
+                     }, {
+                         name: 'Perpanjangan AU',
+                         type: 'column',
+                         data: perpanjangan_au
+                     }, {
+                         name: 'Perpanjangan BI',
+                         type: 'column',
+                         data: perpanjangan_b1
+                     }, {
+                         name: 'Perpanjangan BIU',
+                         type: 'column',
+                         data: perpanjangan_b1u
+                     }, {
+                         name: 'Perpanjangan BII',
+                         type: 'column',
+                         data: perpanjangan_b2
+                     }, {
+                         name: 'Perpanjangan BIIU',
+                         type: 'column',
+                         data: perpanjangan_b2u
+                     }, ],
                      chart: {
                          height: '400',
                          type: 'line',
                          stacked: false,
-                         events: {
-                             dataPointSelection: (event, chartContext, config) => {
-                                 // var selectedpolda = pad(config.dataPointIndex);
-                                 window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
-                             }
-                         },
                      },
                      tooltip: {
                          fixed: {
@@ -1190,34 +1338,106 @@
                      $("#charta").html(`<div id="chart"></div>`);
                      // $('#btn_export').attr('href', `http://34.143.227.90:3001/v1/laporan_harian/export_laphar?filter=true&start_date=${start_date}&end_date=${end_date}`)
 
-                     let polda_id = result.data.polda_id
                      let polda_name = result.data.polda_name
-                     let polda_baru = result.data.polda_baru
-                     let polda_perpanjangan = result.data.polda_perpanjangan
+                     let baru_a = result.data.baru_a
+                     let baru_c = result.data.baru_c
+                     let baru_c1 = result.data.baru_c1
+                     let baru_c2 = result.data.baru_c2
+                     let baru_d = result.data.baru_d
+                     let baru_d1 = result.data.baru_d1
+
+                     let perpanjangan_a = result.data.perpanjangan_a
+                     let perpanjangan_au = result.data.perpanjangan_au
+                     let perpanjangan_c = result.data.perpanjangan_c
+                     let perpanjangan_c1 = result.data.perpanjangan_c1
+                     let perpanjangan_c2 = result.data.perpanjangan_c2
+                     let perpanjangan_d = result.data.perpanjangan_d
+                     let perpanjangan_d1 = result.data.perpanjangan_d1
+                     let perpanjangan_b1 = result.data.perpanjangan_b1
+                     let perpanjangan_b1u = result.data.perpanjangan_b1u
+                     let perpanjangan_b2 = result.data.perpanjangan_b2
+                     let perpanjangan_b2u = result.data.perpanjangan_b2u
+
+                     let peningkatan_au = result.data.peningkatan_au
+                     let peningkatan_b1 = result.data.peningkatan_b1
+                     let peningkatan_b1u = result.data.peningkatan_b1u
+                     let peningkatan_b2 = result.data.peningkatan_b2
+                     let peningkatan_b2u = result.data.peningkatan_b2u
 
                      var chart = {
                          series: [{
-                             name: '<h6>Sim Baru</h6>',
+                             name: 'Baru A',
                              type: 'column',
-                             data: polda_baru,
-                             color: "#11347A"
+                             data: baru_a
                          }, {
-                             name: '<h6>Sim Perpanjangan</h6>',
+                             name: 'Baru C',
                              type: 'column',
-                             data: polda_perpanjangan,
-                             color: "#CB2D3E"
-                         }],
+                             data: baru_c
+                         }, {
+                             name: 'Baru CI',
+                             type: 'column',
+                             data: baru_c1
+                         }, {
+                             name: 'Baru CII',
+                             type: 'column',
+                             data: baru_c2
+                         }, {
+                             name: 'Baru D',
+                             type: 'column',
+                             data: baru_d
+                         }, {
+                             name: 'Baru DI',
+                             type: 'column',
+                             data: baru_d1
+                         }, {
+                             name: 'Perpanjangan A',
+                             type: 'column',
+                             data: perpanjangan_a
+                         }, {
+                             name: 'Perpanjangan C',
+                             type: 'column',
+                             data: perpanjangan_c
+                         }, {
+                             name: 'Perpanjangan CI',
+                             type: 'column',
+                             data: perpanjangan_c1
+                         }, {
+                             name: 'Perpanjangan CII',
+                             type: 'column',
+                             data: perpanjangan_c2
+                         }, {
+                             name: 'Perpanjangan D',
+                             type: 'column',
+                             data: perpanjangan_d
+                         }, {
+                             name: 'Perpanjangan DI',
+                             type: 'column',
+                             data: perpanjangan_d1
+                         }, {
+                             name: 'Perpanjangan AU',
+                             type: 'column',
+                             data: perpanjangan_au
+                         }, {
+                             name: 'Perpanjangan BI',
+                             type: 'column',
+                             data: perpanjangan_b1
+                         }, {
+                             name: 'Perpanjangan BIU',
+                             type: 'column',
+                             data: perpanjangan_b1u
+                         }, {
+                             name: 'Perpanjangan BII',
+                             type: 'column',
+                             data: perpanjangan_b2
+                         }, {
+                             name: 'Perpanjangan BIIU',
+                             type: 'column',
+                             data: perpanjangan_b2u
+                         }, ],
                          chart: {
                              height: '400',
                              type: 'line',
                              stacked: false,
-                             events: {
-                                 dataPointSelection: (event, chartContext, config) => {
-                                     // var selectedpolda = pad(config.dataPointIndex);
-                                     window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
-                                 }
-                             },
-
                          },
                          tooltip: {
                              fixed: {
@@ -1300,67 +1520,504 @@
              },
              dataType: "JSON",
              success: function(result) {
-                 console.log(result);
+                 let nf = new Intl.NumberFormat('en-US');
+
+                 let polda_month = result.data.polda_month
+                 let baru_a = result.data.baru_a
+                 let baru_c = result.data.baru_c
+                 let baru_c1 = result.data.baru_c1
+                 let baru_c2 = result.data.baru_c2
+                 let baru_d = result.data.baru_d
+                 let baru_d1 = result.data.baru_d1
+
+                 let perpanjangan_a = result.data.perpanjangan_a
+                 let perpanjangan_au = result.data.perpanjangan_au
+                 let perpanjangan_c = result.data.perpanjangan_c
+                 let perpanjangan_c1 = result.data.perpanjangan_c1
+                 let perpanjangan_c2 = result.data.perpanjangan_c2
+                 let perpanjangan_d = result.data.perpanjangan_d
+                 let perpanjangan_d1 = result.data.perpanjangan_d1
+                 let perpanjangan_b1 = result.data.perpanjangan_b1
+                 let perpanjangan_b1u = result.data.perpanjangan_b1u
+                 let perpanjangan_b2 = result.data.perpanjangan_b2
+                 let perpanjangan_b2u = result.data.perpanjangan_b2u
+
+                 let peningkatan_au = result.data.peningkatan_au
+                 let peningkatan_b1 = result.data.peningkatan_b1
+                 let peningkatan_b1u = result.data.peningkatan_b1u
+                 let peningkatan_b2 = result.data.peningkatan_b2
+                 let peningkatan_b2u = result.data.peningkatan_b2u
+
+
+
+
+
+
                  $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                  $("#chartdate").html(`<div id="chart2"></div>`);
 
 
-                 var chart2 = {
-                     series: [{
-                         name: '<h6>Baru</h6>',
-                         type: 'line',
-                         data: result.data.polda_baru,
-                         color: "#CB2D3E"
-                     }, {
-                         name: '<h6>Perpanjangan</h6>',
-                         type: 'line',
-                         data: result.data.polda_perpanjangan,
-                         color: "#E8D42F"
-                     }],
-                     chart: {
-                         height: 400,
-                         type: 'line',
-                         stacked: false
-                     },
-                     plotOptions: {
-                         bar: {
-                             horizontal: false,
-                             columnWidth: '55%',
-                             endingShape: 'rounded',
-                             dataLabels: {
-                                 position: 'top'
-                             }
+                 if (seven_daysAgo == yesterday) {
+                     var chart2 = {
+                         series: [{
+                             name: 'Baru A',
+                             type: 'column',
+                             data: baru_a
+                         }, {
+                             name: 'Baru C',
+                             type: 'column',
+                             data: baru_c
+                         }, {
+                             name: 'Baru CI',
+                             type: 'column',
+                             data: baru_c1
+                         }, {
+                             name: 'Baru CII',
+                             type: 'column',
+                             data: baru_c2
+                         }, {
+                             name: 'Baru D',
+                             type: 'column',
+                             data: baru_d
+                         }, {
+                             name: 'Baru DI',
+                             type: 'column',
+                             data: baru_d1
+                         }, {
+                             name: 'Perpanjangan A',
+                             type: 'column',
+                             data: perpanjangan_a
+                         }, {
+                             name: 'Perpanjangan C',
+                             type: 'column',
+                             data: perpanjangan_c
+                         }, {
+                             name: 'Perpanjangan CI',
+                             type: 'column',
+                             data: perpanjangan_c1
+                         }, {
+                             name: 'Perpanjangan CII',
+                             type: 'column',
+                             data: perpanjangan_c2
+                         }, {
+                             name: 'Perpanjangan D',
+                             type: 'column',
+                             data: perpanjangan_d
+                         }, {
+                             name: 'Perpanjangan DI',
+                             type: 'column',
+                             data: perpanjangan_d1
+                         }, {
+                             name: 'Perpanjangan AU',
+                             type: 'column',
+                             data: perpanjangan_au
+                         }, {
+                             name: 'Perpanjangan BI',
+                             type: 'column',
+                             data: perpanjangan_b1
+                         }, {
+                             name: 'Perpanjangan BIU',
+                             type: 'column',
+                             data: perpanjangan_b1u
+                         }, {
+                             name: 'Perpanjangan BII',
+                             type: 'column',
+                             data: perpanjangan_b2
+                         }, {
+                             name: 'Perpanjangan BIIU',
+                             type: 'column',
+                             data: perpanjangan_b2u
+                         }, ],
+                         chart: {
+                             height: 400,
+                             type: 'line',
+                             stacked: false
                          },
-                     },
-                     dataLabels: {
-                         enabled: true,
-
-                         offsetY: -15
-                     },
-                     markers: {
-                         size: 4,
-                         colors: '#kkk',
-                         fillOpacity: 0.9,
-                         shape: "circle",
-                         radius: 2,
-                     },
-                     xaxis: {
-                         categories: result.data.polda_name,
-                         labels: {
-                             show: true,
-                             style: {
-                                 colors: ['#f70505'],
-                                 fontSize: '18px',
-                                 fontWeight: 400,
-                             }
+                         plotOptions: {
+                             bar: {
+                                 horizontal: false,
+                                 columnWidth: '55%',
+                                 endingShape: 'rounded',
+                                 dataLabels: {
+                                     position: 'top'
+                                 }
+                             },
                          },
-                         tickPlacement: 'between'
-                     }
+                         dataLabels: {
+                             enabled: true,
 
-                 };
+                             offsetY: -15
+                         },
+                         //  markers: {
+                         //      size: 4,
+                         //      colors: '#kkk',
+                         //      fillOpacity: 0.9,
+                         //      shape: "circle",
+                         //      radius: 2,
+                         //  },
+                         xaxis: {
+                             categories: polda_month,
+                             labels: {
+                                 show: true,
+                                 style: {
+                                     colors: ['#f70505'],
+                                     fontSize: '18px',
+                                     fontWeight: 400,
+                                 }
+                             },
+                             tickPlacement: 'between'
+                         },
+                         tooltip: {
+                             custom: function({
+                                 series,
+                                 seriesIndex,
+                                 dataPointIndex,
+                                 seriesName,
+                                 w
+                             }) {
 
-                 var ditgakkum = new ApexCharts(document.querySelector("#chart2"), chart2);
-                 ditgakkum.render();
+                                 return (
+                                     `<div style="width: 30rem; height:20rem;">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="my-2 text-center">    
+                                                            <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                        </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4 ms-1">
+                                                                    <span class="fw-bold">Baru</span><br>
+                                                                    <div class="row">
+                                                                        <div class="col-md-2">
+                                                                            <span class="fw-bold">A</span><br>
+                                                                            <span class="fw-bold">C</span><br>
+                                                                            <span class="fw-bold">CI</span><br>
+                                                                            <span class="fw-bold">CII</span><br>
+                                                                            <span class="fw-bold">D</span><br>
+                                                                            <span class="fw-bold">DI</span><br>
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <span class="fw-bold">${nf.format(baru_a[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(baru_c[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(baru_c1[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(baru_c2[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(baru_d[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(baru_d1[dataPointIndex])}</span><br>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 ms-n3 me-2">
+                                                                    <span class="fw-bold">Perpanjangan</span><br>
+                                                                    <div class="row ms-2">
+                                                                        <div class="col-md-2">
+                                                                            <span class="fw-bold">A</span><br>
+                                                                            <span class="fw-bold">AU</span><br>
+                                                                            <span class="fw-bold">C</span><br>
+                                                                            <span class="fw-bold">CI</span><br>
+                                                                            <span class="fw-bold">CII</span><br>
+                                                                            <span class="fw-bold">D</span><br>
+                                                                            <span class="fw-bold">DI</span><br>
+                                                                            <span class="fw-bold">BI</span><br>
+                                                                            <span class="fw-bold">BIU</span><br>
+                                                                            <span class="fw-bold">BI</span><br>
+                                                                            <span class="fw-bold">BIIU</span><br>
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_a[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_au[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_c[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_c1[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_c2[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_d[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_d1[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_b1[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_b1u[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_b2[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_b2u[dataPointIndex])}</span><br>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <span class="fw-bold">Peningkatan</span><br>
+                                                                    <div class="row">
+                                                                        <div class="col-md-2">
+                                                                            <span class="fw-bold">AU</span><br>
+                                                                            <span class="fw-bold">BI</span><br>
+                                                                            <span class="fw-bold">BIU</span><br>
+                                                                            <span class="fw-bold">BII</span><br>
+                                                                            <span class="fw-bold">BIIU</span><br>
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <span class="fw-bold">${nf.format(peningkatan_au[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(peningkatan_b1[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(peningkatan_b1u[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(peningkatan_b2[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(peningkatan_b2u[dataPointIndex])}</span><br>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>`
+                                 );
+                             }
+                         }
+
+                     };
+                 } else {
+                     var chart2 = {
+                         series: [{
+                             name: 'Baru A',
+                             data: baru_a
+                         }, {
+                             name: 'Baru C',
+                             data: baru_c
+                         }, {
+                             name: 'Baru CI',
+                             data: baru_c1
+                         }, {
+                             name: 'Baru CII',
+                             data: baru_c2
+                         }, {
+                             name: 'Baru D',
+                             data: baru_d
+                         }, {
+                             name: 'Baru DI',
+                             data: baru_d1
+                         }, {
+                             name: 'Perpanjangan A',
+                             data: perpanjangan_a
+                         }, {
+                             name: 'Perpanjangan C',
+                             data: perpanjangan_c
+                         }, {
+                             name: 'Perpanjangan CI',
+                             data: perpanjangan_c1
+                         }, {
+                             name: 'Perpanjangan CII',
+                             data: perpanjangan_c2
+                         }, {
+                             name: 'Perpanjangan D',
+                             data: perpanjangan_d
+                         }, {
+                             name: 'Perpanjangan DI',
+                             data: perpanjangan_d1
+                         }, {
+                             name: 'Perpanjangan AU',
+                             data: perpanjangan_au
+                         }, {
+                             name: 'Perpanjangan BI',
+                             data: perpanjangan_b1
+                         }, {
+                             name: 'Perpanjangan BIU',
+                             data: perpanjangan_b1u
+                         }, {
+                             name: 'Perpanjangan BII',
+                             data: perpanjangan_b2
+                         }, {
+                             name: 'Perpanjangan BIIU',
+                             data: perpanjangan_b2u
+                         }, ],
+                         chart: {
+                             height: 400,
+                             type: 'line',
+                             stacked: false
+                         },
+                         plotOptions: {
+                             bar: {
+                                 horizontal: false,
+                                 columnWidth: '55%',
+                                 endingShape: 'rounded',
+                                 dataLabels: {
+                                     position: 'top'
+                                 }
+                             },
+                         },
+                         dataLabels: {
+                             enabled: true,
+
+                             offsetY: -15
+                         },
+                         //  markers: {
+                         //      size: 4,
+                         //      colors: '#kkk',
+                         //      fillOpacity: 0.9,
+                         //      shape: "circle",
+                         //      radius: 2,
+                         //  },
+                         xaxis: {
+                             categories: polda_month,
+                             labels: {
+                                 show: true,
+                                 style: {
+                                     colors: ['#f70505'],
+                                     fontSize: '18px',
+                                     fontWeight: 400,
+                                 }
+                             },
+                             tickPlacement: 'between'
+                         },
+                         tooltip: {
+                             custom: function({
+                                 series,
+                                 seriesIndex,
+                                 dataPointIndex,
+                                 seriesName,
+                                 w
+                             }) {
+
+                                 return (
+                                     `<div style="width: 30rem; height:20rem;">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="my-2 text-center">    
+                                                            <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                        </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4 ms-1">
+                                                                    <span class="fw-bold">Baru</span><br>
+                                                                    <div class="row">
+                                                                        <div class="col-md-2">
+                                                                            <span class="fw-bold">A</span><br>
+                                                                            <span class="fw-bold">C</span><br>
+                                                                            <span class="fw-bold">CI</span><br>
+                                                                            <span class="fw-bold">CII</span><br>
+                                                                            <span class="fw-bold">D</span><br>
+                                                                            <span class="fw-bold">DI</span><br>
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <span class="fw-bold">${nf.format(baru_a[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(baru_c[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(baru_c1[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(baru_c2[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(baru_d[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(baru_d1[dataPointIndex])}</span><br>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 ms-n3 me-2">
+                                                                    <span class="fw-bold">Perpanjangan</span><br>
+                                                                    <div class="row ms-2">
+                                                                        <div class="col-md-2">
+                                                                            <span class="fw-bold">A</span><br>
+                                                                            <span class="fw-bold">AU</span><br>
+                                                                            <span class="fw-bold">C</span><br>
+                                                                            <span class="fw-bold">CI</span><br>
+                                                                            <span class="fw-bold">CII</span><br>
+                                                                            <span class="fw-bold">D</span><br>
+                                                                            <span class="fw-bold">DI</span><br>
+                                                                            <span class="fw-bold">BI</span><br>
+                                                                            <span class="fw-bold">BIU</span><br>
+                                                                            <span class="fw-bold">BI</span><br>
+                                                                            <span class="fw-bold">BIIU</span><br>
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_a[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_au[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_c[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_c1[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_c2[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_d[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_d1[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_b1[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_b1u[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_b2[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(perpanjangan_b2u[dataPointIndex])}</span><br>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <span class="fw-bold">Peningkatan</span><br>
+                                                                    <div class="row">
+                                                                        <div class="col-md-2">
+                                                                            <span class="fw-bold">AU</span><br>
+                                                                            <span class="fw-bold">BI</span><br>
+                                                                            <span class="fw-bold">BIU</span><br>
+                                                                            <span class="fw-bold">BII</span><br>
+                                                                            <span class="fw-bold">BIIU</span><br>
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                            <span class="fw-bold">:</span><br>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <span class="fw-bold">${nf.format(peningkatan_au[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(peningkatan_b1[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(peningkatan_b1u[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(peningkatan_b2[dataPointIndex])}</span><br>
+                                                                            <span class="fw-bold">${nf.format(peningkatan_b2u[dataPointIndex])}</span><br>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>`
+                                 );
+                             }
+                         }
+
+                     };
+                 }
+
+                 var ditregident = new ApexCharts(document.querySelector("#chart2"), chart2);
+                 ditregident.render();
              }
          })
      }

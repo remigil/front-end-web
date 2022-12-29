@@ -461,22 +461,27 @@ class Statistik_executive extends MY_Controller
     }
     public function getLineLaka()
     {
-        $title = 'DATA KECELAKAAN LALU LINTAS';
+        $start = $this->input->post('start_date');
+        $asd = explode('-', $start);
+        $end = $this->input->post('end_date');
+        $zxc = explode('-', $end);
+        // var_dump($asd);die;
+        $title = 'DATA KECELAKAAN LALU LINTAS TANGGAL <span class="text-danger">' . $asd[2] . '/' . $asd[1] . '/' . $asd[0] . ' - ' . $zxc[2] . '/' . $zxc[1] . '/' . $zxc[0] . "</span>";
         $filter = $this->input->post('filter');
         $limit = $this->input->post('limit');
         $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getKecelakaanNasionalDate($filterbaru);
         } elseif ($filter != 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getKecelakaanNasionalDate($filterbaru);
         }
@@ -810,22 +815,28 @@ class Statistik_executive extends MY_Controller
     }
     public function getLineGarlantas()
     {
-        $title = 'DATA PELANGGARAN LALU LINTAS';
+        $start = $this->input->post('start_date');
+        $asd = explode('-', $start);
+        $end = $this->input->post('end_date');
+        $zxc = explode('-', $end);
+        $title = 'DATA GARLANTAS LALU LINTAS TANGGAL <span class="text-danger">' . $asd[2] . '/' . $asd[1] . '/' . $asd[0] . ' - ' . $zxc[2] . '/' . $zxc[1] . '/' . $zxc[0] . "</span>";
+
+        // $title = 'DATA PELANGGARAN LALU LINTAS';
         $filter = $this->input->post('filter');
         $limit = $this->input->post('limit');
         $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getGarlantasNasionalDate($filterbaru);
         } elseif ($filter != 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getGarlantasNasionalDate($filterbaru);
         }
@@ -1018,22 +1029,27 @@ class Statistik_executive extends MY_Controller
 
     public function getLineTurjagwali()
     {
-        $title = 'DATA TURJAGWALI LALU LINTAS';
+        $start = $this->input->post('start_date');
+        $asd = explode('-', $start);
+        $end = $this->input->post('end_date');
+        $zxc = explode('-', $end);
+        $title = 'DATA TURJAGWALI LALU LINTAS TANGGAL <span class="text-danger">' . $asd[2] . '/' . $asd[1] . '/' . $asd[0] . ' - ' . $zxc[2] . '/' . $zxc[1] . '/' . $zxc[0] . "</span>";
         $filter = $this->input->post('filter');
+
         $limit = $this->input->post('limit');
         $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getTurjagwaliNasionalDate($filterbaru);
         } elseif ($filter != 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getTurjagwaliNasionalDate($filterbaru);
         }
@@ -3172,84 +3188,121 @@ class Statistik_executive extends MY_Controller
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
-        $totalDay = 0;
-        $totalMonth = 0;
-        $totalYear = 0;
 
-        $ymobil_penumpang = 0;
-        $ymobil_barang = 0;
-        $ymobil_bus = 0;
-        $ysepeda_motor = 0;
-        $yransus = 0;
+        $thisDayMP = 0;
+        $thisDayMS = 0;
+        $thisDayMB = 0;
+        $thisDaySM = 0;
+        $thisDayRN = 0;
+        $thisDayTL = 0;
+        foreach ($thisDay['data']['rows'] as $key) {
+            $thisDayMP += $key['mobil_penumpang'];
+            $thisDayMS += $key['mobil_bus'];
+            $thisDayMB += $key['mobil_barang'];
+            $thisDaySM  += $key['sepeda_motor'];
+            $thisDayRN  += $key['ransus'];
+            $thisDayTL  += $key['total'];
+        }
 
-        foreach ($thisYear['data'] as $key) {
-            $ymobil_penumpang += $key['mobil_penumpang'];
-            $ymobil_barang += $key['mobil_barang'];
-            $ymobil_bus += $key['mobil_bus'];
-            $ysepeda_motor += $key['sepeda_motor'];
-            $yransus += $key['ransus'];
+        $data['thisDay'] = [
+            'mobil_barang' => $thisDayMB,
+            'mobil_penumpang' => $thisDayMP,
+            'mobil_bus' => $thisDayMS,
+            'sepeda_motor' => $thisDaySM,
+            'ransus' => $thisDayRN,
+            'total' => $thisDayTL,
+        ];
+        $thisMonthMP = 0;
+        $thisMonthMS = 0;
+        $thisMonthMB = 0;
+        $thisMonthSM = 0;
+        $thisMonthRN = 0;
+        $thisMonthTL = 0;
+        foreach ($thisMonth['data']['rows'] as $key) {
+            $thisMonthMP += $key['mobil_penumpang'];
+            $thisMonthMS += $key['mobil_bus'];
+            $thisMonthMB += $key['mobil_barang'];
+            $thisMonthSM += $key['sepeda_motor'];
+            $thisMonthRN += $key['ransus'];
+            $thisMonthTL  += $key['total'];
+        }
+
+        $data['thisMonth'] = [
+            'mobil_penumpang' => $thisMonthMP,
+            'mobil_bus' => $thisMonthMS,
+            'mobil_barang' => $thisMonthMB,
+            'sepeda_motor' => $thisMonthSM,
+            'ransus' => $thisMonthRN,
+            'total' => $thisMonthTL,
+        ];
+        $thisYearMP = 0;
+        $thisYearMS = 0;
+        $thisYearMB = 0;
+        $thisYearSM = 0;
+        $thisYearRN = 0;
+        $thisYearTL = 0;
+        foreach ($thisYear['data']['rows'] as $key) {
+            $thisYearMP += $key['mobil_penumpang'];
+            $thisYearMS += $key['mobil_bus'];
+            $thisYearMB += $key['mobil_barang'];
+            $thisYearSM  += $key['sepeda_motor'];
+            $thisYearRN  += $key['ransus'];
+            $thisYearTL  += $key['total'];
         }
 
         $data['thisYear'] = [
-            'mobil_penumpang' => $ymobil_penumpang,
-            'mobil_barang' => $ymobil_barang,
-            'mobil_bus' => $ymobil_bus,
-            'sepeda_motor' => $ysepeda_motor,
-            'ransus' => $yransus,
-
-            'date' => date("Y", strtotime($firstDay)),
+            'mobil_penumpang' => $thisYearMP,
+            'mobil_bus' => $thisYearMS,
+            'mobil_barang' => $thisYearMB,
+            'ransus' => $thisYearSM,
+            'total' => $thisYearTL,
         ];
 
-        $dataDay = array_values($thisDay['data'][0]);
-        array_pop($dataDay);
-        $dataMonth = array_values($thisMonth['data'][0]);
-        array_pop($dataMonth);
-        $dataYear = array_values($data['thisYear']);
-        array_pop($dataYear);
-
-
-
-
-        for ($i = 0; $i < count($dataDay); $i++) {
-            $totalDay += $dataDay[$i];
-        }
-        for ($i = 0; $i < count($dataMonth); $i++) {
-            $totalMonth += $dataMonth[$i];
-        }
-        for ($i = 0; $i < count($dataYear); $i++) {
-            $totalYear += $dataYear[$i];
-        }
-
-        $data['stnkDate'] = [
-            'thisDay' => number_format($totalDay),
-            'detailsthisDay' => $thisDay['data'][0],
-            'thisMonth' => number_format($totalMonth),
-            'detailsthisMonth' => $thisMonth['data'][0],
-            'thisYear' => number_format($totalYear),
-            'detailsthisYear' => $data['thisYear'],
-            // 'thisYear' => $data['thisYear']
+        $data['TurjagwaliDate'] = [
+            'thisDay' => number_format($data['thisDay']['total']),
+            'thisDayMP' => number_format($data['thisDay']['mobil_penumpang']),
+            'thisDayMS' => number_format($data['thisDay']['mobil_bus']),
+            'thisDayMB' => number_format($data['thisDay']['mobil_barang']),
+            'thisDaySM' => number_format($data['thisDay']['sepeda_motor']),
+            'thisDayRN' => number_format($data['thisDay']['ransus']),
+            'thisMonth' => number_format($data['thisMonth']['total']),
+            'thisMonthMP' => number_format($data['thisMonth']['mobil_penumpang']),
+            'thisMonthMS' => number_format($data['thisMonth']['mobil_bus']),
+            'thisMonthMB' => number_format($data['thisMonth']['mobil_barang']),
+            'thisMonthSM' => number_format($data['thisMonth']['sepeda_motor']),
+            'thisMonthRN' => number_format($data['thisMonth']['ransus']),
+            'thisYear' => number_format($data['thisYear']['total']),
+            'thisYearMP' => number_format($data['thisYear']['mobil_penumpang']),
+            'thisYearMS' => number_format($data['thisYear']['mobil_bus']),
+            'thisYearMB' => number_format($data['thisYear']['mobil_barang']),
+            'thisYearSM' => number_format($data['thisYear']['sepeda_motor']),
+            'thisYearRN' => number_format($data['thisYear']['ransus']),
         ];
 
-        echo json_encode($data['stnkDate']);
+        echo json_encode($data['TurjagwaliDate']);
     }
     public function getLineRanmor()
     {
-        $title = 'PERBANDINGAN DATA RANMOR SELURUH POLDA ';
+        $start = $this->input->post('start_date');
+        $asd = explode('-', $start);
+        $end = $this->input->post('end_date');
+        $zxc = explode('-', $end);
+        $title = 'DATA RANMOR TANGGAL <span class="text-danger">' . $asd[2] . '/' . $asd[1] . '/' . $asd[0] . ' - ' . $zxc[2] . '/' . $zxc[1] . '/' . $zxc[0] . "</span>";
         $filter = $this->input->post('filter');
         $limit = $this->input->post('limit');
         $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getRanmorNasionalDate($filterbaru);
         } elseif ($filter != 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getRanmorNasionalDate($filterbaru);
         }

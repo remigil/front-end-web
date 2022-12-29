@@ -226,7 +226,6 @@ class M_detail_statistik extends CI_Model
                 ]
             ]);
         }
-
         $polda_date = array();
         $polda_meninggal_dunia = array();
         $polda_luka_berat = array();
@@ -234,7 +233,8 @@ class M_detail_statistik extends CI_Model
         $polda_kerugian_material = array();
         $polda_insinden_kecelakaan = array();
         foreach ($lakalantasnasional['data'] as $key) {
-            $polda_date[] = $key['date'];
+            $asd = explode('-', $key['date']);
+            $polda_date[] = $asd[2] . '-' . $asd[1] . '-' . $asd[0];
             $polda_meninggal_dunia[] = $key['meninggal_dunia'];
             $polda_luka_berat[] = $key['luka_berat'];
             $polda_luka_ringan[] = $key['luka_ringan'];
@@ -520,56 +520,211 @@ class M_detail_statistik extends CI_Model
             ]);
         }
 
-        $poldaID = array();
-        $poldaName = array();
-        $polda_baru = array();
-        $polda_perpanjangan = array();
+        // echo "<pre>";
+        // var_dump($lakalantasnasional);
+        // die;
+
+
+        $poldaID = [];
+        $poldaName = [];
+        $baru = [];
+        $perpanjangan = [];
+        $peningkatan = [];
+        $baru_a = [];
+        $baru_c = [];
+        $baru_c1 = [];
+        $baru_c2 = [];
+        $baru_d = [];
+        $baru_d1 = [];
+
+        $perpanjangan_a = [];
+        $perpanjangan_au = [];
+        $perpanjangan_b1 = [];
+        $perpanjangan_b1u = [];
+        $perpanjangan_b2 = [];
+        $perpanjangan_b2u = [];
+        $perpanjangan_c = [];
+        $perpanjangan_c1 = [];
+        $perpanjangan_c2 = [];
+        $perpanjangan_d = [];
+        $perpanjangan_d1 = [];
+
+        $peningkatan_au = [];
+        $peningkatan_b1 = [];
+        $peningkatan_b1u = [];
+        $peningkatan_b2 = [];
+        $peningkatan_b2u = [];
+
         foreach ($lakalantasnasional['data']['rows'] as $key) {
             $poldaID[] = $key['id'];
             $poldaName[] = $key['name_polda'];
-            $polda_baru[] = $key['baru'];
-            $polda_perpanjangan[] = $key['perpanjangan'];
+            $baru[] = $key['baru'];
+            $baru_a[] = $key['baru_a'];
+            $baru_c[] = $key['baru_c'];
+            $baru_c1[] = $key['baru_c1'];
+            $baru_c2[] = $key['baru_c2'];
+            $baru_d[] = $key['baru_d'];
+            $baru_d1[] = $key['baru_d1'];
+            $perpanjangan_a[] = $key['perpanjangan_a'];
+            $perpanjangan_au[] = $key['perpanjangan_au'];
+            $perpanjangan_c[] = $key['perpanjangan_c'];
+            $perpanjangan_c1[] = $key['perpanjangan_c1'];
+            $perpanjangan_c2[] = $key['perpanjangan_c2'];
+            $perpanjangan_d[] = $key['perpanjangan_d'];
+            $perpanjangan_d1[] = $key['perpanjangan_d1'];
+            $perpanjangan_b1[] = $key['perpanjangan_b1'];
+            $perpanjangan_b1u[] = $key['perpanjangan_b1u'];
+            $perpanjangan_b2[] = $key['perpanjangan_b2'];
+            $perpanjangan_b2u[] = $key['perpanjangan_b2u'];
+            $perpanjangan[] = $key['perpanjangan'];
+            $peningkatan[] = $key['peningkatan'];
+            $peningkatan_au[] = $key['peningkatan_au'];
+            $peningkatan_b1[] = $key['peningkatan_b1'];
+            $peningkatan_b1u[] = $key['peningkatan_b1u'];
+            $peningkatan_b2[] = $key['peningkatan_b2'];
+            $peningkatan_b2u[] = $key['peningkatan_b2u'];
         }
         return [
             'polda_id' => $poldaID,
             'polda_name' => $poldaName,
-            'polda_baru' => $polda_baru,
-            'polda_perpanjangan' => $polda_perpanjangan,
+            'baru' => $baru,
+            'baru_a' => $baru_a,
+            'baru_c' => $baru_c,
+            'baru_c1' => $baru_c1,
+            'baru_c2' => $baru_c2,
+            'baru_d' => $baru_d,
+            'baru_d1' => $baru_d1,
+            'perpanjangan' => $perpanjangan,
+            'perpanjangan_a' => $perpanjangan_a,
+            'perpanjangan_au' => $perpanjangan_au,
+            'perpanjangan_c' => $perpanjangan_c,
+            'perpanjangan_c1' => $perpanjangan_c1,
+            'perpanjangan_c2' => $perpanjangan_c2,
+            'perpanjangan_d' => $perpanjangan_d,
+            'perpanjangan_d1' => $perpanjangan_d1,
+            'perpanjangan_b1' => $perpanjangan_b1,
+            'perpanjangan_b1u' => $perpanjangan_b1u,
+            'perpanjangan_b2' => $perpanjangan_b2,
+            'perpanjangan_b2u' => $perpanjangan_b2u,
+            'peningkatan' => $peningkatan,
+            'peningkatan_au' => $peningkatan_au,
+            'peningkatan_b1' => $peningkatan_b1,
+            'peningkatan_b1u' => $peningkatan_b1u,
+            'peningkatan_b2' => $peningkatan_b2,
+            'peningkatan_b2u' => $peningkatan_b2u,
         ];
     }
 
     public function getSimNasionalDate($filterbaru)
     {
-
         if ($filterbaru['filter'] == 0) {
             $url = 'sim/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
-            $lakalantasnasional = guzzle_request('GET', $url, [
+            $sim = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
                 ]
             ]);
         } elseif ($filterbaru['filter'] == 1) {
             $url = 'sim/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
-            $lakalantasnasional = guzzle_request('GET', $url, [
+            $sim = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
                 ]
             ]);
         }
+        // echo "<pre>";
+        // var_dump($sim);
+        // die;
 
-        $polda_date = array();
-        $polda_baru = array();
-        $polda_perpanjangan = array();
-        foreach ($lakalantasnasional['data'] as $key) {
-            $polda_date[] = $key['date'];
-            $polda_baru[] = $key['baru'];
-            $polda_perpanjangan[] = $key['perpanjangan'];
+        $poldaMonth = [];
+        $baru_a = [];
+        $baru_a = [];
+        $baru_a = [];
+        $baru_c = [];
+        $baru_c1 = [];
+        $baru_c2 = [];
+        $baru_d = [];
+        $baru_d1 = [];
+
+        $perpanjangan_a = [];
+        $perpanjangan_au = [];
+        $perpanjangan_c = [];
+        $perpanjangan_c1 = [];
+        $perpanjangan_c2 = [];
+        $perpanjangan_d = [];
+        $perpanjangan_d1 = [];
+        $perpanjangan_b1 = [];
+        $perpanjangan_b1u = [];
+        $perpanjangan_b2 = [];
+        $perpanjangan_b2u = [];
+
+        $peningkatan_au = [];
+        $peningkatan_b1 = [];
+        $peningkatan_b1u = [];
+        $peningkatan_b2 = [];
+        $peningkatan_b2u = [];
+
+
+        $sim = $sim['data'];
+
+
+
+        foreach ($sim as $key) {
+            $datee = explode("-", $key['date']);
+            $poldaMonth[] = $datee[2] . "-" . $datee[1] . "-" . $datee[0];
+            $baru_a[] = $key['baru_a'];
+            $baru_c[] = $key['baru_c'];
+            $baru_c1[] = $key['baru_c1'];
+            $baru_c2[] = $key['baru_c2'];
+            $baru_d[] = $key['baru_d'];
+            $baru_d1[] = $key['baru_d1'];
+
+            $perpanjangan_a[] = $key['perpanjangan_a'];
+            $perpanjangan_au[] = $key['perpanjangan_au'];
+            $perpanjangan_c[] = $key['perpanjangan_c'];
+            $perpanjangan_c1[] = $key['perpanjangan_c1'];
+            $perpanjangan_c2[] = $key['perpanjangan_c2'];
+            $perpanjangan_d[] = $key['perpanjangan_d'];
+            $perpanjangan_d1[] = $key['perpanjangan_d1'];
+            $perpanjangan_b1[] = $key['perpanjangan_b1'];
+            $perpanjangan_b1u[] = $key['perpanjangan_b1u'];
+            $perpanjangan_b2[] = $key['perpanjangan_b2'];
+            $perpanjangan_b2u[] = $key['perpanjangan_b2u'];
+
+            $peningkatan_au[] = $key['peningkatan_au'];
+            $peningkatan_b1[] = $key['peningkatan_b1'];
+            $peningkatan_b1u[] = $key['peningkatan_b1u'];
+            $peningkatan_b2[] = $key['peningkatan_b2'];
+            $peningkatan_b2u[] = $key['peningkatan_b2u'];
         }
 
         return [
-            'polda_name' => $polda_date,
-            'polda_baru' => $polda_baru,
-            'polda_perpanjangan' => $polda_perpanjangan,
+            'polda_month' => $poldaMonth,
+            'baru_a' => $baru_a,
+            'baru_c' => $baru_c,
+            'baru_c1' => $baru_c1,
+            'baru_c2' => $baru_c2,
+            'baru_d' => $baru_d,
+            'baru_d1' => $baru_d1,
+
+            'perpanjangan_a' => $perpanjangan_a,
+            'perpanjangan_au' => $perpanjangan_au,
+            'perpanjangan_c' => $perpanjangan_c,
+            'perpanjangan_c1' => $perpanjangan_c1,
+            'perpanjangan_c2' => $perpanjangan_c2,
+            'perpanjangan_d' => $perpanjangan_d,
+            'perpanjangan_d1' => $perpanjangan_d1,
+            'perpanjangan_b1' => $perpanjangan_b1,
+            'perpanjangan_b1u' => $perpanjangan_b1u,
+            'perpanjangan_b2' => $perpanjangan_b2,
+            'perpanjangan_b2u' => $perpanjangan_b2u,
+
+            'peningkatan_au' => $peningkatan_au,
+            'peningkatan_b1' => $peningkatan_b1,
+            'peningkatan_b1u' => $peningkatan_b1u,
+            'peningkatan_b2' => $peningkatan_b2,
+            'peningkatan_b2u' => $peningkatan_b2u,
+
         ];
     }
 
