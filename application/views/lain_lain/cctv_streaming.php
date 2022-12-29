@@ -1,7 +1,7 @@
 <div class="row">
 
 	<!-- sidebar -->
-	<div class="col-md-2" style="background-color: #073888;">
+	<!-- <div class="col-md-2" style="background-color: #073888;">
 		<div class="title-link mt-3 text-white mb-3 text-center">
 			<h4>Pilih Lokasi CCTV</h4>
 			<hr>
@@ -178,13 +178,13 @@
 				</li>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 	<!-- end sidebar -->
 
 
 
 	<!-- cctv -->
-	<div class="col-md-10">
+	<div class="col-md-12">
 		<div class="container-fluid">
 			<h3 class="text-center mb-5 mt-5">CCTV Terintegrasi - Korlantas Polri</h3>
 
@@ -192,15 +192,15 @@
 
 				<div class="col-md-6">
 					<div class="form-floating mb-3">
-						<select class="form-select" name="kategoriFilter" style="height: 50px;">
-							<option selected value="">Pilih Kategori CCTV</option>
+						<select class="form-select" name="kategoriFilter" style="height: 60px;">
+							<option value="">Pilih Kategori CCTV</option>
 							<option value="CCTV MAINROAD">CCTV MAINROAD</option>
 							<option value="CCTV GERBANG">CCTV GERBANG</option>
 							<option value="CCTV RAMP">CCTV RAMP</option>
 							<option value="CCTV ETHLE">CCTV ETHLE</option>
 							<option value="BALISATUDATA">BALI SATU DATA</option>
 							<option value="cctv arteri">CCTV ARTERI</option>
-							<option value="cctv">CCTV</option>
+							<option selected value="cctv">CCTV</option>
 						</select>
 						<label for="kategoriFilter">Filter CCTV</label>
 					</div>
@@ -313,9 +313,9 @@
 
 						ress.forEach(el => {
 							if (el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv') {
-								resource = `<iframe id="myIframe" src="${el.link_cctv}" style="width: 230px; height: 250.25px;"></iframe>`;
+								resource = `<iframe id="myIframe" src="${el.link_cctv}" style="width: 100%; height: 250.25px;"></iframe>`;
 							} else {
-								resource = `<img class="cctv-${el.id}" style="width: 230px;" src="${el.link_cctv}" />`;
+								resource = `<img class="cctv-${el.id}" style="width: 100%; height:350.25px" src="${el.link_cctv}" />`;
 								window.setInterval(function() {
 									var d = new Date();
 									console.log("is refresh")
@@ -325,15 +325,15 @@
 							countlistCCTV += 1;
 							listCCTV += `
                                 <div class="col-xl-3 col-sm-6">
-                                    <div class="card text-center">
-                                        <div class="card-body">
-                                            <div class="row mb-4">
+                                    <div class="card text-center mb-3">
+                                        <div class="card-body p-0" style="background-color:#083174;">
+										<h5 class="font-size-16 mb-1"><a href="#" class="text-white">${el.type_cctv} | ${el.address_cctv}</a> </h5>
+                                            <div class="row">
                                                 <div class="col-md-12">
-                                                ${resource}
+                                                <a class="glightbox" href="${el.link_cctv}">${resource}</a>
                                                 </div>
                                             </div>
-                                            <h5 class="font-size-16 mb-1"><a href="#" class="text-dark">${el.type_cctv}</a></h5>
-                                            <p class="text-muted mb-2">${el.address_cctv}</p>
+                                            
                                             
                                         </div> 
                                     </div> 
