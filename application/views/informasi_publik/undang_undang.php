@@ -12,6 +12,8 @@
     </section><!-- End Breadcrumbs -->
 
 
+
+	
 <!-- Content
 ================================================== -->
 
@@ -83,7 +85,7 @@
 									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 								</div>
 								<div class="modal-body">
-								<embed src="http://k3i.korlantas.polri.go.id/wp-content/uploads/2021/09/UU-Nomor-9-tahun-2010-tentang-Keprotokolan.pdf" type="application/pdf" width="100%" height="600px" />
+								<embed src="http://k3i.korlantas.polri.go.id/wp-content/uploads/2021/09/UU-Nomor-9-tahun-2010-tentang-Keprotokolan.pdf" type="application/pdf" width="100%" height="600px">
 								</div>
 								
 								</div>

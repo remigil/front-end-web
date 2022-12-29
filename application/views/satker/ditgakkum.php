@@ -9,7 +9,7 @@
         <div class="container mt-5">
 			<div class="row">
 				<div class="col-md-1 text-center">
-					<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="">
+					<img src="<?= base_url()?>assets/korlantas-hd.png" alt="" width="100%">
 				</div>
 				<div class="col-md-7">
 					<h3><?= $headline?></h3>
@@ -53,7 +53,7 @@
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
             <div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
             <div class="service-item-upper">
-            <div class="icon text-center"><img src="<?= base_url()?>assets/fe/client/irsms.png" alt=""  width="70px" height="70px"></div>
+            <div class="icon text-center"><img src="<?= base_url()?>assets/fe/client/irsms-hd.png" alt=""  width="70px" height="70px"></div>
               <h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5">IRSMS</a></h4>
               <p class="text-center mb-5">Integrated Road Safety Management System adalah pendataan secara elektronik fenomena kecelakaan lalu lintas dan analisanya</p>
             </div>
@@ -73,7 +73,7 @@
           <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
             <div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
             <div class="service-item-upper">
-              <div class="icon text-center"><img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
+              <div class="icon text-center"><img src="<?= base_url()?>assets/korlantas-hd.png" alt="" width="70px" height="70px"></div>
               <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5">E-DAKGAR</a></h4>
               <p class="text-center mb-5">E – Dakgar adalah sistem Penindakan Pelanggaran Secara Online dan Transparan yang dicatat secara elektronik dan, dapat di cek secara online.</p>
 

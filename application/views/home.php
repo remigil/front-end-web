@@ -442,6 +442,67 @@
 
     </section><!-- End Recent Blog Posts Section -->
 
+    <!-- ======= Recent Blog Posts Section ======= -->
+    <section id="recent-blog-posts" class="recent-blog-posts">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Berita Stakeholder</h2>
+
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+        </div>
+
+        <div class="row">
+
+          <?php
+          $i = 0;
+          foreach ($semuaberita as $data) :
+            if (++$i == 5) break; ?>
+
+            <div class="col-lg-3 mt-5" data-aos="fade-up" data-aos-delay="200">
+              <div class="post-box">
+                <div class="post-img"><img width="500" src="<?= url_api() ?>news/<?= $data['picture'] ?>" class="img-fluid" style="height: 210px;"></div>
+                <div class="meta">
+                  <span class="post-date"><?= $data['category_news'][0]['name_category_news'] ?></span>
+                  <span class="post-author"> / Korlantas Polri</span>
+                </div>
+								<div class="row">
+									<div class="col-md-12 d-block">
+									<h4 class="post-title fs-6" style="height: 80px;"><?= substr($data['title'],0,150); ?></h4>
+									</div>
+									<div class="col-md-12 d-block">
+									<p style="text-align: justify;" style="height: 100px;"><?= substr($data['content'], 0, 260) . '. . .' ?></p>
+									</div>
+									<div class="col-md-12 d-block">
+									<a href="berita_front/detailberita/<?= $data['id'] ?>" class="readmore stretched-link"><span>Baca Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+									</div>
+								</div>
+                
+                
+                
+              </div>
+            </div>
+
+          <?php endforeach; ?>
+
+
+
+        </div>
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <a href="<?= base_url() ?>berita_front"><button class="btn btn-lg btn-primary mt-5" style="width: 100%;">Lihat Berita Lainnya</button></a>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- End Recent Blog Posts Section -->
+
 
 
 
@@ -462,7 +523,7 @@
             <div class="card-item">
               <div class="row">
                 <div class="col-xl-5 justify-content-center">
-                  <div class="card-bg p-4" style="background-image: url(assets/fe/slider-1.png);">
+                <div class="card-bg p-4" style="background-image: url(assets/fe/slider-1.png);">
                     <a href="https://samsatdigital.id/"><img src="<?= base_url() ?>assets/fe/client/signal-hd-putih.png" alt="" width="200" class="mx-auto d-block mt-5"></a>
                   </div>
                 </div>
@@ -502,7 +563,7 @@
             <div class="card-item">
               <div class="row">
                 <div class="col-xl-5">
-                  <div class="card-bg p-4" style="background-image: url(assets/fe/slider-1.png);">
+                  <div class="card-bg p-4" style="background-image: url(assets/fe/slider-1.png); background-size:cover;">
                     <a href="https://siminternasional.korlantas.polri.go.id/"><img src="<?= base_url() ?>assets/korlantas-hd.png" alt="" width="150" class="mx-auto d-block mt-3"></a>
                   </div>
                 </div>
@@ -511,7 +572,7 @@
                     <a href="https://siminternasional.korlantas.polri.go.id/">
                       <h4 class="card-title">SIM Internasional</h4>
                     </a>
-                    <p>Pelayanan SIM Internasional Korlantas Polri merupakan portal pendaftaran dan penerbitan SIM Internasional secara online bagi seluruh warga negara Indonesia yang akan mengemudikan kendaraan bermotor di luar negeri.</p>
+                    <p class="fs-7">Pelayanan SIM Internasional Korlantas Polri merupakan portal pendaftaran dan penerbitan SIM Internasional secara online bagi seluruh warga negara Indonesia yang akan mengemudikan kendaraan bermotor di luar negeri.</p>
                   </div>
                 </div>
               </div>
@@ -595,7 +656,7 @@
               <p>RASIROSA</p>
 						</div> -->
             <div class="swiper-slide">
-              <a target="_blank" href="http://sbstkorlantas.net/korlantas/"><img src="<?php echo base_url(); ?>assets/fe/client/sbst-hd.png" alt="" width="100"></a>
+              <a target="_blank" href="http://103.154.174.26/index.php"><img src="<?php echo base_url(); ?>assets/fe/client/sbst-hd.png" alt="" width="100"></a>
               <p>SBST</p>
             </div>
             <div class="swiper-slide">
@@ -722,13 +783,13 @@
         <div class="col-md-12 margin-bottom-50 margin-top-50">
           <div class="row">
             <div class="col-md-4">
-              <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px; position: static; visibility: visible; width: 100%; height: 600px; display: block; flex-grow: 3;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/NTMCLantasPolri?dnt=false&amp;embedId=twitter-widget-0&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
+              <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px; position: static; visibility: visible; width: 100%; height: 870px; display: block; flex-grow: 3;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/NTMCLantasPolri?dnt=false&amp;embedId=twitter-widget-0&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
             </div>
             <div class="col-md-4">
-              <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 600px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/TMCPoldaMetro?dnt=false&amp;embedId=twitter-widget-1&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
+              <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 870px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/TMCPoldaMetro?dnt=false&amp;embedId=twitter-widget-1&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
             </div>
             <div class="col-md-4">
-              <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 600px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/KemenkesRI?dnt=false&amp;embedId=twitter-widget-2&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
+              <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 870px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/KemenkesRI?dnt=false&amp;embedId=twitter-widget-2&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@
 		<div class="container mt-5">
 			<div class="row">
 				<div class="col-md-1 text-center">
-					<img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="">
+					<img src="<?= base_url() ?>assets/korlantas-hd.png" alt="" width="100%">
 				</div>
 				<div class="col-md-7">
 					<h3><?= $headline ?></h3>
@@ -52,7 +52,7 @@
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
 				<div class="service-item-upper">
-					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/korlantas-hd.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/12/DATA-POLANTAS-SE-INDONESIA-JULI-2021.pdf" class="stretched-link fs-5">Data Polantas</a></h4>
 					<p class="text-center mb-5">Data Polantas adalah sistem yang mendata penempatan dan penugasan anggota satuan lalu lintas di Indonesia</p>
 
@@ -62,7 +62,7 @@
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
 				<div class="service-item-upper">
-					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/korlantas-hd.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="https://djpb.kemenkeu.go.id/portal/id/unduh/aplikasi/162-aplikasi-simak.html" class="stretched-link fs-5">Sistem Logistik</a></h4>
 					<p class="text-center mb-5">Sistem Logistik merupakan sistem yang mendata kondisi dan kebutuhan logistik dari seluruh anggota satuan lalu lintas di Indonesia</p>
 
@@ -72,7 +72,7 @@
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
 				<div class="service-item-upper">
-					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/korlantas-hd.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/12/RENGAR-KORLANTAS-POLRI-T.A.-2022.pdf" class="stretched-link fs-5">REN GAR</a></h4>
 					<p class="text-center mb-5">Sistem RenGar adalah Sistem perencanaan anggaran yang memetakan kebutuhan Korlantas POLRI beserta pos anggarannya</p>
 
@@ -82,7 +82,7 @@
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
 				<div class="service-item-upper">
-					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/korlantas-hd.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="http://lpse.polri.go.id/eproc4" class="stretched-link fs-5">BAG ADA</a></h4>
 					<p class="text-center mb-5">Suatu portal Polri berisi sitem pengadaan barang atau jasa pemerintah termasuk system pengadaan barang atau jasa di lingkungan Korlantas Polri melalui system LPSE Polri.</p>
 

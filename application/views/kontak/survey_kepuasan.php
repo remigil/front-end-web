@@ -25,7 +25,7 @@
           <div class="col-lg-4">
 
             <div class="info">
-              <h3>Pusat Kendali, Koordinasi, Komunikasi dan Informasi Korlantas Polri</h3>
+              <h3 class="mb-4">Pusat Kendali, Koordinasi, Komunikasi dan Informasi Korlantas Polri</h3>
               <!-- <p>Et id eius voluptates atque nihil voluptatem enim in tempore minima sit ad mollitia commodi minus.</p> -->
 
               <div class="info-item d-flex">
@@ -51,6 +51,27 @@
                   <p>9119</p>
                 </div>
               </div><!-- End Info Item -->
+			  <div class="text-center fs-5 mt-5 mx-auto">
+          <h6 class="fw-bold">Media Sosial K3I</h6>
+          <ul class="social-icons d-flex justify-content-center">
+            <li><a href="https://twitter.com/K3IKorlantas" class="twitter"><i class="bx bxl-twitter"></i></a></li>
+            <li><a href="https://www.facebook.com/K3I-Korlantas-105187678596891" class="facebook"><i class="bx bxl-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/k3ikorlantaspolri/" class="instagram"><i class="bx bxl-instagram"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg" class="youtube"><i class="bx bxl-youtube"></i></a></li>
+          </ul>
+          <h6 class="fw-bold mt-4">Media Sosial NTMC</h6>
+          <ul class="social-icons d-flex justify-content-center">
+            <li><a href="https://twitter.com/NTMC_Info" class="twitter"><i class="bx bxl-twitter"></i></a></li>
+            <li><a href="https://id-id.facebook.com/NTMCPOLRI/" class="facebook"><i class="bx bxl-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/ntmc_polri/?hl=id" class="instagram"><i class="bx bxl-instagram"></i></a></li>
+            <li><a href="https://www.youtube.com/c/NTMCChannel" class="youtube"><i class="bx bxl-youtube"></i></a></li>
+          </ul>
+					
+					
+					
+					
+
+				</div>
 
             </div>
 
@@ -59,6 +80,25 @@
           <div class="col-lg-8">
 		  <h3>Form Survey Kepuasan Pengguna Layanan Web K3I</h4>
 				<p>Sebagai bentuk peningkatan pelayanan kepada masyarakat, Kami ingin memberikan pelayanan yang terbaik pada Pusat Kendali Koordinasi Komunikasi Informasi K3I Korlantas Polri , Silahkan isi Form Survey berikut ini :</p>
+				<form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class=" form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Masukan Nama" required>
+                </div>
+                <div class=" form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Masukan Email" required>
+                </div>
+                <div class=" form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Masukan alamat" required>
+                </div>
+                
+              </div>
+              
+            
+              
+              
+            </form>
+			<hr>
 				<form action="" class="form-survey" id="survey" method="post" enctype="multipart/form-data">
 					<div class="row">
 						<div class="col-md-12">
@@ -123,7 +163,7 @@
 							</div>
 						</div>
 						<div class="col-md-12">
-							<button type="submit" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px ; font-size:15px ;">KIRIM</button>
+						<a href="https://ccntmc.1500669.com/" target="_blank" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px ; font-size:15px ;">Kirim</a>
 						</div>
 					</div>
 				</form>

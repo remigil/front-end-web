@@ -66,7 +66,7 @@
 							<iframe width="100%" height="350" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZiRhVpxCG_GIkU8qIDuVsoL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 						<div class="col-md-12">
-							<img src="<?= base_url()?>assets/fe/tugas/img-korlantas.jpg" alt="" height="350" width="100%">
+							<img src="<?= base_url()?>assets/fe/giat_kakor5.jpg" alt="" height="350" width="100%">
 						</div>
 					</div>
 					
@@ -110,7 +110,7 @@
 						<iframe width="100%" height="350" src="https://www.youtube.com/embed/Ryp4UsZPvkE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 						<div class="col-md-12">
-							<img src="<?= base_url()?>assets/fe/tugas/img-ditkamsel.jpg" alt="" width="100%" height="350px">
+							<img src="<?= base_url()?>assets/fe/ditkamsel/ditkamsel2.jpg" alt="" width="100%" height="350px">
 						</div>
 					</div>
 				</div>
@@ -154,7 +154,7 @@
 
 						</div>
 						<div class="col-md-12">
-							<img src="<?= base_url()?>assets/fe/tugas/img-ditgakkum.jpg" alt="" width="100%"
+							<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum5.jpg" alt="" width="100%"
 							 height="350px">
 						</div>
 					</div>
@@ -202,7 +202,7 @@
 
 						</div>
 						<div class="col-md-12">
-							<img src="<?= base_url()?>assets/fe/tugas/img-ditregident.jpeg" alt="" width="100%" height="350px">
+							<img src="<?= base_url()?>assets/fe/ditregident/ditregident2.jpg" alt="" width="100%" height="350px">
 						</div>
 					</div>
 				</div>
@@ -243,11 +243,11 @@
 					<div class="row">
 						<div class="col-md-12">
 					
-							<iframe width="100%" height="350" src="https://www.youtube.com/embed/nnHfRSQJAEc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="100%" height="350" src="https://www.youtube.com/embed/jTmrCLU45bg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 						</div>
 						<div class="col-md-12">
-							<img src="<?= base_url()?>assets/fe/tugas/img-bagops.jpg" alt="" width="100%" height="350px">
+							<img src="<?= base_url()?>assets/fe/bagops/bagops1.jpg" alt="" width="100%" height="350px">
 						</div>
 					</div>
 				</div>
@@ -282,11 +282,11 @@
 					<div class="row">
 						<div class="col-md-12">
 					
-							<iframe width="100%" height="350" src="https://www.youtube.com/embed/hqVeznyAhX4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="100%" height="350" src="https://www.youtube.com/embed/psGQYM8PAkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 						</div>
 						<div class="col-md-12">
-							<img src="<?= base_url()?>assets/fe/tugas/img-bagrenmin.jpg" alt="" width="100%" height="350px">
+							<img src="<?= base_url()?>assets/fe/bagrenmin/bagrenmin4.jpg" alt="" width="100%" height="350px">
 						</div>
 					</div>
 				</div>
@@ -325,11 +325,11 @@
 					<div class="row">
 						<div class="col-md-12">
 					
-							<iframe width="100%" height="350" src="https://www.youtube.com/embed/0G74EWxXuus" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="100%" height="350" src="https://www.youtube.com/embed/wa5WV8ff4b4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 						</div>
 						<div class="col-md-12">
-							<img src="<?= base_url()?>assets/fe/tugas/img-bagtik.jpeg" alt="" width="100%" height="350px">
+							<img src="<?= base_url()?>assets/fe/bagtik/bagtik1.jpg" alt="" width="100%" height="350px">
 						</div>
 					</div>
 				</div>

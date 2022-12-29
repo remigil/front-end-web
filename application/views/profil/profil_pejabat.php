@@ -397,7 +397,7 @@
 	<div class="col-md-4">
 		<h4 class="text-center"><b>KABAG OPS</b></h4>
 		<div class="d-flex justify-content-center">
-			<img src="<?= base_url()?>assets/fe/profil/BAGOPS-EDDY-DJUNAED.jpg" alt="" style="border-radius:10px ;" width="150rem">
+			<img src="<?= base_url()?>assets/fe/profil/Kabag_OPS.jpg" alt="" style="border-radius:10px ;" width="150rem">
 		</div>
 		<div class="info-pejabat">
 			<h4>Nama</h4>

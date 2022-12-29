@@ -35,7 +35,7 @@
               <div class="entry-meta">
                 <ul>
                   <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">Korlantas Polri</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><?= $getDetail['updated_at']?></time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><?= $getDetail['date']?></time></a></li>
                   <!-- <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li> -->
                 </ul>
               </div>
@@ -96,7 +96,7 @@
                 <div class="post-item clearfix">
                   <img src="<?= url_api() ?>news/<?= $data['picture'] ?>" alt="">
                   <h4><a href="<?=$data['id']; ?>"><?=$data['title']; ?></a></h4>
-                  <time datetime="2020-01-01"><?=$data['updated_at']; ?></time>
+                  <time datetime="2020-01-01"><?= format_indoTglWkt($data['updated_at']); ?></time>
                 </div>
 
 				<?php endforeach; ?>

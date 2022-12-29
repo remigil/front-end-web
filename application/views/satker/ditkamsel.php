@@ -8,7 +8,7 @@
 		<div class="container mt-5">
 			<div class="row">
 				<div class="col-md-1 text-center">
-					<img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="">
+					<img src="<?= base_url() ?>assets/korlantas-hd.png" alt="" width="100%">
 				</div>
 				<div class="col-md-7">
 					<h3><?= $headline ?></h3>
@@ -63,7 +63,7 @@
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
 				<div class="service-item-upper">
-					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/korlantas-hd.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="#" class="stretched-link fs-5">Film Pendek</a></h4>
 					<p class="text-center">Suatu Portal Korlantas Polri yang berisikan film pendek tentang tertib lalu lintas sebagai sarana sosialisasi dan edukasi pada masyarakat dalam tertib berlalu lintas di jalan agar terwujud KAMSELTIBCARLANTAS</p>
 

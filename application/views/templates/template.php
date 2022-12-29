@@ -134,7 +134,10 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-		<li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
+          <!-- <li class="dropdown">
+            <a href=""><i class="bi bi-house-door"></i></a>
+          </li> -->
+		<li class="dropdown"><a href="#"><span class="fw-bold">Profil</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
 				<li><a href="<?= base_url()?>profil/sambutan">Sambutan</a></li>
 				<li><a href="<?= base_url()?>profil/struktur_organisasi">Struktur Organisasi</a></li>
@@ -145,7 +148,7 @@
 				<li><a href="<?= base_url()?>profil/sejarah">Sejarah POLANTAS</a></li>
             </ul>
         </li>
-		<li class="dropdown megamenu"><a href="#"><span>Satker Mabes</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+		<li class="dropdown megamenu"><a href="#"><span class="fw-bold">Satker Mabes</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li>
 				<h5>Korlantas</h5>
@@ -171,7 +174,7 @@
               
             </ul>
           </li>
-		<li class="dropdown megamenu"><a href="#"><span>stakeholder</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+		<li class="dropdown megamenu"><a href="#"><span class="fw-bold">stakeholder</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
 					
             <ul>
 							<li>
@@ -204,7 +207,7 @@
 		
           
           
-          <li class="dropdown"><a href="#"><span>Publikasi</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span class="fw-bold">Publikasi</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
 				<li><a href="<?= base_url()?>publikasi/konferensi_pers">Konfersi Pers</a></li>
 				<li><a href="<?= base_url()?>publikasi/kegiatan_kakor">Kegiatan Kakorlantas</a></li>
@@ -212,7 +215,7 @@
 				<li><a href="<?= base_url()?>publikasi/kegiatan_khusus">Kegiatan Khusus (PAM PPKM)</a></li> 
             </ul>
         </li>
-		<li class="dropdown"><a href="#"><span>informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
+		<li class="dropdown"><a href="#"><span class="fw-bold">informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
 				<li><a href="<?= base_url()?>pustaka/informasi_setiap_saat">Informasi Setiap Saat</a></li>
 				<li><a href="<?= base_url()?>pustaka/informasi_berkala">Informasi Berkala</a></li>
@@ -220,14 +223,14 @@
 				<li><a href="<?= base_url()?>pustaka/undang_undang">UU dan Peraturan</a></li> 
             </ul>
         </li>
-		<li class="dropdown"><a href="#"><span>Kontak Kami</span> <i class="bi bi-chevron-down"></i></a>
+		<li class="dropdown"><a href="#"><span class="fw-bold">Kontak Kami</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
 				<li><a href="<?= base_url()?>kontak/survey_kepuasan">Survey Kepuasan</a></li>
 				<li><a href="<?= base_url()?>kontak/layanan_pengaduan">Layanan Pengaduan</a></li>
 				<li><a href="https://ccntmc.1500669.com/" target="_blank">Contact Center NTMC</a></li> 
             </ul>
         </li>
-		<li class="dropdown"><a href="#"><span>Lain-lain</span> <i class="bi bi-chevron-down"></i></a>
+		<li class="dropdown"><a href="#"><span class="fw-bold">Lain-lain</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
 				<li><a href="<?= base_url()?>cctv_streaming">CCTV Streaming</a></li>
 				<li><a href="https://etle-pmj.info/id" target="_blank">Link Pengecekan Status ETLE</a></li>
@@ -235,7 +238,7 @@
 				<li><a href="https://tvradio.polri.go.id/" target="_blank">Link ke TV-RADIO POLRI</a></li> 
             </ul>
         </li>
-		<li class="dropdown megamenu"><a href="#"><span><i class="bi bi-search fs-5" style="padding: 0;"></i></span> <i class="bi bi-chevron-down"></i></a>
+		<li class="dropdown megamenu"><a href="#"><span class="fw-bold"><i class="bi bi-search fs-5" style="padding: 0;"></i></span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
 				<li>
           <form class="input-group">
@@ -326,7 +329,8 @@
               <br>
               <strong>Call Center:</strong> 1-500-669<br>
               <strong>SMS Center:</strong> 9119<br>
-              <strong>WA Center:</strong> 0851-7155-2928<br>
+              <strong>WA Center:</strong> <a href="https://wa.me/+6281901500669" target="_blank">0819-0150-0669</a> <br>
+              <strong>WA K3I:</strong> <a href="https://wa.me/+6281229992022" target="_blank">0812-2999-2022</a> <br>
             </p>
 
           </div>

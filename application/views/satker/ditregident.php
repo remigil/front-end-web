@@ -9,7 +9,7 @@
         <div class="container mt-5">
 			<div class="row">
 				<div class="col-md-1 text-center">
-					<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="">
+					<img src="<?= base_url()?>assets/korlantas-hd.png" alt="" width="100%">
 				</div>
 				<div class="col-md-7">
 					<h3><?= $headline?></h3>
@@ -63,8 +63,8 @@
 				<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out" >
 				  <div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
 				  <div class="service-item-upper">
-					  <div class="icon text-center"><img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
-					  <h4 class="text-center"><a href="https://www.etle-pmj.info/id/" class="stretched-link fs-5">Digital Korlantas</a></h4>
+					  <div class="icon text-center"><img src="<?= base_url()?>assets/korlantas-hd.png" alt="" width="70px" height="70px"></div>
+					  <h4 class="text-center"><a href="https://www.digitalkorlantas.id/" class="stretched-link fs-5">Digital Korlantas</a></h4>
 					  <p class="text-center mb-5">Aplikasi Digital Korlantas POLRI adalah aplikasi resmi dari Korlantas POLRI Indonesia untuk memudahkan masyarakat untuk mendapatkan layanan di Korlantas.</p>
 
 				  </div>
@@ -74,7 +74,7 @@
 				  <div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
 				  <div class="service-item-upper">
 					  <div class="icon text-center"><img src="<?= base_url()?>assets/fe/client/sbst-hd.png" alt="" width="70px" height="70px"></div>
-					  <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5">SBST Online</a></h4>
+					  <h4 class="text-center"><a href="http://103.154.174.26/index.php" class="stretched-link fs-5">SBST Online</a></h4>
 					  <p class="text-center mb-5">STNK, BPKB, SIM, dan Tanda Nomor Kendaraan Bermotor (SBST) Online adalah platform untuk menganalisa penggunaan material serta Pendapatan Negara Bukan Pajak terkait pelayanan oleh Korlantas POLRI</p>
 
 				  </div>
@@ -83,9 +83,9 @@
 				<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				  <div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
 				  <div class="service-item-upper">
-					  <div class="icon text-center"><img src="<?= base_url()?>assets/fe/client/eturjawali.png" alt="" width="70px" height="70px"></div>
-					  <h4 class="text-center"><a href="https://eturjawali.korlantas.polri.go.id/secure/login?redir=aHR0cHM6Ly9ldHVyamF3YWxpLmtvcmxhbnRhcy5wb2xyaS5nby5pZC8=#" class="stretched-link fs-5">E-TURJAWALI</a></h4>
-					  <p class="text-center mb-5">Portal Korlantas untuk pengawasan dan pengendalian kegiatan polantas dalam melaksanakan tugas pengaturan, penjagaan dan patroli atau turjawali</p>
+					  <div class="icon text-center"><img src="<?= base_url()?>assets/fe/client/sinar-hd.png" alt="" width="70px" height="70px"></div>
+					  <h4 class="text-center"><a href="https://www.digitalkorlantas.id/faq/" class="stretched-link fs-5">SINAR</a></h4>
+					  <p class="text-center mb-5">SINAR merupakan Sistem perpanjangan SIM secara online yang dapat dimanfaatkan masyarakat untuk mendapatkan pelayanan yang lebih optimal</p>
 
 				  </div>
 				  </div>

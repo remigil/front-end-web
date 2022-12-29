@@ -32,7 +32,7 @@
 					</ul>
 				</div>
 				<div class="col-md-4">
-					<div style="height: 200px;" id="map"></div>
+					<div style="height: 200px; z-index:1;" id="map"></div>
 					<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28108.39961480636!2d106.82794556302969!3d-6.163824152437846!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x30b7ec7f0aeb8f12!2s<?= $stakeholder['fullname']?>!5e0!3m2!1sid!2sid!4v1670669074240!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
 
 				</div>
@@ -93,7 +93,7 @@
 		<div class="row">
 		<div class="col-md-4">
 			<h3>Link Twitter</h3>
-			<iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 700px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/<?= $stakeholder['twitter']?>?dnt=false&amp;embedId=twitter-widget-1&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
+			<iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 870px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/<?= $stakeholder['twitter']?>?dnt=false&amp;embedId=twitter-widget-1&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
 				
 		</div>
 		<!-- <div class="col-md-4">
@@ -102,7 +102,7 @@
 		</div> -->
 		<div class="col-md-4">
 		<h3>Link Facebook</h3>
-			<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F<?= $stakeholder['facebook']?>&tabs=timeline&width=500&height=840&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=392649888900623" width=100% height=700px style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+			<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F<?= $stakeholder['facebook']?>&tabs=timeline&width=500&height=870&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=392649888900623" width=100% height=870px style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 		</div>
 		<div class="col-md-4">
 			<h3>Dokumen Peraturan</h3>
@@ -148,10 +148,48 @@
 
 <script>
 	$(document).ready(function() {  
-		var map = L.map('map').setView([<?= $stakeholder['latitude']?>, <?= $stakeholder['longitude']?>], 15);
+		var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+      });
+      var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+        attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+      });
+      var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+        attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+      });
+      var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+        attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+      });
+      var gl = L.mapboxGL({
+        accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
+        style: 'mapbox://styles/mapbox/traffic-day-v2'
+      });
 
-		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      var trafficMutant = L.gridLayer.googleMutant({
+        maxZoom: 24,
+        type: "hybrid",
+      }).addGoogleLayer("TrafficLayer");
+
+      var trafficMutantRoad = L.gridLayer.googleMutant({
+        maxZoom: 24,
+        type: "roadmap",
+      }).addGoogleLayer("TrafficLayer");
+
+	  
+		var map = L.map('map',{
+			layers: [googleStreet]
+		}).setView([<?= $stakeholder['latitude']?>, <?= $stakeholder['longitude']?>], 15);
+		
+
+		L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+			attribution: '&copy; <a href="https://maps.google.com/">Google Map</a> contributors'
 		}).addTo(map);
 
 		L.marker([<?= $stakeholder['latitude']?>, <?= $stakeholder['longitude']?>]).addTo(map)

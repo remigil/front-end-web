@@ -8,7 +8,7 @@
 		<div class="container mt-5">
 			<div class="row">
 				<div class="col-md-1 text-center">
-					<img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="">
+					<img src="<?= base_url() ?>assets/korlantas-hd.png" alt="" width="100%">
 				</div>
 				<div class="col-md-7">
 					<h3><?= $headline ?></h3>
@@ -52,7 +52,7 @@
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
 				<div class="service-item-upper">
-					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/dis-hd.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/dis/" class="stretched-link fs-5">DIS</a></h4>
 					<p class="text-center mb-5">Dynamic Infographic System (DIS) Suatu portal Korlantas Polri berisi Dynamic Infographic System adalah system aplikasi yang menghasilkan informasi kondisi lalu lintas terkini di jalan Tol maupun spot-spot pendukung seperti reas area, gate tol, kondisi lalu di jalan alteri, Pelabuhan, bandara dan lainnya yang didukung camera, cctv terupdate secara real time</p>
 
@@ -62,8 +62,8 @@
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
 				<div class="service-item-upper">
-					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
-					<h4 class="text-center"><a href=http://sislapops.com/home" class="stretched-link fs-5">SISLAPOPS</a></h4>
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/sislapops-hd.png" alt="" width="110px" height="70px"></div>
+					<h4 class="text-center"><a href="http://sislapops.com/home" class="stretched-link fs-5">SISLAPOPS</a></h4>
 					<p class="text-center mb-5">Sistem Sislapops adalah suatu portal Korlantas Polri berisi system pelaporan aplikasi operasi Lalu Lintas Online</p>
 
 				</div>
@@ -72,7 +72,7 @@
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
 				<div class="service-item-upper">
-					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px"></div>
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/ntmc.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="https://ntmcpolri.info/" class="stretched-link fs-5">NTMC</a></h4>
 					<p class="text-center mb-5">Suatu portal Korlantas Polri berisi informasi dan kegiatan operasional korlantas POLRI mapun stakeholder terkait dalam rangka memenuhi kebutuhan masyarakat terkait informasi bidang lalu lintas guna mewujudkan Kamseltibcar lantas.</p>
 

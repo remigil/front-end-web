@@ -299,6 +299,7 @@
 				dataType: "JSON",
 				success: function(result) {
 					let ressData = result['data'];
+				
 
 					let ress = ressData.filter(function(e) {
 						return e.lat_cctv != null && e.lng_cctv != null;

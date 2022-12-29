@@ -24,7 +24,7 @@
 		<div class="col-md-12">
 			<div class="text-center mb-5">
 				<h4 class="mb-5" style="color: #003A91;">Visi & Misi Korlantas Polri</h4>
-				<img src="<?= base_url()?>assets/fe/presisi.jpg" alt="">
+				<img src="<?= base_url()?>assets/fe/presisi-copy.jpg" alt="">
 				<p class="mt-5" style="color: #003A91;"><b>Polantas siap mendukung transformasi menuju Polri yang PRESISI ( Prediktif –  Responsibilitas – Transparansi Berkeadilan )</b></p>
 			</div>
 		</div>

@@ -38,7 +38,7 @@ class Berita_front extends MX_Controller {
 		$getBerita = guzzle_request('GET', 'news'.$search.'', [
             // 'headers' => $headers
         ]);
-        // echo json_encode($getBerita);
+        // echo json_encode($getBerita);die;
 
         $news = array();
         foreach ($getBerita['data']['datanya'] as $key) {
