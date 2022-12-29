@@ -457,7 +457,7 @@
 
           <?php
           $i = 0;
-          foreach ($semuaberita as $data) :
+                                                                            foreach ($beritastakeholder as $data) :
             if (++$i == 5) break; ?>
 
             <div class="col-lg-3 mt-5" data-aos="fade-up" data-aos-delay="200">
