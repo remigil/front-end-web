@@ -34,7 +34,13 @@ class Home extends MX_Controller {
 		$getBeritaall = guzzle_request('GET', 'news', [
             // 'headers' => $headers
         ]);
-		// var_dump($getBerita);die;
+
+        $getStakeholder = guzzle_request('GET', 'news/newsbycategory/VTJGc2RHVmtYMS8wdmQ2TjNvU3FIazA0VEJNaW5lQXFva21QaXYyTlo5VT0', [
+            // 'headers' => $headers
+        ]);
+
+
+
 
         $news = array();
         foreach ($getBeritaall['data']['datanya'] as $key) {
@@ -46,6 +52,7 @@ class Home extends MX_Controller {
 
 
         $data["semuaberita"] = $news;
+        $data['beritastakeholder'] = $getStakeholder['data'];
 		$data['logopolda'] = $getlogopolda;
 		// $postData = $this->input->post();   
         // $data = $this->berita->get_datatables($postData);  

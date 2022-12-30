@@ -7809,72 +7809,72 @@
                                 id = i;
 
                                 if (filterTroubleSpot[i].route == null) {
-                                    listTroubleSpotDisplay += `
-                                        <tr>
-                                            <td>${countTroubleSpotDisplay}</td>
-                                            <td>${filterTroubleSpot[i].reporter_name}</td> 
-                                            <td>${filterTroubleSpot[i].location}</td> 
-                                            <td>${filterTroubleSpot[i].desc}</td> 
-                                            <td>
-                                                <a class="btn" style="margin-top: -10px;"  
-                                                    id="flyToMapFilterTroubleSpot${countTroubleSpotDisplay}"
-                                                    data-cord="${filterTroubleSpot[i].latitude},${filterTroubleSpot[i].longitude}" 
-                                                    href="javascript:void(0)">
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </a> 
-                                            </td>
-                                        </tr>
-                                    `;
-                                    $('#isiModalTroubleSpotDisplay').html(listTroubleSpotDisplay);
-
+                                    
                                     var latitudeTroubleSpot = parseFloat(filterTroubleSpot[i].latitude);
                                     var longitudeTroubleSpot = parseFloat(filterTroubleSpot[i].longitude);
-                                    troubleSpotClusterGroup.addLayer(markerTroubleSpot[i] = L.marker([latitudeTroubleSpot, longitudeTroubleSpot], {
-                                        icon: L.divIcon({
-                                            // className: 'location-pin',
-                                            html: `
-                                            <div>
-                                                <div style="position: relative;">
-                                                    <img src="<?php echo base_url(); ?>assets/icon/troublespot.png" style="width: 30px; margin-top: -45px;margin-left: -18.5px;">
-                                                </div> 
-                                                <div style="position: absolute;margin-top: -29px;">
-                                                    <span class="badge rounded-pill bg-primary" >${filterTroubleSpot[i].reporter_name}</span>
+                                    if(latitudeTroubleSpot && longitudeTroubleSpot){
+                                        listTroubleSpotDisplay += `
+                                            <tr>
+                                                <td>${countTroubleSpotDisplay}</td>
+                                                <td>${filterTroubleSpot[i].reporter_name}</td> 
+                                                <td>${filterTroubleSpot[i].location}</td> 
+                                                <td>${filterTroubleSpot[i].desc}</td> 
+                                                <td>
+                                                    <a class="btn" style="margin-top: -10px;"  
+                                                        id="flyToMapFilterTroubleSpot${countTroubleSpotDisplay}"
+                                                        data-cord="${filterTroubleSpot[i].latitude},${filterTroubleSpot[i].longitude}" 
+                                                        href="javascript:void(0)">
+                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                    </a> 
+                                                </td>
+                                            </tr>
+                                        `;
+                                        $('#isiModalTroubleSpotDisplay').html(listTroubleSpotDisplay);
+
+                                        troubleSpotClusterGroup.addLayer(markerTroubleSpot[i] = L.marker([latitudeTroubleSpot, longitudeTroubleSpot], {
+                                            icon: L.divIcon({
+                                                // className: 'location-pin',
+                                                html: `
+                                                <div>
+                                                    <div style="position: relative;">
+                                                        <img src="<?php echo base_url(); ?>assets/icon/troublespot.png" style="width: 35px; margin-top: -40px;margin-left: -15.5px;">
+                                                    </div>  
                                                 </div>
-                                            </div>
-                                            `,
-                                            iconSize: [5, 5],
-                                            iconAnchor: [5, 10]
-                                            // iconAnchor: [10, 33]
-                                        })
-                                    }).bindPopup(`
-                                        <div style="width: 300px;">
-                                            <div class="row">
-                                                <div class="col-md-12 col-12 mt-3 text-center">
-                                                    <h5>${filterTroubleSpot[i].reporter_name}</h5>  
+                                                `,
+                                                iconSize: [5, 5],
+                                                iconAnchor: [5, 10]
+                                                // iconAnchor: [10, 33]
+                                            })
+                                        }).bindPopup(`
+                                            <div style="width: 300px;">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-12 mt-3 text-center">
+                                                        <h5>${filterTroubleSpot[i].reporter_name}</h5>  
+                                                    </div>
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Polda</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polda ? filterTroubleSpot[i].polda.name_polda : '-'}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Polres</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polre ? filterTroubleSpot[i].polre.name_polres : '-'}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].problem ? filterTroubleSpot[i].problem.replace(/\n/g, "<br />") : '-'}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].location ? filterTroubleSpot[i].location : '-'}</p>
+                                                    </div> 
                                                 </div>
-                                                <div class="col-md-12 col-12 text-start">
-                                                    <p style="font-size: 12px;font-weight: bold;">Polda</p>  
-                                                    <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polda ? filterTroubleSpot[i].polda.name_polda : '-'}</p>
-                                                </div> 
-                                                <div class="col-md-12 col-12 text-start">
-                                                    <p style="font-size: 12px;font-weight: bold;">Polres</p>  
-                                                    <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polre ? filterTroubleSpot[i].polre.name_polres : '-'}</p>
-                                                </div> 
-                                                <div class="col-md-12 col-12 text-start">
-                                                    <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>  
-                                                    <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].problem ? filterTroubleSpot[i].problem.replace(/\n/g, "<br />") : '-'}</p>
-                                                </div> 
-                                                <div class="col-md-12 col-12 text-start">
-                                                    <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>  
-                                                    <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].location ? filterTroubleSpot[i].location : '-'}</p>
-                                                </div> 
-                                            </div>
-                                        </div> 
-                                    `, {
-                                        minWidth: 100,
-                                        maxWidth: 560,
-                                        width: 400
-                                    }));
+                                            </div> 
+                                        `, {
+                                            minWidth: 100,
+                                            maxWidth: 560,
+                                            width: 400
+                                        }));
+                                    }
                                 } else {
                                     listTroubleSpotDisplay += `
                                         <tr>
@@ -8009,59 +8009,73 @@
                                 id = i;
 
                                 if (filterBlankSpot[i].route == null) {
-                                    listBlankSpotDisplay += `
-                                        <tr>
-                                            <td>${countBlankSpotDisplay}</td>
-                                            <td>${filterBlankSpot[i].reporter_name}</td> 
-                                            <td>${filterBlankSpot[i].location}</td> 
-                                            <td>${filterBlankSpot[i].desc}</td> 
-                                            <td>
-                                                <a class="btn" style="margin-top: -10px;"  
-                                                    id="flyToMapFilterBlankSpot${countBlankSpotDisplay}"
-                                                    data-cord="${filterBlankSpot[i].latitude},${filterBlankSpot[i].longitude}" 
-                                                    href="javascript:void(0)">
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </a> 
-                                            </td>
-                                        </tr>
-                                    `;
-                                    $('#isiModalBlankSpotDisplay').html(listBlankSpotDisplay);
+                                    
 
                                     var latitudeBlankSpot = parseFloat(filterBlankSpot[i].latitude);
                                     var longitudeBlankSpot = parseFloat(filterBlankSpot[i].longitude);
-                                    blankSpotClusterGroup.addLayer(markerBlankSpot[i] = L.marker([latitudeBlankSpot, longitudeBlankSpot], {
-                                        icon: L.divIcon({
-                                            // className: 'location-pin',
-                                            html: `
-                                            <div>
-                                                <div style="position: relative;">
-                                                    <img src="<?php echo base_url(); ?>assets/icon/blackspot.png" style="width: 30px; margin-top: -45px;margin-left: -18.5px;">
-                                                </div> 
-                                                <div style="position: absolute;margin-top: -29px;">
-                                                    <span class="badge rounded-pill bg-primary" >${filterBlankSpot[i].reporter_name}</span>
+                                    if(latitudeBlankSpot && longitudeBlankSpot){
+                                        listBlankSpotDisplay += `
+                                            <tr>
+                                                <td>${countBlankSpotDisplay}</td>
+                                                <td>${filterBlankSpot[i].reporter_name}</td> 
+                                                <td>${filterBlankSpot[i].location}</td> 
+                                                <td>${filterBlankSpot[i].desc}</td> 
+                                                <td>
+                                                    <a class="btn" style="margin-top: -10px;"  
+                                                        id="flyToMapFilterBlankSpot${countBlankSpotDisplay}"
+                                                        data-cord="${filterBlankSpot[i].latitude},${filterBlankSpot[i].longitude}" 
+                                                        href="javascript:void(0)">
+                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                    </a> 
+                                                </td>
+                                            </tr>
+                                        `;
+                                        $('#isiModalBlankSpotDisplay').html(listBlankSpotDisplay);
+                                        blankSpotClusterGroup.addLayer(markerBlankSpot[i] = L.marker([latitudeBlankSpot, longitudeBlankSpot], {
+                                            icon: L.divIcon({
+                                                // className: 'location-pin',
+                                                html: `
+                                                <div>
+                                                    <div style="position: relative;">
+                                                        <img src="<?php echo base_url(); ?>assets/icon/blackspot.png" style="width: 35px; margin-top: -40px;margin-left: -15.5px;">
+                                                    </div>  
                                                 </div>
-                                            </div>
-                                            `,
-                                            iconSize: [5, 5],
-                                            iconAnchor: [5, 10]
-                                            // iconAnchor: [10, 33]
-                                        })
-                                    }).bindPopup(`
-                                        <div style="width: 300px;">
-                                            <div class="row">
-                                                <div class="col-md-12" style="text-align: center;">
-                                                    <h5>${filterBlankSpot[i].reporter_name}</h5>
+                                                `,
+                                                iconSize: [5, 5],
+                                                iconAnchor: [5, 10]
+                                                // iconAnchor: [10, 33]
+                                            })
+                                        }).bindPopup(`
+                                            <div style="width: 300px;">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-12 mt-3 text-center">
+                                                        <h5>${filterBlankSpot[i].reporter_name}</h5>  
+                                                    </div>
+                                                    
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Polda</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].polda ? filterBlankSpot[i].polda.name_polda : '-'}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Polres</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].polre ? filterBlankSpot[i].polre.name_polres : '-'}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].problem ? filterBlankSpot[i].problem.replace(/\n/g, "<br />") : '-'}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].location ? filterBlankSpot[i].location : '-'}</p>
+                                                    </div> 
                                                 </div>
-                                                <div class="col-md-12"> 
-                                                        
-                                                </div> 
-                                            </div>
-                                        </div> 
-                                    `, {
-                                        minWidth: 100,
-                                        maxWidth: 560,
-                                        width: 400
-                                    }));
+                                            </div> 
+                                        `, {
+                                            minWidth: 100,
+                                            maxWidth: 560,
+                                            width: 400
+                                        }));
+                                    }
                                 } else {
                                     listBlankSpotDisplay += `
                                         <tr>

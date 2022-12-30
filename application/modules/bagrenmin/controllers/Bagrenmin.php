@@ -19,6 +19,28 @@ class Bagrenmin extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "";
 
+        $url = 'bagrenmin/sdm_polantas/daily';
+        $result = guzzle_request('GET', $url, [
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+        ]);
+
+        $data['sdm_polantas'] = $result['data']['rows'];
+
+        $url = 'bagrenmin/rengar/daily';
+        $result = guzzle_request('GET', $url, [
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+        ]);
+
+        $data['rengar'] = $result['data']['rows'];
+
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
@@ -33,10 +55,80 @@ class Bagrenmin extends MY_Controller
         }
 
 
-
-
-        $page_content["data"] = '';
+        $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
+    }
+
+    public function getSDM()
+    {
+        $url = 'bagrenmin/sdm_polantas/daily';
+
+        $result = guzzle_request('GET', $url, [
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+        ]);
+
+
+        $irjen = array();
+        $brigjen = array();
+        $kbp = array();
+        $akbp = array();
+        $kp = array();
+        $akp = array();
+        $iptu = array();
+        $aiptu = array();
+        $ipda = array();
+        $aipda = array();
+        $bripka = array();
+        $brigdr = array();
+        $briptu = array();
+        $bripda = array();
+        $pns = array();
+        $total = array();
+        $polda_name = array();
+
+        foreach ($result['data']['rows'] as $key) {
+            $polda_name[] = $key['name_polda'];
+            $irjen[] = $key['irjen'];
+            $brigjen[] = $key['brigjen'];
+            $kbp[] = $key['kbp'];
+            $akbp[] = $key['akbp'];
+            $kp[] = $key['kp'];
+            $akp[] = $key['akp'];
+            $iptu[] = $key['iptu'];
+            $ipda[] = $key['ipda'];
+            $aiptu[] = $key['aiptu'];
+            $aipda[] = $key['aipda'];
+            $bripka[] = $key['bripka'];
+            $brigdr[] = $key['brigdr'];
+            $briptu[] = $key['briptu'];
+            $bripda[] = $key['bripda'];
+            $pns[] = $key['pns'];
+        }
+
+        $data = [
+            'polda_name' => $polda_name,
+            'irjen' => $irjen,
+            'brigjen' => $brigjen,
+            'kbp' => $kbp,
+            'akbp' => $akbp,
+            'kp' => $kp,
+            'akp' => $akp,
+            'iptu' => $iptu,
+            'ipda' => $ipda,
+            'aiptu' => $aiptu,
+            'aipda' => $aipda,
+            'bripka' => $bripka,
+            'brigdr' => $brigdr,
+            'briptu' => $briptu,
+            'bripda' => $bripda,
+            'pns' => $pns,
+        ];
+
+        echo json_encode($data);
     }
 
     public function getStatistik()
