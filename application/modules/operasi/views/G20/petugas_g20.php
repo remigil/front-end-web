@@ -17,12 +17,12 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <select name="filterPolda" id="filterPolda" class="form-select" aria-label="Floating label select" style="width:100%" required> 
-                        
+                        <select name="filterPolda" id="filterPolda" class="form-select" aria-label="Floating label select" style="width:100%" required>
+
                             <option selected value="">Pilih Polda</option>
-                            <?php foreach($data['getPolda'] as $row): ?>
-                                <option value="<?php echo $row['polda_id'];?>"><?php echo $row['name_polda'];?></option> 
-                            <?php endforeach; ?> 
+                            <?php foreach ($data['getPolda'] as $row) : ?>
+                                <option value="<?php echo $row['polda_id']; ?>"><?php echo $row['name_polda']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                         <!-- <label for="filterPolda">Kategori Peraturan</label> -->
                     </div>
@@ -40,13 +40,14 @@
                                 <th style="width:20% ;">Struktural</th>
                                 <th>Dalam PAM</th>
                                 <th>No. Handphone</th>
-                                <?php if($this->uri->segment(3) == 'status'){?>
+                                <?php if ($this->uri->segment(3) == 'status') { ?>
                                     <th>Status Download</th>
                                     <th>Status Login</th>
                                 <?php } ?>
+                                <th>Foto</th>
                                 <th>Aksi</th>
                             </tr>
-                        </thead> 
+                        </thead>
                     </table>
                 </div>
             </div>
@@ -65,14 +66,14 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="form row" method="post" enctype="multipart/form-data"> 
-                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
+                <form class="form row" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
                     <div class="col-md-4"></div>
-                    <div class="col-md-4"> 
-                        <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
+                    <div class="col-md-4">
+                        <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
                     </div>
                     <div class="col-md-4"></div>
-                    
+
                     <div class="col-md-12">
                         <div class="material-textfield mb-3">
                             <input style="width: 100%;" name="namapetugas" placeholder="" type="text">
@@ -96,9 +97,9 @@
                             <select name="pangkat" class="form-select" id="select">
                                 <option selected value="">Pangkat</option>
 
-                                <?php foreach($data['getRank'] as $row): ?>
-                                    <option value="<?php echo $row['name_rankOfficer'];?>"><?php echo $row['name_rankOfficer'];?></option> 
-                                <?php endforeach; ?>  
+                                <?php foreach ($data['getRank'] as $row) : ?>
+                                    <option value="<?php echo $row['name_rankOfficer']; ?>"><?php echo $row['name_rankOfficer']; ?></option>
+                                <?php endforeach; ?>
                             </select>
                             <!-- <label class="labelmui">Pangkat</label> -->
                         </div>
@@ -108,9 +109,9 @@
                             <select name="struktural" class="form-select" id="select2">
                                 <option selected value="">Struktural</option>
 
-                                <?php foreach($data['getStructural'] as $row): ?>
-                                    <option value="<?php echo $row['name_structural'];?>"><?php echo $row['name_structural'];?></option> 
-                                <?php endforeach; ?>   
+                                <?php foreach ($data['getStructural'] as $row) : ?>
+                                    <option value="<?php echo $row['name_structural']; ?>"><?php echo $row['name_structural']; ?></option>
+                                <?php endforeach; ?>
 
                             </select>
                             <!-- <label class="labelmui">Struktural</label> -->
@@ -118,11 +119,11 @@
                     </div>
                     <div class="col-md-12">
                         <div class="material-selectfield mb-3">
-                            <select name="polda_id" id="polda_id" class="form-select" style="width:100%" required>  
+                            <select name="polda_id" id="polda_id" class="form-select" style="width:100%" required>
                                 <option selected value="">Pilih Polda</option>
-                                <?php foreach($data['getPolda'] as $row): ?>
-                                    <option value="<?php echo $row['id'];?>"><?php echo $row['name_polda'];?></option> 
-                                <?php endforeach; ?> 
+                                <?php foreach ($data['getPolda'] as $row) : ?>
+                                    <option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -141,7 +142,7 @@
                     <div class="col-md-12">
                         <div class="material-selectfield mb-3">
                             <select name="status" class="form-select">
-                                <option >Pilih Status</option>
+                                <option>Pilih Status</option>
                                 <option selected value="1">Aktif</option>
                                 <option value="0">Tidak Aktif</option>
                             </select>
@@ -170,7 +171,7 @@
             classNames: {
                 containerOuter: 'choices select-choices',
             },
-        }); 
+        });
 
         new Choices('#select2', {
             searchEnabled: true,
@@ -180,7 +181,7 @@
             classNames: {
                 containerOuter: 'choices select-choices',
             },
-        }); 
+        });
 
         new Choices('#filterPolda', {
             searchEnabled: true,
@@ -190,7 +191,7 @@
             classNames: {
                 containerOuter: 'choices select-choices',
             },
-        });  
+        });
 
         new Choices('#polda_id', {
             searchEnabled: true,
@@ -200,11 +201,11 @@
             classNames: {
                 containerOuter: 'choices select-choices',
             },
-        });  
+        });
 
-        var userDataTable = $('#datatable').DataTable({ 
+        var userDataTable = $('#datatable').DataTable({
 
-            responsive: true, 
+            responsive: true,
 
             scrollX: true,
 
@@ -223,23 +224,23 @@
 
             },
 
-            initComplete : function (settings, json) { },
+            initComplete: function(settings, json) {},
 
-            retrieve : true,
+            retrieve: true,
 
-            processing : true,
+            processing: true,
 
             serverSide: true,
 
             serverMethod: 'POST',
 
-            ajax : {
+            ajax: {
 
                 dataType: 'json',
 
-                url: '<?php echo base_url();?>operasi/Petugas/serverSideTable',
+                url: '<?php echo base_url(); ?>operasi/Petugas/serverSideTable',
 
-                data: function(data){
+                data: function(data) {
 
                     $("#overlay").fadeIn(300);
 
@@ -257,9 +258,9 @@
 
                     // data.filterPhone = $('[name=poc_phone]').val();
 
-                    <?php if($this->uri->segment(3) == 'status'){?>
+                    <?php if ($this->uri->segment(3) == 'status') { ?>
                         data.filterStatusLog = 1;
-                    <?php }else{ ?>  
+                    <?php } else { ?>
                         data.filterStatusLog = 0;
                     <?php } ?>
 
@@ -272,11 +273,11 @@
 
                 },
 
-                beforeSend: function (xhr, settings) {
-                    
+                beforeSend: function(xhr, settings) {
+
                 },
 
-                "dataSrc": function (result) { 
+                "dataSrc": function(result) {
 
                     result.iTotalRecords = result.iTotalRecords;
 
@@ -288,36 +289,69 @@
 
             },
 
-            columns: [ 
+            columns: [
 
-                { data: 'id'}, 
-                { data: 'name_officer'},
-                { data: 'polda_id', orderable : false},  
-                { data: 'rank_officer'},
-                { data: 'nrp_officer'}, 
-                { data: 'replacementNrp_officer'}, 
-                { data: 'structural_officer'},  
-                { data: 'pam_officer'},  
-                { data: 'phone_officer'},   
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'name_officer'
+                },
+                {
+                    data: 'polda_id',
+                    orderable: false
+                },
+                {
+                    data: 'rank_officer'
+                },
+                {
+                    data: 'nrp_officer'
+                },
+                {
+                    data: 'replacementNrp_officer'
+                },
+                {
+                    data: 'structural_officer'
+                },
+                {
+                    data: 'pam_officer'
+                },
+                {
+                    data: 'phone_officer'
+                },
+                {
+                    data: 'photo_officer',
+                    orderable: false
+
+                },
                 // { data: 'status_officer'},   
 
-                <?php if($this->uri->segment(3) == 'status'){?>
-                    { data: 'status_petugasdownload', orderable : false},   
-                    { data: 'status_login', orderable : false},     
-                <?php } ?>
-                { data: 'action' , orderable : false }
+                <?php if ($this->uri->segment(3) == 'status') { ?> {
+                        data: 'status_petugasdownload',
+                        orderable: false
+                    },
+                    {
+                        data: 'status_login',
+                        orderable: false
+                    },
+                <?php } ?> {
+                    data: 'action',
+                    orderable: false
+                }
 
             ],
 
-            order: [[ 0, "DESC" ]],
+            order: [
+                [0, "DESC"]
+            ],
 
-            drawCallback : function(settings){
+            drawCallback: function(settings) {
 
-                $("#overlay").fadeOut(300); 
+                $("#overlay").fadeOut(300);
 
-            }   
+            }
 
-        });   
+        });
 
         $("#filterPolda").on('change', function(e) {
             // alert(this.value);
@@ -326,36 +360,35 @@
 
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
-            e.preventDefault(); 
-            var formData = new FormData($('.form')[0]); 
+            e.preventDefault();
+            var formData = new FormData($('.form')[0]);
             $.ajax({
-                url: "<?php echo base_url();?>operasi/Petugas/store",
+                url: "<?php echo base_url(); ?>operasi/Petugas/store",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
                 contentType: false,
-                processData: false,  
-                success: function (data) {
+                processData: false,
+                success: function(data) {
                     $("#overlay").fadeOut(300);
-                    if(data['status'] == true){
+                    if (data['status'] == true) {
                         Swal.fire(
-                        `${data['message']}`, 
-                        '',
-                        'success'
-                        ).then(function() { 
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
                             $(".TambahPetugas").modal('hide');
-                            userDataTable.draw(); 
-                        }); 
-                    }else{
-                        Swal.fire(
-                        `${data['message']}`, 
-                        '',
-                        'error'
-                        ).then(function() { 
+                            userDataTable.draw();
                         });
-                    } 
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
                 }
-            }); 
+            });
         });
     });
 </script>

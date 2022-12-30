@@ -1,39 +1,40 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class M_petugas extends CI_Model {
+class M_petugas extends CI_Model
+{
 
 
-    public function __construct(){
+    public function __construct()
+    {
 
         parent::__construct();
 
         $this->load->helper('guzzle_request_helper');
-
     }
 
-    public function get_datatables($postData=null)
+    public function get_datatables($postData = null)
 
-    {   
+    {
 
-        $draw = $postData['draw']; 
+        $draw = $postData['draw'];
 
         $rowperpage = $postData['length']; // Rows display per page  
 
         $columnName = $postData['columns']; // Column name 
 
-		$page = $postData['page']; 
+        $page = $postData['page'];
 
-        $orderField = $postData['orderField']; 
+        $orderField = $postData['orderField'];
 
-        $orderValue = $postData['orderValue']; 
+        $orderValue = $postData['orderValue'];
 
-        $orderFieldRess =  $columnName[$orderField]['data']; 
+        $orderFieldRess =  $columnName[$orderField]['data'];
 
-       
-        $data = array(); 
+
+        $data = array();
 
 
         $search = $postData['search']['value'];
@@ -42,36 +43,32 @@ class M_petugas extends CI_Model {
 
         // $filter_tgl2 = $postData['filterTgl2'];
 
-		$filter_polda = $postData['filterPolda'];
+        $filter_polda = $postData['filterPolda'];
 
-		// $filter_name = $postData['filterName'];
+        // $filter_name = $postData['filterName'];
 
-		// $filter_poc_name = $postData['filterPocName'];
+        // $filter_poc_name = $postData['filterPocName'];
 
-		// $filter_phone = $postData['filterPhone'];
+        // $filter_phone = $postData['filterPhone'];
 
-		$filter_statusLog = $postData['filterStatusLog']; 
+        $filter_statusLog = $postData['filterStatusLog'];
 
- 
 
-        if($search){
 
-            $searchData = '&search='.$search.'';
+        if ($search) {
 
-        }else{
+            $searchData = '&search=' . $search . '';
+        } else {
 
             $searchData = '';
+        }
 
-        }  
+        if ($filter_polda != "") {
 
-        if($filter_polda != ""){
-
-            $polda_id = '&filter[]=polda_id&filterSearch[]='.$filter_polda.'';
-
-        }else{
+            $polda_id = '&filter[]=polda_id&filterSearch[]=' . $filter_polda . '';
+        } else {
 
             $polda_id = '';
-
         }
 
         // if($filter_tgl2 != ""){
@@ -85,81 +82,84 @@ class M_petugas extends CI_Model {
         // } 
 
 
-        $url = 'officer?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.''.$polda_id.'';
+        $url = 'officer?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '' . $polda_id . '';
 
         $result = guzzle_request('GET', $url, [
 
             'headers' => [
 
-                'Authorization' => $this->session->userdata['token'] 
+                'Authorization' => $this->session->userdata['token']
 
             ]
 
-        ]);   
+        ]);
+        $no = 1;
 
-        $no=1;
 
-        
-        if(count($result['data']['data']) > 0){
-            
-            foreach  ($result['data']['data'] as $field) { 
-                $row = array();   
+        if (count($result['data']['data']) > 0) {
+
+            foreach ($result['data']['data'] as $field) {
+                $row = array();
                 // $row ['id']	=  $field['id']; 
-                $row ['id']	=  $no++; 
-                $row ['name_officer']	= $field['name_officer']; 
-                $row ['polda_id']	= $field['polda'] ? $field['polda']['name_polda'] :'-';  
-                $row ['nrp_officer']	= $field['nrp_officer'];  
-                $row ['replacementNrp_officer']	= $field['replacementNrp_officer'] != null ? $field['replacementNrp_officer'] : '-';  
-                $row ['rank_officer']   	= $field['rank_officer'];
-                $row ['structural_officer']   	= $field['structural_officer'];  
-                $row ['pam_officer']   	= $field['pam_officer']; 
-                $row ['phone_officer']   	= $field['phone_officer']; 
-                if($field['status_officer'] == 1){
-                    $row ['status_officer']   	= 'Active'; 
-                }else{
-                    $row ['status_officer']   	= 'Inactive'; 
-                } 
-    
-    
-                if($filter_statusLog == 1){
-                    $getStatusPetugasDownload = guzzle_request('GET', 'track-notif?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter%5B%5D=nrp_user&filterSearch%5B%5D='.$field['nrp_officer'].'', [
-                        'headers' => [ 
-                            'Authorization' => $this->session->userdata['token']  
-                        ]
-                    ]);  
-                    if(count($getStatusPetugasDownload['data']['data']) > 0){ 
-                        $row ['status_petugasdownload']   	= '<span class="badge rounded-pill bg-success" style="font-size: 10px;">Berhasil</span>';
-                    }else{
-                        $row ['status_petugasdownload']   	= '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Download</span>';
-                    }
-        
-        
-                    $getStatusLogin = guzzle_requestTracking('GET', 'getName?name_officer='.$field['name_officer'].'', [
-                        'headers' => [ 
-                            'Authorization' => $this->session->userdata['token']  
+                $row['id']    =  $no++;
+                $row['name_officer']    = $field['name_officer'];
+                if ($field['photo_officer'] != null) {
+                    $url = '' . url_api() . 'officer/' . $field['photo_officer'] . '';
+                    $row['photo_officer'] = '<a href="javascript:void(0)" data-url="' . $url . '" data-judul="' . $field['officer']['name_officer'] . '" data-bs-toggle="modal" data-bs-target="#modalGambar"><img src="' . $url . '" style="width: 5rem;height: 5rem;" alt="" class="rounded avatar-md"></a>';
+                } else {
+                    $row['photo_officer'] = '<img src="' . base_url() . 'assets/no_image.png" alt="" class="rounded avatar-md"  style="width: 5rem;height: 5rem;">';
+                }
+                $row['polda_id']    = $field['polda'] ? $field['polda']['name_polda'] : '-';
+                $row['nrp_officer']    = $field['nrp_officer'];
+                $row['replacementNrp_officer']    = $field['replacementNrp_officer'] != null ? $field['replacementNrp_officer'] : '-';
+                $row['rank_officer']       = $field['rank_officer'];
+                $row['structural_officer']       = $field['structural_officer'];
+                $row['pam_officer']       = $field['pam_officer'];
+                $row['phone_officer']       = $field['phone_officer'];
+                if ($field['status_officer'] == 1) {
+                    $row['status_officer']       = 'Active';
+                } else {
+                    $row['status_officer']       = 'Inactive';
+                }
+
+
+                if ($filter_statusLog == 1) {
+                    $getStatusPetugasDownload = guzzle_request('GET', 'track-notif?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter%5B%5D=nrp_user&filterSearch%5B%5D=' . $field['nrp_officer'] . '', [
+                        'headers' => [
+                            'Authorization' => $this->session->userdata['token']
                         ]
                     ]);
-                    if($getStatusLogin['data'] != null){
-                        if($getStatusLogin['data']['status_login'] == 1){
+                    if (count($getStatusPetugasDownload['data']['data']) > 0) {
+                        $row['status_petugasdownload']       = '<span class="badge rounded-pill bg-success" style="font-size: 10px;">Berhasil</span>';
+                    } else {
+                        $row['status_petugasdownload']       = '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Download</span>';
+                    }
+
+
+                    $getStatusLogin = guzzle_requestTracking('GET', 'getName?name_officer=' . $field['name_officer'] . '', [
+                        'headers' => [
+                            'Authorization' => $this->session->userdata['token']
+                        ]
+                    ]);
+                    if ($getStatusLogin['data'] != null) {
+                        if ($getStatusLogin['data']['status_login'] == 1) {
                             $stLogin = '<span class="badge rounded-pill bg-primary" style="font-size: 10px;">Aktif</span>';
-                        }else{
+                        } else {
                             $stLogin = '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Tidak Aktif</span>';
                         }
-                        $row ['status_login']   	= $stLogin;
-                    }else{
-                        $row ['status_login']   	= '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Tidak Aktif</span>';
-                    } 
+                        $row['status_login']       = $stLogin;
+                    } else {
+                        $row['status_login']       = '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Tidak Aktif</span>';
+                    }
                 }
-    
-                $row ['action']         = ' 
-                    <a href="'.base_url().'operasi/Petugas/Detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
-                '; 
-    
-                $data[] = $row;
-    
-            } 
 
-        }else{
+                $row['action']         = ' 
+                    <a href="' . base_url() . 'operasi/Petugas/Detail/' . $field['id'] . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
+                ';
+
+                $data[] = $row;
+            }
+        } else {
             $data[] = array(
                 "id" => 1,
                 "name_officer" => "Tidak ada data",
@@ -176,7 +176,7 @@ class M_petugas extends CI_Model {
         }
 
         $response = array(
-    
+
             "draw" => intval($draw),
 
             "iTotalRecords" => $result['data']['recordsTotal'],
@@ -191,9 +191,5 @@ class M_petugas extends CI_Model {
 
 
         return $response;
-
     }
-
-  
-
 }
