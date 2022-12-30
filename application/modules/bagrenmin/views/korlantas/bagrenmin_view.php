@@ -13,8 +13,8 @@
             </div>
             <p>Today is <?= date('l, j F Y') ?></p>
         </div>
-        <?php $mobile = detect_mobile();
-        if ($mobile === true) { ?>
+        <!-- <?php $mobile = detect_mobile();
+                if ($mobile === true) { ?>
             <div class="col-md-12" style="margin-left: -15px;">
                 <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
@@ -30,330 +30,235 @@
             <div class="col-md-3 text-end align-self-center">
                 <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
             </div>
-        <?php } ?>
+        <?php } ?> -->
     </div>
 
     <div class="row">
-
-        <div class="col-md-12 mt-5">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-md-4 mb-3">
-                    <h4 style="text-transform: uppercase; color:#007DD8;">Statistik Nasional</h4>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class="col-md-10 float-start">
-                                    <p class="fs-5 float-start" style="color:#464646;">
-                                        <span class="fw-bold">Total SUBBAG REN</span>
-                                        <br>
-                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbagren"></span>
-                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubren"></p>
-                                    </p>
-                                </div>
-                                <div class=" col-md-2">
-                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_DALOPS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                    <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-3">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class="col-md-10 float-start">
-                                    <p class="fs-5 float-start" style="color:#464646;">
-                                        <span class="fw-bold">Total SUBBAG SDM</span>
-                                        <br>
-                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbagsdm"></span>
-                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubsdm"></p>
-                                    </p>
-                                </div>
-                                <div class=" col-md-2">
-                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_RENOP.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                    <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class="col-md-10 float-start">
-                                    <p class="fs-5 float-start" style="color:#464646;">
-                                        <span class="fw-bold">Total SUBBAG ADA</span>
-                                        <br>
-                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbagada"></span>
-                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubada"></p>
-                                    </p>
-                                </div>
-                                <div class=" col-md-2">
-                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_KERMA.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                    <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class="col-md-10 float-start">
-                                    <p class="fs-5 float-start" style="color:#464646;">
-                                        <span class="fw-bold">Total SUBBAG LOG</span>
-                                        <br>
-                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbaglog"></span>
-                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsublog"></p>
-                                    </p>
-                                </div>
-                                <div class=" col-md-2">
-                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_ANEV.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                    <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-md-12">
+            <div class="card card-headline">
+                <div class="card-body row">
+                    <h2 class="text-center" style="text-transform: uppercase;">Data SDM Personel Lalu Lintas Seluruh Indonesia</h2>
                 </div>
             </div>
-        </div>
-        <!-- end statistik -->
-    </div>
 
-    <ul class="nav nav-pills  mt-3" id="pills-tab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
-        </li>
-    </ul>
-    <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagrenday"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartdaysubbagren">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagsdmday"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartdaysubbagsdm">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagadaday"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartdaysubbagada">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbaglogday"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartdaysubbaglog">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagrenmonth"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartmonthsubbagren">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagsdmmonth"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartmonthsubbagsdm">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagadamonth"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartmonthsubbagada">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbaglogmonth"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartmonthsubbaglog">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="text-center">SDM POLANTAS</h5>
+                            <table class="table table-bordered table-hover" id="tableLakaYear" style="background:white; ">
+                                <thead style="background-color:#0007D8; color:#fff;">
+                                    <tr class="text-center">
+                                        <th scope="col">Polda</th>
+                                        <th scope="col">Irjen</th>
+                                        <th scope="col">Brigjen</th>
+                                        <th scope="col">KBP</th>
+                                        <th scope="col">AKBP</th>
+                                        <th scope="col">KP</th>
+                                        <th scope="col">AKP</th>
+                                        <th scope="col">IPTU</th>
+                                        <th scope="col">IPDA</th>
+                                        <th scope="col">AIPTU</th>
+                                        <th scope="col">AIPDA</th>
+                                        <th scope="col">BRIPKA</th>
+                                        <th scope="col">BRIGDR</th>
+                                        <th scope="col">BRIPTU</th>
+                                        <th scope="col">BRIPDA</th>
+                                        <th scope="col">JUMLAH</th>
+                                        <th scope="col">PNS</th>
+                                        <th scope="col">TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody-lakaYear">
+                                    <tr>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">Korlantas Polri</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">1</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">3</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">27</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">27</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">32</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">93</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">406</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">589</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">125</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">714</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">Pusdik Lantas</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">1</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">9</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">19</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">53</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">16</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">0</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">131</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">50</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">181</td>
+                                    </tr>
+                                    <?php foreach ($data['sdm_polantas'] as $key) : ?>
+                                        <?php $jumlah = ($key['polda_name'] + $key['irjen'] + $key['brigjen'] + $key['kbp'] + $key['akbp'] + $key['kp'] + $key['akp'] + $key['iptu'] +  $key['ipda'] +  $key['aiptu'] + $key['aipda'] + $key['bripka'] + $key['brigdr'] + $key['briptu'] + $key['bripda']); ?>
+                                        <?php $total = ($key['polda_name'] + $key['irjen'] + $key['brigjen'] + $key['kbp'] + $key['akbp'] + $key['kp'] + $key['akp'] + $key['iptu'] +  $key['ipda'] +  $key['aiptu'] + $key['aipda'] + $key['bripka'] + $key['brigdr'] + $key['briptu'] + $key['bripda']) + $key['pns']; ?>
 
+                                        <?php $irjen += $key['irjen'];
+                                        $brigjen += $key['brigjen'];
+                                        $kbp += $key['kbp'];
+                                        $akbp += $key['akbp'];
+                                        $kp += $key['kp'];
+                                        $akp += $key['akp'];
+                                        $aiptu += $key['iptu'];
+                                        $ipda +=  $key['ipda'];
+                                        $aiptu +=  $key['aiptu'];
+                                        $aipda += $key['aipda'];
+                                        $bripka += $key['bripka'];
+                                        $brigdr += $key['brigdr'];
+                                        $briptu += $key['briptu'];
+                                        $bripda += $key['bripda'];
+                                        $pns += $key['pns'];
+                                        $jumlah_jumlah += $jumlah;
+                                        $total_total += $total;
+                                        ?>
+
+                                        <tr>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['name_polda'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['irjen'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['brigjen'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['kbp'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['akbp'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['kp'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['akp'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['iptu'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['ipda'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['aiptu'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['aipda'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['bripka'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['brigdr'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['briptu'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['bripda'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $jumlah ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['pns'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $total ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                                <tfoot style="background-color:#0007D8; color:#fff;">
+                                    <tr>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">Total</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $irjen + 1 ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $brigjen + 3 ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $kbp + 27 + 1 ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $akbp + 27 + 9 ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $kp + 32 + 19 ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $akp + 93 + 53 ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $iptu ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $ipda ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $aiptu + 406 + 16 ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $aipda ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $bripka ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $brigdr ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $briptu ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $bripda ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $jumlah_jumlah + 589 + 131 ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $pns + 50 ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $total_total + 714 + 181 ?></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagrenyear"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartyearsubbagren">
-                                    </div>
-                                </div>
-                            </div>
+        <div class="col-md-12">
+            <div class="card card-headline">
+                <div class="card-body row">
+                    <h2 class="text-center" style="text-transform: uppercase;">Data Perencanaan dan Anggaran Korlantas Polri</h2>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="text-center">Data Perencanaan dan Anggaran Seluruh Indonesia</h5>
+                            <table class="table table-bordered table-hover" id="tableLakaYear" style="background:white; ">
+                                <thead style="background-color:#0007D8; color:#fff;">
+                                    <tr class="text-center">
+                                        <th scope="col">Polda</th>
+                                        <th scope="col">Program Kerja</th>
+                                        <th scope="col">Belanja Barang</th>
+                                        <th scope="col">Belanja Modal</th>
+                                        <th scope="col">Gaji Pegawai</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody-lakaYear">
+                                    <tr>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">Korlantas Polri</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">86</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">86</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">99</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">86</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">357</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">Pusdik Lantas</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">21</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">21</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">46</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">21</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">109</td>
+                                    </tr>
+                                    <?php foreach ($data['rengar'] as $key) : ?>
+                                        <?php $jumlah = ($key['program_kegiatan'] + $key['belanja_barang'] + $key['belanja_modal'] + $key['gaji_pegawai']); ?>
+
+                                        <?php $program_kegiatan += $key['program_kegiatan'];
+                                        $belanja_barang += $key['belanja_barang'];
+                                        $belanja_modal += $key['belanja_modal'];
+                                        $gaji_pegawai += $key['gaji_pegawai'];
+                                        $jumlah_jumlah += $jumlah;
+                                        ?>
+
+                                        <tr>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['name_polda'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['program_kegiatan'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['belanja_barang'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['belanja_modal'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $key['gaji_pegawai'] ?></td>
+                                            <td style="text-align:center ; vertical-align:middle" scope="col"><?= $jumlah ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                                <tfoot style="background-color:#0007D8; color:#fff;">
+                                    <tr>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col">Total</td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $program_kegiatan + 86 + 21 ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $belanja_barang + 86 + 21 ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $belanja_modal + 99 + 46 ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $gaji_pegawai + 86 + 21 ?></td>
+                                        <td style="text-align:center ; vertical-align:middle" scope="col"><?= $jumlah_jumlah + 357 + 109 ?></td>
+
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
                 </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagsdmyear"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartyearsubbagsdm">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagadayear"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartyearsubbagada">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbaglogyear"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartyearsubbaglog">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            </div>
         </div>
     </div>
 </div>
@@ -377,7 +282,181 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.3/apexcharts.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+
 <script>
+    $(document).ready(function() {
+        getSDM()
+    })
+
+    function getSDM() {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>bagrenmin/getSDM",
+            dataType: "JSON",
+            success: function(results) {
+                $("#chart1").html(`<div id="sdmchart"></div>`);
+                var options_sdm = {
+                    series: [{
+                        name: 'IRJEN',
+                        type: 'column',
+                        data: results.irjen,
+                        color: "#11347A"
+                    }, {
+                        name: 'BRIGJEN',
+                        type: 'column',
+                        data: results.brigjen,
+                        color: "#CB2D3E"
+                    }, {
+                        name: 'KBP',
+                        type: 'column',
+                        data: results.kbp,
+                        color: "#E8D42F"
+                    }, {
+                        name: 'AKBP',
+                        type: 'column',
+                        data: results.akbp,
+                        color: "#3CA55C"
+
+                    }, {
+                        name: 'KP',
+                        type: 'column',
+                        data: results.kp,
+                        color: "#3CA15C"
+
+                    }, {
+                        name: 'AKP',
+                        type: 'column',
+                        data: results.akp,
+                        color: "#3BA55C"
+
+                    }, {
+                        name: 'IPTU',
+                        type: 'column',
+                        data: results.iptu,
+                        color: "#3BD55C"
+
+                    }, {
+                        name: 'IPDA',
+                        type: 'column',
+                        data: results.ipda,
+                        color: "#3BD55C"
+
+                    }, {
+                        name: 'AIPTU',
+                        type: 'column',
+                        data: results.aiptu,
+                        color: "#3BD55C"
+
+                    }, {
+                        name: 'AIPDA',
+                        type: 'column',
+                        data: results.aipda,
+                        color: "#3BD55C"
+
+                    }, {
+                        name: 'BRIPKA',
+                        type: 'column',
+                        data: results.bripka,
+                        color: "#3BD51"
+
+                    }, {
+                        name: 'BRIGDR',
+                        type: 'column',
+                        data: results.brigdr,
+                        color: "#3BD51"
+
+                    }, {
+                        name: 'BRIPTU',
+                        type: 'column',
+                        data: results.briptu,
+                        color: "#3BD51"
+
+                    }, {
+                        name: 'BRIPDA',
+                        type: 'column',
+                        data: results.bripda,
+                        color: "#3BD512"
+
+                    }, {
+                        name: 'PNS',
+                        type: 'column',
+                        data: results.bripda,
+                        color: "#3CE51"
+
+                    }],
+                    chart: {
+                        height: '400',
+                        type: 'line',
+                        stacked: false,
+                    },
+                    tooltip: {
+                        fixed: {
+                            enabled: true
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '50%%',
+                            endingShape: 'rounded',
+                            dataLabels: {
+                                position: 'top'
+                            }
+                        },
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        style: {
+                            colors: ['#333']
+                        },
+                        offsetY: -15
+                    },
+
+                    stroke: {
+                        show: true,
+                        width: [1, 1, 4, 4],
+                        colors: ['transparent']
+                    },
+                    xaxis: {
+                        categories: results.polda_name,
+                        labels: {
+                            show: true,
+                            style: {
+                                colors: 'red',
+                                fontSize: '18px',
+                                fontWeight: 400,
+
+                            }
+                        },
+                        tickPlacement: 'between'
+                    },
+                    yaxis: [{
+                        axisTicks: {
+                            show: false,
+                        },
+                        axisBorder: {
+                            show: false,
+                            color: '#008FFB'
+                        },
+                        labels: {
+                            style: {
+                                colors: '#008FFB',
+                            }
+                        },
+
+
+                    }, ],
+
+                };
+
+                var sdm = new ApexCharts(document.querySelector("#sdmchart"), options_sdm);
+                sdm.render();
+            }
+        })
+    }
+</script>
+<!-- <script>
     var date = new Date();
     var year = new Date();
     var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
@@ -2622,4 +2701,4 @@
             }
         })
     }
-</script>
+</script> -->
