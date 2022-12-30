@@ -3036,6 +3036,16 @@
                                                                             <div class="col-md-7">
                                                                                 <span style="font-size: 12px;">${bendera}</span>
                                                                             </div> 
+
+                                                                            <div class="col-md-4">
+                                                                                <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>  
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                :
+                                                                            </div>
+                                                                            <div class="col-md-7">
+                                                                                <span style="font-size: 12px;">${dummyGetTracking[i].no_vehicle} / ${dummyGetTracking[i].back_number_vehicle}</span>
+                                                                            </div>  
                                     
                                                                             <div class="col-md-4">
                                                                                 <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
@@ -3118,7 +3128,17 @@
                                                                         </div>
                                                                         <div class="col-md-7">
                                                                             <span style="font-size: 12px;">${bendera}</span>
+                                                                        </div> 
+
+                                                                        <div class="col-md-4">
+                                                                            <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>  
                                                                         </div>
+                                                                        <div class="col-md-1">
+                                                                            :
+                                                                        </div>
+                                                                        <div class="col-md-7">
+                                                                            <span style="font-size: 12px;">${dummyGetTracking[i].no_vehicle} / ${dummyGetTracking[i].back_number_vehicle}</span>
+                                                                        </div>  
                     
                                                                         <div class="col-md-4">
                                                                             <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
@@ -4508,6 +4528,16 @@
                                                     <div class="col-md-7">
                                                         <span style="font-size: 12px;">${bendera}</span>
                                                     </div> 
+
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span style="font-size: 12px;">${ress.no_vehicle} / ${ress.back_number_vehicle}</span>
+                                                    </div>
             
                                                     <div class="col-md-4">
                                                         <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
@@ -4544,6 +4574,7 @@
                         });
                     } else {
                         console.log(`NEW Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
+                        
                         markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
                             renderer: myRenderer,
                             icon: L.divIcon({
@@ -4592,6 +4623,16 @@
                                                     <div class="col-md-7">
                                                         <span style="font-size: 12px;">${bendera}</span>
                                                     </div> 
+
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span style="font-size: 12px;">${ress.no_vehicle} / ${ress.back_number_vehicle}</span>
+                                                    </div>
             
                                                     <div class="col-md-4">
                                                         <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
