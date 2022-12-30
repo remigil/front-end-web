@@ -51,6 +51,7 @@
 	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/counterup.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/fe/scripts/tooltips.min.js"></script>
+	<script src="https://github.com/pipwerks/PDFObject/blob/master/pdfobject.min.js"></script>
 	
 
   <!-- Template Main CSS File -->
