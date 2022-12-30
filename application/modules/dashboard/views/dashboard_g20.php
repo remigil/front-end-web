@@ -8405,8 +8405,8 @@
                                                   
                                                 
                                             
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                    <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
+                                                          
                                                         <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
                                                     </div> 
                                                     
@@ -8581,9 +8581,9 @@
                                                 </div> 
                                             
                                         
-                                                <div class="col-md-12 col-12 text-start">
-                                                    <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                    <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
+                                                <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
+                                                      
+                                                    <p style="font-size: 12px;">${alamatlokasi}</p>
                                                 </div> 
                                                 <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPosyan${ressPosYan[i].id}">
                                                 
@@ -8751,9 +8751,9 @@
                                                 </div> 
                                             
                                         
-                                                <div class="col-md-12 col-12 text-start">
-                                                    <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                    <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
+                                                <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
+                                                      
+                                                    <p style="font-size: 12px;">${alamatlokasi}</p>
                                                 </div> 
                                                 <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPosTerpadu${ressPosTerpadu[i].id}">
                                                 
@@ -8919,9 +8919,9 @@
                                                 <h5>${ressPosko[i].name_renpam}</h5>  
                                             </div> 
                                             
-                                            <div class="col-md-12 col-12 text-start">
-                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
+                                            <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
+                                                  
+                                                <p style="font-size: 12px;">${alamatlokasi}</p>
                                             </div>   
 
                                             <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isi${ressPosko[i].id}">
@@ -9089,9 +9089,8 @@
                                                         <h5>${ressSatPjr[i].name_renpam}</h5>  
                                                     </div> 
                                                     
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
+                                                    <div class="col-md-12 col-12 text-start"> 
+                                                        <p style="font-size: 12px;">${alamatlokasi}</p>
                                                     </div>   
 
                                                     <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isi${ressSatPjr[i].id}">
