@@ -1518,6 +1518,12 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="https://drive.google.com/folderview?id=11lL7mbbhYFlGbNIP8QJy6yCDe6bdLLNA" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">MANUAL GUIDE</span>
+                                    </a>
+                                </li>
+                                <li>
                                     <button type="button" class="btn aneh" data-toggle="modal" data-target="#myModalPoldaDisplay2" id="getPoldatable">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px; margin-left:-75px; ">
                                         <span data-key="t-dashboard" style="color: white;">KONTAK PENTING</span>
