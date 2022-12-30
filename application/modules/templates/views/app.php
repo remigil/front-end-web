@@ -1347,9 +1347,9 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://sislapops.com/home" target="_blank">
+                                    <a href="Https://irsms.korlantas.polri.go.id/dashboard/blackspot" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">SISLAPOPS <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                        <span data-key="t-dashboard">BLACKSPOT <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
                                 <li>
