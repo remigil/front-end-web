@@ -1323,7 +1323,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="https://pjrstream.com:8443" target="_blank">
+                                    <a href="https://pjrstream.id/" target="_blank">
                                         <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">BODYCAM <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
