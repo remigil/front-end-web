@@ -27,7 +27,7 @@
                                         <h5 class="mb-0 ms-3">Hari Ini</h5>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="stnkThisDay"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="stnkThisDay"></h1>
                                         <p class="text-center mb-0">STNK</p>
                                     </div>
                                     <div class="col-md-12 ms-3">
@@ -53,7 +53,7 @@
                                         <h5 class="mb-0 ms-3">Bulan Ini <span class="text-danger">(<?= date('M'); ?>)</span></h5>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="stnkThisMonth"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="stnkThisMonth"></h1>
                                         <p class="text-center mb-0">STNK</p>
                                     </div>
                                     <div class="col-md-12 ms-3">
@@ -77,7 +77,7 @@
                                         <h5 class="mb-0 ms-3">Tahun Ini</h5>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="stnkThisYear"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="stnkThisYear"></h1>
                                         <p class="text-center mb-0">STNK</p>
                                     </div>
                                     <div class="col-md-12 ms-3">
