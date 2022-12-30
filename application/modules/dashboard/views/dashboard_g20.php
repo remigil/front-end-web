@@ -8444,8 +8444,8 @@
                                                             <div style="text-align: center">
                                                                 ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="150" style="width: 180px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="150" style="width: 180px; height:180px;" data-holder-rendered="true"></br>`}
                                                                     <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                                    <b>Nama : </b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} - ` : ''} ${ress['officer']['name_officer']} </br>
-                                                                    <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
+                                                                    <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                                    <b>Nomor Hp : </b> ${ress['officer']['phone_officer']} </br>
 
                                                                     ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                                 </p>
@@ -8621,8 +8621,8 @@
                                                             <div style="text-align: center">
                                                             ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="150" style="width: 180px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="150" style="width: 180px; height:180px;" data-holder-rendered="true"></br>`}
                                                                     <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                                    <b>Nama : </b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} - ` : ''} ${ress['officer']['name_officer']} </br>
-                                                                    <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
+                                                                    <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                                    <b>Nomor Hp : </b> ${ress['officer']['phone_officer']} </br>
                                                                     ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                                 </p>
                                                             </div>
@@ -8790,8 +8790,8 @@
                                                     <div style="text-align: center">
                                                         ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="150" style="width: 180px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="150" style="width: 180px; height:180px;"data-holder-rendered="true"></br>`}
                                                             <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                            <b>Nama : </b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} - ` : ''} ${ress['officer']['name_officer']} </br>
-                                                            <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
+                                                            <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                            <b>Nomor Hp : </b> ${ress['officer']['phone_officer']} </br>
                                                             ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                         </p>
                                                     </div>
@@ -8960,8 +8960,8 @@
                                                             <div style="text-align: center">
                                                             ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="150" style="width: 180px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="150" style="width: 180px; height:180px;" data-holder-rendered="true"></br>`}
                                                                     <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                                    <b>Nama : </b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} - ` : ''} ${ress['officer']['name_officer']} </br>
-                                                                    <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
+                                                                    <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                                    <b>Nomor Hp : </b> ${ress['officer']['phone_officer']} </br>
                                                                     ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                                 </p>
                                                             </div>
@@ -9130,8 +9130,8 @@
                                                             <div style="text-align: center">
                                                             ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="150" style="width: 180px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="150" style="width: 180px; height:180px;" data-holder-rendered="true"></br>`}
                                                                     <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                                    <b>Nama : </b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} - ` : ''} ${ress['officer']['name_officer']} </br>
-                                                                    <b>Nomor Telefon : </b> ${ress['officer']['phone_officer']} </br>
+                                                                    <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                                    <b>Nomor Hp : </b> ${ress['officer']['phone_officer']} </br>
                                                                     ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
                                                                 </p>
                                                             </div>
