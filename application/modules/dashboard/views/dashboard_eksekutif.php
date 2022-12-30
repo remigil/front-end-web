@@ -7,21 +7,21 @@
 
         <!-- <a href='#' id='export'>Export Features</a> -->
 
-        <div class="row" style="display:flex;z-index: 999;position: absolute;">
+        <div style="display:flex;z-index: 999;position: absolute;">
             <div class="dropdown d-inline-block">
-                <div style="cursor: pointer; display:flex; width:300px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div style="cursor: pointer; display:flex; width:260px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div>
                         <div class="row" style="margin-left: 0px;">
                             <div class="col-md-12">
                                 <div style="display: flex;">
                                     <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;" onClick="hitungGpsId()"></i>
                                     <input type="text" placeholder="Telusuri Peta" name="searchAlamat" style="height: 38px;border: none;margin-left: -47px;width: 260px;padding-left: 50px;">
-                                    <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: 0px;"></i>
+                                    <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="btn" style=" display:none; color: #495057; margin-left: 10px; background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
+                    <button class="btn" style="color: #495057; margin-left: 10px; background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
                         <i style="margin-left: -2px;" class="fa fa-fw fas fa-filter"></i>
                     </button>
                     <div id="listAddress" style="position: absolute;top: 60px;margin-left: 4px;border-radius: 0.3rem;"></div>
@@ -29,43 +29,13 @@
                 </div>
 
                 <div class="row">
+
                     <div class="col-md-9" style="left: 330px;top: -53px;width: 80%;">
 
-                        <div class="cat poldaDisplay" style="margin-left: 10px; ">
-                            <div class="btn-group">
-                                <label>
-                                    <input checked type="checkbox" value="polda" name="filter" id="poldaDisplay"><span><i class="fa fas fa-vector-square"></i> Polda</span>
-                                </label>
-                                <button id="poldaFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="cat polresDisplay" style="margin-left: 10px; ">
-                            <div class="btn-group">
-                                <label>
-                                    <input type="checkbox" value="polres" name="filter" id="polresDisplay"><span><i class="fa fas fa-vector-square"></i> Polres</span>
-                                </label>
-                                <button id="polresFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="cat jalurBeatDisplay" style="margin-left: 10px; display:none;">
-                            <div class="btn-group">
-                                <label>
-                                    <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-route"></i> Jalur Beat</span>
-                                </label>
-                                <button id="jalurBeatFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="cat" style="margin-left: 10px; ">
+                        <div class="cat" style="margin-left: 10px;">
                             <label>
-
                                 <div class="dropdown-toggle" id="dropdownMenuButtonDisplay" style="padding-top: 3px;color: #1967d2;" data-bs-toggle="dropdown" aria-expanded="false">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fas fa-user-shield"></i> Petugas&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<img width="20" src="<?= base_url() ?>assets/icon/balon/PETUGAS.png" alt="">Petugas &nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonDisplay">
                                     <label class="dropdown-item" style="width: 100%;height: 100%;">
@@ -84,6 +54,11 @@
                                         <input checked type="checkbox" value="gatur" name="filter" id="gaturDisplay"><span style="text-align: start;" id="loadGaturDisplay">Gatur</span>
                                     </label>
                                     <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <button data-bs-toggle="modal" data-bs-target="#myModalPoldaPetugasDisplay" class="btn" style="color: #5f95df; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                            Filter Personil Per Polda
+                                        </button>
+                                    </label>
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
                                         <button id="petugasFilterModal" class="btn" style="color: #5f95df; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                             List Personil Lantas
                                         </button>
@@ -93,10 +68,71 @@
                                 </div>
                             </label>
                         </div>
+                        <div class="cat poldaDisplay" style="margin-left: 10px; ">
+                            <div class="btn-group">
+                                <label>
+                                    <input checked type="checkbox" value="polda" name="filter" id="poldaDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/POLDA.png" alt=""> Polda</span>
+                                </label>
+                                <button id="poldaFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cat polresDisplay" style="margin-left: 10px; display: none;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="polres" name="filter" id="polresDisplay"><span><i class="fa fas fa-vector-square"></i> Polres</span>
+                                </label>
+                                <button id="polresFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cat jalurDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="jalur" name="filter" id="jalurDisplay"><span><i class="fa fas fa-route"></i> Jalur</span>
+                                </label>
+                                <button id="jalurFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cat gerbangtolDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="gerbang_tol" name="filter" id="gerbangtolDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/Gerbang TOL.png" alt=""> Gerbang Tol</span>
+                                </label>
+                                <button id="gerbangtolFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cat restAreaDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="rest_area" name="filter" id="restAreaDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/REST AREA.png" alt=""> Rest Area</span>
+                                </label>
+                                <button id="restAreaFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cat jalurBeatDisplay" style="margin-left: 10px; display: none;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/JALUR.png" alt=""> Jalur Beat</span>
+                                </label>
+                                <button id="jalurBeatFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+
                         <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
-                                    <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
+                                    <input type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/FASUM KHUSUS.png" alt=""> Fasum Khusus</span>
                                 </label>
                                 <button id="fasumFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -104,20 +140,21 @@
                             </div>
                         </div>
 
-                        <div class="cat radiusDisplay" style="margin-left: 10px; display:none">
+
+                        <div class="cat radiusDisplay" style="margin-left: 10px; display: none;">
                             <div class="btn-group">
                                 <label>
-                                    <input checked type="checkbox" value="radius" name="filter" id="radiusDisplay"><span><i class="fa fas fa-vector-square"></i> Radius</span>
+                                    <input type="checkbox" value="radius" name="filter" id="radiusDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/Radius.png" alt=""> Radius</span>
                                 </label>
                                 <button id="radiusFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
                                 </button>
                             </div>
                         </div>
-                        <div class="cat clusterDisplay" style="margin-left: 10px; display:none">
+                        <div class="cat clusterDisplay" style="margin-left: 10px; display: none;">
                             <div class="btn-group">
                                 <label>
-                                    <input checked type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><i class="fa fas fa-vector-square"></i> Cluster</span>
+                                    <input type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/cluster.png" alt=""> Cluster</span>
                                 </label>
                                 <button id="clusterFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -125,16 +162,16 @@
                             </div>
                         </div>
 
-                        <!-- <div class="cat gpsIdDisplay" style="margin-left: 10px;">  
+                        <div class="cat gpsIdDisplay" style="margin-left: 10px;">
                             <label>
-                                <input type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan Listrik</span>
-                            </label>  
-                        </div> -->
+                                <input type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/KENDARAAN.png" alt=""> Kendaraan</span>
+                            </label>
+                        </div>
 
-                        <div class="cat kegiatanDisplay" style="display:none">
+                        <div class="cat kegiatanDisplay" style="display: none;">
                             <div class="btn-group">
                                 <label>
-                                    <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
+                                    <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/Jadwal_kegiatan.png" alt=""> Jadwal Kegiatan</span>
                                 </label>
                                 <button id="jadwalFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -145,17 +182,17 @@
                         <div class="cat cctvDisplay">
                             <div class="btn-group">
                                 <label>
-                                    <input type="checkbox" checked value="cctv" name="filter" id="cctvDisplay"><span><i class="mdi mdi-camera-marker"></i> CCTV</span>
+                                    <input type="checkbox" value="cctv" name="filter" id="cctvDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/CCTV.png" alt=""> CCTV</span>
                                 </label>
                                 <button id="cctvFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
                                 </button>
                             </div>
                         </div>
-                        <div class="cat operasiDisplay" style="display:none">
+                        <div class="cat operasiDisplay">
                             <div class="btn-group">
                                 <label>
-                                    <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Laporan</span>
+                                    <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/Laporan.png" alt=""> Laporan</span>
                                 </label>
                                 <button id="operasiFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -163,10 +200,10 @@
                             </div>
                         </div>
 
-                        <div class="cat panicDisplay" style="margin-left: 10px; display:none">
+                        <div class="cat panicDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
-                                    <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
+                                    <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/PANIC_Button.png" alt=""> Panic Button</span>
                                 </label>
                                 <button id="panicFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -174,10 +211,11 @@
                             </div>
                         </div>
 
+
                         <div class="cat samsatDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
-                                    <input type="checkbox" value="samsat" name="filter" id="samsatDisplay"><span><i class="mdi mdi-chat-alert"></i> Samsat</span>
+                                    <input type="checkbox" value="samsat" name="filter" id="samsatDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/SAMSAT.png" alt=""> Samsat</span>
                                 </label>
                                 <button id="samsatFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -188,7 +226,7 @@
                         <div class="cat trouble_spotDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
-                                    <input type="checkbox" value="trouble_spot" name="filter" id="trouble_spotDisplay"><span><i class="mdi mdi-chat-alert"></i> Trouble Spot</span>
+                                    <input type="checkbox" value="trouble_spot" name="filter" id="trouble_spotDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/TROUBLE SPOT.png" alt=""> Trouble Spot</span>
                                 </label>
                                 <button id="troubleSpotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -199,7 +237,7 @@
                         <div class="cat blank_spotDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
-                                    <input type="checkbox" value="blank_spot" name="filter" id="blank_spotDisplay"><span><i class="mdi mdi-chat-alert"></i> Black Spot</span>
+                                    <input type="checkbox" value="blank_spot" name="filter" id="blank_spotDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/Black Spot.png" alt=""> Black Spot</span>
                                 </label>
                                 <button id="blankSpotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -207,11 +245,80 @@
                             </div>
                         </div>
 
+
+
+                        <div class="cat posPamDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="pos_pam" name="filter" id="posPamDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/POSPAM.png" alt=""> POS PAM</span>
+                                </label>
+                                <button id="posPamFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cat posYanDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="pos_yan" name="filter" id="posYanDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/POSYAN.png" alt=""> POS YAN</span>
+                                </label>
+                                <button id="posYanFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cat posTerpaduDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="pos_terpadu" name="filter" id="posTerpaduDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/Pos_Terpadu.png" alt=""> POSTERPADU</span>
+                                </label>
+                                <button id="posTerpaduFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cat poskoDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="posko" name="filter" id="poskoDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/POSKO.png" alt=""> POSKO</span>
+                                </label>
+                                <button id="poskoFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cat satPjrDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="sat_pjr" name="filter" id="satPjrDisplay"><span><img src="<?= base_url() ?>assets/icon/PJR_icon_kecil.png" style="width: 18px;"> SAT PJR</span>
+                                </label>
+                                <button id="satPjrFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cat satPasDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="sat_pas" name="filter" id="satPasDisplay"><span><img width="20" src="<?= base_url() ?>assets/icon/balon/satpas_icon 1.png" alt=""> SATPAS</span>
+                                </label>
+                                <button id="satPasFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
 
-                <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
-                    <div style="width: 308px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: 0px;">
+                <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none; ">
+                    <div style="width: 308px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: -80px;">
                         <div style="margin-left: 0px;overflow-x: scroll;height: 435px;scrollbar-width: thin;position: relative; padding: 15px;">
                             <form class="form" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
@@ -230,7 +337,7 @@
                                         <input type="checkbox" name="filter" value="polda" id="polda" class="form-input">
                                         <span>Polda</span>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" display: none;>
                                         <input type="checkbox" name="filter" value="polres" id="polres" class="form-input">
                                         <span>Polres</span>
                                     </div>
@@ -251,7 +358,7 @@
                                         <span>VIP</span>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox" checked name="filter" value="cctv" id="cctv" class="form-input">
+                                        <input type="checkbox" name="filter" value="cctv" id="cctv" class="form-input">
                                         <span>CCTV</span>
                                     </div>
 
@@ -281,6 +388,31 @@
                                         <span>Fasilitas Khusus</span>
                                     </div>
                                     <div class="col-md-6">
+                                        <input type="checkbox" name="filter" value="rest_area" id="rest_area" class="form-input">
+                                        <span>Rest Area</span>
+                                    </div>
+                                    <div class="col-md-6" style="display: none;">
+                                        <input type="checkbox" name="filter" value="gerbang_tol" id="gerbang_tol" class="form-input">
+                                        <span>Gerbang Tol</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="filter" value="sat_pas" id="sat_pas" class="form-input">
+                                        <span>SATPAS</span>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="filter" value="samsat" id="samsat" class="form-input">
+                                        <span>SAMSAT</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="filter" value="troublespot" id="trouble_spot" class="form-input">
+                                        <span>Trouble Spot</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="filter" value="blankspot" id="blank_spot" class="form-input">
+                                        <span>Black Spot</span>
+                                    </div>
+                                    <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="radius" id="radius" class="form-input">
                                         <span>Radius</span>
                                     </div>
@@ -290,15 +422,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="gpsId" id="gpsId" class="form-input">
-                                        <span>Kendaraan Listrik</span>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="checkbox" name="filter" value="troublespot" id="trouble_spot" class="form-input">
-                                        <span>Trouble Spot</span>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="checkbox" name="filter" value="blankspot" id="blank_spot" class="form-input">
-                                        <span>Black Spot</span>
+                                        <span>Kendaraan</span>
                                     </div>
                                     <div class="col-md-12 mt-3" id="menuKategori">
                                         <p style="font-size: 17px;">Fasilitas Umum Kategori</p>
@@ -377,129 +501,74 @@
 
         </div>
         <div id="mapG20Dashboard">
-            <div style="display:none; bottom: 10px;left: 10px;position: absolute;z-index: 999;">
-                <img src="<?= base_url() ?>assets/legenda_web.png" style="width: 12vw;" />
+            <div style="bottom: 0px;position: absolute;z-index: 999;background-color: #f5f3f4;border-radius: 0px 50px 0px 0px;padding: 20px;">
+                <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; <b style="font-size:15px;">Lihat Legenda</b></span>
+            </div>
+            <div id="mySidenav" class="sidenav2">
+
+                <h5 class="judul">Legenda</h5>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOneLegenda">
+                            <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneLegenda" aria-expanded="true" aria-controls="collapseOneLegenda">
+                                Fasum Khusus
+                            </button>
+                        </h2>
+                        <div id="collapseOneLegenda" class="accordion-collapse collapse show" aria-labelledby="headingOneLegenda" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="row" style="margin: 10px;" id="isiLegendFasum"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwoLegenda">
+                            <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoLegenda" aria-expanded="false" aria-controls="collapseTwoLegenda">
+                                Jalur
+                            </button>
+                        </h2>
+                        <div id="collapseTwoLegenda" class="accordion-collapse collapse" aria-labelledby="headingTwoLegenda" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="row" style="margin: 10px;" id="isiLegendJalur">
+                                    <div class="col-md-12" style="text-align: center;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">Mohon Untuk Aktifkan Jalur !</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end accordion -->
             </div>
         </div>
-        <!-- <hr class="mt-4 mb-4" style="border: 2px; color:#007DD8; opacity:100%; ">
-        <div class="container">
-            <div class="row d-flex justify-content-between mb-3">
-
-                <div class="col-md-2">
-                    <a href="<?= base_url('executive/Satker_executive/ditgakkum'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditgakkum</button></a>
-                </div>
-                <div class="col-md-2">
-                    <a href="<?= base_url('executive/Satker_executive/ditregident'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditregident</button></a>
-                </div>
-                <div class="col-md-2">
-                    <a href="<?= base_url('executive/Satker_executive/ditkamsel'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditkamsel</button></a>
-                </div>
-                <div class="col-md-2">
-                    <a href="<?= base_url('executive/Satker_executive/bagrenmin'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagRenMin</button></a>
-                </div>
-                <div class="col-md-2">
-                    <a href="<?= base_url('executive/Satker_executive/bagops'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagOps</button></a>
-                </div>
-                <div class="col-md-2">
-                    <a href="<?= base_url('executive/Satker_executive/bagtik'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagTik</button></a>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center mb-5">
-                <div class="col-md-6 align-items-center">
-                    <a href="<?= base_url() ?>executive/Opsus_executive/index"><button class="btn btn-md text-uppercase fw-bold" style="width: 100%; background: #E4E4E4;">Data Harian Operasi Khusus</button></a>
-                </div>
-                <div class="col-md-6 align-items-center">
-                    <a href="<?= base_url() ?>executive/Anev_executive/index"><button class="btn btn-md text-uppercase fw-bold" style="width: 100%;  background: #E4E4E4;">Anev</button></a>
-                </div>
-            </div>
-        </div> -->
     </div>
+
+    <!-- <div class="col-md-12 mt-3"> 
+        <div class="card">
+            <div class="card-body">
+                <table id="datatable" class="table dt-responsive w-100">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Waktu Mulai</th> 
+                            <th>Unit Pengawalan</th>
+                            <th>Penugasan</th>
+                            <th>Delegasi</th>
+                            <th>Subjek</th> 
+                            <th>Jarak Tempuh</th> 
+                            <th>Waktu Tempuh</th>
+                            
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div> -->
 </div>
 
 
-<!-- <div class="container-fluid" style="background:#E9E9E9">
-    <div class="container-fluid">
-        <div class="container-fluid">
-            <div class="container-fluid">
-
-                <div class="row d-flex align-items-center">
-                    <div class="col-md-12 mb-1 mt-3 text-center">
-                        <span style="color:#007DD8;" class="text-uppercase fw-bold fs-5">Data Rekapitulasi Nasional</span>
-                    </div>
-                </div>
-                <div class="row d-flex">
-                    <div class="col-md-7 mt-3">
-                        <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
-                        <div class="mb-3">
-                            <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
-                                <table class="table table-bordered table-hover rounded">
-                                    <thead class="" style="background-color:#007DD8; color:#fff;">
-                                        <tr class="text-center">
-                                            <th scope="col">No</th>
-                                            <th scope="col">Polda</th>
-                                            <th scope="col">Total Pelanggaran</th>
-                                            <th scope="col">Pelanggaran Berat</th>
-                                            <th scope="col">Pelanggaran Sedang</th>
-                                            <th scope="col">Pelanggaran Ringan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tbody-pelanggaran">
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 mt-3">
-                        <h5>10 Polda Kecelakaan Tertinggi</h5>
-                        <div class="mb-3">
-                            <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
-                                <table class="table table-bordered table-hover rounded">
-                                    <thead class="" style="background-color:#007DD8; color:#fff;">
-                                        <tr class="text-center">
-                                            <th scope="col">No</th>
-                                            <th scope="col">Polda</th>
-                                            <th scope="col">Total</th>
-                                            <th scope="col">Meninggal Dunia</th>
-                                            <th scope="col">Luka Berat</th>
-                                            <th scope="col">Luka Ringan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tbody-kecelakaan">
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row d-flex">
-                    <div class="col-md-12 mt-3">
-                        <div class="mb-3">
-                            <section class="shadow-sm">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h5>10 Polda Turjagwali Tertinggi</h5>
-                                            </div>
-                                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                                <div class="main-chart">
-                                                    <div id="chartturjagwali" style="width: 100vw"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 
 <!-- Modal -->
@@ -658,6 +727,7 @@
                                     <option value="3">Penjagaan</option>
                                     <option value="4">Pengaturan</option>
                                     <option value="5">Penutupan</option>
+                                    <!-- <option value="6">Jalur</option>  -->
                                 </select>
                                 <label class="labelmui">Subjek</label>
                             </div>
@@ -985,7 +1055,7 @@
                 <div id="overlayMenuDisplay">
                     <div class="loading">
                         <div class="spinner" style="margin-left: 55px;margin-bottom: 10px;"></div>
-                        <p style="color: white; font-size: 15px; margin-left: 3px; text-align: center;">Mohon Tunggu </br> Fitur Akan Aktif Segera</p>
+                        <p style="color: white; font-size: 15px; margin-left: 3px; text-align: center;">Mohon Tunggu </br> Fitur Akan Aktif Segera </p>
                     </div>
                 </div>
                 <table id="datatablePetugasOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
@@ -993,7 +1063,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Delegasi</th>
+                            <!-- <th>Delegasi</th> -->
                             <th></th>
                         </tr>
                     </thead>
@@ -1017,6 +1087,188 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal right fade" id="myModalJalurDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelJalurDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelJalurDisplay">Jalur</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalJalurDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalJalurDisplay" style="width: 550px;">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalGerbangtolDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelGerbangtolDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelGerbangtolDisplay">Gerbang Tol</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalGerbangtolDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalGerbangtolDisplay" style="width: 550px;">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalSamsatDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelSamsatDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelSamsatDisplay">SAMSAT</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalSamsatDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalSamsatDisplay" style="width: 550px;">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalTroubleSpotDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelTroubleSpotDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelTroubleSpotDisplay">Trouble Spot</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalTroubleSpotDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalTroubleSpotDisplay" style="width: 550px;">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalBlankSpotDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelBlankSpotDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelBlankSpotDisplay">Black Spot</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalBlankSpotDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalBlankSpotDisplay" style="width: 550px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal right fade" id="myModalRestAreaDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelRestAreaDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelRestAreaDisplay">Rest Area</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalRestAreaDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalRestAreaDisplay" style="width: 550px;">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalPoldaPetugasDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPoldaPetugasDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPoldaPetugasDisplay">Filter Personil Per Polda</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalPoldaPetugasDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="width: 550px;">
+                <div class="accordion row" id="openModalPoldaPetugasDisplay">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalPosPamDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPosPamDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPosPamDisplay">POS PAM</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalPosPamDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="width: 550px;">
+                <div class="accordion" id="openModalPosPamDisplay">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalPosYanDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPosYanDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPosYanDisplay">POS YAN</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalPosYanDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="width: 550px;">
+                <div class="accordion" id="openModalPosYanDisplay">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalPosTerpaduDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPosTerpaduDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPosTerpaduDisplay">POS TERPADU</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalPosTerpaduDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="width: 550px;">
+                <div class="accordion" id="openModalPosTerpaduDisplay">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalPoskoDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPoskoDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPoskoDisplay">POSKO</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalPoskoDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="width: 550px;">
+                <div class="accordion" id="openModalPoskoDisplay">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalSatPjrDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelSatPjrDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelSatPjrDisplay">SAT PJR</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalSatPjrDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="width: 550px;">
+                <div class="accordion" id="openModalSatPjrDisplay">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal right fade" id="myModalSatPasDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelSatPasDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelSatPasDisplay">SATPAS</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalSatPasDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalSatPasDisplay" style="width: 550px;">
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="modal right fade" id="myModalRadiusDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelRadiusDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -1079,44 +1331,6 @@
     </div>
 </div>
 
-<div class="modal right fade" id="myModalSamsatDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelSamsatDisplay" aria-hidden="true" data-backdrop="false">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabelSamsatDisplay">SAMSAT</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalSamsatDisplay"></span>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="openModalSamsatDisplay" style="width: 550px;">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal right fade" id="myModalTroubleSpotDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelTroubleSpotDisplay" aria-hidden="true" data-backdrop="false">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabelTroubleSpotDisplay">Trouble Spot</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalTroubleSpotDisplay"></span>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="openModalTroubleSpotDisplay" style="width: 550px;">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal right fade" id="myModalBlankSpotDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelBlankSpotDisplay" aria-hidden="true" data-backdrop="false">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabelBlankSpotDisplay">Black Spot</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalBlankSpotDisplay"></span>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="openModalBlankSpotDisplay" style="width: 550px;">
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <div class="modal right fade" id="myModalLaporanDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelLaporanDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -1141,20 +1355,87 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+                <img src="" class="imagepreview" style="width: 100%;">
+            </div>
+        </div>
+    </div>
+</div>
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 
 <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script> -->
 
+<!-- <script>
+      
+        var socket = io('<?= ENV_SOCKET_IO_HTTP ?>', {
+        // transports: ["websocket",],
+        // path:'/socket.io/',
+        query: {
+        
+            username: "Kakor",
+            password: "a",
+            
+            type: "Admin"
+        }
+    });
+    socket.on("connected", function(resSocket){
+            console.log(socket.id);
+            console.log(resSocket);
+            console.log('ido1');
+        });
+            socket.on("sendToAdminMobile", function(resSocket){
+            // console.log(socket.id);
+            // console.log(resSocket);
+            // console.log('sendToAdminMobile');
+        });
+            socket.on("from server", function(resSocket){
+            // console.log(socket.id);
+            console.log(resSocket);
+            console.log('from server');
+        });
+        $('document').ready(function() {
+            let no = 1
 
-<script src="<?php echo base_url(); ?>assets/admin/bataspolda/data/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1.js"></script>
+        socket.on("connected", function(resSocket){
+            console.log(socket.id);
+            console.log(resSocket);
+            console.log('ido1');
+        });
+            socket.on("sendToAdminMobile", function(resSocket){
+            // console.log(socket.id);
+            // console.log(resSocket);
+            // console.log('sendToAdminMobile');
+        });
+            socket.on("from server", function(resSocket){
+            // console.log(socket.id);
+            console.log(resSocket);
+            console.log('from server');
+        }); 
+        }) 
+      </script> -->
+
+
 <script>
+    $('.pop').on('click', function() {
+        console.log("oke")
+        $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+        $('#imagemodal').modal('show');
+    });
+
+
     let app_url = '<%-app_url%>'
     let path = '<%-path%>'
 
     let data = [];
     let connected = false;
-    // var socket = io('http://34.143.227.90:3019/', {
     var socket = io('<?= ENV_SOCKET_IO_HTTP ?>', {
         transports: ['websocket'],
         // socketRef.current = io('http://10.10.7.40:3001/', {
@@ -1168,20 +1449,19 @@
             type: "Admin"
         }
     });
-    // var socketKe2 = io('http://34.143.227.90:3019/', {
-    var socketKe2 = io('http://103.163.139.100:3001/', {
-        transports: ['websocket'],
-        // socketRef.current = io('http://10.10.7.40:3001/', {
-        path: '/socket.io',
-        query: {
+    // var socketKe2 = io('http://103.163.139.100:3001/', {
+    //     transports: ['websocket'],
+    //     // socketRef.current = io('http://10.10.7.40:3001/', {
+    //     path: '/socket.io',
+    //     query: {
 
 
-            username: "Kakor",
-            password: "a",
+    //         username: "Kakor",
+    //         password: "a",
 
-            type: "Admin"
-        }
-    });
+    //         type: "Admin"
+    //     }
+    // });
     // var socketGps = io('http://gps-so.korlantaspolri.id');
 
     // console.log({a:'ini soket' ,b:socket});
@@ -1189,18 +1469,35 @@
     var markerGpsId = new Array();
     var markerJadwal = new Array();
     var markerCCTV = new Array();
-    var markerSamsat = new Array();
-    var markerTroubleSpot = new Array();
-    var markerBlankSpot = new Array();
-
     var markerLaporanPanic = new Array();
     var markerLaporan = new Array();
     var markerFasum = new Array();
     var markerFasumKhusus = new Array();
+    var markerRadius = new Array();
     var markerCluster = new Array();
+    var routingJadwal = new Array();
+
+
+    var markerTitikGlobal = new Array();
+
+    var markerJalur = new Array();
+    var markerSamsat = new Array();
+    var markerTroubleSpot = new Array();
+    var markerBlankSpot = new Array();
+    var markerRestArea = new Array();
+    var markerPosPam = new Array();
+    var markerPosYan = new Array();
+
+    var markerPosTerpadu = new Array();
+    var markerPosko = new Array();
+    var markerSatPjr = new Array();
+
+
+    var markerGerbangtol = new Array();
+    var markerSatPas = new Array();
     var markerPolres = new Array();
     var markerPolda = new Array();
-    var routingJadwal = new Array();
+
 
     var routingJadwalRenpam = new Array();
     var routingJadwalRenpam1 = new Array();
@@ -1208,29 +1505,44 @@
     var routingJadwalRenpam3 = new Array();
     var routingJadwalRenpam4 = new Array();
 
-
     var routingTroubleSpot = new Array();
     var routingBlankSpot = new Array();
+    var routingJalur = new Array();
+
+
+    var geoJsonCctv = new Array();
 
     var routingRenpam = new Array();
     var routingRenpam1 = new Array();
     var routingRenpam2 = new Array();
     var routingRenpam3 = new Array();
     var routingRenpam4 = new Array();
+
+    var arrayFilterPetugas = [];
+
     var arrayFilter = [];
     var arrayFilterFasumKategori = [];
 
     var cctvClusterGroup;
+    var jadwalClusterGroup;
+    var fasumKhususClusterGroup;
+    var laporanClusterGroup;
+    var panicClusterGroup;
+
     var samsatClusterGroup;
     var troubleSpotClusterGroup;
     var blankSpotClusterGroup;
     var restAreaClusterGroup;
     var posPamClusterGroup;
+    var posYanClusterGroup;
+    var posTerpaduClusterGroup;
+    var poskoClusterGroup;
+    var satPjrClusterGroup;
 
-    var jadwalClusterGroup;
-    var fasumKhususClusterGroup;
-    var laporanClusterGroup;
-    var panicClusterGroup;
+
+    var satPasClusterGroup;
+    var gerbangTolClusterGroup;
+
     var userDataTable;
 
 
@@ -1248,10 +1560,218 @@
 
     var statusSocket = true;
 
+    const vector = {
+        'tol': {
+            'title': 'Jalan Tol',
+            'file': true,
+            'type': 'line',
+            'noPop': true
+        },
+        'apjt': {
+            'title': 'Wilayah Operasi APJT',
+            'file': true,
+            'type': 'line',
+            'hide': ['idx', 'id segment', 'no urut', 'no sub segment'],
+            'noPop': true
+        },
+        'cabang': {
+            'title': 'Wilayah Operasi Cabang',
+            'file': true,
+            'type': 'line',
+            'hide': ['idx', 'id segment', 'no urut', 'no sub segment'],
+            'noPop': true
+        },
+        'km': {
+            'title': 'Batas KM',
+            'file': false,
+            'type': 'point',
+            'minZoom': 15,
+            'maxZoom': 20,
+            'hide': ['id'],
+            'noPop': true
+        },
+        'ramp': {
+            'title': 'Jalan Penghubung',
+            'file': true,
+            'type': 'line',
+            'minZoom': 15,
+            'noPop': true
+        },
+        'gate': {
+            'title': 'Gerbang Tol',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 14,
+            'hide': ['id', 'status', 'kode cabang', 'kode gerbang', 'nama gerbang', 'nama cabang apjt', 'lalin shift 1', 'lalin shift 2', 'lalin shift 3', 'lalin perjam saatini', 'keterangan'],
+            'pop': 'table4',
+            'stamp': 'last update'
+        },
+        'cctv': {
+            'title': 'CCTV MainRoad',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['camera id', 'trace', 'status', 'enabled', 'arteri', 'petunjuk', 'merk', 'zm', 'ServerId', 'MonitorId', 'key id'],
+            'pop': 'movie'
+        },
+        'cctv1': {
+            'title': 'CCTV Arteri',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['camera id', 'trace', 'status', 'enabled', 'arteri', 'petunjuk', 'merk', 'zm', 'ServerId', 'MonitorId', 'key id'],
+            'pop': 'movie'
+        },
+        'cctv2': {
+            'title': 'CCTV Pemantuan',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['camera id', 'trace', 'status', 'enabled', 'arteri', 'petunjuk', 'merk', 'zm', 'ServerId', 'MonitorId', 'key id'],
+            'pop': 'movie'
+        },
+        'cctv3': {
+            'title': 'CCTV Gerbang',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['camera id', 'trace', 'status', 'enabled', 'arteri', 'petunjuk', 'merk', 'zm', 'ServerId', 'MonitorId', 'key id'],
+            'pop': 'movie'
+        },
+        'cctv4': {
+            'title': 'CCTV SS',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['camera id', 'trace', 'status', 'enabled', 'arteri', 'petunjuk', 'merk', 'zm', 'ServerId', 'MonitorId', 'key id'],
+            'pop': 'movie'
+        },
+        'cctv5': {
+            'title': 'CCTV Ramp',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['camera id', 'trace', 'status', 'enabled', 'arteri', 'petunjuk', 'merk', 'zm', 'ServerId', 'MonitorId', 'key id'],
+            'pop': 'movie'
+        },
+        'rtms': {
+            'title': 'Traffic Counting (RTMS)',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['id', 'nama lokasi', 'status', 'total volume jalur a', 'total volume jalur b', 'speed jalur a', 'speed jalur b', 'id segment jalur a', 'id segment jalur b'],
+            'pop': 'table1',
+            'stamp': 'waktu update'
+        },
+        'rtms2': {
+            'title': 'Smart Traffic Counting (CCTV)',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['status', 'camera id', 'id tc', 'nama lokasi', 'cabang', 'car', 'bus', 'truck', 'total volume', 'id', 'nama area', 'id server', 'id segment'],
+            'pop': 'table2',
+            'stamp': 'waktu update'
+        },
+        'radar': {
+            'title': 'Monitoring Traffic (Radar)',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 10,
+            'maxZoom': 28,
+            'hide': ['idx', 'nama lokasi', 'id ruas', 'link', 'vcr jalur a', 'vcr jalur b', 'kec jalur a', 'kec jalur b', 'id radar jalur a', 'id radar jalur b', 'midas a', 'midas b', 'event id', 'status'],
+            'pop': 'table7',
+            'stamp': 'last update'
+        },
+        'speed': {
+            'title': 'Speed Cam',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['status', 'camera id', 'id sc', 'nama lokasi', 'cabang', 'is dalam kota', 'kec 1', 'kec 2', 'kec 3', 'total volume', 'url cctv', 'no urut', 'no polisi', 'kecepatan', 'waktu', 'ip', 'etle'],
+            'pop': 'table3',
+            'stamp': 'waktu update'
+        },
+        'rams': {
+            'title': 'Rest Area',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['id rest area', 'id ruas', 'id arus', 'kend besar tersedia', 'kend kecil tersedia', 'kapasitas kend besar', 'kapasitas kend kecil', 'total', 'nama rest area', 'cctv 1', 'cctv 2', 'cctv 3'],
+            'pop': 'multiTv',
+            'stamp': 'waktu update'
+        },
+        'wim': {
+            'title': 'WIM Bridge',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 13,
+            'hide': ['id', 'id wim', 'nama lokasi', 'id ruas', 'total volume', 'vol overload 5 20', 'vol overload 20 50', 'vol overload 50 100', 'vol overload 100', 'vol total', 'tanggal kalibrasi', 'status'],
+            'pop': 'table5',
+            'stamp': 'waktu update'
+        },
+        'crash': {
+            'title': 'Gangguan Lalin',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 7,
+            'hide': ['idx'],
+            'stamp': 'tgl entri'
+        },
+        'repair': {
+            'title': 'Pemeliharaan',
+            'file': false,
+            'save': true,
+            'type': 'point',
+            'minZoom': 7,
+            'hide': ['idx'],
+            'stamp': 'tgl entri'
+        },
+        'control': {
+            'title': 'Rekayasa Lalin',
+            'file': false,
+            'save': true,
+            'type': 'mix',
+            'minZoom': 7,
+            'hide': ['idx', 'rekayasa lalin'],
+            'stamp': 'tgl entri'
+        },
+        'track': {
+            'title': 'Tracking',
+            'file': false,
+            'save': true,
+            'type': 'mix',
+            'hide': ['idx', 'rec', 'vehicle id'],
+            'stamp': 'waktu update',
+            'noPop': true
+        },
+        'road': {
+            'title': 'Kondisi Traffic',
+            'file': false,
+            'save': true,
+            'type': 'line',
+            'hide': ['idx', 'id segment', 'no sub segment', 'no urut', 'kode'],
+            'pop': 'predict'
+        },
+    };
+
+
     var dataTablePetugasDisplay;
 
     $(document).ready(function() {
-
 
         var initialCenter = [-0.21973, 117.91602];
         var initialZoom = 5.5;
@@ -1289,44 +1809,44 @@
             type: "roadmap",
         }).addGoogleLayer("TrafficLayer");
 
-        var shpFile = new L.Shapefile(`<?php echo base_url(); ?>assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
-            pointToLayer: function(feature, latlng) {
 
-                var smallIcon = new L.divIcon({
-                    iconAnchor: [20, 51],
-                    popupAnchor: [0, -51],
-                    className: 'listeo-marker-icon',
-                    html: '<div class="marker-container">' +
-                        '<div class="marker-card">' +
-                        '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
-                        '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
-                        '<div class="marker-arrow"></div>' +
-                        '</div>' +
-                        '</div>'
-                });
+        // var shpFile = new L.Shapefile(`http://103.163.139.100/assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
+        //     pointToLayer: function(feature, latlng) {
+
+        //         var smallIcon = new L.divIcon({
+        //             iconAnchor: [20, 51],
+        //             popupAnchor: [0, -51],
+        //             className: 'listeo-marker-icon',
+        //             html: '<div class="marker-container">' +
+        //                 '<div class="marker-card">' +
+        //                 '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
+        //                 '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
+        //                 '<div class="marker-arrow"></div>' +
+        //                 '</div>' +
+        //                 '</div>'
+        //         });
 
 
-                var mark = L.marker(latlng, {
-                    icon: smallIcon
-                })
-                cluster.addLayer(mark)
-                return cluster;
+        //         var mark = L.marker(latlng, {
+        //             icon: smallIcon
+        //         })
+        //         cluster.addLayer(mark)
+        //         return cluster;
 
-            },
-            onEachFeature: function(feature, layer) {
-                if (feature.properties) {
-                    layer.bindPopup(Object.keys(feature.properties).map(function(k) {
-                        return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
-                    }).join("<hr>"), {
-                        maxWidth: 400,
-                        maxHeight: 250,
-                        scrollbarWidth: 'thin',
-                        className: 'leaflet-infoBox'
-                    });
-                }
-            }
-        });
-
+        //     },
+        //     onEachFeature: function(feature, layer) {
+        //         if (feature.properties) {
+        //             layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+        //                 return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
+        //             }).join("<hr>"), {
+        //                 maxWidth: 400,
+        //                 maxHeight: 250,
+        //                 scrollbarWidth: 'thin',
+        //                 className: 'leaflet-infoBox'
+        //             });
+        //         }
+        //     }
+        // });
 
         // StART MAP SECTION
         var mapContainer = L.map('mapG20Dashboard', {
@@ -1334,8 +1854,7 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            trackResize: true,
-            layers: [googleHybrid, shpFile]
+            layers: [googleStreet]
         }).setView(initialCenter, initialZoom);
 
         var myRenderer = L.canvas({
@@ -1359,7 +1878,7 @@
             "MappBox Traffic": gl,
         };
         var overlayMaps = {
-            "Batas Wilayah": shpFile
+            // "Batas Wilayah": shpFile,
         };
         L.control.layers(baseMaps, overlayMaps, {
             position: 'topright'
@@ -1370,27 +1889,16 @@
 
         mapContainer.doubleClickZoom.disable();
 
-
-
-
-
-
-
-
-
-
-
-
         socket.on("connected", function(resSocket) {
             console.log(socket.id);
             console.log(resSocket);
             console.log('ido1');
         });
-        socketKe2.on("connected", function(resSocket) {
-            console.log(socketKe2.id);
-            console.log(resSocket);
-            console.log('ido1');
-        });
+        // socketKe2.on("connected", function(resSocket) {
+        //     console.log(socketKe2.id);
+        //     console.log(resSocket);
+        //     console.log('ido1');
+        // });
         // socket.emit("trackingUser", {
         //     lat: 1234,
         //     lon: 1234234
@@ -1446,14 +1954,6 @@
                 }
             });
         });
-
-
-
-
-
-
-
-
 
 
         // getGpsId();
@@ -1977,11 +2477,6 @@
 
 
 
-
-
-
-
-        // EKSEKUTIF
         getPolda();
 
         function getPolda() {
@@ -1990,8 +2485,8 @@
                 url: "<?php echo base_url(); ?>dashboard/getPolda",
                 dataType: "JSON",
                 success: function(result) {
+                    // console.log(result);
                     $("#overlay").fadeOut(300);
-
                     let ressData = result;
                     // console.log();
 
@@ -2001,6 +2496,7 @@
                                 <tr>
                                     <th>Logo</th>
                                     <th>Nama</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody id="isiModalPoldaDisplay">
@@ -2010,23 +2506,37 @@
                     var countPoldaDisplay = 0;
                     var listPoldaDisplay = '';
 
+
+                    var listPoldaPetugasDisplay = '';
+
+                    var listLIPoldaDisplay = '';
+                    var listPosYanPoldaDisplay = '';
+
+                    var listPosTerpaduPoldaDisplay = '';
+                    var listPoskoPoldaDisplay = '';
+                    var listSatPjrPoldaDisplay = '';
+
+
                     for (let i = 0; i < ressData.length; i++) {
-                        id = i;
-                        var latitude = parseFloat(ressData[i].latitude);
-                        var longitude = parseFloat(ressData[i].longitude);
 
-                        var resource = '';
+                        if (ressData[i].latitude && ressData[i].longitude) {
+                            id = i;
+                            var latitude = parseFloat(ressData[i].latitude);
+                            var longitude = parseFloat(ressData[i].longitude);
 
-                        markerPolda[i] = L.marker([latitude, longitude], {
-                            icon: L.divIcon({
-                                // className: 'location-pin',
-                                html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
-                                // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
-                                iconSize: [5, 5],
-                                iconAnchor: [5, 10]
-                            })
-                        }).bindPopup(
-                            `<div style="width: 450px;">
+                            var resource = '';
+
+                            countPoldaDisplay += 1;
+                            markerPolda[i] = L.marker([latitude, longitude], {
+                                icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
+                                    // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                })
+                            }).bindPopup(
+                                `<div style="width: 450px;">
                                         <div class="row">
                                             <div class="col-md-2 text-center">
                                                 <img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 50px;">
@@ -2067,41 +2577,173 @@
                                                         <span class="fs-3"> <b>${ressData[i].sepeda_motor}</b></span>
                                                     </div>
                                                 </div>    
-                                            </div>
-    
-                                            <div class="col-md-12 mt-3">
-                                                <a href=<?= base_url('executive/Polda_executive/') ?>${ressData[i].id}><button class="btn btn-primary float-end">Selengkapnya</button></a>   
-                                            </div>
-                                            </div>
+                                            </div> 
+                                        </div>
                                     </div>
-                                        
-                                `, {
-                                minWidth: 100,
-                                maxWidth: 560,
-                                width: 400
+                                            
+                                    `, {
+                                    minWidth: 100,
+                                    maxWidth: 560,
+                                    width: 400
+                                }).on("click", function(e) {
+                                // console.log(e.latlng.lat);
+                                mapContainer.flyTo([e.latlng.lat, e.latlng.lng], 8);
                             }).addTo(mapContainer);
 
+                            listPoldaDisplay += `
+                                <tr>
+                                    <td><img src="<?= url_api(); ?>polda/logo/${ressData[i].logo_polda}" style="width:35px;"></td>
+                                    <td>${ressData[i].name_polda}</td>
+                                    <td>
+                                        <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                            id="flyToMapFilterPolda${countPoldaDisplay}"    
+                                            data-cord=${latitude},${longitude}" >
+                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                        </button> 
+                                    </td>
+                                </tr>
+                            `;
+
+                            listLIPoldaDisplay += ` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${countPoldaDisplay}" aria-expanded="false" aria-controls="collapse${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapse${countPoldaDisplay}" class="accordion-collapse multi-collapse collapse" aria-labelledby="heading${countPoldaDisplay}" data-bs-parent="#openModalPosPamDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaPosPam${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            listPosYanPoldaDisplay += ` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingPosYan${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePosYan${countPoldaDisplay}" aria-expanded="false" aria-controls="collapsePosYan${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapsePosYan${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="headingPosYan${countPoldaDisplay}" data-bs-parent="#openModalPosYanDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaPosYan${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            listPosTerpaduPoldaDisplay += ` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingPosTerpadu${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePosTerpadu${countPoldaDisplay}" aria-expanded="false" aria-controls="collapsePosTerpadu${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapsePosTerpadu${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="headingPosTerpadu${countPoldaDisplay}" data-bs-parent="#openModalPosTerpaduDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaPosTerpadu${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            listPoskoPoldaDisplay += ` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingPosko${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePosko${countPoldaDisplay}" aria-expanded="false" aria-controls="collapsePosko${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapsePosko${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="headingPosko${countPoldaDisplay}" data-bs-parent="#openModalPoskoDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaPosko${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            listSatPjrPoldaDisplay += ` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingSatPjr${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSatPjr${countPoldaDisplay}" aria-expanded="false" aria-controls="collapseSatPjr${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSatPjr${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="headingSatPjr${countPoldaDisplay}" data-bs-parent="#openModalSatPjrDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaSatPjr${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
 
 
+                            listPoldaPetugasDisplay += `
+                                <div class="col-md-12">
+                                    <div class="catList" style="margin-left: 10px; width:100%;">
+                                        <div class="btn-group" style="width:100%;">
+                                            <label>
+                                                <input type="checkbox" value="${ressData[i].polda_id}" name="poldaPetugas" id="listIsiPoldaPetugas${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].polda_id}">
+                                                <span>${ressData[i].name_polda} &nbsp;&nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasPolda${ressData[i].polda_id}"></span></span> 
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            $('#openModalPoldaPetugasDisplay').html(listPoldaPetugasDisplay);
 
-                        countPoldaDisplay += 1;
-                        listPoldaDisplay += `
-                            <tr>
-                                <td><img src="<?= url_api(); ?>polda/logo/${ressData[i].logo_polda}" style="width:35px;"></td>
-                                <td>${ressData[i].name_polda}</td>
-                                
-                            </tr>
-                        `;
-                        $('#isiModalPoldaDisplay').html(listPoldaDisplay);
+
+                            $('#isiModalPoldaDisplay').html(listPoldaDisplay);
+                            $('#openModalPosPamDisplay').html(listLIPoldaDisplay);
+                            $('#openModalPosYanDisplay').html(listPosYanPoldaDisplay);
+
+                            $('#openModalPosTerpaduDisplay').html(listPosTerpaduPoldaDisplay);
+                            $('#openModalPoskoDisplay').html(listPoskoPoldaDisplay);
+                            $('#openModalSatPjrDisplay').html(listSatPjrPoldaDisplay);
+                        }
                     }
 
                     for (let i = 0; i < countPoldaDisplay; i++) {
-                        // console.log(`${i+1}`);
+                        // console.log(`flyToMapFilterPolda${i+1}`);
                         $(`#flyToMapFilterPolda${i+1}`).on("click", function(e) {
                             var latlong = $(this).data('cord').split(',');
                             var latitude = parseFloat(latlong[0]);
                             var longitude = parseFloat(latlong[1]);
-                            mapContainer.flyTo([latitude, longitude], 20);
+                            mapContainer.flyTo([latitude, longitude], 8);
+                        });
+
+                        $(`#listIsiPoldaPetugas${i+1}`).on("change", function(e) {
+                            if ($(this).is(':checked')) {
+                                serverSideGet();
+                            } else {
+
+                            }
+                        });
+
+                        $(`#heading${i+1}`).on("click", function(e) {
+                            serverSideFilter($(this).data('poldaid'));
+                        });
+                        $(`#headingPosYan${i+1}`).on("click", function(e) {
+                            serverSideFilter($(this).data('poldaid'));
+                        });
+
+
+                        $(`#headingPosTerpadu${i+1}`).on("click", function(e) {
+                            serverSideFilter($(this).data('poldaid'));
+                        });
+                        $(`#headingPosko${i+1}`).on("click", function(e) {
+                            serverSideFilter($(this).data('poldaid'));
+                        });
+                        $(`#headingSatPjr${i+1}`).on("click", function(e) {
+                            serverSideFilter($(this).data('poldaid'));
                         });
                     }
 
@@ -2124,178 +2766,8 @@
             });
         }
 
-        getGarlantas();
-
-        function getGarlantas() {
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>dashboard/getGarlantas",
-                dataType: "JSON",
-                success: function(result) {
-                    $("#overlay").fadeOut(300);
-                    var table = '';
-
-                    for (let i = 0; i < result.length; i++) {
-                        let x = parseInt(i)
-                        let no = x + 1
-                        table += `<tr class="text-center"> 
-                                <td>  ${no}  </td> 
-                                <td>  ${result[i].name_polda}  </td> 
-                                <td>  ${result[i].total}  </td> 
-                                <td>  ${result[i].pelanggaran_berat}  </td> 
-                                <td>  ${result[i].pelanggaran_sedang}  </td> 
-                                <td>  ${result[i].pelanggaran_ringan}  </td> 
-                                </tr>`
-                    }
-                    $('#tbody-pelanggaran').html(table);
-                }
-            });
-        }
 
 
-        getLakalantas();
-
-        function getLakalantas() {
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>dashboard/getLakalantas",
-                dataType: "JSON",
-                success: function(result) {
-                    $("#overlay").fadeOut(300);
-                    var table = '';
-
-                    for (let i = 0; i < result.length; i++) {
-                        let x = parseInt(i)
-                        let no = x + 1
-                        table += `<tr class="text-center"> 
-                                <td>  ${no}  </td> 
-                                <td>  ${result[i].name_polda}  </td> 
-                                <td>  ${result[i].insiden_kecelakaan}  </td> 
-                                <td>  ${result[i].meninggal_dunia}  </td> 
-                                <td>  ${result[i].luka_berat}  </td> 
-                                <td>  ${result[i].luka_ringan}  </td> 
-                                </tr>`
-                    }
-                    $('#tbody-kecelakaan').html(table);
-                }
-            })
-        }
-
-
-        getStatistik();
-
-        function getStatistik() {
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>dashboard/getStatistik",
-                dataType: "JSON",
-                success: function(result) {
-                    $("#overlay").fadeOut(300);
-
-                    $('#lakalantas').html(`<span class="fs-4" >${result.lakalantas}</span >`);
-                    $('#garlantas').html(`<span class="fs-4" >${result.garlantas}</span >`);
-                    $('#motor').html(`<span class="fs-4" >${result.motor}</span>`);
-                    $('#turjagwali').html(`<span class="fs-4" >${result.turjagwali}</span >`);
-                }
-            })
-        }
-
-
-        getTurjagwali();
-
-        function getTurjagwali() {
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>dashboard/getTurjagwali",
-                dataType: "JSON",
-                success: function(result) {
-                    $("#overlay").fadeOut(300);
-                    console.log(result)
-                    var turjagwali = {
-                        series: [{
-                            name: 'Pengaturan',
-                            type: 'column',
-                            data: result.polda_pengaturan,
-                            color: "#11347A"
-                        }, {
-                            name: 'Pengawalan',
-                            type: 'column',
-                            data: result.polda_pengawalan,
-                            color: "#CB2D3E"
-                        }, {
-                            name: 'Patroli',
-                            type: 'column',
-                            data: result.polda_patroli,
-                            color: "#E8D42F"
-                        }, {
-                            name: 'Penjagaan',
-                            type: 'column',
-                            data: result.polda_penjagaan,
-                            color: "#346EFA"
-                        }],
-                        chart: {
-                            height: 400,
-                            type: 'line',
-                            stacked: false
-                        },
-                        plotOptions: {
-                            bar: {
-                                horizontal: false,
-                                columnWidth: '55%',
-                                endingShape: 'rounded',
-                                dataLabels: {
-                                    position: 'top'
-                                }
-                            },
-                        },
-                        dataLabels: {
-                            enabled: true,
-                            style: {
-                                colors: ['#333']
-                            },
-                            offsetY: -15
-                        },
-
-                        stroke: {
-                            show: true,
-                            width: [1, 1, 4, 4],
-                            colors: ['transparent']
-                        },
-                        xaxis: {
-                            categories: result.polda_name,
-                        },
-                        yaxis: [{
-                            axisTicks: {
-                                show: false,
-                            },
-                            axisBorder: {
-                                show: false,
-                                color: '#008FFB'
-                            },
-                            // labels: {
-                            //     style: {
-                            //         colors: '#008FFB',
-                            //     }
-                            // },
-
-
-                        }, ],
-                    };
-
-                    var turjagwali = new ApexCharts(document.querySelector("#chartturjagwali"), turjagwali);
-                    turjagwali.render();
-                }
-            })
-        }
-
-
-
-
-
-
-
-
-        // serverSideGet();
 
         function serverSideGet() {
             $("#overlay").fadeIn(300);
@@ -2318,1399 +2790,1463 @@
 
             let countlistNon = 0;
             let listNon = "";
+
+            var dummyGetTracking = [];
+            var jenis = '';
+            var bendera = '';
+
+            var totalDocs = 0;
+            var totalPages = 0;
+
+
+            arrayFilterPetugas = [];
+
+            $("input:checkbox[name=poldaPetugas]:checked").each(function() {
+                arrayFilterPetugas.push($(this).val());
+            });
+
+            $("#overlay").fadeOut(300);
+            // console.log({a:arrayFilterPetugas ,b:arrayFilterPetugas.toString()});
+
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url(); ?>dashboard/getTracking",
                 data: {
-                    "status": '1',
+                    "limit": 500,
+                    "page": 1,
+                    "polda_id": arrayFilterPetugas.toString(),
                 },
                 dataType: "JSON",
-                success: function(result) {
-                    $("#overlay").fadeOut(300);
-                    var dummyGetTracking = result['data'];
-
-                    var jenis = '';
-                    var bendera = '';
-
-
-                    $('#openModalPetugasDisplay').html(`
-                        <div id="overlayMenuDisplay">
-                            <div class="loading">
-                                <div class="spinner" style="margin-left: 55px;margin-bottom: 10px;"></div>
-                                <p style="color: white; font-size: 15px; margin-left: 3px; text-align: center;">Mohon Tunggu </br> Fitur Akan Aktif Segera</p> 
-                            </div>
-                        </div>
-                        <table id="datatablePetugasOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama</th> 
-                                    <th>Delegasi</th> 
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody id="isiModalPetugasDisplay">
-                            </tbody>
-                        </table>                     
-                    `);
-                    $('#totalPetugasDisplay').html(dummyGetTracking.length);
-                    $("#overlayMenuDisplay").fadeIn(300);
-
+                success: function(hasilRes) {
+                    totalDocs = hasilRes['data']['totalDocs'];
+                    totalPages = hasilRes['data']['totalPages'];
 
 
                     if (dummyGetTracking.length > 0) {
-                        var filterDataTidakAktif = dummyGetTracking.filter(function(val) {
-                            return val.status_login == 0;
-                        });
-
-
-                        $('#totalPetugasAktif').html(dummyGetTracking.length - filterDataTidakAktif.length);
-                        $('#totalPetugasTidakAktif').html(filterDataTidakAktif.length);
-
-                        $('#totalPetugasAktifDisplay').html(dummyGetTracking.length - filterDataTidakAktif.length);
-                        $('#totalPetugasTidakAktifDisplay').html(filterDataTidakAktif.length);
-
-
-
-                        $("#gaturDisplay").prop('disabled', true);
-                        $("#r2ListrikDisplay").prop('disabled', true);
-                        $("#r4ListrikDisplay").prop('disabled', true);
-                        $("#r2FosilDisplay").prop('disabled', true);
-                        $("#r4FosilDisplay").prop('disabled', true);
-                        $("#loadGaturDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>PAM ROLAKIR`);
-                        $("#loadR2ListrikDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R2 Listrik`);
-                        $("#loadR4ListrikDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R4 Listrik`);
-                        $("#loadR2FosilDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R2 Fosil`);
-                        $("#loadR4FosilDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R4 Fosil`);
-
-
-                        tablePutugasTrack = `
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackBikeListrik">
-                                    <button id="openPetugasGetTrackBikeListrik" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapsePetugasGetTrackBikeListrik" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackBikeListrik">
-                                        <input checked type="checkbox" id="allPetugasBikeListrik"/>
-                                        Jenis Kendaraan - R2 Listrik &nbsp;<span class="badge bg-info rounded-pill" id="totalPetugasGetTrackBikeListrik"></span>
-                                    </button>
-                                </h2>
-                                <div id="flush-collapsePetugasGetTrackBikeListrik" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackBikeListrik"
-                                    data-bs-parent="#accordionFlushExampleBikeListrik">
-                                    <div class="accordion-body text-muted">
-
-                                        <table id="datatablePetugasGetTrackBikeListrik" class="table dt-responsive w-100">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Nama</th> 
-                                                    <th>Delegasi</th> 
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="listPetugasGetTrackBikeListrik">
-                                            </tbody>
-                                        </table> 
-                                        
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackCarListrik">
-                                    <button id="openPetugasGetTrackCarListrik" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapsePetugasGetTrackCarListrik" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackCarListrik">
-                                        <input checked type="checkbox" id="allPetugasCarListrik"/>
-                                        Jenis Kendaraan - R4 Listrik &nbsp;<span class="badge bg-info rounded-pill" id="totalPetugasGetTrackCarListrik"></span>
-                                    </button>
-                                </h2>
-                                <div id="flush-collapsePetugasGetTrackCarListrik" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackCarListrik"
-                                    data-bs-parent="#accordionFlushExampleCarListrik">
-                                    <div class="accordion-body text-muted">
-
-                                        <table id="datatablePetugasGetTrackCarListrik" class="table dt-responsive w-100">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Nama</th> 
-                                                    <th>Delegasi</th> 
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="listPetugasGetTrackCarListrik">
-                                            </tbody>
-                                        </table> 
-                                        
-                                    </div>
-                                </div>
-                            </div> 
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackBikeFosil">
-                                    <button id="openPetugasGetTrackBikeFosil" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapsePetugasGetTrackBikeFosil" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackBikeFosil">
-                                        <input checked type="checkbox" id="allPetugasBikeFosil"/>
-                                        Jenis Kendaraan - R2 Fosil &nbsp;<span class="badge bg-primary rounded-pill" id="totalPetugasGetTrackBikeFosil"></span>
-                                    </button>
-                                </h2>
-                                <div id="flush-collapsePetugasGetTrackBikeFosil" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackBikeFosil"
-                                    data-bs-parent="#accordionFlushExampleBikeFosil">
-                                    <div class="accordion-body text-muted">
-
-                                        <table id="datatablePetugasGetTrackBikeFosil" class="table dt-responsive w-100">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Nama</th> 
-                                                    <th>Delegasi</th> 
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="listPetugasGetTrackBikeFosil">
-                                            </tbody>
-                                        </table> 
-                                        
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackCarFosil">
-                                    <button id="openPetugasGetTrackCarFosil" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapsePetugasGetTrackCarFosil" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackCarFosil">
-                                        <input checked type="checkbox" id="allPetugasCarFosil"/>
-                                        Jenis Kendaraan - R4 Fosil &nbsp;<span class="badge bg-primary rounded-pill" id="totalPetugasGetTrackCarFosil"></span>
-                                    </button>
-                                </h2>
-                                <div id="flush-collapsePetugasGetTrackCarFosil" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackCarFosil"
-                                    data-bs-parent="#accordionFlushExampleCarFosil">
-                                    <div class="accordion-body text-muted">
-
-                                        <table id="datatablePetugasGetTrackCarFosil" class="table dt-responsive w-100">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Nama</th> 
-                                                    <th>Delegasi</th> 
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="listPetugasGetTrackCarFosil">
-                                            </tbody>
-                                        </table> 
-                                        
-                                    </div>
-                                </div>
-                            </div> 
-                            
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackNon">
-                                    <button id="openPetugasGetTrackNon" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapsePetugasGetTrackNon" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackNon">
-                                        <input checked type="checkbox" id="allPetugasNon"/>
-                                        Petugas PAM ROLAKIR &nbsp;<span class="badge rounded-pill" style="background-color: #800080;" id="totalPetugasGetTrackNon"></span>
-                                    </button>
-                                </h2>
-                                <div id="flush-collapsePetugasGetTrackNon" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackNon"
-                                    data-bs-parent="#accordionFlushExampleNon">
-                                    <div class="accordion-body text-muted">
-
-                                        <table id="datatablePetugasGetTrackNon" class="table dt-responsive w-100">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Nama</th> 
-                                                    <th>Delegasi</th> 
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="listPetugasGetTrackNon">
-                                            </tbody>
-                                        </table> 
-                                        
-                                    </div>
-                                </div>
-                            </div> 
-                        `;
-                        $("#dataPetugasTrack").html(tablePutugasTrack);
-
-
-                        $("#allPetugasCarListrik").prop('disabled', true);
-                        $("#allPetugasBikeListrik").prop('disabled', true);
-                        $("#allPetugasCarFosil").prop('disabled', true);
-                        $("#allPetugasBikeFosil").prop('disabled', true);
-                        $("#allPetugasNon").prop('disabled', true);
-
-
-                        countlist = 0;
-                        list = "";
-                        sortRess = dummyGetTracking.sort((a, b) => a.name_officer + b.name_officer);
-
-                        var filterPetugasCarListrik = sortRess.filter(function(e) {
-                            return e.type_vehicle == 'Mobil' && e.fuel_vehicle == 'Listrik';
-                        });
-                        var filterPetugasBikeListrik = sortRess.filter(function(e) {
-                            return e.type_vehicle == 'Sepeda Motor' && e.fuel_vehicle == 'Listrik';
-                        });
-                        var filterPetugasCarFosil = sortRess.filter(function(e) {
-                            return e.type_vehicle == 'Mobil' && e.fuel_vehicle == 'Fosil';
-                        });
-                        var filterPetugasBikeFosil = sortRess.filter(function(e) {
-                            return e.type_vehicle == 'Sepeda Motor' && e.fuel_vehicle == 'Fosil';
-                        });
-
-
-                        var filterPetugasNon = sortRess.filter(function(e) {
-                            return e.no_vehicle == 'Pengaturan' && e.type_vehicle == 'Tanpa Kendaraan' && e.fuel_vehicle == 'Fosil';
-                        });
-
-
-                        $("#totalPetugasOn").html(`${sortRess.length}`);
-                        $("#totalPetugasGetTrackCarListrik").html(`${filterPetugasCarListrik.length}`);
-                        $("#totalPetugasGetTrackBikeListrik").html(`${filterPetugasBikeListrik.length}`);
-                        $("#totalPetugasGetTrackCarFosil").html(`${filterPetugasCarFosil.length}`);
-                        $("#totalPetugasGetTrackBikeFosil").html(`${filterPetugasBikeFosil.length}`);
-                        $("#totalPetugasGetTrackNon").html(`${filterPetugasNon.length}`);
-
-                        $("#totalPetugasCarListrikDisplay").html(`${filterPetugasCarListrik.length}`);
-                        $("#totalPetugasBikeListrikDisplay").html(`${filterPetugasBikeListrik.length}`);
-                        $("#totalPetugasCarFosilDisplay").html(`${filterPetugasCarFosil.length}`);
-                        $("#totalPetugasBikeFosilDisplay").html(`${filterPetugasBikeFosil.length}`);
-                        $("#totalPetugasNonDisplay").html(`${filterPetugasNon.length}`);
-
-                        // storeEditDayReport
-                        $.ajax({
-                            type: "POST",
-                            url: "<?php echo base_url(); ?>dashboard/storeEditDayReport",
-                            data: {
-                                "t_officer_active": sortRess.length,
-                                "t_officer_active_car": filterPetugasCarListrik.length + filterPetugasCarFosil.length,
-                                "t_officer_active_carListrik": filterPetugasCarListrik.length,
-                                "t_officer_active_carFosil": filterPetugasCarFosil.length,
-                                "t_officer_active_bike": filterPetugasBikeListrik.length + filterPetugasBikeFosil.length,
-                                "t_officer_active_bikeListrik": filterPetugasBikeListrik.length,
-                                "t_officer_active_bikeFosil": filterPetugasBikeFosil.length,
-                                "t_officer_active_not_driving": filterPetugasNon.length,
-                            },
-                            dataType: "JSON",
-                            success: function(result) {
-                                if (result['status'] == true) {
-                                    console.log('update petugas aktif day report');
-                                } else {
-                                    console.log('GAGAL update petugas aktif day report');
-                                }
-                            }
-                        });
-
-                        filterPetugasCarListrik.forEach(el => {
-                            if (el.handphone != null && el.handphone != '0') {
-                                let nomorDepan = el.handphone.substring(0, 2);
-                                if (nomorDepan === "62") {
-                                    el.handphone = el.handphone;
-                                } else if (nomorDepan === "08") {
-                                    el.handphone = "62" + el.handphone.substring(1);
-                                } else if (nomorDepan === "+6") {
-                                    el.handphone = el.handphone.substring(1);
-                                } else {
-                                    el.handphone = el.handphone;
-                                }
-                            } else {
-                                el.handphone = 0;
-                            }
-
-
-
-                            countlistCarListrik += 1;
-                            listCarListrik += `  
-                                <tr>
-                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistCarListrik}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistCarListrik}</span>`}</td>
-                                    <td><a href="<?php echo base_url() ?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
-                                    <td><a href="<?php echo base_url() ?>operasi/Akun" target="_blank"> ${el.name_country ? el.name_country : '-'} </a></td>
-                                    <td> 
-                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
-                                        <div style="display: flex;">
-                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
-                                            <i class="fab fa-telegram"></i>
-                                            </a>
-                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                id="listPetugasClickCarListrik${countlistCarListrik}"  
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}" >
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </button>
-                                            <div class="switch" style="margin-left: -11px;">
-                                                <input class="flag" type="checkbox" id="flagCarListrik${countlistCarListrik}" 
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}"
-                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                <label for="flagCarListrik${countlistCarListrik}"></label>
-                                            </div>
-                                        </div> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#listPetugasGetTrackCarListrik').html(listCarListrik);
-                        });
-
-                        $(`#allPetugasCarListrik`).on('change', function(e) {
-                            if ($(`#allPetugasCarListrik`).is(':checked')) {
-                                $("#r4ListrikDisplay").prop('checked', true);
-                                for (let i = 0; i < countlistCarListrik; i++) {
-                                    if (markerArray[filterPetugasCarListrik[i]['id_officer']] != null) {
-                                        mapContainer.addLayer(markerArray[filterPetugasCarListrik[i]['id_officer']]);
-                                    }
-                                }
-                            } else {
-                                $("#r4ListrikDisplay").prop('checked', false);
-                                for (let i = 0; i < countlistCarListrik; i++) {
-                                    if (markerArray[filterPetugasCarListrik[i]['id_officer']] != null) {
-                                        mapContainer.removeLayer(markerArray[filterPetugasCarListrik[i]['id_officer']]);
-                                    }
-                                }
-                            }
-                        });
-
-                        $("#r4ListrikDisplay").on("change", function(e) {
-                            if ($(this).is(':checked')) {
-                                $("#allPetugasCarListrik").prop('checked', true);
-                                for (let i = 0; i < countlistCarListrik; i++) {
-                                    if (markerArray[filterPetugasCarListrik[i]['id_officer']] != null) {
-                                        mapContainer.addLayer(markerArray[filterPetugasCarListrik[i]['id_officer']]);
-                                    }
-                                }
-                                $("#myModalPetugasDisplay").modal('show');
-                            } else {
-                                $("#allPetugasCarListrik").prop('checked', false);
-                                for (let i = 0; i < countlistCarListrik; i++) {
-                                    if (markerArray[filterPetugasCarListrik[i]['id_officer']] != null) {
-                                        mapContainer.removeLayer(markerArray[filterPetugasCarListrik[i]['id_officer']]);
-                                    }
-                                }
-                            }
-                        });
-
-                        for (let i = 0; i < countlistCarListrik; i++) {
-                            $(`#listPetugasClickCarListrik${i+1}`).click(function() {
-                                // console.log('masuk');
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 20);
-                                markerArray[$(this).data('id')].openPopup();
-                            });
-
-                            $(`#flagCarListrik${i+1}`).on("change", function(e) {
-                                // alert($(this).data('id'));
-                                if ($(`#flagCarListrik${i+1}`).is(':checked')) {
-                                    mapContainer.removeLayer(markerArray[$(this).data('id')]);
-                                    $(`#listPetugasClickCarListrik${i+1}`).hide();
-                                } else {
-                                    mapContainer.addLayer(markerArray[$(this).data('id')]);
-                                    $(`#listPetugasClickCarListrik${i+1}`).show();
-                                }
-                            });
-
-                        }
-                        $('#datatablePetugasGetTrackCarListrik').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-
-
-
-                        filterPetugasBikeListrik.forEach(el => {
-                            if (el.handphone != null && el.handphone != '0') {
-                                let nomorDepan = el.handphone.substring(0, 2);
-                                if (nomorDepan === "62") {
-                                    el.handphone = el.handphone;
-                                } else if (nomorDepan === "08") {
-                                    el.handphone = "62" + el.handphone.substring(1);
-                                } else if (nomorDepan === "+6") {
-                                    el.handphone = el.handphone.substring(1);
-                                } else {
-                                    el.handphone = el.handphone;
-                                }
-                            } else {
-                                el.handphone = 0;
-                            }
-
-
-
-                            countlistBikeListrik += 1;
-                            listBikeListrik += `  
-                                <tr>
-                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistBikeListrik}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistBikeListrik}</span>`}</td>
-                                    <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
-                                    <td> ${el.name_country ? el.name_country : '-'}</td>
-                                    <td> 
-                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
-                                        <div style="display: flex;">
-                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
-                                                <i class="fab fa-telegram"></i>
-                                            </a>
-                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                id="listPetugasClickBikeListrik${countlistBikeListrik}"   
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}" >
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </button>
-                                            <div class="switch" style="margin-left: -11px;">
-                                                <input class="flag" type="checkbox" id="flagBikeListrik${countlistBikeListrik}" 
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}"
-                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                <label for="flagBikeListrik${countlistBikeListrik}"></label>
-                                            </div>
-                                        </div> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#listPetugasGetTrackBikeListrik').html(listBikeListrik);
-                        });
-
-
-
-                        $(`#allPetugasBikeListrik`).on('change', function(e) {
-                            if ($(`#allPetugasBikeListrik`).is(':checked')) {
-                                $("#r2ListrikDisplay").prop('checked', true);
-                                for (let i = 0; i < countlistBikeListrik; i++) {
-                                    if (markerArray[filterPetugasBikeListrik[i]['id_officer']] != null) {
-                                        mapContainer.addLayer(markerArray[filterPetugasBikeListrik[i]['id_officer']]);
-                                    }
-                                }
-                            } else {
-                                $("#r2ListrikDisplay").prop('checked', false);
-                                for (let i = 0; i < countlistBikeListrik; i++) {
-                                    if (markerArray[filterPetugasBikeListrik[i]['id_officer']] != null) {
-                                        mapContainer.removeLayer(markerArray[filterPetugasBikeListrik[i]['id_officer']]);
-                                    }
-                                }
-                            }
-                        });
-
-                        $("#r2ListrikDisplay").on("change", function(e) {
-                            if ($(this).is(':checked')) {
-                                $("#allPetugasBikeListrik").prop('checked', true);
-                                for (let i = 0; i < countlistBikeListrik; i++) {
-                                    if (markerArray[filterPetugasBikeListrik[i]['id_officer']] != null) {
-                                        mapContainer.addLayer(markerArray[filterPetugasBikeListrik[i]['id_officer']]);
-                                    }
-                                }
-                                $("#myModalPetugasDisplay").modal('show');
-                            } else {
-                                $("#allPetugasBikeListrik").prop('checked', false);
-                                for (let i = 0; i < countlistBikeListrik; i++) {
-                                    if (markerArray[filterPetugasBikeListrik[i]['id_officer']] != null) {
-                                        mapContainer.removeLayer(markerArray[filterPetugasBikeListrik[i]['id_officer']]);
-                                    }
-                                }
-                            }
-                        });
-
-                        for (let i = 0; i < countlistBikeListrik; i++) {
-                            $(`#listPetugasClickBikeListrik${i+1}`).click(function() {
-                                // console.log($(this).data('id'));
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 20);
-                                markerArray[$(this).data('id')].openPopup();
-                            });
-
-                            $(`#flagBikeListrik${i+1}`).on("change", function(e) {
-                                // alert($(this).data('id'));
-                                if ($(`#flagBikeListrik${i+1}`).is(':checked')) {
-                                    mapContainer.removeLayer(markerArray[$(this).data('id')]);
-                                    $(`#listPetugasClickBikeListrik${i+1}`).hide();
-                                } else {
-                                    mapContainer.addLayer(markerArray[$(this).data('id')]);
-                                    $(`#listPetugasClickBikeListrik${i+1}`).show();
-                                }
-                            });
-
-                        }
-                        $('#datatablePetugasGetTrackBikeListrik').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-
-
-
-                        filterPetugasCarFosil.forEach(el => {
-                            if (el.handphone != null && el.handphone != '0') {
-                                let nomorDepan = el.handphone.substring(0, 2);
-                                if (nomorDepan === "62") {
-                                    el.handphone = el.handphone;
-                                } else if (nomorDepan === "08") {
-                                    el.handphone = "62" + el.handphone.substring(1);
-                                } else if (nomorDepan === "+6") {
-                                    el.handphone = el.handphone.substring(1);
-                                } else {
-                                    el.handphone = el.handphone;
-                                }
-                            } else {
-                                el.handphone = 0;
-                            }
-
-
-
-                            countlistCarFosil += 1;
-                            listCarFosil += `  
-                                <tr>
-                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistCarFosil}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistCarFosil}</span>`}</td>
-                                    <td><a href="<?php echo base_url() ?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
-                                    <td><a href="<?php echo base_url() ?>operasi/Akun" target="_blank"> ${el.name_country ? el.name_country : '-'} </a></td>
-                                    <td> 
-                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
-                                        <div style="display: flex;">
-                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
-                                            <i class="fab fa-telegram"></i>
-                                            </a>
-                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                id="listPetugasClickCarFosil${countlistCarFosil}"  
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}" >
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </button>
-                                            <div class="switch" style="margin-left: -11px;">
-                                                <input class="flag" type="checkbox" id="flagCarFosil${countlistCarFosil}" 
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}"
-                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                <label for="flagCarFosil${countlistCarFosil}"></label>
-                                            </div>
-                                        </div> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#listPetugasGetTrackCarFosil').html(listCarFosil);
-                        });
-
-                        $(`#allPetugasCarFosil`).on('change', function(e) {
-                            if ($(`#allPetugasCarFosil`).is(':checked')) {
-                                $("#r4FosilDisplay").prop('checked', true);
-                                for (let i = 0; i < countlistCarFosil; i++) {
-                                    if (markerArray[filterPetugasCarFosil[i]['id_officer']] != null) {
-                                        mapContainer.addLayer(markerArray[filterPetugasCarFosil[i]['id_officer']]);
-                                    }
-                                }
-                            } else {
-                                $("#r4FosilDisplay").prop('checked', false);
-                                for (let i = 0; i < countlistCarFosil; i++) {
-                                    if (markerArray[filterPetugasCarFosil[i]['id_officer']] != null) {
-                                        mapContainer.removeLayer(markerArray[filterPetugasCarFosil[i]['id_officer']]);
-                                    }
-                                }
-                            }
-                        });
-
-                        $("#r4FosilDisplay").on("change", function(e) {
-                            if ($(this).is(':checked')) {
-                                $("#allPetugasCarFosil").prop('checked', true);
-                                for (let i = 0; i < countlistCarFosil; i++) {
-                                    if (markerArray[filterPetugasCarFosil[i]['id_officer']] != null) {
-                                        mapContainer.addLayer(markerArray[filterPetugasCarFosil[i]['id_officer']]);
-                                    }
-                                }
-                                $("#myModalPetugasDisplay").modal('show');
-                            } else {
-                                $("#allPetugasCarFosil").prop('checked', false);
-                                for (let i = 0; i < countlistCarFosil; i++) {
-                                    if (markerArray[filterPetugasCarFosil[i]['id_officer']] != null) {
-                                        mapContainer.removeLayer(markerArray[filterPetugasCarFosil[i]['id_officer']]);
-                                    }
-                                }
-                            }
-                        });
-
-                        for (let i = 0; i < countlistCarFosil; i++) {
-                            $(`#listPetugasClickCarFosil${i+1}`).click(function() {
-                                // console.log('masuk');
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 20);
-                                markerArray[$(this).data('id')].openPopup();
-                            });
-
-                            $(`#flagCarFosil${i+1}`).on("change", function(e) {
-                                // alert($(this).data('id'));
-                                if ($(`#flagCarFosil${i+1}`).is(':checked')) {
-                                    mapContainer.removeLayer(markerArray[$(this).data('id')]);
-                                    $(`#listPetugasClickCarFosil${i+1}`).hide();
-                                } else {
-                                    mapContainer.addLayer(markerArray[$(this).data('id')]);
-                                    $(`#listPetugasClickCarFosil${i+1}`).show();
-                                }
-                            });
-
-                        }
-                        $('#datatablePetugasGetTrackCarFosil').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-
-
-
-                        filterPetugasBikeFosil.forEach(el => {
-                            if (el.handphone != null && el.handphone != '0') {
-                                let nomorDepan = el.handphone.substring(0, 2);
-                                if (nomorDepan === "62") {
-                                    el.handphone = el.handphone;
-                                } else if (nomorDepan === "08") {
-                                    el.handphone = "62" + el.handphone.substring(1);
-                                } else if (nomorDepan === "+6") {
-                                    el.handphone = el.handphone.substring(1);
-                                } else {
-                                    el.handphone = el.handphone;
-                                }
-                            } else {
-                                el.handphone = 0;
-                            }
-
-
-
-                            countlistBikeFosil += 1;
-                            listBikeFosil += `  
-                                <tr>
-                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistBikeFosil}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistBikeFosil}</span>`}</td>
-                                    <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
-                                    <td> ${el.name_country ? el.name_country : '-'}</td>
-                                    <td> 
-                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
-                                        <div style="display: flex;">
-                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
-                                                <i class="fab fa-telegram"></i>
-                                            </a>
-                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                id="listPetugasClickBikeFosil${countlistBikeFosil}"   
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}" >
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </button>
-                                            <div class="switch" style="margin-left: -11px;">
-                                                <input class="flag" type="checkbox" id="flagBikeFosil${countlistBikeFosil}" 
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}"
-                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                <label for="flagBikeFosil${countlistBikeFosil}"></label>
-                                            </div>
-                                        </div> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#listPetugasGetTrackBikeFosil').html(listBikeFosil);
-                        });
-
-
-
-                        $(`#allPetugasBikeFosil`).on('change', function(e) {
-                            if ($(`#allPetugasBikeFosil`).is(':checked')) {
-                                $("#r2FosilDisplay").prop('checked', true);
-                                for (let i = 0; i < countlistBikeFosil; i++) {
-                                    if (markerArray[filterPetugasBikeFosil[i]['id_officer']] != null) {
-                                        mapContainer.addLayer(markerArray[filterPetugasBikeFosil[i]['id_officer']]);
-                                    }
-                                }
-                            } else {
-                                $("#r2FosilDisplay").prop('checked', false);
-                                for (let i = 0; i < countlistBikeFosil; i++) {
-                                    if (markerArray[filterPetugasBikeFosil[i]['id_officer']] != null) {
-                                        mapContainer.removeLayer(markerArray[filterPetugasBikeFosil[i]['id_officer']]);
-                                    }
-                                }
-                            }
-                        });
-
-                        $("#r2FosilDisplay").on("change", function(e) {
-                            if ($(this).is(':checked')) {
-                                $("#allPetugasBikeFosil").prop('checked', true);
-                                for (let i = 0; i < countlistBikeFosil; i++) {
-                                    if (markerArray[filterPetugasBikeFosil[i]['id_officer']] != null) {
-                                        mapContainer.addLayer(markerArray[filterPetugasBikeFosil[i]['id_officer']]);
-                                    }
-                                }
-                                $("#myModalPetugasDisplay").modal('show');
-                            } else {
-                                $("#allPetugasBikeFosil").prop('checked', false);
-                                for (let i = 0; i < countlistBikeFosil; i++) {
-                                    if (markerArray[filterPetugasBikeFosil[i]['id_officer']] != null) {
-                                        mapContainer.removeLayer(markerArray[filterPetugasBikeFosil[i]['id_officer']]);
-                                    }
-                                }
-                            }
-                        });
-
-                        for (let i = 0; i < countlistBikeFosil; i++) {
-                            $(`#listPetugasClickBikeFosil${i+1}`).click(function() {
-                                // console.log($(this).data('id'));
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 20);
-                                markerArray[$(this).data('id')].openPopup();
-                            });
-
-                            $(`#flagBikeFosil${i+1}`).on("change", function(e) {
-                                // alert($(this).data('id'));
-                                if ($(`#flagBikeFosil${i+1}`).is(':checked')) {
-                                    mapContainer.removeLayer(markerArray[$(this).data('id')]);
-                                    $(`#listPetugasClickBikeFosil${i+1}`).hide();
-                                } else {
-                                    mapContainer.addLayer(markerArray[$(this).data('id')]);
-                                    $(`#listPetugasClickBikeFosil${i+1}`).show();
-                                }
-                            });
-
-                        }
-                        $('#datatablePetugasGetTrackBikeFosil').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-
-
-                        filterPetugasNon.forEach(el => {
-                            if (el.handphone != null) {
-                                let nomorDepan = el.handphone.substring(0, 2);
-                                if (nomorDepan === "62") {
-                                    el.handphone = el.handphone;
-                                } else if (nomorDepan === "08") {
-                                    el.handphone = "62" + el.handphone.substring(1);
-                                } else if (nomorDepan === "+6") {
-                                    el.handphone = el.handphone.substring(1);
-                                } else {
-                                    el.handphone = el.handphone;
-                                }
-                            } else {
-                                el.handphone = 0;
-                            }
-
-                            countlistNon += 1;
-                            listNon += `  
-                                <tr>
-                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistNon}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistNon}</span>`}</td>
-                                    <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
-                                    <td> ${el.name_country ? el.name_country : '-'}</td>
-                                    <td> 
-                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
-                                        <div style="display: flex;">
-                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
-                                            <i class="fab fa-telegram"></i>
-                                            </a>
-                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                id="listPetugasClickNon${countlistNon}"  
-                                                data-id="${el.id_officer}"   
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}" >
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </button>
-                                            <div class="switch" style="margin-left: -11px;">
-                                                <input class="flag" type="checkbox" id="flagNon${countlistNon}" 
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}"
-                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                <label for="flagNon${countlistNon}"></label>
-                                            </div>
-                                        </div> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#listPetugasGetTrackNon').html(listNon);
-                        });
-                        $(`#allPetugasNon`).on('change', function(e) {
-                            if ($(`#allPetugasNon`).is(':checked')) {
-                                $("#gaturDisplay").prop('checked', true);
-                                for (let i = 0; i < countlistNon; i++) {
-                                    if (markerArray[filterPetugasNon[i]['id_officer']] != null) {
-                                        mapContainer.addLayer(markerArray[filterPetugasNon[i]['id_officer']]);
-                                    }
-                                }
-                            } else {
-                                $("#gaturDisplay").prop('checked', false);
-                                for (let i = 0; i < countlistNon; i++) {
-                                    if (markerArray[filterPetugasNon[i]['id_officer']] != null) {
-                                        mapContainer.removeLayer(markerArray[filterPetugasNon[i]['id_officer']]);
-                                    }
-                                }
-                            }
-                        });
-                        $("#gaturDisplay").on("change", function(e) {
-                            if ($(this).is(':checked')) {
-                                $("#allPetugasNon").prop('checked', true);
-                                for (let i = 0; i < countlistNon; i++) {
-                                    if (markerArray[filterPetugasNon[i]['id_officer']] != null) {
-                                        mapContainer.addLayer(markerArray[filterPetugasNon[i]['id_officer']]);
-                                    }
-                                }
-                                $("#myModalPetugasDisplay").modal('show');
-                            } else {
-                                $("#allPetugasNon").prop('checked', false);
-                                for (let i = 0; i < countlistNon; i++) {
-                                    if (markerArray[filterPetugasNon[i]['id_officer']] != null) {
-                                        mapContainer.removeLayer(markerArray[filterPetugasNon[i]['id_officer']]);
-                                    }
-                                }
-                            }
-                        });
                         for (let i = 0; i < countlistNon; i++) {
-                            $(`#listPetugasClickNon${i+1}`).click(function() {
-                                // console.log('masuk');
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 20);
-                                markerArray[$(this).data('id')].openPopup();
-                            });
-
-                            $(`#flagNon${i+1}`).on("change", function(e) {
-                                // alert($(this).data('id'));
-                                if ($(`#flagNon${i+1}`).is(':checked')) {
-                                    mapContainer.removeLayer(markerArray[$(this).data('id')]);
-                                    $(`#listPetugasClickNon${i+1}`).hide();
-                                } else {
-                                    mapContainer.addLayer(markerArray[$(this).data('id')]);
-                                    $(`#listPetugasClickNon${i+1}`).show();
-                                }
-                            });
-
-                        }
-                        $('#datatablePetugasGetTrackNon').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-
-
-
-
-
-
-
-
-
-
-                        for (let i = 0; i < dummyGetTracking.length; i++) {
-                            setTimeout(() => {
-
-
-                                var cordLat = parseFloat(dummyGetTracking[i].latitude);
-                                var corLong = parseFloat(dummyGetTracking[i].longitude);
-
-                                if (dummyGetTracking[i].bawa_penumpang == 1) {
-                                    // iconflagVip = `<img src="${dummyGetTracking[i].photo_country != '-' ? dummyGetTracking[i].photo_country : '<?php echo base_url(); ?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;">
-                                    //     <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
-                                    //         <span class="badge rounded-pill" style="background-color: black; color: white;">${dummyGetTracking[i].name_country}</span>
-                                    //     </div>`;  
-                                    iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
-                                } else {
-                                    iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
-                                }
-
-                                jenis = '';
-                                if (dummyGetTracking[i].type_vehicle == 'Sepeda Motor' && dummyGetTracking[i].fuel_vehicle == "Fosil") {
-
-                                    jenis = `
-                                        <div>
-                                            <div style="position: relative;">
-                                                ${iconflagVip}
-                                                <img src="<?php echo base_url(); ?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                            </div>
-                                            <div style="position: absolute;margin-top: -29px;">
-                                                <span class="badge rounded-pill bg-primary">${dummyGetTracking[i].name_officer}</span>
-                                            </div>
-                                        </div>`;
-                                } else if (dummyGetTracking[i].type_vehicle == 'Mobil' && dummyGetTracking[i].fuel_vehicle == "Fosil") {
-                                    jenis = `
-                                    <div>
-                                        <div style="position: relative;">
-                                            ${iconflagVip}
-                                            <img src="<?php echo base_url(); ?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                        </div>
-                                        <div style="position: absolute;margin-top: -29px;">
-                                            <span class="badge rounded-pill bg-primary">${dummyGetTracking[i].name_officer}</span>
-                                        </div>
-                                    </div>`;
-                                } else if (dummyGetTracking[i].type_vehicle == 'Sepeda Motor' && dummyGetTracking[i].fuel_vehicle == "Listrik") {
-                                    jenis = `
-                                    <div>
-                                        <div>
-                                            ${iconflagVip}
-                                            <img src="<?php echo base_url(); ?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                        </div>
-                                        <div style="margin-top: -30px;">
-                                            <span class="badge rounded-pill" style="background-color: #169fda">${dummyGetTracking[i].name_officer}</span>
-                                        </div>
-                                    </div>`;
-                                } else if (dummyGetTracking[i].type_vehicle == 'Mobil' && dummyGetTracking[i].fuel_vehicle == "Listrik") {
-                                    jenis = `
-                                    <div>
-                                        <div>
-                                            ${iconflagVip}
-                                            <img src="<?php echo base_url(); ?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                        </div>
-                                        <div style="margin-top: -30px;">
-                                            <span class="badge rounded-pill" style="background-color: #169fda">${dummyGetTracking[i].name_officer}</span>
-                                        </div>
-                                    </div>`;
-                                } else {
-
-                                    jenis = `
-                                    <div>
-                                        <div style="position: relative;">
-                                            <img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                        </div> 
-                                        <div style="position: absolute;margin-top: -29px;">
-                                            <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${dummyGetTracking[i].name_officer}</span>
-                                        </div>
-                                    </div>`;
-                                }
-
-                                if (dummyGetTracking[i].photo_officer || dummyGetTracking[i].photo_officer != null) {
-                                    fotoPetugas = `<img src="<?php echo url_api(); ?>officer/${dummyGetTracking[i].photo_officer}" alt="" class="img-fluid rounded-circle d-block  float-center">`;
-                                } else {
-                                    fotoPetugas = `<img src="<?php echo base_url(); ?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
-                                }
-
-                                if (dummyGetTracking[i].name_country || dummyGetTracking[i].name_country != '-' || dummyGetTracking[i].name_country != null) {
-                                    bendera = `${dummyGetTracking[i].name_country}`;
-                                } else {
-                                    bendera = `-`;
-                                }
-
-                                if (dummyGetTracking[i].photo_country || dummyGetTracking[i].photo_country != '-' || dummyGetTracking[i].photo_country != null) {
-                                    fotoBendera = `<img src="${dummyGetTracking[i].photo_country}" alt="" style="width: 20%;margin-bottom: 10px;">`;
-                                } else {
-                                    fotoBendera = ``;
-                                }
-
-
-
-                                // if(dummyGetTracking[i].status_login == 1){
-                                if (markerArray[dummyGetTracking[i].id_officer] != null) {
-                                    var fotoPetugas = "";
-
-                                    markerArray[dummyGetTracking[i].id_officer].remove();
-                                    markerArray[dummyGetTracking[i].id_officer] = L.marker([dummyGetTracking[i].latitude, dummyGetTracking[i].longitude], {
-                                        renderer: myRenderer,
-                                        icon: L.divIcon({
-                                            //   className: 'location-pin',
-                                            html: jenis,
-                                            iconSize: [5, 5],
-                                            iconAnchor: [5, 10]
-                                            // iconAnchor: [10, 33]
-                                        })
-                                    }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;"> 
-                                                <div class="row mt-3"> 
-                                                    <div class="col-md-12">
-                                                        ${fotoBendera}
-                                                    </div>
-                                                    ${call_wa_dan_biasa(dummyGetTracking[i].handphone, dummyGetTracking[i].id_officer, 'no-encrypt')}
-                                                </div>
-                    
-                    
-                                                    <div class="row text-start mt-3">
-                                                        <div class="col-md-4">
-                                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            :
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            <span style="font-size: 12px;">${dummyGetTracking[i].rank_officer} - ${dummyGetTracking[i].name_officer}</span>
-                                                        </div> 
-                
-                                                        <div class="col-md-4">
-                                                            <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            :
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            <span style="font-size: 12px;">${dummyGetTracking[i].pam_officer != null ? dummyGetTracking[i].pam_officer : '-'}</span>
-                                                        </div> 
-                                                        <div class="col-md-4">
-                                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            :
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            <span style="font-size: 12px;">${bendera}</span>
-                                                        </div> 
-                
-                                                        <div class="col-md-4">
-                                                            <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            :
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            ${dummyGetTracking[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                                        </div> 
-                        
-                                                        <div class="col-md-12 text-center  mt-3">
-                                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                                            <p style="font-size: 12px;" id="lokasiMarker${dummyGetTracking[i].id_officer}"></p>
-                                                        </div> 
-                                                    </div>  
-                                                
-                                            </div>
-                                        `).addTo(mapContainer).on('click', function(e) {
-                                        // console.log(e.latlng);
-                                        $.ajax({
-                                            type: "POST",
-                                            url: "<?php echo base_url(); ?>dashboard/getAddres",
-                                            data: {
-                                                "lat": e.latlng['lat'],
-                                                "lng": e.latlng['lng'],
-                                            },
-                                            dataType: "JSON",
-                                            success: function(result) {
-                                                // console.log(result['responseMessage']);
-                                                $(`#lokasiMarker${dummyGetTracking[i].id_officer}`).html(`${result['responseMessage']}`);
-                                            }
-                                        });
-                                    });
-                                } else {
-                                    markerArray[dummyGetTracking[i].id_officer] = L.marker([dummyGetTracking[i].latitude, dummyGetTracking[i].longitude], {
-                                        renderer: myRenderer,
-                                        icon: L.divIcon({
-                                            // className: 'location-pin',
-                                            html: jenis,
-                                            iconSize: [5, 5],
-                                            iconAnchor: [5, 10]
-                                            // iconAnchor: [10, 33]
-                                        })
-                                    }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;"> 
-                                                <div class="row mt-3"> 
-                                                    <div class="col-md-12">
-                                                        ${fotoBendera}
-                                                    </div>
-                                                    ${call_wa_dan_biasa(dummyGetTracking[i].handphone, dummyGetTracking[i].id_officer, 'no-encrypt')}
-                                                </div>
-
-                                                
-                                                <div class="row text-start mt-3">
-                                                    <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        :
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <span style="font-size: 12px;">${dummyGetTracking[i].rank_officer} - ${dummyGetTracking[i].name_officer}</span>
-                                                    </div>  
-                                                
-                                                    <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                                    </div> 
-                                                    <div class="col-md-1">
-                                                        :
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <span style="font-size: 12px;">${dummyGetTracking[i].pam_officer != null ? dummyGetTracking[i].pam_officer : '-'}</span>
-                                                    </div>  
-                                                    <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                                    </div> 
-                                                    <div class="col-md-1">
-                                                        :
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <span style="font-size: 12px;">${bendera}</span>
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        :
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                    ${dummyGetTracking[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                                    </div> 
-
-                                                    <div class="col-md-12 text-center  mt-3">
-                                                        <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                                        <p style="font-size: 12px;" id="lokasiMarker${dummyGetTracking[i].id_officer}"></p>
-                                                    </div> 
-                                                </div> 
-                                                
-                                            </div>
-                                        `).addTo(mapContainer).on('click', function(e) {
-                                        // console.log(e.latlng);
-                                        $.ajax({
-                                            type: "POST",
-                                            url: "<?php echo base_url(); ?>dashboard/getAddres",
-                                            data: {
-                                                "lat": e.latlng['lat'],
-                                                "lng": e.latlng['lng'],
-                                            },
-                                            dataType: "JSON",
-                                            success: function(result) {
-                                                // console.log(result['responseMessage']);
-                                                $(`#lokasiMarker${dummyGetTracking[i].id_officer}`).html(`${result['responseMessage']}`);
-                                            }
-                                        });
-                                    });
-                                }
-                                // }
-
-
-
-                                var iniNomor;
-                                if (dummyGetTracking[i].handphone != null && dummyGetTracking[i].handphone != '0') {
-                                    let nomorDepan1 = dummyGetTracking[i].handphone.substring(0, 2);
-                                    if (nomorDepan1 === "62") {
-                                        iniNomor = dummyGetTracking[i].handphone;
-                                    } else if (nomorDepan1 === "08") {
-                                        iniNomor = "62" + dummyGetTracking[i].handphone.substring(1);
-                                    } else if (nomorDepan1 === "+6") {
-                                        iniNomor = dummyGetTracking[i].handphone.substring(1);
-                                    } else {
-                                        iniNomor = dummyGetTracking[i].handphone;
-                                    }
-                                } else {
-                                    iniNomor = 0;
-                                }
-
-                                countlistDisplay += 1;
-                                listDisplay += `  
-                                    <tr>
-                                        <td> ${dummyGetTracking[i].status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistDisplay}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistDisplay}</span>`} </td>
-                                        <td><a href="<?php echo base_url() ?>operasi/Petugas" target="_blank">${dummyGetTracking[i].rank_officer ? dummyGetTracking[i].rank_officer : '' } - ${dummyGetTracking[i].name_officer}</a></td>
-                                        <td><a href="<?php echo base_url() ?>operasi/Akun" target="_blank"> ${dummyGetTracking[i].name_country ? dummyGetTracking[i].name_country : '-'} </a></td>
-                                        <td> 
-                                            ${dummyGetTracking[i].status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
-                                            <div style="display: flex;">
-                                                <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${iniNomor}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                                <a href="https://t.me/+${iniNomor}" target="_blank" style="margin-right: 10px;font-size: 17px;">
-                                                <i class="fab fa-telegram"></i>
-                                                </a>
-                                                <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${dummyGetTracking[i].id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                                <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                    id="listPetugasClickDisplay${countlistDisplay}"   
-                                                    data-id="${dummyGetTracking[i].id_officer}"
-                                                    data-nama="${dummyGetTracking[i].name_team}"  
-                                                    data-akun="${dummyGetTracking[i].name_account}" 
-                                                    data-nrp="${dummyGetTracking[i].nrp_user}"
-                                                    data-telp="${iniNomor}"
-                                                    data-cord="${dummyGetTracking[i].latitude},${dummyGetTracking[i].longitude}" >
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </button>
-                                                <div class="switch" style="margin-left: -11px;">
-                                                    <input class="flag" type="checkbox" id="flagDisplay${countlistDisplay}" 
-                                                    data-id="${dummyGetTracking[i].id_officer}"  
-                                                    data-nama="${dummyGetTracking[i].name_team}"  
-                                                    data-akun="${dummyGetTracking[i].name_account}" 
-                                                    data-nrp="${dummyGetTracking[i].nrp_user}"
-                                                    data-telp="${iniNomor}"
-                                                    data-cord="${dummyGetTracking[i].latitude},${dummyGetTracking[i].longitude}"
-                                                    data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                    <label for="flagDisplay${countlistDisplay}"></label>
-                                                </div>
-                                            </div> 
-                                        </td>
-                                    </tr>
-                                `;
-                                $('#isiModalPetugasDisplay').html(listDisplay);
-                            }, i * 500);
-                        }
-
-
-
-
-
-                        setTimeout(() => {
-
-                            for (let i = 0; i < dummyGetTracking.length; i++) {
-
-                                $(`#listPetugasClickDisplay${i+1}`).click(function() {
-                                    // console.log('masuk');
-                                    var latlong = $(this).data('cord').split(',');
-                                    var latitude = parseFloat(latlong[0]);
-                                    var longitude = parseFloat(latlong[1]);
-                                    mapContainer.flyTo([latitude, longitude], 20);
-                                    markerArray[$(this).data('id')].openPopup();
-                                });
-
-                                $(`#flagDisplay${i+1}`).on("change", function(e) {
-                                    // alert($(this).data('id'));
-                                    if ($(`#flagDisplay${i+1}`).is(':checked')) {
-                                        mapContainer.removeLayer(markerArray[$(this).data('id')]);
-                                        $(`#listPetugasClickDisplay${i+1}`).hide();
-                                    } else {
-                                        mapContainer.addLayer(markerArray[$(this).data('id')]);
-                                        $(`#listPetugasClickDisplay${i+1}`).show();
-                                    }
-                                });
-
+                            if (markerArray[dummyGetTracking[i].id_officer] != null) {
+                                mapContainer.addLayer(markerArray[dummyGetTracking[i].id_officer]);
                             }
-                            $('#datatablePetugasOnDisplay').DataTable({
-                                responsive: true,
-
-                                scrollX: true,
-
-                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                                buttons: ["excel", "csv", "pdf"],
-                                processing: true,
-                                oLanguage: {
-                                    sSearch: 'Search:'
-                                },
-                            });
-
-
-                            $("#gaturDisplay").prop('disabled', false);
-                            $("#r2ListrikDisplay").prop('disabled', false);
-                            $("#r4ListrikDisplay").prop('disabled', false);
-                            $("#r2FosilDisplay").prop('disabled', false);
-                            $("#r4FosilDisplay").prop('disabled', false);
-                            $("#loadGaturDisplay").html(`PAM ROLAKIR`);
-                            $("#loadR2ListrikDisplay").html(`R2 Listrik`);
-                            $("#loadR4ListrikDisplay").html(`R4 Listrik`);
-                            $("#loadR2FosilDisplay").html(`R2 Fosil`);
-                            $("#loadR4FosilDisplay").html(`R4 Fosil`);
-
-                            $("#overlayMenuDisplay").fadeOut(300);
-
-
-                            $("#allPetugasCarListrik").prop('disabled', false);
-                            $("#allPetugasBikeListrik").prop('disabled', false);
-                            $("#allPetugasCarFosil").prop('disabled', false);
-                            $("#allPetugasBikeFosil").prop('disabled', false);
-                            $("#allPetugasNon").prop('disabled', false);
-
-
-
-                            // Swal.fire(
-                            //     `Fitur Sudah Dapat Di Gunakan`,
-                            //     'Terimakasih sudah Menunggu',
-                            //     'success'
-                            // ).then(function() {
-
-                            // });
-                        }, dummyGetTracking.length * 500);
-                        $("#overlay").fadeOut(300);
-
-                    } else {
-                        $("#overlay").fadeOut(300);
+                        }
                     }
-                },
-                error: function() {
-                    $("#overlay").fadeOut(300);
-                    console.log("gagal connect Tracking");
+
+
+
+                    // LOAD LOOPING PERPAGE GETTRACKING 
+                    for (let ix = 0; ix < totalPages + 1; ix++) {
+                        setTimeout(() => {
+                            console.log({
+                                a: `looping detik ${ix * 100000}`,
+                                b: totalDocs
+                            });
+                            $.ajax({
+                                type: "POST",
+                                url: "<?php echo base_url(); ?>dashboard/getTracking",
+                                data: {
+                                    "limit": 500,
+                                    "page": ix + 1,
+                                    "polda_id": arrayFilterPetugas.toString(),
+                                },
+                                dataType: "JSON",
+                                success: function(result) {
+                                    // console.log({a:'data TRACKING' b:result});
+                                    $("#overlay").fadeOut(300);
+
+                                    if (result['data']['docs'].length > 0) {
+                                        result['data']['docs'].forEach(el => {
+                                            dummyGetTracking.push(el);
+                                        });
+
+                                        jenis = '';
+                                        bendera = '';
+                                        $('#openModalPetugasDisplay').html(`
+                                            <div id="overlayMenuDisplay">
+                                                <div class="loading">
+                                                    <div class="spinner" style="margin-left: 55px;margin-bottom: 10px;"></div>
+                                                    <p style="color: white; font-size: 15px; margin-left: 3px; text-align: center;">Mohon Tunggu </br> Fitur Akan Aktif Segera </br></br> <button class="btn btn-success btn-rounded waves-effect" id="refreshPetugasFungsi">Selesai</button></p> 
+                                                </div>
+                                            </div>
+                                            <table id="datatablePetugasOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Nama</th> 
+                                                        
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="isiModalPetugasDisplay">
+                                                </tbody>
+                                            </table>                     
+                                        `);
+                                        $('#totalPetugasDisplay').html(totalDocs);
+                                        $("#overlayMenuDisplay").fadeIn(300);
+                                        $('#refreshPetugasFungsi').hide();
+
+
+                                        if (dummyGetTracking.length > 0) {
+
+                                            var latBounds = [-300, -1];
+                                            var lngBounds = [30, 200];
+                                            for (let i = 0; i < dummyGetTracking.length; i++) {
+                                                setTimeout(() => {
+
+
+                                                    var cordLat = parseFloat(dummyGetTracking[i].latitude);
+                                                    var corLong = parseFloat(dummyGetTracking[i].longitude);
+
+                                                    if (dummyGetTracking[i].bawa_penumpang == 1) {
+                                                        // iconflagVip = `<img src="${dummyGetTracking[i].photo_country != '-' ? dummyGetTracking[i].photo_country : '<?php echo base_url(); ?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;">
+                                                        //     <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
+                                                        //         <span class="badge rounded-pill" style="background-color: black; color: white;">${dummyGetTracking[i].name_country}</span>
+                                                        //     </div>`;  
+                                                        iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
+                                                    } else {
+                                                        iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
+                                                    }
+
+                                                    jenis = '';
+                                                    if (dummyGetTracking[i].type_vehicle == 'Sepeda Motor' && dummyGetTracking[i].fuel_vehicle == "Fosil") {
+
+                                                        jenis = `
+                                                            <div>
+                                                                <div style="position: relative;">
+                                                                    ${iconflagVip}
+                                                                    <img src="<?php echo base_url(); ?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                                                </div>
+                                                                <div style="position: absolute;margin-top: -29px;">
+                                                                    <span class="badge rounded-pill bg-primary">${dummyGetTracking[i].name_officer}</span>
+                                                                </div>
+                                                            </div>`;
+                                                    } else if (dummyGetTracking[i].type_vehicle == 'Mobil' && dummyGetTracking[i].fuel_vehicle == "Fosil") {
+                                                        jenis = `
+                                                        <div>
+                                                            <div style="position: relative;">
+                                                                ${iconflagVip}
+                                                                <img src="<?php echo base_url(); ?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                                            </div>
+                                                            <div style="position: absolute;margin-top: -29px;">
+                                                                <span class="badge rounded-pill bg-primary">${dummyGetTracking[i].name_officer}</span>
+                                                            </div>
+                                                        </div>`;
+                                                    } else if (dummyGetTracking[i].type_vehicle == 'Sepeda Motor' && dummyGetTracking[i].fuel_vehicle == "Listrik") {
+                                                        jenis = `
+                                                        <div>
+                                                            <div>
+                                                                ${iconflagVip}
+                                                                <img src="<?php echo base_url(); ?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                                            </div>
+                                                            <div style="margin-top: -30px;">
+                                                                <span class="badge rounded-pill" style="background-color: #169fda">${dummyGetTracking[i].name_officer}</span>
+                                                            </div>
+                                                        </div>`;
+                                                    } else if (dummyGetTracking[i].type_vehicle == 'Mobil' && dummyGetTracking[i].fuel_vehicle == "Listrik") {
+                                                        jenis = `
+                                                        <div>
+                                                            <div>
+                                                                ${iconflagVip}
+                                                                <img src="<?php echo base_url(); ?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                                            </div>
+                                                            <div style="margin-top: -30px;">
+                                                                <span class="badge rounded-pill" style="background-color: #169fda">${dummyGetTracking[i].name_officer}</span>
+                                                            </div>
+                                                        </div>`;
+                                                    } else {
+
+                                                        jenis = `
+                                                        <div>
+                                                            <div style="position: relative;">
+                                                                <img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                                            </div> 
+                                                            <div style="position: absolute;margin-top: -29px;">
+                                                                <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${dummyGetTracking[i].name_officer}</span>
+                                                            </div>
+                                                        </div>`;
+                                                    }
+
+                                                    if (dummyGetTracking[i].photo_officer || dummyGetTracking[i].photo_officer != null) {
+                                                        fotoPetugas = `<img src="<?php echo url_api(); ?>officer/${dummyGetTracking[i].photo_officer}" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+                                                    } else {
+                                                        fotoPetugas = `<img src="<?php echo base_url(); ?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+                                                    }
+
+                                                    if (dummyGetTracking[i].name_country || dummyGetTracking[i].name_country != '-' || dummyGetTracking[i].name_country != null) {
+                                                        bendera = `${dummyGetTracking[i].name_country}`;
+                                                    } else {
+                                                        bendera = `-`;
+                                                    }
+
+                                                    if (dummyGetTracking[i].photo_country || dummyGetTracking[i].photo_country != '-' || dummyGetTracking[i].photo_country != null) {
+                                                        fotoBendera = `<img src="${dummyGetTracking[i].photo_country}" alt="" style="width: 20%;margin-bottom: 10px;">`;
+                                                    } else {
+                                                        fotoBendera = ``;
+                                                    }
+
+
+                                                    // var Rlat = Math.random() * (latBounds[1] - latBounds[0] + 1) + latBounds[0];
+                                                    // var Rlng = Math.random() * (lngBounds[1] - lngBounds[0] + 1) + lngBounds[0];
+                                                    // if(dummyGetTracking[i].status_login == 1){
+                                                    if (markerArray[dummyGetTracking[i].id_officer] != null) {
+                                                        var fotoPetugas = "";
+
+                                                        markerArray[dummyGetTracking[i].id_officer].remove();
+                                                        markerArray[dummyGetTracking[i].id_officer] = L.marker([cordLat, corLong], {
+                                                            renderer: myRenderer,
+                                                            icon: L.divIcon({
+                                                                //   className: 'location-pin',
+                                                                html: jenis,
+                                                                iconSize: [5, 5],
+                                                                iconAnchor: [5, 10]
+                                                                // iconAnchor: [10, 33]
+                                                            })
+                                                        }).bindPopup(`
+                                                                <div class="text-center" style="width: 300px;"> 
+                                                                    <div class="row mt-3"> 
+                                                                        <div class="col-md-12">
+                                                                            ${fotoBendera}
+                                                                        </div>
+                                                                        ${call_wa_dan_biasa(dummyGetTracking[i].handphone, dummyGetTracking[i].id_officer, 'no-encrypt')}
+                                                                    </div>
+                                        
+                                        
+                                                                        <div class="row text-start mt-3">
+                                                                            <div class="col-md-4">
+                                                                                <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                :
+                                                                            </div>
+                                                                            <div class="col-md-7">
+                                                                                <span style="font-size: 12px;">${dummyGetTracking[i].rank_officer} - ${dummyGetTracking[i].name_officer}</span>
+                                                                            </div> 
+                                    
+                                                                            <div class="col-md-4">
+                                                                                <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                :
+                                                                            </div>
+                                                                            <div class="col-md-7">
+                                                                                <span style="font-size: 12px;">${dummyGetTracking[i].pam_officer != null ? dummyGetTracking[i].pam_officer : '-'}</span>
+                                                                            </div> 
+                                                                            <div class="col-md-4">
+                                                                                <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                :
+                                                                            </div>
+                                                                            <div class="col-md-7">
+                                                                                <span style="font-size: 12px;">${bendera}</span>
+                                                                            </div> 
+                                    
+                                                                            <div class="col-md-4">
+                                                                                <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                :
+                                                                            </div>
+                                                                            <div class="col-md-7">
+                                                                                ${dummyGetTracking[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+                                                                            </div> 
+                                            
+                                                                            <div class="col-md-12 text-center  mt-3">
+                                                                                <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                                                <p style="font-size: 12px;" id="lokasiMarker${dummyGetTracking[i].id_officer}"></p>
+                                                                            </div> 
+                                                                        </div>  
+                                                                    
+                                                                </div>
+                                                            `).addTo(mapContainer).on('click', function(e) {
+                                                            // console.log(e.latlng);
+                                                            $.ajax({
+                                                                type: "POST",
+                                                                url: "<?php echo base_url(); ?>dashboard/getAddres",
+                                                                data: {
+                                                                    "lat": e.latlng['lat'],
+                                                                    "lng": e.latlng['lng'],
+                                                                },
+                                                                dataType: "JSON",
+                                                                success: function(result) {
+                                                                    // console.log(result['responseMessage']);
+                                                                    $(`#lokasiMarker${dummyGetTracking[i].id_officer}`).html(`${result['responseMessage']}`);
+                                                                }
+                                                            });
+                                                        });
+                                                    } else {
+                                                        markerArray[dummyGetTracking[i].id_officer] = L.marker([cordLat, corLong], {
+                                                            renderer: myRenderer,
+                                                            icon: L.divIcon({
+                                                                // className: 'location-pin',
+                                                                html: jenis,
+                                                                iconSize: [5, 5],
+                                                                iconAnchor: [5, 10]
+                                                                // iconAnchor: [10, 33]
+                                                            })
+                                                        }).bindPopup(`
+                                                                <div class="text-center" style="width: 300px;"> 
+                                                                    <div class="row mt-3"> 
+                                                                        <div class="col-md-12">
+                                                                            ${fotoBendera}
+                                                                        </div>
+                                                                        ${call_wa_dan_biasa(dummyGetTracking[i].handphone, dummyGetTracking[i].id_officer, 'no-encrypt')}
+                                                                    </div>
+                    
+                                                                    
+                                                                    <div class="row text-start mt-3">
+                                                                        <div class="col-md-4">
+                                                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            :
+                                                                        </div>
+                                                                        <div class="col-md-7">
+                                                                            <span style="font-size: 12px;">${dummyGetTracking[i].rank_officer} - ${dummyGetTracking[i].name_officer}</span>
+                                                                        </div>  
+                                                                    
+                                                                        <div class="col-md-4">
+                                                                            <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                                                        </div> 
+                                                                        <div class="col-md-1">
+                                                                            :
+                                                                        </div>
+                                                                        <div class="col-md-7">
+                                                                            <span style="font-size: 12px;">${dummyGetTracking[i].pam_officer != null ? dummyGetTracking[i].pam_officer : '-'}</span>
+                                                                        </div>  
+                                                                        <div class="col-md-4">
+                                                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                                                        </div> 
+                                                                        <div class="col-md-1">
+                                                                            :
+                                                                        </div>
+                                                                        <div class="col-md-7">
+                                                                            <span style="font-size: 12px;">${bendera}</span>
+                                                                        </div>
+                    
+                                                                        <div class="col-md-4">
+                                                                            <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            :
+                                                                        </div>
+                                                                        <div class="col-md-7">
+                                                                        ${dummyGetTracking[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+                                                                        </div> 
+                    
+                                                                        <div class="col-md-12 text-center  mt-3">
+                                                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                                            <p style="font-size: 12px;" id="lokasiMarker${dummyGetTracking[i].id_officer}"></p>
+                                                                        </div> 
+                                                                    </div> 
+                                                                    
+                                                                </div>
+                                                            `).addTo(mapContainer).on('click', function(e) {
+                                                            // console.log(e.latlng);
+                                                            $.ajax({
+                                                                type: "POST",
+                                                                url: "<?php echo base_url(); ?>dashboard/getAddres",
+                                                                data: {
+                                                                    "lat": e.latlng['lat'],
+                                                                    "lng": e.latlng['lng'],
+                                                                },
+                                                                dataType: "JSON",
+                                                                success: function(result) {
+                                                                    // console.log(result['responseMessage']);
+                                                                    $(`#lokasiMarker${dummyGetTracking[i].id_officer}`).html(`${result['responseMessage']}`);
+                                                                }
+                                                            });
+                                                        });
+                                                    }
+                                                    // }
+
+
+
+                                                    var iniNomor;
+                                                    if (dummyGetTracking[i].handphone != null && dummyGetTracking[i].handphone != '0') {
+                                                        let nomorDepan1 = dummyGetTracking[i].handphone.substring(0, 2);
+                                                        if (nomorDepan1 === "62") {
+                                                            iniNomor = dummyGetTracking[i].handphone;
+                                                        } else if (nomorDepan1 === "08") {
+                                                            iniNomor = "62" + dummyGetTracking[i].handphone.substring(1);
+                                                        } else if (nomorDepan1 === "+6") {
+                                                            iniNomor = dummyGetTracking[i].handphone.substring(1);
+                                                        } else {
+                                                            iniNomor = dummyGetTracking[i].handphone;
+                                                        }
+                                                    } else {
+                                                        iniNomor = 0;
+                                                    }
+
+                                                    countlistDisplay += 1;
+                                                    listDisplay += `  
+                                                        <tr>
+                                                            <td> ${dummyGetTracking[i].status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistDisplay}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistDisplay}</span>`} </td>
+                                                            <td><a href="<?php echo base_url() ?>operasi/Petugas" target="_blank">${dummyGetTracking[i].rank_officer ? dummyGetTracking[i].rank_officer : '' } - ${dummyGetTracking[i].name_officer}</a></td>
+                                                             
+                                                            <td> 
+                                                                ${dummyGetTracking[i].status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
+                                                                <div style="display: flex;">
+                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${iniNomor}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                                    <a href="https://t.me/+${iniNomor}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                                                    <i class="fab fa-telegram"></i>
+                                                                    </a>
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${dummyGetTracking[i].id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                                    <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                                        id="listPetugasClickDisplay${countlistDisplay}"   
+                                                                        data-id="${dummyGetTracking[i].id_officer}"
+                                                                        data-nama="${dummyGetTracking[i].name_team}"  
+                                                                        data-akun="${dummyGetTracking[i].name_account}" 
+                                                                        data-nrp="${dummyGetTracking[i].nrp_user}"
+                                                                        data-telp="${iniNomor}"
+                                                                        data-cord="${dummyGetTracking[i].latitude},${dummyGetTracking[i].longitude}" >
+                                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                                    </button>
+                                                                    <div class="switch" style="margin-left: -11px;">
+                                                                        <input class="flag" type="checkbox" id="flagDisplay${countlistDisplay}" 
+                                                                        data-id="${dummyGetTracking[i].id_officer}"  
+                                                                        data-nama="${dummyGetTracking[i].name_team}"  
+                                                                        data-akun="${dummyGetTracking[i].name_account}" 
+                                                                        data-nrp="${dummyGetTracking[i].nrp_user}"
+                                                                        data-telp="${iniNomor}"
+                                                                        data-cord="${dummyGetTracking[i].latitude},${dummyGetTracking[i].longitude}"
+                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                                        <label for="flagDisplay${countlistDisplay}"></label>
+                                                                    </div>
+                                                                </div> 
+                                                            </td>
+                                                        </tr>
+                                                    `;
+                                                    $('#isiModalPetugasDisplay').html(listDisplay);
+                                                }, i * 500);
+                                            }
+
+
+                                            setTimeout(() => {
+                                                $('#refreshPetugasFungsi').show();
+                                            }, dummyGetTracking.length * 500);
+
+                                            $('#refreshPetugasFungsi').on('click', function(e) {
+                                                // alert('ente kadang2');
+                                                var filterDataTidakAktif = dummyGetTracking.filter(function(val) {
+                                                    return val.status_login == 0;
+                                                });
+
+                                                $('#totalPetugasAktif').html(dummyGetTracking.length - filterDataTidakAktif.length);
+                                                $('#totalPetugasTidakAktif').html(filterDataTidakAktif.length);
+
+                                                $('#totalPetugasAktifDisplay').html(dummyGetTracking.length - filterDataTidakAktif.length);
+                                                $('#totalPetugasTidakAktifDisplay').html(filterDataTidakAktif.length);
+
+
+
+                                                $("#gaturDisplay").prop('disabled', true);
+                                                $("#r2ListrikDisplay").prop('disabled', true);
+                                                $("#r4ListrikDisplay").prop('disabled', true);
+                                                $("#r2FosilDisplay").prop('disabled', true);
+                                                $("#r4FosilDisplay").prop('disabled', true);
+                                                $("#loadGaturDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>PAM ROLAKIR`);
+                                                $("#loadR2ListrikDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R2 Listrik`);
+                                                $("#loadR4ListrikDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R4 Listrik`);
+                                                $("#loadR2FosilDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R2 Fosil`);
+                                                $("#loadR4FosilDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R4 Fosil`);
+
+
+                                                tablePutugasTrack = `
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="flush-headingPetugasGetTrackBikeListrik">
+                                                            <button id="openPetugasGetTrackBikeListrik" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#flush-collapsePetugasGetTrackBikeListrik" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackBikeListrik">
+                                                                <input checked type="checkbox" id="allPetugasBikeListrik"/>
+                                                                Jenis Kendaraan - R2 Listrik &nbsp;<span class="badge bg-info rounded-pill" id="totalPetugasGetTrackBikeListrik"></span>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="flush-collapsePetugasGetTrackBikeListrik" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackBikeListrik"
+                                                            data-bs-parent="#accordionFlushExampleBikeListrik">
+                                                            <div class="accordion-body text-muted">
+                    
+                                                                <table id="datatablePetugasGetTrackBikeListrik" class="table dt-responsive w-100">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>No</th>
+                                                                            <th>Nama</th> 
+                                                                        
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="listPetugasGetTrackBikeListrik">
+                                                                    </tbody>
+                                                                </table> 
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="flush-headingPetugasGetTrackCarListrik">
+                                                            <button id="openPetugasGetTrackCarListrik" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#flush-collapsePetugasGetTrackCarListrik" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackCarListrik">
+                                                                <input checked type="checkbox" id="allPetugasCarListrik"/>
+                                                                Jenis Kendaraan - R4 Listrik &nbsp;<span class="badge bg-info rounded-pill" id="totalPetugasGetTrackCarListrik"></span>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="flush-collapsePetugasGetTrackCarListrik" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackCarListrik"
+                                                            data-bs-parent="#accordionFlushExampleCarListrik">
+                                                            <div class="accordion-body text-muted">
+                    
+                                                                <table id="datatablePetugasGetTrackCarListrik" class="table dt-responsive w-100">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>No</th>
+                                                                            <th>Nama</th> 
+                                                                        
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="listPetugasGetTrackCarListrik">
+                                                                    </tbody>
+                                                                </table> 
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                    
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="flush-headingPetugasGetTrackBikeFosil">
+                                                            <button id="openPetugasGetTrackBikeFosil" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#flush-collapsePetugasGetTrackBikeFosil" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackBikeFosil">
+                                                                <input checked type="checkbox" id="allPetugasBikeFosil"/>
+                                                                Jenis Kendaraan - R2 Fosil &nbsp;<span class="badge bg-primary rounded-pill" id="totalPetugasGetTrackBikeFosil"></span>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="flush-collapsePetugasGetTrackBikeFosil" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackBikeFosil"
+                                                            data-bs-parent="#accordionFlushExampleBikeFosil">
+                                                            <div class="accordion-body text-muted">
+                    
+                                                                <table id="datatablePetugasGetTrackBikeFosil" class="table dt-responsive w-100">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>No</th>
+                                                                            <th>Nama</th> 
+                                                                        
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="listPetugasGetTrackBikeFosil">
+                                                                    </tbody>
+                                                                </table> 
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="flush-headingPetugasGetTrackCarFosil">
+                                                            <button id="openPetugasGetTrackCarFosil" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#flush-collapsePetugasGetTrackCarFosil" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackCarFosil">
+                                                                <input checked type="checkbox" id="allPetugasCarFosil"/>
+                                                                Jenis Kendaraan - R4 Fosil &nbsp;<span class="badge bg-primary rounded-pill" id="totalPetugasGetTrackCarFosil"></span>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="flush-collapsePetugasGetTrackCarFosil" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackCarFosil"
+                                                            data-bs-parent="#accordionFlushExampleCarFosil">
+                                                            <div class="accordion-body text-muted">
+                    
+                                                                <table id="datatablePetugasGetTrackCarFosil" class="table dt-responsive w-100">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>No</th>
+                                                                            <th>Nama</th> 
+                                                                        
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="listPetugasGetTrackCarFosil">
+                                                                    </tbody>
+                                                                </table> 
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                    
+                    
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="flush-headingPetugasGetTrackNon">
+                                                            <button id="openPetugasGetTrackNon" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#flush-collapsePetugasGetTrackNon" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackNon">
+                                                                <input checked type="checkbox" id="allPetugasNon"/>
+                                                                Petugas PAM ROLAKIR &nbsp;<span class="badge rounded-pill" style="background-color: #800080;" id="totalPetugasGetTrackNon"></span>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="flush-collapsePetugasGetTrackNon" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackNon"
+                                                            data-bs-parent="#accordionFlushExampleNon">
+                                                            <div class="accordion-body text-muted">
+                    
+                                                                <table id="datatablePetugasGetTrackNon" class="table dt-responsive w-100">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>No</th>
+                                                                            <th>Nama</th> 
+                                                                            
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="listPetugasGetTrackNon">
+                                                                    </tbody>
+                                                                </table> 
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                `;
+                                                $("#dataPetugasTrack").html(tablePutugasTrack);
+
+
+                                                $("#allPetugasCarListrik").prop('disabled', true);
+                                                $("#allPetugasBikeListrik").prop('disabled', true);
+                                                $("#allPetugasCarFosil").prop('disabled', true);
+                                                $("#allPetugasBikeFosil").prop('disabled', true);
+                                                $("#allPetugasNon").prop('disabled', true);
+
+
+                                                countlist = 0;
+                                                list = "";
+                                                sortRess = dummyGetTracking.sort((a, b) => a.name_officer + b.name_officer);
+
+                                                var filterPetugasCarListrik = sortRess.filter(function(e) {
+                                                    return e.type_vehicle == 'Mobil' && e.fuel_vehicle == 'Listrik';
+                                                });
+                                                var filterPetugasBikeListrik = sortRess.filter(function(e) {
+                                                    return e.type_vehicle == 'Sepeda Motor' && e.fuel_vehicle == 'Listrik';
+                                                });
+                                                var filterPetugasCarFosil = sortRess.filter(function(e) {
+                                                    return e.type_vehicle == 'Mobil' && e.fuel_vehicle == 'Fosil';
+                                                });
+                                                var filterPetugasBikeFosil = sortRess.filter(function(e) {
+                                                    return e.type_vehicle == 'Sepeda Motor' && e.fuel_vehicle == 'Fosil';
+                                                });
+
+
+                                                var filterPetugasNon = sortRess.filter(function(e) {
+                                                    return e.no_vehicle == 'Pengaturan' && e.type_vehicle == 'Tanpa Kendaraan' && e.fuel_vehicle == 'Fosil';
+                                                });
+
+
+                                                $("#totalPetugasOn").html(`${sortRess.length}`);
+                                                $("#totalPetugasGetTrackCarListrik").html(`${filterPetugasCarListrik.length}`);
+                                                $("#totalPetugasGetTrackBikeListrik").html(`${filterPetugasBikeListrik.length}`);
+                                                $("#totalPetugasGetTrackCarFosil").html(`${filterPetugasCarFosil.length}`);
+                                                $("#totalPetugasGetTrackBikeFosil").html(`${filterPetugasBikeFosil.length}`);
+                                                $("#totalPetugasGetTrackNon").html(`${filterPetugasNon.length}`);
+
+                                                $("#totalPetugasCarListrikDisplay").html(`${filterPetugasCarListrik.length}`);
+                                                $("#totalPetugasBikeListrikDisplay").html(`${filterPetugasBikeListrik.length}`);
+                                                $("#totalPetugasCarFosilDisplay").html(`${filterPetugasCarFosil.length}`);
+                                                $("#totalPetugasBikeFosilDisplay").html(`${filterPetugasBikeFosil.length}`);
+                                                $("#totalPetugasNonDisplay").html(`${filterPetugasNon.length}`);
+
+                                                // storeEditDayReport
+                                                // $.ajax({
+                                                //     type : "POST",
+                                                //     url : "<?php echo base_url(); ?>dashboard/storeEditDayReport", 
+                                                //     data : {
+                                                //         "t_officer_active" : sortRess.length,
+                                                //         "t_officer_active_car" : filterPetugasCarListrik.length + filterPetugasCarFosil.length,
+                                                //         "t_officer_active_carListrik" : filterPetugasCarListrik.length,
+                                                //         "t_officer_active_carFosil" : filterPetugasCarFosil.length,
+                                                //         "t_officer_active_bike" : filterPetugasBikeListrik.length + filterPetugasBikeFosil.length,
+                                                //         "t_officer_active_bikeListrik" : filterPetugasBikeListrik.length,
+                                                //         "t_officer_active_bikeFosil" : filterPetugasBikeFosil.length,
+                                                //         "t_officer_active_not_driving" : filterPetugasNon.length,
+                                                //     }, 
+                                                //     dataType : "JSON",
+                                                //     success : function(result){ 
+                                                //         if(result['status'] == true){
+                                                //             console.log('update petugas aktif day report');
+                                                //         }else{
+                                                //             console.log('GAGAL update petugas aktif day report');
+                                                //         }
+                                                //     }
+                                                // });
+
+                                                filterPetugasCarListrik.forEach(el => {
+                                                    if (el.handphone != null && el.handphone != '0') {
+                                                        let nomorDepan = el.handphone.substring(0, 2);
+                                                        if (nomorDepan === "62") {
+                                                            el.handphone = el.handphone;
+                                                        } else if (nomorDepan === "08") {
+                                                            el.handphone = "62" + el.handphone.substring(1);
+                                                        } else if (nomorDepan === "+6") {
+                                                            el.handphone = el.handphone.substring(1);
+                                                        } else {
+                                                            el.handphone = el.handphone;
+                                                        }
+                                                    } else {
+                                                        el.handphone = 0;
+                                                    }
+
+
+
+                                                    countlistCarListrik += 1;
+                                                    listCarListrik += `  
+                                                        <tr>
+                                                            <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistCarListrik}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistCarListrik}</span>`}</td>
+                                                            <td><a href="<?php echo base_url() ?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
+                                                            
+                                                            <td> 
+                                                                ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
+                                                                <div style="display: flex;">
+                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                                    <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                                                    <i class="fab fa-telegram"></i>
+                                                                    </a>
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                                    <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                                        id="listPetugasClickCarListrik${countlistCarListrik}"  
+                                                                        data-id="${el.id_officer}"  
+                                                                        data-nama="${el.name_team}"  
+                                                                        data-akun="${el.name_account}" 
+                                                                        data-nrp="${el.nrp_user}"
+                                                                        data-telp="${el.handphone}"
+                                                                        data-cord="${el.latitude},${el.longitude}" >
+                                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                                    </button>
+                                                                    <div class="switch" style="margin-left: -11px;">
+                                                                        <input class="flag" type="checkbox" id="flagCarListrik${countlistCarListrik}" 
+                                                                        data-id="${el.id_officer}"  
+                                                                        data-nama="${el.name_team}"  
+                                                                        data-akun="${el.name_account}" 
+                                                                        data-nrp="${el.nrp_user}"
+                                                                        data-telp="${el.handphone}"
+                                                                        data-cord="${el.latitude},${el.longitude}"
+                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                                        <label for="flagCarListrik${countlistCarListrik}"></label>
+                                                                    </div>
+                                                                </div> 
+                                                            </td>
+                                                        </tr>
+                                                    `;
+                                                    $('#listPetugasGetTrackCarListrik').html(listCarListrik);
+                                                });
+
+                                                $(`#allPetugasCarListrik`).on('change', function(e) {
+                                                    if ($(`#allPetugasCarListrik`).is(':checked')) {
+                                                        $("#r4ListrikDisplay").prop('checked', true);
+                                                        for (let i = 0; i < countlistCarListrik; i++) {
+                                                            if (markerArray[filterPetugasCarListrik[i]['id_officer']] != null) {
+                                                                mapContainer.addLayer(markerArray[filterPetugasCarListrik[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    } else {
+                                                        $("#r4ListrikDisplay").prop('checked', false);
+                                                        for (let i = 0; i < countlistCarListrik; i++) {
+                                                            if (markerArray[filterPetugasCarListrik[i]['id_officer']] != null) {
+                                                                mapContainer.removeLayer(markerArray[filterPetugasCarListrik[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    }
+                                                });
+
+                                                $("#r4ListrikDisplay").on("change", function(e) {
+                                                    if ($(this).is(':checked')) {
+                                                        $("#allPetugasCarListrik").prop('checked', true);
+                                                        for (let i = 0; i < countlistCarListrik; i++) {
+                                                            if (markerArray[filterPetugasCarListrik[i]['id_officer']] != null) {
+                                                                mapContainer.addLayer(markerArray[filterPetugasCarListrik[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                        $("#myModalPetugasDisplay").modal('show');
+                                                    } else {
+                                                        $("#allPetugasCarListrik").prop('checked', false);
+                                                        for (let i = 0; i < countlistCarListrik; i++) {
+                                                            if (markerArray[filterPetugasCarListrik[i]['id_officer']] != null) {
+                                                                mapContainer.removeLayer(markerArray[filterPetugasCarListrik[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    }
+                                                });
+
+                                                for (let i = 0; i < countlistCarListrik; i++) {
+                                                    $(`#listPetugasClickCarListrik${i+1}`).click(function() {
+                                                        // console.log('masuk');
+                                                        var latlong = $(this).data('cord').split(',');
+                                                        var latitude = parseFloat(latlong[0]);
+                                                        var longitude = parseFloat(latlong[1]);
+                                                        mapContainer.flyTo([latitude, longitude], 20);
+                                                        markerArray[$(this).data('id')].openPopup();
+                                                    });
+
+                                                    $(`#flagCarListrik${i+1}`).on("change", function(e) {
+                                                        // alert($(this).data('id'));
+                                                        if ($(`#flagCarListrik${i+1}`).is(':checked')) {
+                                                            mapContainer.removeLayer(markerArray[$(this).data('id')]);
+                                                            $(`#listPetugasClickCarListrik${i+1}`).hide();
+                                                        } else {
+                                                            mapContainer.addLayer(markerArray[$(this).data('id')]);
+                                                            $(`#listPetugasClickCarListrik${i+1}`).show();
+                                                        }
+                                                    });
+
+                                                }
+                                                $('#datatablePetugasGetTrackCarListrik').DataTable({
+                                                    responsive: true,
+
+                                                    scrollX: true,
+
+                                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                                    buttons: ["excel", "csv", "pdf"],
+                                                    processing: true,
+                                                    oLanguage: {
+
+                                                        sSearch: 'Search:'
+
+                                                    },
+                                                });
+
+
+
+                                                filterPetugasBikeListrik.forEach(el => {
+                                                    if (el.handphone != null && el.handphone != '0') {
+                                                        let nomorDepan = el.handphone.substring(0, 2);
+                                                        if (nomorDepan === "62") {
+                                                            el.handphone = el.handphone;
+                                                        } else if (nomorDepan === "08") {
+                                                            el.handphone = "62" + el.handphone.substring(1);
+                                                        } else if (nomorDepan === "+6") {
+                                                            el.handphone = el.handphone.substring(1);
+                                                        } else {
+                                                            el.handphone = el.handphone;
+                                                        }
+                                                    } else {
+                                                        el.handphone = 0;
+                                                    }
+
+
+
+                                                    countlistBikeListrik += 1;
+                                                    listBikeListrik += `  
+                                                        <tr>
+                                                            <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistBikeListrik}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistBikeListrik}</span>`}</td>
+                                                            <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
+                                                            
+                                                            <td> 
+                                                                ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
+                                                                <div style="display: flex;">
+                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                                    <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                                                        <i class="fab fa-telegram"></i>
+                                                                    </a>
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                                    <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                                        id="listPetugasClickBikeListrik${countlistBikeListrik}"   
+                                                                        data-id="${el.id_officer}"  
+                                                                        data-nama="${el.name_team}"  
+                                                                        data-akun="${el.name_account}" 
+                                                                        data-nrp="${el.nrp_user}"
+                                                                        data-telp="${el.handphone}"
+                                                                        data-cord="${el.latitude},${el.longitude}" >
+                                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                                    </button>
+                                                                    <div class="switch" style="margin-left: -11px;">
+                                                                        <input class="flag" type="checkbox" id="flagBikeListrik${countlistBikeListrik}" 
+                                                                        data-id="${el.id_officer}"  
+                                                                        data-nama="${el.name_team}"  
+                                                                        data-akun="${el.name_account}" 
+                                                                        data-nrp="${el.nrp_user}"
+                                                                        data-telp="${el.handphone}"
+                                                                        data-cord="${el.latitude},${el.longitude}"
+                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                                        <label for="flagBikeListrik${countlistBikeListrik}"></label>
+                                                                    </div>
+                                                                </div> 
+                                                            </td>
+                                                        </tr>
+                                                    `;
+                                                    $('#listPetugasGetTrackBikeListrik').html(listBikeListrik);
+                                                });
+
+
+
+                                                $(`#allPetugasBikeListrik`).on('change', function(e) {
+                                                    if ($(`#allPetugasBikeListrik`).is(':checked')) {
+                                                        $("#r2ListrikDisplay").prop('checked', true);
+                                                        for (let i = 0; i < countlistBikeListrik; i++) {
+                                                            if (markerArray[filterPetugasBikeListrik[i]['id_officer']] != null) {
+                                                                mapContainer.addLayer(markerArray[filterPetugasBikeListrik[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    } else {
+                                                        $("#r2ListrikDisplay").prop('checked', false);
+                                                        for (let i = 0; i < countlistBikeListrik; i++) {
+                                                            if (markerArray[filterPetugasBikeListrik[i]['id_officer']] != null) {
+                                                                mapContainer.removeLayer(markerArray[filterPetugasBikeListrik[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    }
+                                                });
+
+                                                $("#r2ListrikDisplay").on("change", function(e) {
+                                                    if ($(this).is(':checked')) {
+                                                        $("#allPetugasBikeListrik").prop('checked', true);
+                                                        for (let i = 0; i < countlistBikeListrik; i++) {
+                                                            if (markerArray[filterPetugasBikeListrik[i]['id_officer']] != null) {
+                                                                mapContainer.addLayer(markerArray[filterPetugasBikeListrik[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                        $("#myModalPetugasDisplay").modal('show');
+                                                    } else {
+                                                        $("#allPetugasBikeListrik").prop('checked', false);
+                                                        for (let i = 0; i < countlistBikeListrik; i++) {
+                                                            if (markerArray[filterPetugasBikeListrik[i]['id_officer']] != null) {
+                                                                mapContainer.removeLayer(markerArray[filterPetugasBikeListrik[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    }
+                                                });
+
+                                                for (let i = 0; i < countlistBikeListrik; i++) {
+                                                    $(`#listPetugasClickBikeListrik${i+1}`).click(function() {
+                                                        // console.log($(this).data('id'));
+                                                        var latlong = $(this).data('cord').split(',');
+                                                        var latitude = parseFloat(latlong[0]);
+                                                        var longitude = parseFloat(latlong[1]);
+                                                        mapContainer.flyTo([latitude, longitude], 20);
+                                                        markerArray[$(this).data('id')].openPopup();
+                                                    });
+
+                                                    $(`#flagBikeListrik${i+1}`).on("change", function(e) {
+                                                        // alert($(this).data('id'));
+                                                        if ($(`#flagBikeListrik${i+1}`).is(':checked')) {
+                                                            mapContainer.removeLayer(markerArray[$(this).data('id')]);
+                                                            $(`#listPetugasClickBikeListrik${i+1}`).hide();
+                                                        } else {
+                                                            mapContainer.addLayer(markerArray[$(this).data('id')]);
+                                                            $(`#listPetugasClickBikeListrik${i+1}`).show();
+                                                        }
+                                                    });
+
+                                                }
+                                                $('#datatablePetugasGetTrackBikeListrik').DataTable({
+                                                    responsive: true,
+
+                                                    scrollX: true,
+
+                                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                                    buttons: ["excel", "csv", "pdf"],
+                                                    processing: true,
+                                                    oLanguage: {
+
+                                                        sSearch: 'Search:'
+
+                                                    },
+                                                });
+
+
+
+                                                filterPetugasCarFosil.forEach(el => {
+                                                    if (el.handphone != null && el.handphone != '0') {
+                                                        let nomorDepan = el.handphone.substring(0, 2);
+                                                        if (nomorDepan === "62") {
+                                                            el.handphone = el.handphone;
+                                                        } else if (nomorDepan === "08") {
+                                                            el.handphone = "62" + el.handphone.substring(1);
+                                                        } else if (nomorDepan === "+6") {
+                                                            el.handphone = el.handphone.substring(1);
+                                                        } else {
+                                                            el.handphone = el.handphone;
+                                                        }
+                                                    } else {
+                                                        el.handphone = 0;
+                                                    }
+
+
+
+                                                    countlistCarFosil += 1;
+                                                    listCarFosil += `  
+                                                        <tr>
+                                                            <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistCarFosil}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistCarFosil}</span>`}</td>
+                                                            <td><a href="<?php echo base_url() ?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
+                                                            
+                                                            <td> 
+                                                                ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
+                                                                <div style="display: flex;">
+                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                                    <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                                                    <i class="fab fa-telegram"></i>
+                                                                    </a>
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                                    <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                                        id="listPetugasClickCarFosil${countlistCarFosil}"  
+                                                                        data-id="${el.id_officer}"  
+                                                                        data-nama="${el.name_team}"  
+                                                                        data-akun="${el.name_account}" 
+                                                                        data-nrp="${el.nrp_user}"
+                                                                        data-telp="${el.handphone}"
+                                                                        data-cord="${el.latitude},${el.longitude}" >
+                                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                                    </button>
+                                                                    <div class="switch" style="margin-left: -11px;">
+                                                                        <input class="flag" type="checkbox" id="flagCarFosil${countlistCarFosil}" 
+                                                                        data-id="${el.id_officer}"  
+                                                                        data-nama="${el.name_team}"  
+                                                                        data-akun="${el.name_account}" 
+                                                                        data-nrp="${el.nrp_user}"
+                                                                        data-telp="${el.handphone}"
+                                                                        data-cord="${el.latitude},${el.longitude}"
+                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                                        <label for="flagCarFosil${countlistCarFosil}"></label>
+                                                                    </div>
+                                                                </div> 
+                                                            </td>
+                                                        </tr>
+                                                    `;
+                                                    $('#listPetugasGetTrackCarFosil').html(listCarFosil);
+                                                });
+
+                                                $(`#allPetugasCarFosil`).on('change', function(e) {
+                                                    if ($(`#allPetugasCarFosil`).is(':checked')) {
+                                                        $("#r4FosilDisplay").prop('checked', true);
+                                                        for (let i = 0; i < countlistCarFosil; i++) {
+                                                            if (markerArray[filterPetugasCarFosil[i]['id_officer']] != null) {
+                                                                mapContainer.addLayer(markerArray[filterPetugasCarFosil[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    } else {
+                                                        $("#r4FosilDisplay").prop('checked', false);
+                                                        for (let i = 0; i < countlistCarFosil; i++) {
+                                                            if (markerArray[filterPetugasCarFosil[i]['id_officer']] != null) {
+                                                                mapContainer.removeLayer(markerArray[filterPetugasCarFosil[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    }
+                                                });
+
+                                                $("#r4FosilDisplay").on("change", function(e) {
+                                                    if ($(this).is(':checked')) {
+                                                        $("#allPetugasCarFosil").prop('checked', true);
+                                                        for (let i = 0; i < countlistCarFosil; i++) {
+                                                            if (markerArray[filterPetugasCarFosil[i]['id_officer']] != null) {
+                                                                mapContainer.addLayer(markerArray[filterPetugasCarFosil[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                        $("#myModalPetugasDisplay").modal('show');
+                                                    } else {
+                                                        $("#allPetugasCarFosil").prop('checked', false);
+                                                        for (let i = 0; i < countlistCarFosil; i++) {
+                                                            if (markerArray[filterPetugasCarFosil[i]['id_officer']] != null) {
+                                                                mapContainer.removeLayer(markerArray[filterPetugasCarFosil[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    }
+                                                });
+
+                                                for (let i = 0; i < countlistCarFosil; i++) {
+                                                    $(`#listPetugasClickCarFosil${i+1}`).click(function() {
+                                                        // console.log('masuk');
+                                                        var latlong = $(this).data('cord').split(',');
+                                                        var latitude = parseFloat(latlong[0]);
+                                                        var longitude = parseFloat(latlong[1]);
+                                                        mapContainer.flyTo([latitude, longitude], 20);
+                                                        markerArray[$(this).data('id')].openPopup();
+                                                    });
+
+                                                    $(`#flagCarFosil${i+1}`).on("change", function(e) {
+                                                        // alert($(this).data('id'));
+                                                        if ($(`#flagCarFosil${i+1}`).is(':checked')) {
+                                                            mapContainer.removeLayer(markerArray[$(this).data('id')]);
+                                                            $(`#listPetugasClickCarFosil${i+1}`).hide();
+                                                        } else {
+                                                            mapContainer.addLayer(markerArray[$(this).data('id')]);
+                                                            $(`#listPetugasClickCarFosil${i+1}`).show();
+                                                        }
+                                                    });
+
+                                                }
+                                                $('#datatablePetugasGetTrackCarFosil').DataTable({
+                                                    responsive: true,
+
+                                                    scrollX: true,
+
+                                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                                    buttons: ["excel", "csv", "pdf"],
+                                                    processing: true,
+                                                    oLanguage: {
+
+                                                        sSearch: 'Search:'
+
+                                                    },
+                                                });
+
+
+
+                                                filterPetugasBikeFosil.forEach(el => {
+                                                    if (el.handphone != null && el.handphone != '0') {
+                                                        let nomorDepan = el.handphone.substring(0, 2);
+                                                        if (nomorDepan === "62") {
+                                                            el.handphone = el.handphone;
+                                                        } else if (nomorDepan === "08") {
+                                                            el.handphone = "62" + el.handphone.substring(1);
+                                                        } else if (nomorDepan === "+6") {
+                                                            el.handphone = el.handphone.substring(1);
+                                                        } else {
+                                                            el.handphone = el.handphone;
+                                                        }
+                                                    } else {
+                                                        el.handphone = 0;
+                                                    }
+
+
+
+                                                    countlistBikeFosil += 1;
+                                                    listBikeFosil += `  
+                                                        <tr>
+                                                            <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistBikeFosil}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistBikeFosil}</span>`}</td>
+                                                            <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
+                                                        
+                                                            <td> 
+                                                                ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
+                                                                <div style="display: flex;">
+                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                                    <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                                                        <i class="fab fa-telegram"></i>
+                                                                    </a>
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                                    <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                                        id="listPetugasClickBikeFosil${countlistBikeFosil}"   
+                                                                        data-id="${el.id_officer}"  
+                                                                        data-nama="${el.name_team}"  
+                                                                        data-akun="${el.name_account}" 
+                                                                        data-nrp="${el.nrp_user}"
+                                                                        data-telp="${el.handphone}"
+                                                                        data-cord="${el.latitude},${el.longitude}" >
+                                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                                    </button>
+                                                                    <div class="switch" style="margin-left: -11px;">
+                                                                        <input class="flag" type="checkbox" id="flagBikeFosil${countlistBikeFosil}" 
+                                                                        data-id="${el.id_officer}"  
+                                                                        data-nama="${el.name_team}"  
+                                                                        data-akun="${el.name_account}" 
+                                                                        data-nrp="${el.nrp_user}"
+                                                                        data-telp="${el.handphone}"
+                                                                        data-cord="${el.latitude},${el.longitude}"
+                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                                        <label for="flagBikeFosil${countlistBikeFosil}"></label>
+                                                                    </div>
+                                                                </div> 
+                                                            </td>
+                                                        </tr>
+                                                    `;
+                                                    $('#listPetugasGetTrackBikeFosil').html(listBikeFosil);
+                                                });
+
+
+
+                                                $(`#allPetugasBikeFosil`).on('change', function(e) {
+                                                    if ($(`#allPetugasBikeFosil`).is(':checked')) {
+                                                        $("#r2FosilDisplay").prop('checked', true);
+                                                        for (let i = 0; i < countlistBikeFosil; i++) {
+                                                            if (markerArray[filterPetugasBikeFosil[i]['id_officer']] != null) {
+                                                                mapContainer.addLayer(markerArray[filterPetugasBikeFosil[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    } else {
+                                                        $("#r2FosilDisplay").prop('checked', false);
+                                                        for (let i = 0; i < countlistBikeFosil; i++) {
+                                                            if (markerArray[filterPetugasBikeFosil[i]['id_officer']] != null) {
+                                                                mapContainer.removeLayer(markerArray[filterPetugasBikeFosil[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    }
+                                                });
+
+                                                $("#r2FosilDisplay").on("change", function(e) {
+                                                    if ($(this).is(':checked')) {
+                                                        $("#allPetugasBikeFosil").prop('checked', true);
+                                                        for (let i = 0; i < countlistBikeFosil; i++) {
+                                                            if (markerArray[filterPetugasBikeFosil[i]['id_officer']] != null) {
+                                                                mapContainer.addLayer(markerArray[filterPetugasBikeFosil[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                        $("#myModalPetugasDisplay").modal('show');
+                                                    } else {
+                                                        $("#allPetugasBikeFosil").prop('checked', false);
+                                                        for (let i = 0; i < countlistBikeFosil; i++) {
+                                                            if (markerArray[filterPetugasBikeFosil[i]['id_officer']] != null) {
+                                                                mapContainer.removeLayer(markerArray[filterPetugasBikeFosil[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    }
+                                                });
+
+                                                for (let i = 0; i < countlistBikeFosil; i++) {
+                                                    $(`#listPetugasClickBikeFosil${i+1}`).click(function() {
+                                                        // console.log($(this).data('id'));
+                                                        var latlong = $(this).data('cord').split(',');
+                                                        var latitude = parseFloat(latlong[0]);
+                                                        var longitude = parseFloat(latlong[1]);
+                                                        mapContainer.flyTo([latitude, longitude], 20);
+                                                        markerArray[$(this).data('id')].openPopup();
+                                                    });
+
+                                                    $(`#flagBikeFosil${i+1}`).on("change", function(e) {
+                                                        // alert($(this).data('id'));
+                                                        if ($(`#flagBikeFosil${i+1}`).is(':checked')) {
+                                                            mapContainer.removeLayer(markerArray[$(this).data('id')]);
+                                                            $(`#listPetugasClickBikeFosil${i+1}`).hide();
+                                                        } else {
+                                                            mapContainer.addLayer(markerArray[$(this).data('id')]);
+                                                            $(`#listPetugasClickBikeFosil${i+1}`).show();
+                                                        }
+                                                    });
+
+                                                }
+                                                $('#datatablePetugasGetTrackBikeFosil').DataTable({
+                                                    responsive: true,
+
+                                                    scrollX: true,
+
+                                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                                    buttons: ["excel", "csv", "pdf"],
+                                                    processing: true,
+                                                    oLanguage: {
+
+                                                        sSearch: 'Search:'
+
+                                                    },
+                                                });
+
+
+                                                filterPetugasNon.forEach(el => {
+                                                    if (el.handphone != null) {
+                                                        let nomorDepan = el.handphone.substring(0, 2);
+                                                        if (nomorDepan === "62") {
+                                                            el.handphone = el.handphone;
+                                                        } else if (nomorDepan === "08") {
+                                                            el.handphone = "62" + el.handphone.substring(1);
+                                                        } else if (nomorDepan === "+6") {
+                                                            el.handphone = el.handphone.substring(1);
+                                                        } else {
+                                                            el.handphone = el.handphone;
+                                                        }
+                                                    } else {
+                                                        el.handphone = 0;
+                                                    }
+
+                                                    countlistNon += 1;
+                                                    listNon += `  
+                                                        <tr>
+                                                            <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistNon}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistNon}</span>`}</td>
+                                                            <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
+                                                            
+                                                            <td> 
+                                                                ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
+                                                                <div style="display: flex;">
+                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                                    <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                                                    <i class="fab fa-telegram"></i>
+                                                                    </a>
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                                    <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                                        id="listPetugasClickNon${countlistNon}"  
+                                                                        data-id="${el.id_officer}"   
+                                                                        data-nama="${el.name_team}"  
+                                                                        data-akun="${el.name_account}" 
+                                                                        data-nrp="${el.nrp_user}"
+                                                                        data-telp="${el.handphone}"
+                                                                        data-cord="${el.latitude},${el.longitude}" >
+                                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                                    </button>
+                                                                    <div class="switch" style="margin-left: -11px;">
+                                                                        <input class="flag" type="checkbox" id="flagNon${countlistNon}" 
+                                                                        data-id="${el.id_officer}"  
+                                                                        data-nama="${el.name_team}"  
+                                                                        data-akun="${el.name_account}" 
+                                                                        data-nrp="${el.nrp_user}"
+                                                                        data-telp="${el.handphone}"
+                                                                        data-cord="${el.latitude},${el.longitude}"
+                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                                        <label for="flagNon${countlistNon}"></label>
+                                                                    </div>
+                                                                </div> 
+                                                            </td>
+                                                        </tr>
+                                                    `;
+                                                    $('#listPetugasGetTrackNon').html(listNon);
+                                                });
+                                                $(`#allPetugasNon`).on('change', function(e) {
+                                                    if ($(`#allPetugasNon`).is(':checked')) {
+                                                        $("#gaturDisplay").prop('checked', true);
+                                                        for (let i = 0; i < countlistNon; i++) {
+                                                            if (markerArray[filterPetugasNon[i]['id_officer']] != null) {
+                                                                mapContainer.addLayer(markerArray[filterPetugasNon[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    } else {
+                                                        $("#gaturDisplay").prop('checked', false);
+                                                        for (let i = 0; i < countlistNon; i++) {
+                                                            if (markerArray[filterPetugasNon[i]['id_officer']] != null) {
+                                                                mapContainer.removeLayer(markerArray[filterPetugasNon[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    }
+                                                });
+                                                $("#gaturDisplay").on("change", function(e) {
+                                                    if ($(this).is(':checked')) {
+                                                        $("#allPetugasNon").prop('checked', true);
+                                                        for (let i = 0; i < countlistNon; i++) {
+                                                            if (markerArray[filterPetugasNon[i]['id_officer']] != null) {
+                                                                mapContainer.addLayer(markerArray[filterPetugasNon[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                        $("#myModalPetugasDisplay").modal('show');
+                                                    } else {
+                                                        $("#allPetugasNon").prop('checked', false);
+                                                        for (let i = 0; i < countlistNon; i++) {
+                                                            if (markerArray[filterPetugasNon[i]['id_officer']] != null) {
+                                                                mapContainer.removeLayer(markerArray[filterPetugasNon[i]['id_officer']]);
+                                                            }
+                                                        }
+                                                    }
+                                                });
+                                                for (let i = 0; i < countlistNon; i++) {
+                                                    $(`#listPetugasClickNon${i+1}`).click(function() {
+                                                        // console.log('masuk');
+                                                        var latlong = $(this).data('cord').split(',');
+                                                        var latitude = parseFloat(latlong[0]);
+                                                        var longitude = parseFloat(latlong[1]);
+                                                        mapContainer.flyTo([latitude, longitude], 20);
+                                                        markerArray[$(this).data('id')].openPopup();
+
+                                                    });
+
+                                                    $(`#flagNon${i+1}`).on("change", function(e) {
+                                                        // alert($(this).data('id'));
+                                                        if ($(`#flagNon${i+1}`).is(':checked')) {
+                                                            mapContainer.removeLayer(markerArray[$(this).data('id')]);
+                                                            $(`#listPetugasClickNon${i+1}`).hide();
+                                                        } else {
+                                                            mapContainer.addLayer(markerArray[$(this).data('id')]);
+                                                            $(`#listPetugasClickNon${i+1}`).show();
+                                                        }
+                                                    });
+
+                                                }
+                                                $('#datatablePetugasGetTrackNon').DataTable({
+                                                    responsive: true,
+
+                                                    scrollX: true,
+
+                                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                                    buttons: ["excel", "csv", "pdf"],
+                                                    processing: true,
+                                                    oLanguage: {
+
+                                                        sSearch: 'Search:'
+
+                                                    },
+                                                });
+
+                                                for (let i = 0; i < dummyGetTracking.length; i++) {
+
+                                                    $(`#listPetugasClickDisplay${i+1}`).click(function() {
+                                                        // console.log('masuk');
+                                                        var latlong = $(this).data('cord').split(',');
+                                                        var latitude = parseFloat(latlong[0]);
+                                                        var longitude = parseFloat(latlong[1]);
+                                                        mapContainer.flyTo([latitude, longitude], 20);
+                                                        markerArray[$(this).data('id')].openPopup();
+                                                    });
+
+                                                    $(`#flagDisplay${i+1}`).on("change", function(e) {
+                                                        // alert($(this).data('id'));
+                                                        if ($(`#flagDisplay${i+1}`).is(':checked')) {
+                                                            mapContainer.removeLayer(markerArray[$(this).data('id')]);
+                                                            $(`#listPetugasClickDisplay${i+1}`).hide();
+                                                        } else {
+                                                            mapContainer.addLayer(markerArray[$(this).data('id')]);
+                                                            $(`#listPetugasClickDisplay${i+1}`).show();
+                                                        }
+                                                    });
+
+                                                }
+                                                $('#datatablePetugasOnDisplay').DataTable({
+                                                    responsive: true,
+
+                                                    scrollX: true,
+
+                                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                                    buttons: ["excel", "csv", "pdf"],
+                                                    processing: true,
+                                                    oLanguage: {
+                                                        sSearch: 'Search:'
+                                                    },
+                                                });
+
+
+                                                $("#gaturDisplay").prop('disabled', false);
+                                                $("#r2ListrikDisplay").prop('disabled', false);
+                                                $("#r4ListrikDisplay").prop('disabled', false);
+                                                $("#r2FosilDisplay").prop('disabled', false);
+                                                $("#r4FosilDisplay").prop('disabled', false);
+                                                $("#loadGaturDisplay").html(`PAM ROLAKIR`);
+                                                $("#loadR2ListrikDisplay").html(`R2 Listrik`);
+                                                $("#loadR4ListrikDisplay").html(`R4 Listrik`);
+                                                $("#loadR2FosilDisplay").html(`R2 Fosil`);
+                                                $("#loadR4FosilDisplay").html(`R4 Fosil`);
+
+
+
+                                                $("#overlayMenuDisplay").fadeOut(300);
+
+
+                                                $("#allPetugasCarListrik").prop('disabled', false);
+                                                $("#allPetugasBikeListrik").prop('disabled', false);
+                                                $("#allPetugasCarFosil").prop('disabled', false);
+                                                $("#allPetugasBikeFosil").prop('disabled', false);
+                                                $("#allPetugasNon").prop('disabled', false);
+
+
+
+                                                // Swal.fire(
+                                                //     `Fitur Sudah Dapat Di Gunakan`,
+                                                //     'Terimakasih sudah Menunggu',
+                                                //     'success'
+                                                // ).then(function() {
+
+                                                // });
+                                                $("#overlay").fadeOut(300);
+                                                startSocket();
+                                                autoGetLogout = setInterval(getLogout, 5000);
+                                            });
+
+                                        } else {
+                                            $("#overlay").fadeOut(300);
+                                        }
+                                    }
+                                },
+                                error: function() {
+                                    $("#overlay").fadeOut(300);
+                                    console.log("gagal connect Tracking");
+                                }
+                            });
+                        }, ix * 100000);
+                    }
+
+
                 }
             });
+
+
+
         }
 
 
 
         const call_wa_dan_biasa = (noTelp, officer_id, statusEncrypt) => {
             // let castNoTelp = noTelp.sub
-
+            // console.log(officer_id);
 
             if (statusEncrypt == 'no-encrypt') {
                 sendNotifZ = `onClick="sendZoomNonEncrypt('${officer_id}')"`;
@@ -3771,12 +4307,12 @@
 
 
 
-        // startSocket();
+
 
         function startSocket() {
             socket.on('sendToAdminMobile', function(ress) {
 
-                // console.log(ress); 
+                // console.log(ress);  
                 var flagVip = '';
 
 
@@ -3908,179 +4444,197 @@
                 }
 
                 // if(ress.status_login == 1){
-                if (markerArray[ress.id_officer] != null) {
-                    console.log(`UPDATE Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle} - ST.PENUMPANG: ${ress.bawa_penumpang}`);
 
 
-                    markerArray[ress.id_officer].remove();
-                    markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
-                        renderer: myRenderer,
-                        icon: L.divIcon({
-                            //   className: 'location-pin',
-                            html: jenis,
-                            iconSize: [5, 5],
-                            iconAnchor: [5, 10]
-                            // iconAnchor: [10, 33]
-                        })
-                    }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;"> 
-                                        <div class="row mt-3"> 
-                                            <div class="col-md-12">
-                                                <a href="javascript:void(0);">
-                                                ${fotoBendera}
-                                                </a>
+
+                var iniHasilCariArray = arrayFilterPetugas.find(cariValArray);
+
+                function cariValArray(x) {
+                    return x == ress.polda_id;
+                }
+
+
+                console.log({
+                    a: iniHasilCariArray,
+                    b: arrayFilterPetugas,
+                    c: ress.polda_id,
+                    d: ress
+                });
+                if (iniHasilCariArray) {
+                    if (markerArray[ress.id_officer] != null) {
+                        console.log(`UPDATE Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle} - ST.PENUMPANG: ${ress.bawa_penumpang}`);
+
+
+                        markerArray[ress.id_officer].remove();
+                        markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
+                            renderer: myRenderer,
+                            icon: L.divIcon({
+                                //   className: 'location-pin',
+                                html: jenis,
+                                iconSize: [5, 5],
+                                iconAnchor: [5, 10]
+                                // iconAnchor: [10, 33]
+                            })
+                        }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;"> 
+                                            <div class="row mt-3"> 
+                                                <div class="col-md-12">
+                                                    <a href="javascript:void(0);">
+                                                    ${fotoBendera}
+                                                    </a>
+                                                </div>
+                                                ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
                                             </div>
-                                            ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
-                                        </div>
-            
-            
-                                            <div class="row text-start mt-3">
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-                                                </div> 
-        
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${bendera}</span>
-                                                </div> 
-        
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                                </div> 
                 
-                                                <div class="col-md-12 text-center  mt-3">
-                                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                                    <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-                                                </div> 
-                                            </div>  
-                                        
-                                    </div>
-                                `).addTo(mapContainer).on('click', function(e) {
-                        // console.log(e.latlng);
-                        $.ajax({
-                            type: "POST",
-                            url: "<?php echo base_url(); ?>dashboard/getAddres",
-                            data: {
-                                "lat": e.latlng['lat'],
-                                "lng": e.latlng['lng'],
-                            },
-                            dataType: "JSON",
-                            success: function(result) {
-                                // console.log(result['responseMessage']);
-                                $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
-                            }
+                
+                                                <div class="row text-start mt-3">
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
+                                                    </div> 
+            
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
+                                                    </div> 
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span style="font-size: 12px;">${bendera}</span>
+                                                    </div> 
+            
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+                                                    </div> 
+                    
+                                                    <div class="col-md-12 text-center  mt-3">
+                                                        <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                        <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
+                                                    </div> 
+                                                </div>  
+                                            
+                                        </div>
+                                    `).addTo(mapContainer).on('click', function(e) {
+                            // console.log(e.latlng);
+                            $.ajax({
+                                type: "POST",
+                                url: "<?php echo base_url(); ?>dashboard/getAddres",
+                                data: {
+                                    "lat": e.latlng['lat'],
+                                    "lng": e.latlng['lng'],
+                                },
+                                dataType: "JSON",
+                                success: function(result) {
+                                    // console.log(result['responseMessage']);
+                                    $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
+                                }
+                            });
                         });
-                    });
-                } else {
-                    console.log(`NEW Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
-                    markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
-                        renderer: myRenderer,
-                        icon: L.divIcon({
-                            //   className: 'location-pin',
-                            html: jenis,
-                            iconSize: [5, 5],
-                            iconAnchor: [5, 10]
-                            // iconAnchor: [10, 33]
-                        })
-                    }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;"> 
-                                        <div class="row mt-3"> 
-                                            <div class="col-md-12">
-                                                ${fotoBendera}
+                    } else {
+                        console.log(`NEW Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
+                        markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
+                            renderer: myRenderer,
+                            icon: L.divIcon({
+                                //   className: 'location-pin',
+                                html: jenis,
+                                iconSize: [5, 5],
+                                iconAnchor: [5, 10]
+                                // iconAnchor: [10, 33]
+                            })
+                        }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;"> 
+                                            <div class="row mt-3"> 
+                                                <div class="col-md-12">
+                                                    ${fotoBendera}
+                                                </div>
+                                                ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
                                             </div>
-                                            ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
-                                        </div>
-            
-            
-                                            <div class="row text-start mt-3">
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-                                                </div> 
-        
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${bendera}</span>
-                                                </div> 
-        
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                                </div> 
                 
-                                                <div class="col-md-12 text-center  mt-3">
-                                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                                    <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-                                                </div> 
-                                            </div>  
-                                        
-                                    </div>
-                                `).addTo(mapContainer).on('click', function(e) {
-                        // console.log(e.latlng);
-                        $.ajax({
-                            type: "POST",
-                            url: "<?php echo base_url(); ?>dashboard/getAddres",
-                            data: {
-                                "lat": e.latlng['lat'],
-                                "lng": e.latlng['lng'],
-                            },
-                            dataType: "JSON",
-                            success: function(result) {
-                                // console.log(result['responseMessage']);
-                                $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
-                            }
+                
+                                                <div class="row text-start mt-3">
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
+                                                    </div> 
+            
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
+                                                    </div> 
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span style="font-size: 12px;">${bendera}</span>
+                                                    </div> 
+            
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+                                                    </div> 
+                    
+                                                    <div class="col-md-12 text-center  mt-3">
+                                                        <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                        <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
+                                                    </div> 
+                                                </div>  
+                                            
+                                        </div>
+                                    `).addTo(mapContainer).on('click', function(e) {
+                            // console.log(e.latlng);
+                            $.ajax({
+                                type: "POST",
+                                url: "<?php echo base_url(); ?>dashboard/getAddres",
+                                data: {
+                                    "lat": e.latlng['lat'],
+                                    "lng": e.latlng['lng'],
+                                },
+                                dataType: "JSON",
+                                success: function(result) {
+                                    // console.log(result['responseMessage']);
+                                    $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
+                                }
+                            });
                         });
-                    });
+                    }
                 }
                 // }
 
@@ -4089,305 +4643,310 @@
 
 
             });
-            socketKe2.on('sendToAdminMobile', function(ress) {
-                console.log(`get Track Nama Petugas: A. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
-                // console.log(ress); 
-                var flagVip = '';
-                var iconflagVip = '';
-
-                // console.log(result); 
-
-                var cordLat = parseFloat(ress.latitude);
-                var corLong = parseFloat(ress.longitude);
-                var bendera = '';
-                var jenis = '';
 
 
 
 
 
-                // for (let i = 0; i < ress.length; i++) {  
+            // socketKe2.on('sendToAdminMobile', function(ress) {
+            //     console.log(`get Track Nama Petugas: A. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
+            //     // console.log(ress); 
+            //     var flagVip = '';
+            //     var iconflagVip = '';
 
+            //     // console.log(result); 
 
-                // if(ress.type_vehicle == 'Sepeda Motor'){
-                //     // jenis = `<img src="<?php echo base_url(); ?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
-                //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
-                // }else if(ress.type_vehicle == 'Mobil'){
-                //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
-                // }else{
-                //     // jenis = `<img src="<?php echo base_url(); ?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
-                //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
-                // } 
-
-
-                if (ress.bawa_penumpang == 1) {
-                    // iconflagVip = `<a href="javascript:void(0);"><img src="${ress.photo_country != '-' ? ress.photo_country : '<?php echo base_url(); ?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;"></a>
-                    //             <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
-                    //                 <span class="badge rounded-pill" style="background-color: black; color: white;">${ress.name_country}</span>
-                    //             </div>`;  
-                    iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
-                } else {
-                    iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
-                }
-
-                jenis = '';
-                if (ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Fosil") {
+            //     var cordLat = parseFloat(ress.latitude);
+            //     var corLong = parseFloat(ress.longitude);
+            //     var bendera = '';
+            //     var jenis = '';
 
 
 
-                    jenis = `
-                            <div>
-                                <div style="position: relative;">
-                                    ${iconflagVip}
-                                    <img src="<?php echo base_url(); ?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                </div>
-                                <div style="position: absolute;margin-top: -29px;">
-                                    <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
-                                </div>
-                            </div>`;
-                } else if (ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil") {
+
+
+            //     // for (let i = 0; i < ress.length; i++) {  
+
+
+            //     // if(ress.type_vehicle == 'Sepeda Motor'){
+            //     //     // jenis = `<img src="<?php echo base_url(); ?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+            //     //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
+            //     // }else if(ress.type_vehicle == 'Mobil'){
+            //     //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
+            //     // }else{
+            //     //     // jenis = `<img src="<?php echo base_url(); ?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+            //     //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
+            //     // } 
+
+
+            //     if (ress.bawa_penumpang == 1) {
+            //         // iconflagVip = `<a href="javascript:void(0);"><img src="${ress.photo_country != '-' ? ress.photo_country : '<?php echo base_url(); ?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;"></a>
+            //         //             <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
+            //         //                 <span class="badge rounded-pill" style="background-color: black; color: white;">${ress.name_country}</span>
+            //         //             </div>`;  
+            //         iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
+            //     } else {
+            //         iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
+            //     }
+
+            //     jenis = '';
+            //     if (ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Fosil") {
 
 
 
-                    jenis = `
-                            <div>
-                                <div style="position: relative;">
-                                    ${iconflagVip}
-                                    <img src="<?php echo base_url(); ?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                </div>
-                                <div style="position: absolute;margin-top: -29px;">
-                                    <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
-                                </div>
-                            </div>`;
-                } else if (ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Listrik") {
+            //         jenis = `
+            //                 <div>
+            //                     <div style="position: relative;">
+            //                         ${iconflagVip}
+            //                         <img src="<?php echo base_url(); ?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+            //                     </div>
+            //                     <div style="position: absolute;margin-top: -29px;">
+            //                         <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+            //                     </div>
+            //                 </div>`;
+            //     } else if (ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil") {
 
 
 
-                    jenis = `
-                            <div>
-                                <div>
-                                    ${iconflagVip}
-                                    <img src="<?php echo base_url(); ?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                </div>
-                                <div style="margin-top: -30px;">
-                                    <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
-                                </div>
-                            </div>`;
-                } else if (ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Listrik") {
+            //         jenis = `
+            //                 <div>
+            //                     <div style="position: relative;">
+            //                         ${iconflagVip}
+            //                         <img src="<?php echo base_url(); ?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+            //                     </div>
+            //                     <div style="position: absolute;margin-top: -29px;">
+            //                         <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+            //                     </div>
+            //                 </div>`;
+            //     } else if (ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Listrik") {
 
 
 
-                    jenis = `
-                            <div>
-                                <div>
-                                    ${iconflagVip}
-                                    <img src="<?php echo base_url(); ?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                </div>
-                                <div style="margin-top: -30px;">
-                                    <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
-                                </div>
-                            </div>`;
-                } else {
+            //         jenis = `
+            //                 <div>
+            //                     <div>
+            //                         ${iconflagVip}
+            //                         <img src="<?php echo base_url(); ?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+            //                     </div>
+            //                     <div style="margin-top: -30px;">
+            //                         <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
+            //                     </div>
+            //                 </div>`;
+            //     } else if (ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Listrik") {
 
 
 
-                    jenis = `
-                            <div>
-                                <div style="position: relative;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                </div> 
-                                <div style="position: absolute;margin-top: -29px;">
-                                    <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
-                                </div>
-                            </div>`;
-                }
-
-                if (ress.photo_officer || ress.photo_officer != null) {
-                    fotoPetugas = `<img src="<?php echo url_api(); ?>officer/${ress.photo_officer}" alt="" class="img-fluid rounded-circle d-block  float-center">`;
-                } else {
-                    fotoPetugas = `<img src="<?php echo base_url(); ?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
-                }
-
-                if (ress.name_country || ress.name_country != '-' || ress.name_country != null) {
-                    bendera = `${ress.name_country}`;
-                } else {
-                    bendera = `-`;
-                }
-
-                if (ress.photo_country || ress.photo_country != '-' || ress.photo_country != null) {
-                    fotoBendera = `<img src="${ress.photo_country}" alt="" style="width: 20%;margin-bottom: 10px;">`;
-                } else {
-                    fotoBendera = ``;
-                }
-
-                // if(ress.status_login == 1){
-                if (markerArray[ress.id_officer] != null) {
-                    markerArray[ress.id_officer].remove();
-                    markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
-                        renderer: myRenderer,
-                        icon: L.divIcon({
-                            //   className: 'location-pin',
-                            html: jenis,
-                            iconSize: [5, 5],
-                            iconAnchor: [5, 10]
-                            // iconAnchor: [10, 33]
-                        })
-                    }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;"> 
-                                        <div class="row mt-3"> 
-                                            <div class="col-md-12">
-                                                <a href="javascript:void(0);">
-                                                ${fotoBendera}
-                                                </a>
-                                            </div>
-                                            ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
-                                        </div>
-            
-            
-                                            <div class="row text-start mt-3">
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-                                                </div> 
-        
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${bendera}</span>
-                                                </div> 
-        
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                                </div> 
-                
-                                                <div class="col-md-12 text-center  mt-3">
-                                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                                    <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-                                                </div> 
-                                            </div>  
-                                        
-                                    </div>
-                                `).addTo(mapContainer).on('click', function(e) {
-                        // console.log(e.latlng);
-                        $.ajax({
-                            type: "POST",
-                            url: "<?php echo base_url(); ?>dashboard/getAddres",
-                            data: {
-                                "lat": e.latlng['lat'],
-                                "lng": e.latlng['lng'],
-                            },
-                            dataType: "JSON",
-                            success: function(result) {
-                                // console.log(result['responseMessage']);
-                                $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
-                            }
-                        });
-                    });
-                } else {
-                    markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
-                        renderer: myRenderer,
-                        icon: L.divIcon({
-                            //   className: 'location-pin',
-                            html: jenis,
-                            iconSize: [5, 5],
-                            iconAnchor: [5, 10]
-                            // iconAnchor: [10, 33]
-                        })
-                    }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;"> 
-                                        <div class="row mt-3"> 
-                                            <div class="col-md-12">
-                                                ${fotoBendera}
-                                            </div>
-                                            ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
-                                        </div>
-            
-            
-                                            <div class="row text-start mt-3">
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-                                                </div> 
-
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${bendera}</span>
-                                                </div> 
-                
-                                                <div class="col-md-12 text-center  mt-3">
-                                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                                    <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-                                                </div> 
-                                            </div>  
-                                        
-                                    </div>
-                                `).addTo(mapContainer).on('click', function(e) {
-                        // console.log(e.latlng);
-                        $.ajax({
-                            type: "POST",
-                            url: "<?php echo base_url(); ?>dashboard/getAddres",
-                            data: {
-                                "lat": e.latlng['lat'],
-                                "lng": e.latlng['lng'],
-                            },
-                            dataType: "JSON",
-                            success: function(result) {
-                                // console.log(result['responseMessage']);
-                                $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
-                            }
-                        });
-                    });
-                }
-                // }
+            //         jenis = `
+            //                 <div>
+            //                     <div>
+            //                         ${iconflagVip}
+            //                         <img src="<?php echo base_url(); ?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+            //                     </div>
+            //                     <div style="margin-top: -30px;">
+            //                         <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
+            //                     </div>
+            //                 </div>`;
+            //     } else {
 
 
-                // } 
+
+            //         jenis = `
+            //                 <div>
+            //                     <div style="position: relative;">
+            //                         <img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+            //                     </div> 
+            //                     <div style="position: absolute;margin-top: -29px;">
+            //                         <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
+            //                     </div>
+            //                 </div>`;
+            //     }
+
+            //     if (ress.photo_officer || ress.photo_officer != null) {
+            //         fotoPetugas = `<img src="<?php echo url_api(); ?>officer/${ress.photo_officer}" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+            //     } else {
+            //         fotoPetugas = `<img src="<?php echo base_url(); ?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+            //     }
+
+            //     if (ress.name_country || ress.name_country != '-' || ress.name_country != null) {
+            //         bendera = `${ress.name_country}`;
+            //     } else {
+            //         bendera = `-`;
+            //     }
+
+            //     if (ress.photo_country || ress.photo_country != '-' || ress.photo_country != null) {
+            //         fotoBendera = `<img src="${ress.photo_country}" alt="" style="width: 20%;margin-bottom: 10px;">`;
+            //     } else {
+            //         fotoBendera = ``;
+            //     }
+
+            //     // if(ress.status_login == 1){
+            //     if (markerArray[ress.id_officer] != null) {
+            //         markerArray[ress.id_officer].remove();
+            //         markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
+            //             renderer: myRenderer,
+            //             icon: L.divIcon({
+            //                 //   className: 'location-pin',
+            //                 html: jenis,
+            //                 iconSize: [5, 5],
+            //                 iconAnchor: [5, 10]
+            //                 // iconAnchor: [10, 33]
+            //             })
+            //         }).bindPopup(`
+            //                         <div class="text-center" style="width: 300px;"> 
+            //                             <div class="row mt-3"> 
+            //                                 <div class="col-md-12">
+            //                                     <a href="javascript:void(0);">
+            //                                     ${fotoBendera}
+            //                                     </a>
+            //                                 </div>
+            //                                 ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
+            //                             </div>
 
 
-            });
+            //                                 <div class="row text-start mt-3">
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
+            //                                     </div> 
+
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
+            //                                     </div> 
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         <span style="font-size: 12px;">${bendera}</span>
+            //                                     </div> 
+
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+            //                                     </div> 
+
+            //                                     <div class="col-md-12 text-center  mt-3">
+            //                                         <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+            //                                         <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
+            //                                     </div> 
+            //                                 </div>  
+
+            //                         </div>
+            //                     `).addTo(mapContainer).on('click', function(e) {
+            //             // console.log(e.latlng);
+            //             $.ajax({
+            //                 type: "POST",
+            //                 url: "<?php echo base_url(); ?>dashboard/getAddres",
+            //                 data: {
+            //                     "lat": e.latlng['lat'],
+            //                     "lng": e.latlng['lng'],
+            //                 },
+            //                 dataType: "JSON",
+            //                 success: function(result) {
+            //                     // console.log(result['responseMessage']);
+            //                     $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
+            //                 }
+            //             });
+            //         });
+            //     } else {
+            //         markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
+            //             renderer: myRenderer,
+            //             icon: L.divIcon({
+            //                 //   className: 'location-pin',
+            //                 html: jenis,
+            //                 iconSize: [5, 5],
+            //                 iconAnchor: [5, 10]
+            //                 // iconAnchor: [10, 33]
+            //             })
+            //         }).bindPopup(`
+            //                         <div class="text-center" style="width: 300px;"> 
+            //                             <div class="row mt-3"> 
+            //                                 <div class="col-md-12">
+            //                                     ${fotoBendera}
+            //                                 </div>
+            //                                 ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
+            //                             </div>
+
+
+            //                                 <div class="row text-start mt-3">
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
+            //                                     </div> 
+
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
+            //                                     </div> 
+            //                                     <div class="col-md-4">
+            //                                         <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+            //                                     </div>
+            //                                     <div class="col-md-1">
+            //                                         :
+            //                                     </div>
+            //                                     <div class="col-md-7">
+            //                                         <span style="font-size: 12px;">${bendera}</span>
+            //                                     </div> 
+
+            //                                     <div class="col-md-12 text-center  mt-3">
+            //                                         <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+            //                                         <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
+            //                                     </div> 
+            //                                 </div>  
+
+            //                         </div>
+            //                     `).addTo(mapContainer).on('click', function(e) {
+            //             // console.log(e.latlng);
+            //             $.ajax({
+            //                 type: "POST",
+            //                 url: "<?php echo base_url(); ?>dashboard/getAddres",
+            //                 data: {
+            //                     "lat": e.latlng['lat'],
+            //                     "lng": e.latlng['lng'],
+            //                 },
+            //                 dataType: "JSON",
+            //                 success: function(result) {
+            //                     // console.log(result['responseMessage']);
+            //                     $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
+            //                 }
+            //             });
+            //         });
+            //     }
+            //     // }
+
+
+            //     // } 
+
+
+            // });
         }
 
 
@@ -4413,120 +4972,119 @@
                         },
                         dataType: "JSON",
                         success: function(result) {
-                            if (result['data'].length > 0) {
-                                var ress = result['data'][0];
-                                console.log(ress);
-                                openJalurBeatSt = true;
+                            var ress = result['data'][0];
+                            console.log(ress);
+                            openJalurBeatSt = true;
 
-                                var countlist = 0;
-                                var countlistRenpam = 0;
-                                var list = "";
-                                var status = "";
-                                var checkboxJadwal = "";
-                                var nameJadwalRenpam = [];
-                                var typeJadwalRenpam = [];
-                                var awalJadwalRenpam = [];
-                                var akhirJadwalRenpam = [];
+                            var countlist = 0;
+                            var countlistRenpam = 0;
+                            var list = "";
+                            var status = "";
+                            var checkboxJadwal = "";
+                            var nameJadwalRenpam = [];
+                            var typeJadwalRenpam = [];
+                            var awalJadwalRenpam = [];
+                            var akhirJadwalRenpam = [];
 
-                                var warnaRenpam = [];
-                                var nameRenpam = [];
-                                var dummyName = [];
-                                var dummyType = [];
-                                var dummyAwal = [];
-                                var dummyAkhir = [];
+                            var warnaRenpam = [];
+                            var nameRenpam = [];
+                            var dummyName = [];
+                            var dummyType = [];
+                            var dummyAwal = [];
+                            var dummyAkhir = [];
 
-                                var dummyWarna = [];
-                                var dummyNameRenpam = [];
+                            var dummyWarna = [];
+                            var dummyNameRenpam = [];
 
-                                var dummy = [];
-                                var dummy1 = [];
-                                var dummy2 = [];
-                                var dummy3 = [];
-                                var dummy4 = [];
+                            var dummy = [];
+                            var dummy1 = [];
+                            var dummy2 = [];
+                            var dummy3 = [];
+                            var dummy4 = [];
 
 
-                                var dummyJadwalRenpam = [];
-                                var dummyJadwalRenpamAlter = [];
-                                var dummyJadwalRenpamAlterr = [];
-                                var dummyJadwalRenpamAlterrr = [];
-                                var dummyJadwalRenpamAlterrrr = [];
+                            var dummyJadwalRenpam = [];
+                            var dummyJadwalRenpamAlter = [];
+                            var dummyJadwalRenpamAlterr = [];
+                            var dummyJadwalRenpamAlterrr = [];
+                            var dummyJadwalRenpamAlterrrr = [];
 
-                                var checkedRoutJadwal = [];
+                            var checkedRoutJadwal = [];
 
-                                let dummyRenpam = '';
+                            let dummyRenpam = '';
 
-                                var checkedRenpam1 = [];
+                            var checkedRenpam1 = [];
 
-                                var route = [];
-                                var route1 = [];
-                                var route2 = [];
-                                var route3 = [];
-                                var route4 = [];
+                            var route = [];
+                            var route1 = [];
+                            var route2 = [];
+                            var route3 = [];
+                            var route4 = [];
 
-                                var countlistCategoriByCateg = 0;
+                            var countlistCategoriByCateg = 0;
 
-                                var dummyPetugasRenpam = [];
-                                var petugasRenpam = [];
+                            var dummyPetugasRenpam = [];
+                            var petugasRenpam = [];
 
-                                if (ress['renpams'].length > 0) {
-                                    var sortUrutanRenpam = ress['renpams'].sort((a, b) => {
-                                        return a.order_renpam - b.order_renpam;
+                            if (ress['renpams'].length > 0) {
+                                var sortUrutanRenpam = ress['renpams'].sort((a, b) => {
+                                    return a.order_renpam - b.order_renpam;
+                                });
+                                for (let i = 0; i < sortUrutanRenpam.length; i++) {
+                                    countlistRenpam += 1;
+                                    checkedRenpam1.push({
+                                        name_renpam: sortUrutanRenpam[i]['name_renpam'],
+                                        checked: 0,
                                     });
-                                    for (let i = 0; i < sortUrutanRenpam.length; i++) {
-                                        countlistRenpam += 1;
-                                        checkedRenpam1.push({
-                                            name_renpam: sortUrutanRenpam[i]['name_renpam'],
-                                            checked: 0,
-                                        });
 
-                                        dummyName.push(sortUrutanRenpam[i]['name_renpam']);
-                                        dummyType.push(sortUrutanRenpam[i]['type_renpam']);
-                                        dummyAwal.push(sortUrutanRenpam[i]['awal_renpam']);
-                                        dummyAkhir.push(sortUrutanRenpam[i]['akhir_renpam']);
+                                    dummyName.push(sortUrutanRenpam[i]['name_renpam']);
+                                    dummyType.push(sortUrutanRenpam[i]['type_renpam']);
+                                    dummyAwal.push(sortUrutanRenpam[i]['awal_renpam']);
+                                    dummyAkhir.push(sortUrutanRenpam[i]['akhir_renpam']);
 
-                                        nameJadwalRenpam[countlist] = dummyName;
-                                        typeJadwalRenpam[countlist] = dummyType;
-                                        awalJadwalRenpam[countlist] = dummyAwal;
-                                        akhirJadwalRenpam[countlist] = dummyAkhir;
+                                    nameJadwalRenpam[countlist] = dummyName;
+                                    typeJadwalRenpam[countlist] = dummyType;
+                                    awalJadwalRenpam[countlist] = dummyAwal;
+                                    akhirJadwalRenpam[countlist] = dummyAkhir;
 
-                                        dummyWarna.push(sortUrutanRenpam[i]['warnaRoute_renpam']);
-                                        warnaRenpam[countlist] = dummyWarna;
+                                    dummyWarna.push(sortUrutanRenpam[i]['warnaRoute_renpam']);
+                                    warnaRenpam[countlist] = dummyWarna;
 
-                                        dummyNameRenpam.push(sortUrutanRenpam[i]['name_renpam']);
-                                        nameRenpam[countlist] = dummyNameRenpam;
+                                    dummyNameRenpam.push(sortUrutanRenpam[i]['name_renpam']);
+                                    nameRenpam[countlist] = dummyNameRenpam;
 
-                                        dummy.push(sortUrutanRenpam[i]['route']);
-                                        dummy1.push(sortUrutanRenpam[i]['route_alternatif_1']);
-                                        dummy2.push(sortUrutanRenpam[i]['route_alternatif_2']);
-                                        dummy3.push(sortUrutanRenpam[i]['route_masyarakat']);
-                                        dummy4.push(sortUrutanRenpam[i]['route_umum']);
+                                    dummy.push(sortUrutanRenpam[i]['route']);
+                                    dummy1.push(sortUrutanRenpam[i]['route_alternatif_1']);
+                                    dummy2.push(sortUrutanRenpam[i]['route_alternatif_2']);
+                                    dummy3.push(sortUrutanRenpam[i]['route_masyarakat']);
+                                    dummy4.push(sortUrutanRenpam[i]['route_umum']);
 
-                                        dummyJadwalRenpam[countlist] = dummy;
-                                        dummyJadwalRenpamAlter[countlist] = dummy1;
-                                        dummyJadwalRenpamAlterr[countlist] = dummy2;
-                                        dummyJadwalRenpamAlterrr[countlist] = dummy3;
-                                        dummyJadwalRenpamAlterrrr[countlist] = dummy4;
+                                    dummyJadwalRenpam[countlist] = dummy;
+                                    dummyJadwalRenpamAlter[countlist] = dummy1;
+                                    dummyJadwalRenpamAlterr[countlist] = dummy2;
+                                    dummyJadwalRenpamAlterrr[countlist] = dummy3;
+                                    dummyJadwalRenpamAlterrrr[countlist] = dummy4;
 
-                                        var dataAccounts;
-                                        if (sortUrutanRenpam[i]['accounts'].length > 0) {
-                                            dataAccounts = sortUrutanRenpam[i]['accounts'];
+                                    var dataAccounts;
+                                    if (sortUrutanRenpam[i]['accounts'].length > 0) {
+                                        dataAccounts = sortUrutanRenpam[i]['accounts'];
 
-                                            dummyPetugasRenpam.push(sortUrutanRenpam[i]['accounts']);
-                                            petugasRenpam[countlist] = dummyPetugasRenpam;
-                                        } else {
-                                            dataAccounts = [];
+                                        dummyPetugasRenpam.push(sortUrutanRenpam[i]['accounts']);
+                                        petugasRenpam[countlist] = dummyPetugasRenpam;
+                                    } else {
+                                        dataAccounts = [];
+                                    }
+
+                                    var dataVIP = '';
+                                    if (sortUrutanRenpam[i]['vips'].length > 0) {
+                                        for (let ii = 0; ii < sortUrutanRenpam[i]['vips'].length; ii++) {
+                                            dataVIP += `${sortUrutanRenpam[i]['vips'][ii]['name_vip']} - (${sortUrutanRenpam[i]['vips'][ii]['country_arrival_vip']}),`;
                                         }
+                                    } else {
+                                        dataVIP = '-';
+                                    }
 
-                                        var dataVIP = '';
-                                        if (sortUrutanRenpam[i]['vips'].length > 0) {
-                                            for (let ii = 0; ii < sortUrutanRenpam[i]['vips'].length; ii++) {
-                                                dataVIP += `${sortUrutanRenpam[i]['vips'][ii]['name_vip']} - (${sortUrutanRenpam[i]['vips'][ii]['country_arrival_vip']}),`;
-                                            }
-                                        } else {
-                                            dataVIP = '-';
-                                        }
-
-                                        dummyRenpam += `
+                                    dummyRenpam += `
                                         <tr>
                                             <td>
                                                 <input type="checkbox" class="form-input checkRenpam" name="selectRenpam" 
@@ -4569,18 +5127,18 @@
                                             </td>
                                         </tr>
                                     `;
-                                    }
-                                    checkboxJadwal = `
+                                }
+                                checkboxJadwal = `
                                     <input type="checkbox" class="form-input" name="selectJadwalRenpam" 
                                     id="listJadwalRenpamClickDisplay"   
                                     data-totaldata="${sortUrutanRenpam.length}"
                                     >
                                 `;
-                                } else {
-                                    checkboxJadwal = `<div style="width: 14px;"></div>`;
-                                }
+                            } else {
+                                checkboxJadwal = `<div style="width: 14px;"></div>`;
+                            }
 
-                                list += `
+                            list += `
                                 <table style="font-size: 10px" id="datatableByCateg${ress['id_category_schedule']}${countlist}" class="table dt-responsive w-100">
                                     <thead>
                                         <tr>
@@ -4599,840 +5157,33 @@
                                 </table>
                             `;
 
-                                $(`#openModalJalurBeatDisplay`).html(list);
+                            $(`#openModalJalurBeatDisplay`).html(list);
 
 
-                                $(`#listJadwalRenpamClickDisplay`).on("change", function(e) {
-
-
-
-                                    for (let ii = 0; ii < nameJadwalRenpam[countlist].length; ii++) {
-
-                                        setTimeout(() => {
-
-                                            var titikAwal = nameJadwalRenpam[countlist][ii] == null ? '-' : nameJadwalRenpam[countlist][ii];
-                                            var titikAkhir = akhirJadwalRenpam[countlist][ii] == null ? '-' : akhirJadwalRenpam[countlist][ii];
-
-
-                                            var warna = warnaRenpam[countlist][ii] == null ? 'red' : warnaRenpam[countlist][ii];
-
-                                            var namaRen = nameRenpam[countlist][ii] == null ? 'red' : nameRenpam[countlist][ii];
-
-
-                                            // console.log({a:namaRen ,b:warna, c:akuns});
+                            $(`#listJadwalRenpamClickDisplay`).on("change", function(e) {
 
 
 
+                                for (let ii = 0; ii < nameJadwalRenpam[countlist].length; ii++) {
+
+                                    setTimeout(() => {
+
+                                        var titikAwal = nameJadwalRenpam[countlist][ii] == null ? '-' : nameJadwalRenpam[countlist][ii];
+                                        var titikAkhir = akhirJadwalRenpam[countlist][ii] == null ? '-' : akhirJadwalRenpam[countlist][ii];
 
 
-                                            var typeRenpam = typeJadwalRenpam[countlist][ii];
-                                            if (typeRenpam == 3) { //penjagaan
-                                                iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
-                                                markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-                                                markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-                                                markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
-                                                styleRouteUtama = [{
-                                                    color: warna,
-                                                    weight: 5,
-                                                    className: 'animateRoute'
-                                                }];
-                                            } else if (typeRenpam == 4) { //pengaturan 
-                                                iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
-                                                markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-                                                markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-                                                markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
-                                                styleRouteUtama = [{
-                                                    color: warna,
-                                                    weight: 5,
-                                                    className: 'animateRoute'
-                                                }];
-                                            } else if (typeRenpam == 5) { //penutupan 
-                                                iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
-                                                markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-                                                markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-                                                markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
-                                                styleRouteUtama = [{
-                                                    color: warna,
-                                                    weight: 5,
-                                                    className: 'animateRoute'
-                                                }];
-                                            } else if (typeRenpam == 1) {
-                                                iconMarkerRenpam = ``;
-                                                markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
-                                                markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
-                                                markerTypeEnd = `<div class="pin" style="background: yellow; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px; display: none;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
-                                                styleRouteUtama = [{
-                                                    color: warna,
-                                                    weight: 5
-                                                }];
-                                            } else {
-                                                iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
-                                                markerType = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
-                                                markerTypeOther = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
-                                                markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
-                                                styleRouteUtama = [{
-                                                    color: warna,
-                                                    weight: 5,
-                                                    className: 'animateRoute'
-                                                }];
-                                            }
+                                        var warna = warnaRenpam[countlist][ii] == null ? 'red' : warnaRenpam[countlist][ii];
 
-                                            if (dummyJadwalRenpam[countlist][ii] != null && dummyJadwalRenpam[countlist][ii].length > 0 && dummyJadwalRenpam[countlist][ii][0]['latLng'] != null) {
-
-                                                if ($(this).is(':checked')) {
-                                                    routingJadwalRenpam[`${countlist}${ii}`] = null;
-                                                    routingJadwalRenpam[`${countlist}${ii}`] = L.Routing.control({
-                                                        show: false,
-                                                        draggableWaypoints: false,
-                                                        addWaypoints: false,
-                                                        waypoints: dummyJadwalRenpam[countlist][ii],
-                                                        router: new L.Routing.osrmv1({
-                                                            language: 'en',
-                                                            profile: 'car'
-                                                        }),
-                                                        lineOptions: {
-                                                            styles: styleRouteUtama
-                                                        },
-                                                        createMarker: function(i, wp, nWps) {
-                                                            if (i === 0 || i === nWps + 1) {
-                                                                // here change the starting and ending icons
-                                                                return L.marker(wp.latLng, {
-                                                                    icon: L.divIcon({
-                                                                        className: "location-pin",
-                                                                        html: markerType,
-                                                                        iconSize: [5, 5],
-                                                                        //iconAnchor: [18, 30]
-                                                                        iconAnchor: [5, 10],
-                                                                    }),
-                                                                    draggable: this.draggableWaypoints,
-                                                                }).bindPopup(`
-                                                                <div id="overlayMenu">
-                                                                    <div class="loading">
-                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-center"> 
-                                                                    <h5>${titikAwal}</h5>
-                                                                    <div style="text-align: left;">
-                                                                        <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                        <ul>
-                                                                    </div>
-                                                                </div> 
-                                                            `).on("click", function(e) {
-                                                                    $("#overlayMenu").fadeIn(300);
-                                                                    var akuns = petugasRenpam[countlist][ii];
-                                                                    var dataAkuns = '';
-                                                                    for (let i = 0; i < akuns.length; i++) {
-                                                                        $.ajax({
-                                                                            type: "POST",
-                                                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                                                            data: {
-                                                                                "id": akuns[i]['id'],
-                                                                            },
-                                                                            dataType: "JSON",
-                                                                            success: function(result) {
-                                                                                var ress = result['data'];
-                                                                                dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                                                $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                                $("#overlayMenu").fadeOut(300);
-                                                                            }
-                                                                        });
-                                                                    }
-                                                                });
-                                                            } else if (i === nWps - 1) {
-                                                                return L.marker(wp.latLng, {
-                                                                    icon: L.divIcon({
-                                                                        className: "location-pin",
-                                                                        html: markerTypeEnd,
-                                                                        iconSize: [5, 5],
-                                                                        //iconAnchor: [18, 30]
-                                                                        iconAnchor: [5, 10],
-                                                                    }),
-                                                                    draggable: this.draggableWaypoints,
-                                                                }).bindPopup(`
-                                                                <div id="overlayMenu">
-                                                                    <div class="loading">
-                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-center"> 
-                                                                    <h5>${titikAkhir}</h5>
-                                                                    <div style="text-align: left;">
-                                                                        <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                        <ul>
-                                                                    </div>
-                                                                </div> 
-                                                            `).on("click", function(e) {
-                                                                    $("#overlayMenu").fadeIn(300);
-                                                                    var akuns = petugasRenpam[countlist][ii];
-                                                                    var dataAkuns = '';
-                                                                    for (let i = 0; i < akuns.length; i++) {
-                                                                        $.ajax({
-                                                                            type: "POST",
-                                                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                                                            data: {
-                                                                                "id": akuns[i]['id'],
-                                                                            },
-                                                                            dataType: "JSON",
-                                                                            success: function(result) {
-                                                                                var ress = result['data'];
-                                                                                dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                                                $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                                $("#overlayMenu").fadeOut(300);
-                                                                            }
-                                                                        });
-                                                                    }
-                                                                });
-                                                            } else {
-                                                                // here change all the others
-                                                                var options = {
-                                                                        draggable: this.draggableWaypoints,
-                                                                    },
-                                                                    marker = L.marker(wp.latLng, {
-                                                                        icon: L.divIcon({
-                                                                            className: "location-pin",
-                                                                            html: markerTypeOther,
-                                                                            iconSize: [5, 5],
-                                                                            //iconAnchor: [18, 30]
-                                                                            iconAnchor: [5, 10],
-                                                                        }),
-                                                                        draggable: this.draggableWaypoints,
-                                                                    });
-
-                                                                return marker;
-                                                            }
-                                                        },
-                                                        // geocoder: L.Control.Geocoder.nominatim({})
-                                                    }).addTo(mapContainer);
-                                                    // mapContainer.addControl(routingJadwalRenpam[`${countlist}${ii}`]);  
-                                                    console.log('kebuka');
-                                                } else {
-                                                    mapContainer.removeControl(routingJadwalRenpam[`${countlist}${ii}`]);
-                                                }
-                                            } else {
-                                                console.log('error route utama');
-                                            }
-
-                                            if (dummyJadwalRenpamAlter[countlist][ii] != null && dummyJadwalRenpamAlter[countlist][ii].length > 0 && dummyJadwalRenpamAlter[countlist][ii][0]['latLng'] != null) {
-
-                                                if ($(this).is(':checked')) {
-                                                    routingJadwalRenpam1[`${countlist}${ii}`] = null;
-                                                    routingJadwalRenpam1[`${countlist}${ii}`] = L.Routing.control({
-                                                        show: false,
-                                                        draggableWaypoints: false,
-                                                        addWaypoints: false,
-                                                        waypoints: dummyJadwalRenpamAlter[countlist][ii],
-                                                        router: new L.Routing.osrmv1({
-                                                            language: 'en',
-                                                            profile: 'car'
-                                                        }),
-                                                        lineOptions: {
-                                                            styles: [{
-                                                                color: "#b935b9",
-                                                                weight: 5,
-                                                                className: 'animateRoute'
-                                                            }]
-                                                        },
-                                                        createMarker: function(i, wp, nWps) {
-                                                            if (i === 0 || i === nWps + 1) {
-                                                                // here change the starting and ending icons
-                                                                return L.marker(wp.latLng, {
-                                                                    icon: L.divIcon({
-                                                                        className: "location-pin",
-                                                                        html: markerType,
-                                                                        iconSize: [5, 5],
-                                                                        //iconAnchor: [18, 30]
-                                                                        iconAnchor: [5, 10],
-                                                                    }),
-                                                                    draggable: this.draggableWaypoints,
-                                                                }).bindPopup(`
-                                                                <div id="overlayMenu">
-                                                                    <div class="loading">
-                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-center"> 
-                                                                    <h5>${titikAwal}</h5>
-                                                                    <div style="text-align: left;">
-                                                                        <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                        <ul>
-                                                                    </div>
-                                                                </div> 
-                                                            `).on("click", function(e) {
-                                                                    $("#overlayMenu").fadeIn(300);
-                                                                    var akuns = petugasRenpam[countlist][ii];
-                                                                    var dataAkuns = '';
-                                                                    for (let i = 0; i < akuns.length; i++) {
-                                                                        $.ajax({
-                                                                            type: "POST",
-                                                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                                                            data: {
-                                                                                "id": akuns[i]['id'],
-                                                                            },
-                                                                            dataType: "JSON",
-                                                                            success: function(result) {
-                                                                                var ress = result['data'];
-                                                                                dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                                                $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                                $("#overlayMenu").fadeOut(300);
-                                                                            }
-                                                                        });
-                                                                    }
-                                                                });
-                                                            } else if (i === nWps - 1) {
-                                                                return L.marker(wp.latLng, {
-                                                                    icon: L.divIcon({
-                                                                        className: "location-pin",
-                                                                        html: markerTypeEnd,
-                                                                        iconSize: [5, 5],
-                                                                        //iconAnchor: [18, 30]
-                                                                        iconAnchor: [5, 10],
-                                                                    }),
-                                                                    draggable: this.draggableWaypoints,
-                                                                }).bindPopup(`
-                                                                <div id="overlayMenu">
-                                                                    <div class="loading">
-                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-center"> 
-                                                                    <h5>${titikAkhir}</h5>
-                                                                    <div style="text-align: left;">
-                                                                        <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                        <ul>
-                                                                    </div>
-                                                                </div> 
-                                                            `).on("click", function(e) {
-                                                                    $("#overlayMenu").fadeIn(300);
-                                                                    var akuns = petugasRenpam[countlist][ii];
-                                                                    var dataAkuns = '';
-                                                                    for (let i = 0; i < akuns.length; i++) {
-                                                                        $.ajax({
-                                                                            type: "POST",
-                                                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                                                            data: {
-                                                                                "id": akuns[i]['id'],
-                                                                            },
-                                                                            dataType: "JSON",
-                                                                            success: function(result) {
-                                                                                var ress = result['data'];
-                                                                                dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                                                $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                                $("#overlayMenu").fadeOut(300);
-                                                                            }
-                                                                        });
-                                                                    }
-                                                                });
-                                                            } else {
-                                                                // here change all the others
-                                                                var options = {
-                                                                        draggable: this.draggableWaypoints,
-                                                                    },
-                                                                    marker = L.marker(wp.latLng, {
-                                                                        icon: L.divIcon({
-                                                                            className: "location-pin",
-                                                                            html: markerTypeOther,
-                                                                            iconSize: [5, 5],
-                                                                            //iconAnchor: [18, 30]
-                                                                            iconAnchor: [5, 10],
-                                                                        }),
-                                                                        draggable: this.draggableWaypoints,
-                                                                    });
-
-                                                                return marker;
-                                                            }
-                                                        },
-                                                        // geocoder: L.Control.Geocoder.nominatim({})
-                                                    }).addTo(mapContainer);
-                                                    // mapContainer.addControl(routingJadwalRenpam1[`${countlist}${ii}`]);  
-                                                } else {
-                                                    mapContainer.removeControl(routingJadwalRenpam1[`${countlist}${ii}`]);
-                                                }
-                                            } else {
-                                                console.log('error route alternative 1');
-                                            }
+                                        var namaRen = nameRenpam[countlist][ii] == null ? 'red' : nameRenpam[countlist][ii];
 
 
-                                            if (dummyJadwalRenpamAlterr[countlist][ii] != null && dummyJadwalRenpamAlterr[countlist][ii].length > 0 && dummyJadwalRenpamAlterr[countlist][ii][0]['latLng'] != null) {
-
-                                                if ($(this).is(':checked')) {
-                                                    routingJadwalRenpam2[`${countlist}${ii}`] = null;
-                                                    routingJadwalRenpam2[`${countlist}${ii}`] = L.Routing.control({
-                                                        show: false,
-                                                        draggableWaypoints: false,
-                                                        addWaypoints: false,
-                                                        waypoints: dummyJadwalRenpamAlterr[countlist][ii],
-                                                        router: new L.Routing.osrmv1({
-                                                            language: 'en',
-                                                            profile: 'car'
-                                                        }),
-                                                        lineOptions: {
-                                                            styles: [{
-                                                                color: "gray",
-                                                                weight: 5,
-                                                                className: 'animateRoute'
-                                                            }]
-                                                        },
-                                                        createMarker: function(i, wp, nWps) {
-                                                            if (i === 0 || i === nWps + 1) {
-                                                                // here change the starting and ending icons
-                                                                return L.marker(wp.latLng, {
-                                                                    icon: L.divIcon({
-                                                                        className: "location-pin",
-                                                                        html: markerType,
-                                                                        iconSize: [5, 5],
-                                                                        //iconAnchor: [18, 30]
-                                                                        iconAnchor: [5, 10],
-                                                                    }),
-                                                                    draggable: this.draggableWaypoints,
-                                                                }).bindPopup(`
-                                                                <div id="overlayMenu">
-                                                                    <div class="loading">
-                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-center"> 
-                                                                    <h5>${titikAwal}</h5>
-                                                                    <div style="text-align: left;">
-                                                                        <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                        <ul>
-                                                                    </div>
-                                                                </div> 
-                                                            `).on("click", function(e) {
-                                                                    $("#overlayMenu").fadeIn(300);
-                                                                    var akuns = petugasRenpam[countlist][ii];
-                                                                    var dataAkuns = '';
-                                                                    for (let i = 0; i < akuns.length; i++) {
-                                                                        $.ajax({
-                                                                            type: "POST",
-                                                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                                                            data: {
-                                                                                "id": akuns[i]['id'],
-                                                                            },
-                                                                            dataType: "JSON",
-                                                                            success: function(result) {
-                                                                                var ress = result['data'];
-                                                                                dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                                                $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                                $("#overlayMenu").fadeOut(300);
-                                                                            }
-                                                                        });
-                                                                    }
-                                                                });
-                                                            } else if (i === nWps - 1) {
-                                                                return L.marker(wp.latLng, {
-                                                                    icon: L.divIcon({
-                                                                        className: "location-pin",
-                                                                        html: markerTypeEnd,
-                                                                        iconSize: [5, 5],
-                                                                        //iconAnchor: [18, 30]
-                                                                        iconAnchor: [5, 10],
-                                                                    }),
-                                                                    draggable: this.draggableWaypoints,
-                                                                }).bindPopup(`
-                                                                <div id="overlayMenu">
-                                                                    <div class="loading">
-                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-center"> 
-                                                                    <h5>${titikAkhir}</h5>
-                                                                    <div style="text-align: left;">
-                                                                        <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                        <ul>
-                                                                    </div>
-                                                                </div> 
-                                                            `).on("click", function(e) {
-                                                                    $("#overlayMenu").fadeIn(300);
-                                                                    var akuns = petugasRenpam[countlist][ii];
-                                                                    var dataAkuns = '';
-                                                                    for (let i = 0; i < akuns.length; i++) {
-                                                                        $.ajax({
-                                                                            type: "POST",
-                                                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                                                            data: {
-                                                                                "id": akuns[i]['id'],
-                                                                            },
-                                                                            dataType: "JSON",
-                                                                            success: function(result) {
-                                                                                var ress = result['data'];
-                                                                                dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                                                $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                                $("#overlayMenu").fadeOut(300);
-                                                                            }
-                                                                        });
-                                                                    }
-                                                                });
-                                                            } else {
-                                                                // here change all the others
-                                                                var options = {
-                                                                        draggable: this.draggableWaypoints,
-                                                                    },
-                                                                    marker = L.marker(wp.latLng, {
-                                                                        icon: L.divIcon({
-                                                                            className: "location-pin",
-                                                                            html: markerTypeOther,
-                                                                            iconSize: [5, 5],
-                                                                            //iconAnchor: [18, 30]
-                                                                            iconAnchor: [5, 10],
-                                                                        }),
-                                                                        draggable: this.draggableWaypoints,
-                                                                    });
-
-                                                                return marker;
-                                                            }
-                                                        },
-                                                        // geocoder: L.Control.Geocoder.nominatim({})
-                                                    }).addTo(mapContainer);
-                                                    // mapContainer.addControl(routingJadwalRenpam2[`${countlist}${ii}`]);  
-                                                } else {
-                                                    mapContainer.removeControl(routingJadwalRenpam2[`${countlist}${ii}`]);
-                                                }
-                                            } else {
-                                                console.log('error route  alternative 2');
-                                            }
+                                        // console.log({a:namaRen ,b:warna, c:akuns});
 
 
-                                            if (dummyJadwalRenpamAlterrr[countlist][ii] != null && dummyJadwalRenpamAlterrr[countlist][ii].length > 0 && dummyJadwalRenpamAlterrr[countlist][ii][0]['latLng'] != null) {
-
-                                                if ($(this).is(':checked')) {
-                                                    routingJadwalRenpam3[`${countlist}${ii}`] = null;
-                                                    routingJadwalRenpam3[`${countlist}${ii}`] = L.Routing.control({
-                                                        show: false,
-                                                        draggableWaypoints: false,
-                                                        addWaypoints: false,
-                                                        waypoints: dummyJadwalRenpamAlterrr[countlist][ii],
-                                                        router: new L.Routing.osrmv1({
-                                                            language: 'en',
-                                                            profile: 'car'
-                                                        }),
-                                                        lineOptions: {
-                                                            styles: [{
-                                                                color: "#000dda",
-                                                                weight: 5,
-                                                                className: 'animateRoute'
-                                                            }]
-                                                        },
-                                                        createMarker: function(i, wp, nWps) {
-                                                            if (i === 0 || i === nWps + 1) {
-                                                                // here change the starting and ending icons
-                                                                return L.marker(wp.latLng, {
-                                                                    icon: L.divIcon({
-                                                                        className: "location-pin",
-                                                                        html: markerType,
-                                                                        iconSize: [5, 5],
-                                                                        //iconAnchor: [18, 30]
-                                                                        iconAnchor: [5, 10],
-                                                                    }),
-                                                                    draggable: this.draggableWaypoints,
-                                                                }).bindPopup(`
-                                                                <div id="overlayMenu">
-                                                                    <div class="loading">
-                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-center"> 
-                                                                    <h5>${titikAwal}</h5>
-                                                                    <div style="text-align: left;">
-                                                                        <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                        <ul>
-                                                                    </div>
-                                                                </div> 
-                                                            `).on("click", function(e) {
-                                                                    $("#overlayMenu").fadeIn(300);
-                                                                    var akuns = petugasRenpam[countlist][ii];
-                                                                    var dataAkuns = '';
-                                                                    for (let i = 0; i < akuns.length; i++) {
-                                                                        $.ajax({
-                                                                            type: "POST",
-                                                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                                                            data: {
-                                                                                "id": akuns[i]['id'],
-                                                                            },
-                                                                            dataType: "JSON",
-                                                                            success: function(result) {
-                                                                                var ress = result['data'];
-                                                                                dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                                                $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                                $("#overlayMenu").fadeOut(300);
-                                                                            }
-                                                                        });
-                                                                    }
-                                                                });
-                                                            } else if (i === nWps - 1) {
-                                                                return L.marker(wp.latLng, {
-                                                                    icon: L.divIcon({
-                                                                        className: "location-pin",
-                                                                        html: markerTypeEnd,
-                                                                        iconSize: [5, 5],
-                                                                        //iconAnchor: [18, 30]
-                                                                        iconAnchor: [5, 10],
-                                                                    }),
-                                                                    draggable: this.draggableWaypoints,
-                                                                }).bindPopup(`
-                                                                <div id="overlayMenu">
-                                                                    <div class="loading">
-                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-center"> 
-                                                                    <h5>${titikAkhir}</h5>
-                                                                    <div style="text-align: left;">
-                                                                        <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                        <ul>
-                                                                    </div>
-                                                                </div> 
-                                                            `).on("click", function(e) {
-                                                                    $("#overlayMenu").fadeIn(300);
-                                                                    var akuns = petugasRenpam[countlist][ii];
-                                                                    var dataAkuns = '';
-                                                                    for (let i = 0; i < akuns.length; i++) {
-                                                                        $.ajax({
-                                                                            type: "POST",
-                                                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                                                            data: {
-                                                                                "id": akuns[i]['id'],
-                                                                            },
-                                                                            dataType: "JSON",
-                                                                            success: function(result) {
-                                                                                var ress = result['data'];
-                                                                                dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                                                $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                                $("#overlayMenu").fadeOut(300);
-                                                                            }
-                                                                        });
-                                                                    }
-                                                                });
-                                                            } else {
-                                                                // here change all the others
-                                                                var options = {
-                                                                        draggable: this.draggableWaypoints,
-                                                                    },
-                                                                    marker = L.marker(wp.latLng, {
-                                                                        icon: L.divIcon({
-                                                                            className: "location-pin",
-                                                                            html: markerTypeOther,
-                                                                            iconSize: [5, 5],
-                                                                            //iconAnchor: [18, 30]
-                                                                            iconAnchor: [5, 10],
-                                                                        }),
-                                                                        draggable: this.draggableWaypoints,
-                                                                    });
-
-                                                                return marker;
-                                                            }
-                                                        },
-                                                        // geocoder: L.Control.Geocoder.nominatim({})
-                                                    }).addTo(mapContainer);
-                                                    // mapContainer.addControl(routingJadwalRenpam3[`${countlist}${ii}`]);  
-                                                } else {
-                                                    mapContainer.removeControl(routingJadwalRenpam3[`${countlist}${ii}`]);
-                                                }
-                                            } else {
-                                                console.log('error route Masyarakat');
-                                            }
 
 
-                                            if (dummyJadwalRenpamAlterrrr[countlist][ii] != null && dummyJadwalRenpamAlterrrr[countlist][ii].length > 0 && dummyJadwalRenpamAlterrrr[countlist][ii][0]['latLng'] != null) {
 
-                                                if ($(this).is(':checked')) {
-                                                    routingJadwalRenpam4[`${countlist}${ii}`] = null;
-                                                    routingJadwalRenpam4[`${countlist}${ii}`] = L.Routing.control({
-                                                        show: false,
-                                                        draggableWaypoints: false,
-                                                        addWaypoints: false,
-                                                        waypoints: dummyJadwalRenpamAlterrrr[countlist][ii],
-                                                        router: new L.Routing.osrmv1({
-                                                            language: 'en',
-                                                            profile: 'car'
-                                                        }),
-                                                        lineOptions: {
-                                                            styles: [{
-                                                                color: "#bdbd0b",
-                                                                weight: 5,
-                                                                className: 'animateRoute'
-                                                            }]
-                                                        },
-                                                        createMarker: function(i, wp, nWps) {
-                                                            if (i === 0 || i === nWps + 1) {
-                                                                // here change the starting and ending icons
-                                                                return L.marker(wp.latLng, {
-                                                                    icon: L.divIcon({
-                                                                        className: "location-pin",
-                                                                        html: markerType,
-                                                                        iconSize: [5, 5],
-                                                                        //iconAnchor: [18, 30]
-                                                                        iconAnchor: [5, 10],
-                                                                    }),
-                                                                    draggable: this.draggableWaypoints,
-                                                                }).bindPopup(`
-                                                                <div id="overlayMenu">
-                                                                    <div class="loading">
-                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-center"> 
-                                                                    <h5>${titikAwal}</h5>
-                                                                    <div style="text-align: left;">
-                                                                        <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                        <ul>
-                                                                    </div>
-                                                                </div> 
-                                                            `).on("click", function(e) {
-                                                                    $("#overlayMenu").fadeIn(300);
-                                                                    var akuns = petugasRenpam[countlist][ii];
-                                                                    var dataAkuns = '';
-                                                                    for (let i = 0; i < akuns.length; i++) {
-                                                                        $.ajax({
-                                                                            type: "POST",
-                                                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                                                            data: {
-                                                                                "id": akuns[i]['id'],
-                                                                            },
-                                                                            dataType: "JSON",
-                                                                            success: function(result) {
-                                                                                var ress = result['data'];
-                                                                                dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                                                $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                                $("#overlayMenu").fadeOut(300);
-                                                                            }
-                                                                        });
-                                                                    }
-                                                                });
-                                                            } else if (i === nWps - 1) {
-                                                                return L.marker(wp.latLng, {
-                                                                    icon: L.divIcon({
-                                                                        className: "location-pin",
-                                                                        html: markerTypeEnd,
-                                                                        iconSize: [5, 5],
-                                                                        //iconAnchor: [18, 30]
-                                                                        iconAnchor: [5, 10],
-                                                                    }),
-                                                                    draggable: this.draggableWaypoints,
-                                                                }).bindPopup(`
-                                                                <div id="overlayMenu">
-                                                                    <div class="loading">
-                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-center"> 
-                                                                    <h5>${titikAkhir}</h5>
-                                                                    <div style="text-align: left;">
-                                                                        <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                        <ul>
-                                                                    </div>
-                                                                </div> 
-                                                            `).on("click", function(e) {
-                                                                    $("#overlayMenu").fadeIn(300);
-                                                                    var akuns = petugasRenpam[countlist][ii];
-                                                                    var dataAkuns = '';
-                                                                    for (let i = 0; i < akuns.length; i++) {
-                                                                        $.ajax({
-                                                                            type: "POST",
-                                                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                                                            data: {
-                                                                                "id": akuns[i]['id'],
-                                                                            },
-                                                                            dataType: "JSON",
-                                                                            success: function(result) {
-                                                                                var ress = result['data'];
-                                                                                dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                                                $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                                $("#overlayMenu").fadeOut(300);
-                                                                            }
-                                                                        });
-                                                                    }
-                                                                });
-                                                            } else {
-                                                                // here change all the others
-                                                                var options = {
-                                                                        draggable: this.draggableWaypoints,
-                                                                    },
-                                                                    marker = L.marker(wp.latLng, {
-                                                                        icon: L.divIcon({
-                                                                            className: "location-pin",
-                                                                            html: markerTypeOther,
-                                                                            iconSize: [5, 5],
-                                                                            //iconAnchor: [18, 30]
-                                                                            iconAnchor: [5, 10],
-                                                                        }),
-                                                                        draggable: this.draggableWaypoints,
-                                                                    });
-
-                                                                return marker;
-                                                            }
-                                                        },
-                                                        // geocoder: L.Control.Geocoder.nominatim({})
-                                                    }).addTo(mapContainer);
-                                                    // mapContainer.addControl(routingJadwalRenpam4[`${countlist}${ii}`]);  
-                                                } else {
-                                                    mapContainer.removeControl(routingJadwalRenpam4[`${countlist}${ii}`]);
-                                                }
-                                            } else {
-                                                console.log('error route Umum');
-                                            }
-
-                                        }, ii * 1000);
-
-                                    }
-                                });
-
-                                for (let i = 0; i < countlistRenpam; i++) {
-                                    $(`#listRenpamDisplay${ress['id_category_schedule']}${i+1}`).on("change", function(e) {
-                                        // console.log(checkedRenpam1);  
-                                        //Find index of specific object using findIndex method.    
-                                        objIndex = checkedRenpam1.findIndex((obj => obj.name_renpam == $(this).data('name')));
-                                        // console.log(objIndex);
-
-                                        //Log object to Console.
-                                        console.log("Before update: ", checkedRenpam1[objIndex]);
-
-                                        //Update object's name property.
-                                        if ($(this).is(':checked')) {
-                                            checkedRenpam1[objIndex].checked = 1;
-                                        } else {
-                                            checkedRenpam1[objIndex].checked = 0;
-                                        }
-
-                                        //Log object to console again.
-                                        console.log(`${$(this).data('type')} - After update: `, checkedRenpam1[objIndex]);
-
-                                        // console.log($(this).data('cord'));
-
-                                        var titikAwal = $(this).data('awal') == null ? '-' : $(this).data('awal');
-                                        var titikAkhir = $(this).data('akhir') == null ? '-' : $(this).data('akhir');
-
-                                        var warna = "";
-                                        if ($(this).data('jadwal') == "JALUR BEAT") {
-                                            warna = $(this).data('warna') == "" ? 'red' : $(this).data('warna');
-                                        } else {
-                                            warna = "red";
-                                        }
-
-                                        var namaRen = $(this).data('name');
-
-
-                                        var typeRenpam = $(this).data('type');
+                                        var typeRenpam = typeJadwalRenpam[countlist][ii];
                                         if (typeRenpam == 3) { //penjagaan
                                             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
                                             markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
@@ -5467,7 +5218,7 @@
                                             iconMarkerRenpam = ``;
                                             markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                             markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
-                                            markerTypeEnd = `<div class="pin" style="background: yellow;display: none;"><div style="display: none; transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                            markerTypeEnd = `<div class="pin" style="background: yellow; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px; display: none;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                             styleRouteUtama = [{
                                                 color: warna,
                                                 weight: 5
@@ -5484,15 +5235,155 @@
                                             }];
                                         }
 
-                                        var cordRute1 = $(this).data('cord1');
-                                        if (cordRute1 != null && cordRute1[0]['latLng'] != null) {
+                                        if (dummyJadwalRenpam[countlist][ii] != null && dummyJadwalRenpam[countlist][ii].length > 0 && dummyJadwalRenpam[countlist][ii][0]['latLng'] != null) {
+
                                             if ($(this).is(':checked')) {
-                                                routingRenpam1[i] = null;
-                                                routingRenpam1[i] = L.Routing.control({
+                                                routingJadwalRenpam[`${countlist}${ii}`] = null;
+                                                routingJadwalRenpam[`${countlist}${ii}`] = L.Routing.control({
                                                     show: false,
                                                     draggableWaypoints: false,
                                                     addWaypoints: false,
-                                                    waypoints: cordRute1,
+                                                    waypoints: dummyJadwalRenpam[countlist][ii],
+                                                    router: new L.Routing.osrmv1({
+                                                        language: 'en',
+                                                        profile: 'car'
+                                                    }),
+                                                    lineOptions: {
+                                                        styles: styleRouteUtama
+                                                    },
+                                                    createMarker: function(i, wp, nWps) {
+                                                        if (i === 0 || i === nWps + 1) {
+                                                            // here change the starting and ending icons
+                                                            return L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerType,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            }).bindPopup(`
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAwal}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function(e) {
+                                                                $("#overlayMenu").fadeIn(300);
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = '';
+                                                                for (let i = 0; i < akuns.length; i++) {
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                                        data: {
+                                                                            "id": akuns[i]['id'],
+                                                                        },
+                                                                        dataType: "JSON",
+                                                                        success: function(result) {
+                                                                            var ress = result['data'];
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300);
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
+                                                        } else if (i === nWps - 1) {
+                                                            return L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeEnd,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            }).bindPopup(`
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAkhir}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function(e) {
+                                                                $("#overlayMenu").fadeIn(300);
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = '';
+                                                                for (let i = 0; i < akuns.length; i++) {
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                                        data: {
+                                                                            "id": akuns[i]['id'],
+                                                                        },
+                                                                        dataType: "JSON",
+                                                                        success: function(result) {
+                                                                            var ress = result['data'];
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300);
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
+                                                        } else {
+                                                            // here change all the others
+                                                            var options = {
+                                                                    draggable: this.draggableWaypoints,
+                                                                },
+                                                                marker = L.marker(wp.latLng, {
+                                                                    icon: L.divIcon({
+                                                                        className: "location-pin",
+                                                                        html: markerTypeOther,
+                                                                        iconSize: [5, 5],
+                                                                        //iconAnchor: [18, 30]
+                                                                        iconAnchor: [5, 10],
+                                                                    }),
+                                                                    draggable: this.draggableWaypoints,
+                                                                });
+
+                                                            return marker;
+                                                        }
+                                                    },
+                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                }).addTo(mapContainer);
+                                                // mapContainer.addControl(routingJadwalRenpam[`${countlist}${ii}`]);  
+                                                console.log('kebuka');
+                                            } else {
+                                                mapContainer.removeControl(routingJadwalRenpam[`${countlist}${ii}`]);
+                                            }
+                                        } else {
+                                            console.log('error route utama');
+                                        }
+
+                                        if (dummyJadwalRenpamAlter[countlist][ii] != null && dummyJadwalRenpamAlter[countlist][ii].length > 0 && dummyJadwalRenpamAlter[countlist][ii][0]['latLng'] != null) {
+
+                                            if ($(this).is(':checked')) {
+                                                routingJadwalRenpam1[`${countlist}${ii}`] = null;
+                                                routingJadwalRenpam1[`${countlist}${ii}`] = L.Routing.control({
+                                                    show: false,
+                                                    draggableWaypoints: false,
+                                                    addWaypoints: false,
+                                                    waypoints: dummyJadwalRenpamAlter[countlist][ii],
                                                     router: new L.Routing.osrmv1({
                                                         language: 'en',
                                                         profile: 'car'
@@ -5517,10 +5408,41 @@
                                                                 }),
                                                                 draggable: this.draggableWaypoints,
                                                             }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAwal}</h5>
-                                                            </div> 
-                                                        `);
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAwal}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function(e) {
+                                                                $("#overlayMenu").fadeIn(300);
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = '';
+                                                                for (let i = 0; i < akuns.length; i++) {
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                                        data: {
+                                                                            "id": akuns[i]['id'],
+                                                                        },
+                                                                        dataType: "JSON",
+                                                                        success: function(result) {
+                                                                            var ress = result['data'];
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300);
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
                                                         } else if (i === nWps - 1) {
                                                             return L.marker(wp.latLng, {
                                                                 icon: L.divIcon({
@@ -5532,10 +5454,41 @@
                                                                 }),
                                                                 draggable: this.draggableWaypoints,
                                                             }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAkhir}</h5>
-                                                            </div> 
-                                                        `);
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAkhir}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function(e) {
+                                                                $("#overlayMenu").fadeIn(300);
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = '';
+                                                                for (let i = 0; i < akuns.length; i++) {
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                                        data: {
+                                                                            "id": akuns[i]['id'],
+                                                                        },
+                                                                        dataType: "JSON",
+                                                                        success: function(result) {
+                                                                            var ress = result['data'];
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300);
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
                                                         } else {
                                                             // here change all the others
                                                             var options = {
@@ -5557,30 +5510,31 @@
                                                     },
                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                 }).addTo(mapContainer);
-                                                // mapContainer.addControl(routingRenpam1[i]); 
+                                                // mapContainer.addControl(routingJadwalRenpam1[`${countlist}${ii}`]);  
                                             } else {
-                                                mapContainer.removeControl(routingRenpam1[i]);
+                                                mapContainer.removeControl(routingJadwalRenpam1[`${countlist}${ii}`]);
                                             }
+                                        } else {
+                                            console.log('error route alternative 1');
+                                        }
 
 
-                                        } else {}
+                                        if (dummyJadwalRenpamAlterr[countlist][ii] != null && dummyJadwalRenpamAlterr[countlist][ii].length > 0 && dummyJadwalRenpamAlterr[countlist][ii][0]['latLng'] != null) {
 
-                                        var cordRute2 = $(this).data('cord2');
-                                        if (cordRute2 != null && cordRute2[0]['latLng'] != null) {
                                             if ($(this).is(':checked')) {
-                                                routingRenpam2[i] = null;
-                                                routingRenpam2[i] = L.Routing.control({
+                                                routingJadwalRenpam2[`${countlist}${ii}`] = null;
+                                                routingJadwalRenpam2[`${countlist}${ii}`] = L.Routing.control({
                                                     show: false,
                                                     draggableWaypoints: false,
                                                     addWaypoints: false,
-                                                    waypoints: cordRute2,
+                                                    waypoints: dummyJadwalRenpamAlterr[countlist][ii],
                                                     router: new L.Routing.osrmv1({
                                                         language: 'en',
                                                         profile: 'car'
                                                     }),
                                                     lineOptions: {
                                                         styles: [{
-                                                            color: "#808080",
+                                                            color: "gray",
                                                             weight: 5,
                                                             className: 'animateRoute'
                                                         }]
@@ -5598,10 +5552,41 @@
                                                                 }),
                                                                 draggable: this.draggableWaypoints,
                                                             }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAwal}</h5>
-                                                            </div> 
-                                                        `);
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAwal}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function(e) {
+                                                                $("#overlayMenu").fadeIn(300);
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = '';
+                                                                for (let i = 0; i < akuns.length; i++) {
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                                        data: {
+                                                                            "id": akuns[i]['id'],
+                                                                        },
+                                                                        dataType: "JSON",
+                                                                        success: function(result) {
+                                                                            var ress = result['data'];
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300);
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
                                                         } else if (i === nWps - 1) {
                                                             return L.marker(wp.latLng, {
                                                                 icon: L.divIcon({
@@ -5613,10 +5598,41 @@
                                                                 }),
                                                                 draggable: this.draggableWaypoints,
                                                             }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAkhir}</h5>
-                                                            </div> 
-                                                        `);
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAkhir}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function(e) {
+                                                                $("#overlayMenu").fadeIn(300);
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = '';
+                                                                for (let i = 0; i < akuns.length; i++) {
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                                        data: {
+                                                                            "id": akuns[i]['id'],
+                                                                        },
+                                                                        dataType: "JSON",
+                                                                        success: function(result) {
+                                                                            var ress = result['data'];
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300);
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
                                                         } else {
                                                             // here change all the others
                                                             var options = {
@@ -5638,23 +5654,24 @@
                                                     },
                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                 }).addTo(mapContainer);
-                                                // mapContainer.addControl(routingRenpam2[i]); 
+                                                // mapContainer.addControl(routingJadwalRenpam2[`${countlist}${ii}`]);  
                                             } else {
-                                                mapContainer.removeControl(routingRenpam2[i]);
+                                                mapContainer.removeControl(routingJadwalRenpam2[`${countlist}${ii}`]);
                                             }
+                                        } else {
+                                            console.log('error route  alternative 2');
+                                        }
 
 
-                                        } else {}
+                                        if (dummyJadwalRenpamAlterrr[countlist][ii] != null && dummyJadwalRenpamAlterrr[countlist][ii].length > 0 && dummyJadwalRenpamAlterrr[countlist][ii][0]['latLng'] != null) {
 
-                                        var cordRute3 = $(this).data('cord3');
-                                        if (cordRute3 != null && cordRute3[0]['latLng'] != null) {
                                             if ($(this).is(':checked')) {
-                                                routingRenpam3[i] = null;
-                                                routingRenpam3[i] = L.Routing.control({
+                                                routingJadwalRenpam3[`${countlist}${ii}`] = null;
+                                                routingJadwalRenpam3[`${countlist}${ii}`] = L.Routing.control({
                                                     show: false,
                                                     draggableWaypoints: false,
                                                     addWaypoints: false,
-                                                    waypoints: cordRute3,
+                                                    waypoints: dummyJadwalRenpamAlterrr[countlist][ii],
                                                     router: new L.Routing.osrmv1({
                                                         language: 'en',
                                                         profile: 'car'
@@ -5679,10 +5696,41 @@
                                                                 }),
                                                                 draggable: this.draggableWaypoints,
                                                             }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAwal}</h5>
-                                                            </div> 
-                                                        `);
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAwal}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function(e) {
+                                                                $("#overlayMenu").fadeIn(300);
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = '';
+                                                                for (let i = 0; i < akuns.length; i++) {
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                                        data: {
+                                                                            "id": akuns[i]['id'],
+                                                                        },
+                                                                        dataType: "JSON",
+                                                                        success: function(result) {
+                                                                            var ress = result['data'];
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300);
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
                                                         } else if (i === nWps - 1) {
                                                             return L.marker(wp.latLng, {
                                                                 icon: L.divIcon({
@@ -5694,10 +5742,41 @@
                                                                 }),
                                                                 draggable: this.draggableWaypoints,
                                                             }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAkhir}</h5>
-                                                            </div> 
-                                                        `);
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAkhir}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function(e) {
+                                                                $("#overlayMenu").fadeIn(300);
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = '';
+                                                                for (let i = 0; i < akuns.length; i++) {
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                                        data: {
+                                                                            "id": akuns[i]['id'],
+                                                                        },
+                                                                        dataType: "JSON",
+                                                                        success: function(result) {
+                                                                            var ress = result['data'];
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300);
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
                                                         } else {
                                                             // here change all the others
                                                             var options = {
@@ -5719,23 +5798,24 @@
                                                     },
                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                 }).addTo(mapContainer);
-                                                // mapContainer.addControl(routingRenpam3[i]); 
+                                                // mapContainer.addControl(routingJadwalRenpam3[`${countlist}${ii}`]);  
                                             } else {
-                                                mapContainer.removeControl(routingRenpam3[i]);
+                                                mapContainer.removeControl(routingJadwalRenpam3[`${countlist}${ii}`]);
                                             }
+                                        } else {
+                                            console.log('error route Masyarakat');
+                                        }
 
 
-                                        } else {}
+                                        if (dummyJadwalRenpamAlterrrr[countlist][ii] != null && dummyJadwalRenpamAlterrrr[countlist][ii].length > 0 && dummyJadwalRenpamAlterrrr[countlist][ii][0]['latLng'] != null) {
 
-                                        var cordRute4 = $(this).data('cord4');
-                                        if (cordRute4 != null && cordRute4[0]['latLng'] != null) {
                                             if ($(this).is(':checked')) {
-                                                routingRenpam4[i] = null;
-                                                routingRenpam4[i] = L.Routing.control({
+                                                routingJadwalRenpam4[`${countlist}${ii}`] = null;
+                                                routingJadwalRenpam4[`${countlist}${ii}`] = L.Routing.control({
                                                     show: false,
                                                     draggableWaypoints: false,
                                                     addWaypoints: false,
-                                                    waypoints: cordRute4,
+                                                    waypoints: dummyJadwalRenpamAlterrrr[countlist][ii],
                                                     router: new L.Routing.osrmv1({
                                                         language: 'en',
                                                         profile: 'car'
@@ -5760,10 +5840,41 @@
                                                                 }),
                                                                 draggable: this.draggableWaypoints,
                                                             }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAwal}</h5>
-                                                            </div> 
-                                                        `);
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAwal}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function(e) {
+                                                                $("#overlayMenu").fadeIn(300);
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = '';
+                                                                for (let i = 0; i < akuns.length; i++) {
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                                        data: {
+                                                                            "id": akuns[i]['id'],
+                                                                        },
+                                                                        dataType: "JSON",
+                                                                        success: function(result) {
+                                                                            var ress = result['data'];
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300);
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
                                                         } else if (i === nWps - 1) {
                                                             return L.marker(wp.latLng, {
                                                                 icon: L.divIcon({
@@ -5775,10 +5886,41 @@
                                                                 }),
                                                                 draggable: this.draggableWaypoints,
                                                             }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAkhir}</h5>
-                                                            </div> 
-                                                        `);
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAkhir}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function(e) {
+                                                                $("#overlayMenu").fadeIn(300);
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = '';
+                                                                for (let i = 0; i < akuns.length; i++) {
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                                        data: {
+                                                                            "id": akuns[i]['id'],
+                                                                        },
+                                                                        dataType: "JSON",
+                                                                        success: function(result) {
+                                                                            var ress = result['data'];
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300);
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
                                                         } else {
                                                             // here change all the others
                                                             var options = {
@@ -5800,112 +5942,526 @@
                                                     },
                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                 }).addTo(mapContainer);
-                                                // mapContainer.addControl(routingRenpam4[i]); 
+                                                // mapContainer.addControl(routingJadwalRenpam4[`${countlist}${ii}`]);  
                                             } else {
-                                                mapContainer.removeControl(routingRenpam4[i]);
+                                                mapContainer.removeControl(routingJadwalRenpam4[`${countlist}${ii}`]);
                                             }
+                                        } else {
+                                            console.log('error route Umum');
+                                        }
 
+                                    }, ii * 1000);
 
-                                        } else {}
-
-                                        var cordRuteUtama = $(this).data('cord');
-                                        if (cordRuteUtama != null && cordRuteUtama[0]['latLng'] != null) {
-                                            if ($(this).is(':checked')) {
-                                                routingRenpam[i] = null;
-                                                routingRenpam[i] = L.Routing.control({
-                                                    show: false,
-                                                    draggableWaypoints: false,
-                                                    addWaypoints: false,
-                                                    waypoints: cordRuteUtama,
-                                                    router: new L.Routing.osrmv1({
-                                                        language: 'en',
-                                                        profile: 'car'
-                                                    }),
-                                                    lineOptions: {
-                                                        styles: styleRouteUtama
-                                                    },
-                                                    createMarker: function(i, wp, nWps) {
-                                                        if (i === 0 || i === nWps + 1) {
-                                                            // here change the starting and ending icons
-                                                            return L.marker(wp.latLng, {
-                                                                icon: L.divIcon({
-                                                                    className: "location-pin",
-                                                                    html: markerType,
-                                                                    iconSize: [5, 5],
-                                                                    //iconAnchor: [18, 30]
-                                                                    iconAnchor: [5, 10],
-                                                                }),
-                                                                draggable: this.draggableWaypoints,
-                                                            }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAwal}</h5>
-                                                            </div> 
-                                                        `);
-                                                        } else if (i === nWps - 1) {
-                                                            return L.marker(wp.latLng, {
-                                                                icon: L.divIcon({
-                                                                    className: "location-pin",
-                                                                    html: markerTypeEnd,
-                                                                    iconSize: [5, 5],
-                                                                    //iconAnchor: [18, 30]
-                                                                    iconAnchor: [5, 10],
-                                                                }),
-                                                                draggable: this.draggableWaypoints,
-                                                            }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAkhir}</h5>
-                                                            </div> 
-                                                        `);
-                                                        } else {
-                                                            // here change all the others
-                                                            var options = {
-                                                                    draggable: this.draggableWaypoints,
-                                                                },
-                                                                marker = L.marker(wp.latLng, {
-                                                                    icon: L.divIcon({
-                                                                        className: "location-pin",
-                                                                        html: markerTypeOther,
-                                                                        iconSize: [5, 5],
-                                                                        //iconAnchor: [18, 30]
-                                                                        iconAnchor: [5, 10],
-                                                                    }),
-                                                                    draggable: this.draggableWaypoints,
-                                                                });
-
-                                                            return marker;
-                                                        }
-                                                    },
-                                                    // geocoder: L.Control.Geocoder.nominatim({})
-                                                }).addTo(mapContainer);
-                                                // mapContainer.addControl(routingRenpam[i]); 
-                                            } else {
-                                                mapContainer.removeControl(routingRenpam[i]);
-                                            }
-
-
-                                        } else {}
-                                    });
                                 }
+                            });
 
-                                // $("#listJadwalRenpamClickDisplay").prop('checked', true);  
+                            for (let i = 0; i < countlistRenpam; i++) {
+                                $(`#listRenpamDisplay${ress['id_category_schedule']}${i+1}`).on("change", function(e) {
+                                    // console.log(checkedRenpam1);  
+                                    //Find index of specific object using findIndex method.    
+                                    objIndex = checkedRenpam1.findIndex((obj => obj.name_renpam == $(this).data('name')));
+                                    // console.log(objIndex);
 
-                                $(`#datatableByCateg${ress['id_category_schedule']}${countlist}`).DataTable({
-                                    responsive: true,
+                                    //Log object to Console.
+                                    console.log("Before update: ", checkedRenpam1[objIndex]);
 
-                                    // scrollX: true,
+                                    //Update object's name property.
+                                    if ($(this).is(':checked')) {
+                                        checkedRenpam1[objIndex].checked = 1;
+                                    } else {
+                                        checkedRenpam1[objIndex].checked = 0;
+                                    }
 
-                                    // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                                    //Log object to console again.
+                                    console.log(`${$(this).data('type')} - After update: `, checkedRenpam1[objIndex]);
 
-                                    // buttons: ["excel", "csv", "pdf"],
-                                    processing: true,
-                                    oLanguage: {
+                                    // console.log($(this).data('cord'));
 
-                                        sSearch: 'Search:'
+                                    var titikAwal = $(this).data('awal') == null ? '-' : $(this).data('awal');
+                                    var titikAkhir = $(this).data('akhir') == null ? '-' : $(this).data('akhir');
 
-                                    },
+                                    var warna = "";
+                                    if ($(this).data('jadwal') == "JALUR BEAT") {
+                                        warna = $(this).data('warna') == "" ? 'red' : $(this).data('warna');
+                                    } else {
+                                        warna = "red";
+                                    }
+
+                                    var namaRen = $(this).data('name');
+
+
+                                    var typeRenpam = $(this).data('type');
+                                    if (typeRenpam == 3) { //penjagaan
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{
+                                            color: warna,
+                                            weight: 5,
+                                            className: 'animateRoute'
+                                        }];
+                                    } else if (typeRenpam == 4) { //pengaturan 
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{
+                                            color: warna,
+                                            weight: 5,
+                                            className: 'animateRoute'
+                                        }];
+                                    } else if (typeRenpam == 5) { //penutupan 
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{
+                                            color: warna,
+                                            weight: 5,
+                                            className: 'animateRoute'
+                                        }];
+                                    } else if (typeRenpam == 1) {
+                                        iconMarkerRenpam = ``;
+                                        markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<div class="pin" style="background: yellow;display: none;"><div style="display: none; transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{
+                                            color: warna,
+                                            weight: 5
+                                        }];
+                                    } else {
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
+                                        markerType = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{
+                                            color: warna,
+                                            weight: 5,
+                                            className: 'animateRoute'
+                                        }];
+                                    }
+
+                                    var cordRute1 = $(this).data('cord1');
+                                    if (cordRute1 != null && cordRute1[0]['latLng'] != null) {
+                                        if ($(this).is(':checked')) {
+                                            routingRenpam1[i] = null;
+                                            routingRenpam1[i] = L.Routing.control({
+                                                show: false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: cordRute1,
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{
+                                                        color: "#b935b9",
+                                                        weight: 5,
+                                                        className: 'animateRoute'
+                                                    }]
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeOther,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            });
+
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer);
+                                            // mapContainer.addControl(routingRenpam1[i]); 
+                                        } else {
+                                            mapContainer.removeControl(routingRenpam1[i]);
+                                        }
+
+
+                                    } else {}
+
+                                    var cordRute2 = $(this).data('cord2');
+                                    if (cordRute2 != null && cordRute2[0]['latLng'] != null) {
+                                        if ($(this).is(':checked')) {
+                                            routingRenpam2[i] = null;
+                                            routingRenpam2[i] = L.Routing.control({
+                                                show: false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: cordRute2,
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{
+                                                        color: "#808080",
+                                                        weight: 5,
+                                                        className: 'animateRoute'
+                                                    }]
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeOther,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            });
+
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer);
+                                            // mapContainer.addControl(routingRenpam2[i]); 
+                                        } else {
+                                            mapContainer.removeControl(routingRenpam2[i]);
+                                        }
+
+
+                                    } else {}
+
+                                    var cordRute3 = $(this).data('cord3');
+                                    if (cordRute3 != null && cordRute3[0]['latLng'] != null) {
+                                        if ($(this).is(':checked')) {
+                                            routingRenpam3[i] = null;
+                                            routingRenpam3[i] = L.Routing.control({
+                                                show: false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: cordRute3,
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{
+                                                        color: "#000dda",
+                                                        weight: 5,
+                                                        className: 'animateRoute'
+                                                    }]
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeOther,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            });
+
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer);
+                                            // mapContainer.addControl(routingRenpam3[i]); 
+                                        } else {
+                                            mapContainer.removeControl(routingRenpam3[i]);
+                                        }
+
+
+                                    } else {}
+
+                                    var cordRute4 = $(this).data('cord4');
+                                    if (cordRute4 != null && cordRute4[0]['latLng'] != null) {
+                                        if ($(this).is(':checked')) {
+                                            routingRenpam4[i] = null;
+                                            routingRenpam4[i] = L.Routing.control({
+                                                show: false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: cordRute4,
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{
+                                                        color: "#bdbd0b",
+                                                        weight: 5,
+                                                        className: 'animateRoute'
+                                                    }]
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeOther,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            });
+
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer);
+                                            // mapContainer.addControl(routingRenpam4[i]); 
+                                        } else {
+                                            mapContainer.removeControl(routingRenpam4[i]);
+                                        }
+
+
+                                    } else {}
+
+                                    var cordRuteUtama = $(this).data('cord');
+                                    if (cordRuteUtama != null && cordRuteUtama[0]['latLng'] != null) {
+                                        if ($(this).is(':checked')) {
+                                            routingRenpam[i] = null;
+                                            routingRenpam[i] = L.Routing.control({
+                                                show: false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: cordRuteUtama,
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: styleRouteUtama
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeOther,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            });
+
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer);
+                                            // mapContainer.addControl(routingRenpam[i]); 
+                                        } else {
+                                            mapContainer.removeControl(routingRenpam[i]);
+                                        }
+
+
+                                    } else {}
                                 });
-
                             }
+
+                            // $("#listJadwalRenpamClickDisplay").prop('checked', true);  
+
+                            $(`#datatableByCateg${ress['id_category_schedule']}${countlist}`).DataTable({
+                                responsive: true,
+
+                                // scrollX: true,
+
+                                // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                // buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            });
                         }
                     });
 
@@ -5936,7 +6492,7 @@
                         a: 'GET LOGOUT',
                         b: ress
                     });
-                    if (result['data'] != null) {
+                    if (ress.length > 0) {
                         for (let i = 0; i < ress.length; i++) {
                             // console.log(ress[i]['officer_id']);
                             var id_officer = ress[i]['officer_id'];
@@ -5949,7 +6505,7 @@
             });
 
         }
-        // autoGetLogout = setInterval(getLogout, 5000);
+
 
 
 
@@ -5978,6 +6534,8 @@
                 $("#menuKategori").hide();
             }
         });
+
+
 
 
 
@@ -6011,6 +6569,89 @@
                 });
             }
         });
+        restAreaClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#007bb5;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
+        posPamClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#420fd4;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
+        posYanClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#420fd4;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
+
+        posTerpaduClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#420fd4;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
+        poskoClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#420fd4;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
+        satPjrClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#fef607;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#000000;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
+        gerbangTolClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#a0b328;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="fa fas fa-torii-gate"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
+
+        satPasClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#a50000;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
+
         cctvClusterGroup = L.markerClusterGroup({
             iconCreateFunction: function(cluster) {
                 return new L.DivIcon({
@@ -6064,10 +6705,15 @@
 
 
 
-        // serverSideFilter();
 
-        function serverSideFilter() {
+
+
+
+        serverSideFilter();
+
+        function serverSideFilter(polda_id) {
             // userDataTable.draw();
+            // console.log(polda_id);
 
             $("#overlay").fadeIn(300);
             arrayFilter = [];
@@ -6082,25 +6728,55 @@
             });
 
 
+            // $("#kegiatanDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
+
+            //     }else{
             for (let i = 0; i < markerJadwal.length; i++) {
-                jadwalClusterGroup.removeLayer(markerJadwal[i]);
-                // mapContainer.removeLayer(jadwalClusterGroup);
+                if (markerJadwal[i]) {
+                    jadwalClusterGroup.removeLayer(markerJadwal[i]);
+                    // mapContainer.removeLayer(jadwalClusterGroup);
+                }
             }
             markerJadwal = new Array();
+            //     }
+            // });
 
 
+            // $("#cctvDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
+
+            //     }else{ 
             for (let i = 0; i < markerCCTV.length; i++) {
                 // mapContainer.removeLayer(markerCCTV[i]);
-                cctvClusterGroup.removeLayer(markerCCTV[i]);
+                if (markerCCTV[i]) {
+                    cctvClusterGroup.removeLayer(markerCCTV[i]);
+                }
             }
             markerCCTV = new Array();
+            //     }
+            // });
 
+
+            // $("#samsatDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
+
+            //     }else{ 
             for (let i = 0; i < markerSamsat.length; i++) {
                 // mapContainer.removeLayer(markerSamsat[i]);
-                samsatClusterGroup.removeLayer(markerSamsat[i]);
+                if (markerSamsat[i]) {
+                    samsatClusterGroup.removeLayer(markerSamsat[i]);
+                }
             }
             markerSamsat = new Array();
+            //     }
+            // });
 
+
+            // $("#samsatDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
+
+            //     }else{  
             for (let i = 0; i < markerTroubleSpot.length; i++) {
                 // mapContainer.removeLayer(markerTroubleSpot[i]);
                 if (markerTroubleSpot[i]) {
@@ -6108,7 +6784,14 @@
                 }
             }
             markerTroubleSpot = new Array();
+            //     }
+            // });
 
+
+            // $("#blank_spotDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
+
+            //     }else{ 
             for (let i = 0; i < markerBlankSpot.length; i++) {
                 // mapContainer.removeLayer(markerBlankSpot[i]);
                 if (markerBlankSpot[i]) {
@@ -6116,43 +6799,188 @@
                 }
             }
             markerBlankSpot = new Array();
+            //     }
+            // });  
+
+
+            // $("#restAreaDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
+
+            //     }else{
+            for (let i = 0; i < markerRestArea.length; i++) {
+                // mapContainer.removeLayer(markerRestArea[i]);
+                if (markerRestArea[i]) {
+                    restAreaClusterGroup.removeLayer(markerRestArea[i]);
+                }
+            }
+            markerRestArea = new Array();
+            //     }
+            // }); 
+
+            for (let i = 0; i < markerPosPam.length; i++) {
+                // mapContainer.removeLayer(markerPosPam[i]);
+                if (markerPosPam[i]) {
+                    posPamClusterGroup.removeLayer(markerPosPam[i]);
+                }
+            }
+            markerPosPam = new Array();
+
+            for (let i = 0; i < markerPosYan.length; i++) {
+                // mapContainer.removeLayer(markerPosYan[i]);
+                if (markerPosYan[i]) {
+                    posYanClusterGroup.removeLayer(markerPosYan[i]);
+                }
+            }
+            markerPosYan = new Array();
+
+            for (let i = 0; i < markerPosTerpadu.length; i++) {
+                // mapContainer.removeLayer(markerPosTerpadu[i]);
+                if (markerPosTerpadu[i]) {
+                    posTerpaduClusterGroup.removeLayer(markerPosTerpadu[i]);
+                }
+            }
+            markerPosTerpadu = new Array();
+
+            for (let i = 0; i < markerPosko.length; i++) {
+                // mapContainer.removeLayer(markerPosko[i]);
+                if (markerPosko[i]) {
+                    poskoClusterGroup.removeLayer(markerPosko[i]);
+                }
+            }
+            markerPosko = new Array();
+
+            for (let i = 0; i < markerSatPjr.length; i++) {
+                // mapContainer.removeLayer(markerSatPjr[i]);
+                if (markerSatPjr[i]) {
+                    satPjrClusterGroup.removeLayer(markerSatPjr[i]);
+                }
+            }
+            markerSatPjr = new Array();
+
+
+            // $("#gerbangtolDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
+
+            //     }else{
+            for (let i = 0; i < markerGerbangtol.length; i++) {
+                // mapContainer.removeLayer(markerGerbangtol[i]);
+                if (markerGerbangtol[i]) {
+                    gerbangTolClusterGroup.removeLayer(markerGerbangtol[i]);
+                }
+            }
+            markerGerbangtol = new Array();
+            //     }
+            // });
+
+
+            // $("#satPasDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
+
+            //     }else{
+            for (let i = 0; i < markerSatPas.length; i++) {
+                // mapContainer.removeLayer(markerSatPas[i]);
+                if (markerSatPas[i]) {
+                    satPasClusterGroup.removeLayer(markerSatPas[i]);
+                }
+            }
+            markerSatPas = new Array();
+            //     }
+            // });
 
             for (let i = 0; i < markerFasum.length; i++) {
-                mapContainer.removeLayer(markerFasum[i]);
+                if (markerFasum[i]) {
+                    mapContainer.removeLayer(markerFasum[i]);
+                }
             }
             markerFasum = new Array();
 
+
+            // $("#fasumKhususDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
+
+            //     }else{
             for (let i = 0; i < markerFasumKhusus.length; i++) {
-                fasumKhususClusterGroup.removeLayer(markerFasumKhusus[i]);
-                // mapContainer.removeLayer(fasumKhususClusterGroup);
+                if (markerFasumKhusus[i]) {
+                    fasumKhususClusterGroup.removeLayer(markerFasumKhusus[i]);
+                }
             }
             markerFasumKhusus = new Array();
+            //     }
+            // });
 
+            // $("#clusterDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
+
+            //     }else{
             for (let i = 0; i < markerCluster.length; i++) {
-                // fasumKhususClusterGroup.removeLayer(markerCluster[i]);
-                mapContainer.removeLayer(markerCluster[i]);
+                if (markerCluster[i]) {
+                    mapContainer.removeLayer(markerCluster[i]);
+                }
             }
             markerCluster = new Array();
+            //     }
+            // });
 
+
+            // $("#radiusDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
+
+            //     }else{
+            for (let i = 0; i < markerRadius.length; i++) {
+                if (markerRadius[i]) {
+                    // fasumKhususRadiusGroup.removeLayer(markerRadius[i]);
+                    mapContainer.removeLayer(markerRadius[i]);
+                }
+            }
+            markerRadius = new Array();
+            //     }
+            // });
+
+
+            // $("#polresDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
+
+            //     }else{
             for (let i = 0; i < markerPolres.length; i++) {
-                mapContainer.removeLayer(markerPolres[i]);
+                if (markerPolres[i]) {
+                    mapContainer.removeLayer(markerPolres[i]);
+                }
             }
             markerPolres = new Array();
+            //     }
+            // });
 
+
+            // $("#operasiDisplay").on("change", function(e) {
+            //     if ($(this).is(':checked')) {
+
+            //     }else{
             for (let i = 0; i < markerLaporan.length; i++) {
-                laporanClusterGroup.removeLayer(markerLaporan[i]);
-                // mapContainer.removeLayer(laporanClusterGroup);
+                if (markerLaporan[i]) {
+                    laporanClusterGroup.removeLayer(markerLaporan[i]);
+                    // mapContainer.removeLayer(laporanClusterGroup);
+                }
             }
             markerLaporan = new Array();
+            //     }
+            // });
+
+
+
 
             for (let i = 0; i < markerLaporanPanic.length; i++) {
-                panicClusterGroup.removeLayer(markerLaporanPanic[i]);
-                // mapContainer.removeLayer(panicClusterGroup);
+                if (markerLaporanPanic[i]) {
+                    panicClusterGroup.removeLayer(markerLaporanPanic[i]);
+                    // mapContainer.removeLayer(panicClusterGroup);
+                }
             }
             markerLaporanPanic = new Array();
 
+
+
             // console.log(`${centerLat},${centerLng}`);  
 
+            var idPolda = polda_id;
 
             $.ajax({
                 type: "POST",
@@ -6164,17 +6992,28 @@
                     "type": arrayFilterFasumKategori.toString(),
                     "startdate": $("#startdate").val(),
                     "enddate": $("#enddate").val(),
+                    "polda_id": polda_id ? polda_id : null,
                 },
                 dataType: "JSON",
                 success: function(result) {
+                    // console.log(result);
+
                     $("#overlay").fadeOut(300);
                     var ressTurjawali = result['data']['turjawali'];
-
                     var ressPolres = result['data']['polres'];
                     var ressCctv = result['data']['cctv'];
+
                     var ressSamsat = result['data']['samsat'];
                     var ressTroubleSpot = result['data']['trouble_spot'];
                     var ressBlankSpot = result['data']['blank_spot'];
+                    var ressRestArea = result['data']['rest_area'];
+                    var ressPosPam = result['data']['pos_pam'];
+                    var ressPosYan = result['data']['pos_yan'];
+                    var ressPosTerpadu = result['data']['pos_terpadu'];
+                    var ressPosko = result['data']['posko'];
+                    var ressSatPjr = result['data']['sat_pjr'];
+
+                    var ressSatPas = result['data']['sat_pas'];
 
                     var ressLAP = result['data']['titik_laporan'];
                     var ressPanic = result['data']['titik_panicButton'];
@@ -6182,19 +7021,23 @@
                     // var ressFasumKhusus = result['data']['fasum_khusus'];
                     ressFasumKhusus = result['data']['fasum_khusus'];
 
+                    // console.log(ressFasumKhusus);
+
+                    var ressRadius = result['data']['radius'];
                     var ressCluster = result['data']['cluster'];
                     var ressSchedule = result['data']['jadwal_kegiatan'];
                     var ressOperasi = result['data']['operasi'];
-                    console.log(result['data']);
+
+                    var ressJalur = result['data']['jalur'];
+                    var ressGerbangtol = result['data']['gerbang_tol'];
+                    // console.log(ressGerbangtol);
+
 
                     if (ressTurjawali && ressTurjawali.length > 0) {
                         var filterTurjawali = ressTurjawali.filter(function(e) {
                             return e.latitude != null && e.longitude != null;
                         });
                     }
-
-
-
 
                     if (ressPolres && ressPolres.length > 0) {
                         var filterpolres = ressPolres.filter(function(e) {
@@ -6354,115 +7197,317 @@
                     }
 
                     if (ressCctv && ressCctv.length > 0) {
-                        var filterCctv = ressCctv.filter(function(e) {
-                            return e.lat_cctv != null && e.lng_cctv != null;
-                        });
+                        // var filterCctv = ressCctv.filter(function(e) {
+                        //     return e.lat_cctv != null && e.lng_cctv != null;
+                        // });
 
-                        if (filterCctv.length > 0) {
-                            $('#openModalCctvDisplay').html(`
-                                <table id="datatableCctvOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Type</th> 
-                                            <th>Nama</th> 
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="isiModalCctvDisplay">
-                                    </tbody>
-                                </table>                     
-                            `);
-                            var countCctvDisplay = 0;
-                            var listCctvDisplay = '';
-                            $('#totalCctvDisplay').html(filterCctv.length);
+                        // if (filterCctv.length > 0) {
+                        //     $('#openModalCctvDisplay').html(`
+                        //         <table id="datatableCctvOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                        //             <thead>
+                        //                 <tr>
+                        //                     <th>No</th>
+                        //                     <th>Type</th> 
+                        //                     <th>Nama</th> 
+                        //                     <th>Aksi</th>
+                        //                 </tr>
+                        //             </thead>
+                        //             <tbody id="isiModalCctvDisplay">
+                        //             </tbody>
+                        //         </table>                     
+                        //     `);
+                        //     var countCctvDisplay = 0;
+                        //     var listCctvDisplay = '';
+                        //     $('#totalCctvDisplay').html(filterCctv.length);
 
-                            for (let i = 0; i < filterCctv.length; i++) {
-                                countCctvDisplay += 1;
-                                listCctvDisplay += `
-                                    <tr>
-                                        <td>${countCctvDisplay}</td>
-                                        <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].type_cctv}</a></td> 
-                                        <td>${filterCctv[i].vms_cctv}</td> 
-                                        <td>
-                                            <a class="btn" style="margin-top: -10px;"  
-                                                id="flyToMapFilterCctv${countCctvDisplay}"
-                                                data-cord="${filterCctv[i].lat_cctv},${filterCctv[i].lng_cctv}" 
-                                                href="javascript:void(0)">
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
-                                        </td>
-                                    </tr>
-                                `;
-                                $('#isiModalCctvDisplay').html(listCctvDisplay);
+                        //     for (let i = 0; i < filterCctv.length; i++) {
+                        //         setTimeout(() => {
+                        //             countCctvDisplay += 1;
+                        //             listCctvDisplay += `
+                        //                 <tr>
+                        //                     <td>${countCctvDisplay}</td>
+                        //                     <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].type_cctv}</a></td> 
+                        //                     <td>${filterCctv[i].vms_cctv}</td> 
+                        //                     <td>
+                        //                         <a class="btn" style="margin-top: -10px;"  
+                        //                             id="flyToMapFilterCctv${countCctvDisplay}"
+                        //                             data-cord="${filterCctv[i].lat_cctv},${filterCctv[i].lng_cctv}" 
+                        //                             href="javascript:void(0)">
+                        //                             <i style="color: #495057;" class="fa fas fa-eye"></i>
+                        //                         </a> 
+                        //                     </td>
+                        //                 </tr>
+                        //             `;
+                        //             $('#isiModalCctvDisplay').html(listCctvDisplay);
 
 
 
-                                id = i;
-                                var latitudeCCTV = parseFloat(filterCctv[i].lat_cctv);
-                                var longitudeCCTV = parseFloat(filterCctv[i].lng_cctv);
+                        //             id = i;
+                        //             var latitudeCCTV = parseFloat(filterCctv[i].lat_cctv);
+                        //             var longitudeCCTV = parseFloat(filterCctv[i].lng_cctv);
 
-                                var resource = '';
-                                if (filterCctv[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv') {
-                                    resource = `<iframe id="myIframe" src="${filterCctv[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
-                                } else {
-                                    resource = `<img style="width: 300px;" src="${filterCctv[i].link_cctv}" />`;
+                        //             var resource = '';
+                        //             if (filterCctv[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv' || filterCctv[i].merek_cctv == 'video') {
+                        //                 resource = `<iframe id="myIframe" src="${filterCctv[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
+                        //             } else {
+                        //                 resource = `<div>
+                        //                 <img class="cctv-${filterCctv[i].id}" style="width: 300px;" src="${filterCctv[i].link_cctv}" />
+                        //                 </div>`;
+                        //                 window.setInterval(function () {
+                        //                     var d = new Date();
+                        //                     console.log("is refresh")
+                        //                     $(`.cctv-${filterCctv[i].id}`).attr("src", filterCctv[i].link_cctv + d.getTime());
+                        //                 }, 1000);
+                        //             }
+
+                        //             cctvClusterGroup.addLayer(markerCCTV[i] = L.marker([latitudeCCTV, longitudeCCTV], {
+                        //                 icon: L.divIcon({
+                        //                     // className: 'location-pin',
+                        //                     html: `
+                        //                 <div>
+                        //                     <div style="position: relative;">
+                        //                         <img src="<?php echo base_url(); ?>assets/icon/cctv.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                        //                     </div> 
+                        //                     <div style="position: absolute;margin-top: -29px;">
+                        //                         <span class="badge rounded-pill bg-primary" >${filterCctv[i].address_cctv}</span>
+                        //                     </div>
+                        //                 </div>
+                        //                 `,
+                        //                     iconSize: [5, 5],
+                        //                     iconAnchor: [5, 10]
+                        //                     // iconAnchor: [10, 33]
+                        //                 })
+                        //             }).bindPopup(`
+                        //                 <div style="width: 300px;">
+                        //                     <div class="row">
+                        //                         <div class="col-md-12" style="text-align: center;">
+                        //                             <h5>${filterCctv[i].address_cctv}</h5>
+                        //                         </div>
+                        //                         <div class="col-md-12"> 
+                        //                             ${resource}
+                        //                         </div> 
+                        //                     </div>
+                        //                 </div>
+
+                        //                 `, {
+                        //                 minWidth: 100,
+                        //                 maxWidth: 560,
+                        //                 width: 400
+                        //             }));
+                        //         }, i * 500);
+                        //     }
+
+
+                        //     setTimeout(() => {
+                        //         for (let i = 0; i < countCctvDisplay; i++) {
+                        //             // console.log(`${i+1}`);
+                        //             $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
+                        //                 var latlong = $(this).data('cord').split(',');
+                        //                 var latitude = parseFloat(latlong[0]);
+                        //                 var longitude = parseFloat(latlong[1]);
+                        //                 mapContainer.flyTo([latitude, longitude], 20);
+                        //             });
+                        //         }
+                        //         $('#datatableCctvOnDisplay').DataTable({
+                        //             responsive: true,
+
+                        //             scrollX: true,
+
+                        //             sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                        //             buttons: ["excel", "csv", "pdf"],
+                        //             processing: true,
+                        //             oLanguage: {
+
+                        //                 sSearch: 'Search:'
+
+                        //             },
+                        //         });
+                        //         mapContainer.addLayer(cctvClusterGroup);
+                        //     }, countCctvDisplay * 500);
+                        // }
+
+                        var geoJsonCctvUrl = `<?php echo base_url(); ?>assets/admin/shp/cctv/cctvJID.json`;
+
+                        $.ajax({
+                            type: "GET",
+                            url: geoJsonCctvUrl,
+                            // data: {
+                            //     "type": 'point',
+                            //     "map": 'cctv', 
+                            // },
+                            dataType: "JSON",
+                            success: function(result) {
+                                // console.log(result);
+                                var filterCctv = result.features;
+
+
+
+
+
+
+                                var options2 = {
+                                    style: function(feature) {
+                                        if (feature.style) return feature.style;
+                                        else return noStyle;
+                                    },
+                                    pointToLayer: function(feature, latlng) {
+                                        var model = feature.name;
+                                        var icon = feature.icon;
+
+                                        var style = '';
+                                        if (feature.style) {
+                                            for (var idx in feature.style) {
+                                                style += idx + ':' + feature.style[idx] + ';';
+                                            }
+                                        }
+                                        var pb = vector[model].multi ? 'b' : 'p';
+                                        var iconMar = `<img src='https://jid.jasamargalive.com/img/icon/cctv-b-24.png'>`;
+                                        var aDiv = L.divIcon({
+                                            html: (vector[model].multi ? '<div class="pin" data-layer="' + icon.type.substring(4) +
+                                                    '" data-lat="' + latlng.lat + '" data-lng="' + latlng.lng + '" data-scope="' + feature.properties[vector[model].scope] + '">' : '') +
+                                                '<div class="icon ' + icon.type + '" id="icon-' + icon.type + '-' + feature.id + '"' +
+                                                (style ? ' style="' + style + '"' : (icon.css ? ' style="' + icon.css + '"' : '')) +
+                                                ' title="' + (icon.title ? icon.title : icon.type + ' #' + feature.id) + '">' + iconMar +
+                                                '</div>' +
+                                                (vector[model].multi ? '</div>' : '') +
+                                                (icon.label ? '<div class="label"' + (labels ? '' : ' hidden') + '><' + pb + ' style="white-space: pre;">' + icon.label + '</' + pb + '></div>' : ''),
+                                            className: '',
+                                            iconSize: (vector[model].multi ? [40, 40] : [30, 30]),
+                                            iconAnchor: (vector[model].multi ? [20, 50] : [15, 15]),
+                                            popupAnchor: (vector[model].multi ? [0, -50] : [0, -10])
+                                        });
+                                        return L.marker(latlng, {
+                                            'icon': L.divIcon({
+                                                // className: 'location-pin',
+                                                html: `
+                                                    <div>
+                                                        <div style="position: relative;">
+                                                            <img src="<?php echo base_url(); ?>assets/icon/cctv.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                                        </div> 
+                                                        <div style="position: absolute;margin-top: -29px;">
+                                                            <span class="badge rounded-pill bg-primary" >${icon.label}</span>
+                                                        </div>
+                                                    </div>
+                                                    `,
+                                                iconSize: [5, 5],
+                                                iconAnchor: [5, 10]
+                                                // iconAnchor: [10, 33]
+                                            })
+                                        });
+                                    },
+                                    onEachFeature: function(feature, layer) {
+
+                                        var icon = feature.icon;
+                                        var properties = feature.properties;
+
+                                        var resource = '';
+                                        var uri = `https://jid.jasamarga.com/cctv2/${properties['key id']}?tx=`;
+
+                                        resource = `<div>
+                                        <img class="cctv-${feature.id}" style="width: 300px;" src="${uri}" />
+                                        </div>`;
+                                        window.setInterval(function() {
+                                            var d = new Date();
+                                            // console.log("is refresh")
+                                            $(`.cctv-${feature.id}`).attr("src", uri + d.getTime());
+                                        }, 1000);
+
+
+                                        layer.bindPopup(` 
+                                            <div style="width: 300px;">
+                                                <div class="row">
+                                                    <div class="col-md-12" style="text-align: center;">
+                                                        <h5>${icon.label}</h5>
+                                                    </div>
+                                                    <div class="col-md-12"> 
+                                                        ${resource}
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        `);
+                                    }
+                                }
+                                geoJsonCctv[0] = L.geoJSON(result, options2).addTo(mapContainer);
+
+
+
+                                $('#openModalCctvDisplay').html(`
+                                    <table id="datatableCctvOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama</th> 
+                                                <th>Type</th> 
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="isiModalCctvDisplay">
+                                        </tbody>
+                                    </table>                     
+                                `);
+                                var countCctvDisplay = 0;
+                                var listCctvDisplay = '';
+                                $('#totalCctvDisplay').html(filterCctv.length);
+
+                                for (let i = 0; i < filterCctv.length; i++) {
+                                    // console.log(JSON.stringify(filterCctv[i].geometry.coordinates));
+                                    setTimeout(() => {
+                                        countCctvDisplay += 1;
+                                        listCctvDisplay += `
+                                            <tr>
+                                                <td>${countCctvDisplay}</td>
+                                                <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].properties.nama}</a></td> 
+                                                <td>${filterCctv[i].properties.merk}</td> 
+                                                <td>
+                                                    <a class="btn" style="margin-top: -10px;"  
+                                                        id="flyToMapFilterCctv${countCctvDisplay}"
+                                                        data-cord="${JSON.stringify(filterCctv[i].geometry.coordinates)}" 
+                                                        href="javascript:void(0)">
+                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                    </a> 
+                                                </td>
+                                            </tr>
+                                        `;
+
+                                        $('#isiModalCctvDisplay').html(listCctvDisplay);
+
+                                    }, i * 500);
                                 }
 
-                                cctvClusterGroup.addLayer(markerCCTV[i] = L.marker([latitudeCCTV, longitudeCCTV], {
-                                    icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: `<img src="<?php echo base_url(); ?>assets/icon/cctv.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                    })
-                                }).bindPopup(`
-                                    <div style="width: 300px;">
-                                        <div class="row">
-                                            <div class="col-md-12" style="text-align: center;">
-                                                <h5>${filterCctv[i].address_cctv}</h5>
-                                            </div>
-                                            <div class="col-md-12"> 
-                                                ${resource}
-                                            </div> 
-                                        </div>
-                                    </div>
-                                        
-                                    `, {
-                                    minWidth: 100,
-                                    maxWidth: 560,
-                                    width: 400
-                                }));
+
+
+                                setTimeout(() => {
+                                    for (let i = 0; i < countCctvDisplay; i++) {
+                                        $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
+                                            var latlong = $(this).data('cord').split(',');
+                                            var latitude = parseFloat(latlong[0]);
+                                            var longitude = parseFloat(latlong[1]);
+                                            mapContainer.flyTo([latitude, longitude], 20);
+                                        });
+
+
+                                    }
+                                    $('#datatableCctvOnDisplay').DataTable({
+                                        responsive: true,
+
+                                        scrollX: true,
+
+                                        sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                        buttons: ["excel", "csv", "pdf"],
+                                        processing: true,
+                                        oLanguage: {
+
+                                            sSearch: 'Search:'
+
+                                        },
+                                    });
+                                }, countCctvDisplay * 500);
+
+
                             }
-
-
-                            for (let i = 0; i < countCctvDisplay; i++) {
-                                // console.log(`${i+1}`);
-                                $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
-                                    var latlong = $(this).data('cord').split(',');
-                                    var latitude = parseFloat(latlong[0]);
-                                    var longitude = parseFloat(latlong[1]);
-                                    mapContainer.flyTo([latitude, longitude], 20);
-                                });
-                            }
-                            $('#datatableCctvOnDisplay').DataTable({
-                                responsive: true,
-
-                                scrollX: true,
-
-                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                                buttons: ["excel", "csv", "pdf"],
-                                processing: true,
-                                oLanguage: {
-
-                                    sSearch: 'Search:'
-
-                                },
-                            });
-                            mapContainer.addLayer(cctvClusterGroup);
-                        }
+                        });
                     }
 
 
@@ -6521,7 +7566,16 @@
                                 samsatClusterGroup.addLayer(markerSamsat[i] = L.marker([latitudeSamsat, longitudeSamsat], {
                                     icon: L.divIcon({
                                         // className: 'location-pin',
-                                        html: `<img src="<?php echo base_url(); ?>assets/icon/lainnya.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                        html: `
+                                        <div>
+                                            <div style="position: relative;">
+                                                <img src="<?php echo base_url(); ?>assets/icon/lainnya.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                            </div> 
+                                            <div style="position: absolute;margin-top: -29px;">
+                                                <span class="badge rounded-pill bg-primary" >${filterSamsat[i].name_samsat}</span>
+                                            </div>
+                                        </div>
+                                        `,
                                         iconSize: [5, 5],
                                         iconAnchor: [5, 10]
                                         // iconAnchor: [10, 33]
@@ -6574,6 +7628,164 @@
                         }
                     }
 
+
+                    if (ressJalur && ressJalur.length > 0) {
+                        var filterJalur = ressJalur;
+
+                        if (filterJalur.length > 0) {
+
+
+                            var countIsiLegenJalur = 0;
+                            var listIsiLegenJalur = '';
+
+
+                            $('#openModalJalurDisplay').html(`
+                                <table id="datatableJalurOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Keterangan</th>  
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalJalurDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+
+                            var countJalurDisplay = 0;
+                            var listJalurDisplay = '';
+                            $('#totalJalurDisplay').html(filterJalur.length);
+                            var countlistJalur = 0;
+                            var checkedJalur1 = [];
+
+                            for (let i = 0; i < filterJalur.length; i++) {
+                                countJalurDisplay += 1;
+                                countlistJalur += 1;
+                                id = i;
+
+                                listJalurDisplay += `
+                                    <tr>
+                                        <td>${countJalurDisplay}</td>
+                                        <td>${filterJalur[i].fasum_name}</td> 
+                                        <td>${filterJalur[i].fasum_description}</td>  
+                                        <td>
+                                            <input type="checkbox" class="form-input checkTs" name="selectTs" 
+                                            id="listJlDisplay${countlistJalur}"  
+                                            data-name="${filterJalur[i]['fasum_name']}" 
+                                            data-warna="${filterJalur[i]['fasum_color']}" 
+                                            data-geojson='${JSON.stringify(filterJalur[i]['fasum_geoJson'])}'
+                                            data-cord='${JSON.stringify(filterJalur[i]['route'])}'> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $('#isiModalJalurDisplay').html(listJalurDisplay);
+
+
+                                checkedJalur1.push({
+                                    fasum_name: filterJalur[i]['fasum_name'],
+                                    checked: 0,
+                                });
+
+
+
+
+                                listIsiLegenJalur += `
+                                    <div class="col-md-6">
+                                        <b style="font-size: 14px; text-transform: capitalize;">${filterJalur[i].fasum_name}</b> 
+                                    </div> 
+                                    <div class="col-md-6"> 
+                                        <div style="height: 10px;background-color: ${filterJalur[i].fasum_color}; margin-top: 8px;" ></div>
+                                    </div>
+                                `;
+                                $('#isiLegendJalur').html(listIsiLegenJalur);
+
+                            }
+
+                            for (let i = 0; i < countlistJalur; i++) {
+                                $(`#listJlDisplay${i+1}`).on("change", function(e) {
+
+                                    var cordRute = $(this).data('cord');
+                                    if (cordRute != null && cordRute[0]['latLng'] != null) {
+                                        if ($(this).is(':checked')) {
+                                            routingJalur[i] = null;
+                                            routingJalur[i] = L.Routing.control({
+                                                show: false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: cordRute,
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{
+                                                        color: `${$(this).data('warna')}`,
+                                                        weight: 5,
+                                                        // className: 'animateRoute'
+                                                    }]
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        // return L.marker(wp.latLng);
+                                                    } else if (i === nWps - 1) {
+                                                        // return L.marker(wp.latLng);
+                                                    } else {
+                                                        // here change all the others
+                                                        // var options = {
+                                                        //         draggable: this.draggableWaypoints,
+                                                        //     },
+                                                        //     marker = L.marker(wp.latLng);
+
+                                                        // return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer);
+                                            // mapContainer.addControl(routingJalur[i]); 
+                                        } else {
+                                            mapContainer.removeControl(routingJalur[i]);
+                                        }
+                                    }
+
+                                    var geoJson = $(this).data('geojson');
+                                    if (geoJson || geoJson != null) {
+                                        if ($(this).is(':checked')) {
+                                            routingJalur[i] = L.geoJSON(geoJson, {
+                                                style: {
+                                                    fillColor: "yellow",
+                                                    color: "yellow",
+                                                }
+                                            }).addTo(mapContainer);
+                                        } else {
+                                            mapContainer.removeLayer(routingJalur[i]);
+                                        }
+                                    }
+                                });
+                            }
+
+
+                            $('#datatableJalurOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            });
+
+                        }
+                    }
+
                     if (ressTroubleSpot && ressTroubleSpot.length > 0) {
                         var filterTroubleSpot = ressTroubleSpot;
 
@@ -6606,50 +7818,72 @@
                                 id = i;
 
                                 if (filterTroubleSpot[i].route == null) {
-                                    listTroubleSpotDisplay += `
-                                        <tr>
-                                            <td>${countTroubleSpotDisplay}</td>
-                                            <td>${filterTroubleSpot[i].reporter_name}</td> 
-                                            <td>${filterTroubleSpot[i].location}</td> 
-                                            <td>${filterTroubleSpot[i].desc}</td> 
-                                            <td>
-                                                <a class="btn" style="margin-top: -10px;"  
-                                                    id="flyToMapFilterTroubleSpot${countTroubleSpotDisplay}"
-                                                    data-cord="${filterTroubleSpot[i].latitude},${filterTroubleSpot[i].longitude}" 
-                                                    href="javascript:void(0)">
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </a> 
-                                            </td>
-                                        </tr>
-                                    `;
-                                    $('#isiModalTroubleSpotDisplay').html(listTroubleSpotDisplay);
 
                                     var latitudeTroubleSpot = parseFloat(filterTroubleSpot[i].latitude);
                                     var longitudeTroubleSpot = parseFloat(filterTroubleSpot[i].longitude);
-                                    troubleSpotClusterGroup.addLayer(markerTroubleSpot[i] = L.marker([latitudeTroubleSpot, longitudeTroubleSpot], {
-                                        icon: L.divIcon({
-                                            // className: 'location-pin',
-                                            html: `<img src="<?php echo base_url(); ?>assets/icon/troublespot.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
-                                            iconSize: [5, 5],
-                                            iconAnchor: [5, 10]
-                                            // iconAnchor: [10, 33]
-                                        })
-                                    }).bindPopup(`
-                                        <div style="width: 300px;">
-                                            <div class="row">
-                                                <div class="col-md-12" style="text-align: center;">
-                                                    <h5>${filterTroubleSpot[i].reporter_name}</h5>
+                                    if (latitudeTroubleSpot && longitudeTroubleSpot) {
+                                        listTroubleSpotDisplay += `
+                                            <tr>
+                                                <td>${countTroubleSpotDisplay}</td>
+                                                <td>${filterTroubleSpot[i].reporter_name}</td> 
+                                                <td>${filterTroubleSpot[i].location}</td> 
+                                                <td>${filterTroubleSpot[i].desc}</td> 
+                                                <td>
+                                                    <a class="btn" style="margin-top: -10px;"  
+                                                        id="flyToMapFilterTroubleSpot${countTroubleSpotDisplay}"
+                                                        data-cord="${filterTroubleSpot[i].latitude},${filterTroubleSpot[i].longitude}" 
+                                                        href="javascript:void(0)">
+                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                    </a> 
+                                                </td>
+                                            </tr>
+                                        `;
+                                        $('#isiModalTroubleSpotDisplay').html(listTroubleSpotDisplay);
+
+                                        troubleSpotClusterGroup.addLayer(markerTroubleSpot[i] = L.marker([latitudeTroubleSpot, longitudeTroubleSpot], {
+                                            icon: L.divIcon({
+                                                // className: 'location-pin',
+                                                html: `
+                                                <div>
+                                                    <div style="position: relative;">
+                                                        <img src="<?php echo base_url(); ?>assets/icon/troublespot.png" style="width: 35px; margin-top: -40px;margin-left: -15.5px;">
+                                                    </div>  
                                                 </div>
-                                                <div class="col-md-12"> 
-                                                        
-                                                </div> 
-                                            </div>
-                                        </div> 
-                                    `, {
-                                        minWidth: 100,
-                                        maxWidth: 560,
-                                        width: 400
-                                    }));
+                                                `,
+                                                iconSize: [5, 5],
+                                                iconAnchor: [5, 10]
+                                                // iconAnchor: [10, 33]
+                                            })
+                                        }).bindPopup(`
+                                            <div style="width: 300px;">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-12 mt-3 text-center">
+                                                        <h5>${filterTroubleSpot[i].reporter_name}</h5>  
+                                                    </div>
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Polda</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polda ? filterTroubleSpot[i].polda.name_polda : '-'}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Polres</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polre ? filterTroubleSpot[i].polre.name_polres : '-'}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].problem ? filterTroubleSpot[i].problem.replace(/\n/g, "<br />") : '-'}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].location ? filterTroubleSpot[i].location : '-'}</p>
+                                                    </div> 
+                                                </div>
+                                            </div> 
+                                        `, {
+                                            minWidth: 100,
+                                            maxWidth: 560,
+                                            width: 400
+                                        }));
+                                    }
                                 } else {
                                     listTroubleSpotDisplay += `
                                         <tr>
@@ -6784,50 +8018,73 @@
                                 id = i;
 
                                 if (filterBlankSpot[i].route == null) {
-                                    listBlankSpotDisplay += `
-                                        <tr>
-                                            <td>${countBlankSpotDisplay}</td>
-                                            <td>${filterBlankSpot[i].reporter_name}</td> 
-                                            <td>${filterBlankSpot[i].location}</td> 
-                                            <td>${filterBlankSpot[i].desc}</td> 
-                                            <td>
-                                                <a class="btn" style="margin-top: -10px;"  
-                                                    id="flyToMapFilterBlankSpot${countBlankSpotDisplay}"
-                                                    data-cord="${filterBlankSpot[i].latitude},${filterBlankSpot[i].longitude}" 
-                                                    href="javascript:void(0)">
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </a> 
-                                            </td>
-                                        </tr>
-                                    `;
-                                    $('#isiModalBlankSpotDisplay').html(listBlankSpotDisplay);
+
 
                                     var latitudeBlankSpot = parseFloat(filterBlankSpot[i].latitude);
                                     var longitudeBlankSpot = parseFloat(filterBlankSpot[i].longitude);
-                                    troubleSpotClusterGroup.addLayer(markerBlankSpot[i] = L.marker([latitudeBlankSpot, longitudeBlankSpot], {
-                                        icon: L.divIcon({
-                                            // className: 'location-pin',
-                                            html: `<img src="<?php echo base_url(); ?>assets/icon/troublespot.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
-                                            iconSize: [5, 5],
-                                            iconAnchor: [5, 10]
-                                            // iconAnchor: [10, 33]
-                                        })
-                                    }).bindPopup(`
-                                        <div style="width: 300px;">
-                                            <div class="row">
-                                                <div class="col-md-12" style="text-align: center;">
-                                                    <h5>${filterBlankSpot[i].reporter_name}</h5>
+                                    if (latitudeBlankSpot && longitudeBlankSpot) {
+                                        listBlankSpotDisplay += `
+                                            <tr>
+                                                <td>${countBlankSpotDisplay}</td>
+                                                <td>${filterBlankSpot[i].reporter_name}</td> 
+                                                <td>${filterBlankSpot[i].location}</td> 
+                                                <td>${filterBlankSpot[i].desc}</td> 
+                                                <td>
+                                                    <a class="btn" style="margin-top: -10px;"  
+                                                        id="flyToMapFilterBlankSpot${countBlankSpotDisplay}"
+                                                        data-cord="${filterBlankSpot[i].latitude},${filterBlankSpot[i].longitude}" 
+                                                        href="javascript:void(0)">
+                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                    </a> 
+                                                </td>
+                                            </tr>
+                                        `;
+                                        $('#isiModalBlankSpotDisplay').html(listBlankSpotDisplay);
+                                        blankSpotClusterGroup.addLayer(markerBlankSpot[i] = L.marker([latitudeBlankSpot, longitudeBlankSpot], {
+                                            icon: L.divIcon({
+                                                // className: 'location-pin',
+                                                html: `
+                                                <div>
+                                                    <div style="position: relative;">
+                                                        <img src="<?php echo base_url(); ?>assets/icon/blackspot.png" style="width: 35px; margin-top: -40px;margin-left: -15.5px;">
+                                                    </div>  
                                                 </div>
-                                                <div class="col-md-12"> 
-                                                        
-                                                </div> 
-                                            </div>
-                                        </div> 
-                                    `, {
-                                        minWidth: 100,
-                                        maxWidth: 560,
-                                        width: 400
-                                    }));
+                                                `,
+                                                iconSize: [5, 5],
+                                                iconAnchor: [5, 10]
+                                                // iconAnchor: [10, 33]
+                                            })
+                                        }).bindPopup(`
+                                            <div style="width: 300px;">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-12 mt-3 text-center">
+                                                        <h5>${filterBlankSpot[i].reporter_name}</h5>  
+                                                    </div>
+                                                    
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Polda</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].polda ? filterBlankSpot[i].polda.name_polda : '-'}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Polres</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].polre ? filterBlankSpot[i].polre.name_polres : '-'}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].problem ? filterBlankSpot[i].problem.replace(/\n/g, "<br />") : '-'}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start">
+                                                        <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>  
+                                                        <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].location ? filterBlankSpot[i].location : '-'}</p>
+                                                    </div> 
+                                                </div>
+                                            </div> 
+                                        `, {
+                                            minWidth: 100,
+                                            maxWidth: 560,
+                                            width: 400
+                                        }));
+                                    }
                                 } else {
                                     listBlankSpotDisplay += `
                                         <tr>
@@ -6930,6 +8187,1270 @@
                         }
                     }
 
+                    if (ressRestArea && ressRestArea.length > 0) {
+                        $('#openModalRestAreaDisplay').html(`
+                            <table id="datatableRestAreaOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalRestAreaDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countRestAreaDisplay = 0;
+                        var listRestAreaDisplay = '';
+                        $('#totalRestAreaDisplay').html(ressRestArea.length);
+
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressRestArea.length; i++) {
+                            countRestAreaDisplay += 1;
+                            listRestAreaDisplay += `
+                                <tr>
+                                    <td>${countRestAreaDisplay}</td>
+                                    <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressRestArea[i].fasum_name}</a></td> 
+                                    <td>${ressRestArea[i].fasum_address}</td> 
+                                    <td>
+                                        <a class="btn" style="margin-top: -10px;"  
+                                            id="flyToMapFilterRestArea${countRestAreaDisplay}"
+                                            data-cord="${ressRestArea[i].fasum_lat},${ressRestArea[i].fasum_lng}" 
+                                            href="javascript:void(0)">
+                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                        </a> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#isiModalRestAreaDisplay').html(listRestAreaDisplay);
+
+
+                            var latitudeFasum = parseFloat(ressRestArea[i].fasum_lat);
+                            var longitudeFasum = parseFloat(ressRestArea[i].fasum_lng);
+                            restAreaClusterGroup.addLayer(markerRestArea[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: `
+                                    <div>
+                                        <div style="position: relative;">
+                                            <img src="<?php echo base_url(); ?>assets/icon/rest_area.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                        </div> 
+                                        <div style="position: absolute;margin-top: -29px;">
+                                            <span class="badge rounded-pill bg-primary" >${ressRestArea[i].fasum_name}</span>
+                                        </div>
+                                    </div>
+                                    `,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                })
+                            }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="row mt-3">
+                                                <div class="col-md-12 col-12" style="margin-bottom: 10px;">
+                                                    <img src="${ressRestArea[i].fasum_logo}" alt="" class="float-center" style="width: 100%;"> 
+                                                </div>
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>${ressRestArea[i].fasum_name}</h5> 
+                                                    <span>- ${ressRestArea[i].category_fasum.name_category_fasum} -</span>
+                                                </div>
+                                                
+
+                                                <div class="col-md-12 col-12 mt-2">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                                             ${ressRestArea[i].fasum_description != null ? ressRestArea[i].fasum_description.replace(/\n/g, "<br />") : "-"}
+                                                        </div> 
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12 mt-2">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressRestArea[i].fasum_address}</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressRestArea[i].fasum_phone}</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressRestArea[i].fasum_open_time != null ? ressRestArea[i].fasum_open_time : '00:00'} - ${ressRestArea[i].fasum_close_time != null ? ressRestArea[i].fasum_close_time : '00:00'} WITA</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>   
+                                            </div>
+                                        </div> 
+                                `, {
+                                minWidth: 100,
+                                maxWidth: 900,
+                                width: 300
+                            }));
+                        }
+
+
+                        for (let i = 0; i < countRestAreaDisplay; i++) {
+                            $(`#flyToMapFilterRestArea${i+1}`).on("click", function(e) {
+                                var latlong = $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);
+                                mapContainer.flyTo([latitude, longitude], 17);
+                            });
+                        }
+                        $('#datatableRestAreaOnDisplay').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+                        mapContainer.addLayer(restAreaClusterGroup);
+                    }
+
+                    if (ressPosPam && ressPosPam.length > 0 && $("#posPamDisplay").is(':checked')) {
+                        $(`#isiPoldaPosPam${polda_id}`).html(`
+                            <table id="datatablePosPamOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalPosPamDisplay${polda_id}">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countPosPamDisplay = 0;
+                        var listPosPamDisplay = '';
+                        $('#totalPosPamDisplay').html(ressPosPam.length);
+
+                        var logoMarker = '';
+                        var logoBody = '';
+                        $("#overlayMenu").fadeIn(300);
+
+                        listPosPamDisplay = '';
+                        for (let i = 0; i < ressPosPam.length; i++) {
+                            if (ressPosPam[i].coordinate_guarding && ressPosPam[i].coordinate_guarding.lat != null && ressPosPam[i].coordinate_guarding.lng != null) {
+                                // console.log(ressPosPam[i].coordinate_guarding);
+                                // setTimeout(() => {
+                                countPosPamDisplay += 1;
+
+                                if (ressPosPam[i].title_start) {
+                                    alamatlokasi = ressPosPam[i].title_start;
+                                } else {
+                                    if (ressPosPam[i].alamat) {
+                                        alamatlokasi = ressPosPam[i].alamat.replace(/\n/g, "<br />");
+                                    } else {
+                                        alamatlokasi = "-";
+                                    }
+                                }
+                                listPosPamDisplay += `
+                                        <tr>
+                                            <td>${countPosPamDisplay}</td>
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosPam[i].id}" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
+                                            <td>${alamatlokasi}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px; "  
+                                                    id="flyToMapFilterPosPam${polda_id}${countPosPamDisplay}"
+                                                    data-akun="${ressPosPam[i].accounts}"
+                                                    data-cord="${ressPosPam[i].coordinate_guarding.lat},${ressPosPam[i].coordinate_guarding.lng}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color:${ressPosPam[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                $(`#isiModalPosPamDisplay${polda_id}`).html(listPosPamDisplay);
+
+
+                                var latitudeFasum = parseFloat(ressPosPam[i].coordinate_guarding.lat);
+                                var longitudeFasum = parseFloat(ressPosPam[i].coordinate_guarding.lng);
+                                posPamClusterGroup.addLayer(markerPosPam[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                    icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `
+                                        <div>
+                                            <div style="position: relative;">
+                                                <img src="<?php echo base_url(); ?>assets/icon/POSPAM.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                            </div> 
+                                            <div style="position: absolute;margin-top: -29px;">
+                                                <span class="badge rounded-pill bg-primary" >${ressPosPam[i].name_renpam}</span>
+                                            </div>
+                                        </div>
+                                        `,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                    })
+                                }).bindPopup(`
+                                            <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                                <div class="row"> 
+                                                    <div class="col-md-12 col-12">
+                                                        <h5>${ressPosPam[i].name_renpam}</h5>  
+                                                    </div> 
+                                                    
+                                                  
+                                                
+                                            
+                                                    <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
+                                                          
+                                                        <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
+                                                    </div> 
+                                                    
+                                                    <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPospam${ressPosPam[i].id}">
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                    `, {
+                                    minWidth: 100,
+                                    maxWidth: 900,
+                                    width: 300
+                                }).on("click", function(e) {
+                                    $("#overlayMenu").fadeIn(300);
+                                    var akuns = ressPosPam[i].accounts;
+                                    var dataAkuns = '';
+                                    if (akuns.length > 0) {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                            data: {
+                                                "id": akuns[0]['id'],
+                                            },
+                                            dataType: "JSON",
+                                            success: function(result) {
+                                                var ress = result['data'];
+                                                console.log({
+                                                    a: 'ada',
+                                                    b: ress
+                                                });
+                                                // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                let noTelpF = ress['officer']['phone_officer'];
+                                                $(`#isiPospam${ressPosPam[i].id}`).html(`
+                                                            
+                                                            <div style="text-align: center">
+                                                                ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
+                                                                    <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                    <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                                    <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
+
+                                                                    ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                                </p>
+                                                            </div>
+
+                                                        `);
+                                                $("#overlayMenu").fadeOut(300);
+                                            }
+                                        });
+                                    } else {
+                                        console.log({
+                                            a: 'ga ada'
+                                        });
+                                    }
+                                }));
+                                // }, i * 200);
+                            }
+
+                        }
+
+
+                        for (let i = 0; i < countPosPamDisplay; i++) {
+                            // setTimeout(() => {
+                            $(`#flyToMapFilterPosPam${polda_id}${i+1}`).on("click", function(e) {
+                                var latlong = $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);
+                                mapContainer.flyTo([latitude, longitude], 17);
+                            });
+
+                            // }, countPosPamDisplay.length * 200); 
+                        }
+
+                        $(`#datatablePosPamOnDisplay${polda_id}`).DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+
+                        $("#overlayMenu").fadeOut(300);
+                        mapContainer.addLayer(posPamClusterGroup);
+                    }
+
+                    if (ressPosYan && ressPosYan.length > 0) {
+                        $(`#isiPoldaPosYan${polda_id}`).html(`
+                            <table id="datatablePosYanOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalPosYanDisplay${polda_id}">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countPosYanDisplay = 0;
+                        var listPosYanDisplay = '';
+                        $('#totalPosYanDisplay').html(ressPosYan.length);
+
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressPosYan.length; i++) {
+
+                            if (ressPosYan[i].coordinate_guarding && ressPosYan[i].coordinate_guarding.lat != null && ressPosYan[i].coordinate_guarding.lng != null) {
+                                // setTimeout(() => {
+
+                                if (ressPosYan[i].title_start) {
+                                    alamatlokasi = ressPosYan[i].title_start;
+                                } else {
+                                    if (ressPosYan[i].alamat) {
+                                        alamatlokasi = ressPosYan[i].alamat.replace(/\n/g, "<br />");
+                                    } else {
+                                        alamatlokasi = "-";
+                                    }
+                                }
+                                countPosYanDisplay += 1;
+                                listPosYanDisplay += `
+                                        <tr>
+                                            <td>${countPosYanDisplay}</td>
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosYan[i].id}" target="_blank">${ressPosYan[i].name_renpam}</a></td> 
+                                            <td>${alamatlokasi}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterPosYan${polda_id}${countPosYanDisplay}"
+                                                    data-akun="${ressPosYan[i].accounts}"
+                                                    data-cord="${ressPosYan[i].coordinate_guarding.lat},${ressPosYan[i].coordinate_guarding.lng}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color:${ressPosYan[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                $(`#isiModalPosYanDisplay${polda_id}`).html(listPosYanDisplay);
+
+
+                                var latitudeFasum = parseFloat(ressPosYan[i].coordinate_guarding.lat);
+                                var longitudeFasum = parseFloat(ressPosYan[i].coordinate_guarding.lng);
+                                posYanClusterGroup.addLayer(markerPosYan[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                    icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `
+                                        <div>
+                                            <div style="position: relative;">
+                                                <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                            </div> 
+                                            <div style="position: absolute;margin-top: -29px;">
+                                                <span class="badge rounded-pill bg-primary" >${ressPosYan[i].name_renpam}</span>
+                                            </div>
+                                        </div>
+                                        `,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                    })
+                                }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="row"> 
+                                                <div class="col-md-12 col-12">
+                                                    <h5>${ressPosYan[i].name_renpam}</h5>  
+                                                </div> 
+                                            
+                                        
+                                                <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
+                                                      
+                                                    <p style="font-size: 12px;">${alamatlokasi}</p>
+                                                </div> 
+                                                <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPosyan${ressPosYan[i].id}">
+                                                
+                                                </div>
+                                            </div>
+                                        </div> 
+                                `, {
+                                    minWidth: 100,
+                                    maxWidth: 900,
+                                    width: 300
+                                }).on("click", function(e) {
+                                    $("#overlayMenu").fadeIn(300);
+                                    var akuns = ressPosYan[i].accounts;
+                                    var dataAkuns = '';
+                                    if (akuns.length > 0) {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                            data: {
+                                                "id": akuns[0]['id'],
+                                            },
+                                            dataType: "JSON",
+                                            success: function(result) {
+                                                var ress = result['data'];
+                                                console.log({
+                                                    a: 'ada',
+                                                    b: ress
+                                                });
+                                                // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                let noTelpF = ress['officer']['phone_officer'];
+
+
+                                                $(`#isiPosyan${ressPosYan[i].id}`).html(`
+                                                            
+                                                            <div style="text-align: center">
+                                                            ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
+                                                                    <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                    <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                                    <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
+                                                                    ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                                </p>
+                                                            </div>
+
+                                                        `);
+                                                $("#overlayMenu").fadeOut(300);
+                                            }
+                                        });
+                                    } else {
+                                        console.log({
+                                            a: 'ga ada'
+                                        });
+                                    }
+                                }));
+                                // }, i * 500);
+                            }
+                        }
+
+
+                        // setTimeout(() => {
+                        for (let i = 0; i < countPosYanDisplay; i++) {
+                            $(`#flyToMapFilterPosYan${polda_id}${i+1}`).on("click", function(e) {
+                                var latlong = $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);
+                                mapContainer.flyTo([latitude, longitude], 17);
+                            });
+                        }
+                        $(`#datatablePosYanOnDisplay${polda_id}`).DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+                        mapContainer.addLayer(posYanClusterGroup);
+                        // }, countPosYanDisplay.length * 500);
+                    }
+
+                    if (ressPosTerpadu && ressPosTerpadu.length > 0) {
+                        $(`#isiPoldaPosTerpadu${polda_id}`).html(`
+                            <table id="datatablePosTerpaduOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalPosTerpaduDisplay${polda_id}">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countPosTerpaduDisplay = 0;
+                        var listPosTerpaduDisplay = '';
+                        $('#totalPosTerpaduDisplay').html(ressPosTerpadu.length);
+
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressPosTerpadu.length; i++) {
+
+                            if (ressPosTerpadu[i].coordinate_guarding && ressPosTerpadu[i].coordinate_guarding.lat != null && ressPosTerpadu[i].coordinate_guarding.lng != null) {
+                                // setTimeout(() => {
+                                if (ressPosTerpadu[i].title_start) {
+                                    alamatlokasi = ressPosTerpadu[i].title_start;
+                                } else {
+                                    if (ressPosTerpadu[i].alamat) {
+                                        alamatlokasi = ressPosTerpadu[i].alamat.replace(/\n/g, "<br />");
+                                    } else {
+                                        alamatlokasi = "-";
+                                    }
+                                }
+                                countPosTerpaduDisplay += 1;
+                                listPosTerpaduDisplay += `
+                                        <tr>
+                                            <td>${countPosTerpaduDisplay}</td>
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosTerpadu[i].id}" target="_blank">${ressPosTerpadu[i].name_renpam}</a></td> 
+                                            <td>${alamatlokasi}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterPosTerpadu${polda_id}${countPosTerpaduDisplay}"
+                                                    data-akun="${ressPosTerpadu[i].accounts}"
+                                                    data-cord="${ressPosTerpadu[i].coordinate_guarding.lat},${ressPosTerpadu[i].coordinate_guarding.lng}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color:${ressPosTerpadu[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                $(`#isiModalPosTerpaduDisplay${polda_id}`).html(listPosTerpaduDisplay);
+
+
+                                var latitudeFasum = parseFloat(ressPosTerpadu[i].coordinate_guarding.lat);
+                                var longitudeFasum = parseFloat(ressPosTerpadu[i].coordinate_guarding.lng);
+                                posTerpaduClusterGroup.addLayer(markerPosTerpadu[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                    icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `
+                                        <div>
+                                            <div style="position: relative;">
+                                                <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                            </div> 
+                                            <div style="position: absolute;margin-top: -29px;">
+                                                <span class="badge rounded-pill bg-primary" >${ressPosTerpadu[i].name_renpam}</span>
+                                            </div>
+                                        </div>
+                                        `,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                    })
+                                }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="row"> 
+                                                <div class="col-md-12 col-12">
+                                                    <h5>${ressPosTerpadu[i].name_renpam}</h5>  
+                                                </div> 
+                                            
+                                        
+                                                <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
+                                                      
+                                                    <p style="font-size: 12px;">${alamatlokasi}</p>
+                                                </div> 
+                                                <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPosTerpadu${ressPosTerpadu[i].id}">
+                                                
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    `, {
+                                    minWidth: 100,
+                                    maxWidth: 900,
+                                    width: 300
+                                }).on("click", function(e) {
+                                    $("#overlayMenu").fadeIn(300);
+                                    var akuns = ressPosTerpadu[i].accounts;
+                                    var dataAkuns = '';
+                                    if (akuns.length > 0) {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                            data: {
+                                                "id": akuns[0]['id'],
+                                            },
+                                            dataType: "JSON",
+                                            success: function(result) {
+                                                var ress = result['data'];
+                                                console.log({
+                                                    a: 'ada',
+                                                    b: ress
+                                                });
+                                                // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                let noTelpF = ress['officer']['phone_officer'];
+
+                                                $(`#isiPosTerpadu${ressPosTerpadu[i].id}`).html(`
+                                                     
+                                                    <div style="text-align: center">
+                                                        ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;"data-holder-rendered="true"></br>`}
+                                                            <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                            <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                            <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
+                                                            ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                        </p>
+                                                    </div>
+
+                                                `);
+                                                $("#overlayMenu").fadeOut(300);
+                                            }
+                                        });
+                                    } else {
+                                        console.log({
+                                            a: 'ga ada'
+                                        });
+                                    }
+                                }));
+                                // }, i * 500);
+                            }
+                        }
+
+
+                        // setTimeout(() => {
+                        for (let i = 0; i < countPosTerpaduDisplay; i++) {
+                            $(`#flyToMapFilterPosTerpadu${polda_id}${i+1}`).on("click", function(e) {
+                                var latlong = $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);
+                                mapContainer.flyTo([latitude, longitude], 17);
+                            });
+                        }
+                        $(`#datatablePosTerpaduOnDisplay${polda_id}`).DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+                        mapContainer.addLayer(posTerpaduClusterGroup);
+                        // }, countPosTerpaduDisplay.length * 500);
+                    }
+
+                    if (ressPosko && ressPosko.length > 0) {
+                        $(`#isiPoldaPosko${polda_id}`).html(`
+                            <table id="datatablePoskoOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalPoskoDisplay${polda_id}">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countPoskoDisplay = 0;
+                        var listPoskoDisplay = '';
+                        $('#totalPoskoDisplay').html(ressPosko.length);
+
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressPosko.length; i++) {
+
+                            if (ressPosko[i].coordinate_guarding && ressPosko[i].coordinate_guarding.lat != null && ressPosko[i].coordinate_guarding.lng != null) {
+                                // setTimeout(() => {
+                                if (ressPosko[i].title_start) {
+                                    alamatlokasi = ressPosko[i].title_start;
+                                } else {
+                                    if (ressPosko[i].alamat) {
+                                        alamatlokasi = ressPosko[i].alamat.replace(/\n/g, "<br />");
+                                    } else {
+                                        alamatlokasi = "-";
+                                    }
+                                }
+                                countPoskoDisplay += 1;
+                                listPoskoDisplay += `
+                                        <tr>
+                                            <td>${countPoskoDisplay}</td>
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosko[i].id}" target="_blank">${ressPosko[i].name_renpam}</a></td> 
+                                            <td>${alamatlokasi}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterPosko${polda_id}${countPoskoDisplay}"
+                                                    data-akun="${ressPosko[i].accounts}"
+                                                    data-cord="${ressPosko[i].coordinate_guarding.lat},${ressPosko[i].coordinate_guarding.lng}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color:${ressPosko[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                $(`#isiModalPoskoDisplay${polda_id}`).html(listPoskoDisplay);
+
+
+                                var latitudeFasum = parseFloat(ressPosko[i].coordinate_guarding.lat);
+                                var longitudeFasum = parseFloat(ressPosko[i].coordinate_guarding.lng);
+                                poskoClusterGroup.addLayer(markerPosko[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                    icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `
+                                        <div>
+                                            <div style="position: relative;">
+                                                <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                            </div> 
+                                            <div style="position: absolute;margin-top: -29px;">
+                                                <span class="badge rounded-pill bg-primary" >${ressPosko[i].name_renpam}</span>
+                                            </div>
+                                        </div>
+                                        `,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                    })
+                                }).bindPopup(`
+                                    <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                        <div class="row">  
+                                            <div class="col-md-12 col-12">
+                                                <h5>${ressPosko[i].name_renpam}</h5>  
+                                            </div> 
+                                            
+                                            <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
+                                                  
+                                                <p style="font-size: 12px;">${alamatlokasi}</p>
+                                            </div>   
+
+                                            <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isi${ressPosko[i].id}">
+                                            
+                                            </div>
+                                                
+                                        </div>
+                                    </div> 
+                                    `, {
+                                    minWidth: 100,
+                                    maxWidth: 900,
+                                    width: 300
+                                })).on("click", function(e) {
+                                    $("#overlayMenu").fadeIn(300);
+                                    var akuns = ressPosko[i].accounts;
+                                    var dataAkuns = '';
+                                    if (akuns.length > 0) {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                            data: {
+                                                "id": akuns[0]['id'],
+                                            },
+                                            dataType: "JSON",
+                                            success: function(result) {
+                                                var ress = result['data'];
+                                                console.log({
+                                                    a: 'ada',
+                                                    b: ress
+                                                });
+                                                // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                let noTelpF = ress['officer']['phone_officer'];
+
+                                                $(`#isi${ressPosko[i].id}`).html(`
+                                                            
+                                                            <div style="text-align: center">
+                                                            ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
+                                                                    <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                    <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                                    <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
+                                                                    ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                                </p>
+                                                            </div>
+
+                                                        `);
+                                                $("#overlayMenu").fadeOut(300);
+                                            }
+                                        });
+                                    } else {
+                                        console.log({
+                                            a: 'ga ada'
+                                        });
+                                    }
+                                });
+                                // }, i * 500);
+                            }
+                        }
+
+
+                        // setTimeout(() => {
+                        for (let i = 0; i < countPoskoDisplay; i++) {
+                            $(`#flyToMapFilterPosko${polda_id}${i+1}`).on("click", function(e) {
+                                var latlong = $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);
+                                mapContainer.flyTo([latitude, longitude], 17);
+                            });
+                        }
+                        $(`#datatablePoskoOnDisplay${polda_id}`).DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+                        mapContainer.addLayer(poskoClusterGroup);
+                        // }, countPoskoDisplay.length * 500);
+                    }
+
+                    if (ressSatPjr && ressSatPjr.length > 0) {
+                        $(`#isiPoldaSatPjr${polda_id}`).html(`
+                            <table id="datatableSatPjrOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalSatPjrDisplay${polda_id}">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countSatPjrDisplay = 0;
+                        var listSatPjrDisplay = '';
+                        $('#totalSatPjrDisplay').html(ressSatPjr.length);
+
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressSatPjr.length; i++) {
+
+                            if (ressSatPjr[i].coordinate_guarding && ressSatPjr[i].coordinate_guarding.lat != null && ressSatPjr[i].coordinate_guarding.lng != null) {
+                                // setTimeout(() => {
+
+                                if (ressSatPjr[i].title_start) {
+                                    alamatlokasi = ressSatPjr[i].title_start;
+                                } else {
+                                    if (ressSatPjr[i].alamat) {
+                                        alamatlokasi = ressSatPjr[i].alamat.replace(/\n/g, "<br />");
+                                    } else {
+                                        alamatlokasi = "-";
+                                    }
+                                }
+                                countSatPjrDisplay += 1;
+                                listSatPjrDisplay += `
+                                        <tr>
+                                            <td>${countSatPjrDisplay}</td>
+                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressSatPjr[i].id}" target="_blank">${ressSatPjr[i].name_renpam}</a></td> 
+                                            <td>${alamatlokasi}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flySatPjr${polda_id}${countSatPjrDisplay}"
+                                                    data-akun="${ressSatPjr[i].accounts}"
+                                                    data-cord="${ressSatPjr[i].coordinate_guarding.lat},${ressSatPjr[i].coordinate_guarding.lng}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color:${ressSatPjr[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                $(`#isiModalSatPjrDisplay${polda_id}`).html(listSatPjrDisplay);
+
+
+                                var latitudeFasum = parseFloat(ressSatPjr[i].coordinate_guarding.lat);
+                                var longitudeFasum = parseFloat(ressSatPjr[i].coordinate_guarding.lng);
+                                satPjrClusterGroup.addLayer(markerSatPjr[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                    icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `
+                                        <div>
+                                            <div style="position: relative;">
+                                                <img src="<?php echo base_url(); ?>assets/icon/marker_PJR.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                            </div> 
+                                            <div style="position: absolute;margin-top: -29px;">
+                                                <span class="badge rounded-pill bg-primary" ${`style="background-color: #f2d91b !important; color: black;"`}>${ressSatPjr[i].name_renpam}</span>
+                                            </div>
+                                        </div>
+                                        
+                                        `,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                    })
+                                }).bindPopup(`
+                                            <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: none;"> 
+                                                <div class="row">  
+                                                    <div class="col-md-12 col-12">
+                                                        <h5>${ressSatPjr[i].name_renpam}</h5>  
+                                                    </div> 
+                                                    
+                                                    <div class="col-md-12 col-12 text-start"> 
+                                                        <p style="font-size: 12px;">${alamatlokasi}</p>
+                                                    </div>   
+
+                                                    <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isi${ressSatPjr[i].id}">
+                                                    
+                                                    </div>
+                                                        
+                                                </div>
+                                            </div> 
+                                        `, {
+                                    minWidth: 100,
+                                    maxWidth: 900,
+                                    width: 300
+                                }).on("click", function(e) {
+                                    $("#overlayMenu").fadeIn(300);
+                                    var akuns = ressSatPjr[i].accounts;
+                                    var dataAkuns = '';
+                                    if (akuns.length > 0) {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                            data: {
+                                                "id": akuns[0]['id'],
+                                            },
+                                            dataType: "JSON",
+                                            success: function(result) {
+                                                var ress = result['data'];
+                                                console.log({
+                                                    a: 'ada',
+                                                    b: ress
+                                                });
+                                                // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                let noTelpF = ress['officer']['phone_officer'];
+
+                                                $(`#isi${ressSatPjr[i].id}`).html(`
+                                                            
+                                                            <div style="text-align: center">
+                                                            ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
+                                                                    <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                    <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                                    <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
+                                                                    ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                                </p>
+                                                            </div>
+
+                                                        `);
+                                                $("#overlayMenu").fadeOut(300);
+                                            }
+                                        });
+                                    } else {
+                                        console.log({
+                                            a: 'ga ada'
+                                        });
+                                    }
+                                }));
+                                // }, i * 500);
+                            }
+                        }
+
+
+                        // setTimeout(() => {
+                        for (let i = 0; i < countSatPjrDisplay; i++) {
+                            $(`#flySatPjr${polda_id}${i+1}`).on("click", function(e) {
+                                var latlong = $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);
+                                mapContainer.flyTo([latitude, longitude], 17);
+                            });
+                        }
+                        $(`#datatableSatPjrOnDisplay${polda_id}`).DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+                        mapContainer.addLayer(satPjrClusterGroup);
+                        // }, countSatPjrDisplay.length * 500);
+                    }
+
+                    if (ressGerbangtol && ressGerbangtol.length > 0) {
+                        $('#openModalGerbangtolDisplay').html(`
+                            <table id="datatableGerbangtolOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalGerbangtolDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countGerbangtolDisplay = 0;
+                        var listGerbangtolDisplay = '';
+                        $('#totalGerbangtolDisplay').html(ressGerbangtol.length);
+
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressGerbangtol.length; i++) {
+
+                            if (ressGerbangtol[i].fasum_lat != null && ressGerbangtol[i].fasum_lng != null) {
+                                countGerbangtolDisplay += 1;
+                                listGerbangtolDisplay += `
+                                    <tr>
+                                        <td>${countGerbangtolDisplay}</td>
+                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressGerbangtol[i].fasum_name}</a></td> 
+                                        <td>${ressGerbangtol[i].fasum_description != null ? ressGerbangtol[i].fasum_description.replace(/\n/g, "<br />") : "-"}</td> 
+                                        <td>
+                                            <a class="btn" style="margin-top: -10px;"  
+                                                id="flyToMapFilterGerbangtol${countGerbangtolDisplay}" 
+                                                data-cord="${ressGerbangtol[i].fasum_lat},${ressGerbangtol[i].fasum_lng}" 
+                                                href="javascript:void(0)">
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $('#isiModalGerbangtolDisplay').html(listGerbangtolDisplay);
+
+                                var latitudeGerbang = parseFloat(ressGerbangtol[i].fasum_lat);
+                                var longitudeGerbang = parseFloat(ressGerbangtol[i].fasum_lng);
+                                gerbangTolClusterGroup.addLayer(markerGerbangtol[i] = L.marker([latitudeGerbang, longitudeGerbang], {
+                                    icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `
+                                    <div>
+                                        <div style="position: relative;">
+                                            <img src="<?php echo base_url(); ?>assets/icon/gerbang tol.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                        </div> 
+                                        <div style="position: absolute;margin-top: -29px;">
+                                            <span class="badge rounded-pill bg-primary">${ressGerbangtol[i].fasum_name}</span>
+                                        </div>
+                                    </div>
+                                    `,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33] 
+                                    })
+                                }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="row mt-3"> 
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>${ressGerbangtol[i].fasum_name}</h5> 
+                                                    <span>- Gerbang Tol -</span>
+                                                </div>
+                                                <div class="col-md-12 mt-3">
+                                                    <img src="${ressGerbangtol[i].fasum_logo}" alt="" class="img-fluid d-block" style="width: 100%;">
+                                                </div>
+                                                
+
+                                                <div class="col-md-12 col-12 mt-2">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">Note</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressGerbangtol[i].fasum_description != null ? ressGerbangtol[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>  
+                                            </div>
+                                        </div> 
+                                `, {
+                                    minWidth: 100,
+                                    maxWidth: 900,
+                                    width: 300
+                                }).on("click", function(e) {
+                                    mapContainer.flyTo([e.latlng.lat, e.latlng.lng], 17);
+                                }));
+
+                            }
+                        }
+
+
+                        for (let i = 0; i < countGerbangtolDisplay; i++) {
+                            $(`#flyToMapFilterGerbangtol${i+1}`).on("click", function(e) {
+                                var latlong = $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);
+                                mapContainer.flyTo([latitude, longitude], 17);
+                            });
+                        }
+                        $('#datatableGerbangtolOnDisplay').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+                        mapContainer.addLayer(gerbangTolClusterGroup);
+                    }
+
+                    if (ressSatPas && ressSatPas.length > 0) {
+                        $('#openModalSatPasDisplay').html(`
+                            <table id="datatableSatPasOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalSatPasDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countSatPasDisplay = 0;
+                        var listSatPasDisplay = '';
+                        $('#totalSatPasDisplay').html(ressSatPas.length);
+
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressSatPas.length; i++) {
+                            countSatPasDisplay += 1;
+                            listSatPasDisplay += `
+                                <tr>
+                                    <td>${countSatPasDisplay}</td>
+                                    <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressSatPas[i].fasum_name}</a></td> 
+                                    <td>${ressSatPas[i].fasum_address}</td> 
+                                    <td>
+                                        <a class="btn" style="margin-top: -10px;"  
+                                            id="flyToMapFilterSatPas${countSatPasDisplay}"
+                                            data-cord="${ressSatPas[i].fasum_lat},${ressSatPas[i].fasum_lng}" 
+                                            href="javascript:void(0)">
+                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                        </a> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#isiModalSatPasDisplay').html(listSatPasDisplay);
+
+
+                            var latitudeFasum = parseFloat(ressSatPas[i].fasum_lat);
+                            var longitudeFasum = parseFloat(ressSatPas[i].fasum_lng);
+                            satPasClusterGroup.addLayer(markerSatPas[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: `
+                                    <div>
+                                        <div style="position: relative;">
+                                            <img src="<?php echo base_url(); ?>assets/pin2.png" style="width: 50px;  margin-top: -35px;margin-left: -15px;">
+                                        </div> 
+                                        <div style="position: absolute;margin-top: -29px;">
+                                            <span class="badge rounded-pill bg-primary" ${`style="background-color: #f2d91b !important"`}>${ressSatPas[i].fasum_name}</span>
+                                        </div>
+                                    </div>
+                                    `,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                })
+                            }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="row mt-3">
+                                                <div class="col-md-12 col-12" style="margin-left: 210px;margin-bottom: 10px;">
+                                                    <div class="avatar-xl me-3">
+                                                    <a href="javascript:void(0);"><img src="<?php echo url_api(); ?>fasum_khusus/${ressSatPas[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;"></a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>${ressSatPas[i].fasum_name}</h5> 
+                                                    <span>- ${ressSatPas[i].category_fasum.name_category_fasum} -</span>
+                                                </div>
+                                                
+
+                                                <div class="col-md-12 col-12 mt-2">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_description != null ? ressSatPas[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12 mt-2">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_address}</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_phone}</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_open_time != null ? ressSatPas[i].fasum_open_time : '00:00'} - ${ressSatPas[i].fasum_close_time != null ? ressSatPas[i].fasum_close_time : '00:00'} WITA</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>   
+                                            </div>
+                                        </div> 
+                                `, {
+                                minWidth: 100,
+                                maxWidth: 900,
+                                width: 300
+                            }));
+                        }
+
+
+                        for (let i = 0; i < countSatPasDisplay; i++) {
+                            $(`#flyToMapFilterSatPas${i+1}`).on("click", function(e) {
+                                var latlong = $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);
+                                mapContainer.flyTo([latitude, longitude], 17);
+                            });
+                        }
+                        $('#datatableSatPasOnDisplay').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+                        mapContainer.addLayer(satPasClusterGroup);
+                    }
 
                     if (ressLAP && ressLAP.length > 0) {
                         var filterLaporan = ressLAP.filter(function(e) {
@@ -7025,7 +9546,7 @@
                                     <div>
                                         <div class="row">
                                             <div class="col-md-12" style="text-align: center;">
-                                                <a href="javascript:void(0);"><img src="<?php echo url_api() ?>/laporan/${filterLaporan[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
+                                                <a href="#" onCLick="$('.imagepreview').attr('src', $(this).find('img').attr('src'));$('#imagemodal').modal('show');"><img src="<?php echo url_api() ?>/laporan/${filterLaporan[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
                                             </div>
                                             <div class="col-md-12" style="text-align: center;">
                                                 ${call_wa_dan_biasa(filterLaporan[i].officer.phone_officer, filterLaporan[i].officer.id, 'encrypt')}
@@ -7066,6 +9587,7 @@
                                                 <span style="font-size: 12px;"> : ${filterLaporan[i].description.replace(/\n/g, "<br />")} </span> 
                                             </div>  
                                         </div> 
+                                      
                                     </div>
                                         
                                 `, {
@@ -7073,6 +9595,8 @@
                                     maxWidth: 560,
                                     width: 400
                                 }));
+
+
                             }
 
 
@@ -7287,6 +9811,106 @@
 
                     }
 
+                    if (ressRadius && ressRadius.length > 0) {
+                        var logoMarker = '';
+                        var logoBody = '';
+                        $('#openModalRadiusDisplay').html(`
+                            <table id="datatableRadiusOnDisplay" class="table dt-responsive w-100">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Radius</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalRadiusDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countRadiusDisplay = 0;
+                        var listRadiusDisplay = '';
+                        $('#totalRadiusDisplay').html(ressRadius.length);
+
+                        for (let i = 0; i < ressRadius.length; i++) {
+                            countRadiusDisplay += 1;
+                            listRadiusDisplay += `
+                                <tr>
+                                    <td>${countRadiusDisplay}</td>
+                                    <td><a href="<?= base_url() ?>masterdata/Fasilitasumum/radius" target="_blank">${ressRadius[i].fasum_name}</a></td> 
+                                    <td>${ressRadius[i].fasum_radius} Kilometer</td> 
+                                    <td>
+                                        <a class="btn" style="margin-top: -10px;"  
+                                            id="flyToMapFilterRadius${countRadiusDisplay}"
+                                            data-cord="${ressRadius[i].fasum_lat},${ressRadius[i].fasum_lng}" 
+                                            href="javascript:void(0)">
+                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                        </a> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#isiModalRadiusDisplay').html(listRadiusDisplay);
+
+                            var latitudeRadius = parseFloat(ressRadius[i].fasum_lat);
+                            var longitudeRadius = parseFloat(ressRadius[i].fasum_lng);
+                            var set = ressRadius[i].fasum_radius != null ? ressRadius[i].fasum_radius : 1;
+                            markerRadius[i] = L.circle([latitudeRadius, longitudeRadius], 1000 * set, {
+                                color: 'yellow',
+                                fillColor: '#f03',
+                                weight: 2,
+                                fillOpacity: 0.2
+                            }).bindPopup(`
+                                        <div class="text-center" style="width: 400px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="row mt-3"> 
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>${ressRadius[i].fasum_name}</h5> 
+                                                    <span>- ${ressRadius[i].category_fasum.name_category_fasum} : ${set} Kilometer-</span>
+                                                </div>
+                                                
+                                                <div class="col-md-12 col-12 mt-2">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12 text-start">
+                                                            <p style="font-size: 12px;font-weight: bold;">Akomodasi</p>  
+                                                            <p style="font-size: 12px; margin-top: -13px;">${ressRadius[i].fasum_description.replace(/\n/g, "<br />")}</p>
+                                                        </div>  
+                                                         
+                                                    </div> 
+                                                </div>   
+                                            </div>
+                                        </div> 
+                                `, {
+                                minWidth: 100,
+                                maxWidth: 560,
+                                width: 400
+                            }).addTo(mapContainer);
+                        }
+
+
+                        for (let i = 0; i < countRadiusDisplay; i++) {
+                            $(`#flyToMapFilterRadius${i+1}`).on("click", function(e) {
+                                var latlong = $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);
+                                mapContainer.flyTo([latitude, longitude], 14);
+                            });
+                        }
+                        $('#datatableRadiusOnDisplay').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+                    }
+
                     if (ressCluster && ressCluster.length > 0) {
                         var logoMarker = '';
                         var logoBody = '';
@@ -7330,35 +9954,8 @@
                             var latitudeCluster = parseFloat(ressCluster[i].fasum_lat);
                             var longitudeCluster = parseFloat(ressCluster[i].fasum_lng);
                             var set = ressCluster[i].fasum_radius != null ? ressCluster[i].fasum_radius : 1;
-                            markerCluster[i] = L.circle([latitudeCluster, longitudeCluster], 1000 * set, {
-                                color: 'yellow',
-                                fillColor: '#f03',
-                                weight: 2,
-                                fillOpacity: 0.2
-                            }).bindPopup(`
-                                        <div class="text-center" style="width: 400px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row mt-3"> 
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <h5>${ressCluster[i].fasum_name}</h5> 
-                                                    <span>- ${ressCluster[i].category_fasum.name_category_fasum} : ${set} Kilometer-</span>
-                                                </div>
-                                                
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12 text-start">
-                                                            <p style="font-size: 12px;font-weight: bold;">Akomodasi</p>  
-                                                            <p style="font-size: 12px; margin-top: -13px;">${ressCluster[i].fasum_description.replace(/\n/g, "<br />")}</p>
-                                                        </div>  
-                                                         
-                                                    </div> 
-                                                </div>   
-                                            </div>
-                                        </div> 
-                                `, {
-                                minWidth: 100,
-                                maxWidth: 560,
-                                width: 400
-                            }).addTo(mapContainer);
+
+                            markerCluster[i] = L.geoJSON(ressCluster[i].fasum_geoJson).addTo(mapContainer);
                         }
 
 
@@ -7367,7 +9964,7 @@
                                 var latlong = $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 14);
+                                mapContainer.flyTo([latitude, longitude], 9);
                             });
                         }
                         $('#datatableClusterOnDisplay').DataTable({
@@ -7388,6 +9985,128 @@
                     }
 
                     if (ressFasumKhusus && ressFasumKhusus.length > 0) {
+                        var countIsiLegen = 0;
+                        var listIsiLegen = '';
+                        var arrayGroupBy = new Array();
+
+                        const groupByCategory = ressFasumKhusus.reduce((group, product) => {
+                            const {
+                                fasum_type,
+                                fasum_logo
+                            } = product;
+
+                            group[fasum_logo] = group[fasum_logo] ?? [];
+                            group[fasum_logo].push(product);
+
+                            return group;
+                        }, {});
+                        var dataArrayGroup = Object.keys(groupByCategory)
+                        // console.log(dataArrayGroup);
+
+
+                        listIsiLegen += `
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/troublespot.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">trouble spot</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/blackspot.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">black spot</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/POSPAM.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">POSPAM</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">POSYAN</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/gerbang tol.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Gerbang Tol</b>
+                                </div> 
+                            </div>  
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/rest_area.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Rest Area</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/cctv.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">CCTV</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/hotel.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Hotel</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/gereja.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Gereja</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/masjid.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Masjid</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/stasiun.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Stasiun</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/pelabuhan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Pelabuhan</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/pasar.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">Pasar</b>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <div style="display: flex;align-items: center;">
+                                    <img src="<?php echo base_url(); ?>assets/icon/marker_PJR.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    <b style="font-size: 14px; text-transform: capitalize;">SAT PJR</b>
+                                </div> 
+                            </div> 
+                        `;
+                        for (let i = 0; i < dataArrayGroup.length; i++) {
+                            if (dataArrayGroup[i] != "null") {
+                                countIsiLegen += 1;
+
+                                // listIsiLegen += `
+                                //     <div class="col-md-4">
+                                //         <div style="display: flex;align-items: center;">
+                                //             <img src="<?php echo url_api(); ?>fasum_khusus/${dataArrayGroup[i]}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                //             <b style="font-size: 14px; text-transform: capitalize;">${dataArrayGroup[i].replace('.png', "")}</b>
+                                //         </div> 
+                                //     </div> 
+                                // `;
+                            }
+                        }
+                        $('#isiLegendFasum').html(listIsiLegen);
+
+
                         $('#openModalFasumKhususDisplay').html(`
                             <table id="datatableFasumKhususOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
@@ -7409,74 +10128,69 @@
                         var logoMarker = '';
                         var logoBody = '';
                         for (let i = 0; i < ressFasumKhusus.length; i++) {
-                            countFasumKhususDisplay += 1;
-                            listFasumKhususDisplay += `
-                                <tr>
-                                    <td>${countFasumKhususDisplay}</td>
-                                    <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressFasumKhusus[i].fasum_name}</a></td> 
-                                    <td>${ressFasumKhusus[i].fasum_address}</td> 
-                                    <td>
-                                        <a class="btn" style="margin-top: -10px;"  
-                                            id="flyToMapFilterFasumKhusus${countFasumKhususDisplay}"
-                                            data-cord="${ressFasumKhusus[i].fasum_lat},${ressFasumKhusus[i].fasum_lng}" 
-                                            href="javascript:void(0)">
-                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                        </a> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#isiModalFasumKhususDisplay').html(listFasumKhususDisplay);
 
-                            if (ressFasumKhusus[i].fasum_type == 1) {
-                                logoMarker = `hotel.png`;
-                                logoBody = `hotel.png`;
-                            } else if (ressFasumKhusus[i].fasum_type == 2) {
-                                logoMarker = `rumah ibadah.png`;
-                                logoBody = `rumah ibadah.png`;
-                            } else if (ressFasumKhusus[i].fasum_type == 3) {
-                                logoMarker = `pom bensin.png`;
-                                logoBody = `pom bensin.png`;
-                            } else if (ressFasumKhusus[i].fasum_type == 4) {
-                                logoMarker = `rest_area.png`;
-                                logoBody = `rest_area.png`;
-                            } else if (ressFasumKhusus[i].fasum_type == 5) {
-                                logoMarker = `rumah makan.png`;
-                                logoBody = `rumah makan.png`;
-                            } else if (ressFasumKhusus[i].fasum_type == 6) {
-                                logoMarker = `wisata.png`;
-                                logoBody = `wisata.png`;
-                            } else if (ressFasumKhusus[i].fasum_type == 7) {
-                                logoMarker = `damkar.png`;
-                                logoBody = `damkar.png`;
-                            } else if (ressFasumKhusus[i].fasum_type == 8) {
-                                logoMarker = `rumah sakit umum.png`;
-                                logoBody = `rumah sakit umum.png`;
-                            }
+                            if (ressFasumKhusus[i].fasum_lat != null && ressFasumKhusus[i].fasum_lng != null) {
+                                countFasumKhususDisplay += 1;
+                                listFasumKhususDisplay += `
+                                    <tr>
+                                        <td>${countFasumKhususDisplay}</td>
+                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressFasumKhusus[i].fasum_name}</a></td> 
+                                        <td>${ressFasumKhusus[i].fasum_address}</td> 
+                                        <td>
+                                            <a class="btn" style="margin-top: -10px;"  
+                                                id="flyToMapFilterFasumKhusus${countFasumKhususDisplay}"
+                                                data-cord="${ressFasumKhusus[i].fasum_lat},${ressFasumKhusus[i].fasum_lng}" 
+                                                href="javascript:void(0)">
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $('#isiModalFasumKhususDisplay').html(listFasumKhususDisplay);
 
-                            var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
-                            var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng);
-                            fasumKhususClusterGroup.addLayer(markerFasumKhusus[i] = L.marker([latitudeFasum, longitudeFasum], {
-                                icon: L.divIcon({
-                                    // className: 'location-pin',
-                                    html: `<img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
-                                    iconSize: [5, 5],
-                                    iconAnchor: [5, 10]
-                                    // iconAnchor: [10, 33]
-                                })
-                            }).bindPopup(`
-                                        <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                if (ressFasumKhusus[i].fasum_type == 22) {
+                                    logoMarker = `<?php echo base_url(); ?>assets/icon/gereja.png`;
+                                    logoBody = `<img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_image}" class="img-thumbnail" alt="200x200" width="500" data-holder-rendered="true">`;
+                                } else {
+                                    logoMarker = `<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}`;
+                                    logoBody = `<img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_image}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">`;
+                                }
+
+                                var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
+                                var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng);
+                                fasumKhususClusterGroup.addLayer(markerFasumKhusus[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                    icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `
+                                    <div>
+                                        <div style="position: relative;">
+                                            <img src="${logoMarker}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                        </div> 
+                                        <div style="position: absolute;margin-top: -29px;">
+                                            <span class="badge rounded-pill bg-primary" >${ressFasumKhusus[i].fasum_name}</span>
+                                        </div>
+                                    </div>
+                                    `,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                    })
+                                }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                             <div class="row mt-3">
-                                                <div class="col-md-12 col-12" style="margin-left: 210px;margin-bottom: 10px;">
-                                                    <div class="avatar-xl me-3">
-                                                    <a href="javascript:void(0);"><img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;"></a>
-                                                    </div>
-                                                </div>
                                                 <div class="col-md-12 col-12 mt-3">
                                                     <h5>${ressFasumKhusus[i].fasum_name}</h5> 
                                                     <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                                                 </div>
+                                                <div class="col-md-12 col-12 mt-3" style="margin-left: 210px;margin-bottom: 10px;">
+                                                    <div class="avatar-xl me-3">
+                                                        <a href="javascript:void(0);">
+                                                            ${logoBody}
+                                                        </a>
+                                                    </div>
+                                                </div>
                                                 
-
+    
                                                 <div class="col-md-12 col-12 mt-2">
                                                     <div class="row text-start">
                                                         <div class="col-md-12 col-12">
@@ -7512,10 +10226,11 @@
                                             </div>
                                         </div> 
                                 `, {
-                                minWidth: 100,
-                                maxWidth: 900,
-                                width: 500
-                            }));
+                                    minWidth: 100,
+                                    maxWidth: 900,
+                                    width: 300
+                                }));
+                            }
                         }
 
 
@@ -7627,7 +10342,6 @@
                             }
                         }
                     }
-
 
                     if (ressSchedule && ressSchedule.length > 0) {
                         var filterSchedule = ressSchedule.filter(function(e) {
@@ -7808,6 +10522,23 @@
         }
 
         $("#filterCari").on("click", function(e) {
+
+            if ($("#cctv").is(':checked')) {
+                $("#cctvDisplay").prop('checked', true);
+                // $("#myModalCctvDisplay").modal('show');
+            } else {
+                $("#cctvDisplay").prop('checked', false);
+                $("#cctvDisplay").val();
+            }
+            if ($("#fasum_khusus").is(':checked')) {
+                $("#fasumKhususDisplay").prop('checked', true);
+                // $("#myModalFasumKhususDisplay").modal('show');
+            } else {
+                $("#fasumKhususDisplay").prop('checked', false);
+                $("#fasumKhususDisplay").val();
+            }
+
+
             if ($("#samsat").is(':checked')) {
                 $("#samsatDisplay").prop('checked', true);
                 // $("#myModalPanicDisplay").modal('show');
@@ -7815,6 +10546,23 @@
                 $("#samsatDisplay").prop('checked', false);
                 $("#samsatDisplay").val();
             }
+
+            if ($("#jalur").is(':checked')) {
+                $("#jalurDisplay").prop('checked', true);
+                // $("#myModalPanicDisplay").modal('show');
+            } else {
+                $("#jalurDisplay").prop('checked', false);
+                $("#jalurDisplay").val();
+            }
+
+            if ($("#gerbangtol").is(':checked')) {
+                $("#gerbangtolDisplay").prop('checked', true);
+                // $("#myModalPanicDisplay").modal('show');
+            } else {
+                $("#gerbangtolDisplay").prop('checked', false);
+                $("#gerbangtolDisplay").val();
+            }
+
             if ($("#trouble_spot").is(':checked')) {
                 $("#trouble_spotDisplay").prop('checked', true);
                 // $("#myModalPanicDisplay").modal('show');
@@ -7831,17 +10579,46 @@
                 $("#blank_spotDisplay").val();
             }
 
-            if ($("#polda").is(':checked')) {
-                $("#poldaDisplay").prop('checked', true);
-                getPolda();
-                // $("#myModalClusterDisplay").modal('show');
+            if ($("#rest_area").is(':checked')) {
+                $("#restAreaDisplay").prop('checked', true);
             } else {
-                $("#poldaDisplay").prop('checked', false);
-                for (let i = 0; i < markerPolda.length; i++) {
-                    mapContainer.removeLayer(markerPolda[i]);
-                }
-                markerPolda = new Array();
-                $("#poldaDisplay").val();
+                $("#restAreaDisplay").prop('checked', false);
+                $("#restAreaDisplay").val();
+            }
+
+            if ($("#pos_pam").is(':checked')) {
+                $("#posPamDisplay").prop('checked', true);
+            } else {
+                $("#posPamDisplay").prop('checked', false);
+                $("#posPamDisplay").val();
+            }
+
+            if ($("#pos_yan").is(':checked')) {
+                $("#posYanDisplay").prop('checked', true);
+            } else {
+                $("#posYanDisplay").prop('checked', false);
+                $("#posYanDisplay").val();
+            }
+
+            if ($("#pos_terpadu").is(':checked')) {
+                $("#posTerpaduDisplay").prop('checked', true);
+            } else {
+                $("#posTerpaduDisplay").prop('checked', false);
+                $("#posTerpaduDisplay").val();
+            }
+
+            if ($("#posko").is(':checked')) {
+                $("#poskoDisplay").prop('checked', true);
+            } else {
+                $("#poskoDisplay").prop('checked', false);
+                $("#poskoDisplay").val();
+            }
+
+            if ($("#sat_pjr").is(':checked')) {
+                $("#satPjrDisplay").prop('checked', true);
+            } else {
+                $("#satPjrDisplay").prop('checked', false);
+                $("#satPjrDisplay").val();
             }
 
             if ($("#polres").is(':checked')) {
@@ -7852,20 +10629,20 @@
                 $("#polresDisplay").val();
             }
 
-
-            if ($("#cctv").is(':checked')) {
-                $("#cctvDisplay").prop('checked', true);
-                // $("#myModalCctvDisplay").modal('show');
+            if ($("#sat_pas").is(':checked')) {
+                $("#satPasDisplay").prop('checked', true);
             } else {
-                $("#cctvDisplay").prop('checked', false);
-                $("#cctvDisplay").val();
+                $("#satPasDisplay").prop('checked', false);
+                $("#satPasDisplay").val();
             }
-            if ($("#fasum_khusus").is(':checked')) {
-                $("#fasumKhususDisplay").prop('checked', true);
-                // $("#myModalFasumKhususDisplay").modal('show');
+
+
+            if ($("#radius").is(':checked')) {
+                $("#radiusDisplay").prop('checked', true);
+                // $("#myModalRadiusDisplay").modal('show');
             } else {
-                $("#fasumKhususDisplay").prop('checked', false);
-                $("#fasumKhususDisplay").val();
+                $("#radiusDisplay").prop('checked', false);
+                $("#radiusDisplay").val();
             }
             if ($("#cluster").is(':checked')) {
                 $("#clusterDisplay").prop('checked', true);
@@ -7916,6 +10693,56 @@
 
 
 
+
+        $("#poldaDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#polda").prop('checked', true);
+                getPolda();
+                $("#myModalPoldaDisplay").modal('show');
+            } else {
+                openDisplay = '';
+                for (let i = 0; i < markerPolda.length; i++) {
+                    if (markerPolda[i]) {
+                        mapContainer.removeLayer(markerPolda[i]);
+                    }
+                }
+                markerPolda = new Array();
+                $("#polda").prop('checked', false);
+                $("#polda").val();
+            }
+            serverSideFilter();
+        });
+        $("#polresDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#polres").prop('checked', true);
+                $("#myModalPolresDisplay").modal('show');
+            } else {
+                openDisplay = '';
+                $("#polres").prop('checked', false);
+                $("#polres").val();
+            }
+            serverSideFilter();
+        });
+        $("#fasumKhususDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#fasum_khusus").prop('checked', true);
+                $("#myModalFasumKhususDisplay").modal('show');
+            } else {
+                openDisplay = '';
+                $("#fasum_khusus").prop('checked', false);
+                $("#fasum_khusus").val();
+            }
+            serverSideFilter();
+        });
+
+
+
+
+
+
         $("#samsatDisplay").on("change", function(e) {
             if ($(this).is(':checked')) {
                 openDisplay = this.value;
@@ -7928,6 +10755,33 @@
             }
             serverSideFilter();
         });
+
+        $("#jalurDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#jalur").prop('checked', true);
+                $("#myModalJalurDisplay").modal('show');
+            } else {
+                openDisplay = '';
+                $("#jalur").prop('checked', false);
+                $("#jalur").val();
+            }
+            serverSideFilter();
+        });
+
+        $("#gerbangtolDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#gerbangtol").prop('checked', true);
+                $("#myModalGerbangtolDisplay").modal('show');
+            } else {
+                openDisplay = '';
+                $("#gerbangtol").prop('checked', false);
+                $("#gerbangtol").val();
+            }
+            serverSideFilter();
+        });
+
         $("#trouble_spotDisplay").on("change", function(e) {
             if ($(this).is(':checked')) {
                 openDisplay = this.value;
@@ -7953,50 +10807,183 @@
             }
             serverSideFilter();
         });
-
-
-        $("#poldaDisplay").on("change", function(e) {
+        $("#restAreaDisplay").on("change", function(e) {
             if ($(this).is(':checked')) {
                 openDisplay = this.value;
-                $("#polda").prop('checked', true);
-                getPolda();
-                $("#myModalPoldaDisplay").modal('show');
+                $("#rest_area").prop('checked', true);
+                $("#myModalRestAreaDisplay").modal('show');
             } else {
                 openDisplay = '';
-                for (let i = 0; i < markerPolda.length; i++) {
-                    mapContainer.removeLayer(markerPolda[i]);
+                $("#rest_area").prop('checked', false);
+                $("#rest_area").val();
+            }
+            serverSideFilter();
+        });
+
+        $("#posPamDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#pos_pam").prop('checked', true);
+                $("#myModalPosPamDisplay").modal('show');
+                if (markerPosPam.length > 0) {
+                    for (let i = 0; i < markerPosPam.length; i++) {
+                        // mapContainer.removeLayer(markerPosPam[i]);
+                        if (markerPosPam[i]) {
+                            posPamClusterGroup.addLayer(markerPosPam[i]);
+                        }
+                    }
+                    mapContainer.addLayer(posPamClusterGroup);
                 }
-                markerPolda = new Array();
-                $("#polda").prop('checked', false);
-                $("#polda").val();
-            }
-            serverSideFilter();
-        });
-        $("#polresDisplay").on("change", function(e) {
-            if ($(this).is(':checked')) {
-                openDisplay = this.value;
-                $("#polres").prop('checked', true);
-                $("#myModalPolresDisplay").modal('show');
             } else {
                 openDisplay = '';
-                $("#polres").prop('checked', false);
-                $("#polres").val();
+                $("#pos_pam").prop('checked', false);
+                $("#pos_pam").val();
+
+                for (let i = 0; i < markerPosPam.length; i++) {
+                    // mapContainer.removeLayer(markerPosPam[i]);
+                    if (markerPosPam[i]) {
+                        posPamClusterGroup.removeLayer(markerPosPam[i]);
+                    }
+                }
+                // markerPosPam = new Array(); 
+            }
+            // serverSideFilter();
+        });
+
+        $("#posYanDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#pos_yan").prop('checked', true);
+                $("#myModalPosYanDisplay").modal('show');
+
+                if (markerPosYan.length > 0) {
+                    for (let i = 0; i < markerPosYan.length; i++) {
+                        // mapContainer.removeLayer(markerPosYan[i]);
+                        if (markerPosYan[i]) {
+                            posYanClusterGroup.addLayer(markerPosYan[i]);
+                        }
+                    }
+                    mapContainer.addLayer(posYanClusterGroup);
+                }
+            } else {
+                openDisplay = '';
+                $("#pos_yan").prop('checked', false);
+                $("#pos_yan").val();
+
+                for (let i = 0; i < markerPosYan.length; i++) {
+                    // mapContainer.removeLayer(markerPosYan[i]);
+                    if (markerPosYan[i]) {
+                        posYanClusterGroup.removeLayer(markerPosYan[i]);
+                    }
+                }
+                // markerPosYan = new Array(); 
+            }
+            // serverSideFilter();
+        });
+
+        $("#posTerpaduDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#pos_terpadu").prop('checked', true);
+                $("#myModalPosTerpaduDisplay").modal('show');
+
+                if (markerPosTerpadu.length > 0) {
+                    for (let i = 0; i < markerPosTerpadu.length; i++) {
+                        // mapContainer.removeLayer(markerPosTerpadu[i]);
+                        if (markerPosTerpadu[i]) {
+                            posTerpaduClusterGroup.addLayer(markerPosTerpadu[i]);
+                        }
+                    }
+                    mapContainer.addLayer(posTerpaduClusterGroup);
+                }
+            } else {
+                openDisplay = '';
+                $("#pos_terpadu").prop('checked', false);
+                $("#pos_terpadu").val();
+
+                for (let i = 0; i < markerPosTerpadu.length; i++) {
+                    // mapContainer.removeLayer(markerPosTerpadu[i]);
+                    if (markerPosTerpadu[i]) {
+                        posTerpaduClusterGroup.removeLayer(markerPosTerpadu[i]);
+                    }
+                }
+            }
+            // serverSideFilter();
+        });
+
+        $("#poskoDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#posko").prop('checked', true);
+                $("#myModalPoskoDisplay").modal('show');
+
+                if (markerPosko.length > 0) {
+                    for (let i = 0; i < markerPosko.length; i++) {
+                        // mapContainer.removeLayer(markerPosko[i]);
+                        if (markerPosko[i]) {
+                            poskoClusterGroup.addLayer(markerPosko[i]);
+                        }
+                    }
+                    mapContainer.addLayer(poskoClusterGroup);
+                }
+            } else {
+                openDisplay = '';
+                $("#posko").prop('checked', false);
+                $("#posko").val();
+
+                for (let i = 0; i < markerPosko.length; i++) {
+                    // mapContainer.removeLayer(markerPosko[i]);
+                    if (markerPosko[i]) {
+                        poskoClusterGroup.removeLayer(markerPosko[i]);
+                    }
+                }
+            }
+            // serverSideFilter();
+        });
+
+        $("#satPjrDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#satPjr").prop('checked', true);
+                $("#myModalSatPjrDisplay").modal('show');
+
+                if (markerSatPjr.length > 0) {
+                    for (let i = 0; i < markerSatPjr.length; i++) {
+                        // mapContainer.removeLayer(markerSatPjr[i]);
+                        if (markerSatPjr[i]) {
+                            satPjrClusterGroup.addLayer(markerSatPjr[i]);
+                        }
+                    }
+                    mapContainer.addLayer(satPjrClusterGroup);
+                }
+            } else {
+                openDisplay = '';
+                $("#satPjr").prop('checked', false);
+                $("#satPjr").val();
+
+                for (let i = 0; i < markerSatPjr.length; i++) {
+                    // mapContainer.removeLayer(markerSatPjr[i]);
+                    if (markerSatPjr[i]) {
+                        satPjrClusterGroup.removeLayer(markerSatPjr[i]);
+                    }
+                }
+            }
+            // serverSideFilter();
+        });
+
+        $("#satPasDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#sat_pas").prop('checked', true);
+                $("#myModalSatPasDisplay").modal('show');
+            } else {
+                openDisplay = '';
+                $("#sat_pas").prop('checked', false);
+                $("#sat_pas").val();
             }
             serverSideFilter();
         });
 
-        $("#fasumKhususDisplay").on("change", function(e) {
-            if ($(this).is(':checked')) {
-                openDisplay = this.value;
-                $("#fasum_khusus").prop('checked', true);
-                $("#myModalFasumKhususDisplay").modal('show');
-            } else {
-                openDisplay = '';
-                $("#fasum_khusus").prop('checked', false);
-                $("#fasum_khusus").val();
-            }
-            serverSideFilter();
-        });
         $("#kegiatanDisplay").on("change", function(e) {
             if ($(this).is(':checked')) {
                 openDisplay = this.value;
@@ -8018,6 +11005,20 @@
                 openDisplay = '';
                 $("#cctv").prop('checked', false);
                 $("#cctv").val();
+                mapContainer.removeLayer(geoJsonCctv[0]);
+            }
+            serverSideFilter();
+        });
+
+        $("#radiusDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#radius").prop('checked', true);
+                $("#myModalRadiusDisplay").modal('show');
+            } else {
+                openDisplay = '';
+                $("#radius").prop('checked', false);
+                $("#radius").val();
             }
             serverSideFilter();
         });
@@ -8076,16 +11077,30 @@
         $("#jadwalFilterModal").on("click", function(e) {
             $("#myModalJadwalDisplay").modal('show');
         });
+        $("#radiusFilterModal").on("click", function(e) {
+            $("#myModalClusterDisplay").modal('show');
+        });
         $("#clusterFilterModal").on("click", function(e) {
             $("#myModalClusterDisplay").modal('show');
         });
         $("#cctvFilterModal").on("click", function(e) {
             $("#myModalCctvDisplay").modal('show');
         });
+        $("#fasumFilterModal").on("click", function(e) {
+            $("#myModalFasumKhususDisplay").modal('show');
+        });
+
 
         $("#samsatFilterModal").on("click", function(e) {
             $("#myModalSamsatDisplay").modal('show');
         });
+        $("#jalurFilterModal").on("click", function(e) {
+            $("#myModalJalurDisplay").modal('show');
+        });
+        $("#gerbangtolFilterModal").on("click", function(e) {
+            $("#myModalGerbangtolDisplay").modal('show');
+        });
+
         $("#troubleSpotFilterModal").on("click", function(e) {
             $("#myModalTroubleSpotDisplay").modal('show');
         });
@@ -8093,9 +11108,29 @@
             $("#myModalBlankSpotDisplay").modal('show');
         });
 
-        $("#fasumFilterModal").on("click", function(e) {
-            $("#myModalFasumKhususDisplay").modal('show');
+        $("#restAreaFilterModal").on("click", function(e) {
+            $("#myModalRestAreaDisplay").modal('show');
         });
+        $("#posPamFilterModal").on("click", function(e) {
+            $("#myModalPosPamDisplay").modal('show');
+        });
+        $("#posYanFilterModal").on("click", function(e) {
+            $("#myModalPosYanDisplay").modal('show');
+        });
+        $("#posTerpaduFilterModal").on("click", function(e) {
+            $("#myModalPosTerpaduDisplay").modal('show');
+        });
+        $("#poskoFilterModal").on("click", function(e) {
+            $("#myModalPoskoDisplay").modal('show');
+        });
+        $("#satPjrFilterModal").on("click", function(e) {
+            $("#myModalSatPjrDisplay").modal('show');
+        });
+
+        $("#satPasFilterModal").on("click", function(e) {
+            $("#myModalSatPasDisplay").modal('show');
+        });
+
         $("#panicFilterModal").on("click", function(e) {
             $("#myModalPanicDisplay").modal('show');
         });
@@ -8110,28 +11145,46 @@
                     $("#myModalPetugasDisplay").modal('show');
                 } else if (openDisplay == 'fasum_khusus') {
                     $("#myModalFasumKhususDisplay").modal('show');
+                } else if (openDisplay == 'radius') {
+                    $("#myModalRadiusDisplay").modal('show');
                 } else if (openDisplay == 'cluster') {
                     $("#myModalClusterDisplay").modal('show');
                 } else if (openDisplay == 'jadwal_kegiatan') {
                     $("#myModalJadwalDisplay").modal('show');
                 } else if (openDisplay == 'cctv') {
                     $("#myModalCctvDisplay").modal('show');
-                } else if (openDisplay == 'samsat') {
-                    $("#myModalSamsatDisplay").modal('show');
-                } else if (openDisplay == 'trouble_spot') {
-                    $("#myModalTroubleSpotDisplay").modal('show');
-                } else if (openDisplay == 'blank_spot') {
-                    $("#myModalBlankSpotDisplay").modal('show');
                 } else if (openDisplay == 'titik_laporan') {
                     $("#myModalLaporanDisplay").modal('show');
                 } else if (openDisplay == 'titik_panicButton') {
                     $("#myModalPanicDisplay").modal('show');
                 } else if (openDisplay == 'jalur_beat') {
                     $("#myModalJalurBeatDisplay").modal('show');
+                } else if (openDisplay == 'pos_pam') {
+                    $("#myModalPosPamDisplay").modal('show');
+                } else if (openDisplay == 'pos_yan') {
+                    $("#myModalPosYanDisplay").modal('show');
+                } else if (openDisplay == 'pos_terpadu') {
+                    $("#myModalPosTerpaduDisplay").modal('show');
+                } else if (openDisplay == 'posko') {
+                    $("#myModalPoskoDisplay").modal('show');
+                } else if (openDisplay == 'sat_pjr') {
+                    $("#myModalSatPjrDisplay").modal('show');
+                } else if (openDisplay == 'sat_pas') {
+                    $("#myModalSatPasDisplay").modal('show');
+                } else if (openDisplay == 'rest_area') {
+                    $("#myModalRestAreaDisplay").modal('show');
+                } else if (openDisplay == 'trouble_spot') {
+                    $("#myModalTroubleSpotDisplay").modal('show');
+                } else if (openDisplay == 'blank_spot') {
+                    $("#myModalBlankSpotDisplay").modal('show');
                 } else if (openDisplay == 'polres') {
                     $("#myModalPolresDisplay").modal('show');
                 } else if (openDisplay == 'polda') {
                     $("#myModalPoldaDisplay").modal('show');
+                } else if (openDisplay == 'jalur') {
+                    $("#myModalJalurDisplay").modal('show');
+                } else if (openDisplay == 'gerbang_tol') {
+                    $("#myModalGerbangtolDisplay").modal('show');
                 }
             } else {
                 Swal.fire(
@@ -8208,7 +11261,7 @@
 
                         $(`#openPetugas`).on('click', function(e) {
                             $("#turjawali").prop('checked', true);
-                            serverSideGet();
+                            // serverSideGet();
                         });
 
 
@@ -8242,6 +11295,7 @@
                                         var checkboxJadwal = "";
                                         var nameJadwalRenpam = [];
                                         var typeJadwalRenpam = [];
+                                        var idJadwalRenpam = [];
                                         var awalJadwalRenpam = [];
                                         var akhirJadwalRenpam = [];
 
@@ -8249,11 +11303,14 @@
                                         var nameRenpam = [];
                                         var dummyName = [];
                                         var dummyType = [];
+                                        var dummyidJadwal = [];
                                         var dummyAwal = [];
                                         var dummyAkhir = [];
 
                                         var dummyWarna = [];
                                         var dummyNameRenpam = [];
+
+                                        var dummyTitik = [];
 
                                         var dummy = [];
                                         var dummy1 = [];
@@ -8261,6 +11318,8 @@
                                         var dummy3 = [];
                                         var dummy4 = [];
 
+
+                                        var dummyJadwalRenpamTitik = [];
 
                                         var dummyJadwalRenpam = [];
                                         var dummyJadwalRenpamAlter = [];
@@ -8280,13 +11339,14 @@
                                         var route3 = [];
                                         var route4 = [];
 
-
+                                        var ruteKondisi = '';
 
                                         ressJadwalId.forEach(el => {
 
                                             $(`#totalCategJadwal${ress[m]['id']}`).html(ressJadwalId.length);
                                             dummyName = [];
                                             dummyType = [];
+                                            dummyidJadwal = [];
                                             dummyAwal = [];
                                             dummyAkhir = [];
 
@@ -8295,6 +11355,8 @@
 
                                             dummyWarna = [];
                                             dummyNameRenpam = [];
+
+                                            dummyTitik = [];
 
                                             dummy = [];
                                             dummy1 = [];
@@ -8309,6 +11371,8 @@
                                             route4 = [];
 
                                             dummyRenpam = '';
+
+                                            ruteKondisi = '';
 
                                             checkedRoutJadwal.push({
                                                 activity: el.activity,
@@ -8353,11 +11417,13 @@
 
                                                     dummyName.push(sortUrutanRenpam[i]['name_renpam']);
                                                     dummyType.push(sortUrutanRenpam[i]['type_renpam']);
+                                                    dummyidJadwal.push(sortUrutanRenpam[i]['schedule_id']);
                                                     dummyAwal.push(sortUrutanRenpam[i]['awal_renpam']);
                                                     dummyAkhir.push(sortUrutanRenpam[i]['akhir_renpam']);
 
                                                     nameJadwalRenpam[countlist] = dummyName;
                                                     typeJadwalRenpam[countlist] = dummyType;
+                                                    idJadwalRenpam[countlist] = dummyidJadwal;
                                                     awalJadwalRenpam[countlist] = dummyAwal;
                                                     akhirJadwalRenpam[countlist] = dummyAkhir;
 
@@ -8367,11 +11433,16 @@
                                                     dummyNameRenpam.push(sortUrutanRenpam[i]['name_renpam']);
                                                     nameRenpam[countlist] = dummyNameRenpam;
 
+                                                    dummyTitik.push(sortUrutanRenpam[i]['coordinate_guarding']);
+
                                                     dummy.push(sortUrutanRenpam[i]['route']);
                                                     dummy1.push(sortUrutanRenpam[i]['route_alternatif_1']);
                                                     dummy2.push(sortUrutanRenpam[i]['route_alternatif_2']);
                                                     dummy3.push(sortUrutanRenpam[i]['route_masyarakat']);
                                                     dummy4.push(sortUrutanRenpam[i]['route_umum']);
+
+
+                                                    dummyJadwalRenpamTitik[countlist] = dummyTitik;
 
                                                     dummyJadwalRenpam[countlist] = dummy;
                                                     dummyJadwalRenpamAlter[countlist] = dummy1;
@@ -8397,8 +11468,19 @@
                                                         dataVIP = '-';
                                                     }
 
-                                                    dummyRenpam += `
-                                                            <tr>
+                                                    if (sortUrutanRenpam[i]['type_renpam'] == '3') {
+                                                        ruteKondisi = `
+                                                                <td>
+                                                                    <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                                        id="clickTitikPenjagaan${ress[m]['id']}${countlistRenpam}"   
+                                                                        data-name="${sortUrutanRenpam[i]['name_renpam']}" 
+                                                                        data-cord="${sortUrutanRenpam[i]['coordinate_guarding']['lat']},${sortUrutanRenpam[i]['coordinate_guarding']['lng']}" >
+                                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                                    </button>
+                                                                </td>
+                                                            `;
+                                                    } else {
+                                                        ruteKondisi = `
                                                                 <td>
                                                                     <input type="checkbox" class="form-input checkRenpam" name="selectRenpam" 
                                                                     id="listRenpamModalClick${ress[m]['id']}${countlistRenpam}"  
@@ -8415,6 +11497,12 @@
                                                                     data-akhir="${sortUrutanRenpam[i]['title_end']}"> 
                                                                    
                                                                 </td>
+                                                            `;
+                                                    }
+
+                                                    dummyRenpam += `
+                                                            <tr>
+                                                                ${ruteKondisi}
                                                                 <td>${i+1}</td> 
                                                                 <td>${dataVIP}</td>
                                                                 <td><a href="<?= base_url() ?>operasi/Renpam/edit/${sortUrutanRenpam[i]['id']}" target="_blank">${sortUrutanRenpam[i]['title_start']} Ke ${sortUrutanRenpam[i]['title_end']}</a></td>
@@ -8440,13 +11528,15 @@
                                                                 </td>
                                                             </tr>
                                                         `;
+
+                                                    checkboxJadwal = `
+                                                            <input type="checkbox" class="form-input" name="selectJadwalRenpam" 
+                                                            id="listJadwalRenpamClick${ress[m]['id']}${countlistCategoriByCateg}"  
+                                                              
+                                                            data-totaldata="${sortUrutanRenpam.length}"
+                                                            >
+                                                        `;
                                                 }
-                                                checkboxJadwal = `
-                                                        <input type="checkbox" class="form-input" name="selectJadwalRenpam" 
-                                                        id="listJadwalRenpamClick${ress[m]['id']}${countlistCategoriByCateg}"   
-                                                        data-totaldata="${sortUrutanRenpam.length}"
-                                                        >
-                                                    `;
 
                                             } else {
                                                 checkboxJadwal = `<div style="width: 14px;"></div>`;
@@ -8513,6 +11603,16 @@
 
 
                                         for (let i = 0; i < countlistRenpam; i++) {
+
+
+                                            $(`#clickTitikPenjagaan${ress[m]['id']}${i+1}`).click(function() {
+                                                console.log('ada');
+                                                var latlong = $(this).data('cord').split(',');
+                                                var latitude = parseFloat(latlong[0]);
+                                                var longitude = parseFloat(latlong[1]);
+                                                mapContainer.flyTo([latitude, longitude], 14);
+                                            });
+
                                             $(`#listRenpamModalClick${ress[m]['id']}${i+1}`).on("change", function(e) {
                                                 // console.log(checkedRenpam1);  
                                                 //Find index of specific object using findIndex method.    
@@ -9044,7 +12144,7 @@
 
 
 
-                                                    // console.log(dummyJadwalRenpam[i+1][ii]);
+
 
                                                     var warna = "";
                                                     if (ressJadwalId[i]['activity'] == "JALUR BEAT") {
@@ -9061,6 +12161,7 @@
 
 
 
+
                                                     var typeRenpam = typeJadwalRenpam[i + 1][ii];
                                                     if (typeRenpam == 3) { //penjagaan
                                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
@@ -9072,6 +12173,8 @@
                                                             weight: 5,
                                                             className: 'animateRoute'
                                                         }];
+
+
                                                     } else if (typeRenpam == 4) { //pengaturan 
                                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
                                                         markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
@@ -9082,6 +12185,8 @@
                                                             weight: 5,
                                                             className: 'animateRoute'
                                                         }];
+
+
                                                     } else if (typeRenpam == 5) { //penutupan 
                                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
                                                         markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
@@ -9115,410 +12220,437 @@
 
 
 
-                                                    if (dummyJadwalRenpam[i + 1][ii] != null && dummyJadwalRenpam[i + 1][ii].length > 0 && dummyJadwalRenpam[i + 1][ii][0]['latLng'] != null) {
+                                                    if (typeRenpam == 3) {
+
+                                                        var iconMarkerPengjagaan = '';
+                                                        var id_jadwal = idJadwalRenpam[i + 1][ii];
+                                                        if (id_jadwal == '88') {
+                                                            iconMarkerPengjagaan = `<img src="<?= base_url('assets/icon/POSPAM.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`;
+                                                        } else {
+                                                            iconMarkerPengjagaan = `<img src="<?= base_url('assets/icon/POSYAN.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`;
+                                                        }
 
                                                         if ($(this).is(':checked')) {
-                                                            routingJadwalRenpam[`${i+1}${ii}`] = null;
-                                                            routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
-                                                                show: false,
-                                                                draggableWaypoints: false,
-                                                                addWaypoints: false,
-                                                                waypoints: dummyJadwalRenpam[i + 1][ii],
-                                                                router: new L.Routing.osrmv1({
-                                                                    language: 'en',
-                                                                    profile: 'car'
-                                                                }),
-                                                                lineOptions: {
-                                                                    styles: styleRouteUtama
-                                                                },
-                                                                createMarker: function(i, wp, nWps) {
-                                                                    if (i === 0 || i === nWps + 1) {
-                                                                        // here change the starting and ending icons
-                                                                        return L.marker(wp.latLng, {
-                                                                            icon: L.divIcon({
-                                                                                className: "location-pin",
-                                                                                html: markerType,
-                                                                                iconSize: [5, 5],
-                                                                                //iconAnchor: [18, 30]
-                                                                                iconAnchor: [5, 10],
-                                                                            }),
-                                                                            draggable: this.draggableWaypoints,
-                                                                        }).bindPopup(`
-                                                                                <div class="text-center"> 
-                                                                                    <h5>${titikAwal}</h5>
-                                                                                </div> 
-                                                                            `);
-                                                                    } else if (i === nWps - 1) {
-                                                                        return L.marker(wp.latLng, {
-                                                                            icon: L.divIcon({
-                                                                                className: "location-pin",
-                                                                                html: markerTypeEnd,
-                                                                                iconSize: [5, 5],
-                                                                                //iconAnchor: [18, 30]
-                                                                                iconAnchor: [5, 10],
-                                                                            }),
-                                                                            draggable: this.draggableWaypoints,
-                                                                        }).bindPopup(`
-                                                                                <div class="text-center"> 
-                                                                                    <h5>${titikAkhir}</h5>
-                                                                                </div> 
-                                                                            `);
-                                                                    } else {
-                                                                        // here change all the others
-                                                                        var options = {
-                                                                                draggable: this.draggableWaypoints,
-                                                                            },
-                                                                            marker = L.marker(wp.latLng, {
+                                                            markerTitikGlobal[[i + 1][ii]] = L.marker([dummyJadwalRenpamTitik[i + 1][ii]['lat'], dummyJadwalRenpamTitik[i + 1][ii]['lng']], {
+                                                                renderer: myRenderer,
+                                                                icon: L.divIcon({
+                                                                    // className: 'location-pin',
+                                                                    html: iconMarkerPengjagaan,
+                                                                    iconSize: [5, 5],
+                                                                    iconAnchor: [5, 10]
+                                                                })
+                                                            }).bindPopup(``).addTo(mapContainer);
+                                                        } else {
+                                                            mapContainer.removeLayer(markerTitikGlobal[[i + 1][ii]]);
+                                                        }
+
+                                                    } else {
+                                                        if (dummyJadwalRenpam[i + 1][ii] != null && dummyJadwalRenpam[i + 1][ii].length > 0 && dummyJadwalRenpam[i + 1][ii][0]['latLng'] != null) {
+
+                                                            if ($(this).is(':checked')) {
+                                                                routingJadwalRenpam[`${i+1}${ii}`] = null;
+                                                                routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
+                                                                    show: false,
+                                                                    draggableWaypoints: false,
+                                                                    addWaypoints: false,
+                                                                    waypoints: dummyJadwalRenpam[i + 1][ii],
+                                                                    router: new L.Routing.osrmv1({
+                                                                        language: 'en',
+                                                                        profile: 'car'
+                                                                    }),
+                                                                    lineOptions: {
+                                                                        styles: styleRouteUtama
+                                                                    },
+                                                                    createMarker: function(i, wp, nWps) {
+                                                                        if (i === 0 || i === nWps + 1) {
+                                                                            // here change the starting and ending icons
+                                                                            return L.marker(wp.latLng, {
                                                                                 icon: L.divIcon({
                                                                                     className: "location-pin",
-                                                                                    html: markerTypeOther,
+                                                                                    html: markerType,
                                                                                     iconSize: [5, 5],
                                                                                     //iconAnchor: [18, 30]
                                                                                     iconAnchor: [5, 10],
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
-                                                                            });
-
-                                                                        return marker;
-                                                                    }
-                                                                },
-                                                                // geocoder: L.Control.Geocoder.nominatim({})
-                                                            }).addTo(mapContainer);
-                                                            // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
-                                                            console.log('kebuka');
-                                                        } else {
-                                                            mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);
-                                                        }
-                                                    } else {
-                                                        console.log('error route utama');
-                                                    }
-
-                                                    if (dummyJadwalRenpamAlter[i + 1][ii] != null && dummyJadwalRenpamAlter[i + 1][ii].length > 0 && dummyJadwalRenpamAlter[i + 1][ii][0]['latLng'] != null) {
-
-                                                        if ($(this).is(':checked')) {
-                                                            routingJadwalRenpam1[`${i+1}${ii}`] = null;
-                                                            routingJadwalRenpam1[`${i+1}${ii}`] = L.Routing.control({
-                                                                show: false,
-                                                                draggableWaypoints: false,
-                                                                addWaypoints: false,
-                                                                waypoints: dummyJadwalRenpamAlter[i + 1][ii],
-                                                                router: new L.Routing.osrmv1({
-                                                                    language: 'en',
-                                                                    profile: 'car'
-                                                                }),
-                                                                lineOptions: {
-                                                                    styles: [{
-                                                                        color: "#b935b9",
-                                                                        weight: 5,
-                                                                        className: 'animateRoute'
-                                                                    }]
-                                                                },
-                                                                createMarker: function(i, wp, nWps) {
-                                                                    if (i === 0 || i === nWps + 1) {
-                                                                        // here change the starting and ending icons
-                                                                        return L.marker(wp.latLng, {
-                                                                            icon: L.divIcon({
-                                                                                className: "location-pin",
-                                                                                html: markerType,
-                                                                                iconSize: [5, 5],
-                                                                                //iconAnchor: [18, 30]
-                                                                                iconAnchor: [5, 10],
-                                                                            }),
-                                                                            draggable: this.draggableWaypoints,
-                                                                        }).bindPopup(`
-                                                                                <div class="text-center"> 
-                                                                                    <h5>${titikAwal}</h5>
-                                                                                </div> 
-                                                                            `);
-                                                                    } else if (i === nWps - 1) {
-                                                                        return L.marker(wp.latLng, {
-                                                                            icon: L.divIcon({
-                                                                                className: "location-pin",
-                                                                                html: markerTypeEnd,
-                                                                                iconSize: [5, 5],
-                                                                                //iconAnchor: [18, 30]
-                                                                                iconAnchor: [5, 10],
-                                                                            }),
-                                                                            draggable: this.draggableWaypoints,
-                                                                        }).bindPopup(`
-                                                                                <div class="text-center"> 
-                                                                                    <h5>${titikAkhir}</h5>
-                                                                                </div> 
-                                                                            `);
-                                                                    } else {
-                                                                        // here change all the others
-                                                                        var options = {
-                                                                                draggable: this.draggableWaypoints,
-                                                                            },
-                                                                            marker = L.marker(wp.latLng, {
+                                                                            }).bindPopup(`
+                                                                                    <div class="text-center"> 
+                                                                                        <h5>${titikAwal}</h5>
+                                                                                    </div> 
+                                                                                `);
+                                                                        } else if (i === nWps - 1) {
+                                                                            return L.marker(wp.latLng, {
                                                                                 icon: L.divIcon({
                                                                                     className: "location-pin",
-                                                                                    html: markerTypeOther,
+                                                                                    html: markerTypeEnd,
                                                                                     iconSize: [5, 5],
                                                                                     //iconAnchor: [18, 30]
                                                                                     iconAnchor: [5, 10],
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
-                                                                            });
+                                                                            }).bindPopup(`
+                                                                                    <div class="text-center"> 
+                                                                                        <h5>${titikAkhir}</h5>
+                                                                                    </div> 
+                                                                                `);
+                                                                        } else {
+                                                                            // here change all the others
+                                                                            var options = {
+                                                                                    draggable: this.draggableWaypoints,
+                                                                                },
+                                                                                marker = L.marker(wp.latLng, {
+                                                                                    icon: L.divIcon({
+                                                                                        className: "location-pin",
+                                                                                        html: markerTypeOther,
+                                                                                        iconSize: [5, 5],
+                                                                                        //iconAnchor: [18, 30]
+                                                                                        iconAnchor: [5, 10],
+                                                                                    }),
+                                                                                    draggable: this.draggableWaypoints,
+                                                                                });
 
-                                                                        return marker;
-                                                                    }
-                                                                },
-                                                                // geocoder: L.Control.Geocoder.nominatim({})
-                                                            }).addTo(mapContainer);
-                                                            // mapContainer.addControl(routingJadwalRenpam1[`${i+1}${ii}`]);  
+                                                                            return marker;
+                                                                        }
+                                                                    },
+                                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                                }).addTo(mapContainer);
+                                                                // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
+                                                                console.log('kebuka');
+                                                            } else {
+                                                                mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);
+                                                            }
                                                         } else {
-                                                            mapContainer.removeControl(routingJadwalRenpam1[`${i+1}${ii}`]);
+                                                            console.log('error route utama');
                                                         }
-                                                    } else {
-                                                        console.log('error route alternative 1');
-                                                    }
 
+                                                        if (dummyJadwalRenpamAlter[i + 1][ii] != null && dummyJadwalRenpamAlter[i + 1][ii].length > 0 && dummyJadwalRenpamAlter[i + 1][ii][0]['latLng'] != null) {
 
-                                                    if (dummyJadwalRenpamAlterr[i + 1][ii] != null && dummyJadwalRenpamAlterr[i + 1][ii].length > 0 && dummyJadwalRenpamAlterr[i + 1][ii][0]['latLng'] != null) {
-
-                                                        if ($(this).is(':checked')) {
-                                                            routingJadwalRenpam2[`${i+1}${ii}`] = null;
-                                                            routingJadwalRenpam2[`${i+1}${ii}`] = L.Routing.control({
-                                                                show: false,
-                                                                draggableWaypoints: false,
-                                                                addWaypoints: false,
-                                                                waypoints: dummyJadwalRenpamAlterr[i + 1][ii],
-                                                                router: new L.Routing.osrmv1({
-                                                                    language: 'en',
-                                                                    profile: 'car'
-                                                                }),
-                                                                lineOptions: {
-                                                                    styles: [{
-                                                                        color: "gray",
-                                                                        weight: 5,
-                                                                        className: 'animateRoute'
-                                                                    }]
-                                                                },
-                                                                createMarker: function(i, wp, nWps) {
-                                                                    if (i === 0 || i === nWps + 1) {
-                                                                        // here change the starting and ending icons
-                                                                        return L.marker(wp.latLng, {
-                                                                            icon: L.divIcon({
-                                                                                className: "location-pin",
-                                                                                html: markerType,
-                                                                                iconSize: [5, 5],
-                                                                                //iconAnchor: [18, 30]
-                                                                                iconAnchor: [5, 10],
-                                                                            }),
-                                                                            draggable: this.draggableWaypoints,
-                                                                        }).bindPopup(`
-                                                                                <div class="text-center"> 
-                                                                                    <h5>${titikAwal}</h5>
-                                                                                </div> 
-                                                                            `);
-                                                                    } else if (i === nWps - 1) {
-                                                                        return L.marker(wp.latLng, {
-                                                                            icon: L.divIcon({
-                                                                                className: "location-pin",
-                                                                                html: markerTypeEnd,
-                                                                                iconSize: [5, 5],
-                                                                                //iconAnchor: [18, 30]
-                                                                                iconAnchor: [5, 10],
-                                                                            }),
-                                                                            draggable: this.draggableWaypoints,
-                                                                        }).bindPopup(`
-                                                                                <div class="text-center"> 
-                                                                                    <h5>${titikAkhir}</h5>
-                                                                                </div> 
-                                                                            `);
-                                                                    } else {
-                                                                        // here change all the others
-                                                                        var options = {
-                                                                                draggable: this.draggableWaypoints,
-                                                                            },
-                                                                            marker = L.marker(wp.latLng, {
+                                                            if ($(this).is(':checked')) {
+                                                                routingJadwalRenpam1[`${i+1}${ii}`] = null;
+                                                                routingJadwalRenpam1[`${i+1}${ii}`] = L.Routing.control({
+                                                                    show: false,
+                                                                    draggableWaypoints: false,
+                                                                    addWaypoints: false,
+                                                                    waypoints: dummyJadwalRenpamAlter[i + 1][ii],
+                                                                    router: new L.Routing.osrmv1({
+                                                                        language: 'en',
+                                                                        profile: 'car'
+                                                                    }),
+                                                                    lineOptions: {
+                                                                        styles: [{
+                                                                            color: "#b935b9",
+                                                                            weight: 5,
+                                                                            className: 'animateRoute'
+                                                                        }]
+                                                                    },
+                                                                    createMarker: function(i, wp, nWps) {
+                                                                        if (i === 0 || i === nWps + 1) {
+                                                                            // here change the starting and ending icons
+                                                                            return L.marker(wp.latLng, {
                                                                                 icon: L.divIcon({
                                                                                     className: "location-pin",
-                                                                                    html: markerTypeOther,
+                                                                                    html: markerType,
                                                                                     iconSize: [5, 5],
                                                                                     //iconAnchor: [18, 30]
                                                                                     iconAnchor: [5, 10],
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
-                                                                            });
-
-                                                                        return marker;
-                                                                    }
-                                                                },
-                                                                // geocoder: L.Control.Geocoder.nominatim({})
-                                                            }).addTo(mapContainer);
-                                                            // mapContainer.addControl(routingJadwalRenpam2[`${i+1}${ii}`]);  
-                                                        } else {
-                                                            mapContainer.removeControl(routingJadwalRenpam2[`${i+1}${ii}`]);
-                                                        }
-                                                    } else {
-                                                        console.log('error route  alternative 2');
-                                                    }
-
-
-                                                    if (dummyJadwalRenpamAlterrr[i + 1][ii] != null && dummyJadwalRenpamAlterrr[i + 1][ii].length > 0 && dummyJadwalRenpamAlterrr[i + 1][ii][0]['latLng'] != null) {
-
-                                                        if ($(this).is(':checked')) {
-                                                            routingJadwalRenpam3[`${i+1}${ii}`] = null;
-                                                            routingJadwalRenpam3[`${i+1}${ii}`] = L.Routing.control({
-                                                                show: false,
-                                                                draggableWaypoints: false,
-                                                                addWaypoints: false,
-                                                                waypoints: dummyJadwalRenpamAlterrr[i + 1][ii],
-                                                                router: new L.Routing.osrmv1({
-                                                                    language: 'en',
-                                                                    profile: 'car'
-                                                                }),
-                                                                lineOptions: {
-                                                                    styles: [{
-                                                                        color: "#000dda",
-                                                                        weight: 5,
-                                                                        className: 'animateRoute'
-                                                                    }]
-                                                                },
-                                                                createMarker: function(i, wp, nWps) {
-                                                                    if (i === 0 || i === nWps + 1) {
-                                                                        // here change the starting and ending icons
-                                                                        return L.marker(wp.latLng, {
-                                                                            icon: L.divIcon({
-                                                                                className: "location-pin",
-                                                                                html: markerType,
-                                                                                iconSize: [5, 5],
-                                                                                //iconAnchor: [18, 30]
-                                                                                iconAnchor: [5, 10],
-                                                                            }),
-                                                                            draggable: this.draggableWaypoints,
-                                                                        }).bindPopup(`
-                                                                                <div class="text-center"> 
-                                                                                    <h5>${titikAwal}</h5>
-                                                                                </div> 
-                                                                            `);
-                                                                    } else if (i === nWps - 1) {
-                                                                        return L.marker(wp.latLng, {
-                                                                            icon: L.divIcon({
-                                                                                className: "location-pin",
-                                                                                html: markerTypeEnd,
-                                                                                iconSize: [5, 5],
-                                                                                //iconAnchor: [18, 30]
-                                                                                iconAnchor: [5, 10],
-                                                                            }),
-                                                                            draggable: this.draggableWaypoints,
-                                                                        }).bindPopup(`
-                                                                                <div class="text-center"> 
-                                                                                    <h5>${titikAkhir}</h5>
-                                                                                </div> 
-                                                                            `);
-                                                                    } else {
-                                                                        // here change all the others
-                                                                        var options = {
-                                                                                draggable: this.draggableWaypoints,
-                                                                            },
-                                                                            marker = L.marker(wp.latLng, {
+                                                                            }).bindPopup(`
+                                                                                    <div class="text-center"> 
+                                                                                        <h5>${titikAwal}</h5>
+                                                                                    </div> 
+                                                                                `);
+                                                                        } else if (i === nWps - 1) {
+                                                                            return L.marker(wp.latLng, {
                                                                                 icon: L.divIcon({
                                                                                     className: "location-pin",
-                                                                                    html: markerTypeOther,
+                                                                                    html: markerTypeEnd,
                                                                                     iconSize: [5, 5],
                                                                                     //iconAnchor: [18, 30]
                                                                                     iconAnchor: [5, 10],
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
-                                                                            });
+                                                                            }).bindPopup(`
+                                                                                    <div class="text-center"> 
+                                                                                        <h5>${titikAkhir}</h5>
+                                                                                    </div> 
+                                                                                `);
+                                                                        } else {
+                                                                            // here change all the others
+                                                                            var options = {
+                                                                                    draggable: this.draggableWaypoints,
+                                                                                },
+                                                                                marker = L.marker(wp.latLng, {
+                                                                                    icon: L.divIcon({
+                                                                                        className: "location-pin",
+                                                                                        html: markerTypeOther,
+                                                                                        iconSize: [5, 5],
+                                                                                        //iconAnchor: [18, 30]
+                                                                                        iconAnchor: [5, 10],
+                                                                                    }),
+                                                                                    draggable: this.draggableWaypoints,
+                                                                                });
 
-                                                                        return marker;
-                                                                    }
-                                                                },
-                                                                // geocoder: L.Control.Geocoder.nominatim({})
-                                                            }).addTo(mapContainer);
-                                                            // mapContainer.addControl(routingJadwalRenpam3[`${i+1}${ii}`]);  
+                                                                            return marker;
+                                                                        }
+                                                                    },
+                                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                                }).addTo(mapContainer);
+                                                                // mapContainer.addControl(routingJadwalRenpam1[`${i+1}${ii}`]);  
+                                                            } else {
+                                                                mapContainer.removeControl(routingJadwalRenpam1[`${i+1}${ii}`]);
+                                                            }
                                                         } else {
-                                                            mapContainer.removeControl(routingJadwalRenpam3[`${i+1}${ii}`]);
+                                                            console.log('error route alternative 1');
                                                         }
-                                                    } else {
-                                                        console.log('error route Masyarakat');
-                                                    }
 
 
-                                                    if (dummyJadwalRenpamAlterrrr[i + 1][ii] != null && dummyJadwalRenpamAlterrrr[i + 1][ii].length > 0 && dummyJadwalRenpamAlterrrr[i + 1][ii][0]['latLng'] != null) {
+                                                        if (dummyJadwalRenpamAlterr[i + 1][ii] != null && dummyJadwalRenpamAlterr[i + 1][ii].length > 0 && dummyJadwalRenpamAlterr[i + 1][ii][0]['latLng'] != null) {
 
-                                                        if ($(this).is(':checked')) {
-                                                            routingJadwalRenpam4[`${i+1}${ii}`] = null;
-                                                            routingJadwalRenpam4[`${i+1}${ii}`] = L.Routing.control({
-                                                                show: false,
-                                                                draggableWaypoints: false,
-                                                                addWaypoints: false,
-                                                                waypoints: dummyJadwalRenpamAlterrrr[i + 1][ii],
-                                                                router: new L.Routing.osrmv1({
-                                                                    language: 'en',
-                                                                    profile: 'car'
-                                                                }),
-                                                                lineOptions: {
-                                                                    styles: [{
-                                                                        color: "#bdbd0b",
-                                                                        weight: 5,
-                                                                        className: 'animateRoute'
-                                                                    }]
-                                                                },
-                                                                createMarker: function(i, wp, nWps) {
-                                                                    if (i === 0 || i === nWps + 1) {
-                                                                        // here change the starting and ending icons
-                                                                        return L.marker(wp.latLng, {
-                                                                            icon: L.divIcon({
-                                                                                className: "location-pin",
-                                                                                html: markerType,
-                                                                                iconSize: [5, 5],
-                                                                                //iconAnchor: [18, 30]
-                                                                                iconAnchor: [5, 10],
-                                                                            }),
-                                                                            draggable: this.draggableWaypoints,
-                                                                        }).bindPopup(`
-                                                                                <div class="text-center"> 
-                                                                                    <h5>${titikAwal}</h5>
-                                                                                </div> 
-                                                                            `);
-                                                                    } else if (i === nWps - 1) {
-                                                                        return L.marker(wp.latLng, {
-                                                                            icon: L.divIcon({
-                                                                                className: "location-pin",
-                                                                                html: markerTypeEnd,
-                                                                                iconSize: [5, 5],
-                                                                                //iconAnchor: [18, 30]
-                                                                                iconAnchor: [5, 10],
-                                                                            }),
-                                                                            draggable: this.draggableWaypoints,
-                                                                        }).bindPopup(`
-                                                                                <div class="text-center"> 
-                                                                                    <h5>${titikAkhir}</h5>
-                                                                                </div> 
-                                                                            `);
-                                                                    } else {
-                                                                        // here change all the others
-                                                                        var options = {
-                                                                                draggable: this.draggableWaypoints,
-                                                                            },
-                                                                            marker = L.marker(wp.latLng, {
+                                                            if ($(this).is(':checked')) {
+                                                                routingJadwalRenpam2[`${i+1}${ii}`] = null;
+                                                                routingJadwalRenpam2[`${i+1}${ii}`] = L.Routing.control({
+                                                                    show: false,
+                                                                    draggableWaypoints: false,
+                                                                    addWaypoints: false,
+                                                                    waypoints: dummyJadwalRenpamAlterr[i + 1][ii],
+                                                                    router: new L.Routing.osrmv1({
+                                                                        language: 'en',
+                                                                        profile: 'car'
+                                                                    }),
+                                                                    lineOptions: {
+                                                                        styles: [{
+                                                                            color: "gray",
+                                                                            weight: 5,
+                                                                            className: 'animateRoute'
+                                                                        }]
+                                                                    },
+                                                                    createMarker: function(i, wp, nWps) {
+                                                                        if (i === 0 || i === nWps + 1) {
+                                                                            // here change the starting and ending icons
+                                                                            return L.marker(wp.latLng, {
                                                                                 icon: L.divIcon({
                                                                                     className: "location-pin",
-                                                                                    html: markerTypeOther,
+                                                                                    html: markerType,
                                                                                     iconSize: [5, 5],
                                                                                     //iconAnchor: [18, 30]
                                                                                     iconAnchor: [5, 10],
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
-                                                                            });
+                                                                            }).bindPopup(`
+                                                                                    <div class="text-center"> 
+                                                                                        <h5>${titikAwal}</h5>
+                                                                                    </div> 
+                                                                                `);
+                                                                        } else if (i === nWps - 1) {
+                                                                            return L.marker(wp.latLng, {
+                                                                                icon: L.divIcon({
+                                                                                    className: "location-pin",
+                                                                                    html: markerTypeEnd,
+                                                                                    iconSize: [5, 5],
+                                                                                    //iconAnchor: [18, 30]
+                                                                                    iconAnchor: [5, 10],
+                                                                                }),
+                                                                                draggable: this.draggableWaypoints,
+                                                                            }).bindPopup(`
+                                                                                    <div class="text-center"> 
+                                                                                        <h5>${titikAkhir}</h5>
+                                                                                    </div> 
+                                                                                `);
+                                                                        } else {
+                                                                            // here change all the others
+                                                                            var options = {
+                                                                                    draggable: this.draggableWaypoints,
+                                                                                },
+                                                                                marker = L.marker(wp.latLng, {
+                                                                                    icon: L.divIcon({
+                                                                                        className: "location-pin",
+                                                                                        html: markerTypeOther,
+                                                                                        iconSize: [5, 5],
+                                                                                        //iconAnchor: [18, 30]
+                                                                                        iconAnchor: [5, 10],
+                                                                                    }),
+                                                                                    draggable: this.draggableWaypoints,
+                                                                                });
 
-                                                                        return marker;
-                                                                    }
-                                                                },
-                                                                // geocoder: L.Control.Geocoder.nominatim({})
-                                                            }).addTo(mapContainer);
-                                                            // mapContainer.addControl(routingJadwalRenpam4[`${i+1}${ii}`]);  
+                                                                            return marker;
+                                                                        }
+                                                                    },
+                                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                                }).addTo(mapContainer);
+                                                                // mapContainer.addControl(routingJadwalRenpam2[`${i+1}${ii}`]);  
+                                                            } else {
+                                                                mapContainer.removeControl(routingJadwalRenpam2[`${i+1}${ii}`]);
+                                                            }
                                                         } else {
-                                                            mapContainer.removeControl(routingJadwalRenpam4[`${i+1}${ii}`]);
+                                                            console.log('error route  alternative 2');
                                                         }
-                                                    } else {
-                                                        console.log('error route Umum');
+
+
+                                                        if (dummyJadwalRenpamAlterrr[i + 1][ii] != null && dummyJadwalRenpamAlterrr[i + 1][ii].length > 0 && dummyJadwalRenpamAlterrr[i + 1][ii][0]['latLng'] != null) {
+
+                                                            if ($(this).is(':checked')) {
+                                                                routingJadwalRenpam3[`${i+1}${ii}`] = null;
+                                                                routingJadwalRenpam3[`${i+1}${ii}`] = L.Routing.control({
+                                                                    show: false,
+                                                                    draggableWaypoints: false,
+                                                                    addWaypoints: false,
+                                                                    waypoints: dummyJadwalRenpamAlterrr[i + 1][ii],
+                                                                    router: new L.Routing.osrmv1({
+                                                                        language: 'en',
+                                                                        profile: 'car'
+                                                                    }),
+                                                                    lineOptions: {
+                                                                        styles: [{
+                                                                            color: "#000dda",
+                                                                            weight: 5,
+                                                                            className: 'animateRoute'
+                                                                        }]
+                                                                    },
+                                                                    createMarker: function(i, wp, nWps) {
+                                                                        if (i === 0 || i === nWps + 1) {
+                                                                            // here change the starting and ending icons
+                                                                            return L.marker(wp.latLng, {
+                                                                                icon: L.divIcon({
+                                                                                    className: "location-pin",
+                                                                                    html: markerType,
+                                                                                    iconSize: [5, 5],
+                                                                                    //iconAnchor: [18, 30]
+                                                                                    iconAnchor: [5, 10],
+                                                                                }),
+                                                                                draggable: this.draggableWaypoints,
+                                                                            }).bindPopup(`
+                                                                                    <div class="text-center"> 
+                                                                                        <h5>${titikAwal}</h5>
+                                                                                    </div> 
+                                                                                `);
+                                                                        } else if (i === nWps - 1) {
+                                                                            return L.marker(wp.latLng, {
+                                                                                icon: L.divIcon({
+                                                                                    className: "location-pin",
+                                                                                    html: markerTypeEnd,
+                                                                                    iconSize: [5, 5],
+                                                                                    //iconAnchor: [18, 30]
+                                                                                    iconAnchor: [5, 10],
+                                                                                }),
+                                                                                draggable: this.draggableWaypoints,
+                                                                            }).bindPopup(`
+                                                                                    <div class="text-center"> 
+                                                                                        <h5>${titikAkhir}</h5>
+                                                                                    </div> 
+                                                                                `);
+                                                                        } else {
+                                                                            // here change all the others
+                                                                            var options = {
+                                                                                    draggable: this.draggableWaypoints,
+                                                                                },
+                                                                                marker = L.marker(wp.latLng, {
+                                                                                    icon: L.divIcon({
+                                                                                        className: "location-pin",
+                                                                                        html: markerTypeOther,
+                                                                                        iconSize: [5, 5],
+                                                                                        //iconAnchor: [18, 30]
+                                                                                        iconAnchor: [5, 10],
+                                                                                    }),
+                                                                                    draggable: this.draggableWaypoints,
+                                                                                });
+
+                                                                            return marker;
+                                                                        }
+                                                                    },
+                                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                                }).addTo(mapContainer);
+                                                                // mapContainer.addControl(routingJadwalRenpam3[`${i+1}${ii}`]);  
+                                                            } else {
+                                                                mapContainer.removeControl(routingJadwalRenpam3[`${i+1}${ii}`]);
+                                                            }
+                                                        } else {
+                                                            console.log('error route Masyarakat');
+                                                        }
+
+
+                                                        if (dummyJadwalRenpamAlterrrr[i + 1][ii] != null && dummyJadwalRenpamAlterrrr[i + 1][ii].length > 0 && dummyJadwalRenpamAlterrrr[i + 1][ii][0]['latLng'] != null) {
+
+                                                            if ($(this).is(':checked')) {
+                                                                routingJadwalRenpam4[`${i+1}${ii}`] = null;
+                                                                routingJadwalRenpam4[`${i+1}${ii}`] = L.Routing.control({
+                                                                    show: false,
+                                                                    draggableWaypoints: false,
+                                                                    addWaypoints: false,
+                                                                    waypoints: dummyJadwalRenpamAlterrrr[i + 1][ii],
+                                                                    router: new L.Routing.osrmv1({
+                                                                        language: 'en',
+                                                                        profile: 'car'
+                                                                    }),
+                                                                    lineOptions: {
+                                                                        styles: [{
+                                                                            color: "#bdbd0b",
+                                                                            weight: 5,
+                                                                            className: 'animateRoute'
+                                                                        }]
+                                                                    },
+                                                                    createMarker: function(i, wp, nWps) {
+                                                                        if (i === 0 || i === nWps + 1) {
+                                                                            // here change the starting and ending icons
+                                                                            return L.marker(wp.latLng, {
+                                                                                icon: L.divIcon({
+                                                                                    className: "location-pin",
+                                                                                    html: markerType,
+                                                                                    iconSize: [5, 5],
+                                                                                    //iconAnchor: [18, 30]
+                                                                                    iconAnchor: [5, 10],
+                                                                                }),
+                                                                                draggable: this.draggableWaypoints,
+                                                                            }).bindPopup(`
+                                                                                    <div class="text-center"> 
+                                                                                        <h5>${titikAwal}</h5>
+                                                                                    </div> 
+                                                                                `);
+                                                                        } else if (i === nWps - 1) {
+                                                                            return L.marker(wp.latLng, {
+                                                                                icon: L.divIcon({
+                                                                                    className: "location-pin",
+                                                                                    html: markerTypeEnd,
+                                                                                    iconSize: [5, 5],
+                                                                                    //iconAnchor: [18, 30]
+                                                                                    iconAnchor: [5, 10],
+                                                                                }),
+                                                                                draggable: this.draggableWaypoints,
+                                                                            }).bindPopup(`
+                                                                                    <div class="text-center"> 
+                                                                                        <h5>${titikAkhir}</h5>
+                                                                                    </div> 
+                                                                                `);
+                                                                        } else {
+                                                                            // here change all the others
+                                                                            var options = {
+                                                                                    draggable: this.draggableWaypoints,
+                                                                                },
+                                                                                marker = L.marker(wp.latLng, {
+                                                                                    icon: L.divIcon({
+                                                                                        className: "location-pin",
+                                                                                        html: markerTypeOther,
+                                                                                        iconSize: [5, 5],
+                                                                                        //iconAnchor: [18, 30]
+                                                                                        iconAnchor: [5, 10],
+                                                                                    }),
+                                                                                    draggable: this.draggableWaypoints,
+                                                                                });
+
+                                                                            return marker;
+                                                                        }
+                                                                    },
+                                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                                }).addTo(mapContainer);
+                                                                // mapContainer.addControl(routingJadwalRenpam4[`${i+1}${ii}`]);  
+                                                            } else {
+                                                                mapContainer.removeControl(routingJadwalRenpam4[`${i+1}${ii}`]);
+                                                            }
+                                                        } else {
+                                                            console.log('error route Umum');
+                                                        }
                                                     }
+
 
 
 
@@ -11059,7 +14191,14 @@
                 classNames: {
                     containerOuter: 'choices select-choices',
                 },
+                addItemText: (value) => {
+                    return `Press Enter to add <b>"${value}"</b>`;
+                },
             });
+
+            // $("#id_account").on('keyup', function(e){
+            //     console.log(this.value);
+            // });
 
         });
 
@@ -12200,7 +15339,7 @@
                     });
                 } else {
                     Swal.fire(
-                        `${data['message']}`,
+                        `Petugas tidak menggunakan aplikasi K3I Korlantas`,
                         '',
                         'error'
                     ).then(function() {});
@@ -12208,5 +15347,14 @@
             }
         });
 
+    }
+
+
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "50%";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
     }
 </script>
