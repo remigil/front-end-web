@@ -2916,6 +2916,7 @@
                                                                     <span class="badge rounded-pill bg-primary">${dummyGetTracking[i].name_officer}</span>
                                                                 </div>
                                                             </div>`;
+                                                        jenisNoPol = ``;
                                                     } else if (dummyGetTracking[i].type_vehicle == 'Mobil' && dummyGetTracking[i].fuel_vehicle == "Fosil") {
                                                         jenis = `
                                                         <div>
@@ -2927,6 +2928,18 @@
                                                                 <span class="badge rounded-pill bg-primary">${dummyGetTracking[i].name_officer}</span>
                                                             </div>
                                                         </div>`;
+
+                                                        jenisNoPol = `
+                                                            <div class="col-md-4">
+                                                                <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>  
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                :
+                                                            </div>
+                                                            <div class="col-md-7">
+                                                                <span style="font-size: 12px;">${dummyGetTracking[i].no_vehicle} / ${dummyGetTracking[i].back_number_vehicle}</span>
+                                                            </div> 
+                                                        `;
                                                     } else if (dummyGetTracking[i].type_vehicle == 'Sepeda Motor' && dummyGetTracking[i].fuel_vehicle == "Listrik") {
                                                         jenis = `
                                                         <div>
@@ -2938,6 +2951,7 @@
                                                                 <span class="badge rounded-pill" style="background-color: #169fda">${dummyGetTracking[i].name_officer}</span>
                                                             </div>
                                                         </div>`;
+                                                        jenisNoPol = ``;
                                                     } else if (dummyGetTracking[i].type_vehicle == 'Mobil' && dummyGetTracking[i].fuel_vehicle == "Listrik") {
                                                         jenis = `
                                                         <div>
@@ -2949,6 +2963,7 @@
                                                                 <span class="badge rounded-pill" style="background-color: #169fda">${dummyGetTracking[i].name_officer}</span>
                                                             </div>
                                                         </div>`;
+                                                        jenisNoPol = ``;
                                                     } else {
                     
                                                         jenis = `
@@ -2960,6 +2975,8 @@
                                                                 <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${dummyGetTracking[i].name_officer}</span>
                                                             </div>
                                                         </div>`;
+
+                                                        jenisNoPol = ``;
                                                     }
                     
                                                     if (dummyGetTracking[i].photo_officer || dummyGetTracking[i].photo_officer != null) {
@@ -3037,15 +3054,7 @@
                                                                                 <span style="font-size: 12px;">${bendera}</span>
                                                                             </div> 
 
-                                                                            <div class="col-md-4">
-                                                                                <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>  
-                                                                            </div>
-                                                                            <div class="col-md-1">
-                                                                                :
-                                                                            </div>
-                                                                            <div class="col-md-7">
-                                                                                <span style="font-size: 12px;">${dummyGetTracking[i].no_vehicle} / ${dummyGetTracking[i].back_number_vehicle}</span>
-                                                                            </div>  
+                                                                            ${jenisNoPol}
                                     
                                                                             <div class="col-md-4">
                                                                                 <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
@@ -3130,15 +3139,7 @@
                                                                             <span style="font-size: 12px;">${bendera}</span>
                                                                         </div> 
 
-                                                                        <div class="col-md-4">
-                                                                            <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>  
-                                                                        </div>
-                                                                        <div class="col-md-1">
-                                                                            :
-                                                                        </div>
-                                                                        <div class="col-md-7">
-                                                                            <span style="font-size: 12px;">${dummyGetTracking[i].no_vehicle} / ${dummyGetTracking[i].back_number_vehicle}</span>
-                                                                        </div>  
+                                                                        ${jenisNoPol}
                     
                                                                         <div class="col-md-4">
                                                                             <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
@@ -4386,6 +4387,8 @@
                                     <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
                                 </div>
                             </div>`;
+
+                    jenisNoPol = ``;
                 } else if (ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil") {
 
 
@@ -4400,6 +4403,18 @@
                                     <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
                                 </div>
                             </div>`;
+
+                    jenisNoPol = `
+                        <div class="col-md-4">
+                            <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>  
+                        </div>
+                        <div class="col-md-1">
+                            :
+                        </div>
+                        <div class="col-md-7">
+                            <span style="font-size: 12px;">${ress.no_vehicle} / ${ress.back_number_vehicle}</span>
+                        </div>
+                    `;
                 } else if (ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Listrik") {
 
 
@@ -4414,6 +4429,7 @@
                                     <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
                                 </div>
                             </div>`;
+                    jenisNoPol = ``;
                 } else if (ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Listrik") {
 
 
@@ -4428,6 +4444,7 @@
                                     <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
                                 </div>
                             </div>`;
+                    jenisNoPol = ``;
                 } else {
 
 
@@ -4441,6 +4458,8 @@
                                     <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
                                 </div>
                             </div>`;
+
+                    jenisNoPol = ``;
                 }
 
                 if (ress.photo_officer || ress.photo_officer != null) {
@@ -4529,15 +4548,7 @@
                                                         <span style="font-size: 12px;">${bendera}</span>
                                                     </div> 
 
-                                                    <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        :
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <span style="font-size: 12px;">${ress.no_vehicle} / ${ress.back_number_vehicle}</span>
-                                                    </div>
+                                                    ${jenisNoPol}
             
                                                     <div class="col-md-4">
                                                         <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
@@ -4624,15 +4635,7 @@
                                                         <span style="font-size: 12px;">${bendera}</span>
                                                     </div> 
 
-                                                    <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        :
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <span style="font-size: 12px;">${ress.no_vehicle} / ${ress.back_number_vehicle}</span>
-                                                    </div>
+                                                    ${jenisNoPol}
             
                                                     <div class="col-md-4">
                                                         <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
