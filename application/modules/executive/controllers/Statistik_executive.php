@@ -465,7 +465,6 @@ class Statistik_executive extends MY_Controller
         $asd = explode('-', $start);
         $end = $this->input->post('end_date');
         $zxc = explode('-', $end);
-        // var_dump($asd);die;
         $title = 'DATA KECELAKAAN LALU LINTAS TANGGAL <span class="text-danger">' . $asd[2] . '/' . $asd[1] . '/' . $asd[0] . ' - ' . $zxc[2] . '/' . $zxc[1] . '/' . $zxc[0] . "</span>";
         $filter = $this->input->post('filter');
         $limit = $this->input->post('limit');
@@ -1438,22 +1437,26 @@ class Statistik_executive extends MY_Controller
 
     public function getLineSim()
     {
-        $title = 'DATA SIM LALU LINTAS';
+        $start = $this->input->post('start_date');
+        $asd = explode('-', $start);
+        $end = $this->input->post('end_date');
+        $zxc = explode('-', $end);
+        $title = 'DATA SIM TANGGAL <span class="text-danger">' . $asd[2] . '/' . $asd[1] . '/' . $asd[0] . ' - ' . $zxc[2] . '/' . $zxc[1] . '/' . $zxc[0] . "</span>";
         $filter = $this->input->post('filter');
         $limit = $this->input->post('limit');
         $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getSimNasionalDate($filterbaru);
         } elseif ($filter != 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getSimNasionalDate($filterbaru);
         }
@@ -1770,22 +1773,26 @@ class Statistik_executive extends MY_Controller
 
     public function getLineBpkb()
     {
-        $title = 'DATA BPKB';
+        $start = $this->input->post('start_date');
+        $asd = explode('-', $start);
+        $end = $this->input->post('end_date');
+        $zxc = explode('-', $end);
+        $title = 'DATA BPKB TANGGAL <span class="text-danger">' . $asd[2] . '/' . $asd[1] . '/' . $asd[0] . ' - ' . $zxc[2] . '/' . $zxc[1] . '/' . $zxc[0] . "</span>";
         $filter = $this->input->post('filter');
         $limit = $this->input->post('limit');
         $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getBpkbNasionalDate($filterbaru);
         } elseif ($filter != 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getBpkbNasionalDate($filterbaru);
         }

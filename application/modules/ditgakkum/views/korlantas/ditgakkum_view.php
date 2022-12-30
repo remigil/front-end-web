@@ -404,7 +404,7 @@
                         </div>
                         <div class="modal-body">
                             <center>
-                                <img src="<?= base_url('assets/fe/strukturorganisasi/strukturditgakkum.png'); ?>" alt="" srcset="">
+                                <img src="<?= base_url('assets/fe/strukturorganisasi/strukturditgakkum.png'); ?>" alt="" srcset="" width="100%">
                             </center>
                         </div>
                         <div class="modal-footer">

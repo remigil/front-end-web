@@ -10,22 +10,24 @@
             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
         </div>
     </div>
-    <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
+    <div class="card mt-5 shadow" style="border-radius:36px !important;">
         <div class="row m-2">
-            <div class="col-sm-4 col-md-5 align-self-center">
-                <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">BPKB <span style="color:#000;">Nasional</span></span> </h2>
+            <div class="col-sm-2 col-md-2 align-self-center">
+                <h4>STATISTIK DATA</h4>
+                <h4> <span style="text-transform:uppercase ; color:#0007D8">BPKB</span> </h4>
+                <h4>SELURUH INDONESIA </h4>
             </div>
-            <div class="col-sm-8 col-md-7">
+            <div class="col-sm-10 col-md-10">
                 <div class="row m-2">
                     <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                        <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                            <div class="card-body p-1">
+                        <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                            <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
                                     <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Hari Ini</h4>
+                                        <h5 class="mb-0 ms-3">Hari Ini</h5>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="bpkbThisDay"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#2e93e6;" id="bpkbThisDay"></h1>
                                         <p class="text-center mb-0">BPKB</p>
                                     </div>
                                     <div class="col-md-12 ms-3">
@@ -42,14 +44,16 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                        <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                            <div class="card-body p-1">
+                        <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                            <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
                                     <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Bulan Ini</h4>
+                                        <!-- <h5 class="mb-0 ms-3">Bulan Ini (<?= format_indo(date('m'))  ?>) </h5> -->
+                                        <!-- <h5 class="mb-0 ms-3">Bulan Ini <span class="text-danger">(Des)</span></h5> -->
+                                        <h5 class="mb-0 ms-3">Bulan Ini <span class="text-danger">(<?= date('M'); ?>)</span></h5>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="bpkbThisMonth"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#2e93e6;" id="bpkbThisMonth"></h1>
                                         <p class="text-center mb-0">BPKB</p>
                                     </div>
                                     <div class="col-md-12 ms-3">
@@ -66,14 +70,14 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                        <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                            <div class="card-body p-1">
+                        <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                            <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
                                     <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Tahun Ini</h4>
+                                        <h5 class="mb-0 ms-3">Tahun Ini</h5>
                                     </div>
                                     <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="bpkbThisYear"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#2e93e6;" id="bpkbThisYear"></h1>
                                         <p class="text-center mb-0">BPKB</p>
                                     </div>
                                     <div class="col-md-12 ms-3">
@@ -452,12 +456,13 @@ if ($mobile === true) { ?>
                     <div class="row">
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Show data</label>
+                                <label for="exampleFormControlSelect1">Pilih Jumlah Polda</label>
                                 <select class="form-control" id="limit_showData">
-                                    <option value="3">3</option>
-                                    <option value="5" selected>5</option>
-                                    <option value="7">7</option>
-                                    <option value="10">10</option>
+                                    <option value="3">3 Polda</option>
+                                    <option value="5" selected>5 Polda</option>
+                                    <option value="7">7 Polda</option>
+                                    <option value="10">10 Polda</option>
+                                    <option value="34">Seluruh Polda</option>
                                 </select>
                             </div>
                         </div>
@@ -991,74 +996,144 @@ if ($mobile === true) { ?>
                 $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                 $("#chartdate").html(`<div id="chart2"></div>`);
 
-
-                var chart2 = {
-                    series: [{
-                            name: '<h6>BBN 1</h6>',
+                if (seven_daysAgo == yesterday) {
+                    var chart2 = {
+                        series: [{
+                                name: '<h6>BBN 1</h6>',
+                                type: 'column',
+                                data: result.data.polda_bbn_1,
+                                color: "#11347A"
+                            }, {
+                                name: '<h6>BBN 2</h6>',
+                                type: 'column',
+                                data: result.data.polda_bbn_2,
+                                color: "#3CA55C"
+                            }, {
+                                name: '<h6>Mutasi Masuk</h6>',
+                                type: 'column',
+                                data: result.data.polda_mutasi_masuk,
+                                color: "#E8D42F"
+                            },
+                            {
+                                name: '<h6>Mutasi Keluar</h6>',
+                                type: 'column',
+                                data: result.data.polda_mutasi_keluar,
+                                color: "#a85e32"
+                            },
+                            {
+                                name: '<h6>Perubahan dan Pergantian</h6>',
+                                type: 'column',
+                                data: result.data.polda_perubahan_pergantian,
+                                color: "#a83281"
+                            },
+                        ],
+                        chart: {
+                            height: 400,
                             type: 'line',
-                            data: result.data.polda_bbn_1,
-                            color: "#11347A"
-                        }, {
-                            name: '<h6>BBN 2</h6>',
-                            type: 'line',
-                            data: result.data.polda_bbn_2,
-                            color: "#3CA55C"
-                        }, {
-                            name: '<h6>Mutasi Masuk</h6>',
-                            type: 'line',
-                            data: result.data.polda_mutasi_masuk,
-                            color: "#E8D42F"
+                            stacked: false
                         },
-                        {
-                            name: '<h6>Mutasi Keluar</h6>',
-                            type: 'line',
-                            data: result.data.polda_mutasi_keluar,
-                            color: "#a85e32"
+                        plotOptions: {
+                            bar: {
+                                horizontal: false,
+                                columnWidth: '55%',
+                                endingShape: 'rounded',
+                                dataLabels: {
+                                    position: 'top'
+                                }
+                            },
                         },
-                        {
-                            name: '<h6>Perubahan dan Pergantian</h6>',
-                            type: 'line',
-                            data: result.data.polda_perubahan_pergantian,
-                            color: "#a83281"
-                        },
-                    ],
-                    chart: {
-                        height: 400,
-                        type: 'line',
-                        stacked: false
-                    },
-                    plotOptions: {
-                        bar: {
-                            horizontal: false,
-                            columnWidth: '55%',
-                            endingShape: 'rounded',
-                            dataLabels: {
-                                position: 'top'
-                            }
-                        },
-                    },
-                    dataLabels: {
-                        enabled: true,
-                        style: {
-                            colors: ['#333']
-                        },
-                        offsetY: -15
-                    },
-
-                    xaxis: {
-                        categories: result.data.polda_name,
-                        labels: {
-                            show: true,
+                        dataLabels: {
+                            enabled: true,
                             style: {
-                                colors: ['#f70505'],
-                                fontSize: '18px',
-                                fontWeight: 400,
-                            }
+                                colors: ['#333']
+                            },
+                            offsetY: -15
                         },
-                        tickPlacement: 'between'
-                    }
 
-                };
+                        xaxis: {
+                            categories: result.data.polda_name,
+                            labels: {
+                                show: true,
+                                style: {
+                                    colors: ['#f70505'],
+                                    fontSize: '18px',
+                                    fontWeight: 400,
+                                }
+                            },
+                            tickPlacement: 'between'
+                        }
+
+                    };
+                } else {
+                    var chart2 = {
+                        series: [{
+                                name: '<h6>BBN 1</h6>',
+                                type: 'line',
+                                data: result.data.polda_bbn_1,
+                                color: "#11347A"
+                            }, {
+                                name: '<h6>BBN 2</h6>',
+                                type: 'line',
+                                data: result.data.polda_bbn_2,
+                                color: "#3CA55C"
+                            }, {
+                                name: '<h6>Mutasi Masuk</h6>',
+                                type: 'line',
+                                data: result.data.polda_mutasi_masuk,
+                                color: "#E8D42F"
+                            },
+                            {
+                                name: '<h6>Mutasi Keluar</h6>',
+                                type: 'line',
+                                data: result.data.polda_mutasi_keluar,
+                                color: "#a85e32"
+                            },
+                            {
+                                name: '<h6>Perubahan dan Pergantian</h6>',
+                                type: 'line',
+                                data: result.data.polda_perubahan_pergantian,
+                                color: "#a83281"
+                            },
+                        ],
+                        chart: {
+                            height: 400,
+                            type: 'line',
+                            stacked: false
+                        },
+                        plotOptions: {
+                            bar: {
+                                horizontal: false,
+                                columnWidth: '55%',
+                                endingShape: 'rounded',
+                                dataLabels: {
+                                    position: 'top'
+                                }
+                            },
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            style: {
+                                colors: ['#333']
+                            },
+                            offsetY: -15
+                        },
+
+                        xaxis: {
+                            categories: result.data.polda_name,
+                            labels: {
+                                show: true,
+                                style: {
+                                    colors: ['#f70505'],
+                                    fontSize: '18px',
+                                    fontWeight: 400,
+                                }
+                            },
+                            tickPlacement: 'between'
+                        }
+
+                    };
+                }
+
 
                 var ditgakkum = new ApexCharts(document.querySelector("#chart2"), chart2);
                 ditgakkum.render();

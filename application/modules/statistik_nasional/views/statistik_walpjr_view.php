@@ -10,22 +10,24 @@
              <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#0007D8;">Export Laporan</button></a> -->
          </div>
      </div>
-     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
+     <div class="card mt-5 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
-             <div class="col-sm-4 col-md-5 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#0007D8">WAL & PJR <span style="color:#000;">Nasional</span></span> </h2>
+             <div class="col-sm-2 col-md-2 align-self-center">
+                 <h4>STATISTIK DATA</h4>
+                 <h4> <span style="text-transform:uppercase ; color:#0007D8">WAL & PJR</span> </h4>
+                 <h4>SELURUH INDONESIA </h4>
              </div>
-             <div class="col-sm-8 col-md-7">
+             <div class="col-sm-10 col-md-10">
                  <div class="row m-2">
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Hari Ini</h4>
+                                         <h5 class="mb-0 ms-3">Hari Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="walpjrThisDay"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="walpjrThisDay"></h1>
                                          <p class="text-center mb-0">WAL & PJR</p>
                                      </div>
                                      <div class="col-md-12 ms-3">
@@ -42,14 +44,14 @@
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Bulan Ini</h4>
+                                         <h5 class="mb-0 ms-3">Bulan Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="walpjrThisMonth"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="walpjrThisMonth"></h1>
                                          <p class="text-center mb-0">WAL & PJR</p>
                                      </div>
                                      <div class="col-md-12 ms-3">
@@ -66,14 +68,14 @@
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Tahun Ini</h4>
+                                         <h5 class="mb-0 ms-3">Tahun Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="walpjrThisYear"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="walpjrThisYear"></h1>
                                          <p class="text-center mb-0">WAL & PJR</p>
                                      </div>
                                      <div class="col-md-12 ms-3">
@@ -790,57 +792,110 @@
              success: function(results) {
                  $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${results.title}</h1>`);
                  $("#chartdate").html(`<div id="chart2"></div>`);
-
-                 var chart2 = {
-                     series: [{
-                         name: '<h6>Total Wal & PJR</h6>',
-                         type: 'line',
-                         data: results.data.polda_walpjr,
-                         color: "#11347A"
-                     }],
-                     chart: {
-                         height: 400,
-                         type: 'line',
-                         stacked: false
-                     },
-                     plotOptions: {
-                         bar: {
-                             horizontal: false,
-                             columnWidth: '55%',
-                             endingShape: 'rounded',
-                             dataLabels: {
-                                 position: 'top'
-                             }
+                 if (seven_daysAgo == yesterday) {
+                     var chart2 = {
+                         series: [{
+                             name: '<h6>Total Wal & PJR</h6>',
+                             type: 'column',
+                             data: results.data.polda_walpjr,
+                             color: "#11347A"
+                         }],
+                         chart: {
+                             height: 400,
+                             type: 'line',
+                             stacked: false
                          },
-                     },
-                     dataLabels: {
-                         enabled: true,
-                         style: {
-                             colors: ['#333']
+                         plotOptions: {
+                             bar: {
+                                 horizontal: false,
+                                 columnWidth: '55%',
+                                 endingShape: 'rounded',
+                                 dataLabels: {
+                                     position: 'top'
+                                 }
+                             },
                          },
-                         offsetY: -15
-                     },
-                     markers: {
-                         size: 4,
-                         colors: '#kkk',
-                         fillOpacity: 0.9,
-                         shape: "circle",
-                         radius: 2,
-                     },
-                     xaxis: {
-                         categories: results.data.polda_name,
-                         labels: {
-                             show: true,
+                         dataLabels: {
+                             enabled: true,
                              style: {
-                                 colors: ['#f70505'],
-                                 fontSize: '18px',
-                                 fontWeight: 400,
-                             }
+                                 colors: ['#333']
+                             },
+                             offsetY: -15
                          },
-                         tickPlacement: 'between'
-                     }
+                         markers: {
+                             size: 4,
+                             colors: '#kkk',
+                             fillOpacity: 0.9,
+                             shape: "circle",
+                             radius: 2,
+                         },
+                         xaxis: {
+                             categories: results.data.polda_name,
+                             labels: {
+                                 show: true,
+                                 style: {
+                                     colors: ['#f70505'],
+                                     fontSize: '18px',
+                                     fontWeight: 400,
+                                 }
+                             },
+                             tickPlacement: 'between'
+                         }
 
-                 };
+                     };
+                 } else {
+                     var chart2 = {
+                         series: [{
+                             name: '<h6>Total Wal & PJR</h6>',
+                             type: 'line',
+                             data: results.data.polda_walpjr,
+                             color: "#11347A"
+                         }],
+                         chart: {
+                             height: 400,
+                             type: 'line',
+                             stacked: false
+                         },
+                         plotOptions: {
+                             bar: {
+                                 horizontal: false,
+                                 columnWidth: '55%',
+                                 endingShape: 'rounded',
+                                 dataLabels: {
+                                     position: 'top'
+                                 }
+                             },
+                         },
+                         dataLabels: {
+                             enabled: true,
+                             style: {
+                                 colors: ['#333']
+                             },
+                             offsetY: -15
+                         },
+                         markers: {
+                             size: 4,
+                             colors: '#kkk',
+                             fillOpacity: 0.9,
+                             shape: "circle",
+                             radius: 2,
+                         },
+                         xaxis: {
+                             categories: results.data.polda_name,
+                             labels: {
+                                 show: true,
+                                 style: {
+                                     colors: ['#f70505'],
+                                     fontSize: '18px',
+                                     fontWeight: 400,
+                                 }
+                             },
+                             tickPlacement: 'between'
+                         }
+
+                     };
+                 }
+
 
                  var walpjr = new ApexCharts(document.querySelector("#chart2"), chart2);
                  walpjr.render();

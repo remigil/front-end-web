@@ -48,7 +48,9 @@
                              <div class="card-body">
                                  <div class="row justify-content-between align-items-center" style="height: 120px;">
                                      <div class="col-md-7">
-                                         <h5 class="mb-0 ms-3">Bulan Ini</h5>
+                                         <!-- <h5 class="mb-0 ms-3">Bulan Ini (<?= format_indo(date('m'))  ?>) </h5> -->
+                                         <!-- <h5 class="mb-0 ms-3">Bulan Ini <span class="text-danger">(Des)</span></h5> -->
+                                         <h5 class="mb-0 ms-3">Bulan Ini <span class="text-danger">(<?= date('M'); ?>)</span></h5>
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#2e93e6;" id="simThisMonth"></h1>
