@@ -1878,51 +1878,246 @@
                                         <div class="" style="height:2px; width:90%; background-color:white; margin:auto;"></div> -->
                                 <!-- <hr style="height: 5px; background-color:white !Important;"> -->
 
-                                <li class="menu-title mt-2 mb-n3" data-key="t-components">Sistem Pendukung Internal</li>
-                                <li class="mb-n2">
-                                    <a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                        <span class="" style="font-size:13px" data-key="t-dashboard">ERI</span>
+                                <li class="menu-title mt-2 mb-n2" data-key="t-components">Sistem Pendukung Internal</li>
+                                <li>
+                                    <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">ERI <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
-                                <li class="mb-n2">
+                                <li>
                                     <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 13px; margin-right:10px">
-                                        <span class="" style="font-size:13px" data-key="t-dashboard">IRSMS</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">IRSMS <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
                                 </li>
-                                <li class="mb-n2">
+                                <li>
                                     <a href="https://dakgargakkum.com/dashboard" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                        <span class="" style="font-size:13px" data-key="t-dashboard">E-TILANG</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">E-TILANG</span>
                                     </a>
                                 </li>
-                                <li class="mb-n2">
+                                <li>
                                     <a href="http://backoffice.etle-bali.info" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                        <span class="" style="font-size:13px" data-key="t-dashboard">ETLE</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">ETLE</span>
                                     </a>
                                 </li>
 
-                                <li class="mb-n2">
+                                <li>
                                     <a href="http://dashboard.korlantaspolri.id/expose" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                        <span class="" style="font-size:13px" data-key="t-dashboard">GPS RANMOR FOSIL</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">GPS RANMOR FOSIL</span>
                                     </a>
                                 </li>
 
-                                <li class="mb-n2">
+                                <li>
                                     <a href="http://siwalpjr.gps.id" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                        <span class="" style="font-size:13px" data-key="t-dashboard">GPS RANMOR LISTRIK</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">GPS RANMOR LISTRIK</span>
                                     </a>
                                 </li>
 
-                                <li class="mb-n2">
-                                    <a href="http://pjrstream.com/" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                        <span class="" style="font-size:13px" data-key="t-dashboard">BODYCAM</span>
+                                <li>
+                                    <a href="https://pjrstream.com:8443" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">BODYCAM <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
                                     </a>
+                                </li>
+                                <li>
+                                    <a href="https://maps.korlantas.polri.go.id/portal/home/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">INTAN <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://satudata.korlantas.polri.go.id/#/pages/dashboard" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">BIGDATA <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://sislapops.com/home" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SISLAPOPS <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="Https://irsms.korlantas.polri.go.id/dashboard/blackspot" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">BLACKSPOT <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://digitalkorlantas.id" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">DIGITAL KORLANTAS <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="http://rttmc.dephub.go.id/rttmc/livecctv" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV PERHUBUNGAN DARAT <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://36.67.85.252" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV WILAYAH </br>AMBON <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://cctv.priokport.co.id/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV WILAYAH </br>PRIOK <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://cctvonline.pelindo.co.id:8081" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV PELINDO <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://cctvcipali.lintasmarga.com/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV CIPALI <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://cctvap2.angkasapura2.co.id:8081" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV </br>ANGKASAPURA <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+
+                                <!-- <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">LICENCE PLATE RECOGNITION</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">FACE RECOGNITION</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">VEHICLE COUNTING</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/monitoring_drone.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">MONITORING DRONE</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/monitoring_body_worn.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">MONITORING BODY WORN</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/monitoring_gps_ranmor_patroli.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">MONITORING GPS PATROL RANMOR PATROLI</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/sub_monitoring_center.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SUB MONITORING CENTER</span>
+                                    </a>
+                                </li> -->
+
+                                <li>
+                                    <a href="https://polri.go.id/polisiku" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/dashboard_polisiku.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">DASHBOARD POLISIKU</span>
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/dashboard_110.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">DASHBOARD 110</span>
+                                    </a>
+                                </li> -->
+                                <li>
+                                    <a href="http://sot.sopspolri.id" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/sot_presisi.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SOT PRESISI</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://k3i.mhews.id/" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/info_bmkg_dan_cuaca.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">INFO BMKG </br>DAN CUACA <i class="fas fas fa-star" style="color: yellow;font-size: 11px;margin-top: -15px;"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://inarisk.bnpb.go.id/" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/inarisk_bnpb.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">INARISK BNPB</span>
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/monitoring_kecepatan_angin.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">MONITORING KECEPATAN ANGIN</span>
+                                    </a>
+                                </li> -->
+                                <!-- <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/prakiraan_cuaca_dipelabuhan.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">PERKIRAANG CUACA DI PLABUHAN</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/pasang_surut_air_dan_tinggi_gelombang.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">PASANG SURUT AIR DAN TINGGI GELOMBANG</span>
+                                    </a>
+                                </li> -->
+                                <!-- <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/flight_radar.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">FLIGHT RADAR</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/traffic_marine.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">TRAFFIC MARINE</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" target="_blank">
+                                        <img src="<?= base_url('assets/icon/external/sub_monitoring_center1.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SUB MONITORING CENTER</span>
+                                    </a>
+                                </li> -->
+                                <li>
+                                    <a href="http://rttmc.dephub.go.id/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">DEPHUB</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://1500669.com/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CONTACK CENTER</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn aneh" data-toggle="modal" data-target="#myModalPoldaDisplay2" id="getPoldatable">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px; margin-left:-75px; ">
+                                        <span data-key="t-dashboard" style="color: white;">KONTAK PENTING</span>
+                                    </button>
                                 </li>
                                 <li class="menu-title mt-2 mb-n3" data-key="t-components">Sistem Pendukung Eksternal</li>
                                 <li class="mb-n2">
