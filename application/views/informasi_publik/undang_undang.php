@@ -68,139 +68,303 @@
 						<td>UNDANG-UNDANG DASAR NEGARA REPUBLIK INDONESIA TAHUN 1945</td>
 						<td>1945</td>
 						<td>
-							<a class="btn btn-success" href="http://k3i.korlantas.polri.go.id/wp-content/uploads/2021/09/UU-Nomor-9-tahun-2010-tentang-Keprotokolan.pdf">
+							<a class="btn btn-success" href="<?= base_url()?>assets/fe/doc/uu/UNDANG-UNDANG-DASAR-NEGARA-REPUBLIK-INDONESIA-TAHUN-1945.pdf">
 								<i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i>
 							</a>
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uud">
 								<i class="bi bi-eye-fill d-flex align-items-center"></i>
 							</button>
+							
 						</td>
 
-							<!-- Modal -->
-							<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-							<div class="modal-dialog modal-dialog-scrollable">
-								<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-								</div>
-								<div class="modal-body">
-								<embed src="http://k3i.korlantas.polri.go.id/wp-content/uploads/2021/09/UU-Nomor-9-tahun-2010-tentang-Keprotokolan.pdf" type="application/pdf" width="100%" height="600px">
-								</div>
+						<div class="modal fade" id="uud" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-xl">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">UNDANG-UNDANG DASAR NEGARA REPUBLIK INDONESIA TAHUN 1945</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<object data="<?= url_api() . 'regulation_doc/UNDANG-UNDANG-DASAR-NEGARA-REPUBLIK-INDONESIA-TAHUN-1945.pdf'?>" type="application/pdf" width="100%" height="600px">
 								
-								</div>
+							</object>
 							</div>
+							
 							</div>
+						</div>
+						</div>
+							
 					</tr>
 					<tr>
 						<td>2</td>
 						<td>UU NOMOR 2 TAHUN 2002 TTG KEPOLISIAN NEGARA REPUBLIK INDONESIA</td>
 						<td>2002</td>
 						<td>
-							<a class="btn btn-success" href="http://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/UU-NOMOR-2-TAHUN-2002-TTG-KEPOLISIAN-NEGARA-REPUBLIK-INDONESIA.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<a class="btn btn-success" href="<?= base_url()?>assets/fe/doc/uu/UU-NOMOR-2-TAHUN-2002-TTG-KEPOLISIAN-NEGARA-REPUBLIK-INDONESIA.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uu2">
 								<i class="bi bi-eye-fill d-flex align-items-center"></i>
 							</button>
 						</td>
+						<div class="modal fade" id="uu2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-xl">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">UU NOMOR 2 TAHUN 2002 TTG KEPOLISIAN NEGARA REPUBLIK INDONESIA</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<object data="<?= url_api() . 'regulation_doc/UU-NOMOR-2-TAHUN-2002-TTG-KEPOLISIAN-NEGARA-REPUBLIK-INDONESIA.pdf'?>" type="application/pdf" width="100%" height="600px">
+								
+							</object>
+							</div>
+							
+							</div>
+						</div>
+						</div>
 					</tr>
 					<tr>
 						<td>3</td>
 						<td>UNDANG-UNDANG NOMOR 28 TAHUN 2009 TENTANG PAJAK DAERAH DAN RESTRIBUSI DAERAH</td>
 						<td>2008</td>
 						<td>
-							<a class="btn btn-success" href="http://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/UNDANG-UNDANG-NOMOR-28-TAHUN-2009-TENTANG-PAJAK-DAERAH-DAN-RESTRIBUSI-DAERAH.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<a class="btn btn-success" href="<?= base_url()?>assets/fe/doc/uu/UNDANG-UNDANG-NOMOR-28-TAHUN-2009-TENTANG-PAJAK-DAERAH-DAN-RESTRIBUSI-DAERAH.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uu3">
 								<i class="bi bi-eye-fill d-flex align-items-center"></i>
 							</button>
 						</td>
+						<div class="modal fade" id="uu3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-xl">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">UNDANG-UNDANG NOMOR 28 TAHUN 2009 TENTANG PAJAK DAERAH DAN RESTRIBUSI DAERAH</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<object data="<?= url_api() . 'regulation_doc/UNDANG-UNDANG-NOMOR-28-TAHUN-2009-TENTANG-PAJAK-DAERAH-DAN-RESTRIBUSI-DAERAH.pdf'?>" type="application/pdf" width="100%" height="600px">
+								
+							</object>
+							</div>
+							
+							</div>
+						</div>
+						</div>
 					</tr>
 					<tr>
 						<td>4</td>
 						<td>UNDANG-UNDANG NOMOR 22 TAHUN 2009 TENTANG LALU LINTAS DAN ANGKUTAN JALAN</td>
 						<td>2009</td>
 						<td>
-							<a class="btn btn-success" href="http://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/UNDANG-UNDANG-NOMOR-22-TAHUN-2009-TENTANG-LALU-LINTAS-DAN-ANGKUTAN-JALAN.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<a class="btn btn-success" href="<?= base_url()?>assets/fe/doc/uu/UNDANG-UNDANG-NOMOR-22-TAHUN-2009-TENTANG-LALU-LINTAS-DAN-ANGKUTAN-JALAN.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uu4">
 								<i class="bi bi-eye-fill d-flex align-items-center"></i>
 							</button>
 						</td>
+
+						<div class="modal fade" id="uu4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-xl">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">UNDANG-UNDANG NOMOR 22 TAHUN 2009 TENTANG LALU LINTAS DAN ANGKUTAN JALAN</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<object data="<?= url_api() . 'regulation_doc/UNDANG-UNDANG-NOMOR-22-TAHUN-2009-TENTANG-LALU-LINTAS-DAN-ANGKUTAN-JALAN.pdf'?>" type="application/pdf" width="100%" height="600px">
+								
+							</object>
+							</div>
+							
+							</div>
+						</div>
+						</div>
 					</tr>
 					<tr>
 						<td>5</td>
 						<td>UNDANG-UNDANG NOMOR 25 TAHUN 2009 TENTANG PELAYANAN PUBLIK</td>
 						<td>2009</td>
 						<td>
-							<a class="btn btn-success" href="http://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/UNDANG-UNDANG-NOMOR-25-TAHUN-2009-TENTANG-PELAYANAN-PUBLIK.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<a class="btn btn-success" href="<?= base_url()?>assets/fe/doc/uu/UNDANG-UNDANG-NOMOR-25-TAHUN-2009-TENTANG-PELAYANAN-PUBLIK.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uu5">
 								<i class="bi bi-eye-fill d-flex align-items-center"></i>
 							</button>
 						</td>
+						<div class="modal fade" id="uu5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-xl">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<object data="<?= url_api() . 'regulation_doc/UNDANG-UNDANG-NOMOR-25-TAHUN-2009-TENTANG-PELAYANAN-PUBLIK.pdf'?>" type="application/pdf" width="100%" height="600px">
+								
+							</object>
+							</div>
+							
+							</div>
+						</div>
+						</div>
 					</tr>
 					<tr>
 						<td>6</td>
 						<td>UU NOMOR 9 TAHUN 2010 TENTANG KEPROTOKOLAN</td>
 						<td>2010</td>
 						<td>
-							<a class="btn btn-success" href="http://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/UNDANG-UNDANG-DASAR-NEGARA-REPUBLIK-INDONESIA-TAHUN-1945.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<a class="btn btn-success" href="<?= base_url()?>assets/fe/doc/uu/UU-Nomor-9-tahun-2010-tentang-Keprotokolan.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uu6">
 								<i class="bi bi-eye-fill d-flex align-items-center"></i>
 							</button>
 						</td>
+						<div class="modal fade" id="uu6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-xl">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<object data="<?= url_api() . 'regulation_doc/UU-Nomor-9-tahun-2010-tentang-Keprotokolan.pdf'?>" type="application/pdf" width="100%" height="600px">
+								
+							</object>
+							</div>
+							
+							</div>
+						</div>
+						</div>
 					</tr>
 					<tr>
 						<td>7</td>
 						<td>UNDANG-UNDANG NOMOR 19 TAHUN 2016 TENTANG PERUBAHAN ATAS UNDANG-UNDANG NOMOR 11 TAHUN 2008 TENTANG INFORMASI DAN TRANSAKSI ELEKTRONIK</td>
 						<td>2016</td>
 						<td>
-							<a class="btn btn-success" href="http://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/UNDANG-UNDANG-NOMOR-19-TAHUN-2016-TENTANG-PERUBAHAN-ATAS-UNDANG-UNDANG-NOMOR-11-TAHUN-2008-TENTANG-INFORMASI-DAN-TRANSAKSI-ELEKTRONIK.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<a class="btn btn-success" href="<?= base_url()?>assets/fe/doc/uu/UNDANG-UNDANG-NOMOR-19-TAHUN-2016-TENTANG-PERUBAHAN-ATAS-UNDANG-UNDANG-NOMOR-11-TAHUN-2008-TENTANG-INFORMASI-DAN-TRANSAKSI-ELEKTRONIK.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uu7">
 								<i class="bi bi-eye-fill d-flex align-items-center"></i>
 							</button>
 						</td>
+						<div class="modal fade" id="uu7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-xl">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">UNDANG-UNDANG NOMOR 19 TAHUN 2016 TENTANG PERUBAHAN ATAS UNDANG-UNDANG NOMOR 11 TAHUN 2008 TENTANG INFORMASI DAN TRANSAKSI ELEKTRONIK</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<object data="<?= url_api() . 'regulation_doc/UNDANG-UNDANG-NOMOR-19-TAHUN-2016-TENTANG-PERUBAHAN-ATAS-UNDANG-UNDANG-NOMOR-11-TAHUN-2008-TENTANG-INFORMASI-DAN-TRANSAKSI-ELEKTRONIK.pdf'?>" type="application/pdf" width="100%" height="600px">
+								
+							</object>
+							</div>
+							
+							</div>
+						</div>
+						</div>
 					</tr>
 					<tr>
 						<td>8</td>
 						<td>UNDANG-UNDANG REPUBLIK INDONESIA NOMOR 19 TAHUN 2016 TENTANG PERUBAHAN ATAS UNDANG-UNDANG NOMOR 11 TAHUN 2008 TENTANG INFORMASI DAN TRANSAKSI ELEKTRONIK</td>
 						<td>2016</td>
 						<td>
-							<a class="btn btn-success" href="http://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/UU-19-Tahun-2016.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<a class="btn btn-success" href="<?= base_url()?>assets/fe/doc/uu/UU-19-Tahun-2016.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uu8">
 								<i class="bi bi-eye-fill d-flex align-items-center"></i>
 							</button>
 						</td>
+						<div class="modal fade" id="uu8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-xl">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">UNDANG-UNDANG REPUBLIK INDONESIA NOMOR 19 TAHUN 2016 TENTANG PERUBAHAN ATAS UNDANG-UNDANG NOMOR 11 TAHUN 2008 TENTANG INFORMASI DAN TRANSAKSI ELEKTRONIK</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<object data="<?= url_api() . 'regulation_doc/UU-19-Tahun-2016.pdf'?>" type="application/pdf" width="100%" height="600px">
+								
+							</object>
+							</div>
+							
+							</div>
+						</div>
+						</div>
 					</tr>
 					<tr>
 						<td>9</td>
 						<td>UNDANG-UNDANG NOMOR 9 TAHUN 2018 TENTANG PENERIMAAN NEGARA BUKAN PAJAK</td>
 						<td>2018</td>
 						<td>
-							<a class="btn btn-success" href="http://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/UNDANG-UNDANG-NOMOR-9-TAHUN-2018-TENTANG-PENERIMAAN-NEGARA-BUKAN-PAJAK.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<a class="btn btn-success" href="<?= base_url()?>assets/fe/doc/uu/UNDANG-UNDANG-NOMOR-9-TAHUN-2018-TENTANG-PENERIMAAN-NEGARA-BUKAN-PAJAK.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uu9">
 								<i class="bi bi-eye-fill d-flex align-items-center"></i>
 							</button>
 						</td>
+						<div class="modal fade" id="uu9" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-xl">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">UNDANG-UNDANG NOMOR 9 TAHUN 2018 TENTANG PENERIMAAN NEGARA BUKAN PAJAK</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<object data="<?= url_api() . 'regulation_doc/UNDANG-UNDANG-NOMOR-9-TAHUN-2018-TENTANG-PENERIMAAN-NEGARA-BUKAN-PAJAK.pdf'?>" type="application/pdf" width="100%" height="600px">
+								
+							</object>
+							</div>
+							
+							</div>
+						</div>
+						</div>
 					</tr>
 					<tr>
 						<td>10</td>
 						<td>UNDANG-UNDANG NOMOR 11 TAHUN 2020 TENTANG CIPTA KERJA</td>
 						<td>2020</td>
 						<td>
-							<a class="btn btn-success" href="http://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/UNDANG-UNDANG-NOMOR-11-TAHUN-2020-TENTANG-CIPTA-KERJA.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<a class="btn btn-success" href="<?= base_url()?>assets/fe/doc/uu/UNDANG-UNDANG-NOMOR-11-TAHUN-2020-TENTANG-CIPTA-KERJA.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uu10">
 								<i class="bi bi-eye-fill d-flex align-items-center"></i>
 							</button>
 						</td>
+						<div class="modal fade" id="uu10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-xl">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">UNDANG-UNDANG NOMOR 11 TAHUN 2020 TENTANG CIPTA KERJA</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<object data="<?= url_api() . 'regulation_doc/UNDANG-UNDANG-NOMOR-11-TAHUN-2020-TENTANG-CIPTA-KERJA.pdf'?>" type="application/pdf" width="100%" height="600px">
+								
+							</object>
+							</div>
+							
+							</div>
+						</div>
+						</div>
 					</tr>
 					<tr>
 						<td>11</td>
 						<td>UNDANG UNDANG NOMOR 3 TAHUN 2022 TENTANG IBU KOTA NEGARA ( beserta lampiran 1 dan 2)</td>
 						<td>2022</td>
 						<td>
-							<a class="btn btn-success" href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2022/02/SalinanUUNomor3Tahun%202022LampiranIdanII.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<a class="btn btn-success" href="<?= base_url()?>assets/fe/doc/uu/SalinanUUNomor3Tahun 2022LampiranIdanII.pdf"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uu11">
 								<i class="bi bi-eye-fill d-flex align-items-center"></i>
 							</button>
 						</td>
+						<div class="modal fade" id="uu11" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-xl">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">UNDANG UNDANG NOMOR 3 TAHUN 2022 TENTANG IBU KOTA NEGARA ( beserta lampiran 1 dan 2)</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<object data="<?= url_api() . 'regulation_doc/SalinanUUNomor3Tahun 2022LampiranIdanII.pdf'?>" type="application/pdf" width="100%" height="600px">
+								
+							</object>
+							</div>
+							
+							</div>
+						</div>
+						</div>
 					</tr>
 					
 				</tbody>
@@ -710,8 +874,10 @@
 
 
 
+
 <script>
     $(document).ready(function() {
+		
         $('.dropify').dropify();
 
         userDataTable = $('#datatable').DataTable({

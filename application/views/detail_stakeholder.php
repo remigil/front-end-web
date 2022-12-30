@@ -137,7 +137,7 @@ $asd = explode("|", $stakeholder['link_playlist']);
 								</tr>
 							</tbody>
 						</table>
-						<a href="https://www.kemendagri.go.id/permendagri/arsip"><button class="btn btn-lg btn-primary" style="width: 100%;">Selengkapnya</button></a>
+						<a href="<?= $stakeholder['url']?>"><button class="btn btn-lg btn-primary" style="width: 100%;">Selengkapnya</button></a>
 					</div>
 				</div>
 			</div>
@@ -196,7 +196,7 @@ $asd = explode("|", $stakeholder['link_playlist']);
 		}).addTo(map);
 
 		L.marker([<?= $stakeholder['latitude'] ?>, <?= $stakeholder['longitude'] ?>]).addTo(map)
-			.bindPopup('<?= $stakeholder['fullname'] ?> | <br><a href="https://www.google.com/maps" target="_blank">go to map</a>')
+			.bindPopup('<?= $stakeholder['fullname'] ?> | <br><a href="<?= $stakeholder['link_gmaps']?>" target="_blank">go to map</a>')
 			.openPopup();
 	})
 </script>

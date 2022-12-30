@@ -54,7 +54,7 @@
 					Sistem Administrasi Perkantoran, yang terdiri dari :
 					<ul>
 					
-						<li><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/12/PERATURAN-KAPOLRI-NOMOR-7-TAHUN-2017-TENTANG-NASKAH-DINAS-DAN-TATA-PERSURATAN-DINAS-DILINGKUNGAN-KEPOLISIAN-NEGARA-REPUBLIK-INDONESIA.pdf" target="_blank" rel="noopener">Peraturan Kepala Kepolisian Negara Republik Indonesia Nomor 7 Tahun 2017 Tentang Naskah Dinas Dan Tata Persuratan Dinas Di Lingkungan Kepolisian Negara Republik Indonesia</a></li>
+						<li><a href="<?= base_url()?>assets/fe/doc/PERATURAN-KAPOLRI-NOMOR-7-TAHUN-2017-TENTANG-NASKAH-DINAS-DAN-TATA-PERSURATAN-DINAS-DILINGKUNGAN-KEPOLISIAN-NEGARA-REPUBLIK-INDONESIA.pdf" target="_blank" rel="noopener">Peraturan Kepala Kepolisian Negara Republik Indonesia Nomor 7 Tahun 2017 Tentang Naskah Dinas Dan Tata Persuratan Dinas Di Lingkungan Kepolisian Negara Republik Indonesia</a></li>
 					</ul>
 				</li>
 				<li>Kode Klasifikasi Arsip Korlantas Polri</li>
@@ -91,12 +91,12 @@
 				<li>
 					Buku Polantas Dalam Angka Korlantas Polri;
 					<ul>
-						<li><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/POLANTAS-DALAM-ANGKA-TAHUN-2021.pdf">Buku Polantas Dalam Angka Tahun 2021</a></li>
-						<li><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/POLANTAS-DALAM-ANGKA-TAHUN-2020.pdf">Buku Polantas Dalam Angka Tahun 2020</a></li>
-						<li><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/POLANTAS-DALAM-ANGKA-TAHUN-2019.pdf">Buku Polantas Dalam Angka Tahun 2019</a></li>
-						<li><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/POLANTAS-DALAM-ANGKA-TAHUN-2018.pdf">Buku Polantas Dalam Angka Tahun 2018</a></li>
-						<li><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/POLANTAS-DALAM-ANGKA-TAHUN-2017.pdf">Buku Polantas Dalam Angka Tahun 2017</a></li>
-						<li><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/POLANTAS-DALAM-ANGKA-TAHUN-2016.pdf">Buku Polantas Dalam Angka Tahun 2016</a></li>
+						<li><a href="<?= base_url()?>assets/fe/doc/POLANTAS-DALAM-ANGKA-TAHUN-2021.pdf">Buku Polantas Dalam Angka Tahun 2021</a></li>
+						<li><a href="<?= base_url()?>assets/fe/doc/POLANTAS-DALAM-ANGKA-TAHUN-2020.pdf">Buku Polantas Dalam Angka Tahun 2020</a></li>
+						<li><a href="<?= base_url()?>assets/fe/doc/POLANTAS-DALAM-ANGKA-TAHUN-2019.pdf">Buku Polantas Dalam Angka Tahun 2019</a></li>
+						<li><a href="<?= base_url()?>assets/fe/doc/POLANTAS-DALAM-ANGKA-TAHUN-2018.pdf">Buku Polantas Dalam Angka Tahun 2018</a></li>
+						<li><a href="<?= base_url()?>assets/fe/doc/POLANTAS-DALAM-ANGKA-TAHUN-2017.pdf">Buku Polantas Dalam Angka Tahun 2017</a></li>
+						<li><a href="<?= base_url()?>assets/fe/doc/POLANTAS-DALAM-ANGKA-TAHUN-2016.pdf">Buku Polantas Dalam Angka Tahun 2016</a></li>
 					</ul>
 				</li>
 			</ul>
