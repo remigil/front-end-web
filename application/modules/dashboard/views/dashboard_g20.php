@@ -4452,7 +4452,7 @@
                 
                 
                 console.log({a:iniHasilCariArray, b:arrayFilterPetugas, c:ress.polda_id, d:ress});
-                if(iniHasilCariArray){
+                if(iniHasilCariArray || ress.polda_id == null){
                     if (markerArray[ress.id_officer] != null) {
                         console.log(`UPDATE Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle} - ST.PENUMPANG: ${ress.bawa_penumpang}`);
     
