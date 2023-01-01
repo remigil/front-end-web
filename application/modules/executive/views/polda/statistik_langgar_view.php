@@ -4,57 +4,98 @@
              <a href="<?= base_url('executive/Polda_executive/statistik_polda/' . $data['id']) ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
          </div>
          <div class="col-md-6 text-end align-self-center">
-             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
+             <a href="<?= ENV_API_BASE_URL ?>v1/laporan_harian/langgar" type="button" button class="btn btn-outline-primary btn-lg" style="width: 200px; border-color:#0007D8;">Export Laporan</a>
          </div>
      </div>
 
-     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
+     <div class="card mt-5 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
-             <div class="col-sm-4 col-md-5 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">Pelanggaran <span style="color:#000;">Polda&nbsp;<?= $data['poldaid']['name_polda']; ?></span></span> </h2>
+             <div class="col-sm-2 col-md-2 align-self-center">
+                 <h4>STATISTIK DATA</h4>
+                 <h4> <span style="text-transform:uppercase ; color:#0007D8">Pelanggaran Lalu Lintas </span> </h4>
+                 <h4 class="text-uppercase"><?= $data['poldaid']['name_polda']; ?> </h4>
              </div>
-             <div class="col-sm-8 col-md-7">
+             <div class="col-sm-10 col-md-10">
                  <div class="row m-2">
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Harian</h4>
+                                         <h5 class="mb-0 ms-3">Hari Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h3 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="garlantasThisDay"></h3>
+                                         <h3 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="garlantasThisDay"></h3>
                                          <p class="text-center mb-0">Kejadian</p>
+                                     </div>
+                                     <div class="col-md-12">
+                                         <div class="row">
+                                             <div class="col-md-4 ms-n1">
+                                                 <span class="fw-bold" style="font-size:12px;">PB : <span class="text-danger" style="padding:5px" id="garlantasThisDayPB"></span></span>
+                                             </div>
+                                             <div class="col-md-4 ms-n1">
+                                                 <span class="fw-bold" style="font-size:12px;">PS : <span class="text-warning" style="padding:5px" id="garlantasThisDayPS"></span></span>
+                                             </div>
+                                             <div class="col-md-4 ms-n1">
+                                                 <span class="fw-bold" style="font-size:12px;">PR : <span class="text-success" style="padding:5px" id="garlantasThisDayPR"></span></span>
+                                             </div>
+                                         </div>
                                      </div>
                                  </div>
                              </div>
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Bulanan</h4>
+                                         <h5 class="mb-0 ms-3">Bulan Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h3 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="garlantasThisMonth"></h3>
+                                         <h3 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="garlantasThisMonth"></h3>
                                          <p class="text-center mb-0">Kejadian</p>
+                                     </div>
+                                     <div class="col-md-12">
+                                         <div class="row">
+                                             <div class="col-md-4 ms-n1">
+                                                 <span class="fw-bold" style="font-size:12px;">PB : <span class="text-danger" style="padding:5px" id="garlantasThisMonthPB"></span></span>
+                                             </div>
+                                             <div class="col-md-4 ms-n1">
+                                                 <span class="fw-bold" style="font-size:12px;">PS : <span class="text-warning" style="padding:5px" id="garlantasThisMonthPS"></span></span>
+                                             </div>
+                                             <div class="col-md-4 ms-n1">
+                                                 <span class="fw-bold" style="font-size:12px;">PR : <span class="text-success" style="padding:5px" id="garlantasThisMonthPR"></span></span>
+                                             </div>
+                                         </div>
                                      </div>
                                  </div>
                              </div>
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Tahunan</h4>
+                                         <h5 class="mb-0 ms-3">Tahun Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h3 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="garlantasThisYear"></h3>
+                                         <h3 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="garlantasThisYear"></h3>
                                          <p class="text-center mb-0">Kejadian</p>
+                                     </div>
+                                     <div class="col-md-12">
+                                         <div class="row">
+                                             <div class="col-md-4 ms-n1">
+                                                 <span class="fw-bold" style="font-size:12px;">PB : <span class="text-danger" style="padding:5px" id="garlantasThisYearPB"></span></span>
+                                             </div>
+                                             <div class="col-md-4 ms-n1">
+                                                 <span class="fw-bold" style="font-size:12px;">PS : <span class="text-warning" style="padding:5px" id="garlantasThisYearPS"></span></span>
+                                             </div>
+                                             <div class="col-md-4 ms-n1">
+                                                 <span class="fw-bold" style="font-size:12px;">PR : <span class="text-success" style="padding:5px" id="garlantasThisYearPR"></span></span>
+                                             </div>
+                                         </div>
                                      </div>
                                  </div>
                              </div>
@@ -62,10 +103,31 @@
                      </div>
                  </div>
              </div>
+             <div class="col-md-12">
+                 <div class="d-flex justify-content-center">
+                     <div class="col-md-1">
+                         <div class="fw-bold" style="height:25px; width:25px; line-height:25px; background-color:#ff0000; border-radius:50%; text-align:center; font-size:12px; color:white;">PB</div>
+                     </div>
+                     <div class="col-md-1 me-n5">
+                         <span style="margin-left:-90px">Pelanggaran Berat</span>
+                     </div>
+                     <div class="col-md-1">
+                         <div class="fw-bold" style="height:25px; width:25px; line-height:25px; background-color:#FFFF00; border-radius:50%; text-align:center; font-size:12px; color:black;">PS</div>
+                     </div>
+                     <div class="col-md-1 me-n5">
+                         <span style="margin-left:-90px">Pelanggaran Sedang</span>
+                     </div>
+                     <div class="col-md-1">
+                         <div class="fw-bold" style="height:25px; width:25px; line-height:25px; background-color:#00FF00; border-radius:50%; text-align:center; font-size:12px; color:black;">PR</div>
+                     </div>
+                     <div class="col-md-1 me-n5">
+                         <span style="margin-left:-90px">Pelanggaran Ringan</span>
+                     </div>
+                 </div>
+             </div>
          </div>
-
      </div>
-
+ </div>
  </div>
 
  <?php $mobile = detect_mobile();
@@ -101,122 +163,32 @@
 
  <div class="container-fluid">
      <div class="card">
-         <div class="row m-3" style="font-size: 16px; display:none;">
-             <div class="col-xl-12">
-                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
-                     </li>
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
-                     </li>
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
-                     </li>
-                 </ul>
-                 <div class="tab-content" id="pills-tabContent">
-                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data Pelanggaran Tertinggi <?= date('d M Y', strtotime("-1 days")); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableLakaDay">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Pelanggaran Berat</th>
-                                                 <th scope="col">Pelanggaran Sedang</th>
-                                                 <th scope="col">Pelanggaran Ringan</th>
-                                                 <th scope="col">Teguran</th>
-                                                 <th scope="col">Total</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-lakaDay">
-                                         </tbody>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data Pelanggaran Tertinggi <?= date('M Y'); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableLakaMonth">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Pelanggaran Berat</th>
-                                                 <th scope="col">Pelanggaran Sedang</th>
-                                                 <th scope="col">Pelanggaran Ringan</th>
-                                                 <th scope="col">Teguran</th>
-                                                 <th scope="col">Total</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-lakaMonth">
-                                         </tbody>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data Pelanggaran Tertinggi <?= date('Y'); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableLakaYear">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Pelanggaran Berat</th>
-                                                 <th scope="col">Pelanggaran Sedang</th>
-                                                 <th scope="col">Pelanggaran Ringan</th>
-                                                 <th scope="col">Teguran</th>
-                                                 <th scope="col">Total</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-lakaYear">
-                                         </tbody>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
+
 
          <div class="row">
-             <!-- <div class="col-md-3">
-                               <label for="waktu" class="form-label text-uppercase">Wilayah</label>
-                               <select class="form-control" id="polda_id" name="polda_id">
-                                   <option value="1">Semua Polda</option>
-                               </select>
-                           </div> -->
              <hr style="width:97%; margin: auto">
              <div class="filter mt-4" style=" height:125px;">
                  <div class="container-fluid">
                      <div class="col-md-9">
-                         <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                         <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
                          <div class="row">
                              <div class="col-md-4">
-                                 <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                                 <label for="waktu" class="form-label text-uppercase">Awal</label>
                              </div>
                              <div class="col-md-4">
-                                 <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                                 <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="start_date" id="start_date" value="<?= date('Y-m-d', strtotime("-6 days")); ?>">
+                             </div>
+                             <div class="col-md-4">
+                                 <input class="form-control form-control-lg" type="date" name="end_date" id="end_date" value="<?= date('Y-m-d'); ?>">
                              </div>
                              <div class="col-md-2">
-                                 <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                 <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                              </div>
-                             <!-- <div class="col-md-2 text-end align-self-center"> 
-                       <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
-    
-                    </div> -->
                          </div>
                      </div>
                  </div>
@@ -429,7 +401,7 @@
          topGarlantasMonth(firstDayMonth, lastDayMonth)
          topGarlantasYear(firstDay, lastDay)
 
-         ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
+         garlantas_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
          GarlantaslineChart(seven_daysAgo, yesterday)
 
          jam()
@@ -573,12 +545,12 @@
          })
      })
 
-     function ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+     function garlantas_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
          let id = '<?= $data['id'] ?> '
 
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDitgakkumDate/" + id,
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getGarlantasDate/" + id,
              dataType: "JSON",
              data: {
                  yesterday,
@@ -589,9 +561,21 @@
              },
              success: function(result) {
                  $("#overlay").fadeOut(300);
-                 $('#garlantasThisDay').text(result.thisDay[0].garlantas)
-                 $('#garlantasThisMonth').text(result.thisMonth[0].garlantas)
-                 $('#garlantasThisYear').text(result.thisYear.garlantas)
+                 $('#garlantasThisDay').text(result.thisDayTotal)
+                 $('#garlantasThisDayPB').text(result.thisDayPB)
+                 $('#garlantasThisDayPS').text(result.thisDayPS)
+                 $('#garlantasThisDayPR').text(result.thisDayPR)
+                 $('#garlantasThisDayT').text(result.thisDayT)
+                 $('#garlantasThisMonth').text(result.thisMonthTotal)
+                 $('#garlantasThisMonthPB').text(result.thisMonthPB)
+                 $('#garlantasThisMonthPS').text(result.thisMonthPS)
+                 $('#garlantasThisMonthPR').text(result.thisMonthPR)
+                 $('#garlantasThisMonthT').text(result.thisMonthT)
+                 $('#garlantasThisYear').text(result.thisYearTotal)
+                 $('#garlantasThisYearPB').text(result.thisYearPB)
+                 $('#garlantasThisYearPS').text(result.thisYearPS)
+                 $('#garlantasThisYearPR').text(result.thisYearPR)
+                 $('#garlantasThisYearT').text(result.thisYearT)
              }
          })
      }
@@ -764,74 +748,134 @@
              success: function(results) {
                  $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${results.title}</h1>`);
                  $("#chartdate").html(`<div id="chart2"></div>`);
-                 console.log(results)
 
-                 var chart2 = {
-                     series: [{
-                         name: 'Teguran',
-                         type: 'line',
-                         data: results.data.polda_teguran,
-                         color: "#11347A"
-                     }, {
-                         name: 'Pelanggaran Berat',
-                         type: 'line',
-                         data: results.data.polda_pelanggaran_berat,
-                         color: "#CB2D3E"
-                     }, {
-                         name: 'Pelanggaran Sedang',
-                         type: 'line',
-                         data: results.data.polda_pelanggaran_sedang,
-                         color: "#E8D42F"
-                     }, {
-                         name: 'Luka Ringan',
-                         type: 'line',
-                         data: results.data.polda_pelanggaran_ringan,
-                         color: "#3CA55C"
-                     }],
-                     chart: {
-                         height: 400,
-                         type: 'line',
-                         stacked: false
-                     },
-                     plotOptions: {
-                         bar: {
-                             horizontal: false,
-                             columnWidth: '55%',
-                             endingShape: 'rounded',
-                             dataLabels: {
-                                 position: 'top'
-                             }
+                 if (seven_daysAgo == yesterday) {
+                     var chart2 = {
+                         series: [{
+                             name: 'Pelanggaran Berat',
+                             type: 'column',
+                             data: results.data.polda_pelanggaran_berat,
+                             color: "#CB2D3E"
+                         }, {
+                             name: 'Pelanggaran Sedang',
+                             type: 'column',
+                             data: results.data.polda_pelanggaran_sedang,
+                             color: "#E8D42F"
+                         }, {
+                             name: 'Luka Ringan',
+                             type: 'column',
+                             data: results.data.polda_pelanggaran_ringan,
+                             color: "#3CA55C"
+                         }],
+                         chart: {
+                             height: 400,
+                             type: 'line',
+                             stacked: false
                          },
-                     },
-                     dataLabels: {
-                         enabled: true,
-                         style: {
-                             colors: ['#333']
+                         plotOptions: {
+                             bar: {
+                                 horizontal: false,
+                                 columnWidth: '55%',
+                                 endingShape: 'rounded',
+                                 dataLabels: {
+                                     position: 'top'
+                                 }
+                             },
                          },
-                         offsetY: -15
-                     },
-                     markers: {
-                         size: 4,
-                         colors: '#kkk',
-                         fillOpacity: 0.9,
-                         shape: "circle",
-                         radius: 2,
-                     },
-                     xaxis: {
-                         categories: results.data.polda_name,
-                         labels: {
-                             show: true,
+                         dataLabels: {
+                             enabled: true,
                              style: {
-                                 colors: 'red',
-                                 fontSize: '18px',
-                                 fontWeight: 400,
-
-                             }
+                                 colors: ['#333']
+                             },
+                             offsetY: -15
                          },
-                         tickPlacement: 'between'
-                     }
+                         markers: {
+                             size: 4,
+                             colors: '#kkk',
+                             fillOpacity: 0.9,
+                             shape: "circle",
+                             radius: 2,
+                         },
+                         xaxis: {
+                             categories: results.data.polda_name,
+                             labels: {
+                                 show: true,
+                                 style: {
+                                     colors: 'red',
+                                     fontSize: '18px',
+                                     fontWeight: 400,
 
-                 };
+                                 }
+                             },
+                             tickPlacement: 'between'
+                         }
+
+                     };
+                 } else {
+                     var chart2 = {
+                         series: [{
+                             name: 'Pelanggaran Berat',
+                             type: 'line',
+                             data: results.data.polda_pelanggaran_berat,
+                             color: "#CB2D3E"
+                         }, {
+                             name: 'Pelanggaran Sedang',
+                             type: 'line',
+                             data: results.data.polda_pelanggaran_sedang,
+                             color: "#E8D42F"
+                         }, {
+                             name: 'Luka Ringan',
+                             type: 'line',
+                             data: results.data.polda_pelanggaran_ringan,
+                             color: "#3CA55C"
+                         }],
+                         chart: {
+                             height: 400,
+                             type: 'line',
+                             stacked: false
+                         },
+                         plotOptions: {
+                             bar: {
+                                 horizontal: false,
+                                 columnWidth: '55%',
+                                 endingShape: 'rounded',
+                                 dataLabels: {
+                                     position: 'top'
+                                 }
+                             },
+                         },
+                         dataLabels: {
+                             enabled: true,
+                             style: {
+                                 colors: ['#333']
+                             },
+                             offsetY: -15
+                         },
+                         markers: {
+                             size: 4,
+                             colors: '#kkk',
+                             fillOpacity: 0.9,
+                             shape: "circle",
+                             radius: 2,
+                         },
+                         xaxis: {
+                             categories: results.data.polda_name,
+                             labels: {
+                                 show: true,
+                                 style: {
+                                     colors: 'red',
+                                     fontSize: '18px',
+                                     fontWeight: 400,
+
+                                 }
+                             },
+                             tickPlacement: 'between'
+                         }
+
+                     };
+                 }
+
+
 
                  var ditgakkum = new ApexCharts(document.querySelector("#chart2"), chart2);
                  ditgakkum.render();

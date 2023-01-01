@@ -135,7 +135,11 @@ class Statistik_polda_executive extends MY_Controller
     // }
     public function getLineLaka($id)
     {
-        $title = 'DATA KECELAKAAN LALU LINTAS';
+        $start = $this->input->post('start_date');
+        $asd = explode('-', $start);
+        $end = $this->input->post('end_date');
+        $zxc = explode('-', $end);
+        $title = 'DATA KECELAKAAN LALU LINTAS TANGGAL <span class="text-danger">' . $asd[2] . '/' . $asd[1] . '/' . $asd[0] . ' - ' . $zxc[2] . '/' . $zxc[1] . '/' . $zxc[0] . "</span>";
         $filter = $this->input->post('filter');
         $limit = $this->input->post('limit');
         $yesterday = $this->input->post('yesterday');
@@ -143,16 +147,16 @@ class Statistik_polda_executive extends MY_Controller
             $filterbaru = [
                 'id' => $id,
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik_polda->getKecelakaanPoldaDate($filterbaru);
         } elseif ($filter != 0) {
             $filterbaru = [
                 'id' => $id,
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik_polda->getKecelakaanPoldaDate($filterbaru);
         }
@@ -1216,6 +1220,185 @@ class Statistik_polda_executive extends MY_Controller
         ];
 
         echo json_encode($data['simDate']);
+    }
+    public function getLakaDate($id)
+    {
+        $yesterday = $this->input->post('yesterday');
+        $firstDayMonth = $this->input->post('firstDayMonth');
+        $lastDayMonth = $this->input->post('lastDayMonth');
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url_thisDay = 'laka_lantas/date?type=day&polda_id=' . $id . '&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'laka_lantas/date?type=month&polda_id=' . $id . '&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'laka_lantas/date?type=month&polda_id=' . $id . '&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        $thisDay = guzzle_request('GET', $url_thisDay, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisMonth = guzzle_request('GET', $url_thisMonth, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisYear = guzzle_request('GET', $url_thisYear, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+        $insiden_kecelakaan = 0;
+        $luka_ringan = 0;
+        $luka_berat = 0;
+        $meninggal_dunia = 0;
+        foreach ($thisYear['data'] as $key) {
+            $insiden_kecelakaan += $key['insiden_kecelakaan'];
+            $luka_ringan += $key['luka_ringan'];
+            $luka_berat += $key['luka_berat'];
+            $meninggal_dunia  += $key['meninggal_dunia'];
+        }
+
+        $data['thisYear'] = [
+            'insiden_kecelakaan' => $insiden_kecelakaan,
+            'luka_ringan' => $luka_ringan,
+            'luka_berat' => $luka_berat,
+            'meninggal_dunia' => $meninggal_dunia
+        ];
+
+        $data['lakaDate'] = [
+            'thisDay' => number_format($thisDay['data'][0]['insiden_kecelakaan']),
+            'thisDayLR' => number_format($thisDay['data'][0]['luka_ringan']),
+            'thisDayLB' => number_format($thisDay['data'][0]['luka_berat']),
+            'thisDayMD' => number_format($thisDay['data'][0]['meninggal_dunia']),
+            'thisMonth' => number_format($thisMonth['data'][0]['insiden_kecelakaan']),
+            'thisMonthLR' => number_format($thisMonth['data'][0]['luka_ringan']),
+            'thisMonthLB' => number_format($thisMonth['data'][0]['luka_berat']),
+            'thisMonthMD' => number_format($thisMonth['data'][0]['meninggal_dunia']),
+            'thisYear' => number_format($insiden_kecelakaan),
+            'thisYearLR' => number_format($luka_ringan),
+            'thisYearLB' => number_format($luka_berat),
+            'thisYearMD' => number_format($meninggal_dunia)
+
+        ];
+
+        echo json_encode($data['lakaDate']);
+    }
+
+    public function getGarlantasDate($id)
+    {
+        $yesterday = $this->input->post('yesterday');
+        $firstDayMonth = $this->input->post('firstDayMonth');
+        $lastDayMonth = $this->input->post('lastDayMonth');
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url_thisDay = 'garlantas/daily?type=day&polda_id=' . $id . '&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'garlantas/daily?type=month&polda_id=' . $id . '&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'garlantas/daily?type=month&polda_id=' . $id . '&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        $thisDay = guzzle_request('GET', $url_thisDay, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisMonth = guzzle_request('GET', $url_thisMonth, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisYear = guzzle_request('GET', $url_thisYear, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisDayPB = 0;
+        $thisDayPS = 0;
+        $thisDayPR = 0;
+        $thisDayT = 0;
+        $thisDayTL = 0;
+        foreach ($thisDay['data']['rows'] as $key) {
+            $thisDayPB += $key['pelanggaran_berat'];
+            $thisDayPS += $key['pelanggaran_sedang'];
+            $thisDayPR += $key['pelanggaran_ringan'];
+            $thisDayT  += $key['teguran'];
+            $thisDayTL  += $key['total'];
+        }
+
+        $data['thisDay'] = [
+            'pelanggaran_berat' => $thisDayPB,
+            'pelanggaran_sedang' => $thisDayPS,
+            'pelanggaran_ringan' => $thisDayPR,
+            'teguran' => $thisDayT,
+            'total' => $thisDayTL,
+        ];
+        $thisMonthPB = 0;
+        $thisMonthPS = 0;
+        $thisMonthPR = 0;
+        $thisMonthT = 0;
+        $thisMonthTL = 0;
+        foreach ($thisMonth['data']['rows'] as $key) {
+            $thisMonthPB += $key['pelanggaran_berat'];
+            $thisMonthPS += $key['pelanggaran_sedang'];
+            $thisMonthPR += $key['pelanggaran_ringan'];
+            $thisMonthT  += $key['teguran'];
+            $thisMonthTL  += $key['total'];
+        }
+
+        $data['thisMonth'] = [
+            'pelanggaran_berat' => $thisMonthPB,
+            'pelanggaran_sedang' => $thisMonthPS,
+            'pelanggaran_ringan' => $thisMonthPR,
+            'teguran' => $thisMonthT,
+            'total' => $thisMonthTL,
+        ];
+        $thisYearPB = 0;
+        $thisYearPS = 0;
+        $thisYearPR = 0;
+        $thisYearT = 0;
+        $thisYearTL = 0;
+        foreach ($thisYear['data']['rows'] as $key) {
+            $thisYearPB += $key['pelanggaran_berat'];
+            $thisYearPS += $key['pelanggaran_sedang'];
+            $thisYearPR += $key['pelanggaran_ringan'];
+            $thisYearT  += $key['teguran'];
+            $thisYearTL  += $key['total'];
+        }
+
+        $data['thisYear'] = [
+            'pelanggaran_berat' => $thisYearPB,
+            'pelanggaran_sedang' => $thisYearPS,
+            'pelanggaran_ringan' => $thisYearPR,
+            'teguran' => $thisYearT,
+            'total' => $thisYearTL,
+        ];
+
+        $data['garlantasDate'] = [
+            'thisDayTotal' => number_format($data['thisDay']['total']),
+            'thisDayPB' => number_format($data['thisDay']['pelanggaran_berat']),
+            'thisDayPS' => number_format($data['thisDay']['pelanggaran_sedang']),
+            'thisDayPR' => number_format($data['thisDay']['pelanggaran_ringan']),
+            'thisDayT' => number_format($data['thisDay']['total']),
+            'thisMonthTotal' => number_format($data['thisMonth']['total']),
+            'thisMonthPB' => number_format($data['thisMonth']['pelanggaran_berat']),
+            'thisMonthPS' => number_format($data['thisMonth']['pelanggaran_sedang']),
+            'thisMonthPR' => number_format($data['thisMonth']['pelanggaran_ringan']),
+            'thisMonthT' => number_format($data['thisMonth']['total']),
+            'thisYearTotal' => number_format($data['thisYear']['total']),
+            'thisYearPB' => number_format($data['thisYear']['pelanggaran_berat']),
+            'thisYearPS' => number_format($data['thisYear']['pelanggaran_sedang']),
+            'thisYearPR' => number_format($data['thisYear']['pelanggaran_ringan']),
+            'thisYearT' => number_format($data['thisYear']['total']),
+        ];
+
+        echo json_encode($data['garlantasDate']);
     }
     public function getDitgakkumDate($id)
     {

@@ -166,9 +166,7 @@
                      <div class="col-md-1">
                          <span style="margin-left:-90px">Teguran</span>
                      </div>
-
                  </div>
-
              </div>
          </div>
      </div>

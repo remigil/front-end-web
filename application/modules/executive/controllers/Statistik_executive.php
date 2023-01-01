@@ -1965,22 +1965,26 @@ class Statistik_executive extends MY_Controller
 
     public function getLineDikmas()
     {
-        $title = 'DATA DIKMASLANTAS';
+        $start = $this->input->post('start_date');
+        $asd = explode('-', $start);
+        $end = $this->input->post('end_date');
+        $zxc = explode('-', $end);
+        $title = 'DATA DIKMASLANTAS TANGGAL <span class="text-danger">' . $asd[2] . '/' . $asd[1] . '/' . $asd[0] . ' - ' . $zxc[2] . '/' . $zxc[1] . '/' . $zxc[0] . "</span>";
         $filter = $this->input->post('filter');
         $limit = $this->input->post('limit');
         $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getDikmasNasionalDate($filterbaru);
         } elseif ($filter != 0) {
             $filterbaru = [
                 'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
+                'start_date' => $start,
+                'end_date' => $end,
             ];
             $getdata = $this->M_detail_statistik->getDikmasNasionalDate($filterbaru);
         }

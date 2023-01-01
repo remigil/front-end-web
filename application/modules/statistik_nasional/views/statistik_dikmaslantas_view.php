@@ -4,59 +4,125 @@
              <a href="<?= base_url('statistik_nasional') ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
          </div>
          <div class="col-md-6 text-end align-self-center">
-             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
-             <!-- <button type="button" class="btn btn-outline-info float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
-             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+             <a href="<?= ENV_API_BASE_URL ?>v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary btn-lg" style="width: 200px; border-color:#0007D8;">Export Laporan</a>
          </div>
      </div>
-     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
+     <div class="card mt-5 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
-             <div class="col-sm-4 col-md-5 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">Dikmaslantas <span style="color:#000;">Nasional</span></span> </h2>
+             <div class="col-sm-2 col-md-2 align-self-center">
+                 <h4>STATISTIK DATA</h4>
+                 <h4> <span style="text-transform:uppercase ; color:#0007D8">Dikmaslantas</span> </h4>
+                 <h4>SELURUH INDONESIA </h4>
              </div>
-             <div class="col-sm-8 col-md-7">
+             <div class="col-sm-10 col-md-10">
                  <div class="row m-2">
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
-                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
+                                 <div class="row justify-content-between align-items-center" style="height: 120px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Harian</h4>
+                                         <h5 class="mb-0 ms-3">Hari Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="dikmasThisDay"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#2e93e6;" id="dikmasThisDay"></h1>
                                          <p class="text-center mb-0">Dikmaslantas</p>
+                                     </div>
+                                     <div class="col-md-12 ">
+                                         <div class="row">
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold" style="font-size:12px">MC : <span class="text-danger" style=" padding:5px" id="dikmasThisDayMC"></span></span>
+                                             </div>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold" style="font-size:12px">ME : <span class="text-warning" style=" padding:5px" id="dikmasThisDayME"></span></span>
+                                             </div>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold" style="font-size:12px">MS : <span class="text-success" style=" padding:5px" id="dikmasThisDayMS"></span></span>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-12 ms-3">
+                                         <div class="row">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                 <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalDay">
+                                                     Detail
+                                                 </button>
+                                             </div>
+                                         </div>
                                      </div>
                                  </div>
                              </div>
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
-                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
+                                 <div class="row justify-content-between align-items-center" style="height: 120px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Bulanan</h4>
+                                         <h5 class="mb-0 ms-3">Bulan Ini <span class="text-danger">(<?= date('M'); ?>)</span></h5>
+
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="dikmasThisMonth"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#2e93e6;" id="dikmasThisMonth"></h1>
                                          <p class="text-center mb-0">Dikmaslantas</p>
+                                     </div>
+                                     <div class="col-md-12">
+                                         <div class="row">
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold" style="font-size:12px">MC : <span class="text-danger" style=" padding:5px" id="dikmasThisMonthMC"></span></span>
+                                             </div>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold" style="font-size:12px">ME : <span class="text-warning" style=" padding:5px" id="dikmasThisMonthME"></span></span>
+                                             </div>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold" style="font-size:12px">MS : <span class="text-success" style=" padding:5px" id="dikmasThisMonthMS"></span></span>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-12 ms-3">
+                                         <div class="row">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                 <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalMonth">
+                                                     Detail
+                                                 </button>
+                                             </div>
+                                         </div>
                                      </div>
                                  </div>
                              </div>
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
-                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
+                                 <div class="row justify-content-between align-items-center" style="height: 120px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Tahunan</h4>
+                                         <h5 class="mb-0 ms-3">Tahun Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="dikmasThisYear"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#2e93e6;" id="dikmasThisYear"></h1>
                                          <p class="text-center mb-0">Dikmaslantas</p>
+                                     </div>
+                                     <div class="col-md-12 ">
+                                         <div class="row">
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold" style="font-size:12px">MC : <span class="text-danger" style=" padding:5px" id="dikmasThisYearMC"></span></span>
+                                             </div>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold" style="font-size:12px">ME : <span class="text-warning" style=" padding:5px" id="dikmasThisYearME"></span></span>
+                                             </div>
+                                             <div class="col-md-4">
+                                                 <span class="fw-bold" style="font-size:12px">MS : <span class="text-success" style=" padding:5px" id="dikmasThisYearMS"></span></span>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-12 ms-3">
+                                         <div class="row">
+                                             <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                 <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalYear">
+                                                     Detail
+                                                 </button>
+                                             </div>
+                                         </div>
                                      </div>
                                  </div>
                              </div>
@@ -64,6 +130,204 @@
                      </div>
                  </div>
              </div>
+             <div class="col-md-12">
+                 <div class="d-flex justify-content-center">
+                     <div class="col-md-1">
+                         <div class="fw-bold" style="height:25px; width:25px; line-height:25px; background-color:#ff0000; border-radius:50%; text-align:center; font-size:12px; color:white;">MC</div>
+                     </div>
+                     <div class="col-md-1 me-n5">
+                         <span style="margin-left:-90px">Media Cetak</span>
+                     </div>
+                     <div class="col-md-1">
+                         <div class="fw-bold" style="height:25px; width:25px; line-height:25px; background-color:#FFFF00; border-radius:50%; text-align:center; font-size:12px; color:black;">ME</div>
+                     </div>
+                     <div class="col-md-1 me-n5">
+                         <span style="margin-left:-90px">Media Elektronik</span>
+                     </div>
+                     <div class="col-md-1">
+                         <div class="fw-bold" style="height:25px; width:25px; line-height:25px; background-color:#00FF00; border-radius:50%; text-align:center; font-size:12px; color:black;">MS</div>
+                     </div>
+                     <div class="col-md-1 me-n5">
+                         <span style="margin-left:-90px">Media Sosial</span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+
+ <div class="modal fade " id="ModalDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+     <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
+         <div class="modal-content">
+             <div class=" modal-header">
+                 <h5 class="modal-title" id="modalLabelDay">Detail Dikmaslantas tanggal <?= format_indo(date('Y-m-d'))  ?> Seluruh Polda </h5>
+                 <!-- <h5 class="modal-title" id="modalLabelDay">Detail Kecelakaan tanggal <?= format_indo(date('Y-m-d'))  ?> Seluruh Polda <span class="fs-5">sasdasdasd</span></h5> -->
+
+                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+             </div>
+             <div class="modal-body">
+                 <div style="line-height: 0.8;">
+                     <div class="row mb-3">
+                         <div class="col-md-9" style="display: none;">
+                             <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="start_date_table" id="start_date_table" value="<?= date('Y-m-d'); ?>">
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="end_date_table" id="end_date_table" value="<?= date('Y-m-d'); ?>">
+                                 </div>
+                                 <div class="col-md-2">
+                                     <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('day')">Tampilkan</button>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <table class="table table-bordered table-hover" id="tableDikmasDay">
+                         <thead style="background-color:#007DD8; color:#fff;">
+                             <tr class="text-center">
+                                 <th scope="col">No</th>
+                                 <th scope="col">Polda</th>
+                                 <th scope="col">Media Cetak</th>
+                                 <th scope="col">Media Elektronik</th>
+                                 <th scope="col">Media Sosial</th>
+                             </tr>
+                         </thead>
+                         <tbody id="tbody-dikmasDay">
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+             <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+         </div>
+     </div>
+ </div>
+ <div class="modal fade " id="ModalMonth" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+     <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
+         <div class="modal-content">
+             <div class=" modal-header">
+                 <h5 class="modal-title" id="modalLabelMonth">Detail Kecelakaan Bulan <?= format_indo(date('Y-m'))  ?> Seluruh Polda</h5>
+                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+             </div>
+             <div class="modal-body">
+                 <div style="line-height: 0.8;">
+                     <div class="row mb-3">
+                         <div class="col-md-9" style="display: none;">
+                             <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="month" name="start_date_table" id="start_date_table_m" value="<?= date('Y-m'); ?>">
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="month" name="end_date_table" id="end_date_table_m" value="<?= date('Y-m'); ?>">
+                                 </div>
+                                 <div class="col-md-2">
+                                     <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('month')">Tampilkan</button>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <table class="table table-bordered table-hover" id="tableDikmasDay">
+                         <thead style="background-color:#007DD8; color:#fff;">
+                             <tr class="text-center">
+                                 <th scope="col">No</th>
+                                 <th scope="col">Polda</th>
+                                 <th scope="col">Media Cetak</th>
+                                 <th scope="col">Media Elektronik</th>
+                                 <th scope="col">Media Sosial</th>
+                             </tr>
+                         </thead>
+                         <tbody id="tbody-dikmasMonth">
+                         </tbody>
+                     </table>
+
+
+                 </div>
+
+             </div>
+             <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+         </div>
+     </div>
+ </div>
+ <div class="modal fade " id="ModalYear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+     <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
+         <div class="modal-content">
+             <div class=" modal-header">
+                 <h5 class="modal-title" id="modalLabelYear">Detail Kecelakaan Tahun <?= format_indo(date('Y')) ?> Seluruh Polda</h5>
+                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+             </div>
+             <div class="modal-body">
+                 <div style="line-height: 0.8;">
+                     <div class="row mb-3">
+                         <div class="col-md-9" style="display: none;">
+                             <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="number" name="start_date_table" id="start_date_table_y" value="<?= date('Y'); ?>">
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="number" name="end_date_table" id="end_date_table_y" value="<?= date('Y'); ?>">
+                                 </div>
+                                 <div class="col-md-2">
+                                     <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('year')">Tampilkan</button>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <table class="table table-bordered table-hover" id="tableDikmasDay">
+                         <thead style="background-color:#007DD8; color:#fff;">
+                             <tr class="text-center">
+                                 <th scope="col">No</th>
+                                 <th scope="col">Polda</th>
+                                 <th scope="col">Media Cetak</th>
+                                 <th scope="col">Media Elektronik</th>
+                                 <th scope="col">Media Sosial</th>
+                             </tr>
+                         </thead>
+                         <tbody id="tbody-dikmasYear">
+                         </tbody>
+                     </table>
+
+                 </div>
+
+             </div>
+             <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
          </div>
      </div>
  </div>
@@ -102,157 +366,80 @@
  <div class="container-fluid">
 
      <div class="card">
-         <div class="row m-3" style="font-size: 16px;">
-             <div class="col-xl-12">
-                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
-                     </li>
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
-                     </li>
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
-                     </li>
-                 </ul>
-
-
-                 <div class="tab-content" id="pills-tabContent">
-                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data Dikmaslantas Tertinggi <?= date('d M Y'); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableDikmasDay">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Media Cetak</th>
-                                                 <th scope="col">Media Elektronik</th>
-                                                 <th scope="col">Media Sosial</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-dikmasDay">
-                                         </tbody>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data Dikmaslantas Tertinggi <?= date('M Y'); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableDikmasMonth">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Media Cetak</th>
-                                                 <th scope="col">Media Elektronik</th>
-                                                 <th scope="col">Media Sosial</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-dikmasMonth">
-                                         </tbody>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data Dikmaslantas Tertinggi <?= date('Y'); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableDikmasYear">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Media Cetak</th>
-                                                 <th scope="col">Media Elektronik</th>
-                                                 <th scope="col">Media Sosial</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-dikmasYear">
-                                         </tbody>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
          <div class="row">
-             <hr style="width:97%; margin: auto">
              <div class="filter mt-4" style=" height:125px;">
                  <div class="container-fluid">
                      <div class="row">
                          <div class="col-md-9">
-                             <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                             <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
                              <div class="row">
                                  <div class="col-md-4">
-                                     <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                                     <label for="waktu" class="form-label text-uppercase">Awal</label>
                                  </div>
                                  <div class="col-md-4">
-                                     <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                                     <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="start_date" id="start_date" value="<?= date('Y-m-d', strtotime("-6 days")); ?>">
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="end_date" id="end_date" value="<?= date('Y-m-d'); ?>">
                                  </div>
                                  <div class="col-md-2">
-                                     <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                     <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                                  </div>
-
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <div class="col-xl-12">
-                 <div class="card">
-                     <div class="card-header">
-                         <div id="titleline"></div>
-                     </div>
-                     <div class="card-body">
-                         <div class="main-chart">
-                             <div id="chartdate">
                              </div>
                          </div>
                      </div>
                  </div>
              </div>
          </div>
-         <div class="row">
-             <div class="col-xl-12">
-                 <div class="card">
-                     <div class="card-header">
-                         <div id="title"></div>
-                         <div class="row">
-                             <div class="col-md-2">
-                                 <div class="form-group">
-                                     <label for="exampleFormControlSelect1">Show data</label>
-                                     <select class="form-control" id="limit_showData">
-                                         <option value="3">3</option>
-                                         <option value="5" selected>5</option>
-                                         <option value="7">7</option>
-                                         <option value="10">10</option>
-                                     </select>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="card-body">
-                         <div class="main-chart">
-                             <div id="charta">
-                             </div>
+         <div class="col-xl-12">
+             <div class="card">
+                 <div class="card-header">
+                     <div id="titleline"></div>
+                 </div>
+                 <div class="card-body">
+                     <div class="main-chart">
+                         <div id="chartdate">
                          </div>
                      </div>
                  </div>
              </div>
          </div>
      </div>
+     <div class="row">
+         <div class="col-xl-12">
+             <div class="card">
+                 <div class="card-header">
+                     <div id="title"></div>
+                     <div class="row">
+                         <div class="col-md-2">
+                             <div class="form-group">
+                                 <label for="exampleFormControlSelect1">Pilih Jumlah Polda</label>
+                                 <select class="form-control" id="limit_showData">
+                                     <option value="3">3 Polda</option>
+                                     <option value="5" selected>5 Polda</option>
+                                     <option value="7">7 Polda</option>
+                                     <option value="10">10 Polda</option>
+                                     <option value="34">Seluruh Polda</option>
+                                 </select>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="card-body">
+                     <div class="main-chart">
+                         <div id="charta">
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
 
  </div>
  <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
@@ -702,7 +889,7 @@
 
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineLaka",
+             url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineDikmas",
              data: {
                  start_date: seven_daysAgo,
                  end_date: yesterday
@@ -711,68 +898,131 @@
              success: function(results) {
                  $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${results.title}</h1>`);
                  $("#chartdate").html(`<div id="chart2"></div>`);
-                 console.log(results)
-
-                 var chart2 = {
-                     series: [{
-                         name: '<h6>Media Cetak</h6>',
-                         type: 'line',
-                         data: results.data.polda_media_cetak,
-                         color: "#CB2D3E"
-                     }, {
-                         name: '<h6>Media Elektronik</h6>',
-                         type: 'line',
-                         data: results.data.polda_media_elektronik,
-                         color: "#E8D42F"
-                     }, {
-                         name: '<h6>Media Sosial</h6>',
-                         type: 'line',
-                         data: results.data.polda_media_sosial,
-                         color: "#3CA55C"
-                     }],
-                     chart: {
-                         height: 400,
-                         type: 'line',
-                         stacked: false
-                     },
-                     plotOptions: {
-                         bar: {
-                             horizontal: false,
-                             columnWidth: '55%',
-                             endingShape: 'rounded',
-                             dataLabels: {
-                                 position: 'top'
-                             }
+                 if (seven_daysAgo == yesterday) {
+                     var chart2 = {
+                         series: [{
+                             name: '<h6>Media Cetak</h6>',
+                             type: 'column',
+                             data: results.data.polda_media_cetak,
+                             color: "#CB2D3E"
+                         }, {
+                             name: '<h6>Media Elektronik</h6>',
+                             type: 'column',
+                             data: results.data.polda_media_elektronik,
+                             color: "#E8D42F"
+                         }, {
+                             name: '<h6>Media Sosial</h6>',
+                             type: 'column',
+                             data: results.data.polda_media_sosial,
+                             color: "#3CA55C"
+                         }],
+                         chart: {
+                             height: 400,
+                             type: 'line',
+                             stacked: false
                          },
-                     },
-                     dataLabels: {
-                         enabled: true,
-                         style: {
-                             colors: ['#333']
+                         plotOptions: {
+                             bar: {
+                                 horizontal: false,
+                                 columnWidth: '55%',
+                                 endingShape: 'rounded',
+                                 dataLabels: {
+                                     position: 'top'
+                                 }
+                             },
                          },
-                         offsetY: -15
-                     },
-                     markers: {
-                         size: 4,
-                         colors: '#kkk',
-                         fillOpacity: 0.9,
-                         shape: "circle",
-                         radius: 2,
-                     },
-                     xaxis: {
-                         categories: results.data.polda_name,
-                         labels: {
-                             show: true,
+                         dataLabels: {
+                             enabled: true,
                              style: {
-                                 colors: ['#f70505'],
-                                 fontSize: '18px',
-                                 fontWeight: 400,
-                             }
+                                 colors: ['#333']
+                             },
+                             offsetY: -15
                          },
-                         tickPlacement: 'between'
-                     }
+                         markers: {
+                             size: 4,
+                             colors: '#kkk',
+                             fillOpacity: 0.9,
+                             shape: "circle",
+                             radius: 2,
+                         },
+                         xaxis: {
+                             categories: results.data.polda_name,
+                             labels: {
+                                 show: true,
+                                 style: {
+                                     colors: ['#f70505'],
+                                     fontSize: '18px',
+                                     fontWeight: 400,
+                                 }
+                             },
+                             tickPlacement: 'between'
+                         }
 
-                 };
+                     };
+                 } else {
+                     var chart2 = {
+                         series: [{
+                             name: '<h6>Media Cetak</h6>',
+                             type: 'line',
+                             data: results.data.polda_media_cetak,
+                             color: "#CB2D3E"
+                         }, {
+                             name: '<h6>Media Elektronik</h6>',
+                             type: 'line',
+                             data: results.data.polda_media_elektronik,
+                             color: "#E8D42F"
+                         }, {
+                             name: '<h6>Media Sosial</h6>',
+                             type: 'line',
+                             data: results.data.polda_media_sosial,
+                             color: "#3CA55C"
+                         }],
+                         chart: {
+                             height: 400,
+                             type: 'line',
+                             stacked: false
+                         },
+                         plotOptions: {
+                             bar: {
+                                 horizontal: false,
+                                 columnWidth: '55%',
+                                 endingShape: 'rounded',
+                                 dataLabels: {
+                                     position: 'top'
+                                 }
+                             },
+                         },
+                         dataLabels: {
+                             enabled: true,
+                             style: {
+                                 colors: ['#333']
+                             },
+                             offsetY: -15
+                         },
+                         markers: {
+                             size: 4,
+                             colors: '#kkk',
+                             fillOpacity: 0.9,
+                             shape: "circle",
+                             radius: 2,
+                         },
+                         xaxis: {
+                             categories: results.data.polda_name,
+                             labels: {
+                                 show: true,
+                                 style: {
+                                     colors: ['#f70505'],
+                                     fontSize: '18px',
+                                     fontWeight: 400,
+                                 }
+                             },
+                             tickPlacement: 'between'
+                         }
+
+                     };
+                 }
+
+
 
                  var ditkamsel = new ApexCharts(document.querySelector("#chart2"), chart2);
                  ditkamsel.render();

@@ -23,14 +23,32 @@
                 <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
             </div>
         <?php } else { ?>
-            <div class="col-md-1 text-end align-self-center">
-                <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
+            <div class="col-md-2 text-end align-self-center"></div>
+            <div class="col-md-2 text-end align-self-center">
+                <button type="button" class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <!-- <iconify-icon icon="mdi:file-document-multiple"></iconify-icon> -->
+                    Struktur Organisasi
                 </button>
             </div>
-            <div class="col-md-3 text-end align-self-center">
-                <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
-            </div>
+            <!-- <div class="col-md-2 text-end align-self-center" style="margin-left: -4%;">
+
+                <div class="btn-group">
+                    <button type="button" class="btn dropdown-toggle btn-outline-primary" data-bs-toggle="dropdown" aria-expanded="false" style="width: 200px; border-color:#007DD8;">
+                        Pilih Laporan <i class="fas fa-caret-down"></i>
+                    </button>
+
+                    <div class="dropdown-menu" style="width: 200px; background-color:#D9D9D9">
+                        <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/export_laphar'); ?>">Harian</a>
+                        <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/export_laphar'); ?>">Mingguan</a>
+                        <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/export_laphar');?>">Bulanan</a>
+                        <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/export_laphar');?>">Triwulan</a>
+                        <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/export_laphar');?>">Tahunan</a>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="col-md-3 text-end align-self-center">
+                <a href="http://34.143.227.90:3001/v1/" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
+            </div> -->
         <?php } ?>
 
     </div>

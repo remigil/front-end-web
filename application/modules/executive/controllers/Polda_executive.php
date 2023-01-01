@@ -319,11 +319,13 @@ class Polda_executive extends MY_Controller
         $totalstnk = 0;
         $totalsim = 0;
         $totalsbst = 0;
+        $totalranmor = 0;
         for ($i = 0; $i < count($getRegident); $i++) {
             $totalbpkb += $getRegident[$i]['bpkb'];
             $totalstnk += $getRegident[$i]['stnk'];
             $totalsim += $getRegident[$i]['sim'];
-            // $totalsbst += $getRegident[$i]['sbst'];
+            $totalsbst += $getRegident[$i]['sbst'];
+            $totalranmor += $getRegident[$i]['ranmor'];
         }
 
         // $getOps = guzzle_request('GET', 'bagops/daily', [
@@ -472,7 +474,7 @@ class Polda_executive extends MY_Controller
                 'bpkb' => $findComparebpkb,
                 'stnk' => $findComparestnk,
                 'sim' => $findComparesim,
-                'sbst' => '',
+                'ranmor' => $findCompareranmor,
 
                 'dikmas' => $findComparedikmas,
                 'jemenopsrek' => '',
@@ -494,6 +496,7 @@ class Polda_executive extends MY_Controller
             'stnk' =>  number_format($totalstnk, 0, '', '.'),
             'sim' =>  number_format($totalsim, 0, '', '.'),
             'sbst' => number_format($totalsbst, 0, '', '.'),
+            'ranmor' => number_format($totalranmor, 0, '', '.'),
 
             'dikmas' => number_format($totaldikmas, 0, '', '.'),
             'jemenopsrek' =>  number_format($totaljemenopsrek, 0, '', '.'),

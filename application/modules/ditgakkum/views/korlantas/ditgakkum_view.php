@@ -40,15 +40,10 @@
                             </button>
                         </div>
                         <div class="col-md-2 text-end align-self-center" style="margin-left: -4%;">
-
                             <div class="btn-group">
                                 <button type="button" class="btn dropdown-toggle btn-outline-primary" data-bs-toggle="dropdown" aria-expanded="false" style="width: 200px; border-color:#007DD8;">
                                     Pilih Laporan <i class="fas fa-caret-down"></i>
                                 </button>
-
-                                <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"  aria-expanded="false">
-                                    Dropdown button
-                                </button> -->
                                 <div class="dropdown-menu" style="width: 200px; background-color:#D9D9D9">
                                     <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_gakkum?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
                                     <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_gakkum?type=weeks&date=<?= date('Y-m-d'); ?>">Mingguan</a>

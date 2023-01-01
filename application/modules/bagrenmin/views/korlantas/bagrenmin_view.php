@@ -13,24 +13,27 @@
             </div>
             <p>Today is <?= date('l, j F Y') ?></p>
         </div>
-        <!-- <?php $mobile = detect_mobile();
-                if ($mobile === true) { ?>
-            <div class="col-md-12" style="margin-left: -15px;">
+        <?php $mobile = detect_mobile();
+        if ($mobile === true) { ?>
+            <!-- <div class="col-md-12" style="margin-left: -15px;">
                 <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
                 </button>
                 <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
-            </div>
+            </div> -->
         <?php } else { ?>
-            <div class="col-md-1 text-end align-self-center">
-                <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
+            <div class="col-md-2 text-end align-self-center"></div>
+            <div class="col-md-2 text-end align-self-center">
+                <button type="button" class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <!-- <iconify-icon icon="mdi:file-document-multiple"></iconify-icon> -->
+                    Struktur Organisasi
                 </button>
             </div>
-            <div class="col-md-3 text-end align-self-center">
+
+            <!-- <div class="col-md-3 text-end align-self-center">
                 <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
-            </div>
-        <?php } ?> -->
+            </div> -->
+        <?php } ?>
     </div>
 
     <div class="row">

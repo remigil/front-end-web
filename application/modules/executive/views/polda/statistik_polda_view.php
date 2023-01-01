@@ -42,9 +42,9 @@
                     <a href="<?= base_url('executive/Polda_executive/Lakalantas/' . $data['id']); ?>">
                         <div class="card" style="border-color: #10627a;  border-radius: 20px !important; background-color:#10627a">
                             <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
 
-                                    <div class="col-md-10 float-start">
+                                    <div class=" col-md-10 float-start">
                                         <span class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold "> LAKA </span>
                                             </br>
@@ -53,13 +53,13 @@
                                         </span>
                                     </div>
                                     <div class="col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/LAKA.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <img src="<?= base_url('assets/icon/dashboard/LAKA.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
                                         <!-- <i class='bx bxs-car-crash ms-n2' style="font-size: 40px; color: #ffffff;"></i> -->
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                Card footer
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
@@ -68,22 +68,23 @@
                     <a href="<?= base_url('executive/Polda_executive/Garlantas/' . $data['id']); ?>">
                         <div class="card" style="border-color: #cb2e3f;  border-radius: 20px !important; background-color:#cb2e3f">
                             <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="height: 80px;">
-
-                                    <div class="col-md-10 float-start">
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
+                                    <div class=" col-md-10 float-start">
                                         <span class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> GARLANTAS </span>
                                             </br>
                                             <span class="fs-5 fw-bold float-start" style="color:#ffffff;" id="garlantas"></span>
                                             <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailgarlantas"></p>
                                         </span>
-
                                     </div>
                                     <div class="col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/GARLANTAS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <img src="<?= base_url('assets/icon/dashboard/GARLANTAS.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
                                         <!-- <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 30px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #cb2e3f;  border-radius: 0 0 20px 20px  !important; background-color:#167794;">
+                                <span class="text-white fw-bold fs-5"> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
@@ -92,21 +93,22 @@
                     <a href="<?= base_url('executive/Polda_executive/Turjagwali/' . $data['id']); ?>">
                         <div class="card" style="border-color: #ca3fd8;  border-radius: 20px !important; background-color:#ca3fd8">
                             <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="height: 80px;">
-
-                                    <div class="col-md-10 float-start">
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
+                                    <div class=" col-md-10 float-start">
                                         <span class="fs-5 float-start" style="color:#ffffff;">
-                                            <span class="fw-bold"> Turjagwali</span>
+                                            <span class="fw-bold"> TURJAGWALI</span>
                                             </br>
                                             <span class="fs-5 fw-bold float-start" style="color:#ffffff;" id="turjagwali"></span>
                                             <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailturjagwali"></p>
                                         </span>
                                     </div>
                                     <div class="col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/TURJAGWALI.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                        <img src="<?= base_url('assets/icon/dashboard/TURJAGWALI.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
@@ -115,9 +117,8 @@
                     <a href="<?= base_url('executive/Polda_executive/Walpjr/' . $data['id']); ?>">
                         <div class="card" style="border-color: #babf01;  border-radius: 20px !important; background-color:#babf01">
                             <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="height: 80px;">
-
-                                    <div class="col-md-10 float-start">
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
+                                    <div class=" col-md-10 float-start">
                                         <span class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> WAL & PJR</span>
                                             </br>
@@ -126,10 +127,13 @@
                                         </span>
                                     </div>
                                     <div class="col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/WAL_PJR.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <img src="<?= base_url('assets/icon/dashboard/WAL_PJR.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
                                         <!-- <i class='bx bxs-car-crash ms-n2' style="font-size: 40px; color: #ffffff;"></i> -->
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05; border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
@@ -140,11 +144,34 @@
                     <span class="fs-4 fw-bold text-white text-uppercase">Subregident</span>
                 </div>
                 <div class="col-md-12">
+                    <a href="<?= base_url('executive/Polda_executive/ranmor/' . $data['id']); ?>">
+                        <div class="card" style="border-color: #9747f3;  border-radius: 20px !important; background-color:#9747f3">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold"> RANMOR</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="ranmor"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailranmor"></span>
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/LAKA.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-12">
                     <a href="<?= base_url('executive/Polda_executive/Sim/' . $data['id']); ?>">
                         <div class="card" style="border-color: #f3478f;  border-radius: 20px !important; background-color:#f3478f">
                             <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height: 80px;">
-
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> SIM</span>
@@ -154,10 +181,12 @@
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/SIM.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                        <img src="<?= base_url('assets/icon/dashboard/SIM.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
@@ -166,8 +195,7 @@
                     <a href="<?= base_url('executive/Polda_executive/Bpkb/' . $data['id']); ?>">
                         <div class="card" style="border-color: #48c0f4;  border-radius: 20px !important; background-color:#48c0f4">
                             <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height: 80px;">
-
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> BPKB</span>
@@ -177,10 +205,12 @@
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/BPKB.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                        <img src="<?= base_url('assets/icon/dashboard/BPKB.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
@@ -189,8 +219,7 @@
                     <a href="<?= base_url('executive/Polda_executive/Stnk/' . $data['id']); ?>">
                         <div class="card" style="border-color: #f4af48;  border-radius: 20px !important; background-color:#f4af48">
                             <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height: 80px;">
-
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> STNK</span>
@@ -200,15 +229,17 @@
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/STNK.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                        <img src="<?= base_url('assets/icon/dashboard/STNK.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                     <a href="<?= base_url('executive/Polda_executive/Sbst/' . $data['id']); ?>">
                         <div class="card" style="border-color: #f34799;  border-radius: 20px !important; background-color:#f34799">
                             <div class="card-body">
@@ -224,24 +255,96 @@
                                     </div>
                                     <div class=" col-md-2">
                                         <img src="<?= base_url('assets/icon/dashboard/FASMAT_SBST.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> -->
             </div>
             <div class="col-md-3">
                 <div class="col-md-12  text-center mb-2">
                     <span class="fs-4 fw-bold text-white text-uppercase">Subkamsel</span>
                 </div>
                 <div class="col-md-12">
-                    <a href="<?= base_url('executive/Polda_executive/Dikmas/' . $data['id']); ?>">
+                    <a href="<?= base_url('statistik_nasional/Blackspot/' . $data['id']); ?>">
                         <div class="card" style="border-color: #7b113f;  border-radius: 20px !important; background-color:#7b113f">
                             <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
-
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold"> BLACKSPOT</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="blackspot"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailblackspot"></span>
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/SPOT.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-12">
+                    <a href="<?= base_url('statistik_nasional/Troublespot/' . $data['id']); ?>">
+                        <div class="card" style="border-color: #e2ab1d;  border-radius: 20px !important; background-color:#e2ab1d">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold"> TROUBLESPOT</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="troublespot"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailtroublespot"></span>
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/SPOT.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA; padding-top:-20px">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-12">
+                    <a href="<?= base_url('statistik_nasional/Rekalantas/' . $data['id']); ?>">
+                        <div class="card" style="border-color: #7b113f;  border-radius: 20px !important; background-color:#7b113f">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold"> REKA LANTAS</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="rekalantas"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailrekalantas"></span>
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/REKA.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-12">
+                    <a href="<?= base_url('executive/Polda_executive/Dikmas/' . $data['id']); ?>">
+                        <div class="card" style="border-color: #36c602;  border-radius: 20px !important; background-color:#36c602">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style=" height: 60px;">
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> DIKMAS</span>
@@ -251,79 +354,13 @@
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/DIKMAS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <img src="<?= base_url('assets/icon/dashboard/DIKMAS.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
                                         <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-12">
-                    <a href="<?= base_url('executive/Polda_executive/Jemenopsrek/' . $data['id']); ?>">
-                        <div class="card" style="border-color: #e2ab1d;  border-radius: 20px !important; background-color:#e2ab1d">
-                            <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
-
-                                    <div class="col-md-10 float-start">
-                                        <p class="fs-5 float-start" style="color:#ffffff;">
-                                            <span class="fw-bold"> JEMENOPSREK</span>
-                                            <br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="jemenopsrek"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailjemenopsrek"></span>
-                                        </p>
-                                    </div>
-                                    <div class=" col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/JEMENOPSREK.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-12">
-                    <a href="<?= base_url('executive/Polda_executive/Cegah/' . $data['id']); ?>">
-                        <div class="card" style="border-color: #7b113f;  border-radius: 20px !important; background-color:#7b113f">
-                            <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
-
-                                    <div class="col-md-10 float-start">
-                                        <p class="fs-5 float-start" style="color:#ffffff;">
-                                            <span class="fw-bold"> CEGAH</span>
-                                            <br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="cegah"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailcegah"></span>
-                                        </p>
-                                    </div>
-                                    <div class=" col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/CEGAH.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-12">
-                    <a href="<?= base_url('executive/Polda_executive/Audit/' . $data['id']); ?>">
-                        <div class="card" style="border-color: #36c602;  border-radius: 20px !important; background-color:#36c602">
-                            <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
-
-                                    <div class="col-md-10 float-start">
-                                        <p class="fs-5 float-start" style="color:#ffffff;">
-                                            <span class="fw-bold"> AUDIT</span>
-                                            <br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="audit"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailaudit"></span>
-                                        </p>
-                                    </div>
-                                    <div class=" col-md-2">
-                                        <img src="<?= base_url('assets/icon/dashboard/AUDIT.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
-                                    </div>
-                                </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA;">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
@@ -338,7 +375,7 @@
                         <!--  <a href="<?= base_url('executive/Polda_executive/Subrenop/' . $data['id']); ?>"> -->
                         <div class="card" style="border-color: #33c36c;  border-radius: 20px !important; background-color:#33c36c">
                             <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height:60px;">
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold">BAGRENMIN</span>
@@ -349,19 +386,20 @@
                                     </div>
                                     <div class=" col-md-2">
                                         <img src="<?= base_url('assets/icon/dashboard/SUBBAG_RENOP.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA;">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-12">
-                    <!-- <a href="<?= base_url('executive/Polda_executive/Subdalops/' . $data['id']); ?>"> -->
                     <a href="<?= base_url('bagops'); ?>">
                         <div class="card" style="border-color: #9d2cf8;  border-radius: 20px !important; background-color:#9d2cf8">
                             <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height:60px;">
 
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
@@ -377,16 +415,17 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA;">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
+                            </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-12">
-                    <!-- <a href="<?= base_url('executive/Polda_executive/Subkerma/' . $data['id']); ?>"> -->
                     <a href="<?= base_url('bagtik'); ?>">
                         <div class="card" style="border-color: #f14924;  border-radius: 20px !important; background-color:#f14924">
                             <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
-
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height:60px;">
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold">BAGTIK</span>
@@ -397,34 +436,35 @@
                                     </div>
                                     <div class=" col-md-2">
                                         <img src="<?= base_url('assets/icon/dashboard/SUBBAG_KERMA.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA;">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-12">
-                    <!-- <a href="<?= base_url('executive/Polda_executive/Subanev/' . $data['id']); ?>"> -->
                     <a href="<?= base_url('bagtik'); ?>">
                         <div class="card" style="border-color: #484848;  border-radius: 20px !important; background-color:#484848">
                             <div class="card-body">
-                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height:80px;">
-
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px; height:60px;">
                                     <div class="col-md-10 float-start">
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold">Data Keseluruhan</span>
                                             <br>
                                             <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subkerma"></span>
                                             <span class="float-start m-0 p-0 fw-bold" style="font-size: 18px;">0</span>
-                                            <!-- <span class="float-start m-0 p-0 ms-2 fw-bold" style="font-size: 18px;">0</span> -->
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
                                         <img src="<?= base_url('assets/icon/dashboard/SUBBAG_KERMA.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA;">
+                                <span class="text-white fw-bold fs-5 "> Selengkapnya</span>
                             </div>
                         </div>
                     </a>
@@ -491,6 +531,9 @@
 
                         $('#walpjr').html(`<span class="fs-5" >${result.walpjr}</span>`);
                         $('#detailwalpjr').html(`${result['compare']['walpjr']}`);
+
+                        $('#ranmor').html(`<span class="fs-5" >${result.ranmor}</span>`);
+                        $('#detailranmor').html(`${result['compare']['ranmor']}`);
 
                         $('#bpkb').html(`<span class="fs-5" >${result.bpkb}</span >`);
                         $('#detailbpkb').html(`${result['compare']['bpkb']}`);

@@ -69,7 +69,6 @@
                         <div class="card" style="border-color: #cb2e3f;  border-radius: 20px !important; background-color:#cb2e3f">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style=" height: 60px;">
-
                                     <div class=" col-md-10 float-start">
                                         <span class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> GARLANTAS </span>
@@ -77,7 +76,6 @@
                                             <span class="fs-5 fw-bold float-start" style="color:#ffffff;" id="garlantas"></span>
                                             <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailgarlantas"></p>
                                         </span>
-
                                     </div>
                                     <div class="col-md-2">
                                         <img src="<?= base_url('assets/icon/dashboard/GARLANTAS.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
@@ -96,7 +94,6 @@
                         <div class="card" style="border-color: #ca3fd8;  border-radius: 20px !important; background-color:#ca3fd8">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style=" height: 60px;">
-
                                     <div class=" col-md-10 float-start">
                                         <span class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> TURJAGWALI</span>
@@ -107,7 +104,6 @@
                                     </div>
                                     <div class="col-md-2">
                                         <img src="<?= base_url('assets/icon/dashboard/TURJAGWALI.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
                             </div>
@@ -119,11 +115,9 @@
                 </div>
                 <div class="col-md-12">
                     <a href="<?= base_url('statistik_nasional/Walpjr'); ?>">
-                        <!-- <a href="<?= base_url('statistik_nasional/Walpjr'); ?>"> -->
                         <div class="card" style="border-color: #babf01;  border-radius: 20px !important; background-color:#babf01">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style=" height: 60px;">
-
                                     <div class=" col-md-10 float-start">
                                         <span class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> WAL & PJR</span>
@@ -164,7 +158,6 @@
                                     </div>
                                     <div class=" col-md-2">
                                         <img src="<?= base_url('assets/icon/dashboard/LAKA.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
                             </div>
@@ -189,7 +182,6 @@
                                     </div>
                                     <div class=" col-md-2">
                                         <img src="<?= base_url('assets/icon/dashboard/SIM.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
                             </div>
@@ -214,7 +206,6 @@
                                     </div>
                                     <div class=" col-md-2">
                                         <img src="<?= base_url('assets/icon/dashboard/BPKB.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
                             </div>
@@ -239,7 +230,6 @@
                                     </div>
                                     <div class=" col-md-2">
                                         <img src="<?= base_url('assets/icon/dashboard/STNK.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
                             </div>
@@ -294,7 +284,6 @@
                                     </div>
                                     <div class=" col-md-2">
                                         <img src="<?= base_url('assets/icon/dashboard/SPOT.png') ?>" alt="" style="width: 50px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
                                     </div>
                                 </div>
                             </div>
