@@ -103,6 +103,23 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <div class="material-selectfield mb-3">
+                                    <select required name="polda_id" id="polda_id"  class="form-select">
+                                        <option selected value="">Pilih Polda</option> 
+                                        <?php foreach ($data['getPolda'] as $row) : ?>
+                                            <option value="<?php echo $row['id']; ?>" <?php echo($row['polda_id'] == $data['getDetail']['data']['polda_id'] ? 'selected' : '')?> data-polda="<?php echo $row['polda_id']; ?>"><?php echo $row['name_polda']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select> 
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="material-selectfield mb-3" id="selectPolres">
+                                    <select required name="polres_id" id="polres_id" class="form-select">
+                                        <option selected value="">Pilih Polres</option>  
+                                    </select> 
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="material-textfield mb-3">
                                     <input style="width: 100%;" name="total_vehicle" placeholder="" value="<?php echo $data['getDetail']['data']['total_vehicle']; ?>" type="text">
                                     <label class="labelmui">Jumlah kendaraan yang dikawal</label>
@@ -311,6 +328,85 @@
                     containerOuter: 'choices select-choices',
                 },
             });
+
+
+
+            var idpolda = '<?= $data['getDetail']['data']['polda_id'];?>';
+            var idpolres = '<?= $data['getDetail']['data']['polres_id'];?>';
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>operasi/renpam/getPolresByPolda",
+                data: {
+                    "polda_id": idpolda,
+                },
+                dataType: "JSON",
+                success: function(result) {
+                    console.log(result);
+
+                    if(result['data'].length > 0){ 
+                        $("#selectPolres").show();
+                        var ress = result['data'];
+                        var count = 0;
+                        var list = '';
+
+                        list += `
+                                <option selected value="">Pilih Polres</option> 
+                            `;
+                        ress.forEach(el => { 
+                            if(el.polres_id == idpolres){
+                                kondisi = 'selected';
+                            }else{
+                                kondisi = ``;
+                            }
+                            list += `
+                                <option value="${el.id}" ${kondisi} >${el.name_polres}</option> 
+                            `;
+                            $("#polres_id").html(list);
+                        });
+
+                        
+                    }else{
+                        $("#polres_id").html(`<option selected value="">Polres Tidak Ada</option>`);
+                    }
+                }
+            });
+
+
+            $("#polda_id").on("change", function(e) {
+                var selected = $(this).find(':selected');    
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url(); ?>operasi/renpam/getPolresByPolda",
+                    data: {
+                        "polda_id": selected.data('polda'),
+                    },
+                    dataType: "JSON",
+                    success: function(result) {
+                        console.log(result);
+
+                        if(result['data'].length > 0){ 
+                            $("#selectPolres").show();
+                            var ress = result['data'];
+                            var count = 0;
+                            var list = '';
+    
+                            list += `
+                                    <option selected value="">Pilih Polres</option> 
+                                `;
+                            ress.forEach(el => {
+                                list += `
+                                    <option value="${el.id}">${el.name_polres}</option> 
+                                `;
+                                $("#polres_id").html(list);
+                            });
+                        }else{
+                            $("#polres_id").html(`<option selected value="">Polres Tidak Ada</option>`);
+                        }
+                    }
+                });
+            });
+
+
 
             if(optionData.length == 0){
                 id_account = new Choices(document.querySelector('#id_account'), {

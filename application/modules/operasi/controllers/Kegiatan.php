@@ -52,6 +52,11 @@ class Kegiatan extends MY_Controller
         // echo json_encode($data['getAccount']);
         // die;
 
+        $getPolda = guzzle_request('GET', 'polda', [
+            'headers' => $headers
+        ]);
+        $data['getPolda'] = $getPolda['data']['data'];
+
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }

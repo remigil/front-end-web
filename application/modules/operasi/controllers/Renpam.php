@@ -40,6 +40,11 @@ class Renpam extends MY_Controller
         ]);
         $data['getVip'] = $getVip['data']['data'];
 
+        $getPolda = guzzle_request('GET', 'polda', [
+            'headers' => $headers
+        ]);
+        $data['getPolda'] = $getPolda['data']['data'];
+
         // $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
         //     'headers' => $headers
         // ]);
@@ -136,6 +141,28 @@ class Renpam extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
+    public function getPolresByPolda()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input = $this->input->post();
+        if($input['polda_id']){
+            $fil = '&filter[]=polda_id&filterSearch[]='.$input['polda_id'].'';
+        }else{
+            $fil = '';
+        }
+
+        $url = 'polres?serverSide=true&length=100&start=1'.$fil.'';
+        $getAkun = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getAkun'] = $getAkun['data'];
+
+        echo json_encode($data['getAkun']);
+    }
+
     public function getAkun()
     {
         $headers = [
@@ -213,8 +240,7 @@ class Renpam extends MY_Controller
         // $dummy ['end_time']	= $input['endTime']; 
         $dummy['accounts']    = json_encode($input['id_account']);
 
-        // echo json_encode($input['id_vip']);
-        // die; 
+         
 
         if (isset($input['id_vip'])) {
             $dummy['vips']    = json_encode($input['id_vip']);
@@ -242,8 +268,9 @@ class Renpam extends MY_Controller
             $dummy['route_umum']    = $input['coordsAlternative4'];
         }
 
-        
-
+        $dummy['polda_id'] = $input['polda_id'];
+        $dummy['polres_id'] = $input['polres_id'];
+ 
 
         $data = guzzle_request('POST', 'renpam/add', [
             'form_params' => $dummy,
@@ -312,6 +339,9 @@ class Renpam extends MY_Controller
 
         $dummy['total_vehicle']    = $input['total_vehicle'];
         $dummy['order_renpam']    = $input['order_renpam'];
+
+        $dummy['polda_id'] = $input['polda_id'];
+        $dummy['polres_id'] = $input['polres_id'];
         
         $dummy['title_start']    = $input['title_start'];
         $dummy['title_end']    = $input['title_end'];
@@ -324,6 +354,7 @@ class Renpam extends MY_Controller
         // echo json_encode($dummy);
         // die;  
 
+        
 
         $data = guzzle_request('POST', 'renpam/add', [
             'form_params' => $dummy,
@@ -484,6 +515,16 @@ class Renpam extends MY_Controller
         ]);
         $data['getVip'] = $getVip['data']['data']; 
 
+        $getPolda = guzzle_request('GET', 'polda', [
+            'headers' => $headers
+        ]);
+        $data['getPolda'] = $getPolda['data']['data'];
+
+        // $getPolres = guzzle_request('GET', 'polres', [
+        //     'headers' => $headers
+        // ]);
+        // $data['getPolres'] = $getPolres['data']['data'];
+
         // $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1&search=', [
         //     'headers' => $headers
         // ]);
@@ -557,7 +598,8 @@ class Renpam extends MY_Controller
         }
 
         $dummy['note_kakor'] = $input['note_kakor'];
-
+        $dummy['polda_id'] = $input['polda_id'];
+        $dummy['polres_id'] = $input['polres_id'];
         // echo json_encode($dummy);
         // die;
 

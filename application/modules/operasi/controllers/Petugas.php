@@ -150,11 +150,7 @@ class Petugas extends MY_Controller
                 [
                     'name' => 'structural_officer',
                     'contents' => $input['struktural'],
-                ],
-                [
-                    'name' => 'polda_id',
-                    'contents' => $input['polda_id'],
-                ],
+                ], 
                 [
                     'name' => 'pam_officer',
                     'contents' => $input['pam'],
@@ -166,6 +162,15 @@ class Petugas extends MY_Controller
                 [
                     'name' => 'status_officer',
                     'contents' => $input['status'],
+                ],
+
+                [
+                    'name' => 'polda_id',
+                    'contents' => $input['polda_id'],
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $input['polres_id'],
                 ],
                 [
                     'name' => 'photo_officer',
@@ -198,6 +203,10 @@ class Petugas extends MY_Controller
                 [
                     'name' => 'polda_id',
                     'contents' => $input['polda_id'],
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $input['polres_id'],
                 ],
                 [
                     'name' => 'pam_officer',
@@ -375,6 +384,10 @@ class Petugas extends MY_Controller
                     'contents' => $input['polda_id'],
                 ],
                 [
+                    'name' => 'polres_id',
+                    'contents' => $input['polres_id'],
+                ],
+                [
                     'name' => 'pam_officer',
                     'contents' => $input['pam'],
                 ],
@@ -417,6 +430,10 @@ class Petugas extends MY_Controller
                 [
                     'name' => 'polda_id',
                     'contents' => $input['polda_id'],
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $input['polres_id'],
                 ],
                 [
                     'name' => 'pam_officer',
