@@ -54,40 +54,32 @@ class Operator extends MY_Controller
         ]; 
         $input      = $this->input->post(); 
 
-        $path = $_FILES['photo']['tmp_name'];
-        $filename = $_FILES['photo']['name'];
-        if($_FILES['photo']['name']){ 
+        if($_FILES['logo']['name']){ 
+            $path = $_FILES['logo']['tmp_name'];
+            $filename = $_FILES['logo']['name'];
             $dummy = [
                 [
-                    'name' => 'name_officer',
-                    'contents' => $input['namaoperator'],
+                    'name' => 'name_operation',
+                    'contents' => $input['name_operation'],
                 ],
                 [
-                    'name' => 'nrp_officer',
-                    'contents' => $input['nrp'],
+                    'name' => 'date_start_operation',
+                    'contents' => $input['start_date'],
                 ],
                 [
-                    'name' => 'rank_officer',
-                    'contents' => $input['pangkat'],
+                    'name' => 'date_end_operation',
+                    'contents' => $input['end_date'],
                 ],
                 [
-                    'name' => 'structural_officer',
-                    'contents' => $input['struktural'],
+                    'name' => 'latlng_center',
+                    'contents' => $input['cordinate'],
                 ],
                 [
-                    'name' => 'pam_officer',
-                    'contents' => $input['pam'],
-                ],
-                [
-                    'name' => 'phone_officer',
-                    'contents' => $input['noHp'],
-                ],
-                [
-                    'name' => 'status_officer',
-                    'contents' => $input['status'],
+                    'name' => 'zoom_level',
+                    'contents' => $input['zoom_level'],
                 ], 
                 [
-                    'name' => 'photo_officer',
+                    'name' => 'logo',
                     'contents' => fopen($path,'r'),
                     'filename' => $filename
                 ] 
@@ -95,37 +87,32 @@ class Operator extends MY_Controller
         } else {
             $dummy = [
                 [
-                    'name' => 'name_officer',
-                    'contents' => $input['namaoperator'],
+                    'name' => 'name_operation',
+                    'contents' => $input['name_operation'],
                 ],
                 [
-                    'name' => 'nrp_officer',
-                    'contents' => $input['nrp'],
+                    'name' => 'date_start_operation',
+                    'contents' => $input['start_date'],
                 ],
                 [
-                    'name' => 'rank_officer',
-                    'contents' => $input['pangkat'],
+                    'name' => 'date_end_operation',
+                    'contents' => $input['end_date'],
                 ],
                 [
-                    'name' => 'structural_officer',
-                    'contents' => $input['struktural'],
+                    'name' => 'latlng_center',
+                    'contents' => $input['cordinate'],
                 ],
                 [
-                    'name' => 'pam_officer',
-                    'contents' => $input['pam'],
-                ],
-                [
-                    'name' => 'phone_officer',
-                    'contents' => $input['noHp'],
-                ],
-                [
-                    'name' => 'status_officer',
-                    'contents' => $input['status'],
-                ]
+                    'name' => 'zoom_level',
+                    'contents' => $input['zoom_level'],
+                ], 
             ];
         }
 
-        $data = guzzle_request('POST', 'officer/add', [ 
+        // echo json_encode($dummy);
+        // die;
+
+        $data = guzzle_request('POST', 'operation-profile/add', [ 
             'multipart' => $dummy, 
             'headers' => $headers 
         ]);
@@ -169,7 +156,7 @@ class Operator extends MY_Controller
             $page_content["page"] = "user/Polres/detail_operator_polres";
         }
 
-        $getDetail = guzzle_request('GET', 'officer/getId/'.$id.'', [  
+        $getDetail = guzzle_request('GET', 'operation-profile/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
         $data['getDetail'] = $getDetail['data'];
@@ -200,7 +187,7 @@ class Operator extends MY_Controller
             $page_content["page"] = "user/Polres/edit_operator_polres";
         }
 
-        $getDetail = guzzle_request('GET', 'officer/getId/'.$id.'', [  
+        $getDetail = guzzle_request('GET', 'operation-profile/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
         $data['getDetail'] = $getDetail['data'];
@@ -217,40 +204,32 @@ class Operator extends MY_Controller
         ]; 
         $input      = $this->input->post(); 
 
-        $path = $_FILES['photo']['tmp_name'];
-        $filename = $_FILES['photo']['name'];
-        if($_FILES['photo']['name']){ 
+        $path = $_FILES['logo']['tmp_name'];
+        $filename = $_FILES['logo']['name'];
+        if($_FILES['logo']['name']){ 
             $dummy = [
                 [
-                    'name' => 'name_officer',
-                    'contents' => $input['namaoperator'],
+                    'name' => 'name_operation',
+                    'contents' => $input['name_operation'],
                 ],
                 [
-                    'name' => 'nrp_officer',
-                    'contents' => $input['nrp'],
+                    'name' => 'date_start_operation',
+                    'contents' => $input['start_date'],
                 ],
                 [
-                    'name' => 'rank_officer',
-                    'contents' => $input['pangkat'],
+                    'name' => 'date_end_operation',
+                    'contents' => $input['end_date'],
                 ],
                 [
-                    'name' => 'structural_officer',
-                    'contents' => $input['struktural'],
+                    'name' => 'latlng_center',
+                    'contents' => $input['cordinate'],
                 ],
                 [
-                    'name' => 'pam_officer',
-                    'contents' => $input['pam'],
-                ],
-                [
-                    'name' => 'phone_officer',
-                    'contents' => $input['noHp'],
-                ],
-                [
-                    'name' => 'status_officer',
-                    'contents' => $input['status'],
+                    'name' => 'zoom_level',
+                    'contents' => $input['zoom_level'],
                 ], 
                 [
-                    'name' => 'photo_officer',
+                    'name' => 'logo',
                     'contents' => fopen($path,'r'),
                     'filename' => $filename
                 ] 
@@ -258,36 +237,28 @@ class Operator extends MY_Controller
         } else {
             $dummy = [
                 [
-                    'name' => 'name_officer',
-                    'contents' => $input['namaoperator'],
+                    'name' => 'name_operation',
+                    'contents' => $input['name_operation'],
                 ],
                 [
-                    'name' => 'nrp_officer',
-                    'contents' => $input['nrp'],
+                    'name' => 'date_start_operation',
+                    'contents' => $input['start_date'],
                 ],
                 [
-                    'name' => 'rank_officer',
-                    'contents' => $input['pangkat'],
+                    'name' => 'date_end_operation',
+                    'contents' => $input['end_date'],
                 ],
                 [
-                    'name' => 'structural_officer',
-                    'contents' => $input['struktural'],
+                    'name' => 'latlng_center',
+                    'contents' => $input['cordinate'],
                 ],
                 [
-                    'name' => 'pam_officer',
-                    'contents' => $input['pam'],
-                ],
-                [
-                    'name' => 'phone_officer',
-                    'contents' => $input['noHp'],
-                ],
-                [
-                    'name' => 'status_officer',
-                    'contents' => $input['status'],
-                ]
+                    'name' => 'zoom_level',
+                    'contents' => $input['zoom_level'],
+                ] 
             ];
         }
-        $data = guzzle_request('PUT', 'officer/edit/'.$input['id'].'', [ 
+        $data = guzzle_request('PUT', 'operation-profile/edit/'.$input['id'].'', [ 
             'multipart' => $dummy, 
             'headers' => $headers 
         ]);
@@ -327,7 +298,7 @@ class Operator extends MY_Controller
             ] 
         ];
 
-        $data = guzzle_request('DELETE', 'officer/delete', [ 
+        $data = guzzle_request('DELETE', 'operation-profile/delete', [ 
             'multipart' => $dummy, 
             'headers' => $headers 
         ]);
