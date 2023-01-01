@@ -18,7 +18,7 @@ class Subditgakkum extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Subditgakkum Polda";
+        $page_content["title"] = "Subgakkum Polda";
         if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["page"] = "ditgakkum/korlantas/subditgakkum_view";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
@@ -82,7 +82,98 @@ class Subditgakkum extends MY_Controller
             'start_date' => $start_date,
             'end_date' => $end_date,
         ];
-        $getdata = $this->M_subditgakkum->getChartDitgakkum($filterbaru);
+        $getdata = $this->M_subditgakkum->getChartLaka($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+
+    public function getChartLaka($id)
+    {
+        $title = 'DATA LAKA';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+            'id' => $id,
+        ];
+        $getdata = $this->M_subditgakkum->getChartLaka($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+
+    public function getChartGarlantas($id)
+    {
+        $title = 'DATA GARLANTAS';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+            'id' => $id,
+        ];
+        $getdata = $this->M_subditgakkum->getChartGarlantas($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+
+    public function getChartTatib($id)
+    {
+        $title = 'DATA TATIB';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+            'id' => $id,
+        ];
+        $getdata = $this->M_subditgakkum->getChartTatib($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+
+    public function getChartWalPjr($id)
+    {
+        $title = 'DATA WAL & PJR';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+            'id' => $id,
+        ];
+        $getdata = $this->M_subditgakkum->getChartWalPjr($filterbaru);
         $data = [
             'data' => $getdata,
             'title' => $title,
