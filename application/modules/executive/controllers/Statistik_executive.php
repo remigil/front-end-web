@@ -3366,4 +3366,441 @@ class Statistik_executive extends MY_Controller
         ];
         echo json_encode($data);
     }
+
+
+    public function getBarTroublespot()
+    {
+        $filter = $this->input->post('filter');
+        $end_date = $this->input->post('end_date');
+        $start_date = $this->input->post('start_date');
+
+
+        $limit = $this->input->post('limit');
+        if ($filter == '2') {
+            $url = 'troublespot/daily?topPolda=true&limit=' . $limit . '&filter=true&start_date=' . $start_date . '&end_date=' . $end_date . '';
+        } else {
+            $url = 'troublespot/daily?topPolda=true&limit=' . $limit . '';
+        }
+
+        $troublespot = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        foreach ($troublespot['data']['rows'] as $key) {
+            $total[] = $key['total'];
+            $polda[] = $key['name_polda'];
+        }
+
+
+        $data = [
+            'total' => $total,
+            'name_polda' => $polda
+        ];
+        echo json_encode($data);
+    }
+
+    public function getLineTroublespot()
+    {
+        $filter = $this->input->post('filter');
+
+        if ($filter == '2') {
+            $start_date = $this->input->post('start_date');
+        } else {
+            $start_date = date('Y-m-d', strtotime("-5 year", strtotime($this->input->post('start_date'))));
+        }
+        $end_date = $this->input->post('end_date');
+        $type = $this->input->post('type');
+        $url = 'troublespot/date?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&type=' . $type . '';
+        $troublespot = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        foreach ($troublespot['data'] as $key) {
+            $total[] = $key['total'];
+            $date[] = $key['date'];
+        }
+        $data = [
+            'total' => $total,
+            'date' => $date,
+            'title' => 'DATA TROUBLESPOT LALU LINTAS TANGGAL ' . $start_date . ' s.d ' . $end_date . ''
+        ];
+        echo json_encode($data);
+    }
+
+    public function getTroublespotStatistik()
+    {
+        $filter = $this->input->post('filter');
+        $today = $this->input->post('yesterday');
+        $first_dayMonth = $this->input->post('firstDayMonth');
+        $last_dayMonth = $this->input->post('lastDayMonth');
+        $first_dayYear = $this->input->post('firstDay');
+        $last_dayYear = $this->input->post('lastDay');
+        $troublespotToday = guzzle_request('GET',   $url = 'troublespot/date?filter=' . $filter . '&start_date=' . $today . '&end_date=' . $today . '&type=day', [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+        $troublespotMonth = guzzle_request('GET',   $url = 'troublespot/date?filter=' . $filter . '&start_date=' . $first_dayMonth . '&end_date=' . $last_dayMonth . '&type=month', [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+        $troublespotYear = guzzle_request('GET',   $url = 'troublespot/date?filter=' . $filter . '&start_date=' . $first_dayYear . '&end_date=' . $last_dayYear . '&type=year', [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+
+        $data = [
+            'today' => $troublespotToday['data'][0]['total'],
+            'month' => $troublespotMonth['data'][0]['total'],
+            'year' => $troublespotYear['data'][0]['total'],
+
+        ];
+
+        echo json_encode($data);
+    }
+
+    public function troublespotToday()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $url_list = 'troublespot/get_filter?start_date=' . $start_date . '&end_date=' . $end_date . '';
+        $list_troublespot = guzzle_request('GET', $url_list, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+        echo json_encode($list_troublespot['data']);
+    }
+    public function troublespotMonth()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $url_list = 'troublespot/get_filter?start_date=' . $start_date . '&end_date=' . $end_date . '';
+        $list_troublespot = guzzle_request('GET', $url_list, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        echo json_encode($list_troublespot['data']);
+    }
+
+    public function troublespotYear()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $url_list = 'troublespot/get_filter?start_date=' . $start_date . '&end_date=' . $end_date . '';
+        $list_troublespot = guzzle_request('GET', $url_list, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        echo json_encode($list_troublespot['data']);
+    }
+
+
+    public function getBarBlankspot()
+    {
+        $filter = $this->input->post('filter');
+        $end_date = $this->input->post('end_date');
+        $start_date = $this->input->post('start_date');
+
+
+        $limit = $this->input->post('limit');
+        if ($filter == '2') {
+            $url = 'blankspot/daily?topPolda=true&limit=' . $limit . '&filter=true&start_date=' . $start_date . '&end_date=' . $end_date . '';
+        } else {
+            $url = 'blankspot/daily?topPolda=true&limit=' . $limit . '';
+        }
+
+        $blankspot = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        foreach ($blankspot['data']['rows'] as $key) {
+            $total[] = $key['total'];
+            $polda[] = $key['name_polda'];
+        }
+
+
+        $data = [
+            'total' => $total,
+            'name_polda' => $polda
+        ];
+        echo json_encode($data);
+    }
+
+    public function getLineBlankspot()
+    {
+        $filter = $this->input->post('filter');
+
+        if ($filter == '2') {
+            $start_date = $this->input->post('start_date');
+        } else {
+            $start_date = date('Y-m-d', strtotime("-5 year", strtotime($this->input->post('start_date'))));
+        }
+        $end_date = $this->input->post('end_date');
+        $type = $this->input->post('type');
+        $url = 'blankspot/date?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&type=' . $type . '';
+        $blankspot = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        foreach ($blankspot['data'] as $key) {
+            $total[] = $key['total'];
+            $date[] = $key['date'];
+        }
+        $data = [
+            'total' => $total,
+            'date' => $date,
+            'title' => 'DATA BLANKSPOT LALU LINTAS TANGGAL ' . $start_date . ' s.d ' . $end_date . ''
+        ];
+        echo json_encode($data);
+    }
+
+    public function getBlankspotStatistik()
+    {
+        $filter = $this->input->post('filter');
+        $today = $this->input->post('yesterday');
+        $first_dayMonth = $this->input->post('firstDayMonth');
+        $last_dayMonth = $this->input->post('lastDayMonth');
+        $first_dayYear = $this->input->post('firstDay');
+        $last_dayYear = $this->input->post('lastDay');
+        $blankspotToday = guzzle_request('GET',   $url = 'blankspot/date?filter=' . $filter . '&start_date=' . $today . '&end_date=' . $today . '&type=day', [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+        $blankspotMonth = guzzle_request('GET',   $url = 'blankspot/date?filter=' . $filter . '&start_date=' . $first_dayMonth . '&end_date=' . $last_dayMonth . '&type=month', [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+        $blankspotYear = guzzle_request('GET',   $url = 'blankspot/date?filter=' . $filter . '&start_date=' . $first_dayYear . '&end_date=' . $last_dayYear . '&type=year', [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+
+        $data = [
+            'today' => $blankspotToday['data'][0]['total'],
+            'month' => $blankspotMonth['data'][0]['total'],
+            'year' => $blankspotYear['data'][0]['total'],
+
+        ];
+
+        echo json_encode($data);
+    }
+
+    public function blankspotToday()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $url_list = 'blankspot/get_filter?start_date=' . $start_date . '&end_date=' . $end_date . '';
+        $list_blankspot = guzzle_request('GET', $url_list, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+        echo json_encode($list_blankspot['data']);
+    }
+    public function blankspotMonth()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $url_list = 'blankspot/get_filter?start_date=' . $start_date . '&end_date=' . $end_date . '';
+        $list_blankspot = guzzle_request('GET', $url_list, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        echo json_encode($list_blankspot['data']);
+    }
+
+    public function blankspotYear()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $url_list = 'blankspot/get_filter?start_date=' . $start_date . '&end_date=' . $end_date . '';
+        $list_blankspot = guzzle_request('GET', $url_list, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        echo json_encode($list_blankspot['data']);
+    }
+
+    public function getBarRekalantas()
+    {
+        $filter = $this->input->post('filter');
+        $end_date = $this->input->post('end_date');
+        $start_date = $this->input->post('start_date');
+
+
+        $limit = $this->input->post('limit');
+        if ($filter == '2') {
+            $url = 'rekalantas/daily?topPolda=true&limit=' . $limit . '&filter=true&start_date=' . $start_date . '&end_date=' . $end_date . '';
+        } else {
+            $url = 'rekalantas/daily?topPolda=true&limit=' . $limit . '';
+        }
+
+        $rekalantas = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        foreach ($rekalantas['data']['rows'] as $key) {
+            $total[] = $key['total'];
+            $polda[] = $key['name_polda'];
+            $jalan_nasional[] = $key['jalan_nasional'];
+            $jalan_provinsi[] = $key['jalan_provinsi'];
+            $lain_lain[] = $key['lain_lain'];
+        }
+
+
+        $data = [
+            'total' => $total,
+            'name_polda' => $polda,
+            'jalan_nasional' => $jalan_nasional,
+            'jalan_provinsi' => $jalan_provinsi,
+            'lain_lain' => $lain_lain
+        ];
+        echo json_encode($data);
+    }
+
+    public function getLineRekalantas()
+    {
+        $filter = $this->input->post('filter');
+
+        if ($filter == '2') {
+            $start_date = $this->input->post('start_date');
+        } else {
+            $start_date = date('Y-m-d', strtotime("-5 year", strtotime($this->input->post('start_date'))));
+        }
+        $end_date = $this->input->post('end_date');
+        $type = $this->input->post('type');
+        $url = 'rekalantas/date?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&type=' . $type . '';
+        $rekalantas = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        foreach ($rekalantas['data'] as $key) {
+            $total[] = $key['total'];
+            $date[] = $key['date'];
+            $jalan_nasional[] = $key['jalan_nasional'];
+            $jalan_provinsi[] = $key['jalan_provinsi'];
+            $lain_lain[] = $key['lain_lain'];
+        }
+        $data = [
+            'total' => $total,
+            'date' => $date,
+            'jalan_nasional' => $jalan_nasional,
+            'jalan_provinsi' => $jalan_provinsi,
+            'lain_lain' => $lain_lain,
+            'title' => 'DATA REKALANTAS LALU LINTAS TANGGAL ' . $start_date . ' s.d ' . $end_date . ''
+        ];
+        echo json_encode($data);
+    }
+
+    public function getRekalantasStatistik()
+    {
+        $filter = $this->input->post('filter');
+        $today = $this->input->post('yesterday');
+        $first_dayMonth = $this->input->post('firstDayMonth');
+        $last_dayMonth = $this->input->post('lastDayMonth');
+        $first_dayYear = $this->input->post('firstDay');
+        $last_dayYear = $this->input->post('lastDay');
+        $rekalantasToday = guzzle_request('GET',   $url = 'rekalantas/date?filter=' . $filter . '&start_date=' . $today . '&end_date=' . $today . '&type=day', [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+        $rekalantasMonth = guzzle_request('GET',   $url = 'rekalantas/date?filter=' . $filter . '&start_date=' . $first_dayMonth . '&end_date=' . $last_dayMonth . '&type=month', [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+        $rekalantasYear = guzzle_request('GET',   $url = 'rekalantas/date?filter=' . $filter . '&start_date=' . $first_dayYear . '&end_date=' . $last_dayYear . '&type=year', [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+
+        $data = [
+            'today' => $rekalantasToday['data'][0]['total'],
+            'month' => $rekalantasMonth['data'][0]['total'],
+            'year' => $rekalantasYear['data'][0]['total'],
+
+        ];
+
+        echo json_encode($data);
+    }
+
+    public function rekalantasToday()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $url_list = 'rekalantas/daily?topPolda=true&start_date=' . $start_date . '&end_date=' . $end_date . '';
+        $list_rekalantas = guzzle_request('GET', $url_list, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+        echo json_encode($list_rekalantas['data']['rows']);
+    }
+    public function rekalantasMonth()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $url_list = 'rekalantas/daily?topPolda=true&start_date=' . $start_date . '&end_date=' . $end_date . '';
+        $list_rekalantas = guzzle_request('GET', $url_list, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        echo json_encode($list_rekalantas['data']['rows']);
+    }
+
+    public function rekalantasYear()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $url_list = 'rekalantas/daily?topPolda=true&start_date=' . $start_date . '&end_date=' . $end_date . '';
+        $list_rekalantas = guzzle_request('GET', $url_list, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        echo json_encode($list_rekalantas['data']['rows']);
+    }
 }

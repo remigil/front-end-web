@@ -4,7 +4,7 @@
             <a href="<?= base_url('statistik_nasional') ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
         </div>
         <div class="col-md-6 text-end align-self-center">
-            <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
+            <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a> -->
             <!-- <button type="button" class="btn btn-outline-info float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
@@ -12,10 +12,10 @@
     </div>
     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
         <div class="row m-2">
-            <div class="col-sm-4 col-md-5 align-self-center">
-                <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">Jemenopsrek <span style="color:#000;">Nasional</span></span> </h2>
+            <div class="col-sm-2 col-md-6 align-self-center">
+                <h3>STATISTIK DATA <span style="text-transform:uppercase ; color:#0007D8">Troublespot</span> SELURUH INDONESIA</h3>
             </div>
-            <div class="col-sm-8 col-md-7">
+            <div class="col-sm-8 col-md-6">
                 <div class="row m-2">
                     <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
@@ -26,7 +26,16 @@
                                     </div>
                                     <div class="col-md-5 float-end">
                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="jemenopsrekThisDay"></h1>
-                                        <p class="text-center mb-0">Jemenopsrek</p>
+                                        <p class="text-center mb-0">Troublespot</p>
+                                    </div>
+                                    <div class="col-md-12 ms-3">
+                                        <div class="row">
+                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalDay">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +50,16 @@
                                     </div>
                                     <div class="col-md-5 float-end">
                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="jemenopsrekThisMonth"></h1>
-                                        <p class="text-center mb-0">Jemenopsrek</p>
+                                        <p class="text-center mb-0">Troublespot</p>
+                                    </div>
+                                    <div class="col-md-12 ms-3">
+                                        <div class="row">
+                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalMonth">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +74,16 @@
                                     </div>
                                     <div class="col-md-5 float-end">
                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="jemenopsrekThisYear"></h1>
-                                        <p class="text-center mb-0">Jemenopsrek</p>
+                                        <p class="text-center mb-0">Troublespot</p>
+                                    </div>
+                                    <div class="col-md-12 ms-3">
+                                        <div class="row">
+                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
+                                                <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalYear">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -64,6 +91,182 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="ModalDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
+        <div class="modal-content">
+            <div class=" modal-header">
+                <h5 class="modal-title" id="modalLabelDay">Detail Troublespot tanggal <?= format_indo(date('Y-m-d'))  ?> Seluruh Polda </h5>
+                <!-- <h5 class="modal-title" id="modalLabelDay">Detail Troublespot tanggal <?= format_indo(date('Y-m-d'))  ?> Seluruh Polda <span class="fs-5">sasdasdasd</span></h5> -->
+
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+            </div>
+            <div class="modal-body">
+                <div style="line-height: 0.8;">
+                    <div class="row mb-3">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="start_date_table" id="start_date_table" value="<?= date('Y-m-d'); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="date" name="end_date_table" id="end_date_table" value="<?= date('Y-m-d'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('day')">Tampilkan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-hover" id="tableLakaDay" style="background:white; ">
+                        <thead style="background-color:#0007D8; color:#fff;">
+                            <tr class="text-center">
+                                <th scope="col" style="width:fit-content;">No</th>
+                                <th scope="col">Kode Troublespot</th>
+                                <th scope="col">Polda</th>
+                                <th scope="col">Lokasi Kejadian</th>
+                                <th scope="col">Permasalahan</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-lakaDay">
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+        </div>
+    </div>
+</div>
+<div class="modal fade " id="ModalMonth" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
+        <div class="modal-content">
+            <div class=" modal-header">
+                <h5 class="modal-title" id="modalLabelMonth">Detail Troublespot Bulan <?= format_indo(date('Y-m'))  ?> Seluruh Polda</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+            </div>
+            <div class="modal-body">
+                <div style="line-height: 0.8;">
+                    <div class="row mb-3">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="month" name="start_date_table" id="start_date_table_m" value="<?= date('Y-m'); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="month" name="end_date_table" id="end_date_table_m" value="<?= date('Y-m'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('month')">Tampilkan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-hover" id="tableLakaMonth" style="background:white; ">
+                        <thead style="background-color:#0007D8; color:#fff;">
+                            <tr class="text-center">
+                                <th scope="col" style="width:fit-content;">No</th>
+                                <th scope="col">Kode Troublespot</th>
+                                <th scope="col">Polda</th>
+                                <th scope="col">Lokasi Kejadian</th>
+                                <th scope="col">Permasalahan</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-lakaMonth">
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+            <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
+        </div>
+    </div>
+</div>
+<div class="modal fade " id="ModalYear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
+        <div class="modal-content">
+            <div class=" modal-header">
+                <h5 class="modal-title" id="modalLabelYear">Detail Troublespot Tahun <?= format_indo(date('Y')) ?> Seluruh Polda</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button> -->
+            </div>
+            <div class="modal-body">
+                <div style="line-height: 0.8;">
+                    <div class="row mb-3">
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="number" name="start_date_table" id="start_date_table_y" value="<?= date('Y'); ?>">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control form-control-lg" type="number" name="end_date_table" id="end_date_table_y" value="<?= date('Y'); ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('year')">Tampilkan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-hover" id="tableLakaYear" style="background:white; ">
+                        <thead style="background-color:#0007D8; color:#fff;">
+                            <tr class="text-center">
+                                <th scope="col">No</th>
+                                <th scope="col">Kode Troublespot</th>
+                                <th scope="col">Polda</th>
+                                <th scope="col">Lokasi Kejadian</th>
+                                <th scope="col">Permasalahan</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-lakaYear">
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+            <!-- <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div> -->
         </div>
     </div>
 </div>
@@ -102,85 +305,6 @@ if ($mobile === true) { ?>
 <div class="container-fluid">
 
     <div class="card">
-        <div class="row m-3" style="font-size: 16px;">
-            <div class="col-xl-12">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
-                    </li>
-                </ul>
-
-
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <div class="row">
-                            <div class="col-md-12 mt-3">
-                                <h5>Ranking Polda Data Jemenopsrek Tertinggi <?= date('d M Y'); ?></h5>
-                                <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover" id="tableJemenopsrekDay">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Jemenopsrek</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbody-jemenopsrekDay">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="row">
-                            <div class="col-md-12 mt-3">
-                                <h5>Ranking Polda Data Jemenopsrek Tertinggi <?= date('M Y'); ?></h5>
-                                <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover" id="tableJemenopsrekMonth">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Jemenopsrek</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbody-jemenopsrekMonth">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <div class="row">
-                            <div class="col-md-12 mt-3">
-                                <h5>Ranking Polda Data Jemenopsrek Tertinggi <?= date('Y'); ?></h5>
-                                <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover" id="tableJemenopsrekYear">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Jemenopsrek</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbody-jemenopsrekYear">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row">
             <hr style="width:97%; margin: auto">
             <div class="filter mt-4" style=" height:125px;">
@@ -222,16 +346,17 @@ if ($mobile === true) { ?>
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
-                        <div id="title"></div>
+                        <div id="title">TOP DATA TROUBLESPOT LALU LINTAS</div>
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Show data</label>
-                                    <select class="form-control" id="limit_showData">
-                                        <option value="3">3</option>
-                                        <option value="5" selected>5</option>
-                                        <option value="7">7</option>
-                                        <option value="10">10</option>
+                                    <label for="exampleFormControlSelect1">Pilih Jumlah Polda</label>
+                                    <select class="form-control form-select" id="limit_showData">
+                                        <option value="3">3 Troublespot</option>
+                                        <option value="5" selected>5 Troublespot</option>
+                                        <option value="7">7 Troublespot</option>
+                                        <option value="10">10 Troublespot</option>
+                                        <option value="34">Keseluruhan Troublespot</option>
                                     </select>
                                 </div>
                             </div>
@@ -251,7 +376,353 @@ if ($mobile === true) { ?>
 </div>
 <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+
 <script>
+    $(document).ready(function() {
+        var date = new Date();
+        var filter = 0
+        var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
+        var lastDay = new Date(date.getFullYear(), 11, 31).toLocaleDateString("en-GB").split('/').reverse().join('-');
+        var yesterday = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
+
+        var firstDayMonth = new Date(date.getFullYear(), date.getMonth(), 1).toLocaleDateString("en-GB").split('/').reverse().join('-');
+        var lastDayMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
+
+        date.setDate(date.getDate() - 6);
+        var seven_daysAgo = date.toLocaleDateString("en-GB").split('/').reverse().join('-');
+
+        var limit = $('#limit_showData').val();
+
+        getBarTroublespot(filter, limit, firstDay, lastDay)
+        getLineTroublespot(filter = 1, firstDay, lastDay, 'year')
+        getStatistikTroublespot(filter = 1, yesterday, firstDay, lastDay, firstDayMonth, lastDayMonth)
+        TroublespotToday(yesterday, yesterday)
+        TroublespotMonth(firstDayMonth, lastDayMonth)
+        TroublespotYear(firstDay, lastDay)
+    })
+
+    $('#limit_showData').on('change', function() {
+        var limit = $('#limit_showData').val();
+        var start_date = $('#start_date').val();
+        var end_date = $('#end_date').val();
+
+        if (start_date == '' && end_date == '') {
+            getBarTroublespot(0, limit, 0, null, null)
+        } else {
+            getBarTroublespot(0, limit, 0, start_date, start_date)
+        }
+
+    })
+
+    function ButtonFilterOnTable(type) {
+        if (type === 'day') {
+            var start_date = $('#start_date_table').val();
+            var end_date = $('#end_date_table').val();
+            $('#modalLabelDay').text(`Detail Troublespot Tanggal ${moment(start_date).format('DD MM YYYY')} s.d ${moment(end_date).format('DD MM YYYY')} Seluruh Polda`)
+            TroublespotToday(start_date, end_date)
+        } else if (type === 'month') {
+            var start_date = moment($('#start_date_table_m').val()).startOf('month').format('YYYY-MM-DD');
+            var end_date = moment($('#end_date_table_m').val()).endOf('month').format('YYYY-MM-DD')
+            $('#modalLabelMonth').text(`Detail Troublespot Bulan ${moment(start_date).format('MM YYYY')} s.d ${moment(end_date).format('MM YYYY')} Seluruh Polda`)
+            TroublespotMonth(start_date, end_date)
+        } else if (type === 'year') {
+            var start_date = moment($('#start_date_table_y').val()).startOf('year').format('YYYY-MM-DD');
+            var end_date = moment($('#end_date_table_y').val()).endOf('year').format('YYYY-MM-DD')
+            $('#modalLabelYear').text(`Detail Troublespot Tahun ${moment(start_date).format('YYYY')} s.d ${moment(end_date).format('YYYY')} Seluruh Polda`)
+            TroublespotYear(start_date, end_date)
+        }
+    }
+
+
+    function TroublespotToday(start_date, end_date) {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>executive/statistik_executive/troublespotToday",
+            dataType: "JSON",
+            data: {
+                start_date,
+                end_date
+            },
+            success: function(result) {
+                console.log(result)
+                var table = '';
+                for (let i = 0; i < result.length; i++) {
+                    let x = parseInt(i)
+                    table += `<tr class="text-center"> 
+                        <td>  ${i+1}  </td> 
+                        <td>  ${result[i].no_ts}  </td> 
+                        <td>  ${result[i].polda.name_polda}  </td> 
+                        <td>  ${result[i].location}  </td> 
+                        <td>  ${result[i].traffic_reason || ''}  </td> 
+                        </tr>`
+                }
+                $('#tbody-lakaDay').html(table);
+            }
+        })
+    }
+
+
+    function TroublespotMonth(start_date, end_date) {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>executive/statistik_executive/troublespotMonth",
+            dataType: "JSON",
+            data: {
+                start_date,
+                end_date
+            },
+            success: function(result) {
+                var table = '';
+                console.log(result)
+                for (let i = 0; i < result.length; i++) {
+                    let x = parseInt(i)
+                    table += `<tr class="text-center"> 
+                        <td>  ${i+1}  </td> 
+                        <td>  ${result[i].no_ts}  </td> 
+                        <td>  ${result[i].polda.name_polda}  </td> 
+                        <td>  ${result[i].location}  </td> 
+                        <td>  ${result[i].traffic_reason || ''}  </td> 
+                        </tr>`
+                }
+                $('#tbody-lakaMonth').html(table);
+            }
+        })
+    }
+
+    function TroublespotYear(start_date, end_date) {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>executive/statistik_executive/troublespotYear",
+            dataType: "JSON",
+            data: {
+                start_date,
+                end_date
+            },
+            success: function(result) {
+                var table = '';
+                console.log(result)
+                for (let i = 0; i < result.length; i++) {
+                    let x = parseInt(i)
+                    table += `<tr class="text-center"> 
+                        <td>  ${i+1}  </td> 
+                        <td>  ${result[i].no_ts}  </td> 
+                        <td>  ${result[i].polda.name_polda}  </td> 
+                        <td>  ${result[i].location}  </td> 
+                        <td>  ${result[i].traffic_reason || ''}  </td> 
+                        </tr>`
+                }
+                $('#tbody-lakaYear').html(table);
+            }
+        })
+    }
+
+    function ButtonFilter() {
+        let filter = 2
+        let start_date = $('#start_date').val();
+        let end_date = $('#end_date').val();
+        let limit = $('#limit_showData').val();
+        let type = 'day';
+
+        if (start_date === '' || end_date === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Waktu mulai dan waktu akhir harus terisi!',
+            })
+        } else {
+            getBarTroublespot(filter, limit, start_date, end_date)
+            getLineTroublespot(filter, start_date, end_date, type)
+        }
+
+
+    }
+
+
+
+
+    function getStatistikTroublespot(filter, yesterday, firstDay, lastDay, firstDayMonth, lastDayMonth) {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>executive/statistik_executive/getTroublespotStatistik",
+            dataType: "JSON",
+            data: {
+                yesterday,
+                firstDayMonth,
+                lastDayMonth,
+                firstDay,
+                lastDay,
+                filter
+            },
+            success: function(result) {
+                console.log(result);
+                $("#overlay").fadeOut(300);
+                $('#jemenopsrekThisDay').text(result.today)
+                $('#jemenopsrekThisMonth').text(result.month)
+                $('#jemenopsrekThisYear').text(result.year)
+
+            }
+        })
+    }
+
+
+    function getBarTroublespot(filter = null, limit = null, start_date = null, end_date = null) {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>executive/statistik_executive/getBarTroublespot",
+            data: {
+                filter: filter,
+                limit: limit,
+                start_date: start_date,
+                end_date: end_date
+            },
+            dataType: "JSON",
+            success: function(result) {
+                $("#charta").html(`<div id="troublespotchart"></div>`);
+
+                var options_troublespot = {
+                    series: [{
+                        name: 'Jumlah troublespot',
+                        data: result.total,
+                        color: "#003A91",
+                    }],
+                    chart: {
+                        type: 'bar',
+                        height: 380
+                    },
+                    tooltip: {
+                        fixed: {
+                            enabled: true
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '40%',
+                            endingShape: 'circle',
+                            dataLabels: {
+                                position: 'top'
+                            }
+                        },
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        style: {
+                            colors: ['#333'],
+                            fontSize: '16px',
+                        },
+                        offsetY: -20
+                    },
+                    stroke: {
+                        show: true,
+                        width: 2,
+                        colors: ['transparent']
+                    },
+                    xaxis: {
+                        categories: result.name_polda,
+                        labels: {
+                            show: true,
+                            rotate: -45,
+                            rotateAlways: false,
+                            hideOverlappingLabels: true,
+                            showDuplicates: false,
+                            trim: false,
+                            minHeight: undefined,
+                            maxHeight: 120,
+                            style: {
+                                // color: '#000000',
+                                fontSize: '16px',
+                                fontFamily: 'Helvetica, Arial, sans-serif',
+                                fontWeight: 'bold',
+                                cssClass: 'apexcharts-xaxis-label',
+                            },
+                        },
+                    },
+
+                    fill: {
+                        opacity: 1
+                    },
+
+                };
+
+                var troublespot = new ApexCharts(document.querySelector("#troublespotchart"), options_troublespot);
+                troublespot.render();
+
+            }
+        })
+    }
+
+    function getLineTroublespot(filter = null, start_date = null, end_date = null, type = null) {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineTroublespot",
+            data: {
+                start_date: start_date,
+                end_date: end_date,
+                filter: filter,
+                type: type
+            },
+            dataType: "JSON",
+            success: function(results) {
+                $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${results.title}</h1>`);
+                $("#chartdate").html(`<div id="chart2"></div>`);
+                var chart2 = {
+                    series: [{
+                        name: '<h6>Total Troublespot</h6>',
+                        type: 'line',
+                        data: results.total,
+                        color: "#11347A"
+                    }],
+                    chart: {
+                        height: 400,
+                        type: 'line',
+                        stacked: false
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '55%',
+                            endingShape: 'rounded',
+                            dataLabels: {
+                                position: 'top'
+                            }
+                        },
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        style: {
+                            colors: ['#333']
+                        },
+                        offsetY: -15
+                    },
+                    markers: {
+                        size: 4,
+                        colors: '#kkk',
+                        fillOpacity: 0.9,
+                        shape: "circle",
+                        radius: 2,
+                    },
+                    xaxis: {
+                        categories: results.date,
+                        labels: {
+                            show: true,
+                            style: {
+                                colors: ['#f70505'],
+                                fontSize: '18px',
+                                fontWeight: 400,
+                            }
+                        },
+                        tickPlacement: 'between'
+                    }
+
+                };
+
+                var walpjr = new ApexCharts(document.querySelector("#chart2"), chart2);
+                walpjr.render();
+            }
+        })
+    }
+</script>
+<!-- <script>
     $(document).ready(function() {
         let filter = 0
         var date = new Date();
@@ -765,7 +1236,6 @@ if ($mobile === true) { ?>
                 let nf = new Intl.NumberFormat('en-US');
                 for (let i = 0; i < result.length; i++) {
                     let x = parseInt(i)
-                    let no = x + 1
                     table += `<tr class="text-center"> 
                         <td>  ${no}  </td> 
                         <td>  ${result[i].name_polda}  </td>  
@@ -810,7 +1280,6 @@ if ($mobile === true) { ?>
                 let nf = new Intl.NumberFormat('en-US');
                 for (let i = 0; i < result.length; i++) {
                     let x = parseInt(i)
-                    let no = x + 1
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
                             <td>  ${result[i].name_polda}  </td>  
@@ -855,7 +1324,6 @@ if ($mobile === true) { ?>
                 let nf = new Intl.NumberFormat('en-US');
                 for (let i = 0; i < result.length; i++) {
                     let x = parseInt(i)
-                    let no = x + 1
                     table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
                             <td>  ${result[i].name_polda}  </td>  
@@ -884,4 +1352,4 @@ if ($mobile === true) { ?>
             }
         })
     }
-</script>
+</script> -->
