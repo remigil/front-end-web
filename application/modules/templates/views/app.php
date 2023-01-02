@@ -2157,24 +2157,24 @@
                                     <ul class="sub-menu" aria-expanded="false">
 
                                         <li>
-                                            <a href="<?= base_url('ditgakkum/subditgakkum/' . $this->session->userdata['polda_id']); ?>" data-key="t-login">
+                                            <a href="<?= base_url('ditgakkum/subditgakkum/detail_polda/' . $this->session->userdata['polda_id']); ?>" data-key="t-login">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">SUBGAKKUM</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?= base_url('ditregident/subditregident/' . $this->session->userdata['polda_id']); ?>" data-key="t-login">
+                                            <a href="<?= base_url('ditregident/subditregident/detail_polda/' . $this->session->userdata['polda_id']); ?>" data-key="t-login">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">SUBREGIDENT</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?= base_url('ditkamsel/subditkamsel/' . $this->session->userdata['polda_id']); ?>" data-key="t-register">
+                                            <a href="<?= base_url('ditkamsel/subditkamsel/detail_polda/' . $this->session->userdata['polda_id']); ?>" data-key="t-register">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">SUBKAMSEL</span>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="<?= base_url('bagrenmin/subbagrenmin/' . $this->session->userdata['polda_id']); ?>" data-key="t-register">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">SUBBAGRENMIN</span>
@@ -2191,7 +2191,7 @@
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">SUBBAGTIK</span>
                                             </a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </li>
 
@@ -2866,12 +2866,12 @@
                                 listPoldaDisplay1 += `
                                 <tr>
                                     <td>
-                                        <a href=<?= base_url('executive/Polda_executive/') ?>${ressData[i].id}>
+                                        <a href=<?= base_url('executive/Polda_executive/detail_polda_page/') ?>${ressData[i].id}>
                                             <img src="<?= url_api(); ?>polda/logo/${ressData[i].logo_polda}" style="width:35px;">
                                         </a>
                                     </td>
                                     <td>
-                                        <a href=<?= base_url('executive/Polda_executive/') ?>${ressData[i].id}>
+                                        <a href=<?= base_url('executive/Polda_executive/detail_polda_page/') ?>${ressData[i].id}>
                                             ${ressData[i].name_polda}
                                         </a>
                                     </td>
