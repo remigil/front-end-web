@@ -50,9 +50,9 @@
                                 <a class="dropdown-item fs-4" href="#">Subbagrenmin Polda</a>
                                 <a class="dropdown-item fs-4" href="#">Subbagops Polda</a>
                                 <a class="dropdown-item fs-4" href="#">Subbagtik Polda</a> -->
-                                <a class="dropdown-item fs-4" href="../../ditgakkum/subditgakkum/<?= $data['id']; ?>">Subditgakkum Polda</a>
-                                <a class="dropdown-item fs-4" href="../../ditregident/subditregident/subdit/<?= $data['id']; ?>">Subditregident Polda</a>
-                                <a class="dropdown-item fs-4" href="../../ditkamsel/subditkamsel/<?= $data['id']; ?>">Subdikamsel Polda</a>
+                                <a class="dropdown-item fs-4" href="<?= base_url() ?>ditgakkum/subditgakkum/detail_polda/<?= $data['id']; ?>">Subditgakkum Polda</a>
+                                <a class="dropdown-item fs-4" href="<?= base_url() ?>ditregident/subditregident/detail_polda/<?= $data['id']; ?>">Subditregident Polda</a>
+                                <a class="dropdown-item fs-4" href="<?= base_url() ?>ditkamsel/subditkamsel/detail_polda/<?= $data['id']; ?>">Subdikamsel Polda</a>
                                 <!-- <a class="dropdown-item fs-4" href="../../bagrenim/subbagrenmin/<?= $data['id']; ?>">Subbagrenmin Polda</a>
                                 <a class="dropdown-item fs-4" href="../../bagops/subbagops/<?= $data['id']; ?>">Subbagops Polda</a>
                                 <a class="dropdown-item fs-4" href="../../bagtik/subbagtik/<?= $data['id']; ?>">Subbagtik Polda</a> -->

@@ -42,7 +42,6 @@ class Ditregident extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
-
     public function inputData()
     {
         $page_content["css"] = '';
