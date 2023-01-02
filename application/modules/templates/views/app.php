@@ -1265,6 +1265,7 @@
                                             <li><a href="<?php echo base_url('masterdata/Polres'); ?>" data-key="t-read-email">Polres</a></li>
                                         <?php } ?>
                                         <!-- <li><a href="<?php echo base_url('masterdata/Cctv'); ?>" data-key="t-read-email">CCTV</a></li> -->
+                                        <li><a href="<?php echo base_url('user/operator'); ?>" data-key="t-read-email">Operasi</a></li>
                                         <li><a href="<?php echo base_url('masterdata/categorySchedule'); ?>" data-key="t-read-email">Kategori Jadwal Kegiatan</a></li>
                                         <li><a href="<?php echo base_url('masterdata/jabatan'); ?>" data-key="t-read-email">Jabatan VIP</a></li>
                                         <li><a href="<?php echo base_url('masterdata/negara'); ?>" data-key="t-read-email">Negara / Organisasi VIP</a></li>

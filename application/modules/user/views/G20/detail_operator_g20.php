@@ -15,7 +15,7 @@
                     <p class="fs-4 fw-bold">DETAIL AKUN</p>
                 </div>
                 <div class="col-md-6">
-                    <a href="<?= base_url('operasi/Petugas/Edit/'.$data['getDetail']['data']['id'].''); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
+                    <a href="<?= base_url('user/operator/Edit/'.$data['getDetail']['data']['id'].''); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
                 </div>
             </div>
             <div class="card">
@@ -24,34 +24,22 @@
                         <div class="col-12">
                             <div class="row text-primary">
                                 <div class="col-md-3">
-                                    <img src="<?php echo ($data['getDetail']['data']['photo_officer'] != null ? ''.urlApi().'public/uploads/officer/'.$data['getDetail']['data']['photo_officer'].'' : '');?>" alt="">
+                                    <img src="<?php echo ($data['getDetail']['data']['logo'] != null ? ''.url_api().'logo/'.$data['getDetail']['data']['logo'].'' : '');?>" alt="">
                                 </div>
                                 <div class="col-md-2">
-                                    <p>NAMA PETUGAS</p>
-                                    <p>NRP</p>
-                                    <p>PANGKAT</p>
-                                    <p>STRUKTURAN</p>
-                                    <p>DALAM PAM</p>
-                                    <p>NOMOR HANDPHONE</p>
-                                    <p>STATUS</p>
+                                    <p>NAMA OPERASI</p>
+                                    <p>TANGGAL MULAI</p>
+                                    <p>TANGGAL SELESAI</p> 
                                 </div>
                                 <div class="col-md-1">
                                     <p>:</p>
                                     <p>:</p>
-                                    <p>:</p>
-                                    <p>:</p>
-                                    <p>:</p>
-                                    <p>:</p>
-                                    <p>:</p>
+                                    <p>:</p> 
                                 </div>
-                                <div class="col-md-6">
-                                    <p><?php echo $data['getDetail']['data']['name_officer'];?></p>
-                                    <p><?php echo $data['getDetail']['data']['nrp_officer'];?></p>
-                                    <p><?php echo $data['getDetail']['data']['rank_officer'];?></p>
-                                    <p><?php echo $data['getDetail']['data']['structural_officer'];?></p>
-                                    <p><?php echo $data['getDetail']['data']['pam_officer'];?></p>
-                                    <p><?php echo $data['getDetail']['data']['phone_officer'];?></p>
-                                    <p><?php echo ($data['getDetail']['data']['status_officer'] == '1' ? 'Active' : 'Nonactive');?></p>
+                                <div class="col-md-6"> 
+                                    <p><?php echo ($data['getDetail']['data']['name_operation'] ? $data['getDetail']['data']['name_operation'] : '-');?></p>
+                                    <p><?php echo ($data['getDetail']['data']['date_start_operation'] ? $data['getDetail']['data']['date_start_operation'] : '-');?></p>
+                                    <p><?php echo ($data['getDetail']['data']['date_end_operation'] ? $data['getDetail']['data']['date_end_operation'] : '-');?></p>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +47,7 @@
                 </div>
             </div>
             <div class="col-12 mt-3">
-                <a href="<?= base_url('operasi/Petugas'); ?>"><button class="btn btn-sm btn-primary float-end" style="width: 40vh;">Kembali</button></a>
+                <a href="<?= base_url('user/operator'); ?>"><button class="btn btn-sm btn-primary float-end" style="width: 40vh;">Kembali</button></a>
 
             </div>
         </div>

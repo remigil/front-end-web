@@ -206,6 +206,26 @@
                                 <!-- <label class="labelmui">Subjek</label> -->
                             </div>
                         </div>
+
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <div class="material-selectfield mb-3">
+                                <select required name="polda_id" id="polda_id"  class="form-select">
+                                    <option selected value="">Pilih Polda</option> 
+                                    <?php foreach ($data['getPolda'] as $row) : ?>
+                                        <option value="<?php echo $row['id']; ?>" data-polda="<?php echo $row['polda_id']; ?>"><?php echo $row['name_polda']; ?></option>
+                                    <?php endforeach; ?>
+                                </select> 
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-selectfield mb-3" id="selectPolres">
+                                <select required name="polres_id" id="polres_id" class="form-select">
+                                    <option selected value="">Pilih Polres</option> 
+                                </select> 
+                            </div>
+                        </div>
+
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
                                 <input required style="width: 100%;" name="total_vehicle" placeholder="" type="text">
@@ -870,6 +890,41 @@
             classNames: {
                 containerOuter: 'choices select-choices',
             },
+        });
+
+        $("#selectPolres").hide();
+        $("#polda_id").on("change", function(e) {
+            var selected = $(this).find(':selected');    
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>operasi/renpam/getPolresByPolda",
+                data: {
+                    "polda_id": selected.data('polda'),
+                },
+                dataType: "JSON",
+                success: function(result) {
+                    console.log(result);
+
+                    if(result['data'].length > 0){ 
+                        $("#selectPolres").show();
+                        var ress = result['data'];
+                        var count = 0;
+                        var list = '';
+
+                        list += `
+                                <option selected value="">Pilih Polres</option> 
+                            `;
+                        ress.forEach(el => {
+                            list += `
+                                <option value="${el.id}">${el.name_polres}</option> 
+                            `;
+                            $("#polres_id").html(list);
+                        });
+                    }else{
+                        $("#polres_id").html(`<option selected value="">Polres Tidak Ada</option>`);
+                    }
+                }
+            });
         });
 
         if(optionData.length == 0){

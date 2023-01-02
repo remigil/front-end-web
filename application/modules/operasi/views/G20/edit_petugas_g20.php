@@ -90,7 +90,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select class="form-select" name="polda_id" id="select2">
+                                    <select class="form-select" name="polda_id" id="polda_id">
                                         <option <?php echo ($data['getDetail']['data']['polda_id'] == null ? 'selected' : '');?> value="">Pilih Polda</option>
 
                                         <?php foreach($data['getPolda'] as $row): ?>
@@ -99,6 +99,13 @@
                                          
                                     </select>
                                     <!-- <label class="labelmui">Pangkat </label> -->
+                                </div>
+                            </div> 
+                            <div class="col-md-6">
+                                <div class="material-selectfield mb-3" id="selectPolres">
+                                    <select required name="polres_id" id="polres_id" class="form-select">
+                                        <option selected value="">Pilih Polres</option> 
+                                    </select> 
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -143,7 +150,17 @@
             },
         }); 
 
-        new Choices('#select2', {
+        // new Choices('#polda_id', {
+        //     searchEnabled: true,
+        //     removeItemButton: true,
+        //     removeItems: true,
+        //     itemSelectText: '',
+        //     classNames: {
+        //         containerOuter: 'choices select-choices',
+        //     },
+        // }); 
+
+        new Choices('#select3', {
             searchEnabled: true,
             removeItemButton: true,
             removeItems: true,
@@ -153,15 +170,48 @@
             },
         }); 
 
-new Choices('#select3', {
-    searchEnabled: true,
-    removeItemButton: true,
-    removeItems: true,
-    itemSelectText: '',
-    classNames: {
-        containerOuter: 'choices select-choices',
-    },
-}); 
+
+        var idpolda = '<?= $data['getDetail']['data']['polda_id'];?>';
+        var idpolres = '<?= $data['getDetail']['data']['polres_id'];?>';
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>operasi/renpam/getPolresByPolda",
+            data: {
+                "polda_id": idpolda,
+            },
+            dataType: "JSON",
+            success: function(result) {
+                console.log(result);
+
+                if(result['data'].length > 0){ 
+                    $("#selectPolres").show();
+                    var ress = result['data'];
+                    var count = 0;
+                    var list = '';
+
+                    list += `
+                            <option selected value="">Pilih Polres</option> 
+                        `;
+                    ress.forEach(el => { 
+                        if(el.polres_id == idpolres){
+                            kondisi = 'selected';
+                        }else{
+                            kondisi = ``;
+                        }
+                        list += `
+                            <option value="${el.id}" ${kondisi} >${el.name_polres}</option> 
+                        `;
+                        $("#polres_id").html(list);
+                    });
+
+                    
+                }else{
+                    $("#polres_id").html(`<option selected value="">Polres Tidak Ada</option>`);
+                }
+            }
+        });
+
+
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
             e.preventDefault(); 
