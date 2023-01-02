@@ -73,23 +73,48 @@ class Ditkamsel extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
         $date = date("Y-m-d");
-        $getkamsel = guzzle_request('GET', 'ditkamsel/daily?date=' . $date . '', [
+        $getkamselrekalantas = guzzle_request('GET', 'rekalantas/daily?date=' . $date . '', [
             'headers' => $headers
         ]);
-        $getkamsel = $getkamsel["data"];
+        $getkamseltroublespot = guzzle_request('GET', 'troublespot/daily?date=' . $date . '', [
+            'headers' => $headers
+        ]);
+        $getkamselblackspot = guzzle_request('GET', 'blankspot/daily?date=' . $date . '', [
+            'headers' => $headers
+        ]);
+        $getkamseldikmaslantas = guzzle_request('GET', 'dikmaslantas/daily?date=' . $date . '', [
+            'headers' => $headers
+        ]);
+        $getkamselrekalantas = $getkamselrekalantas["data"];
+        $getkamseltroublespot = $getkamseltroublespot["data"];
+        $getkamselblackspot = $getkamselblackspot["data"];
+        $getkamseldikmaslantas = $getkamseldikmaslantas["data"];
 
+
+        $totalrekalantas = 0;
+        $totaltroublespot = 0;
+        $totalblackspot = 0;
         $totaldikmaslantas = 0;
-        for ($i = 0; $i < count($getkamsel); $i++) {
-            $totaldikmaslantas += $getkamsel[$i]['dikmaslantas'];
+        for ($i = 0; $i < count($getkamselrekalantas); $i++) {
+            $totalrekalantas += $getkamselrekalantas[$i]['total'];
+        }
+        for ($i = 0; $i < count($getkamseltroublespot); $i++) {
+            $totaltroublespot += $totaltroublespot[$i]['total'];
+        }
+        for ($i = 0; $i < count($getkamselblackspot); $i++) {
+            $totalblackspot += $totalblackspot[$i]['total'];
+        }
+        for ($i = 0; $i < count($getkamseldikmaslantas); $i++) {
+            $totaldikmaslantas += $totaldikmaslantas[$i]['total'];
         }
 
 
 
         $data = [
+            'rekalantas' => number_format($totalrekalantas, 0, '', '.'),
+            'troublespot' => number_format($totaltroublespot, 0, '', '.'),
+            'blackspot' => number_format($totalblackspot, 0, '', '.'),
             'dikmaslantas' => number_format($totaldikmaslantas, 0, '', '.'),
-            'jemenopsrek' =>  0,
-            'cegah' => 0,
-            'audit' => 0,
         ];
         echo json_encode($data);
     }
@@ -114,6 +139,90 @@ class Ditkamsel extends MY_Controller
             'end_date' => $end_date,
         ];
         $getdata = $this->M_ditkamsel->getChartDitkamsel($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+    public function getChartBlackspot()
+    {
+        $title = 'DATA Blackspot';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditkamsel->getChartBlackspot($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+    public function getChartTroublespot()
+    {
+        $title = 'DATA Troublespot';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditkamsel->getChartTroublespot($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+    public function getChartDikmaslantas()
+    {
+        $title = 'DATA Ditkamsel';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditkamsel->getChartDikmaslantas($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+    public function getChartRekalantas()
+    {
+        $title = 'DATA Ditkamsel';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $filterbaru = [
+            'filter' => true,
+            'type' => $filter,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditkamsel->getChartRekalantas($filterbaru);
         $data = [
             'data' => $getdata,
             'title' => $title,
