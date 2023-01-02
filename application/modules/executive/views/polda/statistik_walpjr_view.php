@@ -10,22 +10,24 @@
              <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
          </div>
      </div>
-     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
+     <div class="card mt-5 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
-             <div class="col-sm-4 col-md-5 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">WAL & PJR <span style="color:#000;">Polda&nbsp;<?= $data['poldaid']['name_polda']; ?></span></span> </h2>
+             <div class="col-sm-2 col-md-2 align-self-center">
+                 <h4>STATISTIK DATA</h4>
+                 <h4> <span style="text-transform:uppercase ; color:#0007D8">WAL & PJR</span> </h4>
+                 <h4 class="text-uppercase"><?= $data['poldaid']['name_polda']; ?></h4>
              </div>
-             <div class="col-sm-8 col-md-7">
+             <div class="col-sm-10 col-md-10">
                  <div class="row m-2">
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Harian</h4>
+                                         <h5 class="mb-0 ms-3">Hari Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="walpjrThisDay"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="walpjrThisDay"></h1>
                                          <p class="text-center mb-0">WAL & PJR</p>
                                      </div>
                                  </div>
@@ -33,14 +35,14 @@
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Bulanan</h4>
+                                         <h5 class="mb-0 ms-3">Bulan Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="walpjrThisMonth"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="walpjrThisMonth"></h1>
                                          <p class="text-center mb-0">WAL & PJR</p>
                                      </div>
                                  </div>
@@ -48,14 +50,14 @@
                          </div>
                      </div>
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                             <div class="card-body p-1">
+                         <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                             <div class="card-body">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Tahunan</h4>
+                                         <h5 class="mb-0 ms-3">Tahun Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="walpjrThisYear"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="walpjrThisYear"></h1>
                                          <p class="text-center mb-0">WAL & PJR</p>
                                      </div>
                                  </div>
@@ -102,103 +104,31 @@
  <div class="container-fluid">
 
      <div class="card">
-         <div class="row m-3" style="font-size: 16px; display:none;">
-             <div class="col-xl-12">
-                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
-                     </li>
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
-                     </li>
-                     <li class="nav-item" role="presentation">
-                         <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
-                     </li>
-                 </ul>
-
-
-                 <div class="tab-content" id="pills-tabContent">
-                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data WAL & PJR Tertinggi <?= date('d M Y'); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableWalpjrDay">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">WAL & PJR</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-walpjrDay">
-                                         </tbody>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data WAL & PJR Tertinggi <?= date('M Y'); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableWalpjrMonth">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Wal & PJR</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-walpjrMonth">
-                                         </tbody>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                         <div class="row">
-                             <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data WAL & PJR Tertinggi <?= date('Y'); ?></h5>
-                                 <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableWalpjrYear">
-                                         <thead style="background-color:#007DD8; color:#fff;">
-                                             <tr class="text-center">
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Polda</th>
-                                                 <th scope="col">Wal & PJR</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody id="tbody-walpjrYear">
-                                         </tbody>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
          <div class="row">
              <hr style="width:97%; margin: auto">
              <div class="filter mt-4" style=" height:125px;">
                  <div class="container-fluid">
                      <div class="row">
                          <div class="col-md-9">
-                             <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                             <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
                              <div class="row">
                                  <div class="col-md-4">
-                                     <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                                     <label for="waktu" class="form-label text-uppercase">Awal</label>
                                  </div>
                                  <div class="col-md-4">
-                                     <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                                     <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="start_date" id="start_date" value="<?= date('Y-m-d', strtotime("-6 days")); ?>">
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="end_date" id="end_date" value="<?= date('Y-m-d'); ?>">
                                  </div>
                                  <div class="col-md-2">
-                                     <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                     <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                                  </div>
-
                              </div>
                          </div>
                      </div>
