@@ -34,7 +34,7 @@
 <div class="row mt-4">
     <div class="col-md-12">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="col-md-12  text-center mb-2">
                     <span class="fs-4 fw-bold text-white text-uppercase">Subgakkum</span>
                 </div>
@@ -139,7 +139,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="col-md-12  text-center mb-2">
                     <span class="fs-4 fw-bold text-white text-uppercase">Subregident</span>
                 </div>
@@ -262,7 +262,7 @@
                     </a>
                 </div> -->
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="col-md-12  text-center mb-2">
                     <span class="fs-4 fw-bold text-white text-uppercase">Subkamsel</span>
                 </div>
@@ -366,14 +366,13 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3">
+            <!-- <div class="col-md-4">
                 <div class="col-md-12  text-center mb-2">
                     <span class="fs-4 fw-bold text-white text-uppercase">Bag & Lainnya</span>
                 </div>
                 <div class="col-md-12">
                     <a href="<?= base_url('bagrenmin'); ?>">
-                        <!--  <a href="<?= base_url('executive/Polda_executive/Subrenop/' . $data['id']); ?>"> -->
-                        <div class="card" style="border-color: #33c36c;  border-radius: 20px !important; background-color:#33c36c">
+                       <div class="card" style="border-color: #33c36c;  border-radius: 20px !important; background-color:#33c36c">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style="font-size: 40px; height:60px;">
                                     <div class="col-md-10 float-start">
@@ -411,8 +410,7 @@
                                     </div>
                                     <div class=" col-md-2">
                                         <img src="<?= base_url('assets/icon/dashboard/SUBBAG_DALOPS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
-                                        <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
-                                    </div>
+                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer text-center" style="line-height: 0.05;border-color: #1A95BA;  border-radius: 0 0 20px 20px  !important; background-color:#1A95BA;">
@@ -469,7 +467,7 @@
                         </div>
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
 
 

@@ -781,15 +781,15 @@
 
                             var ditkamselrekalantasday = {
                                 series: [{
-                                    name: 'Media Cetak',
+                                    name: 'Jalan Nasional',
                                     type: 'line',
                                     data: jalan_nasional,
                                 }, {
-                                    name: 'Media Elektronik',
+                                    name: 'Jalan Provinsi',
                                     type: 'line',
                                     data: jalan_provinsi,
                                 }, {
-                                    name: 'Media Sosial',
+                                    name: 'Lain - lain',
                                     type: 'line',
                                     data: lain_lain,
                                 }, ],
@@ -901,9 +901,9 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-9">
-                                                            <span class="fw-bold">Total Media Cetak</span><br>
-                                                            <span class="fw-bold">Total Media Elektronik</span><br>
-                                                            <span class="fw-bold">Total Media Sosial</span><br>
+                                                            <span class="fw-bold">Total Jalan Nasional</span><br>
+                                                            <span class="fw-bold">Total Jalan Provinsi</span><br>
+                                                            <span class="fw-bold">Total Lain - lain</span><br>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <span class="fw-bold">${jalan_nasionalsebelumnya}</span><br>
@@ -918,9 +918,9 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-9">
-                                                            <span class="fw-bold">Total Media Cetak</span><br>
-                                                            <span class="fw-bold">Total Media Elektronik</span><br>
-                                                            <span class="fw-bold">Total Media Sosial</span><br>
+                                                            <span class="fw-bold">Total Jalan Nasional</span><br>
+                                                            <span class="fw-bold">Total Jalan Provinsi</span><br>
+                                                            <span class="fw-bold">Total Lain - lain</span><br>
                                                         </div>   
                                                         <div class="col-md-3">
                                                             <span class="fw-bold">${jalan_nasional[dataPointIndex]}</span><br>
@@ -944,9 +944,9 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-9">
-                                                            <span class="fw-bold">Total Media Cetak</span><br>
-                                                            <span class="fw-bold">Total Media Elektronik</span><br>
-                                                            <span class="fw-bold">Total Media Sosial</span><br>
+                                                            <span class="fw-bold">Total Jalan Nasional</span><br>
+                                                            <span class="fw-bold">Total Jalan Provinsi</span><br>
+                                                            <span class="fw-bold">Total Lain - lain</span><br>
                                                         </div>   
                                                         <div class="col-md-3">
                                                             <span class="fw-bold">${jalan_nasional[dataPointIndex]}</span><br>
@@ -1529,15 +1529,15 @@
 
                             var ditkamselrekalantasmonth = {
                                 series: [{
-                                    name: 'Media Cetak',
+                                    name: 'Jalan Nasional',
                                     type: 'line',
                                     data: jalan_nasional,
                                 }, {
-                                    name: 'Media Elektronik',
+                                    name: 'Jalan Provinsi',
                                     type: 'line',
                                     data: jalan_provinsi,
                                 }, {
-                                    name: 'Media Sosial',
+                                    name: 'Lain - lain',
                                     type: 'line',
                                     data: lain_lain,
                                 }, ],
@@ -1694,9 +1694,9 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-9">
-                                                            <span class="fw-bold">Total Media Cetak</span><br>
-                                                            <span class="fw-bold">Total Media Elektronik</span><br>
-                                                            <span class="fw-bold">Total Media Sosial</span><br>
+                                                            <span class="fw-bold">Total Jalan Nasional</span><br>
+                                                            <span class="fw-bold">Total Jalan Provinsi</span><br>
+                                                            <span class="fw-bold">Total Lain - lain</span><br>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <span class="fw-bold">${jalan_nasionalsebelumnya}</span><br>
@@ -1711,9 +1711,9 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-9">
-                                                            <span class="fw-bold">Total Media Cetak</span><br>
-                                                            <span class="fw-bold">Total Media Elektronik</span><br>
-                                                            <span class="fw-bold">Total Media Sosial</span><br>
+                                                            <span class="fw-bold">Total Jalan Nasional</span><br>
+                                                            <span class="fw-bold">Total Jalan Provinsi</span><br>
+                                                            <span class="fw-bold">Total Lain - lain</span><br>
                                                         </div>   
                                                         <div class="col-md-3">
                                                             <span class="fw-bold">${jalan_nasional[dataPointIndex]}</span><br>
@@ -1737,9 +1737,9 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-9">
-                                                            <span class="fw-bold">Total Media Cetak</span><br>
-                                                            <span class="fw-bold">Total Media Elektronik</span><br>
-                                                            <span class="fw-bold">Total Media Sosial</span><br>
+                                                            <span class="fw-bold">Total Jalan Nasional</span><br>
+                                                            <span class="fw-bold">Total Jalan Provinsi</span><br>
+                                                            <span class="fw-bold">Total Lain - lain</span><br>
                                                         </div>   
                                                         <div class="col-md-3">
                                                             <span class="fw-bold">${jalan_nasional[dataPointIndex]}</span><br>
@@ -2314,15 +2314,15 @@
 
                             var ditkamselrekalantasyear = {
                                 series: [{
-                                    name: 'Media Cetak',
+                                    name: 'Jalan Nasional',
                                     type: 'line',
                                     data: jalan_nasional,
                                 }, {
-                                    name: 'Media Elektronik',
+                                    name: 'Jalan Provinsi',
                                     type: 'line',
                                     data: jalan_provinsi,
                                 }, {
-                                    name: 'Media Sosial',
+                                    name: 'Lain - lain',
                                     type: 'line',
                                     data: lain_lain,
                                 }, ],
@@ -2398,9 +2398,9 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-9">
-                                                            <span class="fw-bold">Total Media Cetak</span><br>
-                                                            <span class="fw-bold">Total Media Elektronik</span><br>
-                                                            <span class="fw-bold">Total Media Sosial</span><br>
+                                                            <span class="fw-bold">Total Jalan Nasional</span><br>
+                                                            <span class="fw-bold">Total Jalan Provinsi</span><br>
+                                                            <span class="fw-bold">Total Lain - lain</span><br>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <span class="fw-bold">${jalan_nasionalsebelumnya}</span><br>
@@ -2415,9 +2415,9 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-9">
-                                                            <span class="fw-bold">Total Media Cetak</span><br>
-                                                            <span class="fw-bold">Total Media Elektronik</span><br>
-                                                            <span class="fw-bold">Total Media Sosial</span><br>
+                                                            <span class="fw-bold">Total Jalan Nasional</span><br>
+                                                            <span class="fw-bold">Total Jalan Provinsi</span><br>
+                                                            <span class="fw-bold">Total Lain - lain</span><br>
                                                         </div>   
                                                         <div class="col-md-3">
                                                             <span class="fw-bold">${jalan_nasional[dataPointIndex]}</span><br>
@@ -2441,9 +2441,9 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-9">
-                                                            <span class="fw-bold">Total Media Cetak</span><br>
-                                                            <span class="fw-bold">Total Media Elektronik</span><br>
-                                                            <span class="fw-bold">Total Media Sosial</span><br>
+                                                            <span class="fw-bold">Total Jalan Nasional</span><br>
+                                                            <span class="fw-bold">Total Jalan Provinsi</span><br>
+                                                            <span class="fw-bold">Total Lain - lain</span><br>
                                                         </div>   
                                                         <div class="col-md-3">
                                                             <span class="fw-bold">${jalan_nasional[dataPointIndex]}</span><br>
