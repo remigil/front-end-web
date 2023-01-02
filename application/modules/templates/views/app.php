@@ -1618,39 +1618,7 @@
                                         <span data-key="t-dashboard" style="color: white;">Statistik Nasional</span>
                                     </a>
                                 </li>
-                            <?php } elseif ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagOps') { ?>
-
-                                <!-- <div class="text-center mt-3">
-                                            <?php if ($this->session->userdata['role'] == 'Kakorlantas') { ?>
-                                                <img src="<?= base_url('assets/profil_kakor.png') ?>" alt="" width="100px" style="border-radius: 100%;" class="mb-3">
-                                                <h5 style="color: #FFCE31;">IRJEN POL Drs. FIRMAN SANTYABUDI, M.Si.</h5>
-                                                <p style="color: #969696;">KAKORLANTAS POLRI</p>
-                                            <?php } elseif ($this->session->userdata['role'] == 'Ditkamsel') { ?>
-                                                <img src="<?= base_url('assets/fe/profil/DIRKAMSEL-CRYSHNANDA.png') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-                                                <h5 style="color: #FFCE31;">BRIGJEN POL Prof. Dr. CHRYSHNANDA DWILAKSANA, M.Si.</h5>
-                                                <p style="color: #969696;">DIRKAMSEL</p>
-                                            <?php } elseif ($this->session->userdata['role'] == 'Ditgakkum') { ?>
-                                                <img src="<?= base_url('assets/fe/profil/DIRGAKKUM-AAN-RAHANAN.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-                                                <h5 style="color: #FFCE31;">BRIGJEN POL Drs. AAN SUHANAN, M.Si.</h5>
-                                                <p style="color: #969696;">DIRGAKKUM</p>
-                                            <?php } elseif ($this->session->userdata['role'] == 'Ditregident') { ?>
-                                                <img src="<?= base_url('assets/fe/profil/DIRREGIDENT-YUSRI-YUNUS.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-                                                <h5 style="color: #FFCE31;">BRIGJEN POL Drs. YUSRI YUNUS</h5>
-                                                <p style="color: #969696;">DIRREGIDENT</p>
-                                            <?php } elseif ($this->session->userdata['role'] == 'KaBagOps') { ?>
-                                                <img src="<?= base_url('assets/fe/profil/BAGOPS-EDDY-DJUNAED.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-                                                <h5 style="color: #FFCE31;">KOMBES POL EDDY DJUNAEDI, S.I.K.</h5>
-                                                <p style="color: #969696;">KABAG OPS</p>
-                                            <?php } elseif ($this->session->userdata['role'] == 'KaBagRenmin') { ?>
-                                                <img src="<?= base_url('assets/fe/profil/BAGRENMIN-Singgamata.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-                                                <h5 style="color: #FFCE31;">KOMBES POL I MADE AGUS PRASATYA, S.I.K., M.Hum</h5>
-                                                <p style="color: #969696;">KABAG RENMIN</p>
-                                            <?php } elseif ($this->session->userdata['role'] == 'KaBagTIK') { ?>
-                                                <img src="<?= base_url('assets/fe/BAGTIK-AGUS PRASATYA.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-                                                <h5 style="color: #FFCE31;">KOMBES POL SINGGAMATA, S.I.K., M.H.</h5>
-                                                <p style="color: #969696;">KABAG TIK</p>
-                                            <?php } ?>
-                                        </div> -->
+                            <?php } elseif ($this->session->userdata['role'] == 'Kakorlantas') { ?>
                                 <li>
                                     <a href="<?php echo base_url(); ?>dashboard">
                                         <img src="<?= base_url('assets/sidebar/icon_beranda.png') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -2134,7 +2102,7 @@
                                     </a>
                                 </li>
 
-                            <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
+                            <?php } elseif ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                                 <li>
                                     <a href="<?= base_url('dashboard'); ?>">
                                         <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -2195,7 +2163,7 @@
                                     </ul>
                                 </li>
 
-                            <?php } else if ($this->session->userdata['role'] == 'Kapolres') { ?>
+                            <?php } elseif ($this->session->userdata['role'] == 'Kapolres') { ?>
                                 <li>
                                     <a href="<?php echo base_url(); ?>dashboard">
                                         <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -2301,10 +2269,11 @@
                                     </a>
                                 </li>
                             <?php } elseif ($this->session->userdata['role'] == 'KaBagTIK') { ?>
+                            <?php } elseif ($this->session->userdata['role'] == 'KaBagOps') { ?>
                                 <li>
-                                    <a href="<?php echo base_url('bagtik'); ?>" data-key="t-register">
+                                    <a href="<?php echo base_url('bagops'); ?>" data-key="t-register">
                                         <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                        <span data-key="t-dashboard" style="color: white;">BAGTIK</span>
+                                        <span data-key="t-dashboard" style="color: white;">BAGOPS</span>
                                     </a>
                                 </li>
                             <?php } else { ?>
