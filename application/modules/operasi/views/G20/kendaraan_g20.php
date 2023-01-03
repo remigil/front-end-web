@@ -70,6 +70,10 @@
                         <input style="width: 100%;" name="merek" placeholder="" type="text">
                         <label class="labelmui">Merek</label>
                     </div>
+                    <div class="material-textfield mb-3">
+                        <input style="width: 100%;" name="no_mesin" placeholder="" type="text">
+                        <label class="labelmui">Nomor Mesin</label>
+                    </div>
                     <div class="material-selectfield mb-3">
                         <select class="form-select" name="kepemilikan" id="select3">
                             <option selected value="">Kepemilikan</option>

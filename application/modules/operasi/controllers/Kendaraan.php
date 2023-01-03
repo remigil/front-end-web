@@ -99,6 +99,10 @@ class Kendaraan extends MY_Controller
             [
                 'name' => 'ownership_vehicle',
                 'contents' => $input['kepemilikan'],
+            ],
+            [
+                'name' => 'no_engine',
+                'contents' => $input['no_mesin'],
             ]
         ];
 
@@ -252,6 +256,10 @@ class Kendaraan extends MY_Controller
             [
                 'name' => 'ownership_vehicle',
                 'contents' => $input['kepemilikan'],
+            ],
+            [
+                'name' => 'no_engine',
+                'contents' => $input['no_mesin'],
             ]
         ];
 
