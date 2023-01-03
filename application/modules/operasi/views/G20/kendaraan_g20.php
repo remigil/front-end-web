@@ -19,6 +19,7 @@
                         <th>Jenis Kendaraan</th>
                         <th>Bahan Bakar</th>
                         <th>Merek</th>
+                        <th>No. Mesin</th>
                         <th>Kepemilikan</th>
                         <th>Aksi</th>
                     </tr>
@@ -252,6 +253,7 @@
                 { data :'fuel_vehicle'},
 
                 { data: 'brand_vehicle'},
+                { data: 'no_engine'},
 
                 { data: 'ownership_vehicle'},  
 
