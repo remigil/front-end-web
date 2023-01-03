@@ -190,9 +190,9 @@
 
 			<div class="row align-items-center">
 
-				<div class="col-md-6">
+				<div class="col-md-3">
 					<div class="form-floating mb-3">
-						<select class="form-select" name="kategoriFilter" style="height: 60px;">
+						<select class="form-select" name="kategoriFilter" style="height: 40px; padding-top:0; margin-top:25px; margin-bottom:25px; padding-bottom:0;">
 							<option value="">Pilih Kategori CCTV</option>
 							<option value="CCTV MAINROAD">CCTV MAINROAD</option>
 							<option value="CCTV GERBANG">CCTV GERBANG</option>
@@ -201,9 +201,14 @@
 							<option value="BALISATUDATA">BALI SATU DATA</option>
 							<option value="cctv arteri">CCTV ARTERI</option>
 							<option selected value="cctv">CCTV</option>
+							
 						</select>
-						<label for="kategoriFilter">Filter CCTV</label>
+						
 					</div>
+				</div>
+				<div class="col-md-3">
+					<a href="https://binamarga.pu.go.id/index.php/contents/cctv" class="btn btn-outline-primary" target="_blank">CCTV Binamarga</a>
+					<a href="https://cctvcipali.lintasmarga.com/" class="btn btn-outline-primary ms-3" target="_blank">CCTV Cipali</a>
 				</div>
 
 				<div class="col-md-6">
