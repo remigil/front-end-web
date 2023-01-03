@@ -201,9 +201,9 @@
 							<option value="BALISATUDATA">BALI SATU DATA</option>
 							<option value="cctv arteri">CCTV ARTERI</option>
 							<option selected value="cctv">CCTV</option>
-							
+
 						</select>
-						
+
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -295,7 +295,7 @@
 			$("#overlay").fadeIn(300);
 			$.ajax({
 				type: "POST",
-				url: "<?php echo base_url(); ?>masterdata/cctv/getCCTV",
+				url: "<?php echo base_url(); ?>Cctv_streaming/getCCTV",
 				data: {
 					"kategoriFilter": $('[name=kategoriFilter]').val(),
 					"searchFilter": $('[name=searchFilter]').val(),
@@ -304,7 +304,7 @@
 				dataType: "JSON",
 				success: function(result) {
 					let ressData = result['data'];
-				
+
 
 					let ress = ressData.filter(function(e) {
 						return e.lat_cctv != null && e.lng_cctv != null;
