@@ -135,9 +135,9 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <!-- <li class="dropdown">
-            <a href=""><i class="bi bi-house-door"></i></a>
-          </li> -->
+          <li class="dropdown">
+            <a href="<?= base_url()?>home"><i class="bi bi-house-door-fill" style="font-size: 20px;"></i></a>
+          </li>
 		<li class="dropdown"><a href="#"><span class="fw-bold">Profil</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
 				<li><a href="<?= base_url()?>profil/sambutan">Sambutan</a></li>
@@ -328,8 +328,8 @@
 							Jl. MT Haryono Kav. 37 – 38, <br>
               Jakarta 12770<br>
               <br>
-              <strong>Call Center:</strong> 1-500-669<br>
-              <strong>SMS Center:</strong> 9119<br>
+              <strong>Call Center:</strong> <a href="https://ccntmc.1500669.com/">1-500-669</a> <br>
+              <strong>SMS Center:</strong> <a href="https://1500669.com/">9119</a> <br>
               <strong>WA Center:</strong> <a href="https://wa.me/+6281901500669" target="_blank">0819-0150-0669</a> <br>
               <strong>WA K3I:</strong> <a href="https://wa.me/+6281229992022" target="_blank">0812-2999-2022</a> <br>
             </p>

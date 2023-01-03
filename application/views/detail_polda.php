@@ -94,7 +94,7 @@
 						<div class="icon text-center">
 							<iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon>
 						</div>
-						<h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5" style="color:#3b3b3b">SIM Nasional</a></h4>
+						<h4 class="text-center"><a href="#" class="stretched-link fs-5" style="color:#3b3b3b">SIM Nasional</a></h4>
 						<h1 id="sim" class="text-center fw-bold mb-5"><?= number_format($ditregident['data'][0]['sim'], 0, '', '.');  ?></h1>
 						
 					</div>
@@ -171,7 +171,7 @@
             <thead>
               <tr>
                 <th width="5%">No</th>
-                <th>Nama Polres</th>
+                <th width="25%">Nama Polres</th>
                 <th>Alamat</th>
               </tr>
             </thead>
@@ -193,8 +193,8 @@
             <thead>
               <tr>
                 <th width="5%">No</th>
-                <th>Nama Polres</th>
-                <th>Kode Satpas</th>
+                <th width="25%">Nama Polres</th>
+                <th width="15%">Kode Satpas</th>
                 <th>Alamat</th>
               </tr>
             </thead>
@@ -217,7 +217,7 @@
             <thead>
               <tr>
                 <th width="5%">No</th>
-                <th>Nama Samsat</th>
+                <th width="25%">Nama Samsat</th>
                 <th>Alamat</th>
               </tr>
             </thead>
@@ -239,7 +239,7 @@
             <thead>
               <tr>
                 <th width="5%">No</th>
-                <th>Nama CCTV</th>
+                <th width="25%">Nama CCTV</th>
                 <th>Link CCTV</th>
               </tr>
             </thead>
