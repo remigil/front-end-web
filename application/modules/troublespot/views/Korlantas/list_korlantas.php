@@ -114,7 +114,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="material-selectfield">
+                            <div class="material-selectfield" id="selectPolres">
                                 <select name="polres_id" class="form-select" style="width:100%" id="polresmodal" required>
                                     <option>Pilih Polres</option>
 									<?php
@@ -539,7 +539,7 @@
             });
         });
 
-
+        $("#selectPolres").hide();
         $('#poldamodal').change(function() {
             var id = $(this).val();
             console.log(id);
@@ -548,6 +548,7 @@
                 method: 'post',
                 dataType: 'json',
                 success: function(response) {
+                    $("#selectPolres").show();
 
                     // Remove options 
                     $('#polresmodal').find('option').not(':first').remove();
