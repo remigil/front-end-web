@@ -168,6 +168,11 @@ class Fasilitasumum extends MY_Controller
             redirect(base_url('404_notfound'));
             die;
         }
+
+        $getPolda = guzzle_request('GET', 'polda', [
+            'headers' => $headers
+        ]);
+        $data['getPolda'] = $getPolda['data']['data'];
         
         $data['getCategory'] = $getCategory['data']['data'];
         $page_content["data"] = $data;
@@ -334,6 +339,14 @@ class Fasilitasumum extends MY_Controller
                     'name' => 'fasum_geoJson',
                     'contents' => $drawer,
                 ],
+                [
+                    'name' => 'polda_id',
+                    'contents' => $input['polda_id'],
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $input['polres_id'],
+                ],
 				[
                     'name' => 'route',
                     'contents' => $fasum_route,
@@ -401,6 +414,14 @@ class Fasilitasumum extends MY_Controller
                     'name' => 'fasum_geoJson',
                     'contents' => $drawer,
                 ],
+                [
+                    'name' => 'polda_id',
+                    'contents' => $input['polda_id'],
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $input['polres_id'],
+                ],
 				[
                     'name' => 'route',
                     'contents' => $fasum_route,
@@ -452,6 +473,14 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'fasum_status',
                     'contents' => $input['statusFasum'],
+                ], 
+                [
+                    'name' => 'polda_id',
+                    'contents' => $input['polda_id'],
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $input['polres_id'],
                 ],
 				[
                     'name' => 'fasum_radius',
@@ -523,6 +552,14 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'fasum_close_time',
                     'contents' => $input['jamTutup'],
+                ],
+                [
+                    'name' => 'polda_id',
+                    'contents' => $input['polda_id'],
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $input['polres_id'],
                 ],
 				[
                     'name' => 'fasum_geoJson',
@@ -717,7 +754,15 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'fasum_close_time',
                     'contents' => $input['jamTutup'],
-                ], 
+                ],
+                [
+                    'name' => 'polda_id',
+                    'contents' => $input['polda_id'],
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $input['polres_id'],
+                ],
 				[
                     'name' => 'fasum_geoJson',
                     'contents' => $drawer,
@@ -784,7 +829,15 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'fasum_close_time',
                     'contents' => $input['jamTutup'],
-                ], 
+                ],
+                [
+                    'name' => 'polda_id',
+                    'contents' => $input['polda_id'],
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $input['polres_id'],
+                ],
 				[
                     'name' => 'fasum_geoJson',
                     'contents' => $drawer,
@@ -858,7 +911,15 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'fasum_close_time',
                     'contents' => $input['jamTutup'],
-                ], 
+                ],
+                [
+                    'name' => 'polda_id',
+                    'contents' => $input['polda_id'],
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $input['polres_id'],
+                ],
 				[
                     'name' => 'fasum_geoJson',
                     'contents' => $drawer,
@@ -917,6 +978,14 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'fasum_close_time',
                     'contents' => $input['jamTutup'],
+                ],
+                [
+                    'name' => 'polda_id',
+                    'contents' => $input['polda_id'],
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $input['polres_id'],
                 ],
 				[
                     'name' => 'fasum_geoJson',

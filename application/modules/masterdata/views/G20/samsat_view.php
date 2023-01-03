@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahFasum">Tambah SATPAS</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahFasum">Tambah SAMSAT</button>
     <div class="card">
 
         <div class="card-body">
@@ -17,10 +17,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Fasum</th>
+                        <th>Nama Samsat</th>
                         <!-- <th>Jenis Fasum</th> -->
-                        <th>Alamat</th>
-                        <th>Kontak</th>
+                        <th>Alamat</th> 
                         <th>Jam Operasional</th>
                         <th>Aksi</th>
                     </tr>
@@ -39,7 +38,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah SATPAS</h5>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah SAMSAT</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -52,7 +51,7 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" placeholder="nama fasum" name="namaFasum">
-                                <label for="namaFasum">Nama SATPAS</label>
+                                <label for="namaFasum">Nama SAMSAT</label>
                             </div>
                         </div>
                         <input hidden type="text" class="form-control" placeholder="nama fasum" value="19" name="jenisFasum">
@@ -113,7 +112,7 @@
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" name="deskripsiFasum"></textarea>
-                                <label for="">Deskripsi SATPAS</label>
+                                <label for="">Deskripsi SAMSAT</label>
                             </div>
                         </div>
                     </div>
@@ -121,7 +120,7 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="kontakFasum" placeholder="kontak">
-                                <label for="kontakFasum">Kontak SATPAS</label>
+                                <label for="kontakFasum">Kontak SAMSAT</label>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -162,7 +161,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail SATPAS</h5>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail SAMSAT</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -175,7 +174,7 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="namaFasum" name="namaFasum">
-                                <label for="namaFasum">Nama SATPAS</label>
+                                <label for="namaFasum">Nama SAMSAT</label>
                             </div>
                         </div>
                         <!-- <div class="col-md-6">
@@ -233,7 +232,7 @@
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
-                                <label for="deskripsi">Deskripsi SATPAS</label>
+                                <label for="deskripsi">Deskripsi SAMSAT</label>
                             </div>
                         </div>
                     </div>
@@ -241,7 +240,7 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
-                                <label for="kontakFasum">Kontak SATPAS</label>
+                                <label for="kontakFasum">Kontak SAMSAT</label>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -278,7 +277,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Edit SATPAS</h5>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Edit SAMSAT</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -292,7 +291,7 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="namaFasum" name="namaFasum">
-                                <label for="">Nama SATPAS</label>
+                                <label for="">Nama SAMSAT</label>
                             </div>
                         </div>
                         <input hidden type="text" class="form-control" placeholder="nama fasum" value="19" name="jenisFasum">
@@ -355,7 +354,7 @@
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
-                                <label for="">Deskripsi SATPAS</label>
+                                <label for="">Deskripsi SAMSAT</label>
                             </div>
                         </div>
                     </div>
@@ -363,7 +362,7 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
-                                <label for="kontakFasum">Kontak SATPAS</label>
+                                <label for="kontakFasum">Kontak SAMSAT</label>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -601,7 +600,7 @@
 
                 dataType: 'json',
 
-                url: '<?php echo base_url(); ?>masterdata/Fasilitasumum/serverSideTable',
+                url: '<?php echo base_url(); ?>masterdata/samsat/serverSideTable',
 
                 data: function(data) {
 
@@ -653,21 +652,17 @@
                     data: 'id'
                 },
                 {
-                    data: 'fasum_name'
+                    data: 'name_samsat'
                 },
                 // {
                 //     data: 'category_fasum'
                 // },
                 {
-                    data: 'fasum_address'
+                    data: 'address'
                 },
                 {
-                    data: 'fasum_phone'
-                },
-                {
-                    data: 'jam_operasional',
-                    orderable: false
-                },
+                    data: 'operational_hour'
+                }, 
                 {
                     data: 'action',
                     orderable: false

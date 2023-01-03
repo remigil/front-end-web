@@ -1278,6 +1278,7 @@
                                         <li><a href="<?php echo base_url('masterdata/Fasilitasumum/cluster'); ?>" data-key="t-read-email">Cluster</a></li>
                                         <li><a href="<?php echo base_url('masterdata/Fasilitasumum/restArea'); ?>" data-key="t-read-email">Rest Area</a></li>
                                         <!-- <li><a href="<?php echo base_url('masterdata/Fasilitasumum/posPam'); ?>" data-key="t-read-email">POS PAM</a></li> -->
+                                        <li><a href="<?php echo base_url('masterdata/samsat'); ?>" data-key="t-read-email">SAMSAT</a></li>
                                         <li><a href="<?php echo base_url('masterdata/Fasilitasumum/satPas'); ?>" data-key="t-read-email">SATPAS</a></li>
                                         <li><a href="<?php echo base_url('masterdata/Fasilitasumum/jalur'); ?>" data-key="t-read-email">Jalur</a></li>
                                     </ul>

@@ -2532,6 +2532,10 @@
                     var listTroubleSpotPoldaDisplay = '';
                     var listBlackSpotPoldaDisplay = '';
 
+
+                    var listSamsatPoldaDisplay = '';
+                    var listSatPasPoldaDisplay = '';
+
                     var listLIPoldaDisplay = '';
                     var listPosYanPoldaDisplay = '';
 
@@ -2661,6 +2665,40 @@
                                 </div>
                             `;
 
+                            listSamsatPoldaDisplay += ` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingSamsat${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSamsat${countPoldaDisplay}" aria-expanded="false" aria-controls="collapseSamsat${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSamsat${countPoldaDisplay}" class="accordion-collapse multi-collapse collapse" aria-labelledby="headingSamsat${countPoldaDisplay}" data-bs-parent="#openModalSamsatDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaSamsat${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                            listSatPasPoldaDisplay += ` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingSatPas${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSatPas${countPoldaDisplay}" aria-expanded="false" aria-controls="collapseSatPas${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSatPas${countPoldaDisplay}" class="accordion-collapse multi-collapse collapse" aria-labelledby="headingSatPas${countPoldaDisplay}" data-bs-parent="#openModalSatPasDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaSatPas${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
                             listLIPoldaDisplay += ` 
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
@@ -2761,6 +2799,10 @@
                             $('#openModalTroubleSpotDisplayPolda').html(listTroubleSpotPoldaDisplay);
                             $('#openModalBlackSpotDisplayPolda').html(listBlackSpotPoldaDisplay);
 
+
+                            $('#openModalSamsatDisplay').html(listSamsatPoldaDisplay);
+                            $('#openModalSatPasDisplay').html(listSatPasPoldaDisplay);
+
                             $('#isiModalPoldaDisplay').html(listPoldaDisplay);
                             $('#openModalPosPamDisplay').html(listLIPoldaDisplay);
                             $('#openModalPosYanDisplay').html(listPosYanPoldaDisplay);
@@ -2794,6 +2836,13 @@
                         });
 
                         $(`#headingBlackSpot${i+1}`).on("click", function(e) {
+                            serverSideFilter($(this).data('poldaid'));
+                        });
+
+                        $(`#headingSamsat${i+1}`).on("click", function(e) {
+                            serverSideFilter($(this).data('poldaid'));
+                        });
+                        $(`#headingSatPas${i+1}`).on("click", function(e) {
                             serverSideFilter($(this).data('poldaid'));
                         });
 
@@ -7624,21 +7673,21 @@
                         });
 
                         if (filterSamsat.length > 0) {
-                            $('#openModalSamsatDisplay').html(`
-                            <table id="datatableSamsatOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Alamat</th> 
-                                        <th>Waktu</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalSamsatDisplay">
-                                </tbody>
-                            </table>                     
-                        `);
+                            $(`#isiPoldaSamsat${polda_id}`).html(`
+                                <table id="datatableSamsatOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Alamat</th> 
+                                            <th>Waktu</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalSamsatDisplay${polda_id}">
+                                    </tbody>
+                                </table>                     
+                            `);
                             var countSamsatDisplay = 0;
                             var listSamsatDisplay = '';
                             $('#totalSamsatDisplay').html(filterSamsat.length);
@@ -7661,7 +7710,7 @@
                                     </td>
                                 </tr>
                             `;
-                                $('#isiModalSamsatDisplay').html(listSamsatDisplay);
+                                $(`#isiModalSamsatDisplay${polda_id}`).html(listSamsatDisplay);
 
 
 
@@ -7716,7 +7765,7 @@
                                     mapContainer.flyTo([latitude, longitude], 20);
                                 });
                             }
-                            $('#datatableSamsatOnDisplay').DataTable({
+                            $(`#datatableSamsatOnDisplay${polda_id}`).DataTable({
                                 responsive: true,
 
                                 scrollX: true,
@@ -9424,8 +9473,8 @@
                     }
 
                     if (ressSatPas && ressSatPas.length > 0) {
-                        $('#openModalSatPasDisplay').html(`
-                            <table id="datatableSatPasOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                        $(`#isiPoldaSatPas${polda_id}`).html(`
+                            <table id="datatableSatPasOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -9434,7 +9483,7 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody id="isiModalSatPasDisplay">
+                                <tbody id="isiModalSatPasDisplay${polda_id}">
                                 </tbody>
                             </table>                     
                         `);
@@ -9461,7 +9510,7 @@
                                     </td>
                                 </tr>
                             `;
-                            $('#isiModalSatPasDisplay').html(listSatPasDisplay);
+                            $(`#isiModalSatPasDisplay${polda_id}`).html(listSatPasDisplay);
 
 
                             var latitudeFasum = parseFloat(ressSatPas[i].fasum_lat);
@@ -9547,7 +9596,7 @@
                                 mapContainer.flyTo([latitude, longitude], 17);
                             });
                         }
-                        $('#datatableSatPasOnDisplay').DataTable({
+                        $(`#datatableSatPasOnDisplay${polda_id}`).DataTable({
                             responsive: true,
 
                             scrollX: true,
@@ -10866,7 +10915,7 @@
                 $("#samsat").prop('checked', false);
                 $("#samsat").val();
             }
-            serverSideFilter();
+            // serverSideFilter();
         });
 
         $("#jalurDisplay").on("change", function(e) {
@@ -11094,7 +11143,7 @@
                 $("#sat_pas").prop('checked', false);
                 $("#sat_pas").val();
             }
-            serverSideFilter();
+            // serverSideFilter();
         });
 
         $("#kegiatanDisplay").on("change", function(e) {

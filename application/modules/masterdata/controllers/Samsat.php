@@ -15,7 +15,7 @@ class Samsat extends MY_Controller
     {
 
         $headers = [
-            'Token' => $this->session->userdata['token'],
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -23,7 +23,7 @@ class Samsat extends MY_Controller
         $page_content["title"] = "Samsat";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "dashboard/dashboard_g20";
+            $page_content["page"] = "masterdata/G20/samsat_view";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "masterdata/Korlantas/samsat_view";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
@@ -33,9 +33,12 @@ class Samsat extends MY_Controller
         }
 
 
+        $getPolda = guzzle_request('GET', 'polda', [
+            'headers' => $headers
+        ]);
+        $data['getPolda'] = $getPolda['data']['data'];
 
-
-        $page_content["data"] = '';
+        $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 
@@ -79,6 +82,14 @@ class Samsat extends MY_Controller
             [
                 'name' => 'samsat_close_time',
                 'contents' => $input['jamTutup'],
+            ],
+            [
+                'name' => 'polda_id',
+                'contents' => $input['polda_id'],
+            ],
+            [
+                'name' => 'polres_id',
+                'contents' => $input['polres_id'],
             ]
 
         ];
@@ -188,6 +199,14 @@ class Samsat extends MY_Controller
             [
                 'name' => 'samsat_close_time',
                 'contents' => $input['jamTutup'],
+            ],
+            [
+                'name' => 'polda_id',
+                'contents' => $input['polda_id'],
+            ],
+            [
+                'name' => 'polres_id',
+                'contents' => $input['polres_id'],
             ]
 
         ];
