@@ -226,4 +226,68 @@ class Bagrenmin extends MY_Controller
 
         echo json_encode($data);
     }
+
+    public function inputData_SDM()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Update data SDM polantas";
+
+        if ($this->session->userdata['role'] == 'G20') {
+            $page_content["page"] = "dashboard/dashboard_g20";
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $page_content["page"] = "bagrenmin/korlantas/inputdata_bagrenmin";
+        }
+
+
+        $url = 'bagrenmin/sdm_polantas/daily';
+
+        $result = guzzle_request('GET', $url, [
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+        ]);
+
+        $page_content["data"] = $result['data']['rows'];
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function store()
+    {
+        $polda_id = $this->input->post('polda_id');
+        $date = $this->input->post('date');
+        $value = [];
+        $url = 'bagrenmin/sdm_polantas/add';
+
+
+        $max_loop = count($this->input->post('polda_id'));
+
+        for ($i = 0; $i < $max_loop; $i++) {
+            $object = (object) [
+                'polda_id' => $this->input->post('polda_id')[$i],
+                'date' => $date,
+                'irjen' => $this->input->post('irjen')[$i],
+                'brigjen' => $this->input->post('brigjen')[$i],
+                'kbp' => $this->input->post('kbp')[$i],
+                'akbp' => $this->input->post('akbp')[$i],
+                'bripda' => $this->input->post('bripda')[$i],
+                'kp' => $this->input->post('kp')[$i],
+                'pns' => $this->input->post('pns')[$i],
+                'akp' => $this->input->post('akp')[$i],
+                'iptu' => $this->input->post('iptu')[$i],
+                'ipda' => $this->input->post('ipda')[$i],
+                'aiptu' => $this->input->post('aiptu')[$i],
+                'aipda' => $this->input->post('aipda')[$i],
+                'bripka' => $this->input->post('bripka')[$i],
+                'brigdr' => $this->input->post('brigdr')[$i],
+                'briptu' => $this->input->post('briptu')[$i]
+            ];
+            array_push($value, $object);
+        }
+
+        var_dump($value);
+        die;
+    }
 }

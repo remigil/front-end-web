@@ -2384,10 +2384,18 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="javascript: void(0);" class="has-arrow">
                                                 <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                <span data-key="t-tripon">Bagrenmin</span>
+                                                <span data-key="t-laporan">Bagrenmin</span>
                                             </a>
+                                            <ul class="sub-menu" aria-expanded="false">
+                                                <li>
+                                                    <a href="<?= base_url('bagrenmin/inputData_SDM') ?>">
+                                                        <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-tripon">SDM POLANTAS</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </li>
