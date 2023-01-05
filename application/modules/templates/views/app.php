@@ -1844,6 +1844,12 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <li>
+                                    <a href="http://103.154.174.85:3002/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard" style="color: white;">Operasi Lilin</span>
+                                    </a>
+                                </li>
                                 <!-- Ini nanti dilanjut -->
                                 <!-- <div class="" style="height:2px; width:90%; background-color:white; margin:auto;"></div>
                                         <li>
