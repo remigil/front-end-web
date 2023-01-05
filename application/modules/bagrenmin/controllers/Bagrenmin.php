@@ -72,23 +72,23 @@ class Bagrenmin extends MY_Controller
         ]);
 
 
-        $irjen = array();
-        $brigjen = array();
-        $kbp = array();
-        $akbp = array();
-        $kp = array();
-        $akp = array();
-        $iptu = array();
-        $aiptu = array();
-        $ipda = array();
-        $aipda = array();
-        $bripka = array();
-        $brigdr = array();
-        $briptu = array();
-        $bripda = array();
-        $pns = array();
-        $total = array();
-        $polda_name = array();
+        $irjen = [];
+        $brigjen = [];
+        $kbp = [];
+        $akbp = [];
+        $kp = [];
+        $akp = [];
+        $iptu = [];
+        $aiptu = [];
+        $ipda = [];
+        $aipda = [];
+        $bripka = [];
+        $brigdr = [];
+        $briptu = [];
+        $bripda = [];
+        $pns = [];
+        $total = [];
+        $polda_name = [];
 
         foreach ($result['data']['rows'] as $key) {
             $polda_name[] = $key['name_polda'];
@@ -126,6 +126,42 @@ class Bagrenmin extends MY_Controller
             'briptu' => $briptu,
             'bripda' => $bripda,
             'pns' => $pns,
+        ];
+
+        echo json_encode($data);
+    }
+    public function getAnggaran()
+    {
+        $url = 'bagrenmin/rengar/daily';
+
+        $result = guzzle_request('GET', $url, [
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+        ]);
+
+        $program_kegiatan = [];
+        $belanja_barang = [];
+        $belanja_modal = [];
+        $gaji_pegawai = [];
+        $polda_name = [];
+
+        foreach ($result['data']['rows'] as $key) {
+            $polda_name[] = $key['name_polda'];
+            $program_kegiatan[] = $key['program_kegiatan'];
+            $belanja_barang[] = $key['belanja_barang'];
+            $belanja_modal[] = $key['belanja_modal'];
+            $gaji_pegawai[] = $key['gaji_pegawai'];
+        }
+
+        $data = [
+            'polda_name' => $polda_name,
+            'program_kegiatan' => $program_kegiatan,
+            'belanja_barang' => $belanja_barang,
+            'belanja_modal' => $belanja_modal,
+            'gaji_pegawai' => $gaji_pegawai,
         ];
 
         echo json_encode($data);

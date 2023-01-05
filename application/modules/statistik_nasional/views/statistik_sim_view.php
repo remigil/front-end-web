@@ -24,7 +24,7 @@
                                          <h5 class="mb-0 ms-3">Hari Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#2e93e6;" id="simThisDay"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="simThisDay"></h1>
                                          <p class="text-center mb-0">Sim</p>
                                      </div>
                                      <div class="col-md-12 ms-3">
@@ -50,7 +50,7 @@
                                          <h5 class="mb-0 ms-3">Bulan Ini <span class="text-danger">(<?= date('M'); ?>)</span></h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#2e93e6;" id="simThisMonth"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="simThisMonth"></h1>
                                          <p class="text-center mb-0">Sim</p>
                                      </div>
                                      <div class="col-md-12 ms-3">
@@ -74,7 +74,7 @@
                                          <h5 class="mb-0 ms-3">Tahun Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#2e93e6;" id="simThisYear"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="simThisYear"></h1>
                                          <p class="text-center mb-0">Sim</p>
                                      </div>
                                      <div class="col-md-12 ms-3">
@@ -782,7 +782,6 @@
              </div>
          </div>
      </div>
- </div>
  </div>
  <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>

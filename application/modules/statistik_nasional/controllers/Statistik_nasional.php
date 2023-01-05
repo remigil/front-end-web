@@ -87,7 +87,7 @@ class Statistik_nasional extends MY_Controller
         ]);
         $getGakkum = $getGakkum["data"];
 
-
+        $totalkeseluruhan = 0;
         $totalwalpjr = 72;
         $totalgarlantas = 0;
         $totallakalantas = 0;
@@ -148,6 +148,8 @@ class Statistik_nasional extends MY_Controller
         //     $totalsubkerma += $getOps[$i]['subkerma'];
         // $totalsubanev += $getOps[$i]['subanev'];
         // }
+
+        $totalkeseluruhan = $totallakalantas + $totalgarlantas + $totalranmor + $totalsim;
 
         if ($input['type'] == 'day') {
             $date1 = date('Y-m-d', strtotime("-1 days"));
@@ -315,8 +317,52 @@ class Statistik_nasional extends MY_Controller
             'subkerma' =>  number_format($totalsubkerma, 0, '', '.'),
             'subanev' => number_format($totalsubanev, 0, '', '.'),
 
+            'keseluruhan' => number_format($totalkeseluruhan, 0, '', '.'),
 
 
+        ];
+
+        echo json_encode($data);
+    }
+    public function getStatistikKeseluruhan()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
+            'headers' => $headers
+        ]);
+        $getGakkum = $getGakkum["data"];
+
+        $totalkeseluruhan = 0;
+        $totalgarlantas = 0;
+        $totallakalantas = 0;
+        for ($i = 0; $i < count($getGakkum); $i++) {
+            $totalgarlantas += $getGakkum[$i]['garlantas'];
+            $totallakalantas += $getGakkum[$i]['lakalantas'];
+        }
+
+
+        $getRegident = guzzle_request('GET', 'ditregident/daily', [
+            'headers' => $headers
+        ]);
+        $getRegident = $getRegident["data"];
+
+        $totalsim = 0;
+        $totalranmor = 0;
+        for ($i = 0; $i < count($getRegident); $i++) {
+            $totalsim += $getRegident[$i]['sim'];
+            $totalranmor += $getRegident[$i]['ranmor'];
+        }
+
+
+        $data = [
+            'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
+            'garlantas' => number_format($totalgarlantas, 0, '', '.'),
+            'sim' =>  number_format($totalsim, 0, '', '.'),
+            'ranmor' => number_format($totalranmor, 0, '', '.'),
         ];
 
         echo json_encode($data);
@@ -425,6 +471,16 @@ class Statistik_nasional extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "Data Kecelakaan Nasional";
         $page_content["page"] = "statistik_nasional/statistik_laka_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Keseluruhan()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Keseluruhan";
+        $page_content["page"] = "statistik_nasional/statistik_keseluruhan_view";
         $page_content["data"] = '';
         // $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);

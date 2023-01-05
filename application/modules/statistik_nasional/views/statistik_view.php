@@ -454,7 +454,7 @@
                 </div>
                 <div class="col-md-12">
                     <!-- <a href="<?= base_url('statistik_nasional/Subkerma'); ?>"> -->
-                    <a href="<?= base_url('bagtik'); ?>">
+                    <a href="<?= base_url('statistik_nasional/Keseluruhan'); ?>">
                         <div class="card" style="border-color: #484848;  border-radius: 20px !important; background-color:#484848">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style=" height: 60px;">
@@ -462,9 +462,8 @@
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold">Data Keseluruhan</span>
                                             <br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subkerma"></span>
-                                            <span class="float-start m-0 p-0 fw-bold" style="font-size: 18px;">0</span>
-                                            <!-- <span class="float-start m-0 p-0 ms-2 fw-bold" style="font-size: 18px;">0</span> -->
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="keseluruhan"></span>
+                                            <!-- <span class="float-start m-0 p-0 fw-bold" style="font-size: 18px;" id="detailkeseluruhan"></span> -->
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
@@ -745,6 +744,9 @@
 
                         $('#subanev').html(`<span class="fs-5" >${result.subanev}</span >`);
                         $('#detailsubanev').html(`${result['compare']['subanev']}`);
+
+                        $('#keseluruhan').html(`<span class="fs-5" >${result.keseluruhan}</span >`);
+                        $('#detailkeseluruhan').html(`${result['compare']['keseluruhan']}`);
 
                     }
                 })

@@ -12,20 +12,22 @@
      </div>
      <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
-             <div class="col-sm-4 col-md-5 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">Sim <span style="color:#000;">Polda&nbsp;<?= $data['poldaid']['name_polda']; ?></span></span> </h2>
+             <div class="col-sm-2 col-md-2 align-self-center">
+                 <h4>STATISTIK DATA</h4>
+                 <h4> <span style="text-transform:uppercase ; color:#0007D8">SIM</span> </h4>
+                 <h4 class="text-uppercase"><?= $data['poldaid']['name_polda']; ?></h4>
              </div>
-             <div class="col-sm-8 col-md-7">
+             <div class="col-sm-10 col-md-10">
                  <div class="row m-2">
                      <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
                          <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Harian</h4>
+                                         <h5 class="mb-0 ms-3">Hari Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="simThisDay"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="simThisDay"></h1>
                                          <p class="text-center mb-0">Sim</p>
                                      </div>
                                  </div>
@@ -37,10 +39,10 @@
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Bulanan</h4>
+                                         <h5 class="mb-0 ms-3">Bulan Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="simThisMonth"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="simThisMonth"></h1>
                                          <p class="text-center mb-0">Sim</p>
                                      </div>
                                  </div>
@@ -52,10 +54,10 @@
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Tahunan</h4>
+                                         <h5 class="mb-0 ms-3">Tahun Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="simThisYear"></h1>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#0007D8;" id="simThisYear"></h1>
                                          <p class="text-center mb-0">Sim</p>
                                      </div>
                                  </div>
@@ -190,18 +192,25 @@
                  <div class="container-fluid">
                      <div class="row">
                          <div class="col-md-9">
-                             <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                             <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
                              <div class="row">
                                  <div class="col-md-4">
-                                     <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                                     <label for="waktu" class="form-label text-uppercase">Awal</label>
                                  </div>
                                  <div class="col-md-4">
-                                     <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                                     <label for="waktu" class="form-label text-uppercase">Akhir</label>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="start_date" id="start_date" value="<?= date('Y-m-d', strtotime("-6 days")); ?>">
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="end_date" id="end_date" value="<?= date('Y-m-d'); ?>">
                                  </div>
                                  <div class="col-md-2">
-                                     <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                     <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                                  </div>
-
                              </div>
                          </div>
                      </div>
@@ -290,6 +299,7 @@
                  let polda_name = result.data.polda_name
                  let polda_baru = result.data.polda_baru
                  let polda_perpanjangan = result.data.polda_perpanjangan
+                 let polda_rubentina = result.data.polda_rubentina
                  // Chart Kecelakaan Lalu Lintas
 
                  // chart laka
@@ -418,6 +428,7 @@
                  let polda_name = result.data.polda_name
                  let polda_baru = result.data.polda_baru
                  let polda_perpanjangan = result.data.polda_perpanjangan
+                 let polda_rubentina = result.data.polda_rubentina
 
                  var chart = {
                      series: [{
@@ -699,6 +710,11 @@
                          name: '<h6>Perpanjangan</h6>',
                          type: 'line',
                          data: results.data.polda_perpanjangan,
+                         color: "#E8D42F"
+                     }, {
+                         name: '<h6>Rubentina</h6>',
+                         type: 'line',
+                         data: results.data.polda_rubentina,
                          color: "#E8D42F"
                      }],
                      chart: {

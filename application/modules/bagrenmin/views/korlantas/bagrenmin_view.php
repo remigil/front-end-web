@@ -186,6 +186,19 @@
                 </div>
             </div>
         </div>
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <span class="fw-bold fs-4">SDM POLANTAS</span>
+                </div>
+                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                    <div class="main-chart">
+                        <div id="charta">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-md-12">
             <div class="card card-headline">
                 <div class="card-body row">
@@ -263,6 +276,19 @@
                 </div>
             </div>
         </div>
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <span class="fw-bold fs-4">DATA PERENCANAAN DAN ANGGARAN SELURUH INDONESIA</span>
+                </div>
+                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                    <div class="main-chart">
+                        <div id="chartb">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -290,7 +316,10 @@
 <script>
     $(document).ready(function() {
         getSDM()
+        getAnggaran()
     })
+
+
 
     function getSDM() {
         $.ajax({
@@ -298,105 +327,102 @@
             url: "<?php echo base_url(); ?>bagrenmin/getSDM",
             dataType: "JSON",
             success: function(results) {
-                $("#chart1").html(`<div id="sdmchart"></div>`);
+                $("#charta").html(`<div id="sdmchart"></div>`);
                 var options_sdm = {
                     series: [{
                         name: 'IRJEN',
                         type: 'column',
                         data: results.irjen,
-                        color: "#11347A"
                     }, {
                         name: 'BRIGJEN',
                         type: 'column',
                         data: results.brigjen,
-                        color: "#CB2D3E"
                     }, {
                         name: 'KBP',
                         type: 'column',
                         data: results.kbp,
-                        color: "#E8D42F"
+
                     }, {
                         name: 'AKBP',
                         type: 'column',
                         data: results.akbp,
-                        color: "#3CA55C"
+
 
                     }, {
                         name: 'KP',
                         type: 'column',
                         data: results.kp,
-                        color: "#3CA15C"
+
 
                     }, {
                         name: 'AKP',
                         type: 'column',
                         data: results.akp,
-                        color: "#3BA55C"
+
 
                     }, {
                         name: 'IPTU',
                         type: 'column',
                         data: results.iptu,
-                        color: "#3BD55C"
+
 
                     }, {
                         name: 'IPDA',
                         type: 'column',
                         data: results.ipda,
-                        color: "#3BD55C"
+
 
                     }, {
                         name: 'AIPTU',
                         type: 'column',
                         data: results.aiptu,
-                        color: "#3BD55C"
+
 
                     }, {
                         name: 'AIPDA',
                         type: 'column',
                         data: results.aipda,
-                        color: "#3BD55C"
+
 
                     }, {
                         name: 'BRIPKA',
                         type: 'column',
                         data: results.bripka,
-                        color: "#3BD51"
+
 
                     }, {
                         name: 'BRIGDR',
                         type: 'column',
                         data: results.brigdr,
-                        color: "#3BD51"
+
 
                     }, {
                         name: 'BRIPTU',
                         type: 'column',
                         data: results.briptu,
-                        color: "#3BD51"
+
 
                     }, {
                         name: 'BRIPDA',
                         type: 'column',
                         data: results.bripda,
-                        color: "#3BD512"
+
 
                     }, {
                         name: 'PNS',
                         type: 'column',
                         data: results.bripda,
-                        color: "#3CE51"
+
 
                     }],
                     chart: {
                         height: '400',
+                        width: '4500',
                         type: 'line',
                         stacked: false,
                     },
                     tooltip: {
-                        fixed: {
-                            enabled: true
-                        }
+                        enabled: true,
                     },
                     plotOptions: {
                         bar: {
@@ -410,9 +436,6 @@
                     },
                     dataLabels: {
                         enabled: true,
-                        style: {
-                            colors: ['#333']
-                        },
                         offsetY: -15
                     },
 
@@ -455,6 +478,98 @@
 
                 var sdm = new ApexCharts(document.querySelector("#sdmchart"), options_sdm);
                 sdm.render();
+            }
+        })
+    }
+
+    function getAnggaran() {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>bagrenmin/getAnggaran",
+            dataType: "JSON",
+            success: function(results) {
+                $("#chartb").html(`<div id="anggaranchart"></div>`);
+                var options_anggaran = {
+                    series: [{
+                        name: 'Program Kerja',
+                        type: 'column',
+                        data: results.program_kegiatan,
+                    }, {
+                        name: 'Belanja Barang',
+                        type: 'column',
+                        data: results.belanja_barang,
+                    }, {
+                        name: 'Belanja Modal',
+                        type: 'column',
+                        data: results.belanja_modal,
+                    }, {
+                        name: 'Gaji Pegawai',
+                        type: 'column',
+                        data: results.gaji_pegawai,
+                    }],
+                    chart: {
+                        height: '400',
+                        width: '4500',
+                        type: 'line',
+                        stacked: false,
+                    },
+                    tooltip: {
+                        enabled: true,
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '50%%',
+                            endingShape: 'rounded',
+                            dataLabels: {
+                                position: 'top'
+                            }
+                        },
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        offsetY: -15
+                    },
+
+                    stroke: {
+                        show: true,
+                        width: [1, 1, 4, 4],
+                        colors: ['transparent']
+                    },
+                    xaxis: {
+                        categories: results.polda_name,
+                        labels: {
+                            show: true,
+                            style: {
+                                colors: 'red',
+                                fontSize: '18px',
+                                fontWeight: 400,
+
+                            }
+                        },
+                        tickPlacement: 'between'
+                    },
+                    yaxis: [{
+                        axisTicks: {
+                            show: false,
+                        },
+                        axisBorder: {
+                            show: false,
+                            color: '#008FFB'
+                        },
+                        labels: {
+                            style: {
+                                colors: '#008FFB',
+                            }
+                        },
+
+
+                    }, ],
+
+                };
+
+                var anggaran = new ApexCharts(document.querySelector("#anggaranchart"), options_anggaran);
+                anggaran.render();
             }
         })
     }

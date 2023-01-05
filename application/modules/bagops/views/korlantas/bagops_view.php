@@ -22,8 +22,20 @@
                 <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
             </div> -->
         <?php } else { ?>
-            <div class="col-md-2 text-end align-self-center"></div>
-            <div class="col-md-2 text-end align-self-center">
+            <div class="col-md-2 text-end align-self-center" style="margin-left:70px;">
+                <button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;"><a href="http://103.154.174.85:3002/" target="_blank">
+                        <!-- <iconify-icon icon="mdi:file-document-multiple"></iconify-icon> -->
+                        Operasi Lilin
+                    </a>
+                </button>
+                <!-- <li>
+                                    
+                                        <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard" style="color: white;">Operasi Lilin</span>
+                                    </a>
+                                </li> -->
+            </div>
+            <div class="col-md-2 text-end align-self-center" style="margin-left: -70px;">
                 <button type="button" class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <!-- <iconify-icon icon="mdi:file-document-multiple"></iconify-icon> -->
                     Struktur Organisasi
