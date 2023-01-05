@@ -94,7 +94,7 @@
 						<div class="icon text-center">
 							<iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon>
 						</div>
-						<h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/laporan-produksi-sim/" class="stretched-link fs-5" style="color:#3b3b3b">SIM Nasional</a></h4>
+						<h4 class="text-center"><a href="#" class="stretched-link fs-5" style="color:#3b3b3b">SIM Nasional</a></h4>
 						<h1 id="sim" class="text-center fw-bold mb-5"><?= number_format($ditregident['data'][0]['sim'], 0, '', '.');  ?></h1>
 						
 					</div>
@@ -143,6 +143,122 @@
 	</div>
 	
 </section>
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Media Sosial NTMC</h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+        </div>
+
+        <!-- Tabs -->
+        <ul class="nav nav-pills mb-3">
+          <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">Data Polres</a></li>
+          <li><a class="nav-link" data-bs-toggle="pill" href="#tab2">Data Satpas</a></li>
+          <li><a class="nav-link" data-bs-toggle="pill" href="#tab3">Data Samsat</a></li>
+          <li><a class="nav-link" data-bs-toggle="pill" href="#tab4">Link CCTV</a></li>
+
+        </ul><!-- End Tabs -->
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+
+          <div class="tab-pane fade show active" id="tab1">
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th width="5%">No</th>
+                <th width="25%">Nama Polres</th>
+                <th>Alamat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-striped">
+                <td>1</td>
+                <td>Polres 1</td>
+                <td>Jl. Polres</td>
+              </tr>
+              
+            </tbody>
+          </table>
+
+          </div><!-- End Tab 1 Content -->
+
+          <div class="tab-pane fade show" id="tab2">
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th width="5%">No</th>
+                <th width="25%">Nama Polres</th>
+                <th width="15%">Kode Satpas</th>
+                <th>Alamat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-striped">
+                <td>1</td>
+                <td>Polres 1</td>
+                <td>001</td>
+                <td>Jl. Polres</td>
+              </tr>
+              
+            </tbody>
+          </table>
+
+          </div><!-- End Tab 2 Content -->
+
+          <div class="tab-pane fade show" id="tab3">
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th width="5%">No</th>
+                <th width="25%">Nama Samsat</th>
+                <th>Alamat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-striped">
+                <td>1</td>
+                <td>Samsat 1</td>
+                <td>Jl. Samsat</td>
+              </tr>
+              
+            </tbody>
+          </table>
+
+          </div><!-- End Tab 2 Content -->
+
+          <div class="tab-pane fade show" id="tab4">
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th width="5%">No</th>
+                <th width="25%">Nama CCTV</th>
+                <th>Link CCTV</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-striped">
+                <td>1</td>
+                <td>CCTV 1</td>
+                <td>https://cctv1.go.id</td>
+              </tr>
+              
+            </tbody>
+          </table>
+
+          </div><!-- End Tab 2 Content -->
+
+        </div>
+        
+      </div>
+    </section><!-- End About Section -->
 
 
 

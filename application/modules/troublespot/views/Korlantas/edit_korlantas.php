@@ -57,12 +57,11 @@
                     </div>
                     <div class="col-md-6">
                         <div class="material-selectfield">
-                        <select class="form-select" name="polres" id="polres">
-                        <option selected value="<?= $data['getDetail']['data']['polres_id']?>"><?= $data['getDetail']['data']['polre']['name_polres']?></option>
-                        	<?php
-							foreach ($data['getPolda'] as $row) : ?>
-								<option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
-							<?php endforeach; ?>
+                        <select class="form-select" name="polres" id="polres"> 
+                            <?php
+                            foreach ($data['getPolres'] as $row) : ?>
+                                <option value="<?php echo $row['id']; ?>" <?php echo($row['name_polres'] == $data['getDetail']['data']['polre']['name_polres'] ? 'selected' : '')?>><?php echo $row['name_polres']; ?></option>
+                            <?php endforeach; ?>
                         
                         </select>
                             <label for="" class="labelmui">Polres</label>

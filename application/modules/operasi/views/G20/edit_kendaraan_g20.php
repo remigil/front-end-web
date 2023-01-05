@@ -39,6 +39,12 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <div class="material-textfield mb-3">
+                                    <input style="width: 100%;" name="no_mesin" value="<?php echo $data['getDetail']['data']['no_engine'];?>" type="text">
+                                    <label class="labelmui">Nomor Mesin</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
                                     <select class="form-select" name="jenisKendaraan" id="select">
                                         <option <?php echo ($data['getDetail']['data']['type_vehicle'] == null ? 'selected' : '');?> value="">Pilih Jenis Kendaraan</option>

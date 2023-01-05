@@ -1160,6 +1160,42 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+<div class="modal right fade" id="myModalTroubleSpotDisplayPolda" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelTroubleSpotDisplayPolda" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelTroubleSpotDisplayPolda">Trouble Spot</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalTroubleSpotDisplayPolda"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="width: 550px;">
+                <div class="accordion" id="openModalTroubleSpotDisplayPolda">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<div class="modal right fade" id="myModalBlackSpotDisplayPolda" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelBlackSpotDisplayPolda" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelBlackSpotDisplayPolda">Black Spot</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalBlackSpotDisplayPolda"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="width: 550px;">
+                <div class="accordion" id="openModalBlackSpotDisplayPolda">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal right fade" id="myModalPosPamDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPosPamDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -2493,6 +2529,13 @@
 
                     var listPoldaPetugasDisplay = '';
 
+                    var listTroubleSpotPoldaDisplay = '';
+                    var listBlackSpotPoldaDisplay = '';
+
+
+                    var listSamsatPoldaDisplay = '';
+                    var listSatPasPoldaDisplay = '';
+
                     var listLIPoldaDisplay = '';
                     var listPosYanPoldaDisplay = '';
 
@@ -2587,6 +2630,74 @@
                                     </td>
                                 </tr>
                             `; 
+
+                            listTroubleSpotPoldaDisplay += ` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTroubleSpot${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTroubleSpot${countPoldaDisplay}" aria-expanded="false" aria-controls="collapseTroubleSpot${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTroubleSpot${countPoldaDisplay}" class="accordion-collapse multi-collapse collapse" aria-labelledby="headingTroubleSpot${countPoldaDisplay}" data-bs-parent="#openModalTroubleSpotDisplayPolda">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaTroubleSpot${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                            listBlackSpotPoldaDisplay += ` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingBlackSpot${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBlackSpot${countPoldaDisplay}" aria-expanded="false" aria-controls="collapseBlackSpot${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseBlackSpot${countPoldaDisplay}" class="accordion-collapse multi-collapse collapse" aria-labelledby="headingBlackSpot${countPoldaDisplay}" data-bs-parent="#openModalBlackSpotDisplayPolda">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaBlackSpot${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                            listSamsatPoldaDisplay += ` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingSamsat${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSamsat${countPoldaDisplay}" aria-expanded="false" aria-controls="collapseSamsat${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSamsat${countPoldaDisplay}" class="accordion-collapse multi-collapse collapse" aria-labelledby="headingSamsat${countPoldaDisplay}" data-bs-parent="#openModalSamsatDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaSamsat${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                            listSatPasPoldaDisplay += ` 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingSatPas${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSatPas${countPoldaDisplay}" aria-expanded="false" aria-controls="collapseSatPas${countPoldaDisplay}">
+                                        ${ressData[i].name_polda}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSatPas${countPoldaDisplay}" class="accordion-collapse multi-collapse collapse" aria-labelledby="headingSatPas${countPoldaDisplay}" data-bs-parent="#openModalSatPasDisplay">
+                                        <div class="accordion-body">
+                                            <div class="text-muted" id="isiPoldaSatPas${ressData[i].id}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
 
                             listLIPoldaDisplay += ` 
                                 <div class="accordion-item">
@@ -2685,6 +2796,13 @@
                             $('#openModalPoldaPetugasDisplay').html(listPoldaPetugasDisplay);
                             
                             
+                            $('#openModalTroubleSpotDisplayPolda').html(listTroubleSpotPoldaDisplay);
+                            $('#openModalBlackSpotDisplayPolda').html(listBlackSpotPoldaDisplay);
+
+
+                            $('#openModalSamsatDisplay').html(listSamsatPoldaDisplay);
+                            $('#openModalSatPasDisplay').html(listSatPasPoldaDisplay);
+
                             $('#isiModalPoldaDisplay').html(listPoldaDisplay);
                             $('#openModalPosPamDisplay').html(listLIPoldaDisplay);
                             $('#openModalPosYanDisplay').html(listPosYanPoldaDisplay);
@@ -2710,6 +2828,22 @@
                             } else {
                                 
                             } 
+                        });
+
+
+                        $(`#headingTroubleSpot${i+1}`).on("click", function(e) {
+                            serverSideFilter($(this).data('poldaid'));
+                        });
+
+                        $(`#headingBlackSpot${i+1}`).on("click", function(e) {
+                            serverSideFilter($(this).data('poldaid'));
+                        });
+
+                        $(`#headingSamsat${i+1}`).on("click", function(e) {
+                            serverSideFilter($(this).data('poldaid'));
+                        });
+                        $(`#headingSatPas${i+1}`).on("click", function(e) {
+                            serverSideFilter($(this).data('poldaid'));
                         });
 
                         $(`#heading${i+1}`).on("click", function(e) {
@@ -7539,21 +7673,21 @@
                         });
 
                         if (filterSamsat.length > 0) {
-                            $('#openModalSamsatDisplay').html(`
-                            <table id="datatableSamsatOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Alamat</th> 
-                                        <th>Waktu</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalSamsatDisplay">
-                                </tbody>
-                            </table>                     
-                        `);
+                            $(`#isiPoldaSamsat${polda_id}`).html(`
+                                <table id="datatableSamsatOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Alamat</th> 
+                                            <th>Waktu</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalSamsatDisplay${polda_id}">
+                                    </tbody>
+                                </table>                     
+                            `);
                             var countSamsatDisplay = 0;
                             var listSamsatDisplay = '';
                             $('#totalSamsatDisplay').html(filterSamsat.length);
@@ -7576,7 +7710,7 @@
                                     </td>
                                 </tr>
                             `;
-                                $('#isiModalSamsatDisplay').html(listSamsatDisplay);
+                                $(`#isiModalSamsatDisplay${polda_id}`).html(listSamsatDisplay);
 
 
 
@@ -7631,7 +7765,7 @@
                                     mapContainer.flyTo([latitude, longitude], 20);
                                 });
                             }
-                            $('#datatableSamsatOnDisplay').DataTable({
+                            $(`#datatableSamsatOnDisplay${polda_id}`).DataTable({
                                 responsive: true,
 
                                 scrollX: true,
@@ -7809,11 +7943,17 @@
                     }
 
                     if (ressTroubleSpot && ressTroubleSpot.length > 0) {
+
+
+                        
+                    
                         var filterTroubleSpot = ressTroubleSpot;
 
                         if (filterTroubleSpot.length > 0) {
-                            $('#openModalTroubleSpotDisplay').html(`
-                                <table id="datatableTroubleSpotOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                            
+
+                            $(`#isiPoldaTroubleSpot${polda_id}`).html(`
+                                <table id="datatableTroubleSpotOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -7823,7 +7963,7 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="isiModalTroubleSpotDisplay">
+                                    <tbody id="isiModalTroubleSpotDisplay${polda_id}">
                                     </tbody>
                                 </table>                     
                             `);
@@ -7860,7 +8000,7 @@
                                                 </td>
                                             </tr>
                                         `;
-                                        $('#isiModalTroubleSpotDisplay').html(listTroubleSpotDisplay);
+                                        $(`#isiModalTroubleSpotDisplay${polda_id}`).html(listTroubleSpotDisplay);
 
                                         troubleSpotClusterGroup.addLayer(markerTroubleSpot[i] = L.marker([latitudeTroubleSpot, longitudeTroubleSpot], {
                                             icon: L.divIcon({
@@ -7915,13 +8055,13 @@
                                             <td>${filterTroubleSpot[i].desc}</td> 
                                             <td>
                                                 <input type="checkbox" class="form-input checkTs" name="selectTs" 
-                                                id="listTsDisplay${countlistTroubleSpot}"  
+                                                id="listTsDisplay${polda_id}${countlistTroubleSpot}"  
                                                 data-name="${filterTroubleSpot[i]['reporter_name']}" 
                                                 data-cord='${JSON.stringify(filterTroubleSpot[i]['route'])}'> 
                                             </td>
                                         </tr>
                                     `;
-                                    $('#isiModalTroubleSpotDisplay').html(listTroubleSpotDisplay);
+                                    $(`#isiModalTroubleSpotDisplay${polda_id}`).html(listTroubleSpotDisplay);
 
 
                                     checkedTroubleSpot1.push({
@@ -7932,7 +8072,7 @@
                             }
 
                             for (let i = 0; i < countlistTroubleSpot; i++) {
-                                $(`#listTsDisplay${i+1}`).on("change", function(e) {
+                                $(`#listTsDisplay${polda_id}${i+1}`).on("change", function(e) {
 
                                     var cordRute = $(this).data('cord');
                                     if (cordRute != null && cordRute[0]['latLng'] != null) {
@@ -7989,7 +8129,7 @@
                                     mapContainer.flyTo([latitude, longitude], 20);
                                 });
                             }
-                            $('#datatableTroubleSpotOnDisplay').DataTable({
+                            $(`#datatableTroubleSpotOnDisplay${polda_id}`).DataTable({
                                 responsive: true,
 
                                 scrollX: true,
@@ -8012,8 +8152,9 @@
                         var filterBlankSpot = ressBlankSpot;
 
                         if (filterBlankSpot.length > 0) {
-                            $('#openModalBlankSpotDisplay').html(`
-                                <table id="datatableBlankSpotOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+
+                            $(`#isiPoldaBlackSpot${polda_id}`).html(`
+                                <table id="datatableBlankSpotOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -8023,10 +8164,11 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="isiModalBlankSpotDisplay">
+                                    <tbody id="isiModalBlankSpotDisplay${polda_id}">
                                     </tbody>
                                 </table>                     
                             `);
+                             
 
                             var countBlankSpotDisplay = 0;
                             var listBlankSpotDisplay = '';
@@ -8061,7 +8203,7 @@
                                                 </td>
                                             </tr>
                                         `;
-                                        $('#isiModalBlankSpotDisplay').html(listBlankSpotDisplay);
+                                        $(`#isiModalBlankSpotDisplay${polda_id}`).html(listBlankSpotDisplay);
                                         blankSpotClusterGroup.addLayer(markerBlankSpot[i] = L.marker([latitudeBlankSpot, longitudeBlankSpot], {
                                             icon: L.divIcon({
                                                 // className: 'location-pin',
@@ -8116,13 +8258,13 @@
                                             <td>${filterBlankSpot[i].desc}</td> 
                                             <td>
                                                 <input type="checkbox" class="form-input checkTs" name="selectTs" 
-                                                id="listTsDisplay${countlistBlankSpot}"  
+                                                id="listBsDisplay${countlistBlankSpot}"  
                                                 data-name="${filterBlankSpot[i]['reporter_name']}" 
                                                 data-cord='${JSON.stringify(filterBlankSpot[i]['route'])}'> 
                                             </td>
                                         </tr>
                                     `;
-                                    $('#isiModalBlankSpotDisplay').html(listBlankSpotDisplay);
+                                    $(`#isiModalBlankSpotDisplay${polda_id}`).html(listBlankSpotDisplay);
 
 
                                     checkedBlankSpot1.push({
@@ -8133,7 +8275,7 @@
                             }
 
                             for (let i = 0; i < countlistBlankSpot; i++) {
-                                $(`#listTsDisplay${i+1}`).on("change", function(e) {
+                                $(`#listBsDisplay${i+1}`).on("change", function(e) {
 
                                     var cordRute = $(this).data('cord');
                                     if (cordRute != null && cordRute[0]['latLng'] != null) {
@@ -8190,7 +8332,7 @@
                                     mapContainer.flyTo([latitude, longitude], 20);
                                 });
                             }
-                            $('#datatableBlankSpotOnDisplay').DataTable({
+                            $(`#datatableBlankSpotOnDisplay${polda_id}`).DataTable({
                                 responsive: true,
 
                                 scrollX: true,
@@ -9331,8 +9473,8 @@
                     }
 
                     if (ressSatPas && ressSatPas.length > 0) {
-                        $('#openModalSatPasDisplay').html(`
-                            <table id="datatableSatPasOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                        $(`#isiPoldaSatPas${polda_id}`).html(`
+                            <table id="datatableSatPasOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -9341,7 +9483,7 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody id="isiModalSatPasDisplay">
+                                <tbody id="isiModalSatPasDisplay${polda_id}">
                                 </tbody>
                             </table>                     
                         `);
@@ -9368,7 +9510,7 @@
                                     </td>
                                 </tr>
                             `;
-                            $('#isiModalSatPasDisplay').html(listSatPasDisplay);
+                            $(`#isiModalSatPasDisplay${polda_id}`).html(listSatPasDisplay);
 
 
                             var latitudeFasum = parseFloat(ressSatPas[i].fasum_lat);
@@ -9454,7 +9596,7 @@
                                 mapContainer.flyTo([latitude, longitude], 17);
                             });
                         }
-                        $('#datatableSatPasOnDisplay').DataTable({
+                        $(`#datatableSatPasOnDisplay${polda_id}`).DataTable({
                             responsive: true,
 
                             scrollX: true,
@@ -10773,7 +10915,7 @@
                 $("#samsat").prop('checked', false);
                 $("#samsat").val();
             }
-            serverSideFilter();
+            // serverSideFilter();
         });
 
         $("#jalurDisplay").on("change", function(e) {
@@ -10806,26 +10948,26 @@
             if ($(this).is(':checked')) {
                 openDisplay = this.value;
                 $("#trouble_spot").prop('checked', true);
-                $("#myModalTroubleSpotDisplay").modal('show');
+                $("#myModalTroubleSpotDisplayPolda").modal('show');
             } else {
                 openDisplay = '';
                 $("#trouble_spot").prop('checked', false);
                 $("#trouble_spot").val();
             }
-            serverSideFilter();
+            // serverSideFilter();
         });
 
         $("#blank_spotDisplay").on("change", function(e) {
             if ($(this).is(':checked')) {
                 openDisplay = this.value;
                 $("#blank_spot").prop('checked', true);
-                $("#myModalBlankSpotDisplay").modal('show');
+                $("#myModalBlackSpotDisplayPolda").modal('show');
             } else {
                 openDisplay = '';
                 $("#blank_spot").prop('checked', false);
                 $("#blank_spot").val();
             }
-            serverSideFilter();
+            // serverSideFilter();
         });
         $("#restAreaDisplay").on("change", function(e) {
             if ($(this).is(':checked')) {
@@ -11001,7 +11143,7 @@
                 $("#sat_pas").prop('checked', false);
                 $("#sat_pas").val();
             }
-            serverSideFilter();
+            // serverSideFilter();
         });
 
         $("#kegiatanDisplay").on("change", function(e) {
@@ -11122,10 +11264,10 @@
         });
 
         $("#troubleSpotFilterModal").on("click", function(e) {
-            $("#myModalTroubleSpotDisplay").modal('show');
+            $("#myModalTroubleSpotDisplayPolda").modal('show');
         });
         $("#blankSpotFilterModal").on("click", function(e) {
-            $("#myModalBlankSpotDisplay").modal('show');
+            $("#myModalBlackSpotDisplayPolda").modal('show');
         });
 
         $("#restAreaFilterModal").on("click", function(e) {

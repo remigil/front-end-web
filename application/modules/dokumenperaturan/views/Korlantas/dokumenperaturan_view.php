@@ -54,6 +54,26 @@
                             <option value="5">Peraturan Kapolri</option>
                             <option value="6">Peraturan Kakorlantas POLRI</option>
                             <option value="7">Peraturan Lain-lain</option>
+                            <option value="8">Kemendagri</option>
+                            <option value="9">Kemenhub</option>
+                            <option value="10">Kemenkes</option>
+                            <option value="11">Kemenperin</option>
+                            <option value="12">Kemenpupr</option>
+                            <option value="13">Badan Riset</option>
+                            <option value="14">Kemenkeu</option>
+                            <option value="15">Kemendikbud</option>
+                            <option value="16">Kemenhan</option>
+                            <option value="17">Ditjen Bina Marga</option>
+                            <option value="18">Dukcapil</option>
+                            <option value="19">Jasa Raharja</option>
+                            <option value="20">Jasa Marga</option>
+                            <option value="21">Mabes TNI</option>
+                            <option value="22">Satgas Covid</option>
+                            <option value="23">BMKG</option>
+                            <option value="24">BNN</option>
+                            <option value="25">BNPB</option>
+                            <option value="26">BNPT</option>
+                            <option value="27">BPS</option>
 
                         </select>
                         <label for="kategoriPeraturan">Kategori Peraturan</label>
@@ -99,6 +119,26 @@
                             <option value="5">Peraturan Kapolri</option>
                             <option value="6">Peraturan Kakorlantas POLRI</option>
                             <option value="7">Peraturan Lain-lain</option>
+                            <option value="8">Kemendagri</option>
+                            <option value="9">Kemenhub</option>
+                            <option value="10">Kemenkes</option>
+                            <option value="11">Kemenperin</option>
+                            <option value="12">Kemenpupr</option>
+                            <option value="13">Badan Riset</option>
+                            <option value="14">Kemenkeu</option>
+                            <option value="15">Kemendikbud</option>
+                            <option value="16">Kemenhan</option>
+                            <option value="17">Ditjen Bina Marga</option>
+                            <option value="18">Dukcapil</option>
+                            <option value="19">Jasa Raharja</option>
+                            <option value="20">Jasa Marga</option>
+                            <option value="21">Mabes TNI</option>
+                            <option value="22">Satgas Covid</option>
+                            <option value="23">BMKG</option>
+                            <option value="24">BNN</option>
+                            <option value="25">BNPB</option>
+                            <option value="26">BNPT</option>
+                            <option value="27">BPS</option>
 
                         </select>
                         <label for="kategoriPeraturan">Kategori Peraturan</label>
@@ -144,6 +184,26 @@
                             <option value="5">Peraturan Kapolri</option>
                             <option value="6">Peraturan Kakorlantas POLRI</option>
                             <option value="7">Peraturan Lain-lain</option>
+                            <option value="8">Kemendagri</option>
+                            <option value="9">Kemenhub</option>
+                            <option value="10">Kemenkes</option>
+                            <option value="11">Kemenperin</option>
+                            <option value="12">Kemenpupr</option>
+                            <option value="13">Badan Riset</option>
+                            <option value="14">Kemenkeu</option>
+                            <option value="15">Kemendikbud</option>
+                            <option value="16">Kemenhan</option>
+                            <option value="17">Ditjen Bina Marga</option>
+                            <option value="18">Dukcapil</option>
+                            <option value="19">Jasa Raharja</option>
+                            <option value="20">Jasa Marga</option>
+                            <option value="21">Mabes TNI</option>
+                            <option value="22">Satgas Covid</option>
+                            <option value="23">BMKG</option>
+                            <option value="24">BNN</option>
+                            <option value="25">BNPB</option>
+                            <option value="26">BNPT</option>
+                            <option value="27">BPS</option>
 
                         </select>
                         <label for="kategoriPeraturan">Kategori Peraturan</label>
@@ -346,7 +406,7 @@
 
                 if(results.fileReg != null){
                     $("#fileDownload").html(` 
-                    <a style="color: black;" class="btn" href="<?php echo urlApi()?>regulation_doc/${results.fileReg}" target="_blank">
+                    <a style="color: black;" class="btn" href="<?php echo url_api()?>regulation_doc/${results.fileReg}" target="_blank">
                         <i style="color: black;" class="fa  fas fa-download "></i> Download File
                     </a>`);
                 }else{

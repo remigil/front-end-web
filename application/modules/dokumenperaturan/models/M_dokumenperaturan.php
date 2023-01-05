@@ -131,6 +131,46 @@ class M_dokumenperaturan extends CI_Model {
 				$category = "Peraturan Kakorlantas POLRI";
 			}else if($field['regulation_category'] == 7){
 				$category = "Peraturan Lain-lain";
+			}else if($field['regulation_category'] == 8){
+				$category = "Kemendagri";
+			}else if($field['regulation_category'] == 9){
+				$category = "Kemenhub";
+			}else if($field['regulation_category'] == 10){
+				$category = "Kemenkes";
+			}else if($field['regulation_category'] == 11){
+				$category = "Kemenperin";
+			}else if($field['regulation_category'] == 12){
+				$category = "Kemenpupr";
+			}else if($field['regulation_category'] == 13){
+				$category = "Badan Riset";
+			}else if($field['regulation_category'] == 14){
+				$category = "Kemenkeu";
+			}else if($field['regulation_category'] == 15){
+				$category = "Kemendikbud";
+			}else if($field['regulation_category'] == 16){
+				$category = "Kemenhan";
+			}else if($field['regulation_category'] == 17){
+				$category = "Ditjen Bina Marga";
+			}else if($field['regulation_category'] == 18){
+				$category = "Dukcapil";
+			}else if($field['regulation_category'] == 19){
+				$category = "Jasa Raharja";
+			}else if($field['regulation_category'] == 20){
+				$category = "Jasa Marga";
+			}else if($field['regulation_category'] == 21){
+				$category = "Mabes TNI";
+			}else if($field['regulation_category'] == 22){
+				$category = "Satgas Covid";
+			}else if($field['regulation_category'] == 23){
+				$category = "BMKG";
+			}else if($field['regulation_category'] == 24){
+				$category = "BNN";
+			}else if($field['regulation_category'] == 25){
+				$category = "BNPB";
+			}else if($field['regulation_category'] == 26){
+				$category = "BNPT";
+			}else if($field['regulation_category'] == 27){
+				$category = "BPS";
 			}else{
                 $category = "-";
             }

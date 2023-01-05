@@ -19,6 +19,7 @@
                         <th>Jenis Kendaraan</th>
                         <th>Bahan Bakar</th>
                         <th>Merek</th>
+                        <th>No. Mesin</th>
                         <th>Kepemilikan</th>
                         <th>Aksi</th>
                     </tr>
@@ -69,6 +70,10 @@
                     <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="merek" placeholder="" type="text">
                         <label class="labelmui">Merek</label>
+                    </div>
+                    <div class="material-textfield mb-3">
+                        <input style="width: 100%;" name="no_mesin" placeholder="" type="text">
+                        <label class="labelmui">Nomor Mesin</label>
                     </div>
                     <div class="material-selectfield mb-3">
                         <select class="form-select" name="kepemilikan" id="select3">
@@ -248,6 +253,7 @@
                 { data :'fuel_vehicle'},
 
                 { data: 'brand_vehicle'},
+                { data: 'no_engine'},
 
                 { data: 'ownership_vehicle'},  
 

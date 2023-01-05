@@ -26,9 +26,11 @@
                             <p>NOMOR</p>
                             <p>JENIS</p>
                             <p>MEREK</p>
+                            <p>NOMOR MESIN</p>
                             <p>KEPEMILIKAN</p>
                         </div>
                         <div class="col-1 text-black">
+                            <p>:</p>
                             <p>:</p>
                             <p>:</p>
                             <p>:</p>
@@ -38,6 +40,7 @@
                             <p><?php echo $data['getDetail']['data']['no_vehicle'];?></p>
                             <p><?php echo ($data['getDetail']['data']['type_vehicle'] == null ? '-' : $data['getDetail']['data']['type_vehicle']);?></p>
                             <p><?php echo ($data['getDetail']['data']['brand_vehicle'] == null ? '-' : $data['getDetail']['data']['brand_vehicle']);?></p>
+                            <p><?php echo ($data['getDetail']['data']['no_engine'] == null ? '-' : $data['getDetail']['data']['no_engine']);?></p>
                             <p><?php echo ($data['getDetail']['data']['ownership_vehicle'] == null ? '-' : $data['getDetail']['data']['ownership_vehicle']);?></p>
                         </div>
                     </div>

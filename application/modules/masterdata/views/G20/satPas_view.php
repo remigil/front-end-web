@@ -73,6 +73,24 @@
                         </div>
                     </div>
                     <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-floating  mb-3">
+                                <select required name="polda_id" id="polda_id"  class="form-select">
+                                    <option selected value="">Pilih Polda</option> 
+                                    <?php foreach ($data['getPolda'] as $row) : ?>
+                                        <option value="<?php echo $row['id']; ?>" data-polda="<?php echo $row['polda_id']; ?>"><?php echo $row['name_polda']; ?></option>
+                                    <?php endforeach; ?>
+                                </select> 
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating  mb-3" id="selectPolres">
+                                <select required name="polres_id" id="polres_id" class="form-select">
+                                    <option selected value="">Pilih Polres</option> 
+                                </select> 
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="latitude" placeholder="latitude">
@@ -181,6 +199,24 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
+                            <div class="form-floating  mb-3">
+                                <select required name="polda_id" id="polda_id"  class="form-select">
+                                    <option selected value="">Pilih Polda</option> 
+                                    <?php foreach ($data['getPolda'] as $row) : ?>
+                                        <option value="<?php echo $row['id']; ?>" data-polda="<?php echo $row['polda_id']; ?>"><?php echo $row['name_polda']; ?></option>
+                                    <?php endforeach; ?>
+                                </select> 
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating  mb-3" id="selectPolres">
+                                <select required name="polres_id" id="polres_id" class="form-select">
+                                    <option selected value="">Pilih Polres</option> 
+                                </select> 
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="latitude" name="latitude">
                                 <label for="latitude">Latitude</label>
@@ -279,6 +315,24 @@
                     </div>
 
                     <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-floating  mb-3">
+                                <select required name="polda_id" id="polda_idEdit"  class="form-select">
+                                    <option selected value="">Pilih Polda</option> 
+                                    <?php foreach ($data['getPolda'] as $row) : ?>
+                                        <option value="<?php echo $row['id']; ?>" data-polda="<?php echo $row['polda_id']; ?>"><?php echo $row['name_polda']; ?></option>
+                                    <?php endforeach; ?>
+                                </select> 
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating  mb-3" id="selectPolresEdit">
+                                <select required name="polres_id" id="polres_idEdit" class="form-select">
+                                    <option selected value="">Pilih Polres</option> 
+                                </select> 
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="latitude" name="latitude">
@@ -397,6 +451,42 @@
             mapContainer.invalidateSize();
 
             $('.dropify').dropify();
+
+
+            $("#selectPolres").hide();
+            $("#polda_id").on("change", function(e) {
+                var selected = $(this).find(':selected');    
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url(); ?>operasi/renpam/getPolresByPolda",
+                    data: {
+                        "polda_id": selected.data('polda'),
+                    },
+                    dataType: "JSON",
+                    success: function(result) {
+                        console.log(result);
+
+                        if(result['data'].length > 0){ 
+                            $("#selectPolres").show();
+                            var ress = result['data'];
+                            var count = 0;
+                            var list = '';
+    
+                            list += `
+                                    <option selected value="">Pilih Polres</option> 
+                                `;
+                            ress.forEach(el => {
+                                list += `
+                                    <option value="${el.id}">${el.name_polres}</option> 
+                                `;
+                                $("#polres_id").html(list);
+                            });
+                        }else{
+                            $("#polres_id").html(`<option selected value="">Polres Tidak Ada</option>`);
+                        }
+                    }
+                });
+            });
 
             let countlist = 0;
             let list = "";
@@ -694,6 +784,43 @@
         $('#myModalEdit').on('shown.bs.modal', function() {
             mapContainer.invalidateSize();
 
+
+            // $("#selectPolresEdit").hide();
+            $("#polda_idEdit").on("change", function(e) {
+                var selected = $(this).find(':selected');    
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url(); ?>operasi/renpam/getPolresByPolda",
+                    data: {
+                        "polda_id": selected.data('polda'),
+                    },
+                    dataType: "JSON",
+                    success: function(result) {
+                        console.log(result);
+
+                        if(result['data'].length > 0){ 
+                            $("#selectPolresEdit").show();
+                            var ress = result['data'];
+                            var count = 0;
+                            var list = '';
+    
+                            list += `
+                                    <option selected value="">Pilih Polres</option> 
+                                `;
+                            ress.forEach(el => {
+                                list += `
+                                    <option value="${el.id}">${el.name_polres}</option> 
+                                `;
+                                $("#polres_idEdit").html(list);
+                            });
+                        }else{
+                            $("#polres_idEdit").html(`<option selected value="">Polres Tidak Ada</option>`);
+                        }
+                    }
+                });
+            });
+
+
             let countlist = 0;
             let list = "";
             $('[name=address]').on("change", function(e) {
@@ -881,6 +1008,9 @@
                 $('.UbahFasum,#photo').val(results.fasum_logo)
                 $('.UbahFasum,#jamBuka').val(results.fasum_open_time)
                 $('.UbahFasum,#jamTutup').val(results.fasum_close_time)
+
+                $('.UbahFasum,#polda_idEdit').val(results.id_polda)
+                $('.UbahFasum,#polres_idEdit').val(results.id_polres)
 
 
 

@@ -6,7 +6,16 @@ class Pustaka extends MX_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->helper('guzzle_request_helper');
+		$this->load->model('m_pustaka');
     }
+	
+	public function serverSideTable() 
+    {  
+        $postData = $this->input->post();   
+        $data = $this->m_pustaka->get_datatables($postData);  
+		echo json_encode($data); 
+    }
+
 	public function index()
 	{
 		$getStakeholder = guzzle_request('GET', 'stackholder', []);
@@ -71,6 +80,8 @@ class Pustaka extends MX_Controller {
 
 	public function undang_undang()
 	{ 
+		
+		
 		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 		// $headers = [
         //     'Authorization' => $this->session->userdata['token']
@@ -81,11 +92,9 @@ class Pustaka extends MX_Controller {
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
 		$data['title'] = "UU dan Peraturan | K3I Korlantas";  
 		$data['breadcrumb'] = "uu dan peraturan";  
-		$data['headline'] = "UU DAN PERATURAN";  
+		$data['headline'] = "UU DAN PERATURAN"; 
 
-		$getPeraturan = guzzle_request('GET', 'regulation_doc', []);
-		// var_dump($getPeraturan);die;
-
+		
         
         
         $this->template->load('templates/template','informasi_publik/undang_undang', $data); 
