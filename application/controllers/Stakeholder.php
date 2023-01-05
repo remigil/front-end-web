@@ -9,6 +9,7 @@ class Stakeholder extends MX_Controller {
     }
 	public function index($id)
 	{
+		$getperaturan = guzzle_request('GET', 'regulation_doc', []);
 		$getStakeholder = guzzle_request('GET', 'stackholder', [
         ]);
 		$url = 'stackholder/getId/' . $id;

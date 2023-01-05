@@ -171,6 +171,8 @@ class M_dokumenperaturan extends CI_Model {
 				$category = "BNPT";
 			}else if($field['regulation_category'] == 27){
 				$category = "BPS";
+			}else if($field['regulation_category'] == 28){
+				$category = "POLANTAS DALAM ANGKA";
 			}else{
                 $category = "-";
             }

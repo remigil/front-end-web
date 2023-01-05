@@ -111,7 +111,7 @@ $asd = explode("|", $stakeholder['link_playlist']);
 				<h3>Dokumen Peraturan</h3>
 				<div class="card">
 					<div class="card-body">
-						<table id="datatable" class="table dt-responsive w-100 table-striped">
+						<table id="datatable" class="table table-striped table-hover dt-responsive w-100 table-striped">
 							<thead>
 								<tr>
 									<th width="5%">No</th>
@@ -119,7 +119,8 @@ $asd = explode("|", $stakeholder['link_playlist']);
 								</tr>
 							</thead>
 							<tbody>
-								<tr class="table-striped">
+								
+								<!-- <tr>
 									<td width="5%">1</td>
 									<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/Inmendagri-No-29-Tahun-2021-tentang-PPKM-Level-3-Level-2-dan-Level-1.pdf">Inmendagri No 29 Tahun 2021 tentang PPKM Level 3, Level 2 dan Level 1</a></td>
 								</tr>
@@ -134,7 +135,7 @@ $asd = explode("|", $stakeholder['link_playlist']);
 								<tr>
 									<td width="5%">4</td>
 									<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/Implementasi-Pengetatan-Aktivitas-Masyarakat-Pada-PPKM-Darurat-Jawa-Bali_-Final.pdf">Implementasi Pengetatan Aktivitas Masyarakat Pada PPKM Darurat Jawa Bali_ Final</a></td>
-								</tr>
+								</tr> -->
 							</tbody>
 						</table>
 						<a href="<?= $stakeholder['url']?>"><button class="btn btn-lg btn-primary" style="width: 100%;">Selengkapnya</button></a>

@@ -366,6 +366,33 @@
 						</div>
 						</div>
 					</tr>
+					<tr>
+						<td>12</td>
+						<td>UNDANG-UNDANG REPUBLIK INDONESIA NOMOR 1 TAHUN 2023 TENTANG KITAB UNDANG-UNDANG HUKUM PIDANA</td>
+						<td>2023</td>
+						<td>
+							<a class="btn btn-success" href="<?= url_api() . 'regulation_doc/DOC-20230103-WA0041.pdf'?>"><i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i></a>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uu12">
+								<i class="bi bi-eye-fill d-flex align-items-center"></i>
+							</button>
+						</td>
+						<div class="modal fade" id="uu12" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-xl">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">UNDANG-UNDANG REPUBLIK INDONESIA NOMOR 1 TAHUN 2023 TENTANG KITAB UNDANG-UNDANG HUKUM PIDANA</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<object data="<?= url_api() . 'regulation_doc/DOC-20230103-WA0041.pdf'?>" type="application/pdf" width="100%" height="600px">
+								
+							</object>
+							</div>
+							
+							</div>
+						</div>
+						</div>
+					</tr>
 					
 				</tbody>
             </table>
