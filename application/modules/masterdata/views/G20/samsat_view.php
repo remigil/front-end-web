@@ -254,7 +254,7 @@
             <div class="modal-body">
                 <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
-                    <input type="hidden" name="id" value="" id="id_fasum" type="text">
+                    <input type="hidden" name="id" value="" id="id_samsat" type="text">
                     <div class="row">
                         <div class="col-md-12 mb-3" id="fotoEdit">
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" />
@@ -861,7 +861,7 @@
             url: '<?= base_url() ?>masterdata/samsat/detailSamsat/',
             type: 'POST',
             data: {
-                id_fasum: id
+                id_samsat: id
             },
             dataType: 'JSON',
             success: function(results) {
@@ -908,7 +908,7 @@
             url: '<?= base_url() ?>masterdata/samsat/detailSamsat/',
             type: 'POST',
             data: {
-                id_fasum: id
+                id_samsat: id
             },
             dataType: 'JSON',
             success: function(results) {
@@ -935,7 +935,7 @@
                 $('.UbahFasum,#jamBuka').attr('disabled', false)
                 $('.UbahFasum,#jamTutup').attr('disabled', false)
 
-                $('#id_fasum').val(results.id)
+                $('#id_samsat').val(results.id)
 
                 $('.UbahFasum,#namaFasum').val(results.fasum_name)
                 $('.UbahFasum,#jenisFasum').val(results.fasum_type)
@@ -977,7 +977,7 @@
                     url: "<?php echo base_url(); ?>masterdata/samsat/hapusSamsat/",
                     type: "POST",
                     data: {
-                        id_fasum: id
+                        id_samsat: id
                     },
                     dataType: 'JSON',
                     success: function(data) {
