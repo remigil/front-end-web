@@ -84,9 +84,10 @@ class Pustaka extends MX_Controller {
 		// var_dump($getuud);die;
 		$getpp = guzzle_request('Get' , 'regulation_doc/bycategory/2',[]);
 		$getperpres = guzzle_request('Get' , 'regulation_doc/bycategory/3',[]);
-		$getkapolri = guzzle_request('Get' , 'regulation_doc/bycategory/4',[]);
-		$getkakor = guzzle_request('Get' , 'regulation_doc/bycategory/5',[]);
-		$getlain = guzzle_request('Get' , 'regulation_doc/bycategory/6',[]);
+		$getpolisi = guzzle_request('Get' , 'regulation_doc/bycategory/4',[]);
+		$getkapolri = guzzle_request('Get' , 'regulation_doc/bycategory/5',[]);
+		$getkakor = guzzle_request('Get' , 'regulation_doc/bycategory/6',[]);
+		$getlain = guzzle_request('Get' , 'regulation_doc/bycategory/7',[]);
 		
 		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 		// $headers = [
@@ -99,6 +100,7 @@ class Pustaka extends MX_Controller {
 		$data['getuud'] = $getuud['data'];
 		$data['getpp'] = $getpp['data'];
 		$data['getperpres'] = $getperpres['data'];
+		$data['getpolisi'] = $getpolisi['data'];
 		$data['getkapolri'] = $getkapolri['data'];
 		$data['getkakor'] = $getkakor['data'];
 		$data['getlain'] = $getlain['data'];

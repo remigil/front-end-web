@@ -119,23 +119,30 @@ $asd = explode("|", $stakeholder['link_playlist']);
 								</tr>
 							</thead>
 							<tbody>
+								<?php
+								if($getdoc == []):
+
+								?>
+								<tr>
+									<td></td>
+									<td>Data Tidak Ditemukan</td>
+								</tr>
+								<?php endif;?>
+
+								<?php
+								$i = 1;
+								// var_dump($getdoc);die;
+									foreach($getdoc as $doc): 
+
+								?>
 								
-								<!-- <tr>
-									<td width="5%">1</td>
-									<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/Inmendagri-No-29-Tahun-2021-tentang-PPKM-Level-3-Level-2-dan-Level-1.pdf">Inmendagri No 29 Tahun 2021 tentang PPKM Level 3, Level 2 dan Level 1</a></td>
-								</tr>
-								<tr>
-									<td width="5%">2</td>
-									<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/Inmendagri-No-28-Tahun-2021-tentang-PPKM-Level-4-Non-Jawa-Bali.pdf">Inmendagri No 28 Tahun 2021 tentang PPKM Level 4 Non Jawa Bali</a></td>
-								</tr>
-								<tr>
-									<td width="5%">3</td>
-									<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/Inmendagri-No-27-Tahun-2021-tentang-PPKM-Level-4-Level-3-dan-Level-2-Jawa-Bali.pdf">Inmendagri No 27 Tahun 2021 tentang PPKM Level 4, Level 3, dan Level 2 Jawa Bali</a></td>
-								</tr>
-								<tr>
-									<td width="5%">4</td>
-									<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/Implementasi-Pengetatan-Aktivitas-Masyarakat-Pada-PPKM-Darurat-Jawa-Bali_-Final.pdf">Implementasi Pengetatan Aktivitas Masyarakat Pada PPKM Darurat Jawa Bali_ Final</a></td>
-								</tr> -->
+									<tr>
+										<td width="5%"><?= $i++?></td>
+										<td width="40%"><a href="<?= url_api()?>regulation_doc/<?= $doc['fileReg']?>"><?= $doc['regulation_name']?></a></td>
+									</tr>
+								<?php endforeach;?>
+								
+								
 							</tbody>
 						</table>
 						<a href="<?= $stakeholder['url']?>"><button class="btn btn-lg btn-primary" style="width: 100%;">Selengkapnya</button></a>
