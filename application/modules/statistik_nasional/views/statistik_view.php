@@ -122,8 +122,8 @@
                                         <span class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> WAL & PJR</span>
                                             </br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="walpjr"></span>
-                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailwalpjr"></p>
+                                            <!-- <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="walpjr"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailwalpjr"></p> -->
                                         </span>
                                     </div>
                                     <div class="col-md-2">
@@ -152,8 +152,8 @@
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> RANMOR</span>
                                             <br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="ranmor"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailranmor"></span>
+                                            <!-- <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="ranmor"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailranmor"></span> -->
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
@@ -176,8 +176,8 @@
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> SIM</span>
                                             </br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="sim"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsim"></span>
+                                            <!-- <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="sim"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsim"></span> -->
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
@@ -384,8 +384,8 @@
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold">BAGRENMIN</span>
                                             <br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subrenop"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubrenop"></span>
+                                            <!-- <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subrenop"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubrenop"></span> -->
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
@@ -410,8 +410,8 @@
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold">BAGOPS</span>
                                             <br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subdalops"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubdalops"></span>
+                                            <!-- <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subdalops"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubdalops"></span> -->
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
@@ -436,8 +436,8 @@
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold">BAGTIK</span>
                                             <br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subkerma"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubkerma"></span>
+                                            <!-- <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subkerma"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubkerma"></span> -->
                                         </p>
                                     </div>
                                     <div class=" col-md-2">

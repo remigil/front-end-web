@@ -2152,39 +2152,16 @@ class Statistik_executive extends MY_Controller
 
     public function getTopWalpjr()
     {
-        // $yesterday = $this->input->post('yesterday');
-        // $url = 'sim/daily?date=' . $yesterday . '&topPolda=true';
-        // $simTopPolda = guzzle_request('GET', $url, [
-        //     'headers' => [
-        //         'Authorization' => $this->session->userdata['token']
-        //     ]
-        // ]);
+        $url = 'vehicle?search=korlantas';
+        $walpjr = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
 
-        // $data['topSim'] = $simTopPolda['data']['rows'];
-        // echo json_encode($data['topSim']);
-        $dummy = [
-            [
-                'name_polda' => 'Banten',
-                'walpjr' => '0'
-            ],
-            [
-                'name_polda' => 'Jawa Barat',
-                'walpjr' => '0'
-            ],
-            [
-                'name_polda' => 'Jawa Timur',
-                'walpjr' => '0'
-            ],
-            [
-                'name_polda' => 'Jawa Tengah',
-                'walpjr' => '0'
-            ],
-            [
-                'name_polda' => 'Metro Jaya',
-                'walpjr' => '0'
-            ],
-        ];
-        echo json_encode($dummy);
+        $data = $walpjr['data']['data'];
+
+        echo json_encode($data);
     }
 
     public function getWalpjrMonth()
@@ -2267,6 +2244,61 @@ class Statistik_executive extends MY_Controller
         // echo json_encode($data['topsim']);
     }
 
+    public function getBrandWalpjr()
+    {
+        $url = 'vehicle?search=korlantas';
+        $walpjr = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data = $walpjr['data']['data'];
+        $arr = [];
+        $kendaraan = [];
+
+        foreach ($data as $key => $item) {
+            $arr[$item['brand_vehicle']][$key] = $item;
+        }
+        foreach ($arr as $key => $item) {
+            $kendaraan[$item['brand_vehicle']][$key] = count($item);
+        }
+
+        $data = [
+            'nodesc' => $kendaraan[""]['no desc'],
+            'yamaha' => $kendaraan[""]['Yamaha'],
+            'honda' => $kendaraan[""]['Honda'],
+            'hyundai' => $kendaraan[""]['Hyundai'],
+        ];
+
+        echo json_encode($data);
+    }
+    public function getTypeWalpjr()
+    {
+        $url = 'vehicle?search=korlantas';
+        $walpjr = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data = $walpjr['data']['data'];
+        $arr = [];
+        $kendaraan = [];
+
+        foreach ($data as $key => $item) {
+            $arr[$item['type_vehicle']][$key] = $item;
+        }
+        foreach ($arr as $key => $item) {
+            $kendaraan[$item['type_vehicle']][$key] = count($item);
+        }
+
+        $data = [
+            'type' => ['Sepeda Motor', 'Tanpa Kendaraan', 'Mobil'],
+            'total' => [$kendaraan[""]['Sepeda Motor'], $kendaraan[""]['Tanpa Kendaraan'], $kendaraan[""]['Mobil'] + $kendaraan[""]['mobil'],],
+        ];
+        echo json_encode($data);
+    }
     public function getLineWalpjr()
     {
         $title = 'DATA';

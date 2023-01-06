@@ -149,14 +149,16 @@ class Statistik_nasional extends MY_Controller
         // $totalsubanev += $getOps[$i]['subanev'];
         // }
 
-        $totalkeseluruhan = $totallakalantas + $totalgarlantas + $totalranmor + $totalsim;
 
         if ($input['type'] == 'day') {
             $date1 = date('Y-m-d', strtotime("-1 days"));
+            $totalkeseluruhan = $totallakalantas + $totalgarlantas;
         } else if ($input['type'] == 'month') {
             $date1 = date('Y-m-d', strtotime("-1 month"));
+            $totalkeseluruhan = $totallakalantas + $totalgarlantas;
         } else if ($input['type'] == 'year') {
             $date1 = date('Y-m-d', strtotime("-1 year"));
+            $totalkeseluruhan = $totallakalantas + $totalgarlantas + $totalranmor + $totalsim;
         }
 
         $getCompareDitgakum = guzzle_request('GET', 'ditgakkum/date?type=' . $input['type'] . '&filter=true&start_date=' . $date1 . '&end_date=' . $input['endDate'] . '', [
