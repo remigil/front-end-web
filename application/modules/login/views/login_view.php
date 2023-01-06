@@ -194,14 +194,13 @@
 
   <!-- Login 2 start -->
   <div class="login-2 login-background" style="background-image: url(<?php echo base_url() ?>assets/bg-login.png)">
-    <?php $error = $this->session->flashdata('error');
-    if ($error) { ?>
+    <?php if ($this->session->flashdata('error')) { ?>
       <div class="alert dark alert-warning alert-dismissible" role="alert">
         <button type="button" class="close btn" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        WARNING : <?php echo $error ?>
-      </div>
+        WARNING : <?php echo $this->session->flashdata('error') ?>
+      </div> 
     <?php } ?>
     <div class="login-2-inner">
       <div class="container">

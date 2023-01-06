@@ -61,26 +61,28 @@ class Login extends MX_Controller
                 if($response['user']['data']['user_role']['name'] == 'G20' && $operationProfile['isSuccess'] == true){
                     $data_session['id_operation']       = $operationProfile['data']['id_operation'];
                     $data_session['banner']       = $operationProfile['data']['banner'];
-                    $data_session['name_operation']       = $operationProfile['data']['name_operation'];
+                    $data_session['name_operation']       = $operationProfile['data']['name_operation'] ? $operationProfile['data']['name_operation'] : 'Tidak Ada';
                     $data_session['document_sprint']       = $operationProfile['data']['document_sprint'];
                     $data_session['background_image']       = $operationProfile['data']['background_image'];
                     $data_session['logo']       = $operationProfile['data']['logo'];
-                    $data_session['latlng_center']       = $operationProfile['data']['latlng_center'];
-                    $data_session['zoom_level']       = $operationProfile['data']['zoom_level'];
+                    $data_session['latlng_center']       = $operationProfile['data']['latlng_center'] ? $operationProfile['data']['latlng_center'] : '-0.21973, 117.91602';
+                    $data_session['zoom_level']       = $operationProfile['data']['zoom_level'] ? $operationProfile['data']['zoom_level'] : 5.5;
                     $data_session['date_start_operation']       = $operationProfile['data']['date_start_operation'];
                     $data_session['date_end_operation']       = $operationProfile['data']['date_end_operation'];  
                 }else{
                     $data_session['id_operation']       = null;
                     $data_session['banner']       = null;
-                    $data_session['name_operation']       = null;
+                    $data_session['name_operation']       = 'Tidak Ada';
                     $data_session['document_sprint']       = null;
                     $data_session['background_image']       = null;
                     $data_session['logo']       = null;
-                    $data_session['latlng_center']       = null;
-                    $data_session['zoom_level']       = null;
+                    $data_session['latlng_center']       = '-0.21973, 117.91602';
+                    $data_session['zoom_level']       = 5.5;
                     $data_session['date_start_operation']       = null;
                     $data_session['date_end_operation']       = null;  
                 }
+
+                 
 
                 if ($response['user']['data']['user_role']['name'] == 'OperatorPolda' || $response['user']['data']['user_role']['name'] == 'Kapolda') {
                     $data_session['polda']       = $response['user']['data']['polda_profile']['polda']['name_polda'];
@@ -141,7 +143,7 @@ class Login extends MX_Controller
                 //     redirect('login');
                 //     die;
                 // }
-            } else {
+            } else { 
                 $this->session->set_flashdata('error', 'Mohon untuk verifikasi akun anda!');
                 redirect('login');
                 die;
@@ -150,8 +152,11 @@ class Login extends MX_Controller
  
 
         } else {
-            $this->session->set_flashdata('error', $response['user']['message']);
+
+             
+            $this->session->set_flashdata('error', 'Akun tidak terdaftar!');
             redirect('login');
+            die; 
         }
     }
 
