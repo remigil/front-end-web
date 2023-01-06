@@ -858,7 +858,7 @@
 
     function detail(id) {
         $.ajax({
-            url: '<?= base_url() ?>masterdata/samsat/detailFasum/',
+            url: '<?= base_url() ?>masterdata/samsat/detailSamsat/',
             type: 'POST',
             data: {
                 id_fasum: id
@@ -905,7 +905,7 @@
     function detailEdit(id) {
         $("#overlay").fadeIn(300);
         $.ajax({
-            url: '<?= base_url() ?>masterdata/samsat/detailFasum/',
+            url: '<?= base_url() ?>masterdata/samsat/detailSamsat/',
             type: 'POST',
             data: {
                 id_fasum: id
@@ -974,7 +974,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?php echo base_url(); ?>masterdata/samsat/hapusFasum/",
+                    url: "<?php echo base_url(); ?>masterdata/samsat/hapusSamsat/",
                     type: "POST",
                     data: {
                         id_fasum: id
@@ -1008,7 +1008,7 @@
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>masterdata/samsat/updateFasum',
+            url: '<?= base_url() ?>masterdata/samsat/updateSamsat',
             type: 'POST',
             data: formData,
             dataType: 'JSON',
