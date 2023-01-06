@@ -44,23 +44,18 @@
             <div class="modal-body">
                 <form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
-                    <div class="row">
-                        <div class="col-md-12 mb-3">
-                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" />
-                        </div>
+                    <div class="row"> 
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" placeholder="nama fasum" name="namaFasum">
-                                <label for="namaFasum">Nama SAMSAT</label>
+                                <input type="text" class="form-control" placeholder="nama samsat" name="name_samsat">
+                                <label for="name_samsat">Nama SAMSAT</label>
                             </div>
-                        </div>
-                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="19" name="jenisFasum">
-                        <input hidden type="text" class="kilometres" name="kilometres" placeholder="15" value="0" />
+                        </div> 
 
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" placeholder="Alamat" name="address">
-                                <label for="">Alamat</label>
+                                <label for="address">Alamat</label>
                             </div>
                         </div>
                         <div id="listAddress" class="col-md-12"></div>
@@ -107,44 +102,20 @@
                         <div id="mapG20Kegiatan" style="height: 400px">
                             <img src="<?php echo base_url(); ?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12">
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" name="deskripsiFasum"></textarea>
-                                <label for="">Deskripsi SAMSAT</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="kontakFasum" placeholder="kontak">
-                                <label for="kontakFasum">Kontak SAMSAT</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <select name="statusFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
-                                    <option selected value="">Pilih Status Fasum</option>
-                                    <option value="0">Nonaktif</option>
-                                    <option selected value="1">Aktif</option>
-                                </select>
-                                <label for="">Status</label>
-                            </div>
-                        </div>
-                    </div>
+                    </div> 
 
-                    <div class="row">
+                   
+
+                    <div class="row mt-3">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="time" class="form-control" name="jamBuka">
+                                <input type="time" class="form-control" name="samsat_open_time">
                                 <label for="jamBuka">Jam Buka</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="time" class="form-control" name="jamTutup">
+                                <input type="time" class="form-control" name="samsat_close_time">
                                 <label for="jamTutup">Jam Tutup</label>
                             </div>
                         </div>
@@ -290,12 +261,10 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="namaFasum" name="namaFasum">
+                                <input type="text" class="form-control" id="namaFasum" name="name_samsat">
                                 <label for="">Nama SAMSAT</label>
                             </div>
-                        </div>
-                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="19" name="jenisFasum">
-                        <input hidden type="text" class="kilometres" name="kilometres" placeholder="15" value="0" />
+                        </div> 
 
 
                         <div class="col-md-6">
@@ -349,40 +318,18 @@
                         <div id="mapEdit" style="height: 400px">
                             <img src="<?php echo base_url(); ?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12">
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
-                                <label for="">Deskripsi SAMSAT</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
-                                <label for="kontakFasum">Kontak SAMSAT</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="statusFasum" name="statusFasum">
-                                <label for="statusFasum">Status</label>
-                            </div>
-                        </div>
-                    </div>
+                    </div>  
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="jamBuka" name="jamBuka">
+                                <input type="text" class="form-control" id="jamBuka" name="samsat_open_time">
                                 <label for="jamBuka">Jam Buka</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="jamTutup" name="jamTutup">
+                                <input type="text" class="form-control" id="jamTutup" name="samsat_close_time">
                                 <label for="jamTutup">Jam Tutup</label>
                             </div>
                         </div>
@@ -690,7 +637,7 @@
             e.preventDefault();
             var formData = new FormData($('.form')[0]);
             $.ajax({
-                url: "<?php echo base_url(); ?>masterdata/Fasilitasumum/store",
+                url: "<?php echo base_url(); ?>masterdata/samsat/store",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
@@ -911,7 +858,7 @@
 
     function detail(id) {
         $.ajax({
-            url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
+            url: '<?= base_url() ?>masterdata/samsat/detailFasum/',
             type: 'POST',
             data: {
                 id_fasum: id
@@ -958,7 +905,7 @@
     function detailEdit(id) {
         $("#overlay").fadeIn(300);
         $.ajax({
-            url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
+            url: '<?= base_url() ?>masterdata/samsat/detailFasum/',
             type: 'POST',
             data: {
                 id_fasum: id
@@ -1027,7 +974,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?php echo base_url(); ?>masterdata/Fasilitasumum/hapusFasum/",
+                    url: "<?php echo base_url(); ?>masterdata/samsat/hapusFasum/",
                     type: "POST",
                     data: {
                         id_fasum: id
@@ -1061,7 +1008,7 @@
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>masterdata/Fasilitasumum/updateFasum',
+            url: '<?= base_url() ?>masterdata/samsat/updateFasum',
             type: 'POST',
             data: formData,
             dataType: 'JSON',

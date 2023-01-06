@@ -61,7 +61,7 @@ class Samsat extends MY_Controller
         $dummy = [
             [
                 'name' => 'name_samsat',
-                'contents' => $input['namaSamsat'],
+                'contents' => $input['name_samsat'],
             ],
             [
                 'name' => 'address',
@@ -77,11 +77,11 @@ class Samsat extends MY_Controller
             ],
             [
                 'name' => 'samsat_open_time',
-                'contents' => $input['jamBuka'],
+                'contents' => $input['samsat_open_time'],
             ],
             [
                 'name' => 'samsat_close_time',
-                'contents' => $input['jamTutup'],
+                'contents' => $input['samsat_close_time'],
             ],
             [
                 'name' => 'polda_id',
@@ -178,7 +178,7 @@ class Samsat extends MY_Controller
         $dummy = [
             [
                 'name' => 'name_samsat',
-                'contents' => $input['namaSamsat'],
+                'contents' => $input['name_samsat'],
             ],
             [
                 'name' => 'address',
@@ -194,11 +194,11 @@ class Samsat extends MY_Controller
             ],
             [
                 'name' => 'samsat_open_time',
-                'contents' => $input['jamBuka'],
+                'contents' => $input['samsat_open_time'],
             ],
             [
                 'name' => 'samsat_close_time',
-                'contents' => $input['jamTutup'],
+                'contents' => $input['samsat_close_time'],
             ],
             [
                 'name' => 'polda_id',
