@@ -2378,10 +2378,36 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="javascript: void(0);" class="has-arrow">
                                                 <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                <span data-key="t-tripon">Bagtik</span>
+                                                <span data-key="t-laporan">Bagtik</span>
                                             </a>
+                                            <ul class="sub-menu" aria-expanded="false">
+                                                <li>
+                                                    <a href="<?= base_url('bagtik/inputData_RTMC') ?>">
+                                                        <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-tripon">RTMC</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="<?= base_url('bagtik/inputData_TMC') ?>">
+                                                        <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-tripon">TMC</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="<?= base_url('bagtik/inputData_CCTV') ?>">
+                                                        <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-tripon">CCTV</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="<?= base_url('bagtik/inputData_CCTVINTEGRASI') ?>">
+                                                        <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-tripon">CCTV Integrasi</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </li>
                                         <li>
                                             <a href="javascript: void(0);" class="has-arrow">
@@ -2393,6 +2419,12 @@
                                                     <a href="<?= base_url('bagrenmin/inputData_SDM') ?>">
                                                         <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                         <span data-key="t-tripon">SDM POLANTAS</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="<?= base_url('bagrenmin/inputData_Rengar') ?>">
+                                                        <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-tripon">Rencana Anggaran</span>
                                                     </a>
                                                 </li>
                                             </ul>

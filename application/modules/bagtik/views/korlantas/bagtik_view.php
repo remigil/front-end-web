@@ -142,153 +142,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Polda Aceh</td>
-                                <td class="text-end">12</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sumut</td>
-                                <td class="text-end">24</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sumbar</td>
-                                <td class="text-end">11</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Riau</td>
-                                <td class="text-end">17</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Bengkulu</td>
-                                <td class="text-end">14</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jambi</td>
-                                <td class="text-end">15</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sumsel</td>
-                                <td class="text-end">45</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Lampung</td>
-                                <td class="text-end">22</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Metro Jaya</td>
-                                <td class="text-end">24</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jabar</td>
-                                <td class="text-end">27</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jateng</td>
-                                <td class="text-end">21</td>
-                            </tr>
-                            <tr>
-                                <td>Polda DIY</td>
-                                <td class="text-end">14</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jatim</td>
-                                <td class="text-end">17</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Bali</td>
-                                <td class="text-end">26</td>
-                            </tr>
-                            <tr>
-                                <td>Polda NTB</td>
-                                <td class="text-end">14</td>
-                            </tr>
-                            <tr>
-                                <td>Polda NTT</td>
-                                <td class="text-end">10</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kalbar</td>
-                                <td class="text-end">12</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kalsel</td>
-                                <td class="text-end">10</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kalteng</td>
-                                <td class="text-end">10</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kaltim</td>
-                                <td class="text-end">8</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulsel</td>
-                                <td class="text-end">9</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sultra</td>
-                                <td class="text-end">6</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulteng</td>
-                                <td class="text-end">15</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulut</td>
-                                <td class="text-end">19</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Maluku</td>
-                                <td class="text-end">17</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Papua</td>
-                                <td class="text-end">6</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Babel</td>
-                                <td class="text-end">7</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Banten</td>
-                                <td class="text-end">19</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Gorontalo</td>
-                                <td class="text-end">8</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Malut</td>
-                                <td class="text-end">5</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kepri</td>
-                                <td class="text-end">10</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Papua Barat</td>
-                                <td class="text-end">2</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulbar</td>
-                                <td class="text-end">8</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kaltara</td>
-                                <td class="text-end">2</td>
-                            </tr>
-                            <tr>
-                                <td>Pusdik Lantas</td>
-                                <td class="text-end">21</td>
-                            </tr>
-                            <tr>
-                                <td>Korlantas Polri</td>
-                                <td class="text-end">86</td>
-                            </tr>
+                            <?php foreach ($data['rtmc'] as $key) : ?>
+                                <?php $total_rtmc += $key['jumlah'] ?>
+                                <tr>
+                                    <td><?= $key['name_polda'] ?></td>
+                                    <td class="text-end"><?= $key['jumlah'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
                             <tr>
                                 <th>Total</th>
-                                <th class="text-end">593</th>
+                                <th class="text-end"><?= $total_rtmc ?></th>
                             </tr>
                         </tbody>
                     </table>
@@ -303,153 +166,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Polda Aceh</td>
-                                <td class="text-end">12</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sumut</td>
-                                <td class="text-end">24</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sumbar</td>
-                                <td class="text-end">11</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Riau</td>
-                                <td class="text-end">17</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Bengkulu</td>
-                                <td class="text-end">14</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jambi</td>
-                                <td class="text-end">15</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sumsel</td>
-                                <td class="text-end">45</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Lampung</td>
-                                <td class="text-end">22</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Metro Jaya</td>
-                                <td class="text-end">24</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jabar</td>
-                                <td class="text-end">27</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jateng</td>
-                                <td class="text-end">21</td>
-                            </tr>
-                            <tr>
-                                <td>Polda DIY</td>
-                                <td class="text-end">14</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jatim</td>
-                                <td class="text-end">17</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Bali</td>
-                                <td class="text-end">26</td>
-                            </tr>
-                            <tr>
-                                <td>Polda NTB</td>
-                                <td class="text-end">14</td>
-                            </tr>
-                            <tr>
-                                <td>Polda NTT</td>
-                                <td class="text-end">10</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kalbar</td>
-                                <td class="text-end">12</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kalsel</td>
-                                <td class="text-end">10</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kalteng</td>
-                                <td class="text-end">10</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kaltim</td>
-                                <td class="text-end">8</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulsel</td>
-                                <td class="text-end">9</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sultra</td>
-                                <td class="text-end">6</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulteng</td>
-                                <td class="text-end">15</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulut</td>
-                                <td class="text-end">19</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Maluku</td>
-                                <td class="text-end">17</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Papua</td>
-                                <td class="text-end">6</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Babel</td>
-                                <td class="text-end">7</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Banten</td>
-                                <td class="text-end">19</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Gorontalo</td>
-                                <td class="text-end">8</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Malut</td>
-                                <td class="text-end">5</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kepri</td>
-                                <td class="text-end">10</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Papua Barat</td>
-                                <td class="text-end">2</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulbar</td>
-                                <td class="text-end">8</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kaltara</td>
-                                <td class="text-end">2</td>
-                            </tr>
-                            <tr>
-                                <td>Pusdik Lantas</td>
-                                <td class="text-end">21</td>
-                            </tr>
-                            <tr>
-                                <td>Korlantas Polri</td>
-                                <td class="text-end">86</td>
-                            </tr>
+                            <?php foreach ($data['tmc'] as $key) : ?>
+                                <?php $total_tmc += $key['jumlah'] ?>
+                                <tr>
+                                    <td><?= $key['name_polda'] ?></td>
+                                    <td class="text-end"><?= $key['jumlah'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
                             <tr>
                                 <th>Total</th>
-                                <th class="text-end">593</th>
+                                <th class="text-end"><?= $total_tmc ?></th>
                             </tr>
                         </tbody>
                     </table>
@@ -468,154 +194,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Polda Aceh</td>
-                                <td class="text-end">30</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sumut</td>
-                                <td class="text-end">114</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sumbar</td>
-                                <td class="text-end">15</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Riau</td>
-                                <td class="text-end">44</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Bengkulu</td>
-                                <td class="text-end">28</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jambi</td>
-                                <td class="text-end">75</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sumsel</td>
-                                <td class="text-end">185</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Lampung</td>
-                                <td class="text-end">223</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Metro Jaya</td>
-                                <td class="text-end">241</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jabar</td>
-                                <td class="text-end">402</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jateng</td>
-                                <td class="text-end">81</td>
-                            </tr>
-                            <tr>
-                                <td>Polda DIY</td>
-                                <td class="text-end">28</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jatim</td>
-                                <td class="text-end">41</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Bali</td>
-                                <td class="text-end">72</td>
-                            </tr>
-                            <tr>
-                                <td>Polda NTB</td>
-                                <td class="text-end">12</td>
-                            </tr>
-                            <tr>
-                                <td>Polda NTT</td>
-                                <td class="text-end">3</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kalbar</td>
-                                <td class="text-end">8</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kalsel</td>
-                                <td class="text-end">16</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kalteng</td>
-                                <td class="text-end">12</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kaltim</td>
-                                <td class="text-end">14</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulsel</td>
-                                <td class="text-end">33</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sultra</td>
-                                <td class="text-end">19</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulteng</td>
-                                <td class="text-end">36</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulut</td>
-                                <td class="text-end">47</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Maluku</td>
-                                <td class="text-end">54</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Papua</td>
-                                <td class="text-end">10</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Babel</td>
-                                <td class="text-end">6</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Banten</td>
-                                <td class="text-end">78</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Gorontalo</td>
-                                <td class="text-end">3</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Malut</td>
-                                <td class="text-end">7</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kepri</td>
-                                <td class="text-end">13</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Papua Barat</td>
-                                <td class="text-end">2</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulbar</td>
-                                <td class="text-end">2</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kaltara</td>
-                                <td class="text-end">0</td>
-                            </tr>
-                            <tr>
-                                <td>Pusdik Lantas</td>
-                                <td class="text-end">46</td>
-                            </tr>
-                            <tr>
-                                <td>Korlantas Polri</td>
-                                <td class="text-end">99</td>
-                            </tr>
-                            <tr>
-                                <th>Total</th>
-                                <th class="text-end">2099</th>
-                            </tr>
+                            <?php foreach ($data['cctv'] as $key) : ?>
+                                <?php $total_cctv += $key['jumlah'] ?>
+                                <tr>
+                                    <td><?= $key['name_polda'] ?></td>
+                                    <td class="text-end"><?= $key['jumlah'] ?></td>
+                                </tr>
+                                ;<?php endforeach; ?>
+                                <tr>
+                                    <th>Total</th>
+                                    <th class="text-end"><?= $total_cctv ?></th>
+                                </tr>
                         </tbody>
                     </table>
                 </div>
@@ -629,153 +218,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Polda Aceh</td>
-                                <td class="text-end">12</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sumut</td>
-                                <td class="text-end">24</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sumbar</td>
-                                <td class="text-end">11</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Riau</td>
-                                <td class="text-end">17</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Bengkulu</td>
-                                <td class="text-end">14</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jambi</td>
-                                <td class="text-end">15</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sumsel</td>
-                                <td class="text-end">45</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Lampung</td>
-                                <td class="text-end">22</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Metro Jaya</td>
-                                <td class="text-end">24</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jabar</td>
-                                <td class="text-end">27</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jateng</td>
-                                <td class="text-end">21</td>
-                            </tr>
-                            <tr>
-                                <td>Polda DIY</td>
-                                <td class="text-end">14</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Jatim</td>
-                                <td class="text-end">17</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Bali</td>
-                                <td class="text-end">26</td>
-                            </tr>
-                            <tr>
-                                <td>Polda NTB</td>
-                                <td class="text-end">14</td>
-                            </tr>
-                            <tr>
-                                <td>Polda NTT</td>
-                                <td class="text-end">10</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kalbar</td>
-                                <td class="text-end">12</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kalsel</td>
-                                <td class="text-end">10</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kalteng</td>
-                                <td class="text-end">10</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kaltim</td>
-                                <td class="text-end">8</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulsel</td>
-                                <td class="text-end">9</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sultra</td>
-                                <td class="text-end">6</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulteng</td>
-                                <td class="text-end">15</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulut</td>
-                                <td class="text-end">19</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Maluku</td>
-                                <td class="text-end">17</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Papua</td>
-                                <td class="text-end">6</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Babel</td>
-                                <td class="text-end">7</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Banten</td>
-                                <td class="text-end">19</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Gorontalo</td>
-                                <td class="text-end">8</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Malut</td>
-                                <td class="text-end">5</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kepri</td>
-                                <td class="text-end">10</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Papua Barat</td>
-                                <td class="text-end">2</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Sulbar</td>
-                                <td class="text-end">8</td>
-                            </tr>
-                            <tr>
-                                <td>Polda Kaltara</td>
-                                <td class="text-end">2</td>
-                            </tr>
-                            <tr>
-                                <td>Pusdik Lantas</td>
-                                <td class="text-end">21</td>
-                            </tr>
-                            <tr>
-                                <td>Korlantas Polri</td>
-                                <td class="text-end">86</td>
-                            </tr>
+                            <?php foreach ($data['cctvintegrasi'] as $key) : ?>
+                                <?php $total_cctvintegrasi += $key['jumlah'] ?>
+                                <tr>
+                                    <td><?= $key['name_polda'] ?></td>
+                                    <td class="text-end"><?= $key['jumlah'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
                             <tr>
                                 <th>Total</th>
-                                <th class="text-end">593</th>
+                                <th class="text-end"><?= $total_cctvintegrasi ?></th>
                             </tr>
                         </tbody>
                     </table>

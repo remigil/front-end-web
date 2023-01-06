@@ -239,8 +239,33 @@ class Bagrenmin extends MY_Controller
             $page_content["page"] = "bagrenmin/korlantas/inputdata_bagrenmin";
         }
 
+        $url = 'bagrenmin/sdm_polantas/daily?newest=true';
 
-        $url = 'bagrenmin/sdm_polantas/daily';
+        $result = guzzle_request('GET', $url, [
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+        ]);
+
+        $page_content["data"] = $result['data']['rows'];
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function inputData_Rengar()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Update data Rencana Anggaran";
+
+        if ($this->session->userdata['role'] == 'G20') {
+            $page_content["page"] = "dashboard/dashboard_g20";
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $page_content["page"] = "bagrenmin/korlantas/inputdata_bagrenmin_rengar";
+        }
+
+        $url = 'bagrenmin/rengar/daily?newest=true';
 
         $result = guzzle_request('GET', $url, [
             'headers' => [
@@ -287,7 +312,80 @@ class Bagrenmin extends MY_Controller
             array_push($value, $object);
         }
 
-        var_dump($value);
-        die;
+        $data = guzzle_request('POST', $url, [
+            'json' => [
+                'value' => $value
+            ],
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil tambah data.',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
+    }
+
+    public function store_rengar()
+    {
+        $polda_id = $this->input->post('polda_id');
+        $date = $this->input->post('date');
+        $value = [];
+        $url = 'bagrenmin/rengar/add';
+
+
+        $max_loop = count($this->input->post('polda_id'));
+
+        for ($i = 0; $i < $max_loop; $i++) {
+            $object = (object) [
+                'polda_id' => $this->input->post('polda_id')[$i],
+                'date' => $date,
+                'program_kegiatan' => $this->input->post('program_kegiatan')[$i],
+                'belanja_barang' => $this->input->post('belanja_barang')[$i],
+                'belanja_modal' => $this->input->post('belanja_modal')[$i],
+                'gaji_pegawai' => $this->input->post('gaji_pegawai')[$i],
+
+            ];
+            array_push($value, $object);
+        }
+
+        $data = guzzle_request('POST', $url, [
+            'json' => [
+                'value' => $value
+            ],
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil tambah data.',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
     }
 }

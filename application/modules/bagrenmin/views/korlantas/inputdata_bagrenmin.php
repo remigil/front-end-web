@@ -67,32 +67,42 @@
     $('#btn_submit').on('click', function(e) {
         e.preventDefault();
         const formData = new FormData($('#form_bagrenmin')[0]);
-
-        $.ajax({
-            url: "<?= base_url() ?>bagrenmin/Bagrenmin/store",
-            method: "POST",
-            data: formData,
-            dataType: "JSON",
-            contentType: false,
-            processData: false,
-            success: function(data) {
-                $("#overlay").fadeOut(300);
-                if (data['status'] == true) {
-                    Swal.fire(
-                        `${data['message']}`,
-                        '',
-                        'success'
-                    ).then(function() {
-                        window.location.reload();
-                    });
-                } else {
-                    Swal.fire(
-                        `${data['message']}`,
-                        '',
-                        'error'
-                    ).then(function() {});
+        let tgl = $('#date').val()
+        if (tgl == '') {
+            Swal.fire(
+                `Tanggal Tidak Boleh Kosong`,
+                '',
+                'error'
+            )
+        } else {
+            $.ajax({
+                url: "<?= base_url() ?>bagrenmin/Bagrenmin/store",
+                method: "POST",
+                data: formData,
+                dataType: "JSON",
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $("#overlay").fadeOut(300);
+                    if (data['status'] == true) {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
+                            window.location.reload();
+                        });
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
                 }
-            }
-        })
+            })
+        }
+
+
     })
 </script>
