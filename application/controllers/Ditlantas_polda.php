@@ -27,6 +27,10 @@ class Ditlantas_polda extends MX_Controller {
 
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
 
+        $getPolres = guzzle_request('GET' , 'polres?serverSide=true$start=1&length=10&order=id&orderDorection=desc&filter[]=polda_id&filterSearch[]='.$getPolda['polda_id'], []);
+        $data['getPolres'] = $getPolres['data']['data'];
+        // var_dump($data['getPolres']);die;
+
 
 		$getBerita = guzzle_request('GET', 'news', [
             // 'headers' => $headers

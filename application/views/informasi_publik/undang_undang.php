@@ -63,7 +63,42 @@
                     </tr>
                 </thead>
 				<tbody>
+					<?php
+						$i = 1; 
+						foreach($getuud as $doc) :
+					?>
 					<tr>
+						<td><?= $i++;?></td>
+						<td><?= $doc['regulation_name']?></td>
+						<td><?= $doc['year']?></td>
+						<td>
+							<a class="btn btn-success" href="<?= url_api() . 'regulation_doc/'. $doc['fileReg']?>">
+								<i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i>
+							</a>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uud" onclick="<?= $doc['id']?>">
+								<i class="bi bi-eye-fill d-flex align-items-center"></i>
+							</button>
+							
+						</td>
+						<div class="modal fade" id="uud" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-xl">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel"><?= $doc['regulation_name']?></h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body" style="padding: 10px !important;">
+							<object data="<?= url_api() . 'regulation_doc/'.$doc['fileReg']?>" type="application/pdf" width="100%" height="600px">
+								
+							</object>
+							</div>
+							
+							</div>
+						</div>
+						</div>
+					</tr>
+					<?php endforeach;?>
+					<!-- <tr>
 						<td>1</td>
 						<td>UNDANG-UNDANG DASAR NEGARA REPUBLIK INDONESIA TAHUN 1945</td>
 						<td>1945</td>
@@ -94,8 +129,8 @@
 						</div>
 						</div>
 							
-					</tr>
-					<tr>
+					</tr> -->
+					<!-- <tr>
 						<td>2</td>
 						<td>UU NOMOR 2 TAHUN 2002 TTG KEPOLISIAN NEGARA REPUBLIK INDONESIA</td>
 						<td>2002</td>
@@ -392,7 +427,7 @@
 							</div>
 						</div>
 						</div>
-					</tr>
+					</tr> -->
 					
 				</tbody>
             </table>

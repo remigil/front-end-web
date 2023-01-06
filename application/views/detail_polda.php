@@ -115,7 +115,7 @@
       <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
     </div>
 		<div class="col-md-12 mt-3">
-      <div class="row" style="display:flex;z-index: 999;position: absolute;">
+      <!-- <div class="row" style="display:flex;z-index: 999;position: absolute;">
         <div class="dropdown d-inline-block">
           <div style="cursor: pointer; display:flex; width:300px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div>
@@ -135,7 +135,7 @@
             <div id="listAddress" style="position: absolute;top: 60px;margin-left: 4px;border-radius: 0.3rem;"></div>
           </div>
         </div>
-      </div>
+      </div> -->
 			<div style="height: 800px;" class="mt-3" id="mapG20Dashboard"></div>
 		
 		</div>
@@ -176,11 +176,17 @@
               </tr>
             </thead>
             <tbody>
+              <?php
+              $tab1 = 1; $tab2 = 1; $tab3 = 1; $tab4 = 1;
+              foreach($getPolres as $polres):
+              ?>
               <tr class="table-striped">
-                <td>1</td>
-                <td>Polres 1</td>
-                <td>Jl. Polres</td>
+                <td><?= $tab1++?></td>
+                <td><?= $polres['name_polres']?></td>
+                <td><?= $polres['address']?></td>
               </tr>
+              <?php endforeach;?>
+              
               
             </tbody>
           </table>
@@ -199,12 +205,14 @@
               </tr>
             </thead>
             <tbody>
+              <?php foreach($getPolres as $satpas):?>
               <tr class="table-striped">
-                <td>1</td>
-                <td>Polres 1</td>
-                <td>001</td>
-                <td>Jl. Polres</td>
+                <td><?= $tab2++?></td>
+                <td><?= $satpas['name_polres']?></td>
+                <td><?= $satpas['code_satpas']?></td>
+                <td><?= $satpas['address']?></td>
               </tr>
+              <?php endforeach;?>
               
             </tbody>
           </table>
@@ -223,7 +231,7 @@
             </thead>
             <tbody>
               <tr class="table-striped">
-                <td>1</td>
+                <td><?= $tab3++?></td>
                 <td>Samsat 1</td>
                 <td>Jl. Samsat</td>
               </tr>
@@ -239,15 +247,13 @@
             <thead>
               <tr>
                 <th width="5%">No</th>
-                <th width="25%">Nama CCTV</th>
                 <th>Link CCTV</th>
               </tr>
             </thead>
             <tbody>
               <tr class="table-striped">
-                <td>1</td>
-                <td>CCTV 1</td>
-                <td>https://cctv1.go.id</td>
+                <td><?= $tab4++?></td>
+                <td><a href="<?= $polda['link_cctv']?>" target="_blank"><?= $polda['link_cctv']?></a></td>
               </tr>
               
             </tbody>
@@ -321,169 +327,164 @@
   </div>
 </section>
 <script>
-	$(document).ready(function() {  
-		let id= '<?= $polda['id'] ?>';
-		let marker = []
-		$.ajax({
-			type: "POST",
-			url: "<?= base_url(); ?>ditlantas_polda/getDetailPolda",
-			data: {
-				id: id
-			},
-			dataType: "JSON",
-			success: function(result) {
-				var ressPolda = result.polda;
-				var ressPolres = result.polres;
-				// console.log(ressPolres);
+    let app_url = '<%-app_url%>'
+    let path = '<%-path%>'
+    var marker = new Array();
+	  $(document).ready(function() {  
+      let id= '<?= $polda['id'] ?>';
+      // let marker = []
+      $.ajax({
+        type: "POST",
+        url: "<?= base_url(); ?>ditlantas_polda/getDetailPolda",
+        data: {
+          id: id
+        },
+        dataType: "JSON",
+        success: function(result) {
+          var ressPolda = result.polda;
+          var ressPolres = result.polres;
+          // console.log(ressPolres.length);
 
-							
-							let zxc = ressPolda.zoomview.split(",")
-							let lat = parseFloat(zxc[0])
-							let long = parseFloat(zxc[1])
-										var initialCenter = [lat, long];
-        var initialZoom = 8;
-        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+          
+
+          let zxc = ressPolda.zoomview.split(",")
+          let lat = parseFloat(zxc[0])
+          let long = parseFloat(zxc[1])
+          var initialCenter = [lat, long];
+          var initialZoom = 8;
+          var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+          });
+          var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+          });
+          var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+          });
+          var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
+          });
+          var gl = L.mapboxGL({
+              accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
+              style: 'mapbox://styles/mapbox/traffic-day-v2'
+          });
+          var trafficMutant = L.gridLayer.googleMutant({
+            maxZoom: 24,
+            type: "hybrid",
+          }).addGoogleLayer("TrafficLayer");
+          var trafficMutantRoad = L.gridLayer.googleMutant({
+            maxZoom: 24,
+            type: "roadmap",
+          }).addGoogleLayer("TrafficLayer");
+          var shpFile = new L.Shapefile(`<?php echo base_url(); ?>assets/admin/shp/SHP/${ressPolda.file_shp}`, {
+            pointToLayer: function(feature, latlng) {
+            var smallIcon = new L.divIcon({
+              iconAnchor: [20, 51],
+              popupAnchor: [0, -51],
+              className: 'listeo-marker-icon',
+              html: '<div class="marker-container">' +
+              '<div class="marker-card">' +
+              '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
+              '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
+              '<div class="marker-arrow"></div>' +
+              '</div>' +
+              '</div>'
+              });
+              var mark = L.marker(latlng, {
+                icon: smallIcon
+              })
+              cluster.addLayer(mark)
+              return cluster;
+            },
+            onEachFeature: function(feature, layer) {
+              if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                  return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
+                }).join("<hr>"), {
+                  maxWidth: 400,
+                  maxHeight: 250,
+                  scrollbarWidth: 'thin',
+                  className: 'leaflet-infoBox'
+                });
+              }
+            }
+          });
 
-				var gl = L.mapboxGL({
-						accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
-            style: 'mapbox://styles/mapbox/traffic-day-v2'
-        });
+          
+          
 
-        var trafficMutant = L.gridLayer.googleMutant({
-        	maxZoom: 24,
-          type: "hybrid",
-        }).addGoogleLayer("TrafficLayer");
 
-        var trafficMutantRoad = L.gridLayer.googleMutant({
-          maxZoom: 24,
-          type: "roadmap",
-       	}).addGoogleLayer("TrafficLayer");
+          // StART MAP SECTION
+          var mapContainer = L.map('mapG20Dashboard', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            fullscreenControl: true,
+            layers: [googleHybrid, shpFile]
+          }).setView(initialCenter, initialZoom);
 
-			
+          var myRenderer = L.canvas({
+              padding: 0.5
+          });
 
-        var shpFile = new L.Shapefile(`<?php echo base_url(); ?>assets/admin/shp/SHP/${ressPolda.file_shp}`, {
-        	pointToLayer: function(feature, latlng) {
-				var smallIcon = new L.divIcon({
-        	iconAnchor: [20, 51],
-          popupAnchor: [0, -51],
-          className: 'listeo-marker-icon',
-          html: '<div class="marker-container">' +
-          '<div class="marker-card">' +
-          '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
-          '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
-          '<div class="marker-arrow"></div>' +
-          '</div>' +
-          '</div>'
+          var markerClusterGroup = L.markerClusterGroup();
+          var icon = L.icon({
+              iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
+              iconSize: [80, 80], // size of the icon
           });
 
 
-          var mark = L.marker(latlng, {
-          	icon: smallIcon
-          })
-          cluster.addLayer(mark)
-          return cluster;
+          var baseMaps = {
+              "Google Map Street": googleStreet,
+              "Google Map Satelite": googleSatelite,
+              "Google Map Hybrid": googleHybrid,
+              "Google Map Terrain": googleTerrain,
+              "Google Map Street Traffic": trafficMutantRoad,
+              "Google Map Hybrid Traffic": trafficMutant,
+              "MappBox Traffic": gl,
+          };
+          var overlayMaps = {
+              "Batas Wilayah": shpFile
+          };
+          L.control.layers(baseMaps, overlayMaps, {
+              position: 'topright'
+          }).addTo(mapContainer);
+          L.control.zoom({
+              position: 'topright'
+          }).addTo(mapContainer);
 
-          },
-          onEachFeature: function(feature, layer) {
-          if (feature.properties) {
-          layer.bindPopup(Object.keys(feature.properties).map(function(k) {
-          return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
-          }).join("<hr>"), {
-          maxWidth: 400,
-          maxHeight: 250,
-          scrollbarWidth: 'thin',
-          className: 'leaflet-infoBox'
-          });
+          mapContainer.doubleClickZoom.enable();
+
+          for (let i = 0; i < ressPolres.length; i++){
+            id = i;
+            var latitude = parseFloat(ressPolres[i].latitude);
+            var longitude = parseFloat(ressPolres[i].longitude);
+
+            var resource = '';
+
+            marker[i] = L.marker([latitude, longitude],{
+              icon: L.divIcon({
+                // className: 'location-pin',
+                html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
+                // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressPolres[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
+                iconSize: [5, 5],
+                iconAnchor: [5, 10]
+              })
+            }).bindPopup(
+              `<h6>${ressPolres[i].name_polres}</h6>
+              <p>${ressPolres[i].address}</p>
+              `
+            ).addTo(mapContainer);
           }
-          }
-          });
-
-						//  for (let i = 0; i < ressPolres.length; i++) {
-            //         id = i;
-            //         var latitude = parseFloat(ressPolres[i].latitude);
-            //         var longitude = parseFloat(ressPolres[i].longitude);
-
-            //         var resource = '';
-
-            //         marker = L.marker([latitude, longitude], {
-            //             icon: L.divIcon({
-            //                 // className: 'location-pin',
-            //                 html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
-            //                 // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressPolres[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
-            //                 iconSize: [5, 5],
-            //                 iconAnchor: [5, 10]
-            //             })
-            //         }).addTo(mapContainer)
-												
-            //     }
-
-					
-
-
-        // StART MAP SECTION
-        var mapContainer = L.map('mapG20Dashboard', {
-                        maxZoom: 20,
-                        minZoom: 1,
-                        zoomSnap: 0.25,
-                        zoomControl: false,
-												fullscreenControl: true,
-                        layers: [googleHybrid, shpFile]
-                    }).setView(initialCenter, initialZoom);
-
-                    var myRenderer = L.canvas({
-                        padding: 0.5
-                    });
-
-                    var markerClusterGroup = L.markerClusterGroup();
-                    var icon = L.icon({
-                        iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-                        iconSize: [80, 80], // size of the icon
-                    });
-
-
-                    var baseMaps = {
-                        "Google Map Street": googleStreet,
-                        "Google Map Satelite": googleSatelite,
-                        "Google Map Hybrid": googleHybrid,
-                        "Google Map Terrain": googleTerrain,
-                        "Google Map Street Traffic": trafficMutantRoad,
-                        "Google Map Hybrid Traffic": trafficMutant,
-                        "MappBox Traffic": gl,
-                    };
-                    var overlayMaps = {
-                        "Batas Wilayah": shpFile
-                    };
-                    L.control.layers(baseMaps, overlayMaps, {
-                        position: 'topright'
-                    }).addTo(mapContainer);
-                    L.control.zoom({
-                        position: 'topright'
-                    }).addTo(mapContainer);
-
-                    mapContainer.doubleClickZoom.enable();
-									}})
-	  
-	  
-
-
-});
+      }})
+    });
 </script>

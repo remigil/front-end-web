@@ -80,7 +80,13 @@ class Pustaka extends MX_Controller {
 
 	public function undang_undang()
 	{ 
-		
+		$getuud = guzzle_request('Get' , 'regulation_doc/bycategory/1',[]);
+		// var_dump($getuud);die;
+		$getpp = guzzle_request('Get' , 'regulation_doc/bycategory/2',[]);
+		$getperpres = guzzle_request('Get' , 'regulation_doc/bycategory/3',[]);
+		$getkapolri = guzzle_request('Get' , 'regulation_doc/bycategory/4',[]);
+		$getkakor = guzzle_request('Get' , 'regulation_doc/bycategory/5',[]);
+		$getlain = guzzle_request('Get' , 'regulation_doc/bycategory/6',[]);
 		
 		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 		// $headers = [
@@ -90,6 +96,12 @@ class Pustaka extends MX_Controller {
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash(); 
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		$data['getuud'] = $getuud['data'];
+		$data['getpp'] = $getpp['data'];
+		$data['getperpres'] = $getperpres['data'];
+		$data['getkapolri'] = $getkapolri['data'];
+		$data['getkakor'] = $getkakor['data'];
+		$data['getlain'] = $getlain['data'];
 		$data['title'] = "UU dan Peraturan | K3I Korlantas";  
 		$data['breadcrumb'] = "uu dan peraturan";  
 		$data['headline'] = "UU DAN PERATURAN"; 

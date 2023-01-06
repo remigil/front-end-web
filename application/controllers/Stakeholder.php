@@ -9,7 +9,7 @@ class Stakeholder extends MX_Controller {
     }
 	public function index($id)
 	{
-		$getperaturan = guzzle_request('GET', 'regulation_doc', []);
+
 		$getStakeholder = guzzle_request('GET', 'stackholder', [
         ]);
 		$url = 'stackholder/getId/' . $id;
@@ -28,6 +28,44 @@ class Stakeholder extends MX_Controller {
 		
         $data['breadcrumb'] = $getbyid['title'];
         $data['headline'] = $getbyid['fullname'];
+
+		$getkemendagri = guzzle_request('GET', 'regulation_doc/bycategory/8', []);
+		$getkemenhub = guzzle_request('GET' , 'regulation_doc/bycategory/9' , []);
+		$getkemenkes = guzzle_request('GET' , 'regulation_doc/bycategory/10' , []);
+		$getkemenperin = guzzle_request('GET' , 'regulation_doc/bycategory/11' , []);
+		$getkemenpupr = guzzle_request('GET' , 'regulation_doc/bycategory/12' , []);
+		$getBadanriset = guzzle_request('GET' , 'regulation_doc/bycategory/13' , []);
+		$getkemenkeu = guzzle_request('GET' , 'regulation_doc/bycategory/14' , []);
+		$getkemendikbud = guzzle_request('GET' , 'regulation_doc/bycategory/15' , []);
+		$getkemenhan = guzzle_request('GET' , 'regulation_doc/bycategory/16' , []);
+
+		if($getbyid['title'] == "kemendagri"){
+			$data['getdoc'] = $getkemendagri['data'];
+		}
+		else if($getbyid['title'] == "kemenhub"){
+			$data['getdoc'] = $getkemenhub['data'];
+		}
+		elseif($getbyid['title'] == "kemenkes"){
+			$data['getdoc'] = $getkemenkes['data'];
+		}
+		elseif($getbyid['title'] == "kemenperin"){
+			$data['getdoc'] = $getkemenperin['data'];
+		}
+		elseif($getbyid['title'] == "kemenpupr"){
+			$data['getdoc'] = $getkemenpupr['data'];
+		}
+		elseif($getbyid['title'] == "Badanriset"){
+			$data['getdoc'] = $getBadanriset['data'];
+		}
+		elseif($getbyid['title'] == "kemenkeu"){
+			$data['getdoc'] = $getkemenkeu['data'];
+		}
+		elseif($getbyid['title'] == "kemendikbud"){
+			$data['getdoc'] = $getkemendikbud['data'];
+		}
+		elseif($getbyid['title'] == "kemenhan"){
+			$data['getdoc'] = $getkemenhan['data'];
+		}
 		
 		// var_dump($data);die;
 		$this->template->load('templates/template', 'detail_stakeholder', $data);
