@@ -7123,7 +7123,7 @@
                             "type": arrayFilterFasumKategori.toString(),
                             "startdate": $("#startdate").val(),
                             "enddate": $("#enddate").val(),
-                            "polda_id": idpolda, 
+                            "polda_id": polda_id ? polda_id : null, 
                         },
                         dataType: "JSON",
                         success: function(result) {
