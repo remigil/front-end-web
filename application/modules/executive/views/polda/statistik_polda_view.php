@@ -122,8 +122,7 @@
                                         <span class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> WAL & PJR</span>
                                             </br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="walpjr"></span>
-                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailwalpjr"></p>
+
                                         </span>
                                     </div>
                                     <div class="col-md-2">
@@ -152,8 +151,7 @@
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> RANMOR</span>
                                             <br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="ranmor"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailranmor"></span>
+
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
@@ -176,8 +174,7 @@
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> SIM</span>
                                             </br>
-                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="sim"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsim"></span>
+
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
@@ -267,7 +264,7 @@
                     <span class="fs-4 fw-bold text-white text-uppercase">Subkamsel</span>
                 </div>
                 <div class="col-md-12">
-                    <a href="<?= base_url('statistik_nasional/Blackspot/' . $data['id']); ?>">
+                    <a href="<?= base_url('executive/Polda_executive/Blackspot/' . $data['id']); ?>">
                         <div class="card" style="border-color: #7b113f;  border-radius: 20px !important; background-color:#7b113f">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style=" height: 60px;">
@@ -291,7 +288,7 @@
                     </a>
                 </div>
                 <div class="col-md-12">
-                    <a href="<?= base_url('statistik_nasional/Troublespot/' . $data['id']); ?>">
+                    <a href="<?= base_url('executive/Polda_executive/Troublespot/' . $data['id']); ?>">
                         <div class="card" style="border-color: #e2ab1d;  border-radius: 20px !important; background-color:#e2ab1d">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style=" height: 60px;">
@@ -316,7 +313,7 @@
                     </a>
                 </div>
                 <div class="col-md-12">
-                    <a href="<?= base_url('statistik_nasional/Rekalantas/' . $data['id']); ?>">
+                    <a href="<?= base_url('executive/Polda_executive/Rekalantas/' . $data['id']); ?>">
                         <div class="card" style="border-color: #7b113f;  border-radius: 20px !important; background-color:#7b113f">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center" style=" height: 60px;">

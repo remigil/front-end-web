@@ -1,4 +1,65 @@
 <!-- <button onClick="hitungGpsId()">cek marker tracking</button> -->
+<?php if($this->session->userdata['role'] == 'Kakorlantas' ){ ?>
+<div class="container-fluid">
+    <div class="card mt-2 p-1 shadow" style="border-radius:36px !important;">
+        <div class="row m-2">
+            <div class="col-sm-6 col-md-6 align-self-center">
+                <div class="row">
+                    <div class="col-md-2">
+                        <center><img src="<?= url_api() . 'polda/logo/'. $data['poldaid']['logo_polda'] ?>" alt="img-polda" width="70px"></center>
+                    </div>
+                    <div class="col-md-10 align-self-center">
+                    <span class="fs-3 fw-bold" style="color:#007DD8 ; text-transform:uppercase;">Ditlantas <?= $data['poldaid']['name_polda'] ?></span>
+                        <p>Today is <?= date('l, j F Y') ?></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="row m-2">
+                    <!-- <a href="<?php echo base_url('executive/Polda_executive/statistik_polda/' . $data['poldaid']['id']); ?>" class="text-center "><button class="btn btn-primary fs-6 fw-bold" style="width: 100%;">Statistik Polda</button></a> -->
+
+                    <div class="col-md-6 col-sm-6 col-xl-6 align-self-center ">
+                        <a href="<?php echo base_url('executive/Polda_executive/statistik_polda/' . $data['poldaid']['id']); ?>" class="text-center ">
+                            <div class="card p-1 mt-2 mb-2  bg-primary" style="border-radius: 20px !important; border-color:#D9D9D9">
+                                <div class="card-body p-1 ">
+                                    <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                        <div class="col-md-12">
+                                            <h4 class="mb-0 text-white">Statistik Polda</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xl-6 align-self-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle fs-6 fw-bold bg-primary" data-toggle="dropdown" aria-expanded="false" style="width: 100%; padding:0 4vw 0 4vw;  border-radius: 20px !important; border-color:#D9D9D9; height:95px; ">
+                                <!-- Subsatker Polda -->
+                                <h4 class="mb-0 text-white">Subsatker Polda</h4>
+                            </button>
+                            <div class="dropdown-menu" style="width: 100%; z-index: 10000;">
+                                <!-- <a class="dropdown-item fs-4" href="#">Subditgakkum Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subditregident Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subdikamsel Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subbagrenmin Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subbagops Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subbagtik Polda</a> -->
+                                <a class="dropdown-item fs-4" href="<?= base_url() ?>ditgakkum/subditgakkum/detail_polda/<?= $data['poldaid']['id']; ?>">Subditgakkum Polda</a>
+                                <a class="dropdown-item fs-4" href="<?= base_url() ?>ditregident/subditregident/detail_polda/<?= $data['poldaid']['id']; ?>">Subditregident Polda</a>
+                                <a class="dropdown-item fs-4" href="<?= base_url() ?>ditkamsel/subditkamsel/detail_polda/<?= $data['poldaid']['id']; ?>">Subdikamsel Polda</a>
+                                <!-- <a class="dropdown-item fs-4" href="../../bagrenim/subbagrenmin/<?= $data['poldaid']['id']; ?>">Subbagrenmin Polda</a>
+                                <a class="dropdown-item fs-4" href="../../bagops/subbagops/<?= $data['poldaid']['id']; ?>">Subbagops Polda</a>
+                                <a class="dropdown-item fs-4" href="../../bagtik/subbagtik/<?= $data['poldaid']['id']; ?>">Subbagtik Polda</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php } ?>
+
 <div id="openLastDisplay" style="cursor: pointer; width: 23px;height: 45px;background-color: rgba(0, 13, 218, 0.79);border: 1px solid rgba(255, 255, 255, 0.39);border-radius: 5px 0px 0px 5px;position: fixed;right: 20px;z-index: 401;top: 400px;font-size: 25px;padding-left: 4px;color: white;padding-top: 3px;">
     <i class="fa fas fa-chevron-left"></i>
 </div>

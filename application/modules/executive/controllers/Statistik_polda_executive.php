@@ -44,6 +44,8 @@ class Statistik_polda_executive extends MY_Controller
         echo json_encode($data);
     }
 
+
+
     // public function getLakalantasByDate()
     // {
     //     $title = 'DATA KECELAKAAN TAHUN' . date('Y') . '';
@@ -313,6 +315,177 @@ class Statistik_polda_executive extends MY_Controller
     }
     // End Garlantas
 
+
+    public function getLineBpkb($id)
+    {
+        $start = $this->input->post('start_date');
+        $asd = explode('-', $start);
+        $end = $this->input->post('end_date');
+        $zxc = explode('-', $end);
+        $title = 'DATA BPKB TANGGAL <span class="text-danger">' . $asd[2] . '/' . $asd[1] . '/' . $asd[0] . ' - ' . $zxc[2] . '/' . $zxc[1] . '/' . $zxc[0] . "</span>";
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'id' => $id,
+                'filter' => $filter,
+                'start_date' => $start,
+                'end_date' => $end,
+            ];
+            $getdata = $this->M_detail_statistik_polda->getBpkbPoldaDate($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'id' => $id,
+                'filter' => $filter,
+                'start_date' => $start,
+                'end_date' => $end,
+            ];
+            $getdata = $this->M_detail_statistik_polda->getBpkbPoldaDate($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+
+    public function getBpkbDate($id)
+    {
+        $yesterday = $this->input->post('yesterday');
+        $firstDayMonth = $this->input->post('firstDayMonth');
+        $lastDayMonth = $this->input->post('lastDayMonth');
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url_thisDay = 'bpkb/date?polda_id=' . $id . '&type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'bpkb/date?polda_id=' . $id . '&type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'bpkb/date?polda_id=' . $id . '&type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        $thisDay = guzzle_request('GET', $url_thisDay, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisMonth = guzzle_request('GET', $url_thisMonth, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisYear = guzzle_request('GET', $url_thisYear, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $totalDay = 0;
+        $totalMonth = 0;
+        $totalYear = 0;
+
+        $dbbn_1 = 0;
+        $dbbn_2 = 0;
+        $dmutasi_masuk = 0;
+        $dmutasi_keluar = 0;
+        $dperubahan_pergantian = 0;
+
+        foreach ($thisDay['data'] as $key) {
+            $dbbn_1 += $key['bbn_1'];
+            $dbbn_2 += $key['bbn_2'];
+            $dmutasi_masuk += $key['mutasi_masuk'];
+            $dmutasi_keluar += $key['mutasi_keluar'];
+            $dperubahan_pergantian += $key['perubahan_pergantian'];
+        }
+
+        $data['thisDay'] = [
+            'bbn_1' => $dbbn_1,
+            'bbn_2' => $dbbn_2,
+            'mutasi_masuk' => $dmutasi_masuk,
+            'mutasi_keluar' => $dmutasi_keluar,
+            'perubahan_pergantian' => $dperubahan_pergantian,
+            'date' => date("Y-m-d"),
+        ];
+
+        $mbbn_1 = 0;
+        $mbbn_2 = 0;
+        $mmutasi_masuk = 0;
+        $mmutasi_keluar = 0;
+        $mperubahan_pergantian = 0;
+
+        foreach ($thisMonth['data'] as $key) {
+            $mbbn_1 += $key['bbn_1'];
+            $mbbn_2 += $key['bbn_2'];
+            $mmutasi_masuk += $key['mutasi_masuk'];
+            $mmutasi_keluar += $key['mutasi_keluar'];
+            $mperubahan_pergantian += $key['perubahan_pergantian'];
+        }
+
+        $data['thisMonth'] = [
+            'bbn_1' => $mbbn_1,
+            'bbn_2' => $mbbn_2,
+            'mutasi_masuk' => $mmutasi_masuk,
+            'mutasi_keluar' => $mmutasi_keluar,
+            'perubahan_pergantian' => $mperubahan_pergantian,
+            'date' => date("F", strtotime($firstDay)),
+        ];
+
+        $ybbn_1 = 0;
+        $ybbn_2 = 0;
+        $ymutasi_masuk = 0;
+        $ymutasi_keluar = 0;
+        $yperubahan_pergantian = 0;
+
+        foreach ($thisYear['data'] as $key) {
+            $ybbn_1 += $key['bbn_1'];
+            $ybbn_2 += $key['bbn_2'];
+            $ymutasi_masuk += $key['mutasi_masuk'];
+            $ymutasi_keluar += $key['mutasi_keluar'];
+            $yperubahan_pergantian += $key['perubahan_pergantian'];
+        }
+
+        $data['thisYear'] = [
+            'bbn_1' => $ybbn_1,
+            'bbn_2' => $ybbn_2,
+            'mutasi_masuk' => $ymutasi_masuk,
+            'mutasi_keluar' => $ymutasi_keluar,
+            'perubahan_pergantian' => $yperubahan_pergantian,
+            'date' => date("Y", strtotime($firstDay)),
+        ];
+        // $dataDay = $data['thisDay'];
+        $dataDay = array_values($data['thisDay']);
+        array_pop($dataDay);
+        $dataMonth = array_values($data['thisMonth']);
+        array_pop($dataMonth);
+        $dataYear = array_values($data['thisYear']);
+        array_pop($dataYear);;
+
+
+
+        for ($i = 0; $i < count($dataDay); $i++) {
+            $totalDay += $dataDay[$i];
+        }
+        for ($i = 0; $i < count($dataMonth); $i++) {
+            $totalMonth += $dataMonth[$i];
+        }
+        for ($i = 0; $i < count($dataYear); $i++) {
+            $totalYear += $dataYear[$i];
+        }
+
+        $data['simDate'] = [
+            'thisDay' => number_format($totalDay),
+            'detailsthisDay' => $data['thisDay'],
+            'thisMonth' => number_format($totalMonth),
+            'detailsthisMonth' => $data['thisMonth'],
+            'thisYear' => number_format($totalYear),
+            'detailsthisYear' => $data['thisYear'],
+            // 'thisYear' => $data['thisYear']
+        ];
+
+        echo json_encode($data['simDate']);
+    }
     // Turjagwali
 
     public function getDetailStatistikTurjawali()
@@ -591,7 +764,121 @@ class Statistik_polda_executive extends MY_Controller
         ];
         echo json_encode($data);
     }
+    public function getStnkDate($id)
+    {
+        $yesterday = $this->input->post('yesterday');
+        $firstDayMonth = $this->input->post('firstDayMonth');
+        $lastDayMonth = $this->input->post('lastDayMonth');
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
 
+        $url_thisDay = 'stnk/date?polda_id=' . $id . '&type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'stnk/date?polda_id=' . $id . '&type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'stnk/date?polda_id=' . $id . '&type=year&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        $thisDay = guzzle_request('GET', $url_thisDay, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisMonth = guzzle_request('GET', $url_thisMonth, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisYear = guzzle_request('GET', $url_thisYear, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+
+        $totalDay = 0;
+        $totalMonth = 0;
+        $totalYear = 0;
+
+        $ybbn_1_r2 = 0;
+        $ybbn_1_r4 = 0;
+        $yperubahan_r2 = 0;
+        $yperubahan_r4 = 0;
+        $yperpanjangan_r2 = 0;
+        $yperpanjangan_r4 = 0;
+        $ymutasi_keluar_r2 = 0;
+        $ymutasi_keluar_r4 = 0;
+        $ymutasi_masuk_r2 = 0;
+        $ymutasi_masuk_r4 = 0;
+        $ypengesahan_r2 = 0;
+        $ypengesahan_r4 = 0;
+        $ysamolnas_r2 = 0;
+        $ysamolnas_r4 = 0;
+        foreach ($thisYear['data'] as $key) {
+            $ybbn_1_r2 += $key['bbn_1_r2'];
+            $ybbn_1_r4 += $key['bbn_1_r4'];
+            $yperubahan_r2 += $key['perubahan_r2'];
+            $yperubahan_r4 += $key['perubahan_r4'];
+            $yperpanjangan_r2 += $key['perpanjangan_r2'];
+            $yperpanjangan_r4 += $key['perpanjangan_r4'];
+            $ymutasi_keluar_r2 += $key['mutasi_keluar_r2'];
+            $ymutasi_keluar_r4 += $key['mutasi_keluar_r4'];
+            $ymutasi_masuk_r2 += $key['mutasi_masuk_r2'];
+            $ymutasi_masuk_r4 += $key['mutasi_masuk_r4'];
+            $ypengesahan_r2 += $key['pengesahan_r2'];
+            $ypengesahan_r4 += $key['pengesahan_r4'];
+            $ysamolnas_r2 += $key['samolnas_r2'];
+            $ysamolnas_r4 += $key['samolnas_r4'];
+        }
+
+        $data['thisYear'] = [
+            'bbn_1_r2' => $ybbn_1_r2,
+            'bbn_1_r4' => $ybbn_1_r4,
+            'perubahan_r2' => $yperubahan_r2,
+            'perubahan_r4' => $yperubahan_r4,
+            'perpanjangan_r2' => $yperpanjangan_r2,
+            'perpanjangan_r4' => $yperpanjangan_r4,
+            'mutasi_keluar_r2' => $ymutasi_keluar_r2,
+            'mutasi_keluar_r4' => $ymutasi_keluar_r4,
+            'mutasi_masuk_r2' => $ymutasi_masuk_r2,
+            'mutasi_masuk_r4' => $ymutasi_masuk_r4,
+            'pengesahan_r2' => $ypengesahan_r2,
+            'pengesahan_r4' => $ypengesahan_r4,
+            'samolnas_r2' => $ysamolnas_r2,
+            'samolnas_r4' => $ysamolnas_r4,
+            'date' => date("Y", strtotime($firstDay)),
+        ];
+
+        $dataDay = array_values($thisDay['data'][0]);
+        array_pop($dataDay);
+        $dataMonth = array_values($thisMonth['data'][0]);
+        array_pop($dataMonth);
+        $dataYear = array_values($data['thisYear']);
+        array_pop($dataYear);
+
+
+        for ($i = 0; $i < count($dataDay); $i++) {
+            $totalDay += $dataDay[$i];
+        }
+        for ($i = 0; $i < count($dataMonth); $i++) {
+            $totalMonth += $dataMonth[$i];
+        }
+        for ($i = 0; $i < count($dataYear); $i++) {
+            $totalYear += $dataYear[$i];
+        }
+
+        $data['stnkDate'] = [
+            'thisDay' => number_format($thisDay['data'][0]['total']),
+            // 'detailsthisDay' => $thisDay['data'][0],
+            'thisMonth' => number_format($thisMonth['data'][0]['total']),
+            // 'detailsthisMonth' => $thisMonth['data'][0],
+            'thisYear' => number_format($thisYear['data'][0]['total']),
+            // 'detailsthisYear' => $data['thisYear'],
+            // 'thisYear' => $data['thisYear']
+        ];
+
+        echo json_encode($data['stnkDate']);
+    }
     public function getLineStnk($id)
     {
         $title = 'DATA STNK';
@@ -892,39 +1179,45 @@ class Statistik_polda_executive extends MY_Controller
 
     public function getTopWalpjr()
     {
-        // $yesterday = $this->input->post('yesterday');
-        // $url = 'sim/daily?date=' . $yesterday . '&topPolda=true';
-        // $simTopPolda = guzzle_request('GET', $url, [
-        //     'headers' => [
-        //         'Authorization' => $this->session->userdata['token']
-        //     ]
-        // ]);
+        $url = 'vehicle?search=korlantas';
+        $walpjr = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
 
-        // $data['topSim'] = $simTopPolda['data']['rows'];
-        // echo json_encode($data['topSim']);
-        $dummy = [
-            [
-                'name_polda' => 'Banten',
-                'walpjr' => '0'
-            ],
-            [
-                'name_polda' => 'Jawa Barat',
-                'walpjr' => '0'
-            ],
-            [
-                'name_polda' => 'Jawa Timur',
-                'walpjr' => '0'
-            ],
-            [
-                'name_polda' => 'Jawa Tengah',
-                'walpjr' => '0'
-            ],
-            [
-                'name_polda' => 'Metro Jaya',
-                'walpjr' => '0'
-            ],
+        $data = $walpjr['data']['data'];
+
+        echo json_encode($data);
+    }
+    public function getBrandWalpjr()
+    {
+        $url = 'vehicle?search=korlantas';
+        $walpjr = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data = $walpjr['data']['data'];
+        $arr = [];
+        $kendaraan = [];
+
+        foreach ($data as $key => $item) {
+            $arr[$item['brand_vehicle']][$key] = $item;
+        }
+        foreach ($arr as $key => $item) {
+            $kendaraan[$item['brand_vehicle']][$key] = count($item);
+        }
+
+        $data = [
+            'nodesc' => $kendaraan[""]['no desc'],
+            'yamaha' => $kendaraan[""]['Yamaha'],
+            'honda' => $kendaraan[""]['Honda'],
+            'hyundai' => $kendaraan[""]['Hyundai'],
         ];
-        echo json_encode($dummy);
+
+        echo json_encode($data);
     }
 
     public function getWalpjrMonth()
@@ -1007,49 +1300,30 @@ class Statistik_polda_executive extends MY_Controller
         // echo json_encode($data['topsim']);
     }
 
-    public function getLineWalpjr()
+    public function getTypeWalpjr($id)
     {
-        $title = 'DATA';
-        // $filter = $this->input->post('filter');
-        // $limit = $this->input->post('limit');
-        // $yesterday = $this->input->post('yesterday');
-        // if ($filter == 0) {
-        //     $filterbaru = [
-        //         'filter' => $filter,
-        //         'start_date' => $this->input->post('start_date'),
-        //         'end_date' => $this->input->post('end_date'),
-        //     ];
-        //     $getdata = $this->M_detail_statistik_polda->getWalpjrNasionalDate($filterbaru);
-        // } elseif ($filter != 0) {
-        //     $filterbaru = [
-        //         'filter' => $filter,
-        //         'start_date' => $this->input->post('start_date'),
-        //         'end_date' => $this->input->post('end_date'),
-        //     ];
-        //     $getdata = $this->M_detail_statistik_polda->getWalpjrNasionalDate($filterbaru);
-        // }
+        $url = 'vehicle?search=korlantas';
+        $walpjr = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
 
-        // $data = [
-        //     'data' => $getdata,
-        //     'title' => $title,
-        // ];
+        $data = $walpjr['data']['data'];
+        $arr = [];
+        $kendaraan = [];
 
-        // $date = date("d-m-Y");
-        $date = date("d-m-Y");
-        $onedays = date('d-m-Y', strtotime($date . "-1 days"));
-        $twodays = date('d-m-Y', strtotime($date . "-2 days"));
-        $threedays = date('d-m-Y', strtotime($date . "-3 days"));
-        $fourdays = date('d-m-Y', strtotime($date . "-4 days"));
-        $fivedays = date('d-m-Y', strtotime($date . "-5 days"));
-        $sixdays = date('d-m-Y', strtotime($date . "-6 days"));
+        foreach ($data as $key => $item) {
+            $arr[$item['type_vehicle']][$key] = $item;
+        }
+        foreach ($arr as $key => $item) {
+            $kendaraan[$item['type_vehicle']][$key] = count($item);
+        }
+
         $data = [
-            'data' => [
-                'polda_name' => [$sixdays, $fivedays, $fourdays, $threedays, $twodays, $onedays, $date],
-                'polda_walpjr' => ['0', '0', '0', '0', '0', '0', '0']
-            ],
-            'title' => $title,
+            'type' => ['Sepeda Motor', 'Tanpa Kendaraan', 'Mobil'],
+            'total' => [$kendaraan[""]['Sepeda Motor'], $kendaraan[""]['Tanpa Kendaraan'], $kendaraan[""]['Mobil'] + $kendaraan[""]['mobil'],],
         ];
-
         echo json_encode($data);
     }
 
@@ -1170,7 +1444,7 @@ class Statistik_polda_executive extends MY_Controller
         $data['topRanmor'] = $lakaTopPolda['data']['rows'];
         echo json_encode($data['topRanmor']);
     }
-    public function getSimDate()
+    public function getSimDate($id)
     {
         $yesterday = $this->input->post('yesterday');
         $firstDayMonth = $this->input->post('firstDayMonth');
@@ -1178,9 +1452,9 @@ class Statistik_polda_executive extends MY_Controller
         $firstDay = $this->input->post('firstDay');
         $lastDay = $this->input->post('lastDay');
 
-        $url_thisDay = 'sim/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
-        $url_thisMonth = 'sim/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
-        $url_thisYear = 'sim/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+        $url_thisDay = 'sim/date?type=day&polda_id=' . $id . 'filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'sim/date?type=month&polda_id=' . $id . 'filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'sim/date?type=month&polda_id=' . $id . 'filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
 
 
         $thisDay = guzzle_request('GET', $url_thisDay, [
@@ -1201,22 +1475,260 @@ class Statistik_polda_executive extends MY_Controller
             ]
         ]);
 
-        $baru = 0;
-        $perpanjangan = 0;
+
+        $totalDay = 0;
+        $totalMonth = 0;
+        $totalYear = 0;
+
+        $dbaru_a = 0;
+        $dbaru_c = 0;
+        $dbaru_c1 = 0;
+        $dbaru_c2 = 0;
+        $dbaru_d = 0;
+        $dbaru_d1 = 0;
+        $dperpanjangan_a = 0;
+        $dperpanjangan_au = 0;
+        $dperpanjangan_c = 0;
+        $dperpanjangan_c1 = 0;
+        $dperpanjangan_c2 = 0;
+        $dperpanjangan_d = 0;
+        $dperpanjangan_d1 = 0;
+        $dperpanjangan_b1 = 0;
+        $dperpanjangan_b1u = 0;
+        $dperpanjangan_b2 = 0;
+        $dperpanjangan_b2u = 0;
+        $dpeningkatan_au = 0;
+        $dpeningkatan_b1 = 0;
+        $dpeningkatan_b1u = 0;
+        $dpeningkatan_b2 = 0;
+        $dpeningkatan_b2u = 0;
+
+        foreach ($thisDay['data'] as $key) {
+            $dbaru_a += $key['baru_a'];
+            $dbaru_c += $key['baru_c'];
+            $dbaru_c1 += $key['baru_c1'];
+            $dbaru_c2 += $key['baru_c2'];
+            $dbaru_d += $key['baru_d'];
+            $dbaru_d1 += $key['baru_d1'];
+            $dperpanjangan_a += $key['perpanjangan_a'];
+            $dperpanjangan_au += $key['perpanjangan_au'];
+            $dperpanjangan_c += $key['perpanjangan_c'];
+            $dperpanjangan_c1 += $key['perpanjangan_c1'];
+            $dperpanjangan_c2 += $key['perpanjangan_c2'];
+            $dperpanjangan_d += $key['perpanjangan_d'];
+            $dperpanjangan_d1 += $key['perpanjangan_d1'];
+            $dperpanjangan_b1 += $key['perpanjangan_b1'];
+            $dperpanjangan_b1u += $key['perpanjangan_b1u'];
+            $dperpanjangan_b2 += $key['perpanjangan_b2'];
+            $dperpanjangan_b2u += $key['perpanjangan_b2u'];
+            $dpeningkatan_au += $key['peningkatan_au'];
+            $dpeningkatan_b1 += $key['peningkatan_b1'];
+            $dpeningkatan_b1u += $key['peningkatan_b1u'];
+            $dpeningkatan_b2 += $key['peningkatan_b2'];
+            $dpeningkatan_b2u += $key['peningkatan_b2u'];
+        }
+
+        $data['thisDay'] = [
+            'baru_a' => $dbaru_a,
+            'baru_c' => $dbaru_c,
+            'baru_c1' => $dbaru_c1,
+            'baru_c2' => $dbaru_c2,
+            'baru_d' => $dbaru_d,
+            'baru_d1' => $dbaru_d1,
+            'perpanjangan_a' => $dperpanjangan_a,
+            'perpanjangan_au' => $dperpanjangan_au,
+            'perpanjangan_c' => $dperpanjangan_c,
+            'perpanjangan_c1' => $dperpanjangan_c1,
+            'perpanjangan_c2' => $dperpanjangan_c2,
+            'perpanjangan_d' => $dperpanjangan_d,
+            'perpanjangan_d1' => $dperpanjangan_d1,
+            'perpanjangan_b1' => $dperpanjangan_b1,
+            'perpanjangan_b1u' => $dperpanjangan_b1u,
+            'perpanjangan_b2' => $dperpanjangan_b2,
+            'perpanjangan_b2u' => $dperpanjangan_b2u,
+            'peningkatan_au' => $dpeningkatan_au,
+            'peningkatan_b1' => $dpeningkatan_b1,
+            'peningkatan_b1u' => $dpeningkatan_b1u,
+            'peningkatan_b2' => $dpeningkatan_b2,
+            'peningkatan_b2u' => $dpeningkatan_b2u,
+            'date' => date("Y-m-d"),
+        ];
+
+        $mbaru_a = 0;
+        $mbaru_c = 0;
+        $mbaru_c1 = 0;
+        $mbaru_c2 = 0;
+        $mbaru_d = 0;
+        $mbaru_d1 = 0;
+        $mperpanjangan_a = 0;
+        $mperpanjangan_au = 0;
+        $mperpanjangan_c = 0;
+        $mperpanjangan_c1 = 0;
+        $mperpanjangan_c2 = 0;
+        $mperpanjangan_d = 0;
+        $mperpanjangan_d1 = 0;
+        $mperpanjangan_b1 = 0;
+        $mperpanjangan_b1u = 0;
+        $mperpanjangan_b2 = 0;
+        $mperpanjangan_b2u = 0;
+        $mpeningkatan_au = 0;
+        $mpeningkatan_b1 = 0;
+        $mpeningkatan_b1u = 0;
+        $mpeningkatan_b2 = 0;
+        $mpeningkatan_b2u = 0;
+
+        foreach ($thisMonth['data'] as $key) {
+            $mbaru_a += $key['baru_a'];
+            $mbaru_c += $key['baru_c'];
+            $mbaru_c1 += $key['baru_c1'];
+            $mbaru_c2 += $key['baru_c2'];
+            $mbaru_d += $key['baru_d'];
+            $mbaru_d1 += $key['baru_d1'];
+            $mperpanjangan_a += $key['perpanjangan_a'];
+            $mperpanjangan_au += $key['perpanjangan_au'];
+            $mperpanjangan_c += $key['perpanjangan_c'];
+            $mperpanjangan_c1 += $key['perpanjangan_c1'];
+            $mperpanjangan_c2 += $key['perpanjangan_c2'];
+            $mperpanjangan_d += $key['perpanjangan_d'];
+            $mperpanjangan_d1 += $key['perpanjangan_d1'];
+            $mperpanjangan_b1 += $key['perpanjangan_b1'];
+            $mperpanjangan_b1u += $key['perpanjangan_b1u'];
+            $mperpanjangan_b2 += $key['perpanjangan_b2'];
+            $mperpanjangan_b2u += $key['perpanjangan_b2u'];
+            $mpeningkatan_au += $key['peningkatan_au'];
+            $mpeningkatan_b1 += $key['peningkatan_b1'];
+            $mpeningkatan_b1u += $key['peningkatan_b1u'];
+            $mpeningkatan_b2 += $key['peningkatan_b2'];
+            $mpeningkatan_b2u += $key['peningkatan_b2u'];
+        }
+
+        $data['thisMonth'] = [
+            'baru_a' => $mbaru_a,
+            'baru_c' => $mbaru_c,
+            'baru_c1' => $mbaru_c1,
+            'baru_c2' => $mbaru_c2,
+            'baru_d' => $mbaru_d,
+            'baru_d1' => $mbaru_d1,
+            'perpanjangan_a' => $mperpanjangan_a,
+            'perpanjangan_au' => $mperpanjangan_au,
+            'perpanjangan_c' => $mperpanjangan_c,
+            'perpanjangan_c1' => $mperpanjangan_c1,
+            'perpanjangan_c2' => $mperpanjangan_c2,
+            'perpanjangan_d' => $mperpanjangan_d,
+            'perpanjangan_d1' => $mperpanjangan_d1,
+            'perpanjangan_b1' => $mperpanjangan_b1,
+            'perpanjangan_b1u' => $mperpanjangan_b1u,
+            'perpanjangan_b2' => $mperpanjangan_b2,
+            'perpanjangan_b2u' => $mperpanjangan_b2u,
+            'peningkatan_au' => $mpeningkatan_au,
+            'peningkatan_b1' => $mpeningkatan_b1,
+            'peningkatan_b1u' => $mpeningkatan_b1u,
+            'peningkatan_b2' => $mpeningkatan_b2,
+            'peningkatan_b2u' => $mpeningkatan_b2u,
+            'date' => date("F", strtotime($firstDay)),
+        ];
+
+        $ybaru_a = 0;
+        $ybaru_c = 0;
+        $ybaru_c1 = 0;
+        $ybaru_c2 = 0;
+        $ybaru_d = 0;
+        $ybaru_d1 = 0;
+        $yperpanjangan_a = 0;
+        $yperpanjangan_au = 0;
+        $yperpanjangan_c = 0;
+        $yperpanjangan_c1 = 0;
+        $yperpanjangan_c2 = 0;
+        $yperpanjangan_d = 0;
+        $yperpanjangan_d1 = 0;
+        $yperpanjangan_b1 = 0;
+        $yperpanjangan_b1u = 0;
+        $yperpanjangan_b2 = 0;
+        $yperpanjangan_b2u = 0;
+        $ypeningkatan_au = 0;
+        $ypeningkatan_b1 = 0;
+        $ypeningkatan_b1u = 0;
+        $ypeningkatan_b2 = 0;
+        $ypeningkatan_b2u = 0;
+
         foreach ($thisYear['data'] as $key) {
-            $baru += $key['baru'];
-            $perpanjangan += $key['perpanjangan'];
+            $ybaru_a += $key['baru_a'];
+            $ybaru_c += $key['baru_c'];
+            $ybaru_c1 += $key['baru_c1'];
+            $ybaru_c2 += $key['baru_c2'];
+            $ybaru_d += $key['baru_d'];
+            $ybaru_d1 += $key['baru_d1'];
+            $yperpanjangan_a += $key['perpanjangan_a'];
+            $yperpanjangan_au += $key['perpanjangan_au'];
+            $yperpanjangan_c += $key['perpanjangan_c'];
+            $yperpanjangan_c1 += $key['perpanjangan_c1'];
+            $yperpanjangan_c2 += $key['perpanjangan_c2'];
+            $yperpanjangan_d += $key['perpanjangan_d'];
+            $yperpanjangan_d1 += $key['perpanjangan_d1'];
+            $yperpanjangan_b1 += $key['perpanjangan_b1'];
+            $yperpanjangan_b1u += $key['perpanjangan_b1u'];
+            $yperpanjangan_b2 += $key['perpanjangan_b2'];
+            $yperpanjangan_b2u += $key['perpanjangan_b2u'];
+            $ypeningkatan_au += $key['peningkatan_au'];
+            $ypeningkatan_b1 += $key['peningkatan_b1'];
+            $ypeningkatan_b1u += $key['peningkatan_b1u'];
+            $ypeningkatan_b2 += $key['peningkatan_b2'];
+            $ypeningkatan_b2u += $key['peningkatan_b2u'];
         }
 
         $data['thisYear'] = [
-            'baru' => $baru,
-            'perpanjangan' => $perpanjangan,
+            'baru_a' => $ybaru_a,
+            'baru_c' => $ybaru_c,
+            'baru_c1' => $ybaru_c1,
+            'baru_c2' => $ybaru_c2,
+            'baru_d' => $ybaru_d,
+            'baru_d1' => $ybaru_d1,
+            'perpanjangan_a' => $yperpanjangan_a,
+            'perpanjangan_au' => $yperpanjangan_au,
+            'perpanjangan_c' => $yperpanjangan_c,
+            'perpanjangan_c1' => $yperpanjangan_c1,
+            'perpanjangan_c2' => $yperpanjangan_c2,
+            'perpanjangan_d' => $yperpanjangan_d,
+            'perpanjangan_d1' => $yperpanjangan_d1,
+            'perpanjangan_b1' => $yperpanjangan_b1,
+            'perpanjangan_b1u' => $yperpanjangan_b1u,
+            'perpanjangan_b2' => $yperpanjangan_b2,
+            'perpanjangan_b2u' => $yperpanjangan_b2u,
+            'peningkatan_au' => $ypeningkatan_au,
+            'peningkatan_b1' => $ypeningkatan_b1,
+            'peningkatan_b1u' => $ypeningkatan_b1u,
+            'peningkatan_b2' => $ypeningkatan_b2,
+            'peningkatan_b2u' => $ypeningkatan_b2u,
+            'date' => date("Y", strtotime($firstDay)),
         ];
+        // $dataDay = $data['thisDay'];
+        $dataDay = array_values($data['thisDay']);
+        array_pop($dataDay);
+        $dataMonth = array_values($data['thisMonth']);
+        array_pop($dataMonth);
+        $dataYear = array_values($data['thisYear']);
+        array_pop($dataYear);;
+
+
+
+        for ($i = 0; $i < count($dataDay); $i++) {
+            $totalDay += $dataDay[$i];
+        }
+        for ($i = 0; $i < count($dataMonth); $i++) {
+            $totalMonth += $dataMonth[$i];
+        }
+        for ($i = 0; $i < count($dataYear); $i++) {
+            $totalYear += $dataYear[$i];
+        }
 
         $data['simDate'] = [
-            'thisDay' => $thisDay['data'],
-            'thisMonth' => $thisMonth['data'],
-            'thisYear' => $data['thisYear']
+            'thisDay' => number_format($totalDay),
+            'detailsthisDay' => $data['thisDay'],
+            'thisMonth' => number_format($totalMonth),
+            'detailsthisMonth' => $data['thisMonth'],
+            'thisYear' => number_format($totalYear),
+            'detailsthisYear' => $data['thisYear'],
+            // 'thisYear' => $data['thisYear']
         ];
 
         echo json_encode($data['simDate']);
@@ -1569,15 +2081,16 @@ class Statistik_polda_executive extends MY_Controller
 
     public function getRanmorDate()
     {
+        $id = $this->input->post('id');
         $yesterday = $this->input->post('yesterday');
         $firstDayMonth = $this->input->post('firstDayMonth');
         $lastDayMonth = $this->input->post('lastDayMonth');
         $firstDay = $this->input->post('firstDay');
         $lastDay = $this->input->post('lastDay');
 
-        $url_thisDay = 'ditregident/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
-        $url_thisMonth = 'ditregident/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
-        $url_thisYear = 'ditregident/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+        $url_thisDay = 'ranmor/date?polda_id=' . $id . '&type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'ranmor/date?polda_id=' . $id . '&type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'ranmor/date?polda_id=' . $id . '&type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
 
 
         $thisDay = guzzle_request('GET', $url_thisDay, [
@@ -1597,33 +2110,143 @@ class Statistik_polda_executive extends MY_Controller
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
-
         $ranmor = 0;
 
         foreach ($thisYear['data'] as $key) {
             $ranmor += $key['ranmor'];
+        } {
+            $yesterday = $this->input->post('yesterday');
+            $firstDayMonth = $this->input->post('firstDayMonth');
+            $lastDayMonth = $this->input->post('lastDayMonth');
+            $firstDay = $this->input->post('firstDay');
+            $lastDay = $this->input->post('lastDay');
+
+            $url_thisDay = 'ranmor/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+            $url_thisMonth = 'ranmor/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+            $url_thisYear = 'ranmor/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+            $thisDay = guzzle_request('GET', $url_thisDay, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+
+            $thisMonth = guzzle_request('GET', $url_thisMonth, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+
+            $thisYear = guzzle_request('GET', $url_thisYear, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+
+            $thisDayMP = 0;
+            $thisDayMS = 0;
+            $thisDayMB = 0;
+            $thisDaySM = 0;
+            $thisDayRN = 0;
+            $thisDayTL = 0;
+            foreach ($thisDay['data']['rows'] as $key) {
+                $thisDayMP += $key['mobil_penumpang'];
+                $thisDayMS += $key['mobil_bus'];
+                $thisDayMB += $key['mobil_barang'];
+                $thisDaySM  += $key['sepeda_motor'];
+                $thisDayRN  += $key['ransus'];
+                $thisDayTL  += $key['total'];
+            }
+
+            $data['thisDay'] = [
+                'mobil_barang' => $thisDayMB,
+                'mobil_penumpang' => $thisDayMP,
+                'mobil_bus' => $thisDayMS,
+                'sepeda_motor' => $thisDaySM,
+                'ransus' => $thisDayRN,
+                'total' => $thisDayTL,
+            ];
+            $thisMonthMP = 0;
+            $thisMonthMS = 0;
+            $thisMonthMB = 0;
+            $thisMonthSM = 0;
+            $thisMonthRN = 0;
+            $thisMonthTL = 0;
+            foreach ($thisMonth['data']['rows'] as $key) {
+                $thisMonthMP += $key['mobil_penumpang'];
+                $thisMonthMS += $key['mobil_bus'];
+                $thisMonthMB += $key['mobil_barang'];
+                $thisMonthSM += $key['sepeda_motor'];
+                $thisMonthRN += $key['ransus'];
+                $thisMonthTL  += $key['total'];
+            }
+
+            $data['thisMonth'] = [
+                'mobil_penumpang' => $thisMonthMP,
+                'mobil_bus' => $thisMonthMS,
+                'mobil_barang' => $thisMonthMB,
+                'sepeda_motor' => $thisMonthSM,
+                'ransus' => $thisMonthRN,
+                'total' => $thisMonthTL,
+            ];
+            $thisYearMP = 0;
+            $thisYearMS = 0;
+            $thisYearMB = 0;
+            $thisYearSM = 0;
+            $thisYearRN = 0;
+            $thisYearTL = 0;
+            foreach ($thisYear['data']['rows'] as $key) {
+                $thisYearMP += $key['mobil_penumpang'];
+                $thisYearMS += $key['mobil_bus'];
+                $thisYearMB += $key['mobil_barang'];
+                $thisYearSM  += $key['sepeda_motor'];
+                $thisYearRN  += $key['ransus'];
+                $thisYearTL  += $key['total'];
+            }
+
+            $data['thisYear'] = [
+                'mobil_penumpang' => $thisYearMP,
+                'mobil_bus' => $thisYearMS,
+                'mobil_barang' => $thisYearMB,
+                'ransus' => $thisYearSM,
+                'total' => $thisYearTL,
+            ];
+
+            $data['RanmorDate'] = [
+                'thisDay' => number_format($data['thisDay']['total']),
+                'thisDayMP' => number_format($data['thisDay']['mobil_penumpang']),
+                'thisDayMS' => number_format($data['thisDay']['mobil_bus']),
+                'thisDayMB' => number_format($data['thisDay']['mobil_barang']),
+                'thisDaySM' => number_format($data['thisDay']['sepeda_motor']),
+                'thisDayRN' => number_format($data['thisDay']['ransus']),
+                'thisMonth' => number_format($data['thisMonth']['total']),
+                'thisMonthMP' => number_format($data['thisMonth']['mobil_penumpang']),
+                'thisMonthMS' => number_format($data['thisMonth']['mobil_bus']),
+                'thisMonthMB' => number_format($data['thisMonth']['mobil_barang']),
+                'thisMonthSM' => number_format($data['thisMonth']['sepeda_motor']),
+                'thisMonthRN' => number_format($data['thisMonth']['ransus']),
+                'thisYear' => number_format($data['thisYear']['total']),
+                'thisYearMP' => number_format($data['thisYear']['mobil_penumpang']),
+                'thisYearMS' => number_format($data['thisYear']['mobil_bus']),
+                'thisYearMB' => number_format($data['thisYear']['mobil_barang']),
+                'thisYearSM' => number_format($data['thisYear']['sepeda_motor']),
+                'thisYearRN' => number_format($data['thisYear']['ransus']),
+            ];
+
+            echo json_encode($data['RanmorDate']);
         }
-
-        $data['thisYear'] = [
-            'ranmor' => $ranmor,
-        ];
-
-        $data['ranmorDate'] = [
-            'thisDay' => $thisDay['data'],
-            'thisMonth' => $thisMonth['data'],
-            'thisYear' => $data['thisYear']
-        ];
-
-        echo json_encode($data['ranmorDate']);
     }
     public function getLineRanmor()
     {
         $title = 'DATA RANMOR LALU LINTAS';
+        $id = $this->input->post('id');
         $filter = $this->input->post('filter');
         $limit = $this->input->post('limit');
         $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
+                'id' => $id,
                 'filter' => $filter,
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
@@ -1631,6 +2254,7 @@ class Statistik_polda_executive extends MY_Controller
             $getdata = $this->M_detail_statistik_polda->getRanmorNasionalDate($filterbaru);
         } elseif ($filter != 0) {
             $filterbaru = [
+                'id' => $id,
                 'filter' => $filter,
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),

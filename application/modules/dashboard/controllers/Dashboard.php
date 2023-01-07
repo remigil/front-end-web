@@ -21,7 +21,7 @@ class Dashboard extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "Operasi";
-        $page_content["page"] = "dashboard/google"; 
+        $page_content["page"] = "dashboard/google";
         $page_content["data"] = '';
         $this->load->view('google');
     }
@@ -399,7 +399,7 @@ class Dashboard extends MY_Controller
         } else {
             $polda_id = '';
         }
- 
+
 
         if ($input['type']) {
             $type = '&type=' . $input['type'] . '';
@@ -506,7 +506,7 @@ class Dashboard extends MY_Controller
         // $date = strtotime("-1 day", $date);
         // echo date('Y-m-d', $date);
 
-        $url = 'filterPetugas?polda_id='.$input['polda_id'].'&limit='.$input['limit'].'&page='.$input['page'].'';
+        $url = 'filterPetugas?polda_id=' . $input['polda_id'] . '&limit=' . $input['limit'] . '&page=' . $input['page'] . '';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
@@ -886,7 +886,7 @@ class Dashboard extends MY_Controller
         echo json_encode($res);
     }
 
-    
+
 
     public function getJadwal()
     {

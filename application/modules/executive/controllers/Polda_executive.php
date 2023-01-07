@@ -9,35 +9,16 @@ class Polda_executive extends MY_Controller
         parent::__construct();
         $this->load->helper("logged_helper");
         $this->load->model("executive/M_detail_polda");
+        $this->load->model("dashboard/M_dashboard");
     }
 
-    public function index($id)
-    {
-        $page_content["css"] = '';
-        $page_content["js"] = '';
-        $page_content["title"] = "Detail Polda";
-        $data['csrf_name'] = $this->security->get_csrf_token_name();
-        $data['csrf_token'] = $this->security->get_csrf_hash();
-        $data['polda'] = $this->M_detail_polda->get_Polda();
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
-        $data["id"] = $id;
-        $page_content["data"] = $data;
-        $page_content["page"] = "executive/polda/detail_polda_view";
-        $this->templates->loadTemplate($page_content);
-    }
 
     public function detail_polda_page($id)
     {
-        $page_content["css"] = '';
-        $page_content["js"] = '';
-        $page_content["title"] = "Detail Polda";
-        $data['csrf_name'] = $this->security->get_csrf_token_name();
-        $data['csrf_token'] = $this->security->get_csrf_hash();
-        $data['polda'] = $this->M_detail_polda->get_Polda();
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
-        $data["id"] = $id;
+        $page_content["page"] = "dashboard/Kapolda/dashboard_view";
+        $page_content["title"] = "Detail Polda";
         $page_content["data"] = $data;
-        $page_content["page"] = "executive/polda/detail_polda_view";
         $this->templates->loadTemplate($page_content);
     }
 
@@ -293,13 +274,13 @@ class Polda_executive extends MY_Controller
         // echo json_encode($input);
         // die;
 
-        $getGakkum = guzzle_request('GET', 'ditgakkum/daily?polda_id=' . $id . 'filter=true&start_date=' . $input['startDate'] . '&end_date=' . $input['endDate'] . '', [
+        $getGakkum = guzzle_request('GET', 'ditgakkum/daily?polda_id=' . $id . '&filter=true&start_date=' . $input['startDate'] . '&end_date=' . $input['endDate'] . '', [
             'headers' => $headers
         ]);
+
         $getGakkum = $getGakkum["data"];
 
 
-        $totalwalpjr = 72;
         $totalgarlantas = 0;
         $totallakalantas = 0;
         $totalturjagwali = 0;
@@ -309,7 +290,7 @@ class Polda_executive extends MY_Controller
             $totalturjagwali += $getGakkum[$i]['turjagwali'];
         }
 
-        $getKamsel = guzzle_request('GET', 'ditkamsel/daily?polda_id=' . $id . 'filter=true&start_date=' . $input['startDate'] . '&end_date=' . $input['endDate'] . '', [
+        $getKamsel = guzzle_request('GET', 'ditkamsel/daily?polda_id=' . $id . '&filter=true&start_date=' . $input['startDate'] . '&end_date=' . $input['endDate'] . '', [
             'headers' => $headers
         ]);
         $getKamsel = $getKamsel["data"];
@@ -325,7 +306,7 @@ class Polda_executive extends MY_Controller
             // $totalaudit += $getKamsel[$i]['audit'];
         }
 
-        $getRegident = guzzle_request('GET', 'ditregident/daily?polda_id=' . $id . 'filter=true&start_date=' . $input['startDate'] . '&end_date=' . $input['endDate'] . '', [
+        $getRegident = guzzle_request('GET', 'ditregident/daily?polda_id=' . $id . '&filter=true&start_date=' . $input['startDate'] . '&end_date=' . $input['endDate'] . '', [
             'headers' => $headers
         ]);
         $getRegident = $getRegident["data"];
@@ -505,7 +486,6 @@ class Polda_executive extends MY_Controller
             'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
             'garlantas' => number_format($totalgarlantas, 0, '', '.'),
             'turjagwali' => number_format($totalturjagwali, 0, '', '.'),
-            'walpjr' =>  number_format($totalwalpjr, 0, '', '.'),
 
             'bpkb' => number_format($totalbpkb, 0, '', '.'),
             'stnk' =>  number_format($totalstnk, 0, '', '.'),
@@ -537,6 +517,18 @@ class Polda_executive extends MY_Controller
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $page_content["title"] = "Data Kecelakaan Polda";
         $page_content["page"] = "executive/polda/statistik_laka_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Ranmor($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Ranmor Polda";
+        $page_content["page"] = "executive/polda/statistik_ranmor_view";
         // $page_content["data"] = '';
         $data["id"] = $id;
         $page_content["data"] = $data;
@@ -640,6 +632,42 @@ class Polda_executive extends MY_Controller
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $page_content["title"] = "Data Dikmaslantas Polda";
         $page_content["page"] = "executive/polda/statistik_dikmaslantas_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Blackspot($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Blackspot Polda";
+        $page_content["page"] = "executive/polda/statistik_blackspot_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Troublespot($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data troublespot Polda";
+        $page_content["page"] = "executive/polda/statistik_troublespot_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Rekalantas($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Rekalantas Polda";
+        $page_content["page"] = "executive/polda/statistik_rekalantas_view";
         // $page_content["data"] = '';
         $data["id"] = $id;
         $page_content["data"] = $data;
