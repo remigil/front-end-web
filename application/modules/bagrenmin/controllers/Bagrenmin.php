@@ -346,7 +346,6 @@ class Bagrenmin extends MY_Controller
         $value = [];
         $url = 'bagrenmin/rengar/add';
 
-
         $max_loop = count($this->input->post('polda_id'));
 
         for ($i = 0; $i < $max_loop; $i++) {
