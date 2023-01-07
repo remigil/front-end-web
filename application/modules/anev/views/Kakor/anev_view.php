@@ -961,7 +961,7 @@
 		}
 
 		window.open(
-			`http://103.163.139.100:3002/v1/${url}`,
+			`<?= ApiUrl() ?>${url}`,
 			'_blank' // <- This is what makes it open in a new window.
 		);
 
