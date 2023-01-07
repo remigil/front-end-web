@@ -2431,7 +2431,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="javascript: void(0);" class="has-arrow">
                                         <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-laporan">Masyarakat</span>
@@ -2444,7 +2444,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow">
                                         <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
