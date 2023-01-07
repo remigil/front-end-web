@@ -230,11 +230,13 @@
               </tr>
             </thead>
             <tbody>
+              <?php foreach($getsamsat as $samsat) : ?>
               <tr class="table-striped">
                 <td><?= $tab3++?></td>
-                <td>Samsat 1</td>
-                <td>Jl. Samsat</td>
+                <td><?= $samsat['name_samsat']?></td>
+                <td><?= $samsat['address']?></td>
               </tr>
+              <?php endforeach;?>
               
             </tbody>
           </table>
@@ -351,7 +353,7 @@
           let lat = parseFloat(zxc[0])
           let long = parseFloat(zxc[1])
           var initialCenter = [lat, long];
-          var initialZoom = 8;
+          var initialZoom = 9;
           var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],

@@ -11,13 +11,18 @@ class Ditlantas_polda extends MX_Controller {
  
 	public function index($id)
 	{ 
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
         $url = 'polda_front/getId/' . $id;
         $getPolda = guzzle_request('GET', $url, [
         ]);
 		$getStakeholder = guzzle_request('GET', 'stackholder', []);
         $getPolda = $getPolda['data']['data'];
-		$data['csrf_name'] = $this->security->get_csrf_token_name();
-        $data['csrf_token'] = $this->security->get_csrf_hash();
+		
 
 		$data['breadcrumb'] = "Ditlantas Polda ".$getPolda['name_polda'];
 		$data['headline'] = "Ditlantas Polda ".$getPolda['name_polda'];
@@ -30,6 +35,16 @@ class Ditlantas_polda extends MX_Controller {
         $getPolres = guzzle_request('GET' , 'polres?serverSide=true$start=1&length=10&order=id&orderDorection=desc&filter[]=polda_id&filterSearch[]='.$getPolda['polda_id'], []);
         $data['getPolres'] = $getPolres['data']['data'];
         // var_dump($data['getPolres']);die;
+
+        $getsamsat = guzzle_request('GET' , 'filter-search?serverSide=true&start=1&filter=samsat',[
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]]
+        );
+
+        // var_dump($getsamsat);die;
+        $data['getsamsat'] = $getsamsat['data']['samsat'];
+        // var_dump($data['getsamsat']);die;
 
 
 		$getBerita = guzzle_request('GET', 'news', [
