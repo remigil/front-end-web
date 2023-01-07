@@ -36,11 +36,11 @@ class Ditlantas_polda extends MX_Controller {
         $data['getPolres'] = $getPolres['data']['data'];
         // var_dump($data['getPolres']);die;
 
-        $getsamsat = guzzle_request('GET' , 'filter-search?serverSide=true&start=1&filter=samsat',[
+        $getsamsat = guzzle_request('GET' , 'filter-search-web?serverSide=true&start=1&filter=samsat',[
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
-            ]]
-        );
+            ]
+        ]);
 
         // var_dump($getsamsat);die;
         $data['getsamsat'] = $getsamsat['data']['samsat'];

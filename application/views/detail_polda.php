@@ -230,6 +230,13 @@
               </tr>
             </thead>
             <tbody>
+              <?php if($getsamsat == NULL) : ?>
+                <tr>
+                  <td></td>
+                  <td>Data Tidak Ditemukan</td>
+                  <td></td>
+                </tr>
+              <?php endif;?>
               <?php foreach($getsamsat as $samsat) : ?>
               <tr class="table-striped">
                 <td><?= $tab3++?></td>
