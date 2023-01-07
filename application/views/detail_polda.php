@@ -255,7 +255,7 @@
             <tbody>
               <tr class="table-striped">
                 <td><?= $tab4++?></td>
-                <td><a href="<?= $polda['link_cctv']?>" target="_blank"><?= $polda['link_cctv']?></a></td>
+                <td><a href="<?= $polda['link_cctv']; if($polda['link_cctv'] == NULL){echo '#';}?> "><?= $polda['link_cctv']; if($polda['link_cctv'] == NULL){echo 'Data Tidak Ditemukan';}?></a></td>
               </tr>
               
             </tbody>
