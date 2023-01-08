@@ -14321,7 +14321,7 @@
 
 
         mapContainer.on('dblclick', function(e) {
-            $('#myModal').modal('show');
+            // $('#myModal').modal('show');
         });
 
         let arrayWaypoint = [];
