@@ -3683,6 +3683,35 @@ class Statistik_executive extends MY_Controller
         echo json_encode($list_blankspot['data']);
     }
 
+    public function getCardBlackspot()
+    {
+
+        $url = 'blankspot/daily?topPolda=true&limit=5';
+
+        $blackspot = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data = $blackspot['data']['rows'];
+
+        echo json_encode($data);
+    }
+    public function getCardRekalantas()
+    {
+
+        $url = 'rekalantas/daily?topPolda=true&limit=5';
+
+        $rekalantas = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data = $rekalantas['data']['rows'];
+        echo json_encode($data);
+    }
     public function getBarRekalantas()
     {
         $filter = $this->input->post('filter');

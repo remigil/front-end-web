@@ -200,11 +200,11 @@
                                     <td><?= $key['name_polda'] ?></td>
                                     <td class="text-end"><?= $key['jumlah'] ?></td>
                                 </tr>
-                                ;<?php endforeach; ?>
-                                <tr>
-                                    <th>Total</th>
-                                    <th class="text-end"><?= $total_cctv ?></th>
-                                </tr>
+                            <?php endforeach; ?>
+                            <tr>
+                                <th>Total</th>
+                                <th class="text-end"><?= $total_cctv ?></th>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

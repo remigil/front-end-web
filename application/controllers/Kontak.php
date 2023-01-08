@@ -68,9 +68,6 @@ class Kontak extends MX_Controller
 				'contents' => $input['fast_survey'],
 			],
 		];
-		// echo "<pre>";
-		// var_dump($dummy);
-		// die;
 		$data = guzzle_request('POST', 'satisfactionsurvey/add', [
 			'multipart' => $dummy,
 		]);
@@ -92,6 +89,33 @@ class Kontak extends MX_Controller
 		echo json_encode($res);
 	}
 
+	public function getStatistik()
+	{
+		$urldesign = 'satisfactionsurvey/countdesign';
+		$urlconvenience = 'satisfactionsurvey/countconvenience';
+		$urlaccurate = 'satisfactionsurvey/countaccurate';
+		$urlfast = 'satisfactionsurvey/countfast';
+
+		$design =  guzzle_request('GET',   $urldesign, []);
+		$datadesign =  $design['data'];
+		$convenience =  guzzle_request('GET',   $urlconvenience, []);
+		$dataconvenience =  $convenience['data'];
+		$accurate =  guzzle_request('GET',   $urlaccurate, []);
+		$dataaccurate =  $accurate['data'];
+		$fast =  guzzle_request('GET',   $urlfast, []);
+		$datafast =  $fast['data'];
+
+		$data = [
+			'design' => $datadesign,
+			'convenience' => $dataconvenience,
+			'accurate' => $dataaccurate,
+			'fast' => $datafast,
+		];
+
+
+		echo json_encode($data);
+	}
+
 	public function layanan_pengaduan()
 	{
 		$getStakeholder = guzzle_request('GET', 'stackholder', []);
@@ -107,50 +131,50 @@ class Kontak extends MX_Controller
 
 		$this->template->load('templates/template', 'kontak/layanan_pengaduan', $data);
 	}
-	
+
 	public function kirim_pengaduan()
 	{
-		
+
 		$input = $this->input->post();
-            $dummy = [
-                [
-					'name' => 'name_complaint',
-					'contents' => $input['nama'],
-				],
-				[
-					'name' => 'email_complaint',
-					'contents' => $input['email'],
-				],
-				[
-					'name' => 'subjek_complaint',
-					'contents' => $input['subjek'],
-				],
-				[
-					'name' => 'deskripsi_complaint',
-					'contents' => $input['deskripsi'],
-				],
+		$dummy = [
+			[
+				'name' => 'name_complaint',
+				'contents' => $input['nama'],
+			],
+			[
+				'name' => 'email_complaint',
+				'contents' => $input['email'],
+			],
+			[
+				'name' => 'subjek_complaint',
+				'contents' => $input['subjek'],
+			],
+			[
+				'name' => 'deskripsi_complaint',
+				'contents' => $input['deskripsi'],
+			],
 
-            ]; 
+		];
 
-			$data = guzzle_request('POST', 'complaint/add', [ 
-				'multipart' => $dummy,
-			]);
-	
-			if($data['isSuccess'] == true){  
-				$res = array(
-					'status' => true,
-					'message' => 'Berhasil tambah data.',
-					'data' => $data
-				);
-			}else{
-				$res = array(
-					'status' => false,
-					'message' => 'Gagal tambah data.',
-					'data' => $data
-				);
-			}
-			
-			echo json_encode($res);
+		$data = guzzle_request('POST', 'complaint/add', [
+			'multipart' => $dummy,
+		]);
+
+		if ($data['isSuccess'] == true) {
+			$res = array(
+				'status' => true,
+				'message' => 'Berhasil tambah data.',
+				'data' => $data
+			);
+		} else {
+			$res = array(
+				'status' => false,
+				'message' => 'Gagal tambah data.',
+				'data' => $data
+			);
+		}
+
+		echo json_encode($res);
 	}
 	public function error()
 	{

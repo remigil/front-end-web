@@ -32,21 +32,19 @@
                             </div>
                         </div>
                     <?php } else { ?>
-                        <div class="col-md-2 text-end align-self-center" style="margin-left: 4%;">
+                        <div class="col-md-2 text-end align-self-center" style="margin-left: 4%;"></div>
+                        <div class="col-md-2 text-end align-self-center" style="margin-left: -4%;">
                             <button type="button" class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <!-- <iconify-icon icon="mdi:file-document-multiple"></iconify-icon> -->
                                 Struktur Organisasi
                             </button>
                         </div>
-                        <div class="col-md-2 text-end align-self-center" style="margin-left: -4%;">
+                        <!-- <div class="col-md-2 text-end align-self-center" style="margin-left: -4%;">
                             <div class="btn-group">
                                 <button type="button" class="btn dropdown-toggle btn-outline-primary" data-bs-toggle="dropdown" aria-expanded="false" style="width: 200px; border-color:#007DD8;">
                                     Pilih Laporan <i class="fas fa-caret-down"></i>
                                 </button>
 
-                                <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"  aria-expanded="false">
-                                    Dropdown button
-                                </button> -->
+                               
                                 <div class="dropdown-menu" style="width: 200px; background-color:#D9D9D9">
                                     <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
                                     <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=weeks&date=<?= date('Y-m-d'); ?>">Mingguan</a>
@@ -55,7 +53,7 @@
                                     <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=years&date=<?= date('Y'); ?>">Tahunan</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     <?php } ?>
                 </div>
 
