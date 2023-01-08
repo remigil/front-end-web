@@ -288,7 +288,7 @@ class Dashboard extends MY_Controller
                 die;
             } else {
                 $data["title"] = "Dashboard Executive";
-                $page_content["page"] = "dashboard/dashboard_eksekutif";
+                $page_content["page"] = "dashboard/dashboard_g20";
 
                 $page_content["data"] = $data;
             }
