@@ -290,6 +290,16 @@ class Dashboard extends MY_Controller
                 $data["title"] = "Dashboard Executive";
                 $page_content["page"] = "dashboard/dashboard_g20";
 
+                $getVip = guzzle_request('GET', 'vip', [
+                    'headers' => $headers
+                ]);
+                $data['getVip'] = $getVip['data']['data'];
+    
+                $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
+                    'headers' => $headers
+                ]);
+                $data['getAccount'] = $getAccount['data']['data'];
+    
                 $page_content["data"] = $data;
             }
         } else if ($this->session->userdata['role'] == 'DivTikMabesPolri') {
