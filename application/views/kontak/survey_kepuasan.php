@@ -78,6 +78,7 @@
 			</div>
 
 			<div class="col-lg-8">
+				
 				<h3>Form Survey Kepuasan Pengguna Layanan Web K3I</h4>
 					<p>Sebagai bentuk peningkatan pelayanan kepada masyarakat, Kami ingin memberikan pelayanan yang terbaik pada Pusat Kendali Koordinasi Komunikasi Informasi K3I Korlantas Polri , Silahkan isi Form Survey berikut ini :</p>
 					<form action="" class="form" id="form-survey" method="post" enctype="multipart/form-data">
@@ -102,81 +103,427 @@
 
 
 						<hr>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="material-textfield">
-									<label for="" class="labelmui">Bagaimana penampilan web K3I saat ini ?</label>
-								</div>
-								<div class="form-item mb-3">
-									<select name="design_survey" id="design_survey" class="form-select" style="width:100% ; font-size:15px ;" required>
-										<!-- <select name="" id=""  multiple required> -->
-										<option selected="0">Pilih penilaian</option>
-										<option value="1">Sangat Bagus</option>
-										<option value="2">Bagus</option>
-										<option value="3">Kurang Bagus</option>
-										<option value="4">Jelek</option>
-										<option value="5">Jelek Sekali</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="material-textfield">
-									<label for="" class="labelmui">Seberapa mudah anda mencari informasi yang ada pada web K3I?</label>
-								</div>
-								<div class="form-item mb-3">
-									<select name="convenience_survey" id="convenience_survey" class="form-select" style="width:100% ; font-size:15px ;" required>
-										<!-- <select name="" id=""  multiple required> -->
-										<option selected="0">Pilih penilaian</option>
-										<option value="1">Sangat Mudah</option>
-										<option value="2">Mudah</option>
-										<option value="3">Kurang Mudah</option>
-										<option value="4">Tidak Mudah</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="material-textfield">
-									<label for="" class="labelmui">Apakah Web K3I menyajikan informasi yang terkini, akurat, informatif dan terpercaya ?</label>
-								</div>
-								<div class="form-item mb-3">
-									<select name="accurate_survey" id="accurate_survey" class="form-select" style="width:100% ; font-size:15px ;" required>
-										<!-- <select name="" id=""  multiple required> -->
-										<option selected="0">Pilih penilaian</option>
-										<option value="1">Sangat Puas</option>
-										<option value="2">Puas</option>
-										<option value="3">Kurang Puas</option>
-										<option value="4">Tidak Puas</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="material-textfield">
-									<label for="" class="labelmui">Seberapa cepat waktu yang dibutuhkan untuk memperoleh informasi yang anda cari?</label>
-								</div>
-								<div class="form-item mb-3">
-									<select name="fast_survey" id="fast_survey" class="form-select" style="width:100% ; font-size:15px ;" required>
-										<!-- <select name="" id=""  multiple required> -->
-										<option selected="0">Pilih penilaian</option>
-										<option value="1">Sangat Cepat</option>
-										<option value="2">Cepat</option>
-										<option value="3">Kurang Cepat</option>
-										<option value="4">Tidak Cepat</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-md-12">
-								<button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;" onclick="submit()">KIRIM</button>
-							</div>
-						</div>
-					</form>
-			</div><!-- End Contact Form -->
+						<!-- ======= About Section ======= -->
+						<section id="about" class="about">
+						<div class="container" data-aos="fade-up">
 
+							
+
+							<!-- Tabs -->
+							<ul class="nav nav-pills mb-3">
+							<li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">Masukan Penilaian</a></li>
+							<li><a class="nav-link" data-bs-toggle="pill" href="#tab2">Hasil Penilaian</a></li>
+							
+
+							</ul><!-- End Tabs -->
+
+							<!-- Tab Content -->
+							<div class="tab-content">
+
+							<div class="tab-pane fade show active" id="tab1">
+
+								<div class="row margin-top-20">
+								
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="material-textfield">
+												<label for="" class="labelmui">Bagaimana penampilan web K3I saat ini ?</label>
+											</div>
+											<div class="form-item mb-3">
+												<select name="design_survey" id="design_survey" class="form-select" style="width:100% ; font-size:15px ;" required>
+													<!-- <select name="" id=""  multiple required> -->
+													<option selected="0">Pilih penilaian</option>
+													<option value="1">Sangat Bagus</option>
+													<option value="2">Bagus</option>
+													<option value="3">Kurang Bagus</option>
+													<option value="4">Jelek</option>
+													<option value="5">Jelek Sekali</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="material-textfield">
+												<label for="" class="labelmui">Seberapa mudah anda mencari informasi yang ada pada web K3I?</label>
+											</div>
+											<div class="form-item mb-3">
+												<select name="convenience_survey" id="convenience_survey" class="form-select" style="width:100% ; font-size:15px ;" required>
+													<!-- <select name="" id=""  multiple required> -->
+													<option selected="0">Pilih penilaian</option>
+													<option value="1">Sangat Mudah</option>
+													<option value="2">Mudah</option>
+													<option value="3">Kurang Mudah</option>
+													<option value="4">Tidak Mudah</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="material-textfield">
+												<label for="" class="labelmui">Apakah Web K3I menyajikan informasi yang terkini, akurat, informatif dan terpercaya ?</label>
+											</div>
+											<div class="form-item mb-3">
+												<select name="accurate_survey" id="accurate_survey" class="form-select" style="width:100% ; font-size:15px ;" required>
+													<!-- <select name="" id=""  multiple required> -->
+													<option selected="0">Pilih penilaian</option>
+													<option value="1">Sangat Puas</option>
+													<option value="2">Puas</option>
+													<option value="3">Kurang Puas</option>
+													<option value="4">Tidak Puas</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="material-textfield">
+												<label for="" class="labelmui">Seberapa cepat waktu yang dibutuhkan untuk memperoleh informasi yang anda cari?</label>
+											</div>
+											<div class="form-item mb-3">
+												<select name="fast_survey" id="fast_survey" class="form-select" style="width:100% ; font-size:15px ;" required>
+													<!-- <select name="" id=""  multiple required> -->
+													<option selected="0">Pilih penilaian</option>
+													<option value="1">Sangat Cepat</option>
+													<option value="2">Cepat</option>
+													<option value="3">Kurang Cepat</option>
+													<option value="4">Tidak Cepat</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;" onclick="submit()">KIRIM</button>
+										</div>
+									</div>
+								</form>
+						</div><!-- End Contact Form -->
+
+								
+
+							</div><!-- End Tab 1 Content -->
+
+							<div class="tab-pane fade show" id="tab2">
+
+								<div class="row margin-top-20">
+								
+									<div id="chartpenampilan"></div>
+									<div id="chartinfo" class="mt-4"></div>
+									<div id="chartsajiinfo" class="mt-4"></div>
+									<div id="chartcepat" class="mt-4"></div>
+								
+								</div>
+
+							</div><!-- End Tab 2 Content -->
+
+							</div>
+							
+						</div>
+						</section><!-- End About Section -->
+						
+						</div>
 		</div>
 
 	</div>
 </section><!-- End Contact Section -->
-
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
+	$(document).ready(function() {
+		var options = {
+          series: [{
+          data: [400, 430, 448, 470, 540]
+        }],
+          chart: {
+          type: 'bar',
+          height: 250
+        },
+        plotOptions: {
+          bar: {
+            barHeight: '100%',
+            distributed: true,
+            horizontal: true,
+            dataLabels: {
+              position: 'bottom'
+            },
+          }
+        },
+        colors: ['#37BFA7', '#2BC531', '#E5FF45', '#FC7716', '#FF4545'
+        ],
+        dataLabels: {
+          enabled: true,
+          textAnchor: 'start',
+          style: {
+            colors: ['#fff']
+          },
+          formatter: function (val, opt) {
+            return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+          },
+          offsetX: 0,
+          dropShadow: {
+            enabled: true
+          }
+        },
+        stroke: {
+          width: 1,
+          colors: ['#fff']
+        },
+        xaxis: {
+          categories: ['Sangat Bagus', 'Bagus', 'Kurang Bagus', 'Jelek', 'Jelek Sekali'
+          ],
+        },
+        yaxis: {
+          labels: {
+            show: false
+          }
+        },
+        title: {
+            text: 'Penampilan website saat ini',
+            align: 'center',
+            floating: true
+        },
+        subtitle: {
+            text: 'Data Terupdate s.d <?php echo format_indoHari(date('Y-m-d')) ?>',
+            align: 'center',
+        },
+        tooltip: {
+          theme: 'dark',
+          x: {
+            show: false
+          },
+          y: {
+            title: {
+              formatter: function () {
+                return ''
+              }
+            }
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chartpenampilan"), options);
+        chart.render();
+
+		// ==================================================================================
+		var options = {
+          series: [{
+          data: [400, 430, 448, 470]
+        }],
+          chart: {
+          type: 'bar',
+          height: 250
+        },
+        plotOptions: {
+          bar: {
+            barHeight: '100%',
+            distributed: true,
+            horizontal: true,
+            dataLabels: {
+              position: 'bottom'
+            },
+          }
+        },
+        colors: ['#37BFA7', '#2BC531', '#FC7716', '#FF4545'
+        ],
+        dataLabels: {
+          enabled: true,
+          textAnchor: 'start',
+          style: {
+            colors: ['#fff']
+          },
+          formatter: function (val, opt) {
+            return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+          },
+          offsetX: 0,
+          dropShadow: {
+            enabled: true
+          }
+        },
+        stroke: {
+          width: 1,
+          colors: ['#fff']
+        },
+        xaxis: {
+          categories: ['Sangat Mudah', 'Mudah', 'Kurang Mudah', 'Tidak Mudah'
+          ],
+        },
+        yaxis: {
+          labels: {
+            show: false
+          }
+        },
+        title: {
+            text: 'Kemudahan mencari informasi',
+            align: 'center',
+            floating: true
+        },
+        subtitle: {
+            text: 'Data Terupdate s.d <?php echo format_indoHari(date('Y-m-d')) ?>',
+            align: 'center',
+        },
+        tooltip: {
+          theme: 'dark',
+          x: {
+            show: false
+          },
+          y: {
+            title: {
+              formatter: function () {
+                return ''
+              }
+            }
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chartinfo"), options);
+        chart.render();
+
+		// ==================================================================================
+		var options = {
+          series: [{
+          data: [400, 430, 448, 470]
+        }],
+          chart: {
+          type: 'bar',
+          height: 250
+        },
+        plotOptions: {
+          bar: {
+            barHeight: '100%',
+            distributed: true,
+            horizontal: true,
+            dataLabels: {
+              position: 'bottom'
+            },
+          }
+        },
+        colors: ['#37BFA7', '#2BC531', '#FC7716', '#FF4545'
+        ],
+        dataLabels: {
+          enabled: true,
+          textAnchor: 'start',
+          style: {
+            colors: ['#fff']
+          },
+          formatter: function (val, opt) {
+            return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+          },
+          offsetX: 0,
+          dropShadow: {
+            enabled: true
+          }
+        },
+        stroke: {
+          width: 1,
+          colors: ['#fff']
+        },
+        xaxis: {
+          categories: ['Sangat Puas', 'Puas', 'Kurang Puas', 'Tidak Puas'
+          ],
+        },
+        yaxis: {
+          labels: {
+            show: false
+          }
+        },
+        title: {
+            text: 'Penyajian informasi yang terkini, akurat, informatif dan terpercaya',
+            align: 'center',
+            floating: true
+        },
+        subtitle: {
+            text: 'Data Terupdate s.d <?php echo format_indoHari(date('Y-m-d')) ?>',
+            align: 'center',
+        },
+        tooltip: {
+          theme: 'dark',
+          x: {
+            show: false
+          },
+          y: {
+            title: {
+              formatter: function () {
+                return ''
+              }
+            }
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chartsajiinfo"), options);
+        chart.render();
+
+		// ==================================================================================
+		var options = {
+          series: [{
+          data: [400, 430, 448, 470]
+        }],
+          chart: {
+          type: 'bar',
+          height: 250
+        },
+        plotOptions: {
+          bar: {
+            barHeight: '100%',
+            distributed: true,
+            horizontal: true,
+            dataLabels: {
+              position: 'bottom'
+            },
+          }
+        },
+        colors: ['#37BFA7', '#2BC531', '#FC7716', '#FF4545'
+        ],
+        dataLabels: {
+          enabled: true,
+          textAnchor: 'start',
+          style: {
+            colors: ['#fff']
+          },
+          formatter: function (val, opt) {
+            return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+          },
+          offsetX: 0,
+          dropShadow: {
+            enabled: true
+          }
+        },
+        stroke: {
+          width: 1,
+          colors: ['#fff']
+        },
+        xaxis: {
+          categories: ['Sangat Cepat', 'Cepat', 'Kurang Cepat', 'Tidak Cepat'
+          ],
+        },
+        yaxis: {
+          labels: {
+            show: false
+          }
+        },
+        title: {
+            text: 'Kecepatan memperoleh Informasi',
+            align: 'center',
+            floating: true
+        },
+        subtitle: {
+            text: 'Data Terupdate s.d <?php echo format_indoHari(date('Y-m-d')) ?>',
+            align: 'center',
+        },
+        tooltip: {
+          theme: 'dark',
+          x: {
+            show: false
+          },
+          y: {
+            title: {
+              formatter: function () {
+                return ''
+              }
+            }
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chartcepat"), options);
+        chart.render();
+	})
+	
 	$(".form").submit(function(e) {
 		$("#overlay").fadeIn(300);
 		e.preventDefault();
@@ -211,4 +558,6 @@
 	function submit(){
     reset()
   }
+
+  
 </script>
