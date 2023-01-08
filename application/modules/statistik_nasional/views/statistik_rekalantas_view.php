@@ -373,6 +373,109 @@ if ($mobile === true) { ?>
             </div>
         </div>
     </div>
+    
+    <div class="card">
+        <div class="row">
+            <hr style="width:97%; margin: auto">
+            <!-- ======= Pricing Section ======= -->
+            <div id="pricing" class="pricing-area area-padding">
+            <div class="container">
+                <div class="row mt-5">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-headline text-center mb-4">
+                    <h2>Rangking Jemenopsrek</h2>
+                    </div>
+                </div>
+                </div>
+                <div class="row mb-5">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="pri_table_list">
+                    <h3 style="background-color:#083174; color:white">#1 <br /> <span>Polda Jabar</span></h3>
+                    <ol>
+                        <li class="check">
+                            <h3>12</h3>
+                            <h5 class="mt-3">Total Rekalantas</h5>
+                        </li>
+                        <li class="check">
+                            <h3>12</h3>
+                            <h5 class="mt-3">Jalan Nasional</h5>
+                        </li>
+                        <li class="check">
+                            <h3>12</h3>
+                            <h5 class="mt-3">Jalan Provinsi</h5>
+                        </li>
+                        <li class="check">
+                            <h3>12</h3>
+                            <h5 class="mt-3">Lain-lain</h5>
+                        </li>
+                        
+                        
+                     
+                    </ol>
+                    
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="pri_table_list">
+                    <!-- <span class="saleon">top sale</span> -->
+                    <h3 style="background-color: #01661a; color:white">#2 <br /> <span>Polda Jatim</span></h3>
+                    <ol>
+                        <li class="check">
+                            <h3>12</h3>
+                            <h5 class="mt-3">Total Rekalantas</h5>
+                        </li>
+                        <li class="check">
+                            <h3>12</h3>
+                            <h5 class="mt-3">Jalan Nasional</h5>
+                        </li>
+                        <li class="check">
+                            <h3>12</h3>
+                            <h5 class="mt-3">Jalan Provinsi</h5>
+                        </li>
+                        <li class="check">
+                            <h3>12</h3>
+                            <h5 class="mt-3">Lain-lain</h5>
+                        </li>
+                        
+                        
+                     
+                    </ol>
+                    
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="pri_table_list">
+                    <h3 style="background-color: #f99b11; color:white">#3 <br /> <span>Polda Jateng</span></h3>
+                    <ol>
+                        <li class="check">
+                            <h3>12</h3>
+                            <h5 class="mt-3">Total Rekalantas</h5>
+                        </li>
+                        <li class="check">
+                            <h3>12</h3>
+                            <h5 class="mt-3">Jalan Nasional</h5>
+                        </li>
+                        <li class="check">
+                            <h3>12</h3>
+                            <h5 class="mt-3">Jalan Provinsi</h5>
+                        </li>
+                        <li class="check">
+                            <h3>12</h3>
+                            <h5 class="mt-3">Lain-lain</h5>
+                        </li>
+                        
+                        
+                     
+                    </ol>
+                    
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div><!-- End Pricing Section -->
+        </div>
+        
+    </div>
 
 </div>
 <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
