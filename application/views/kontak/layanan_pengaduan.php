@@ -95,29 +95,26 @@
 					<li>Dan informasi terkait lainnya.</li>
 				</ol>
 				<p style="text-align:justify ;">
-					Selain layanan Pengaduan di <b><a href="<?= base_url()?>home">Web K3I</a></b> ini, Korlantas Polri juga menyiapkan layanan <b><a href="Contact_center">Contact Center NTMC</a></b> di Play Store maupun App Store yang operasional 1 x 24 jam, Call Center 1500669, SMS Center 9119.
+					Selain layanan Pengaduan di <b><a href="<?= base_url()?>home">Web K3I</a></b> ini, Korlantas Polri juga menyiapkan layanan <b><a href="https://ccntmc.1500669.com/">Contact Center NTMC</a></b> di Play Store maupun App Store yang operasional 1 x 24 jam, Call Center 1500669, SMS Center 9119.
 				</p>
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="" method="post" class="form " enctype="multipart/form-data">
+            <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Masukan Nama" required>
+                  <input type="text" name="nama" class="form-control"  placeholder="Masukan Nama" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Masukan Email" required>
+                  <input type="email" class="form-control" name="email"  placeholder="Masukan Email" required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subjek" required>
+                <input type="text" class="form-control" name="subjek"  placeholder="Subjek" required>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" placeholder="Pesan" required></textarea>
+                <textarea class="form-control" name="deskripsi" placeholder="Deskripsi" required></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Kirim Pesan</button></div>
+              
+              <div class="text-center"><button type="submit" class="btn btn-primary mt-4" onclick="submit()">Kirim Pesan</button></div>
             </form>
           </div><!-- End Contact Form -->
 
@@ -126,3 +123,40 @@
       </div>
     </section><!-- End Contact Section -->
 
+<script>
+  $(document).ready(function() {
+    $(".form").submit(function(e) {
+      $("#overlay").fadeIn(300);
+      e.preventDefault();
+      var formData = new FormData($('.form')[0]);
+      $.ajax({
+          url: "kirim_pengaduan",
+          method: "POST",
+          data: formData,
+          dataType: 'JSON',
+          contentType: false,
+          processData: false,
+          success: function(data) {
+              $("#overlay").fadeOut(300);
+              if (data['status'] == true) {
+                  Swal.fire(
+                      `${data['message']}`,
+                      '',
+                      'success'
+                  )
+              } else {
+                  Swal.fire(
+                      `${data['message']}`,
+                      '',
+                      'error'
+                  ).then(function() {});
+              }
+          }
+      });
+    });
+    
+  })
+  function submit(){
+    reset()
+  }
+</script>

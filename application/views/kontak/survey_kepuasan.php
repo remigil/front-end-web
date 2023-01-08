@@ -93,7 +93,7 @@
 								<input type="email_survey" class="form-control" name="email_survey" id="email_survey" placeholder="Masukan Email" required>
 							</div>
 							<div class="mb-3">
-								<label for="address_survey" class="form-label">Email</label>
+								<label for="address_survey" class="form-label">Alamat</label>
 								<input type="text" class="form-control" name="address_survey" id="address_survey" placeholder="Masukan alamat" required>
 							</div>
 						</div>
@@ -165,7 +165,7 @@
 								</div>
 							</div>
 							<div class="col-md-12">
-								<button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">KIRIM</button>
+								<button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;" onclick="submit()">KIRIM</button>
 							</div>
 						</div>
 					</form>
@@ -208,4 +208,7 @@
 			}
 		});
 	});
+	function submit(){
+    reset()
+  }
 </script>

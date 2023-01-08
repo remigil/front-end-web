@@ -107,6 +107,51 @@ class Kontak extends MX_Controller
 
 		$this->template->load('templates/template', 'kontak/layanan_pengaduan', $data);
 	}
+	
+	public function kirim_pengaduan()
+	{
+		
+		$input = $this->input->post();
+            $dummy = [
+                [
+					'name' => 'name_complaint',
+					'contents' => $input['nama'],
+				],
+				[
+					'name' => 'email_complaint',
+					'contents' => $input['email'],
+				],
+				[
+					'name' => 'subjek_complaint',
+					'contents' => $input['subjek'],
+				],
+				[
+					'name' => 'deskripsi_complaint',
+					'contents' => $input['deskripsi'],
+				],
+
+            ]; 
+
+			$data = guzzle_request('POST', 'complaint/add', [ 
+				'multipart' => $dummy,
+			]);
+	
+			if($data['isSuccess'] == true){  
+				$res = array(
+					'status' => true,
+					'message' => 'Berhasil tambah data.',
+					'data' => $data
+				);
+			}else{
+				$res = array(
+					'status' => false,
+					'message' => 'Gagal tambah data.',
+					'data' => $data
+				);
+			}
+			
+			echo json_encode($res);
+	}
 	public function error()
 	{
 		$this->load->view('404_notfound');
