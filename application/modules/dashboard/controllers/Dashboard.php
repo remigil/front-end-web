@@ -21,7 +21,7 @@ class Dashboard extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "Operasi";
-        $page_content["page"] = "dashboard/google";
+        $page_content["page"] = "dashboard/google"; 
         $page_content["data"] = '';
         $this->load->view('google');
     }
@@ -288,18 +288,8 @@ class Dashboard extends MY_Controller
                 die;
             } else {
                 $data["title"] = "Dashboard Executive";
-                $page_content["page"] = "dashboard/dashboard_g20";
+                $page_content["page"] = "dashboard/dashboard_eksekutif";
 
-                $getVip = guzzle_request('GET', 'vip', [
-                    'headers' => $headers
-                ]);
-                $data['getVip'] = $getVip['data']['data'];
-    
-                $getAccount = guzzle_request('GET', 'account?serverSide=True&order=id&orderDirection=desc&length=500&start=1', [
-                    'headers' => $headers
-                ]);
-                $data['getAccount'] = $getAccount['data']['data'];
-    
                 $page_content["data"] = $data;
             }
         } else if ($this->session->userdata['role'] == 'DivTikMabesPolri') {
@@ -409,7 +399,7 @@ class Dashboard extends MY_Controller
         } else {
             $polda_id = '';
         }
-
+ 
 
         if ($input['type']) {
             $type = '&type=' . $input['type'] . '';
@@ -516,7 +506,7 @@ class Dashboard extends MY_Controller
         // $date = strtotime("-1 day", $date);
         // echo date('Y-m-d', $date);
 
-        $url = 'filterPetugas?polda_id=' . $input['polda_id'] . '&limit=' . $input['limit'] . '&page=' . $input['page'] . '';
+        $url = 'filterPetugas?polda_id='.$input['polda_id'].'&limit='.$input['limit'].'&page='.$input['page'].'';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
@@ -896,7 +886,7 @@ class Dashboard extends MY_Controller
         echo json_encode($res);
     }
 
-
+    
 
     public function getJadwal()
     {
