@@ -152,8 +152,8 @@
                                         <p class="fs-5 float-start" style="color:#ffffff;">
                                             <span class="fw-bold"> RANMOR</span>
                                             <br>
-                                            <!-- <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="ranmor"></span>
-                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailranmor"></span> -->
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="ranmor"></span>
+                                            <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailranmor"></span>
                                         </p>
                                     </div>
                                     <div class=" col-md-2">
