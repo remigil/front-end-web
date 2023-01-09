@@ -21,34 +21,34 @@
           </div>
 
 
-          <?php 
-						$i = 0;
-					foreach ($semuaberita as $key) : 
-						if (++$i == 7) break;
-					?>
+          <?php
+          $i = 0;
+          foreach ($semuaberita as $key) :
+            if (++$i == 7) break;
+          ?>
             <!-- Slide 2 -->
             <div class="carousel-item" style="background-image:url(assets/fe/hero-wall.png); padding-top:100px">
               <div class="carousel-container" style="padding-top: 100px;">
                 <div class="carousel-content">
                   <!-- <img src="<?= base_url() ?>assets/logo-nav.png" alt=""> -->
-									<div class="container pt-5">
-										<div class="row">
-											<div class="col-md-5">
-												<div class="news_image">
-													<img width="500" src="<?= url_api() ?>news/<?= $key['picture'] ?>" class="img-fluid" style="height:300px">
-												</div>
-												
-											</div>
-											<div class="col-md-7">
-												<h2 class="animate__animated fanimate__adeInDown fs-6" style="text-align: left;color:#fffd51; margin-bottom:10px !important">berita</h2>
-												<h2 class="animate__animated fanimate__adeInDown fs-4" style="text-align: left;"><?= $key['title'] ?></h2>
-												<p class="animate__animated animate__fadeInUp fs-7" style="text-shadow: 2px 2px #000; text-align:left; width:100% !important"><?= substr($key['content'], 0, 250) . '. . .' ?></p>
-												<a href="berita_front/detailberita/<?= $key['id'] ?>" class="btn-get-started animate__animated animate__fadeInUp">Baca Selengkapnya</a>
-	
-											</div>
-										</div>
+                  <div class="container pt-5">
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="news_image">
+                          <img width="500" src="<?= url_api() ?>news/<?= $key['picture'] ?>" class="img-fluid" style="height:300px">
+                        </div>
 
-									</div>
+                      </div>
+                      <div class="col-md-7">
+                        <h2 class="animate__animated fanimate__adeInDown fs-6" style="text-align: left;color:#fffd51; margin-bottom:10px !important">berita</h2>
+                        <h2 class="animate__animated fanimate__adeInDown fs-4" style="text-align: left;"><?= $key['title'] ?></h2>
+                        <p class="animate__animated animate__fadeInUp fs-7" style="text-shadow: 2px 2px #000; text-align:left; width:100% !important"><?= substr($key['content'], 0, 250) . '. . .' ?></p>
+                        <a href="berita_front/detailberita/<?= $key['id'] ?>" class="btn-get-started animate__animated animate__fadeInUp">Baca Selengkapnya</a>
+
+                      </div>
+                    </div>
+
+                  </div>
                   <!-- <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a> -->
                 </div>
               </div>
@@ -71,30 +71,30 @@
 
       </div>
     </div>
-		<div class="container-fluid" style="padding-left: 150px; padding-right:150px">
-			<div class="row shadow mb-5 bg-body rounded">
-	
-				<div class="col-md-2">
-					<div class="container-fluid">
-						<h4 class="text-black p-2">Informasi</h4>
-					</div>
-	
-				</div>
-				<div class="col-md-10">
-					<div class="teks-berita">
-						<marquee behavior="" direction="" style="color: white; background-color:#073888;" class="p-2" onMouseOver="this.stop()" onMouseOut="this.start()">
-							SELAMAT DATANG DI PORTAL PUSAT KENDALI KOORDINASI KOMUNIKASI DAN INFORMASI KORLANTAS POLRI
-							<?php foreach ($semuaberita as $data) : ?>
-								<a href="berita_front/detailberita/<?= $data['id'] ?>" class="mx-3" style="text-decoration: none; color:#fff">|| <?= $data['title'] ?> ||</a>
-							<?php endforeach; ?>
-						</marquee>
+    <div class="container-fluid" style="padding-left: 150px; padding-right:150px">
+      <div class="row shadow mb-5 bg-body rounded">
 
-					</div>
-	
-				</div>
-			</div>
+        <div class="col-md-2">
+          <div class="container-fluid">
+            <h4 class="text-black p-2">Informasi</h4>
+          </div>
 
-		</div>
+        </div>
+        <div class="col-md-10">
+          <div class="teks-berita">
+            <marquee behavior="" direction="" style="color: white; background-color:#073888;" class="p-2" onMouseOver="this.stop()" onMouseOut="this.start()">
+              SELAMAT DATANG DI PORTAL PUSAT KENDALI KOORDINASI KOMUNIKASI DAN INFORMASI KORLANTAS POLRI
+              <?php foreach ($semuaberita as $data) : ?>
+                <a href="berita_front/detailberita/<?= $data['id'] ?>" class="mx-3" style="text-decoration: none; color:#fff">|| <?= $data['title'] ?> ||</a>
+              <?php endforeach; ?>
+            </marquee>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
 
   </section><!-- End Hero -->
   <main id="main">
@@ -216,19 +216,19 @@
 			</div> -->
 
       <!-- get logo polda manual -->
-      
+
       <div class="container mt-5 ">
-      <div class="section-title">
-        <h2>Link Kewilayahan Se-Indonesia</h2>
-        <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
-      </div>
+        <div class="section-title">
+          <h2>Link Kewilayahan Se-Indonesia</h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+        </div>
 
         <div class="row">
           <div class="col-md-12">
-  
+
             <div class="logo_polda text-center">
               <div class="d-flex justify-content-between">
-                
+
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMS9wTkR4R0lkWkcxdkwydkp5dmNEcEJxMmtMUURqdzllTT0">
                   <img src="<?= url_api() ?>polda/logo/Polda_Aceh.png" alt="" width="50px" class="m-2">
                   <p class="nama_polda">Aceh</p>
@@ -297,9 +297,9 @@
                   <img src="<?= url_api() ?>polda/logo/Polda_Kalbar.png" alt="" width="50px" class="m-2">
                   <p class="nama_polda">Kalbar</p>
                 </a>
-                
-                
-                
+
+
+
               </div>
               <div class="d-flex justify-content-between">
                 <a href="<?= base_url() ?>Ditlantas_polda/VTJGc2RHVmtYMS9yOGxua3ZCQ2lxQW0vMlA3TE0wejBacjIzbzlVQnAyZz0">
@@ -371,7 +371,7 @@
                   <p class="nama_polda">Kaltara</p>
                 </a>
               </div>
-  
+
             </div>
           </div>
         </div>
@@ -406,20 +406,20 @@
                   <span class="post-date"><?= $data['category_news'][0]['name_category_news'] ?></span>
                   <span class="post-author"> / Korlantas Polri</span>
                 </div>
-								<div class="row">
-									<div class="col-md-12 d-block">
-									<h4 class="post-title fs-6" style="height: 80px;"><?= substr($data['title'],0,150); ?></h4>
-									</div>
-									<div class="col-md-12 d-block">
-									<p style="text-align: justify;" style="height: 100px;"><?= substr($data['content'], 0, 260) . '. . .' ?></p>
-									</div>
-									<div class="col-md-12 d-block">
-									<a href="berita_front/detailberita/<?= $data['id'] ?>" class="readmore stretched-link"><span>Baca Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
-									</div>
-								</div>
-                
-                
-                
+                <div class="row">
+                  <div class="col-md-12 d-block">
+                    <h4 class="post-title fs-6" style="height: 80px;"><?= substr($data['title'], 0, 150); ?></h4>
+                  </div>
+                  <div class="col-md-12 d-block">
+                    <p style="text-align: justify;" style="height: 100px;"><?= substr($data['content'], 0, 260) . '. . .' ?></p>
+                  </div>
+                  <div class="col-md-12 d-block">
+                    <a href="berita_front/detailberita/<?= $data['id'] ?>" class="readmore stretched-link"><span>Baca Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+
+
+
               </div>
             </div>
 
@@ -457,7 +457,7 @@
 
           <?php
           $i = 0;
-                                                                            foreach ($beritastakeholder as $data) :
+          foreach ($beritastakeholder as $data) :
             if (++$i == 5) break; ?>
 
             <div class="col-lg-3 mt-5" data-aos="fade-up" data-aos-delay="200">
@@ -467,20 +467,20 @@
                   <span class="post-date"><?= $data['category_news'][0]['name_category_news'] ?></span>
                   <span class="post-author"> / Korlantas Polri</span>
                 </div>
-								<div class="row">
-									<div class="col-md-12 d-block">
-									<h4 class="post-title fs-6" style="height: 80px;"><?= substr($data['title'],0,150); ?></h4>
-									</div>
-									<div class="col-md-12 d-block">
-									<p style="text-align: justify;" style="height: 100px;"><?= substr($data['content'], 0, 260) . '. . .' ?></p>
-									</div>
-									<div class="col-md-12 d-block">
-									<a href="berita_front/detailberita/<?= $data['id'] ?>" class="readmore stretched-link"><span>Baca Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
-									</div>
-								</div>
-                
-                
-                
+                <div class="row">
+                  <div class="col-md-12 d-block">
+                    <h4 class="post-title fs-6" style="height: 80px;"><?= substr($data['title'], 0, 150); ?></h4>
+                  </div>
+                  <div class="col-md-12 d-block">
+                    <p style="text-align: justify;" style="height: 100px;"><?= substr($data['content'], 0, 260) . '. . .' ?></p>
+                  </div>
+                  <div class="col-md-12 d-block">
+                    <a href="berita_front/detailberita/<?= $data['id'] ?>" class="readmore stretched-link"><span>Baca Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+
+
+
               </div>
             </div>
 
@@ -523,7 +523,7 @@
             <div class="card-item">
               <div class="row">
                 <div class="col-xl-5 justify-content-center">
-                <div class="card-bg p-4" style="background-image: url(assets/fe/slider-1.png);">
+                  <div class="card-bg p-4" style="background-image: url(assets/fe/slider-1.png);">
                     <a href="https://samsatdigital.id/"><img src="<?= base_url() ?>assets/fe/client/signal-hd-putih.png" alt="" width="200" class="mx-auto d-block mt-5"></a>
                   </div>
                 </div>
@@ -617,7 +617,7 @@
 
         <div class="clients-slider swiper">
           <div class="swiper-wrapper align-items-center text-center">
-						
+
             <div class="swiper-slide">
               <a target="_blank" href="http://103.154.174.55/#/pages/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/bigdata-hd.png" alt="" width="100" class="p-3"></a>
               <p>Big Data</p>
@@ -702,7 +702,7 @@
 
             <div class="row margin-top-20">
               <div class="col-md-8 border-end shadows">
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
               <div class="col-md-4">
                 <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
@@ -877,8 +877,8 @@
 								</div>    
 							</div>
 
-							<div class="col-md-12 mt-3">
-							<!-- <a href=<?= base_url('Ditlantas_polda/'); ?>${ressData[i].id}><button class="btn btn-primary float-start">Halaman</button></a> -->
+							<div class="col-md-12 mt-3">  
+                <span class="fw-bold">Data hingga <?= format_indoHari(date('Y-m-d')) ?></span>
 								<!-- <a href=${ressData[i].website} target="_blank"><button class="btn btn-primary float-end">Selengkapnya</button></a> -->
 								<a href=<?= base_url('Ditlantas_polda/'); ?>${ressData[i].id} class="fs-7"><button class="btn btn-primary float-end fs-7">Selengkapnya</button></a>   
 							</div>
@@ -979,15 +979,15 @@
 
       // StART MAP SECTION
       var mapContainer = L.map('map', {
-				maxZoom: 20,
+        maxZoom: 20,
         minZoom: 1,
         zoomSnap: 0.25,
         zoomControl: false,
-				fullscreenControl: true,
+        fullscreenControl: true,
         layers: [googleHybrid]
       }).setView(initialCenter, initialZoom);
-			
-			
+
+
 
 
       var markerClusterGroup = L.markerClusterGroup();
@@ -1012,8 +1012,8 @@
       L.control.zoom({
         position: 'topright'
       }).addTo(mapContainer);
-      
-      
+
+
 
       mapContainer.doubleClickZoom.disable();
 
@@ -1626,6 +1626,6 @@
       });
 
 
-      
+
     });
   </script>
