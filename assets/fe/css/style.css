@@ -1441,6 +1441,10 @@ h6 {
   display: block;
 }
 
+.gambar_contact:hover{
+  opacity: 0.5;
+}
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -1803,6 +1807,10 @@ section {
 }
 .constructions .card-item .card-bg{
   background-color: #083174;
+}
+.constructions .card-item .card-bg:hover{
+  background-color: #d42323 !important;
+  transition: 100ms;
 }
 
 .constructions .card-item:hover{

@@ -315,11 +315,11 @@
           <div class="col-md-2 footer-links">
             <h4>Tentang korlantas</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Struktur Organisasi</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Profil Pejabat</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Visi dan Misi</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Sejarah POLANTAS</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Sitemap</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>profil/struktur_organisasi">Struktur Organisasi</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>profil/profil_pejabat">Profil Pejabat</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>profil/visi_misi">Visi dan Misi</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>profil/sejarah">Sejarah POLANTAS</a></li>
+              <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">Sitemap</a></li> -->
             </ul>
           </div>
 

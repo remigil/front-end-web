@@ -112,7 +112,7 @@
                 <!-- Tabs -->
                 <ul class="nav nav-pills mb-3">
                   <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">Masukan Penilaian</a></li>
-                  <li><a class="nav-link" data-bs-toggle="pill" href="#tab2">Hasil Penilaian</a></li>
+                  <li><a class="nav-link" data-bs-toggle="pill" href="#tab2">Hasil Survey</a></li>
 
 
                 </ul><!-- End Tabs -->

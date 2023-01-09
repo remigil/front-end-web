@@ -523,7 +523,7 @@
             <div class="card-item">
               <div class="row">
                 <div class="col-xl-5 justify-content-center">
-                  <div class="card-bg p-4" style="background-image: url(assets/fe/slider-1.png);">
+                <div class="card-bg p-4">
                     <a href="https://samsatdigital.id/"><img src="<?= base_url() ?>assets/fe/client/signal-hd-putih.png" alt="" width="200" class="mx-auto d-block mt-5"></a>
                   </div>
                 </div>
@@ -583,9 +583,13 @@
             <div class="card-item">
               <div class="row">
                 <div class="col-xl-5">
-                  <div class="card-bg p-2" style="background-image: url(assets/fe/slider-1.png);">
-                    <a href="https://korlantas.polri.go.id/"><img src="<?= base_url() ?>assets/korlantas-hd.png" alt="" width="50%" class="d-block mx-auto mt-2"></a>
-                    <a href="https://ntmcpolri.info/"><img src="<?= base_url() ?>assets/fe/client/ntmc_korlantas.png" alt="" width="50%" class="d-block mx-auto mt-2"></a>
+                  <div class="card-bg p-2" style="min-height:130px">
+                    <a href="https://korlantas.polri.go.id/"><img src="<?= base_url() ?>assets/korlantas-hd.png" alt="" width="50%" class="d-block mx-auto"></a>
+                    <!-- <a href="https://ntmcpolri.info/"><img src="<?= base_url() ?>assets/fe/client/ntmc_korlantas.png" alt="" width="50%" class="d-block mx-auto mt-2"></a> -->
+                  </div>
+                  <div class="card-bg p-2" style="min-height:130px">
+                    <!-- <a href="https://korlantas.polri.go.id/"><img src="<?= base_url() ?>assets/korlantas-hd.png" alt="" width="50%" class="d-block mx-auto mt-2"></a> -->
+                    <a href="https://ntmcpolri.info/"><img src="<?= base_url() ?>assets/fe/client/ntmc_korlantas.png" alt="" width="50%" class="d-block mx-auto"></a>
                   </div>
                 </div>
                 <div class="col-xl-7 d-flex align-items-center">
@@ -617,19 +621,19 @@
 
         <div class="clients-slider swiper">
           <div class="swiper-wrapper align-items-center text-center">
-
-            <div class="swiper-slide">
+						
+            <!-- <div class="swiper-slide">
               <a target="_blank" href="http://103.154.174.55/#/pages/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/bigdata-hd.png" alt="" width="100" class="p-3"></a>
               <p>Big Data</p>
-            </div>
+            </div> -->
             <div class="swiper-slide">
               <a target="_blank" href="http://k3i.korlantas.polri.go.id/cctv/"><img src="<?php echo base_url(); ?>assets/fe/client/cctv-hd.png" alt="" width="100"></a>
               <p>CCTV</p>
             </div>
-            <div class="swiper-slide">
+            <!-- <div class="swiper-slide">
               <a target="_blank" href="https://k3i.korlantas.polri.go.id/dis/"><img src="<?php echo base_url(); ?>assets/fe/client/dis-hd.png" alt="" width="100"></a>
               <p>DIS</p>
-            </div>
+            </div> -->
             <div class="swiper-slide">
               <a target="_blank" href="http://dakgargakkum.com/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/etle-hd.png" alt="" width="100"></a>
               <p>E-TILANG</p>
@@ -655,10 +659,10 @@
 							<a target="_blank" href="https://rasirosakorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/rarirosa.png" alt="" width="100"></a>
               <p>RASIROSA</p>
 						</div> -->
-            <div class="swiper-slide">
+            <!-- <div class="swiper-slide">
               <a target="_blank" href="http://103.154.174.26/index.php"><img src="<?php echo base_url(); ?>assets/fe/client/sbst-hd.png" alt="" width="100"></a>
               <p>SBST</p>
-            </div>
+            </div> -->
             <div class="swiper-slide">
               <a target="_blank" href="http://sislapops.com/home"><img src="<?php echo base_url(); ?>assets/fe/client/sislapops-hd.png" alt="" width="100" class="mb-4"></a>
               <p>SISLAPOPS</p>
@@ -770,7 +774,7 @@
         </div>
         <div class="row align-items-center">
           <div class="col-md-12 align-self-center">
-            <a href="https://1500669.com/"><img src="<?= base_url() ?>assets/fe/contactntmc.png" alt="" width="600" class="mx-auto d-block mt-5"></a>
+            <a href="https://1500669.com/" class="gambar_contact"><img src="<?= base_url() ?>assets/fe/contactntmc.png" alt="" width="600" class="mx-auto d-block mt-5"></a>
 
           </div>
         </div>
