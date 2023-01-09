@@ -2526,6 +2526,9 @@
                                         <ul class="sub-menu" aria-expanded="false">
                                             <li><a href="<?= base_url('inputdata/LaporanRisetNTMC') ?>" data-key="t-read-email">Laporan Riset Media NTMC</a></li>
                                         </ul>
+                                        <ul class="sub-menu" aria-expanded="false">
+                                            <li><a href="<?= base_url('inputdata/UploadAnev') ?>" data-key="t-read-email">Upload Anev</a></li>
+                                        </ul>
                                     </li>
                                     <li>
                                         <a href="javascript: void(0);" class="has-arrow">
