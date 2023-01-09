@@ -205,28 +205,27 @@ if ($mobile === true) { ?>
                     let x = parseInt(i)
                     card += `
                     <div class="col-md-2 col-sm-2 col-xs-2">
-                        <div class="pri_table_list">
-                            <h3 style="background-color:#083174; color:white">#${x+1} <br/> <span>Polda ${result[i].name_polda}</span></h3>
-                            <ol>
-                                <li class="check">
-                                    <h3>${result[i].total}</h3>
-                                    <h5 class="mt-3">Total Rekalantas</h5>
-                                </li>
-                                <li class="check">
-                                    <h3>${result[i].jalan_nasional}</h3>
-                                    <h5 class="mt-3">Jalan Nasional</h5>
-                                </li>
-                                <li class="check">
-                                    <h3>${result[i].jalan_provinsi}</h3>
-                                    <h5 class="mt-3">Jalan Provinsi</h5>
-                                </li>
-                                <li class="check">
-                                    <h3>${result[i].lain_lain}</h3>
-                                    <h5 class="mt-3">Lain-lain</h5>
-                                </li>
-                            </ol>
+                        <div class="card text-center">
+                            <div class="card-header" style="background-color:#083174; color:white; font-size:20px">
+                                <span class="fw-bold">#${x+1} <br/> <span>Polda ${result[i].name_polda}</span></span>
+                            </div>
+                            <div class="card-body">
+                                <span style="font-size:30px;font-weight:bold">${result[i].total}</span><br>
+                                <span style="font-size:20px;font-weight:bold">Total Rekalantas</span>
+                                <hr>
+                                <span style="font-size:30px;font-weight:bold">${result[i].jalan_nasional}</span><br>
+                                <span style="font-size:20px;font-weight:bold">Jalan Nasional</span>
+                                <hr>
+                                <span style="font-size:30px;font-weight:bold">${result[i].jalan_provinsi}</span><br>
+                                <span style="font-size:20px;font-weight:bold">Jalan Provinsi</span>
+                                <hr>
+                                <span style="font-size:30px;font-weight:bold">${result[i].lain_lain}</span><br>
+                                <span style="font-size:20px;font-weight:bold">Lain - lain</span>
+                                
+                            </div>
                         </div>
-                    </div>`
+                    </div>
+                    `
                 }
                 card += `</div>`
 
