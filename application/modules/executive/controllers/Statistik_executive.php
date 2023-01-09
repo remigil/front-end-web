@@ -3399,6 +3399,21 @@ class Statistik_executive extends MY_Controller
         echo json_encode($data);
     }
 
+    public function getCardTroublespot()
+    {
+
+        $url = 'troublespot/daily?topPolda=true&limit=5';
+
+        $troublespot = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data = $troublespot['data']['rows'];
+
+        echo json_encode($data);
+    }
 
     public function getBarTroublespot()
     {
@@ -3471,27 +3486,38 @@ class Statistik_executive extends MY_Controller
         $last_dayMonth = $this->input->post('lastDayMonth');
         $first_dayYear = $this->input->post('firstDay');
         $last_dayYear = $this->input->post('lastDay');
-        $troublespotToday = guzzle_request('GET',   $url = 'troublespot/date?filter=' . $filter . '&start_date=' . $today . '&end_date=' . $today . '&type=day', [
+        $troublespotToday = guzzle_request('GET',   'troublespot/date?filter=' . $filter . '&start_date=' . $today . '&end_date=' . $today . '&type=day', [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
-        $troublespotMonth = guzzle_request('GET',   $url = 'troublespot/date?filter=' . $filter . '&start_date=' . $first_dayMonth . '&end_date=' . $last_dayMonth . '&type=month', [
+        $troublespotMonth = guzzle_request('GET',   'troublespot/date?filter=' . $filter . '&start_date=' . $first_dayMonth . '&end_date=' . $last_dayMonth . '&type=month', [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
-        $troublespotYear = guzzle_request('GET',   $url = 'troublespot/date?filter=' . $filter . '&start_date=' . $first_dayYear . '&end_date=' . $last_dayYear . '&type=year', [
+        $troublespotYear = guzzle_request('GET',   'troublespot/date?filter=' . $filter . '&start_date=' . $first_dayYear . '&end_date=' . $last_dayYear . '&type=year', [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
+        $troublespotTotal = guzzle_request('GET',   'troublespot/date?filter=' . $filter . '&start_date=2018-01-01&end_date=' . $last_dayYear . '&type=year', [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $total = 0;
+        foreach ($troublespotTotal['data'] as $key => $value) {
+            $total += $value['total'];
+        }
 
 
         $data = [
             'today' => $troublespotToday['data'][0]['total'],
             'month' => $troublespotMonth['data'][0]['total'],
             'year' => $troublespotYear['data'][0]['total'],
+            'total' => $total,
 
         ];
 
@@ -3613,27 +3639,38 @@ class Statistik_executive extends MY_Controller
         $last_dayMonth = $this->input->post('lastDayMonth');
         $first_dayYear = $this->input->post('firstDay');
         $last_dayYear = $this->input->post('lastDay');
-        $blankspotToday = guzzle_request('GET',   $url = 'blankspot/date?filter=' . $filter . '&start_date=' . $today . '&end_date=' . $today . '&type=day', [
+        $blankspotToday = guzzle_request('GET',   'blankspot/date?filter=' . $filter . '&start_date=' . $today . '&end_date=' . $today . '&type=day', [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
-        $blankspotMonth = guzzle_request('GET',   $url = 'blankspot/date?filter=' . $filter . '&start_date=' . $first_dayMonth . '&end_date=' . $last_dayMonth . '&type=month', [
+        $blankspotMonth = guzzle_request('GET',   'blankspot/date?filter=' . $filter . '&start_date=' . $first_dayMonth . '&end_date=' . $last_dayMonth . '&type=month', [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
-        $blankspotYear = guzzle_request('GET',   $url = 'blankspot/date?filter=' . $filter . '&start_date=' . $first_dayYear . '&end_date=' . $last_dayYear . '&type=year', [
+        $blankspotYear = guzzle_request('GET',   'blankspot/date?filter=' . $filter . '&start_date=' . $first_dayYear . '&end_date=' . $last_dayYear . '&type=year', [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
             ]
         ]);
+        $blankspotTotal = guzzle_request('GET',   'blankspot/date?filter=' . $filter . '&start_date=2018-01-01&end_date=' . $last_dayYear . '&type=year', [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $total = 0;
+        foreach ($blankspotTotal['data'] as $key => $value) {
+            $total += $value['total'];
+        }
 
 
         $data = [
             'today' => $blankspotToday['data'][0]['total'],
             'month' => $blankspotMonth['data'][0]['total'],
             'year' => $blankspotYear['data'][0]['total'],
+            'total' => $total,
 
         ];
 

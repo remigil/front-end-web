@@ -15,256 +15,23 @@
             </div>
             <div class="col-sm-8 col-md-6">
                 <div class="row m-2">
-                    <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
+                    <div class="col-md-6 col-sm-6 col-xl-6 align-self-center"></div>
+                    <div class="col-md-6 col-sm-6 col-xl-6 align-self-center">
                         <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
                             <div class="card-body p-1">
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                    <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Harian</h4>
-                                    </div>
-                                    <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="jemenopsrekThisDay"></h1>
+
+                                    <div class="col-md-12 float-end">
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="totaltroublespot"></h1>
                                         <p class="text-center mb-0">Troublespot</p>
                                     </div>
-                                    <div class="col-md-12 ms-3">
-                                        <div class="row">
-                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
-                                                <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalDay">
-                                                    Detail
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                        <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                            <div class="card-body p-1">
-                                <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                    <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Bulanan</h4>
-                                    </div>
-                                    <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="jemenopsrekThisMonth"></h1>
-                                        <p class="text-center mb-0">Troublespot</p>
-                                    </div>
-                                    <div class="col-md-12 ms-3">
-                                        <div class="row">
-                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
-                                                <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalMonth">
-                                                    Detail
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
-                        <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                            <div class="card-body p-1">
-                                <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                    <div class="col-md-7">
-                                        <h4 class="mb-0 ms-3">Tahunan</h4>
-                                    </div>
-                                    <div class="col-md-5 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="jemenopsrekThisYear"></h1>
-                                        <p class="text-center mb-0">Troublespot</p>
-                                    </div>
-                                    <div class="col-md-12 ms-3">
-                                        <div class="row">
-                                            <div class="col-md-4 ms-n3 rounded-bottom" style=" width: 100%; background-color:#0007D8; height:40px; border-radius:20px 0 20px 20; ">
-                                                <button type="button" class="btn btn-outline-primary text-white fw-bold" style="width:100% ;" data-toggle="modal" data-target="#ModalYear">
-                                                    Detail
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade " id="ModalDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
-    <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
-        <div class="modal-content">
-            <div class=" modal-header">
-                <h5 class="modal-title" id="modalLabelDay">Detail Troublespot tanggal <?= format_indo(date('Y-m-d'))  ?> Seluruh Polda </h5>
-                <!-- <h5 class="modal-title" id="modalLabelDay">Detail Troublespot tanggal <?= format_indo(date('Y-m-d'))  ?> Seluruh Polda <span class="fs-5">sasdasdasd</span></h5> -->
-
-                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                 </button> -->
-            </div>
-            <div class="modal-body">
-                <div style="line-height: 0.8;">
-                    <div class="row mb-3">
-                        <div class="col-md-9">
-                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <input class="form-control form-control-lg" type="date" name="start_date_table" id="start_date_table" value="<?= date('Y-m-d'); ?>">
-                                </div>
-                                <div class="col-md-4">
-                                    <input class="form-control form-control-lg" type="date" name="end_date_table" id="end_date_table" value="<?= date('Y-m-d'); ?>">
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('day')">Tampilkan</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <table class="table table-bordered table-hover" id="tableLakaDay" style="background:white; ">
-                        <thead style="background-color:#0007D8; color:#fff;">
-                            <tr class="text-center">
-                                <th scope="col" style="width:fit-content;">No</th>
-                                <th scope="col">Kode Troublespot</th>
-                                <th scope="col">Polda</th>
-                                <th scope="col">Lokasi Kejadian</th>
-                                <th scope="col">Permasalahan</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody-lakaDay">
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-            <!-- <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-             </div> -->
-        </div>
-    </div>
-</div>
-<div class="modal fade " id="ModalMonth" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
-    <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
-        <div class="modal-content">
-            <div class=" modal-header">
-                <h5 class="modal-title" id="modalLabelMonth">Detail Troublespot Bulan <?= format_indo(date('Y-m'))  ?> Seluruh Polda</h5>
-                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                 </button> -->
-            </div>
-            <div class="modal-body">
-                <div style="line-height: 0.8;">
-                    <div class="row mb-3">
-                        <div class="col-md-9">
-                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <input class="form-control form-control-lg" type="month" name="start_date_table" id="start_date_table_m" value="<?= date('Y-m'); ?>">
-                                </div>
-                                <div class="col-md-4">
-                                    <input class="form-control form-control-lg" type="month" name="end_date_table" id="end_date_table_m" value="<?= date('Y-m'); ?>">
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('month')">Tampilkan</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <table class="table table-bordered table-hover" id="tableLakaMonth" style="background:white; ">
-                        <thead style="background-color:#0007D8; color:#fff;">
-                            <tr class="text-center">
-                                <th scope="col" style="width:fit-content;">No</th>
-                                <th scope="col">Kode Troublespot</th>
-                                <th scope="col">Polda</th>
-                                <th scope="col">Lokasi Kejadian</th>
-                                <th scope="col">Permasalahan</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody-lakaMonth">
-                        </tbody>
-
-                    </table>
-                </div>
-
-            </div>
-            <!-- <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-             </div> -->
-        </div>
-    </div>
-</div>
-<div class="modal fade " id="ModalYear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.7);">
-    <div class="modal-dialog modal-xl" role="document" style="min-width:70%;">
-        <div class="modal-content">
-            <div class=" modal-header">
-                <h5 class="modal-title" id="modalLabelYear">Detail Troublespot Tahun <?= format_indo(date('Y')) ?> Seluruh Polda</h5>
-                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                 </button> -->
-            </div>
-            <div class="modal-body">
-                <div style="line-height: 0.8;">
-                    <div class="row mb-3">
-                        <div class="col-md-9">
-                            <label for="waktu" class="form-label text-uppercase text-info">Pilih Periode Waktu</label>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label for="waktu" class="form-label text-uppercase">Awal</label>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="waktu" class="form-label text-uppercase">Akhir</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <input class="form-control form-control-lg" type="number" name="start_date_table" id="start_date_table_y" value="<?= date('Y'); ?>">
-                                </div>
-                                <div class="col-md-4">
-                                    <input class="form-control form-control-lg" type="number" name="end_date_table" id="end_date_table_y" value="<?= date('Y'); ?>">
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary float-end btn-lg" style="width: 100%;" onclick="ButtonFilterOnTable('year')">Tampilkan</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <table class="table table-bordered table-hover" id="tableLakaYear" style="background:white; ">
-                        <thead style="background-color:#0007D8; color:#fff;">
-                            <tr class="text-center">
-                                <th scope="col">No</th>
-                                <th scope="col">Kode Troublespot</th>
-                                <th scope="col">Polda</th>
-                                <th scope="col">Lokasi Kejadian</th>
-                                <th scope="col">Permasalahan</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody-lakaYear">
-                        </tbody>
-
-                    </table>
-                </div>
-
-            </div>
-            <!-- <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-             </div> -->
         </div>
     </div>
 </div>
@@ -302,7 +69,7 @@ if ($mobile === true) { ?>
 
 <div class="container-fluid">
 
-    <div class="card">
+    <div class="card" style="display: none;">
         <div class="row">
             <hr style="width:97%; margin: auto">
             <div class="filter mt-4" style=" height:125px;">
@@ -371,6 +138,17 @@ if ($mobile === true) { ?>
         </div>
     </div>
 
+    <div class="card">
+        <div class="row mt-5">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="section-headline text-center mb-4">
+                    <h2>Rangking Troublespot</h2>
+                </div>
+            </div>
+        </div>
+        <div id="cardtroublespot"></div>
+    </div>
+
 </div>
 <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
@@ -398,7 +176,41 @@ if ($mobile === true) { ?>
         TroublespotToday(yesterday, yesterday)
         TroublespotMonth(firstDayMonth, lastDayMonth)
         TroublespotYear(firstDay, lastDay)
+        getCardTroublespot()
+
     })
+
+    function getCardTroublespot() {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>executive/statistik_executive/getCardTroublespot",
+
+            dataType: "JSON",
+            success: function(result) {
+                var card = '';
+                card += `<div class="d-flex justify-content-around mb-5">`
+                for (let i = 0; i < result.length; i++) {
+                    let x = parseInt(i)
+                    card += `
+                    <div class="col-md-2 col-sm-2 col-xs-2">
+                        <div class="pri_table_list">
+                            <h3 style="background-color:#083174; color:white">#${x+1} <br/> <span>Polda ${result[i].name_polda}</span></h3>
+                            <ol>
+                                <li class="check">
+                                    <h3>${result[i].total}</h3>
+                                    <h5 class="mt-3">Total Troublespot</h5>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>`
+                }
+                card += `</div>`
+
+                $('#cardtroublespot').html(card);
+
+            }
+        })
+    }
 
     $('#limit_showData').on('change', function() {
         var limit = $('#limit_showData').val();
@@ -557,6 +369,8 @@ if ($mobile === true) { ?>
                 $('#jemenopsrekThisDay').text(result.today)
                 $('#jemenopsrekThisMonth').text(result.month)
                 $('#jemenopsrekThisYear').text(result.year)
+                $('#totaltroublespot').text(result.total)
+
 
             }
         })

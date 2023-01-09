@@ -22,7 +22,7 @@
                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
 
                                     <div class="col-md-12 float-end">
-                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="blackspot"></h1>
+                                        <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="totalblackspot"></h1>
                                         <p class="text-center mb-0">Blackspot</p>
                                     </div>
                                 </div>
@@ -275,6 +275,7 @@ if ($mobile === true) { ?>
 <div class="container-fluid">
 
     <div class="card" style="display: none;">
+        <!-- <div class="card" > -->
         <div class="row">
             <hr style="width:97%; margin: auto">
             <div class="filter mt-4" style=" height:125px;">
@@ -402,18 +403,6 @@ if ($mobile === true) { ?>
                                 <li class="check">
                                     <h3>${result[i].total}</h3>
                                     <h5 class="mt-3">Total Blackspot</h5>
-                                </li>
-                                <li class="check">
-                                    <h3>${result[i].jalan_nasional}</h3>
-                                    <h5 class="mt-3">Jalan Nasional</h5>
-                                </li>
-                                <li class="check">
-                                    <h3>${result[i].jalan_provinsi}</h3>
-                                    <h5 class="mt-3">Jalan Provinsi</h5>
-                                </li>
-                                <li class="check">
-                                    <h3>${result[i].lain_lain}</h3>
-                                    <h5 class="mt-3">Lain-lain</h5>
                                 </li>
                             </ol>
                         </div>
@@ -581,9 +570,10 @@ if ($mobile === true) { ?>
             success: function(result) {
                 console.log(result);
                 $("#overlay").fadeOut(300);
-                $('#blackspot').text(result.today)
+                $('#jemenopsrekThisDay').text(result.today)
                 $('#jemenopsrekThisMonth').text(result.month)
                 $('#jemenopsrekThisYear').text(result.year)
+                $('#totalblackspot').text(result.total)
 
             }
         })
