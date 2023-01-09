@@ -39,7 +39,7 @@
   <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63458.9587091969!2d106.803352!3d-6.239342!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2388a7a048cd514e!2sBaharkam%20Polri!5e0!3m2!1sid!2sid!4v1665878384384!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mt-5"></iframe> -->
 </section><!-- End Breadcrumbs -->
 
-						
+
 
 <!-- ======= Featured Services Section ======= -->
 <section id="featured-services" class="featured-services">
@@ -53,51 +53,51 @@
 
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
         <div class="service-item position-relative" style="background-color: #ff555b; border-radius:10px; color:#3b3b3b">
-					<div class="service-item-upper">
-						<div class="icon text-center">
-							<iconify-icon icon="bxs:car-crash" width="50"></iconify-icon>
-						</div>
-						<h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5" style="color:#3b3b3b">Kecelakaan Lalu Lintas</a></h4>
-						<h1 id="lakalantas" class="text-center fw-bold mb-5"><?= number_format($ditgakkum['data'][0]['lakalantas'], 0, '', '.');  ?></h1>
-						
-					</div>
+          <div class="service-item-upper">
+            <div class="icon text-center">
+              <iconify-icon icon="bxs:car-crash" width="50"></iconify-icon>
+            </div>
+            <h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5" style="color:#3b3b3b">Kecelakaan Lalu Lintas</a></h4>
+            <h1 id="lakalantas" class="text-center fw-bold mb-5"><?= number_format($ditgakkum['data'][0]['lakalantas'], 0, '', '.');  ?></h1>
+
+          </div>
         </div>
       </div><!-- End Service Item -->
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
         <div class="service-item position-relative" style="background-color: #fffd51; border-radius:10px; color:#3b3b3b">
-					<div class="service-item-upper">
-						<div class="icon text-center">
-							<iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon>
-						</div>
-						<h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5" style="color:#3b3b3b">Pelanggaran Lalu Lintas</a></h4>
-						<h1 id="garlantas" class="text-center fw-bold mb-5"><?= number_format($ditgakkum['data'][0]['garlantas'], 0, '', '.');  ?></h1>
-						
-					</div>
+          <div class="service-item-upper">
+            <div class="icon text-center">
+              <iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon>
+            </div>
+            <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5" style="color:#3b3b3b">Pelanggaran Lalu Lintas</a></h4>
+            <h1 id="garlantas" class="text-center fw-bold mb-5"><?= number_format($ditgakkum['data'][0]['garlantas'], 0, '', '.');  ?></h1>
+
+          </div>
         </div>
       </div><!-- End Service Item -->
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
         <div class="service-item position-relative" style="background-color: #40e48a; border-radius:10px; color:#3b3b3b">
-					<div class="service-item-upper">
-						<div class="icon text-center">
-							<iconify-icon icon="mdi:car-multiple" width="50"></iconify-icon>
-							<iconify-icon icon="mdi:atv" width="50"></iconify-icon>
-						</div>
-						<h4 class="text-center"><a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" class="stretched-link fs-5" style="color:#3b3b3b">Kendaraan Bermotor</a></h4>
-						<h1 id="motor" class="text-center fw-bold mb-5"><?= number_format($ditregident['data'][0]['ranmor'], 0, '', '.');  ?></h1>
-						
-					</div>
+          <div class="service-item-upper">
+            <div class="icon text-center">
+              <iconify-icon icon="mdi:car-multiple" width="50"></iconify-icon>
+              <iconify-icon icon="mdi:atv" width="50"></iconify-icon>
+            </div>
+            <h4 class="text-center"><a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" class="stretched-link fs-5" style="color:#3b3b3b">Kendaraan Bermotor</a></h4>
+            <h1 id="motor" class="text-center fw-bold mb-5"><?= number_format($ditregident['data'][0]['ranmor'], 0, '', '.');  ?></h1>
+
+          </div>
         </div>
       </div><!-- End Service Item -->
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
         <div class="service-item position-relative" style="background-color: #5a8cff; border-radius:10px; color:#3b3b3b">
-					<div class="service-item-upper">
-						<div class="icon text-center">
-							<iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon>
-						</div>
-						<h4 class="text-center"><a href="#" class="stretched-link fs-5" style="color:#3b3b3b">SIM Nasional</a></h4>
-						<h1 id="sim" class="text-center fw-bold mb-5"><?= number_format($ditregident['data'][0]['sim'], 0, '', '.');  ?></h1>
-						
-					</div>
+          <div class="service-item-upper">
+            <div class="icon text-center">
+              <iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon>
+            </div>
+            <h4 class="text-center"><a href="#" class="stretched-link fs-5" style="color:#3b3b3b">SIM Nasional</a></h4>
+            <h1 id="sim" class="text-center fw-bold mb-5"><?= number_format($ditregident['data'][0]['sim'], 0, '', '.');  ?></h1>
+
+          </div>
         </div>
       </div><!-- End Service Item -->
 
@@ -109,12 +109,12 @@
 </section><!-- End Featured Services Section -->
 
 <section>
-	<div class="container-fluid">
-	<div class="section-title">
+  <div class="container-fluid">
+    <div class="section-title">
       <h2>Peta Lokasi Polres Jajaran <?= $headline ?></h2>
       <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
     </div>
-		<div class="col-md-12 mt-3">
+    <div class="col-md-12 mt-3">
       <!-- <div class="row" style="display:flex;z-index: 999;position: absolute;">
         <div class="dropdown d-inline-block">
           <div style="cursor: pointer; display:flex; width:300px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -136,144 +136,153 @@
           </div>
         </div>
       </div> -->
-			<div style="height: 800px;" class="mt-3" id="mapG20Dashboard"></div>
-		
-		</div>
+      <div style="height: 800px;" class="mt-3" id="mapG20Dashboard"></div>
 
-	</div>
-	
+    </div>
+
+  </div>
+
 </section>
 
 <!-- ======= About Section ======= -->
 <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
+  <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-          <h2>Media Sosial NTMC</h2>
-          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
-        </div>
+    <div class="section-title">
+      <h2>Media Sosial NTMC</h2>
+      <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+    </div>
 
-        <!-- Tabs -->
-        <ul class="nav nav-pills mb-3">
-          <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">Data Polres</a></li>
-          <li><a class="nav-link" data-bs-toggle="pill" href="#tab2">Data Satpas</a></li>
-          <li><a class="nav-link" data-bs-toggle="pill" href="#tab3">Data Samsat</a></li>
-          <li><a class="nav-link" data-bs-toggle="pill" href="#tab4">Link CCTV</a></li>
+    <!-- Tabs -->
+    <ul class="nav nav-pills mb-3">
+      <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">Data Polres <span class="fw-bold">(<?= count($getPolres); ?>)</span></a></li>
+      <li><a class="nav-link" data-bs-toggle="pill" href="#tab2">Data Satpas <span class="fw-bold">(<?= count($getPolres); ?>)</span></a></li>
+      <li><a class="nav-link" data-bs-toggle="pill" href="#tab3">Data Samsat <span class="fw-bold">(<?= count($getSamsat); ?>)</span></a></li>
+      <li><a class="nav-link" data-bs-toggle="pill" href="#tab4">Link CCTV <span class="fw-bold">(<?= count($polda['link_cctv']); ?>)</span></a></li>
 
-        </ul><!-- End Tabs -->
+    </ul><!-- End Tabs -->
 
-        <!-- Tab Content -->
-        <div class="tab-content">
+    <!-- Tab Content -->
+    <div class="tab-content">
 
-          <div class="tab-pane fade show active" id="tab1">
+      <div class="tab-pane fade show active" id="tab1">
 
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th width="5%">No</th>
-                <th width="25%">Nama Polres</th>
-                <th>Alamat</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $tab1 = 1; $tab2 = 1; $tab3 = 1; $tab4 = 1;
-              foreach($getPolres as $polres):
-              ?>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th width="5%">No</th>
+              <th width="25%">Nama Polres</th>
+              <th>Alamat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $tab1 = 1;
+            $tab2 = 1;
+            $tab3 = 1;
+            $tab4 = 1;
+            foreach ($getPolres as $polres) :
+            ?>
               <tr class="table-striped">
-                <td><?= $tab1++?></td>
-                <td><?= $polres['name_polres']?></td>
-                <td><?= $polres['address']?></td>
+                <td><?= $tab1++ ?></td>
+                <td><?= $polres['name_polres'] ?></td>
+                <td><?= $polres['address'] ?></td>
               </tr>
-              <?php endforeach;?>
-              
-              
-            </tbody>
-          </table>
+            <?php endforeach; ?>
 
-          </div><!-- End Tab 1 Content -->
 
-          <div class="tab-pane fade show" id="tab2">
+          </tbody>
+        </table>
 
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th width="5%">No</th>
-                <th width="25%">Nama Polres</th>
-                <th width="15%">Kode Satpas</th>
-                <th>Alamat</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach($getPolres as $satpas):?>
+      </div><!-- End Tab 1 Content -->
+
+      <div class="tab-pane fade show" id="tab2">
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th width="5%">No</th>
+              <th width="25%">Nama Polres</th>
+              <th width="15%">Kode Satpas</th>
+              <th>Alamat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($getPolres as $satpas) : ?>
               <tr class="table-striped">
-                <td><?= $tab2++?></td>
-                <td><?= $satpas['name_polres']?></td>
-                <td><?= $satpas['code_satpas']?></td>
-                <td><?= $satpas['address']?></td>
+                <td><?= $tab2++ ?></td>
+                <td><?= $satpas['name_polres'] ?></td>
+                <td><?= $satpas['code_satpas'] ?></td>
+                <td><?= $satpas['address'] ?></td>
               </tr>
-              <?php endforeach;?>
-              
-            </tbody>
-          </table>
+            <?php endforeach; ?>
 
-          </div><!-- End Tab 2 Content -->
+          </tbody>
+        </table>
 
-          <div class="tab-pane fade show" id="tab3">
+      </div><!-- End Tab 2 Content -->
 
-          <table class="table table-striped">
-            <thead>
+      <div class="tab-pane fade show" id="tab3">
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th width="5%">No</th>
+              <th width="25%">Nama Samsat</th>
+              <th>Alamat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php if ($getsamsat == NULL) : ?>
               <tr>
-                <th width="5%">No</th>
-                <th width="25%">Nama Samsat</th>
-                <th>Alamat</th>
+                <td></td>
+                <td>Data Tidak Ditemukan</td>
+                <td></td>
               </tr>
-            </thead>
-            <tbody>
-              <?php if($getsamsat == NULL) : ?>
-                <tr>
-                  <td></td>
-                  <td>Data Tidak Ditemukan</td>
-                  <td></td>
-                </tr>
-              <?php endif;?>
-              <?php foreach($getsamsat as $samsat) : ?>
+            <?php endif; ?>
+            <?php foreach ($getsamsat as $samsat) : ?>
               <tr class="table-striped">
-                <td><?= $tab3++?></td>
-                <td><?= $samsat['name_samsat']?></td>
-                <td><?= $samsat['address']?></td>
+                <td><?= $tab3++ ?></td>
+                <td><?= $samsat['name_samsat'] ?></td>
+                <td><?= $samsat['address'] ?></td>
               </tr>
-              <?php endforeach;?>
-              
-            </tbody>
-          </table>
+            <?php endforeach; ?>
 
-          </div><!-- End Tab 2 Content -->
+          </tbody>
+        </table>
 
-          <div class="tab-pane fade show" id="tab4">
+      </div><!-- End Tab 2 Content -->
 
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th width="5%">No</th>
-                <th>Link CCTV</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="table-striped">
-                <td><?= $tab4++?></td>
-                <td><a href="<?= $polda['link_cctv']; if($polda['link_cctv'] == NULL){echo '#';}?> "><?= $polda['link_cctv']; if($polda['link_cctv'] == NULL){echo 'Data Tidak Ditemukan';}?></a></td>
-              </tr>
-              
-            </tbody>
-          </table>
+      <div class="tab-pane fade show" id="tab4">
 
-          </div><!-- End Tab 2 Content -->
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th width="5%">No</th>
+              <th>Link CCTV</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-striped">
+              <td><?= $tab4++ ?></td>
+              <td><a href="<?= $polda['link_cctv'];
+                            if ($polda['link_cctv'] == NULL) {
+                              echo '#';
+                            } ?> "><?= $polda['link_cctv'];
+                                    if ($polda['link_cctv'] == NULL) {
+                                      echo 'Data Tidak Ditemukan';
+                                    } ?></a></td>
+            </tr>
 
-        </div>
-        
-      </div>
-    </section><!-- End About Section -->
+          </tbody>
+        </table>
+
+      </div><!-- End Tab 2 Content -->
+
+    </div>
+
+  </div>
+</section><!-- End About Section -->
 
 
 
@@ -288,11 +297,11 @@
       <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
     </div>
 
-    <h3>Youtube Ditlantas <?= $polda['name_polda']?></h3>
+    <h3>Youtube Ditlantas <?= $polda['name_polda'] ?></h3>
 
     <div class="row margin-top-20">
       <div class="col-md-12 border-end shadows">
-        <iframe width="100%" height="600px" src="<?= $polda['link_playlist']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="100%" height="600px" src="<?= $polda['link_playlist'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <!-- <div class="col-md-4">
         <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
@@ -316,11 +325,11 @@
   </div>
 </section><!-- End Events Section -->
 
-<section >
+<section>
   <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col-md-4">
-			<h3>Twitter Ditlantas <?= $polda['name_polda']?></h3>
+        <h3>Twitter Ditlantas <?= $polda['name_polda'] ?></h3>
         <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 870px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/<?= $polda['twitter'] ?>?dnt=false&amp;embedId=twitter-widget-1&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
 
       </div>
@@ -329,171 +338,172 @@
 				
 		</div> -->
       <div class="col-md-4">
-			<h3>Facebook Ditlantas <?= $polda['name_polda']?></h3>
+        <h3>Facebook Ditlantas <?= $polda['name_polda'] ?></h3>
         <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F<?= $polda['facebook'] ?>&tabs=timeline&width=500&height=870&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=392649888900623" width=100% height=870px style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
       </div>
     </div>
   </div>
 </section>
 <script>
-    let app_url = '<%-app_url%>'
-    let path = '<%-path%>'
-    var marker = new Array();
-	  $(document).ready(function() {  
-      let id= '<?= $polda['id'] ?>';
-      // let marker = []
-      $.ajax({
-        type: "POST",
-        url: "<?= base_url(); ?>ditlantas_polda/getDetailPolda",
-        data: {
-          id: id
-        },
-        dataType: "JSON",
-        success: function(result) {
-          var ressPolda = result.polda;
-          var ressPolres = result.polres;
-          // console.log(ressPolres.length);
+  let app_url = '<%-app_url%>'
+  let path = '<%-path%>'
+  var marker = new Array();
+  $(document).ready(function() {
+    let id = '<?= $polda['id'] ?>';
+    // let marker = []
+    $.ajax({
+      type: "POST",
+      url: "<?= base_url(); ?>ditlantas_polda/getDetailPolda",
+      data: {
+        id: id
+      },
+      dataType: "JSON",
+      success: function(result) {
+        var ressPolda = result.polda;
+        var ressPolres = result.polres;
+        // console.log(ressPolres.length);
 
-          
 
-          let zxc = ressPolda.zoomview.split(",")
-          let lat = parseFloat(zxc[0])
-          let long = parseFloat(zxc[1])
-          var initialCenter = [lat, long];
-          var initialZoom = 9;
-          var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-          });
-          var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-          });
-          var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-          });
-          var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-          });
-          var gl = L.mapboxGL({
-              accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
-              style: 'mapbox://styles/mapbox/traffic-day-v2'
-          });
-          var trafficMutant = L.gridLayer.googleMutant({
-            maxZoom: 24,
-            type: "hybrid",
-          }).addGoogleLayer("TrafficLayer");
-          var trafficMutantRoad = L.gridLayer.googleMutant({
-            maxZoom: 24,
-            type: "roadmap",
-          }).addGoogleLayer("TrafficLayer");
-          var shpFile = new L.Shapefile(`<?php echo base_url(); ?>assets/admin/shp/SHP/${ressPolda.file_shp}`, {
-            pointToLayer: function(feature, latlng) {
+
+        let zxc = ressPolda.zoomview.split(",")
+        let lat = parseFloat(zxc[0])
+        let long = parseFloat(zxc[1])
+        var initialCenter = [lat, long];
+        var initialZoom = 9;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+          maxZoom: 20,
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+          attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+          maxZoom: 20,
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+          attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+          maxZoom: 20,
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+          attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+          maxZoom: 20,
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+          attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var gl = L.mapboxGL({
+          accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
+          style: 'mapbox://styles/mapbox/traffic-day-v2'
+        });
+        var trafficMutant = L.gridLayer.googleMutant({
+          maxZoom: 24,
+          type: "hybrid",
+        }).addGoogleLayer("TrafficLayer");
+        var trafficMutantRoad = L.gridLayer.googleMutant({
+          maxZoom: 24,
+          type: "roadmap",
+        }).addGoogleLayer("TrafficLayer");
+        var shpFile = new L.Shapefile(`<?php echo base_url(); ?>assets/admin/shp/SHP/${ressPolda.file_shp}`, {
+          pointToLayer: function(feature, latlng) {
             var smallIcon = new L.divIcon({
               iconAnchor: [20, 51],
               popupAnchor: [0, -51],
               className: 'listeo-marker-icon',
               html: '<div class="marker-container">' +
-              '<div class="marker-card">' +
-              '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
-              '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
-              '<div class="marker-arrow"></div>' +
-              '</div>' +
-              '</div>'
+                '<div class="marker-card">' +
+                '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
+                '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
+                '<div class="marker-arrow"></div>' +
+                '</div>' +
+                '</div>'
+            });
+            var mark = L.marker(latlng, {
+              icon: smallIcon
+            })
+            cluster.addLayer(mark)
+            return cluster;
+          },
+          onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+              layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
+              }).join("<hr>"), {
+                maxWidth: 400,
+                maxHeight: 250,
+                scrollbarWidth: 'thin',
+                className: 'leaflet-infoBox'
               });
-              var mark = L.marker(latlng, {
-                icon: smallIcon
-              })
-              cluster.addLayer(mark)
-              return cluster;
-            },
-            onEachFeature: function(feature, layer) {
-              if (feature.properties) {
-                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
-                  return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
-                }).join("<hr>"), {
-                  maxWidth: 400,
-                  maxHeight: 250,
-                  scrollbarWidth: 'thin',
-                  className: 'leaflet-infoBox'
-                });
-              }
             }
-          });
-
-          
-          
+          }
+        });
 
 
-          // StART MAP SECTION
-          var mapContainer = L.map('mapG20Dashboard', {
-            maxZoom: 20,
-            minZoom: 1,
-            zoomSnap: 0.25,
-            zoomControl: false,
-            fullscreenControl: true,
-            layers: [googleHybrid, shpFile]
-          }).setView(initialCenter, initialZoom);
-
-          var myRenderer = L.canvas({
-              padding: 0.5
-          });
-
-          var markerClusterGroup = L.markerClusterGroup();
-          var icon = L.icon({
-              iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-              iconSize: [80, 80], // size of the icon
-          });
 
 
-          var baseMaps = {
-              "Google Map Street": googleStreet,
-              "Google Map Satelite": googleSatelite,
-              "Google Map Hybrid": googleHybrid,
-              "Google Map Terrain": googleTerrain,
-              "Google Map Street Traffic": trafficMutantRoad,
-              "Google Map Hybrid Traffic": trafficMutant,
-              "MappBox Traffic": gl,
-          };
-          var overlayMaps = {
-              "Batas Wilayah": shpFile
-          };
-          L.control.layers(baseMaps, overlayMaps, {
-              position: 'topright'
-          }).addTo(mapContainer);
-          L.control.zoom({
-              position: 'topright'
-          }).addTo(mapContainer);
 
-          mapContainer.doubleClickZoom.enable();
+        // StART MAP SECTION
+        var mapContainer = L.map('mapG20Dashboard', {
+          maxZoom: 20,
+          minZoom: 1,
+          zoomSnap: 0.25,
+          zoomControl: false,
+          fullscreenControl: true,
+          layers: [googleHybrid, shpFile]
+        }).setView(initialCenter, initialZoom);
 
-          for (let i = 0; i < ressPolres.length; i++){
-            id = i;
-            var latitude = parseFloat(ressPolres[i].latitude);
-            var longitude = parseFloat(ressPolres[i].longitude);
+        var myRenderer = L.canvas({
+          padding: 0.5
+        });
 
-            var resource = '';
+        var markerClusterGroup = L.markerClusterGroup();
+        var icon = L.icon({
+          iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
+          iconSize: [80, 80], // size of the icon
+        });
 
-            marker[i] = L.marker([latitude, longitude],{
-              icon: L.divIcon({
-                // className: 'location-pin',
-                html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
-                // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressPolres[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
-                iconSize: [5, 5],
-                iconAnchor: [5, 10]
-              })
-            }).bindPopup(
-              `<h6>${ressPolres[i].name_polres}</h6>
+
+        var baseMaps = {
+          "Google Map Street": googleStreet,
+          "Google Map Satelite": googleSatelite,
+          "Google Map Hybrid": googleHybrid,
+          "Google Map Terrain": googleTerrain,
+          "Google Map Street Traffic": trafficMutantRoad,
+          "Google Map Hybrid Traffic": trafficMutant,
+          "MappBox Traffic": gl,
+        };
+        var overlayMaps = {
+          "Batas Wilayah": shpFile
+        };
+        L.control.layers(baseMaps, overlayMaps, {
+          position: 'topright'
+        }).addTo(mapContainer);
+        L.control.zoom({
+          position: 'topright'
+        }).addTo(mapContainer);
+
+        mapContainer.doubleClickZoom.enable();
+
+        for (let i = 0; i < ressPolres.length; i++) {
+          id = i;
+          var latitude = parseFloat(ressPolres[i].latitude);
+          var longitude = parseFloat(ressPolres[i].longitude);
+
+          var resource = '';
+
+          marker[i] = L.marker([latitude, longitude], {
+            icon: L.divIcon({
+              // className: 'location-pin',
+              html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
+              // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressPolres[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
+              iconSize: [5, 5],
+              iconAnchor: [5, 10]
+            })
+          }).bindPopup(
+            `<h6>${ressPolres[i].name_polres}</h6>
               <p>${ressPolres[i].address}</p>
               `
-            ).addTo(mapContainer);
-          }
-      }})
-    });
+          ).addTo(mapContainer);
+        }
+      }
+    })
+  });
 </script>
