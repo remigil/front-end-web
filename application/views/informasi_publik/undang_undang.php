@@ -345,6 +345,23 @@
             </div>
         </div>
 
+        <h3>CARI PERATURAN LAIN DI BIDANG LALU LINTAS</h3>
+        <hr>
+        <div class="card mb-5">
+
+            <div class="card-body">
+            <form action="http://www.google.co.id/search" target="google_window" method="get" class="input-group">
+                <input maxlength="255 value=" name="q" size="31" type="text" class="form-control" placeholder="Masukan kata kunci" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input value="100" name="num" type="hidden">
+                  <div class="input-group-append">
+                  <input value="Search by Google" type="submit" class="btn btn-primary">
+                  </div>
+                
+            </form>
+
+            </div>
+        </div>
+
     </div>
 
 

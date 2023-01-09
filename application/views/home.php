@@ -173,7 +173,7 @@
                 </div>
                 <h4 class="text-center"><a href="#" class="stretched-link fs-5" style="color:#3b3b3b" target="_blank">SIM Nasional</a></h4>
                 <h1 id="sim" class="text-center fw-bold"></h1>
-                <div class="text-center mt-4">
+                  <div class="text-center mt-4">
                   <h6>Data Sim s.d </h6>
                   <h6><?php echo format_indoHari(date('Y-m-d')) ?></h6>
 
@@ -856,7 +856,7 @@
 										<span class="fs-7">Total <b>Pelanggaran</b> Lalu Lintas</span>
 									</div>
 									<div class="col-md-3">
-										<span class="fs-7">Total <b>Turjagwali</b></span>
+										<span class="fs-7">Total <b>SIM</b></span>
 									</div>    
 									<div class="col-md-3">
 										<span class="fs-7">Total <b>Kendaraan Bermotor</b></span>

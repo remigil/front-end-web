@@ -53,11 +53,13 @@
 
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
         <div class="service-item position-relative" style="background-color: #ff555b; border-radius:10px; color:#3b3b3b">
-          <div class="service-item-upper">
+          <div class="service-item-upper text-center">
             <div class="icon text-center">
               <iconify-icon icon="bxs:car-crash" width="50"></iconify-icon>
             </div>
             <h4 class="text-center"><a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" class="stretched-link fs-5" style="color:#3b3b3b">Kecelakaan Lalu Lintas</a></h4>
+              <h6>Data Laka s.d </h6>
+                  <h6><?php echo format_indoHari(date('Y-m-d')) ?></h6>
             <h1 id="lakalantas" class="text-center fw-bold mb-5"><?= number_format($ditgakkum['data'][0]['lakalantas'], 0, '', '.');  ?></h1>
 
           </div>
@@ -65,11 +67,13 @@
       </div><!-- End Service Item -->
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
         <div class="service-item position-relative" style="background-color: #fffd51; border-radius:10px; color:#3b3b3b">
-          <div class="service-item-upper">
+          <div class="service-item-upper text-center">
             <div class="icon text-center">
               <iconify-icon icon="ic:sharp-car-crash" width="50"></iconify-icon>
             </div>
             <h4 class="text-center"><a href="https://dakgargakkum.com/dashboard" class="stretched-link fs-5" style="color:#3b3b3b">Pelanggaran Lalu Lintas</a></h4>
+            <h6>Data Pelanggaran s.d </h6>
+                  <h6><?php echo format_indoHari(date('Y-m-d')) ?></h6>
             <h1 id="garlantas" class="text-center fw-bold mb-5"><?= number_format($ditgakkum['data'][0]['garlantas'], 0, '', '.');  ?></h1>
 
           </div>
@@ -77,12 +81,14 @@
       </div><!-- End Service Item -->
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
         <div class="service-item position-relative" style="background-color: #40e48a; border-radius:10px; color:#3b3b3b">
-          <div class="service-item-upper">
+          <div class="service-item-upper text-center">
             <div class="icon text-center">
               <iconify-icon icon="mdi:car-multiple" width="50"></iconify-icon>
               <iconify-icon icon="mdi:atv" width="50"></iconify-icon>
             </div>
             <h4 class="text-center"><a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" class="stretched-link fs-5" style="color:#3b3b3b">Kendaraan Bermotor</a></h4>
+            <h6>Data Ranmor s.d </h6>
+                  <h6><?php echo format_indoHari(date('Y-m-d')) ?></h6>
             <h1 id="motor" class="text-center fw-bold mb-5"><?= number_format($ditregident['data'][0]['ranmor'], 0, '', '.');  ?></h1>
 
           </div>
@@ -90,11 +96,13 @@
       </div><!-- End Service Item -->
       <div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
         <div class="service-item position-relative" style="background-color: #5a8cff; border-radius:10px; color:#3b3b3b">
-          <div class="service-item-upper">
+          <div class="service-item-upper text-center">
             <div class="icon text-center">
               <iconify-icon icon="mdi:card-account-details-outline" width="50"></iconify-icon>
             </div>
             <h4 class="text-center"><a href="#" class="stretched-link fs-5" style="color:#3b3b3b">SIM Nasional</a></h4>
+            <h6>Data SIM s.d </h6>
+                  <h6><?php echo format_indoHari(date('Y-m-d')) ?></h6>
             <h1 id="sim" class="text-center fw-bold mb-5"><?= number_format($ditregident['data'][0]['sim'], 0, '', '.');  ?></h1>
 
           </div>

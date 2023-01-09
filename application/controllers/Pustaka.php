@@ -114,6 +114,111 @@ class Pustaka extends MX_Controller {
         $this->template->load('templates/template','informasi_publik/undang_undang', $data); 
         
 	}
+	public function uud()
+	{
+		$getuud = guzzle_request('Get' , 'regulation_doc/bycategory/1',[]);
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash(); 
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		$data['getuud'] = $getuud['data'];
+
+		$data['title'] = "UU dan Peraturan | K3I Korlantas";  
+		$data['breadcrumb'] = "uu dan peraturan";  
+		$data['headline'] = "UU DAN PERATURAN"; 
+
+		$this->template->load('templates/template','informasi_publik/uud_list', $data); 
+	}
+	public function pp()
+	{
+		$getpp = guzzle_request('Get' , 'regulation_doc/bycategory/2',[]);
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash(); 
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		$data['getpp'] = $getpp['data'];
+
+		$data['title'] = "UU dan Peraturan | K3I Korlantas";  
+		$data['breadcrumb'] = "uu dan peraturan";  
+		$data['headline'] = "UU DAN PERATURAN"; 
+
+		$this->template->load('templates/template','informasi_publik/pp_list', $data); 
+	}
+	public function perpres()
+	{
+		$getperpres = guzzle_request('Get' , 'regulation_doc/bycategory/3',[]);
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash(); 
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		$data['getperpres'] = $getperpres['data'];
+
+		$data['title'] = "UU dan Peraturan | K3I Korlantas";  
+		$data['breadcrumb'] = "uu dan peraturan";  
+		$data['headline'] = "UU DAN PERATURAN"; 
+
+		$this->template->load('templates/template','informasi_publik/perpres_list', $data); 
+	}
+	public function polisi()
+	{
+		$getpolisi = guzzle_request('Get' , 'regulation_doc/bycategory/4',[]);
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash(); 
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		$data['getpolisi'] = $getpolisi['data'];
+
+		$data['title'] = "UU dan Peraturan | K3I Korlantas";  
+		$data['breadcrumb'] = "uu dan peraturan";  
+		$data['headline'] = "UU DAN PERATURAN"; 
+
+		$this->template->load('templates/template','informasi_publik/polisi_list', $data); 
+	}
+	public function kapolri()
+	{
+		$getkapolri = guzzle_request('Get' , 'regulation_doc/bycategory/5',[]);
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash(); 
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		$data['getkapolri'] = $getkapolri['data'];
+
+		$data['title'] = "UU dan Peraturan | K3I Korlantas";  
+		$data['breadcrumb'] = "uu dan peraturan";  
+		$data['headline'] = "UU DAN PERATURAN"; 
+
+		$this->template->load('templates/template','informasi_publik/kapolri_list', $data); 
+	}
+	public function kakor()
+	{
+		$getkakor = guzzle_request('Get' , 'regulation_doc/bycategory/6',[]);
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash(); 
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		$data['getkakor'] = $getkakor['data'];
+
+		$data['title'] = "UU dan Peraturan | K3I Korlantas";  
+		$data['breadcrumb'] = "uu dan peraturan";  
+		$data['headline'] = "UU DAN PERATURAN"; 
+
+		$this->template->load('templates/template','informasi_publik/kakor_list', $data); 
+	}
+	public function lain()
+	{
+		$getlain = guzzle_request('Get' , 'regulation_doc/bycategory/7',[]);
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash(); 
+		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		$data['getlain'] = $getlain['data'];
+
+		$data['title'] = "UU dan Peraturan | K3I Korlantas";  
+		$data['breadcrumb'] = "uu dan peraturan";  
+		$data['headline'] = "UU DAN PERATURAN"; 
+
+		$this->template->load('templates/template','informasi_publik/lain_list', $data); 
+	}
 	public function error()
 	{
 		$this->load->view('404_notfound');

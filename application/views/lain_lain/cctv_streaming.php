@@ -207,9 +207,19 @@
 					</div>
 				</div>
 				<div class="col-md-3">
-					<a href="https://binamarga.pu.go.id/index.php/contents/cctv" class="btn btn-outline-primary" target="_blank">CCTV Binamarga</a>
-					<a href="https://cctvcipali.lintasmarga.com/" class="btn btn-outline-primary ms-3" target="_blank">CCTV Cipali</a>
+					<div class="dropdown">
+						<button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
+							Link CCTV Lainnya
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
+							<li><a class="dropdown-item" href="https://binamarga.pu.go.id/index.php/contents/cctv" target="_blank">CCTV BINAMARGA</a></li>
+							<li><a class="dropdown-item" href="https://cctvcipali.lintasmarga.com/" target="_blank">CCTV CIPALI</a></li>
+							<li><a class="dropdown-item" href="http://tiliksemar.semarangkota.go.id/dashboard">CCTV SEMARANG</a></li>
+						</ul>
+					</div>
+					
 				</div>
+
 
 				<div class="col-md-6">
 					<div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">

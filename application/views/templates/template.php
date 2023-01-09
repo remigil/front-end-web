@@ -301,13 +301,13 @@
           <div class="col-md-2 footer-links">
             <h4>Dasar Hukum / Referensi</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/undang_undang">Undang Undang Republik Indonesia</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/undang_undang">Peraturan Pemerintah Republik indonesia</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/undang_undang">peraturan Presiden Republik Indonesia</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/undang_undang">Peraturan Kepolisian Negara Republik Indonesia</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/undang_undang">Peraturan Kepala Polisi Negara Republik Indonesia</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/undang_undang">Peraturan kepala Korps Lalu Lintas POLRI</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/undang_undang">Peraturan Lain-lain</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/uud">Undang Undang Republik Indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/pp">Peraturan Pemerintah Republik indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/perpres">peraturan Presiden Republik Indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/polisi">Peraturan Kepolisian Negara Republik Indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/kapolri">Peraturan Kepala Polisi Negara Republik Indonesia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/kakor">Peraturan kepala Korps Lalu Lintas POLRI</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>pustaka/lain">Peraturan Lain-lain</a></li>
             </ul>
             <!-- <img src="<?= base_url() ?>assets/fe/contactntmc.png" alt=""> -->
           </div>
