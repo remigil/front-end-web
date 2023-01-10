@@ -2581,11 +2581,11 @@
                                                         <span class="fs-6">Total <b>Pelanggaran</b> Lalu Lintas</span>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <span class="fs-6">Total <b>Turjagwali</b></span>
-                                                    </div>    
-                                                    <div class="col-md-3">
-                                                        <span class="fs-6">Total <b>Kendaraan Bermotor</b></span>
+                                                    <span class="fs-6">Total <b>Kendaraan Bermotor</b></span>
                                                     </div>
+                                                    <div class="col-md-3">
+                                                        <span class="fs-6">Total <b>SIM</b></span>
+                                                    </div>    
                                                 </div>    
                                             </div>
                                             
@@ -2598,10 +2598,10 @@
                                                         <span class="fs-3"> <b>${ressData[i].garlantas}</b></span>
                                                     </div>
                                                     <div class="col-md-3">
-                                                    <span class="fs-3"> <b>${ressData[i].turjagwali}</b></span>
+                                                    <span class="fs-3"> <b>${ressData[i].sepeda_motor}</b></span>
                                                     </div>    
                                                     <div class="col-md-3">
-                                                        <span class="fs-3"> <b>${ressData[i].sepeda_motor}</b></span>
+                                                        <span class="fs-3"> <b>${ressData[i].sim}</b></span>
                                                     </div>
                                                 </div>    
                                             </div> 

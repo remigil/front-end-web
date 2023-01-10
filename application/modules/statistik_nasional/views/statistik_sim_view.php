@@ -16,7 +16,9 @@
              </div>
              <div class="col-sm-10 col-md-10">
                  <div class="row m-2">
-                     <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
+                     <div class="col-md-4 col-sm-4 col-xl-4 align-self-center"></div>
+                     <div class="col-md-4 col-sm-4 col-xl-4 align-self-center"></div>
+                     <div class="col-md-4 col-sm-4 col-xl-4 align-self-center" style="display: none;">
                          <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
                              <div class="card-body">
                                  <div class="row justify-content-between align-items-center" style="height: 120px;">
@@ -40,7 +42,7 @@
                              </div>
                          </div>
                      </div>
-                     <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
+                     <div class="col-md-4 col-sm-4 col-xl-4 align-self-center" style="display: none;">
                          <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
                              <div class="card-body">
                                  <div class="row justify-content-between align-items-center" style="height: 120px;">
@@ -71,7 +73,7 @@
                              <div class="card-body">
                                  <div class="row justify-content-between align-items-center" style="height: 120px;">
                                      <div class="col-md-7">
-                                         <h5 class="mb-0 ms-3">Tahun Ini</h5>
+                                         <h5 class="mb-0 ms-3">Total Sim</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:20px; color:#0007D8;" id="simThisYear"></h1>

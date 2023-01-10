@@ -21,7 +21,7 @@ class Dashboard extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "Operasi";
-        $page_content["page"] = "dashboard/google"; 
+        $page_content["page"] = "dashboard/google";
         $page_content["data"] = '';
         $this->load->view('google');
     }
@@ -399,7 +399,7 @@ class Dashboard extends MY_Controller
         } else {
             $polda_id = '';
         }
- 
+
 
         if ($input['type']) {
             $type = '&type=' . $input['type'] . '';
@@ -506,7 +506,7 @@ class Dashboard extends MY_Controller
         // $date = strtotime("-1 day", $date);
         // echo date('Y-m-d', $date);
 
-        $url = 'filterPetugas?polda_id='.$input['polda_id'].'&limit='.$input['limit'].'&page='.$input['page'].'';
+        $url = 'filterPetugas?polda_id=' . $input['polda_id'] . '&limit=' . $input['limit'] . '&page=' . $input['page'] . '';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
@@ -886,7 +886,7 @@ class Dashboard extends MY_Controller
         echo json_encode($res);
     }
 
-    
+
 
     public function getJadwal()
     {
@@ -1023,12 +1023,24 @@ class Dashboard extends MY_Controller
 
         for ($i = 0; $i < count($getDit); $i++) {
             $datadit = [
-                'garlantas' => $getDit[$i]['garlantas'],
-                'lakalantas' => $getDit[$i]['lakalantas'],
-                'turjagwali' => $getDit[$i]['turjagwali'],
+                'garlantas' => number_format($getDit[$i]['garlantas'], 0, ',', '.'),
+                'lakalantas' => number_format($getDit[$i]['lakalantas'], 0, ',', '.'),
             ];
             $dit[] = array_merge($getPolda[$i], $datadit);
         }
+        $datasim = [];
+        $urlsim = 'sim/daily';
+        $getSim = guzzle_request('GET', $urlsim, [
+            'headers' => $headers
+        ]);
+        $getSim = $getSim['data']['rows'];
+        for ($i = 0; $i < count($getSim); $i++) {
+            $sim = [
+                'sim' => number_format($getSim[$i]['total'], 0, ',', '.'),
+            ];
+            $datasim[] = array_merge($dit[$i], $sim);
+        }
+
         $allData = [];
 
         $urlranmor = 'ranmor/daily?date=' . $date . '';
@@ -1039,14 +1051,13 @@ class Dashboard extends MY_Controller
 
         for ($i = 0; $i < count($getRanmor); $i++) {
             $dataranmor = [
-                'sepeda_motor' => $getRanmor[$i]['sepeda_motor'],
+                'sepeda_motor' => number_format($getRanmor[$i]['sepeda_motor'], 0, ',', '.'),
             ];
-            $allData[] = array_merge($dit[$i], $dataranmor);
+            $allData[] = array_merge($datasim[$i], $dataranmor);
         }
 
 
         $data = $allData;
-
 
         echo json_encode($data);
     }
