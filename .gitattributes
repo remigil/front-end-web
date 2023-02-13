@@ -1,0 +1,2 @@
+assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL.shp filter=lfs diff=lfs merge=lfs -text
+assets/admin/bataspolda/data/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1.js filter=lfs diff=lfs merge=lfs -text

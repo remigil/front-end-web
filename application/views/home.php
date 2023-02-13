@@ -27,7 +27,7 @@
             if (++$i == 7) break;
           ?>
             <!-- Slide 2 -->
-            <div class="carousel-item" style="background-image:url(assets/fe/hero-wall.png); padding-top:100px">
+            <div class="carousel-item berita" style="background-image:url(assets/fe/BG_slider.jpg); padding-top:100px; ">
               <div class="carousel-container" style="padding-top: 100px;">
                 <div class="carousel-content">
                   <!-- <img src="<?= base_url() ?>assets/logo-nav.png" alt=""> -->
@@ -41,6 +41,7 @@
                       </div>
                       <div class="col-md-7">
                         <h2 class="animate__animated fanimate__adeInDown fs-6" style="text-align: left;color:#fffd51; margin-bottom:10px !important">berita</h2>
+                        <h2 class="animate__animated fanimate__adeInDown fs-6" style="text-align: left; margin-bottom:10px !important"><?= format_indoHari($key['date'])?></h2>
                         <h2 class="animate__animated fanimate__adeInDown fs-4" style="text-align: left;"><?= $key['title'] ?></h2>
                         <p class="animate__animated animate__fadeInUp fs-7" style="text-shadow: 2px 2px #000; text-align:left; width:100% !important"><?= substr($key['content'], 0, 250) . '. . .' ?></p>
                         <a href="berita_front/detailberita/<?= $key['id'] ?>" class="btn-get-started animate__animated animate__fadeInUp">Baca Selengkapnya</a>
@@ -404,7 +405,8 @@
                 <div class="post-img"><img width="500" src="<?= url_api() ?>news/<?= $data['picture'] ?>" class="img-fluid" style="height: 210px;"></div>
                 <div class="meta">
                   <span class="post-date"><?= $data['category_news'][0]['name_category_news'] ?></span>
-                  <span class="post-author"> / Korlantas Polri</span>
+                  <span class="post-author"> / Korlantas Polri</span><br>
+                  <span class="post-author"><?= format_indoHari($data['date']) ?></span>
                 </div>
                 <div class="row">
                   <div class="col-md-12 d-block">
@@ -465,11 +467,12 @@
                 <div class="post-img"><img width="500" src="<?= url_api() ?>news/<?= $data['picture'] ?>" class="img-fluid" style="height: 210px;"></div>
                 <div class="meta">
                   <span class="post-date"><?= $data['category_news'][0]['name_category_news'] ?></span>
-                  <span class="post-author"> / Korlantas Polri</span>
+                  <span class="post-author"> / Korlantas Polri</span><br>
+                  <span class="post-author"><?= format_indoHari($data['date']) ?></span>
                 </div>
                 <div class="row">
                   <div class="col-md-12 d-block">
-                    <h4 class="post-title fs-6" style="height: 80px;"><?= substr($data['title'], 0, 150); ?></h4>
+                    <h4 class="post-title fs-6" style="height: 80px;"><?= substr($data['title'], 0, 100) . '. . .'; ?></h4>
                   </div>
                   <div class="col-md-12 d-block">
                     <p style="text-align: justify;" style="height: 100px;"><?= substr($data['content'], 0, 260) . '. . .' ?></p>

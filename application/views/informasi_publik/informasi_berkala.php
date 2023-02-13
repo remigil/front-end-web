@@ -63,25 +63,25 @@
 					<a href="<?= base_url()?>profil/struktur_organisasi" style="text-decoration:none ; color:#000"> Struktur Organisasi</a>
 					<ul>
 						<li>
-							<a href="<?= base_url()?>profil/profil_pejabat"> Struktur Organisasi Korlantas Polri</a>
+							<a class="glightbox" data-gallery="images-gallery" href="<?= base_url()?>assets/fe/struktur/struktur_korlantas.png"> Struktur Organisasi Korlantas Polri</a>
 						</li>
 						<li>
-							<a href="<?= base_url()?>profil/profil_pejabat#tab2"> Struktur Organisasi Direktorat Kamsel</a>
+							<a class="glightbox" data-gallery="images-gallery" href="<?= base_url()?>assets/fe/struktur/struktur_dirkamsel.png"> Struktur Organisasi Direktorat Kamsel</a>
 						</li>
 						<li>
-							<a href="<?= base_url()?>profil/profil_pejabat#tab2"> Struktur Organisasi Direktorat Gakkum</a>
+							<a class="glightbox" data-gallery="images-gallery" href="<?= base_url()?>assets/fe/struktur/struktur_dirgakkum.png"> Struktur Organisasi Direktorat Gakkum</a>
 						</li>
 						<li>
-							<a href="<?= base_url()?>profil/profil_pejabat#tab2"> Struktur Organisasi Direktorat Regident</a>
+							<a class="glightbox" data-gallery="images-gallery" href="<?= base_url()?>assets/fe/struktur/struktur_dirregident.png"> Struktur Organisasi Direktorat Regident</a>
 						</li>
 						<li>
-							<a href="<?= base_url()?>profil/profil_pejabattab3"> Struktur Organisasi Bagops Korlantas Polri</a>
+							<a class="glightbox" data-gallery="images-gallery" href="<?= base_url()?>assets/fe/struktur/struktur_bagops.png"> Struktur Organisasi Bagops Korlantas Polri</a>
 						</li>
 						<li>
-							<a href="<?= base_url()?>profil/profil_pejabattab3"> Struktur Organisasi Bagrenmin Korlantas Polri</a>
+							<a class="glightbox" data-gallery="images-gallery" href="<?= base_url()?>assets/fe/struktur/struktur_bagrenmin.png"> Struktur Organisasi Bagrenmin Korlantas Polri</a>
 						</li>
 						<li>
-							<a href="<?= base_url()?>profil/profil_pejabattab3"> Struktur Organisasi Bag TIK Korlantas Polri</a>
+							<a class="glightbox" data-gallery="images-gallery" href="<?= base_url()?>assets/fe/struktur/struktur_bagtik.png"> Struktur Organisasi Bag TIK Korlantas Polri</a>
 						</li>
 						<li>
 							<a href="<?= base_url()?>profil/profil_pejabat"> Struktur Organisasi Direktorat Lalu Lintas Polda</a>
@@ -232,10 +232,7 @@
 				</li>
 				<li>
 					Kalender Kegiatan / Kerja;
-					<u>
-						<li>Unduh Agenda Kegiatan Kepala Korps Lalu Lintas Polri 2020</li>
-						<li>Unduh Agenda Kegiatan Kepala Korps Lalu Lintas Polri 2021</li>
-					</u>
+					
 				</li>
 			</ul>
 	</div>
@@ -319,9 +316,9 @@
 					</ul>
 				</li>
 				<li>
-					Chatbot K3i Korlantas Polri:
+					Aplikasi K3i Korlantas Polri:
 					<ul>
-						<li>Chatbot k3i merupakan layanan informasi Korlantas Polri yang didukung asisten virtual untuk penyediaan dan penerimaan informasi.</li>
+						<li>Aplikasi k3i merupakan layanan informasi Korlantas Polri yang didukung asisten virtual untuk penyediaan dan penerimaan informasi.</li>
 						<li>Pengunjung dapat langsung mengakses asisten virtual ini baik dari website k3i maupun aplikasi k3i untuk memulai proses komunikasi. Terkait pengaduan, agen Korlantas Polri akan mendata dan juga meneruskan laporan baik ke petugas Polantas di kewilayahan maupun stakeholder terkait.</li>
 					</ul>
 				</li>
@@ -333,10 +330,10 @@
 					</ul>
 				</li>
 				<li>
-					Chatbot K3i Korlantas Polri:
+					Aplikasi K3i Korlantas Polri:
 					<ul>
-						<li>Chatbot K3i Korlantas Polri adalah aplikasi Chatbot K3i NTMC Korlantas Polri untuk memproses pengaduan dan pemberian informasi lalu lintas sehubungan dengan adanya pengaduan permasalahan lalu lintas seperti terjadinya kecelakaan lalu lintas, kemacetan lalu lintas, pelanggaran Rambu Lalu Lintas, adanya Calo, Pungli, Suap dan balap liar yang melanggar peraturan perundang-undangan dan kebijakan bidang lalu lintas, serta permintaan informasi terkait E-Tilang, Layanan Korlantas, peraturan lalu lintas, dan informasi kondisi lalu lintas terkini.</li>
-						<li>layanan penyampaian semua aspirasi dan pengaduan masyarakat Indonesia melalui beberapa kanal pengaduan yaitu website www.k3i.korlantas.go.id, chatbot melalui aplikasi K3i Korlantas Polri maupun chatbot di aplikasi mobile k3i Korlantas Polri (Android dan iOS).</li>
+						<li>Aplikasi K3i Korlantas Polri adalah Aplikasi K3i NTMC Korlantas Polri untuk memproses pengaduan dan pemberian informasi lalu lintas sehubungan dengan adanya pengaduan permasalahan lalu lintas seperti terjadinya kecelakaan lalu lintas, kemacetan lalu lintas, pelanggaran Rambu Lalu Lintas, adanya Calo, Pungli, Suap dan balap liar yang melanggar peraturan perundang-undangan dan kebijakan bidang lalu lintas, serta permintaan informasi terkait E-Tilang, Layanan Korlantas, peraturan lalu lintas, dan informasi kondisi lalu lintas terkini.</li>
+						<li>layanan penyampaian semua aspirasi dan pengaduan masyarakat Indonesia melalui beberapa kanal pengaduan yaitu website www.k3i.korlantas.go.id, Aplikasi melalui aplikasi K3i Korlantas Polri maupun Aplikasi di aplikasi mobile k3i Korlantas Polri (Android dan iOS).</li>
 					</ul>
 				</li>
 

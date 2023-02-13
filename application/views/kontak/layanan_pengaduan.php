@@ -100,21 +100,37 @@
             <form action="" method="post" class="form " enctype="multipart/form-data">
             <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
               <div class="row">
-                <div class="col-md-6 form-group">
+                <div class="col-md-4 form-group">
                   <input type="text" name="nama" class="form-control"  placeholder="Masukan Nama" required>
                 </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
+                <div class="col-md-4 form-group mt-3 mt-md-0">
                   <input type="email" class="form-control" name="email"  placeholder="Masukan Email" required>
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                  <input type="text" class="form-control" name="nohp"  placeholder="Masukan Nomor Handphone" required>
                 </div>
               </div>
               <div class="form-group mt-3">
+                <select name="subjek" id="subjek" class="form-select" style="width:100% ; font-size:15px ;" required>
+                  <!-- <select name="" id=""  multiple required> -->
+                  <option selected="0">Pilih Subjek</option>
+                  <option value="1">Informasi bidang lalu Lintas</option>
+                  <option value="2">Kecelakaan Lalu Lintas</option>
+                  <option value="3">Kemacetan Lalu Lintas</option>
+                  <option value="4">Rambu-rambu Lalu Lintas</option>
+                  <option value="5">Calo, Pungli, Suap</option>
+                  <option value="6">Balap Liar</option>
+                  <option value="7">Informasi terkait lainnya</option>
+                </select>
                 <input type="text" class="form-control" name="subjek"  placeholder="Subjek" required>
               </div>
               <div class="form-group mt-3">
                 <textarea class="form-control" name="deskripsi" placeholder="Deskripsi" required></textarea>
               </div>
               
-              <div class="text-center"><button type="submit" class="btn btn-primary mt-4" onclick="submit()">Kirim Pesan</button></div>
+              <div class="text-center"><button type="submit" class="btn btn-primary mt-4" onclick="submit()">Kirim Pengaduan</button></div>
+              <div class="text-center">--- Atau ---</div>
+              <div class="text-center"><button type="submit" class="btn btn-primary mt-4" onclick="submit()">lanjutkan pengaduan ke contact center NTMC</button></div>
             </form>
           </div><!-- End Contact Form -->
 

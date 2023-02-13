@@ -173,6 +173,18 @@ class M_dokumenperaturan extends CI_Model {
 				$category = "BPS";
 			}else if($field['regulation_category'] == 28){
 				$category = "POLANTAS DALAM ANGKA";
+			}else if($field['regulation_category'] == 29){
+				$category = "Ditgakkum";
+			}else if($field['regulation_category'] == 30){
+				$category = "Ditkamsel";
+			}else if($field['regulation_category'] == 31){
+				$category = "Ditregident";
+			}else if($field['regulation_category'] == 32){
+				$category = "Bagops";
+			}else if($field['regulation_category'] == 33){
+				$category = "Bagrenmin";
+			}else if($field['regulation_category'] == 34){
+				$category = "Bagtik";
 			}else{
                 $category = "-";
             }

@@ -170,7 +170,7 @@
                 <a href="<?= base_url() ?>satker/baharkam">BAHARKAM</a>
                 <a href="<?= base_url() ?>satker/asops">ASOPS</a>
                 <a href="<?= base_url() ?>satker/divtik">DIVTIK</a>
-                <a href="<?= base_url() ?>satker/bareskrim">BARESKIM</a>
+                <a href="<?= base_url() ?>satker/bareskrim">BARESKRIM</a>
                 <a href="<?= base_url() ?>satker/divhumas">DIVHUMAS</a>
                 <a href="<?= base_url() ?>satker/itwasum">ITWASUM</a>
               </li>

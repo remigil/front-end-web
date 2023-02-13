@@ -52,9 +52,9 @@
 			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
 				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
 				<div class="service-item-upper">
-					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/dis-hd.png" alt="" width="70px" height="70px"></div>
-					<h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/dis/" class="stretched-link fs-5">DIS</a></h4>
-					<p class="text-center mb-5">Dynamic Infographic System (DIS) Suatu portal Korlantas Polri berisi Dynamic Infographic System adalah system aplikasi yang menghasilkan informasi kondisi lalu lintas terkini di jalan Tol maupun spot-spot pendukung seperti reas area, gate tol, kondisi lalu di jalan alteri, Pelabuhan, bandara dan lainnya yang didukung camera, cctv terupdate secara real time</p>
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/logo-k3i.png" alt="" width="70px" height="70px"></div>
+					<h4 class="text-center"><a href="https://k3i.korlantas.polri.go.id/dis/" class="stretched-link fs-5">K3I</a></h4>
+					<p class="text-center mb-5"><b>www.k3i.korlantas.polri.go.id</b> merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. Dalam hal ini, pemerintahan di Indonesia beserta institusi lainnya seperti kami Korlantas Polri bekerja untuk memastikan bahwa setiap rakyat di seluruh tanah air harus dapat merasakan kehadiran pelayanan pemerintahan di bidang LLAJ yang diselenggarakan oleh Polri sebagai salah satu pemangku kepentingan sesuai amanat Undang-Undang No.22 Tahun 2009 tentang LLAJ.</p>
 
 				</div>
 				</div>
@@ -74,6 +74,16 @@
 				<div class="service-item-upper">
 					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/ntmc.png" alt="" width="70px" height="70px"></div>
 					<h4 class="text-center"><a href="https://ntmcpolri.info/" class="stretched-link fs-5">NTMC</a></h4>
+					<p class="text-center mb-5">Suatu portal Korlantas Polri berisi informasi dan kegiatan operasional korlantas POLRI mapun stakeholder terkait dalam rangka memenuhi kebutuhan masyarakat terkait informasi bidang lalu lintas guna mewujudkan Kamseltibcar lantas.</p>
+
+				</div>
+				</div>
+			</div><!-- End Service Item -->
+			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
+				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
+				<div class="service-item-upper">
+					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/ntmc.png" alt="" width="70px" height="70px"></div>
+					<h4 class="text-center"><a href="https://ntmcpolri.info/" class="stretched-link fs-5">NTMC.go.id</a></h4>
 					<p class="text-center mb-5">Suatu portal Korlantas Polri berisi informasi dan kegiatan operasional korlantas POLRI mapun stakeholder terkait dalam rangka memenuhi kebutuhan masyarakat terkait informasi bidang lalu lintas guna mewujudkan Kamseltibcar lantas.</p>
 
 				</div>

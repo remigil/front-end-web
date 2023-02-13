@@ -39,41 +39,7 @@
 	</div>
 </section><!-- End Breadcrumbs -->
 
-<!-- ======= Featured Services Section ======= -->
-<section id="featured-services" class="featured-services">
 
-	<div class="container">
-		<div class="section-title">
-			<h2>Layanan Aplikasi <?= $breadcrumb ?></h2>
-			<!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
-		</div>
-
-		<div class="row gy-4">
-
-			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
-				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
-				<div class="service-item-upper">
-					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/rarirosa.png" alt="" width="70px" height="70px"></div>
-					<h4 class="text-center"><a href="https://rasirosakorlantas.id/" class="stretched-link fs-5">RASIROSA</a></h4>
-					<p class="text-center mb-5">Rasirosa adalah portal KORLANTAS POLRI berisi berbagai informasi yang dapat dipelajari dan digunakan baik oleh anggota POLRI maupun masyarakat untuk memahami berbagai hal yang berhubungan dengan lalu lintas pada umumnya dan Keselamatan berkendaraan pada khususnya, juga dikenal sebagai Literasi Road Safety</p>
-
-				</div>
-				</div>
-			</div><!-- End Service Item -->
-			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
-				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
-				<div class="service-item-upper">
-					<div class="icon text-center"><img src="<?= base_url() ?>assets/korlantas-hd.png" alt="" width="70px" height="70px"></div>
-					<h4 class="text-center"><a href="#" class="stretched-link fs-5">Film Pendek</a></h4>
-					<p class="text-center">Suatu Portal Korlantas Polri yang berisikan film pendek tentang tertib lalu lintas sebagai sarana sosialisasi dan edukasi pada masyarakat dalam tertib berlalu lintas di jalan agar terwujud KAMSELTIBCARLANTAS</p>
-
-				</div>
-				</div>
-			</div><!-- End Service Item -->
-		</div>
-
-	</div>
-</section><!-- End Featured Services Section -->
 
 <section>
 	<div class="container">

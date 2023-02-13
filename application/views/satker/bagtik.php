@@ -38,39 +38,7 @@
 	</div>
 </section><!-- End Breadcrumbs -->
 
-<!-- ======= Featured Services Section ======= -->
-<section id="featured-services" class="featured-services">
 
-	<div class="container">
-		<div class="section-title">
-			<h2>Layanan Aplikasi <?= $breadcrumb ?></h2>
-			<!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
-		</div>
-
-		<div class="row gy-4">
-
-			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
-				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
-				<div class="service-item-upper">
-					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/bigdata-hd.png" alt="" width="70px" height="70px"></div>
-					<h4 class="text-center"><a href="http://satudata.korlantas.polri.go.id/#/pages/dashboard" class="stretched-link fs-5">BIG DATA</a></h4>
-					<p class="text-center mb-5">Big Data adalah suatu platform data terintegrasi dari seluruh data di Korlantas POLRI</p>
-
-				</div>
-				</div>
-			</div><!-- End Service Item -->
-			<div class="col-xl-3 col-md-6 p-2" data-aos="zoom-out">
-				<div class="service-item position-relative" style="background-color: #E0E7FF; border-radius:10px;">
-				<div class="service-item-upper">
-					<div class="icon text-center"><img src="<?= base_url() ?>assets/fe/client/cctv-hd.png" alt="" width="70px" height="70px"></div>
-					<h4 class="text-center"><a href="<?= base_url() ?>cctv_streaming" class="stretched-link fs-5">CCTV</a></h4>
-					<p class="text-center mb-5">Platform CCTV Korlantas merupakan platform terintegrasi dari seluruh kamera yang dimiliki Korlantas POLRI dan CCTV Integrasi stakeholder terkait</p>
-
-				</div>
-				</div>
-			</div><!-- End Service Item -->
-		</div>
-</section><!-- End Featured Services Section -->
 
 
 <section>

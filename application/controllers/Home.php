@@ -35,7 +35,7 @@ class Home extends MX_Controller {
             // 'headers' => $headers
         ]);
 
-        $getStakeholder = guzzle_request('GET', 'news/newsbycategory/VTJGc2RHVmtYMS8wdmQ2TjNvU3FIazA0VEJNaW5lQXFva21QaXYyTlo5VT0', [
+        $getStakeholder = guzzle_request('GET', 'news/newsbycategory/VTJGc2RHVmtYMStVSWc2N0c2VnU4VmR2OWl3NFlhaGU3VjZHV01WM0xqQT0', [
             // 'headers' => $headers
         ]);
 

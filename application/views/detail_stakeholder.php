@@ -1,6 +1,7 @@
 <!-- ======= Breadcrumbs ======= -->
 <?php
 $asd = explode("|", $stakeholder['link_playlist']);
+$link = explode("|", $stakeholder['url']);
 ?>
 <section id="breadcrumbs" class="breadcrumbs">
 	<div class="container">
@@ -35,7 +36,7 @@ $asd = explode("|", $stakeholder['link_playlist']);
 					</ul>
 				</div>
 				<div class="col-md-4">
-					<div style="height: 200px; z-index:1;" id="map"></div>
+					<div style="height: 200px; z-index:1; border: 1px solid black; box-shadow: 2px 3px 3px black" id="map"></div>
 					<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28108.39961480636!2d106.82794556302969!3d-6.163824152437846!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x30b7ec7f0aeb8f12!2s<?= $stakeholder['fullname'] ?>!5e0!3m2!1sid!2sid!4v1670669074240!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
 
 				</div>
