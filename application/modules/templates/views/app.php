@@ -1627,7 +1627,7 @@
                                         <a href="<?php echo base_url(); ?>dashboard">
                                             <img src="<?= base_url('assets/sidebar/icon_beranda.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <!-- <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
-                                            <span data-key="t-dashboard" style="color: white;">Berandaaa</span>
+                                            <span data-key="t-dashboard" style="color: white;">Beranda</span>
                                         </a>
                                     </li>
                                     <!-- <li>
