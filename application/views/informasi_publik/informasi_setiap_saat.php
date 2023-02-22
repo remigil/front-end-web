@@ -91,12 +91,10 @@
 				<li>
 					Buku Polantas Dalam Angka Korlantas Polri;
 					<ul>
-						<li><a href="<?= url_api() . 'regulation_doc/POLANTAS-DALAM-ANGKA-TAHUN-2021.pdf'?>">Buku Polantas Dalam Angka Tahun 2021</a></li>
-						<li><a href="<?= url_api() . 'regulation_doc/POLANTAS-DALAM-ANGKA-TAHUN-2020.pdf'?>">Buku Polantas Dalam Angka Tahun 2020</a></li>
-						<li><a href="<?= url_api() . 'regulation_doc/POLANTAS-DALAM-ANGKA-TAHUN-2019.pdf'?>">Buku Polantas Dalam Angka Tahun 2019</a></li>
-						<li><a href="<?= url_api() . 'regulation_doc/POLANTAS-DALAM-ANGKA-TAHUN-2018.pdf'?>">Buku Polantas Dalam Angka Tahun 2018</a></li>
-						<li><a href="<?= url_api() . 'regulation_doc/POLANTAS-DALAM-ANGKA-TAHUN-2017.pdf'?>">Buku Polantas Dalam Angka Tahun 2017</a></li>
-						<li><a href="<?= url_api() . 'regulation_doc/POLANTAS-DALAM-ANGKA-TAHUN-2016.pdf'?>">Buku Polantas Dalam Angka Tahun 2016</a></li>
+						<?php foreach($getpp as $doc):?>
+							<li><a href="<?= url_api() . 'regulation_doc/'.$doc['fileReg'].''?>"><?= $doc['regulation_name']?></a></li>
+						<?php endforeach;?>
+						
 					</ul>
 				</li>
 			</ul>

@@ -9,7 +9,7 @@
   <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/login/css/bootstrap.min.css">
   <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/login/fonts/font-awesome/css/font-awesome.min.css">
   <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/login/fonts/flaticon/font/flaticon.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <!-- Favicon icon -->
   <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png" type="image/x-icon">
 
@@ -97,6 +97,14 @@
     .material-selectfield select:not(:placeholder-shown)+.labelmui {
       top: 0;
       transform: translateY(-50%) scale(.9);
+    }
+
+    .fa-eye {
+      position: absolute;
+      top: 35%;
+      right: 4%;
+      cursor: pointer;
+      color: lightgray;
     }
   </style>
 
@@ -200,7 +208,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         WARNING : <?php echo $this->session->flashdata('error') ?>
-      </div> 
+      </div>
     <?php } ?>
     <div class="login-2-inner">
       <div class="container">
@@ -232,8 +240,9 @@
                   <label class="labelmui">Nama pengguna atau Akun</label>
                 </div>
                 <div class="material-textfield">
-                  <input style="width: 100%;" placeholder="Sandi" name="password" type="password">
+                  <input style="width: 100%;" placeholder="Sandi" name="password" id="password" type="password">
                   <label class="labelmui">Sandi</label>
+                  <span><i class="fa-solid fa-eye" id="eye"></i></span>
                 </div>
 
                 <div class="mt-3 mb-3" style="display: flex; font-size: 12px;">
@@ -242,7 +251,7 @@
                 </div>
                 <div style="display: grid;">
                   <button type="submit" class="btn btn-lg btn-primary btn-theme mb-3" style="border-radius: 10px; font-size: 16px; background-color: #003A91">Masuk / Login</button>
-                  <a href="javascript(0);" style="font-size: 12px;">Lupa sandi ?</a>
+                  <a href="<?= base_url() ?>login/forgot_password" style="font-size: 12px;">Lupa sandi ?</a>
                 </div>
               </form>
             </div>
@@ -266,6 +275,15 @@
   <!-- Custom JS Script -->
 
   <script type="text/javascript">
+    const passwordInput = document.querySelector("#password")
+    const eye = document.querySelector("#eye")
+
+    eye.addEventListener("click", function() {
+      this.classList.toggle("fa-eye-slash")
+      const type = passwordInput.getAttribute("type") === "password" ? "text" : "password"
+      passwordInput.setAttribute("type", type)
+    })
+
     document.onkeypress = function(event) {
       event = (event || window.event);
       return keyFunction(event);

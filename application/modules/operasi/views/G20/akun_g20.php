@@ -100,16 +100,22 @@
                             <p class="text-center fw-bold" style="font-family:'Open Sans';font-size: 13px;color:#2C3333; ">Ketua Tim</p>
                         </div>
                     </div>
-                    <div class="row" style="margin-top:-20px">
-                        <div class="col-md-5">
+                    <div class="row" style="margin-top:-20px"> 
+                        <div class="col-md-5" id="selectOfficer1">  
+                            <div class="material-textfield" style="margin:0 -0.18vh 0 -0.18vh">
+                                <label style="margin-top: -30px;font-size: 14px;" class="labelmui">Pencarian Petugas</label>
+                                <input type="text" class="form-input" style="width: 100%;" id="searchOfficer" placeholder="Cari Petugas">
+                            </div>
+                        </div>
+                        <div class="col-md-5" id="selectOfficer2">
                             <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
                                 <select name="officers[]" class="form-select" style="width:100%" id="select1" onchange="getvalue(1)" onclick="getOption(1)" required>
                                     <option selected value="">Pilih Petugas</option>
-                                </select>
-                                <!-- <label class="labelmui">Petugas</label> -->
+                                </select> 
                                 <label style="margin-top: -30px;font-size: 14px;" class="labelmui">Petugas</label>
-                            </div>
-                        </div>
+                            </div> 
+                        </div>  
+                        
                         <div class="col-md-4">
                             <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
                                 <select name="id_kendaraan[]" class="form-select" style="width:100%" id="kendaraan" required>
@@ -130,9 +136,9 @@
                             </div>
                         </div>
                         <div class="col-md-1">
-                            <div class="position-absolute top-50 start-50 translate-middle" style="margin:0 -0.18vh 0 -0.18vh">
+                            <!-- <div class="position-absolute top-50 start-50 translate-middle" style="margin:0 -0.18vh 0 -0.18vh">
                                 <button class=" btn btn-success" type="button" id="addId" onclick="education_fields();"> + </button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div id="education_fields"></div>
@@ -167,7 +173,7 @@
     
     $(document).ready(function() {
         
-        getOfficerList(null);
+        getOfficerList(null,1);
 
 
         new Choices('#filterNegara', {
@@ -373,52 +379,49 @@
             });
         });
     });
- 
-    function getOfficerList(search){ 
-        $(".aksiTambah").hide();
-        $(".loadTambah").show();
-        
-        for (let ii = 0; ii < 70; ii++) {
-            // console.log(ii+1);
-            setTimeout(() => {
-                $.ajax({
-                    type : "POST",
-                    url : "<?php echo base_url();?>operasi/Akun/GetPetugasList", 
-                    data : {
-                        "search" : search, 
-                        "start": ii+1,
-                    }, 
-                    dataType : "JSON",
-                    success : function(result){ 
-                        // console.log(result);
-                        if(result.length > 0){
-                            for (let i = 0; i < result.length; i++) {
-                                Petugas.push(result[i]);
-                                PetugasOrigin.push(result[i]);
-                                Petugasbaru.push(result[i]); 
-                            }
-                        }else{
-                            $(".aksiTambah").show(); 
-                            $(".loadTambah").hide();
-                        }
-                        
-                        // Petugas = result;
-                        // PetugasOrigin = result;
-                        // Petugasbaru = result;
-                    }
-                });
-                
-            }, ii * 200);
-        }
 
-        // setTimeout(() => {
-        //     $(".aksiTambah").show(); 
-        //     $(".loadTambah").hide();
-        // }, 61 * 1000);
+    
+    $("#selectOfficer1").show();
+    $("#selectOfficer2").hide(); 
+    $("#searchOfficer").on('change', function(e) {  
+        getOfficerList(this.value, 1);
+        $("#selectOfficer1").hide();
+        $("#selectOfficer2").show();
+    });
+ 
+    function getOfficerList(search, no){ 
+        $(".aksiTambah").hide();
+        $(".loadTambah").show(); 
+
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>operasi/Akun/GetPetugasList", 
+            data : {
+                "search" : search, 
+                // "start": ii+1,
+            }, 
+            dataType : "JSON",
+            success : function(result){ 
+                
+                if(result.length > 0){
+                    // if(search != null){  
+                        for (let i = 0; i < result.length; i++) {
+                            Petugas.push(result[i]);
+                            PetugasOrigin.push(result[i]);
+                            Petugasbaru.push(result[i]);  
+                        } 
+                    // } 
+                } 
+                
+                $(".aksiTambah").show(); 
+                $(".loadTambah").hide(); 
+            }
+        }); 
     }
 
     function getOption(no) {
-        console.log(Petugas.length);
+        // console.log(Petugas.length); 
+
         let select = $('#select' + no).find(":selected").val();
         let list = '';
         if (select == '') {
@@ -459,14 +462,14 @@
         var rdiv = 'removeclass' + room;
         divtest.innerHTML =
             '<div class="row" style="margin-top:-10px">' +
-            '<div class="col-md-5">' +
-            '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
-            '<select name="officers[]" class="form-select" style="width:100%" id="select' + room + '" onchange="getvalue(' + room + ')"  onclick="getOption(' + room + ')" required>' +
-            ' <option selected value="">Pilih Petugas</option>' +
-            '</select>' +
-            '<label class="labelmui">Petugas</label>' +
-            '</div>' +
-            '</div>' +
+                '<div class="col-md-5">' +
+                    '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
+                        '<select name="officers[]" class="form-select" style="width:100%" id="select' + room + '" onchange="getvalue(' + room + ')"  onclick="getOption(' + room + ')" required>' +
+                        ' <option selected value="">Pilih Petugas</option>' +
+                        '</select>' +
+                        '<label class="labelmui">Petugas</label>' +
+                    '</div>' +
+                '</div>' +
             '<div class="col-md-4">' +
             '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
             '<select name="id_kendaraan[]" class="form-select" id="kendaraan'+room+'" style="width:100%" required>' +
@@ -503,29 +506,23 @@
         }
         $('#select' + room).html(list);
         new Choices('#kendaraan' + room, {
-                searchEnabled: true,
-                removeItemButton: true,
-                removeItems: true,
-                itemSelectText: '',
-                classNames: {
-                    containerOuter: 'choices select-choices',
-                },
-            });   
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });   
         new Choices('#select' + room, {
-                searchEnabled: true,
-                removeItemButton: true,
-                removeItems: true,
-                itemSelectText: '',
-                classNames: {
-                    containerOuter: 'choices select-choices',
-                },
-            });   
-        // $('#select' + room).select2({
-        //     dropdownParent: $(".modal")
-        // })
-        // $('#kendaraan' + room).select2({
-        //     dropdownParent: $(".modal")
-        // })
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });   
         return room;
     }
     var totalId = [1];
@@ -543,10 +540,7 @@
         }
         $('.removeclass' + rid).remove();
         return totalId;
-    }
-
-
-
+    } 
 
     function getvalue(id) {
         PetugasUntukSelectLain = Petugasbaru.filter((petugas) => petugas.id == $('#select' + id).val())

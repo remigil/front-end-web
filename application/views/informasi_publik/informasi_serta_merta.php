@@ -31,11 +31,13 @@
 		<tbody>
 			<tr class="table-striped">
 				<td>Nomor Dokumen</td>
-				<td>40001213</td>
+				<td><?= $getdoc['regulation_name']?></td>
 			</tr>
 			<tr>
-				<td>Tanggal Publish</td>
-				<td>27 Apri 2018</td>
+				<td>Tahun Publish</td>
+				<td>
+                    <?= $getdoc['year']?>
+                </td>
 			</tr>
 			<tr>
 				<td>Jenis Informasi</td>
@@ -55,6 +57,7 @@
 			</tr>
 		</tbody>
 	</table>
+    <a href="<?= url_api() . 'regulation_doc/' . $getdoc['fileReg'] ?>" class="btn btn-primary mb-5" style="width:100%">Unduh</a>
 </div>
 <!-- Container / End -->
 

@@ -17,9 +17,124 @@ class Satker extends MX_Controller {
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
 	}
  
+	public function detailSatker($id)
+	{
+		// menu navbar
+			$getStakeholder = guzzle_request('GET', 'stackholder', []);
+			$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+			$getpublikasi = guzzle_request('GET', 'publikasi', [
+				// 'headers' => $headers
+			]);
+			$data['publikasi'] = $getpublikasi;
+
+			$getSatker = guzzle_request('GET', 'fungsisatker', [
+				// 'headers' => $headers
+			]);
+			$data['satker'] = $getSatker;
+
+			$getLainnya = guzzle_request('GET', 'fungsisatker', [
+				// 'headers' => $headers
+			]);
+			$data['satker'] = $getSatker;
+			
+			$getLainnya = guzzle_request('GET', 'fungsilain', [
+				// 'headers' => $headers
+			]);
+			$data['lainnya'] = $getLainnya;
+		// end menu navbar
+
+		$getbyid = guzzle_request('GET', 'fungsisatker/getIdWeb/' . $id, []);
+		$getdokumentasi = guzzle_request('GET', 'dokumenfungsisatker/getbyidfungsi/' . $id, []);
+		$getlayanan = guzzle_request('GET', 'layananfungsisatker/getbyidfungsi/' . $id, []);
+
+		// var_dump($getlayanan);die;
+
+		$data['data'] = $getbyid['data']['data'];
+		
+		// var_dump($data['data']);die;
+
+		$data['title'] = $data['data']['fullname_satker']." | K3I Korlantas";
+		$data['breadcrumb'] = $data['data']['name_satker'];
+		$data['headline'] = $data['data']['fullname_satker'];
+
+		
+
+		
+
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+		$data['csrf_token'] = $this->security->get_csrf_hash();
+
+		// $data['title'] = $getbyid['data']['data']['name_satker'];
+
+		
+		$data['dokumentasi'] = $getdokumentasi['data']['data'];
+		$data['layanan'] = $getlayanan['data']['data'];
+		// var_dump($data['layanan']);die;
+
+
+
+		$this->template->load('templates/template', 'satker/detail_satker', $data);
+	}
+	public function detailLainnya($id)
+	{
+		// menu navbar
+			$getStakeholder = guzzle_request('GET', 'stackholder', []);
+			$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+			$getpublikasi = guzzle_request('GET', 'publikasi', [
+				// 'headers' => $headers
+			]);
+			$data['publikasi'] = $getpublikasi;
+
+			$getSatker = guzzle_request('GET', 'fungsisatker', [
+				// 'headers' => $headers
+			]);
+			$data['satker'] = $getSatker;
+
+			$getLainnya = guzzle_request('GET', 'fungsilain', [
+				// 'headers' => $headers
+			]);
+			$data['lainnya'] = $getLainnya;
+		// end menu navbar
+
+		$getbyid = guzzle_request('GET', 'fungsilain/getIdWeb/' . $id, []);
+		$getdokumentasi = guzzle_request('GET', 'dokumenfungsilain/getbyidfungsi/' . $id, []);
+
+		// var_dump($getlayanan);die;
+
+		$data['data'] = $getbyid['data']['data'];
+		
+		// var_dump($data['data']);die;
+
+		$data['title'] = $data['data']['fullname_fungsi']." | K3I Korlantas";
+		$data['breadcrumb'] = $data['data']['name_fungsi'];
+		$data['headline'] = $data['data']['fullname_fungsi'];
+
+		
+
+		
+
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+		$data['csrf_token'] = $this->security->get_csrf_hash();
+
+		// $data['title'] = $getbyid['data']['data']['name_satker'];
+
+		
+		$data['dokumentasi'] = $getdokumentasi['data']['data'];
+		// var_dump($data['layanan']);die;
+
+
+
+		$this->template->load('templates/template', 'satker/detail_lainnya', $data);
+	}
 	public function ditgakkum()
 	{ 
 		$getStakeholder = guzzle_request('GET', 'stackholder', []);
+
+		$getdoc = guzzle_request('Get' , 'regulation_doc/bycategory/29',[]);
+
+		
 
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
@@ -28,6 +143,15 @@ class Satker extends MX_Controller {
 		$data['breadcrumb'] = "ditgakkum";
 		$data['headline'] = "DIREKTORAT PENEGAK HUKUM";
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+		$data['getdoc'] = $getdoc['data'];
+
+		$getPublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getPublikasi;
+
+		// var_dump($data['getdoc']);die;
 
 		
         
@@ -39,6 +163,8 @@ class Satker extends MX_Controller {
 	{ 
 		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
+		$getdoc = guzzle_request('Get' , 'regulation_doc/bycategory/31',[]);
+
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
 
@@ -46,6 +172,11 @@ class Satker extends MX_Controller {
 		$data['breadcrumb'] = "ditregident";
 		$data['headline'] = "DIREKTORAT REGISTRASI DAN IDENTIFIKASI";
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+		$getPublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getPublikasi;
 
 		
         
@@ -57,6 +188,8 @@ class Satker extends MX_Controller {
 	{ 
 		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
+		$getdoc = guzzle_request('Get' , 'regulation_doc/bycategory/30',[]);
+
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
 
@@ -64,6 +197,11 @@ class Satker extends MX_Controller {
 		$data['breadcrumb'] = "ditkamsel";
 		$data['headline'] = "DIREKTORAT KEAMANAN DAN KESELAMATAN";
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+		$getPublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getPublikasi;
 
 		
         
@@ -75,6 +213,8 @@ class Satker extends MX_Controller {
 	{ 
 		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
+		$getdoc = guzzle_request('Get' , 'regulation_doc/bycategory/33',[]);
+
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
 
@@ -82,6 +222,11 @@ class Satker extends MX_Controller {
 		$data['breadcrumb'] = "bagrenmin";
 		$data['headline'] = "BAGIAN PERENCANAAN DAN ADMINISTRASI";
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+		$getPublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getPublikasi;
 
 		
         
@@ -93,6 +238,8 @@ class Satker extends MX_Controller {
 	{ 
 		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
+		$getdoc = guzzle_request('Get' , 'regulation_doc/bycategory/32',[]);
+
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
 
@@ -100,6 +247,11 @@ class Satker extends MX_Controller {
 		$data['breadcrumb'] = "bagops";
 		$data['headline'] = "BAGIAN OPERASIONAL";
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+		$getPublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getPublikasi;
 
 		
         $this->template->load('templates/template','satker/bagops', $data); 
@@ -110,6 +262,8 @@ class Satker extends MX_Controller {
 	{ 
 		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 
+		$getdoc = guzzle_request('Get' , 'regulation_doc/bycategory/34',[]);
+
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
 
@@ -118,6 +272,10 @@ class Satker extends MX_Controller {
 		$data['headline'] = "BAGIAN TEKNOLOGI INFORMASI KORLANTAS";
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
 
+		$getPublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getPublikasi;
 		
         $this->template->load('templates/template','satker/bagtik', $data); 
         
@@ -134,6 +292,11 @@ class Satker extends MX_Controller {
 		$data['breadcrumb'] = "baharkam";
 		$data['headline'] = "BAHARKAM POLRI";
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+		$getPublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getPublikasi;
 
 		
         $this->template->load('templates/template','satker/baharkam', $data); 
@@ -152,6 +315,11 @@ class Satker extends MX_Controller {
 		$data['headline'] = "ASISTEN KAPOLRI BIDANG OPERASI";
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
 
+		$getPublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getPublikasi;
+
 		
         $this->template->load('templates/template','satker/asops', $data); 
         
@@ -168,6 +336,11 @@ class Satker extends MX_Controller {
 		$data['breadcrumb'] = "divtik";
 		$data['headline'] = "DIVISI TEKNOLOGI INFORMASI DAN KOMUNIKASI POLRI";
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+		$getPublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getPublikasi;
 
 		
         $this->template->load('templates/template','satker/divtik', $data); 
@@ -186,6 +359,11 @@ class Satker extends MX_Controller {
 		$data['headline'] = "BARESKRIM POLRI";
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
 
+		$getPublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getPublikasi;
+
 		
         $this->template->load('templates/template','satker/bareskrim', $data); 
         
@@ -203,6 +381,11 @@ class Satker extends MX_Controller {
 		$data['headline'] = "DIVISI HUMAS POLRI";
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
 
+		$getPublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getPublikasi;
+
 		
         $this->template->load('templates/template','satker/divhumas', $data); 
         
@@ -219,6 +402,11 @@ class Satker extends MX_Controller {
 		$data['breadcrumb'] = "itwasum";
 		$data['headline'] = "ITWASUM POLRI";
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+		$getPublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getPublikasi;
 
 		
         $this->template->load('templates/template','satker/itwasum', $data); 

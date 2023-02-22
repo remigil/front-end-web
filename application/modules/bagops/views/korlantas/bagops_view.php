@@ -100,7 +100,7 @@
             <div class="col-md-12">
                 <div class="card card-headline">
                     <div class="card-body row">
-                        <h2 class="text-center">GIAT GAKKUM LANTAS (PELANGGARAN)</h2>
+                        <h2 class="text-center">GIAT GAKKUM LANGGAR (PELANGGARAN)</h2>
                     </div>
                 </div>
 
@@ -181,7 +181,7 @@
             <div class="col-md-12">
                 <div class="card card-headline">
                     <div class="card-body row">
-                        <h2 class="text-center">GIAT GAKKUM LANTAS (KECELAKAAN)</h2>
+                        <h2 class="text-center">GIAT GAKKUM LANGGAR (KECELAKAAN)</h2>
                     </div>
                 </div>
                 <div class="card">
@@ -276,6 +276,8 @@
     <script>
         $(document).ready(function() {
             let operation_id = $('#operasi_id').val()
+
+            console.log(operation_id);
             $('#titleoperasi').text($('#operasi_id').text())
             getPenluh(operation_id)
             getPenyebaran(operation_id)

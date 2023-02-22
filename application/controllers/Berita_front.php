@@ -10,14 +10,26 @@ class Berita_front extends MX_Controller {
  
 	public function index()
 	{ 
-		$getStakeholder = guzzle_request('GET', 'stackholder', []);
-		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash(); 
         $data['title'] = "Berita | K3I Korlantas";
         $data['breadcrumb'] = "Berita";
         $data['headline'] = "Berita";
+        
+		// menu navbar
+			$getStakeholder = guzzle_request('GET', 'stackholder', []);
+			$data['getStakeholder'] = $getStakeholder['data']['data'];
 
-		$data['getStakeholder'] = $getStakeholder['data']['data'];
+			$getpublikasi = guzzle_request('GET', 'publikasi', [
+				// 'headers' => $headers
+			]);
+			$data['publikasi'] = $getpublikasi;
+
+			$getSatker = guzzle_request('GET', 'fungsisatker', [
+				// 'headers' => $headers
+			]);
+			$data['satker'] = $getSatker;
+		// end menu navbar
 		  
 		
 		// $url = 'news?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
@@ -59,12 +71,30 @@ class Berita_front extends MX_Controller {
 	public function detailBerita($id)
     {
 
-		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash(); 
-        $data['title'] = "Berita | K3I Korlantas";  
 
-		$data['getStakeholder'] = $getStakeholder['data']['data'];
+        // menu navbar
+			$getStakeholder = guzzle_request('GET', 'stackholder', []);
+			$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+			$getpublikasi = guzzle_request('GET', 'publikasi', [
+				// 'headers' => $headers
+			]);
+			$data['publikasi'] = $getpublikasi;
+
+			$getSatker = guzzle_request('GET', 'fungsisatker', [
+				// 'headers' => $headers
+			]);
+			$data['satker'] = $getSatker;
+
+            $getLainnya = guzzle_request('GET', 'fungsilain', [
+				// 'headers' => $headers
+			]);
+			$data['lainnya'] = $getLainnya;
+		// end menu navbar
+
+        $data['title'] = "Berita | K3I Korlantas";  
 
 		$getBerita = guzzle_request('GET', 'news', [
             // 'headers' => $headers

@@ -164,6 +164,10 @@ class Div_tik extends MY_Controller
             $polda_name[] = $key['name_polda'];
         }
 
+
+        var_dump($url_today);
+        die;
+
         $data['turjagwali'] = [
             'turjagwali_date_today' => 'Total Turjagwali' . $today . '',
             'turjagwali_insiden_today' => $insiden_today,

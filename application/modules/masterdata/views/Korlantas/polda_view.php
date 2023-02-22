@@ -121,6 +121,19 @@
                         </div>
                     </div>
 
+                    <div class="col-md-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="link_playlist" placeholder="nomor" name="link_playlist">
+                            <label for="">Link Playlist</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="link_CCTV" placeholder="nomor" name="link_CCTV">
+                            <label for="">Link CCTV</label>
+                        </div>
+                    </div>
 
                     <div class="col-md-12">
                         <div class="form-floating mb-3">
@@ -265,6 +278,19 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="link_playlist" placeholder="nomor" name="link_playlist">
+                                    <label for="">Link Playlist</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="link_cctv" placeholder="nomor" name="link_cctv">
+                                    <label for="">Link CCTV</label>
+                                </div>
+                            </div>
 
                             <div class="col-md-12">
                                 <div class="form-floating mb-3">
@@ -373,6 +399,48 @@
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="phone_polda" placeholder="nomor" name="phone_polda">
                                     <label for="">Nomor Telepon Polda</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" placeholder="nomor" id="facebook" name="facebook">
+                                    <label for="">Facebook Polda</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" placeholder="nomor" id="youtube" name="youtube">
+                                    <label for="">Youtube Polda</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="link_playlist" placeholder="nomor" name="link_playlist">
+                                    <label for="">Link Playlist</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="link_cctv" placeholder="nomor" name="link_cctv">
+                                    <label for="">Link CCTV</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" placeholder="nomor" id="twitter" name="twitter">
+                                    <label for="">Twitter Polda</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" placeholder="nomor" id="instagram" name="instagram">
+                                    <label for="">Instagram Polda</label>
                                 </div>
                             </div>
 
@@ -839,6 +907,13 @@
                 $('.DetailPolda,#close_time').attr('disabled', true)
                 $('.DetailPolda,#phone_polda').attr('disabled', true)
 
+                $('.DetailPolda,#facebook').attr('disabled', true)
+                $('.DetailPolda,#twitter').attr('disabled', true)
+                $('.DetailPolda,#youtube').attr('disabled', true)
+                $('.DetailPolda,#link_playlist').attr('disabled', true)
+                $('.DetailPolda,#link_cctv').attr('disabled', true)
+                $('.DetailPolda,#instagram').attr('disabled', true)
+
                 // $('.DetailPolda,#logo').val(results.logo_polda)
                 // $('.DetailPolda,#kodeSatpas').val(results.code_satpas)
                 $('.DetailPolda,#namaPolda').val(results.name_polda)
@@ -848,6 +923,13 @@
                 $('.DetailPolda,#open_time').val(results.open_time)
                 $('.DetailPolda,#close_time').val(results.close_time)
                 $('.DetailPolda,#phone_polda').val(results.phone_polda)
+
+                $('.DetailPolda,#facebook').val(results.facebook)
+                $('.DetailPolda,#twitter').val(results.twitter)
+                $('.DetailPolda,#youtube').val(results.youtube)
+                $('.DetailPolda,#link_playlist').val(results.link_playlist)
+                $('.DetailPolda,#link_cctv').val(results.link_cctv)
+                $('.DetailPolda,#instagram').val(results.instagram)
 
             }
         })
@@ -876,6 +958,13 @@
                 $('.UbahPolda,#close_time').attr('disabled', false)
                 $('.UbahPolda,#phone_polda').attr('disabled', false)
 
+                $('.UbahPolda,#facebook').attr('disabled', false)
+                $('.UbahPolda,#twitter').attr('disabled', false)
+                $('.UbahPolda,#youtube').attr('disabled', false)
+                $('.UbahPolda,#link_playlist').attr('disabled', false)
+                $('.UbahPolda,#link_cctv').attr('disabled', false)
+                $('.UbahPolda,#instagram').attr('disabled', false)
+
                 $('#id_polda').val(results.id)
 
                 // $('.UbahPolda,#photo').val(results.logo_polda)
@@ -893,6 +982,8 @@
                 $('.UbahPolda,#facebook').val(results.facebook)
                 $('.UbahPolda,#twitter').val(results.twitter)
                 $('.UbahPolda,#youtube').val(results.youtube)
+                $('.UbahPolda,#link_playlist').val(results.link_playlist)
+                $('.UbahPolda,#link_cctv').val(results.link_cctv)
                 $('.UbahPolda,#instagram').val(results.instagram)
             }
         })

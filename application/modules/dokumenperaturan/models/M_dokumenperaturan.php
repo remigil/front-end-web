@@ -185,6 +185,8 @@ class M_dokumenperaturan extends CI_Model {
 				$category = "Bagrenmin";
 			}else if($field['regulation_category'] == 34){
 				$category = "Bagtik";
+			}else if($field['regulation_category'] == 35){
+				$category = "Serta Merta";
 			}else{
                 $category = "-";
             }

@@ -48,32 +48,40 @@
 			<h3 style="text-transform:uppercase ;">Dokumen Peraturan</h3>
 			<div class="card">
 				<div class="card-body">
-					<table id="datatable" class="table dt-responsive w-100 table-striped">
-						<thead>
-							<tr>
-								<th width="5%">No</th>
-								<th width="40%">Nama Peraturan</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="table-striped">
-								<td width="5%">1</td>
-								<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/UU-NOMOR-2-TAHUN-2002-TTG-KEPOLISIAN-NEGARA-REPUBLIK-INDONESIA.pdf">Undang-undang Nomor 2 Tahun 2002 tentang Kepolisian Negara Republik Indonesia</a></td>
-							</tr>
-							<tr>
-								<td width="5%">2</td>
-								<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/UNDANG-UNDANG-NOMOR-22-TAHUN-2009-TENTANG-LALU-LINTAS-DAN-ANGKUTAN-JALAN.pdf">Undang-undang Nomor 22 Tahun 2009 tentang Lalu Lintas dan Angkutan Jalan</a></td>
-							</tr>
-							<tr>
-								<td width="5%">3</td>
-								<td width="40%"><a href="https://k3i.korlantas.polri.go.id/index.php/sop/">Buku Vademikum Polantas</a></td>
-							</tr>
-							<tr>
-								<td width="5%">4</td>
-								<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/SOP-KORLANTAS-POLRI-TAHUN-2018.pdf">Standar Operasional Prosedur (SOP) Korlantas Polri</a></td>
-							</tr>
-						</tbody>
-					</table>
+				<table id="category1" class="table table-striped display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th width="5%">No</th>
+                            <!-- <th>Jenis Peraturan</th> -->
+                            <th width="75%">Nama Peraturan</th>
+                            <th>Tahun</th>
+                            <th>Aksi</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $no = 1;
+                        foreach ($getdoc as $doc) :
+                        ?>
+                            <tr>
+                                <td><?= $no++; ?></td>
+                                <td><?= $doc['regulation_name'] ?></td>
+                                <td><?= $doc['year'] ?></td>
+                                <td>
+                                    <a class="btn btn-success" href="<?= url_api() . 'regulation_doc/' . $doc['fileReg'] ?>">
+                                        <i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i>
+                                    </a>
+
+
+                                </td>
+
+                            </tr>
+                        <?php endforeach; ?>
+
+
+                    </tbody>
+                </table>
 				</div>
 			</div>
 		</div>
@@ -144,3 +152,9 @@
 			</div>
 		</div>
 </section><!-- End Gallery Section -->
+
+<script>
+    $(document).ready(function() {
+      $('#category1').DataTable();
+    });
+  </script>

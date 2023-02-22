@@ -11,25 +11,46 @@ class Kontak extends MX_Controller
 	}
 	public function index()
 	{
-		$getStakeholder = guzzle_request('GET', 'stackholder', []);
-
+		
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
 		$data['csrf_token'] = $this->security->get_csrf_hash();
-
+		
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
 	}
 
 	public function survey_kepuasan()
 	{
-		$getStakeholder = guzzle_request('GET', 'stackholder', []);
-
+		
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
 		$data['csrf_token'] = $this->security->get_csrf_hash();
 
-		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		// menu navbar
+			$getStakeholder = guzzle_request('GET', 'stackholder', []);
+			$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+			$getpublikasi = guzzle_request('GET', 'publikasi', [
+				// 'headers' => $headers
+			]);
+			$data['publikasi'] = $getpublikasi;
+
+			$getSatker = guzzle_request('GET', 'fungsisatker', [
+				// 'headers' => $headers
+			]);
+			$data['satker'] = $getSatker;
+
+			$getLainnya = guzzle_request('GET', 'fungsilain', [
+				// 'headers' => $headers
+			]);
+			$data['lainnya'] = $getLainnya;
+		// end menu navbar
+		
+		
 		$data['title'] = "Survey Kepuasan | K3I Korlantas";
 		$data['breadcrumb'] = "survey";
 		$data['headline'] = "SURVEY KEPUASAN";
+		
+		
 
 
 		$this->template->load('templates/template', 'kontak/survey_kepuasan', $data);
@@ -118,15 +139,36 @@ class Kontak extends MX_Controller
 
 	public function layanan_pengaduan()
 	{
-		$getStakeholder = guzzle_request('GET', 'stackholder', []);
-
+		
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
 		$data['csrf_token'] = $this->security->get_csrf_hash();
 
-		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		// menu navbar
+			$getStakeholder = guzzle_request('GET', 'stackholder', []);
+			$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+			$getpublikasi = guzzle_request('GET', 'publikasi', [
+				// 'headers' => $headers
+			]);
+			$data['publikasi'] = $getpublikasi;
+
+			$getSatker = guzzle_request('GET', 'fungsisatker', [
+				// 'headers' => $headers
+			]);
+			$data['satker'] = $getSatker;
+
+			$getLainnya = guzzle_request('GET', 'fungsilain', [
+				// 'headers' => $headers
+			]);
+			$data['lainnya'] = $getLainnya;
+		// end menu navbar
+		
+		
 		$data['title'] = "Layanan Pengaduan | K3I Korlantas";
 		$data['breadcrumb'] = "pengaduan";
 		$data['headline'] = "LAYANAN PENGADUAN";
+
+		
 
 
 		$this->template->load('templates/template', 'kontak/layanan_pengaduan', $data);

@@ -68,7 +68,7 @@
 						<br><br>
 					<b>Kepala Korps Lalu Lintas Polri</b>
 						<br><br><br><br>
-					<b>Drs. Firman Santyabudi, M.Si.</b>
+					<b><?= $kakor['name_pejabat']?></b>
 						<br><br>
 					<b>Inspektur Jendral Polisi</b>
 					</p>

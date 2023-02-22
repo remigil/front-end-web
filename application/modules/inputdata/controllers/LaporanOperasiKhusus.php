@@ -503,6 +503,8 @@ class LaporanOperasiKhusus extends MY_Controller
             ]
         ];
 
+
+
         $data = guzzle_request('POST', $url, [
             'json' => [
                 'value' => $value,

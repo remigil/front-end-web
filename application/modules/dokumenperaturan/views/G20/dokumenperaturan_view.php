@@ -83,6 +83,7 @@
                             <option value="32">Bagops</option>
                             <option value="33">Bagrenmin</option>
                             <option value="34">Bagtik</option>
+                            <option value="35">Serta Merta</option>
 
                         </select>
                         <label for="kategoriPeraturan">Kategori Peraturan</label>
@@ -155,6 +156,7 @@
                             <option value="32">Bagops</option>
                             <option value="33">Bagrenmin</option>
                             <option value="34">Bagtik</option>
+                            <option value="35">Serta Merta</option>
                             
 
                         </select>
@@ -228,6 +230,7 @@
                             <option value="32">Bagops</option>
                             <option value="33">Bagrenmin</option>
                             <option value="34">Bagtik</option>
+                            <option value="35">Serta Merta</option>
 
                         </select>
                         <label for="kategoriPeraturan">Kategori Peraturan</label>

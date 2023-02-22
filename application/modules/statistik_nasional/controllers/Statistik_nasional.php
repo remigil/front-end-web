@@ -49,6 +49,9 @@ class Statistik_nasional extends MY_Controller
         ]);
         $getGakkum = $getGakkum["data"];
 
+        var_dump($getGakkum);
+        die;
+
 
         $totalmotor = 0;
         $totalgarlantas = 0;

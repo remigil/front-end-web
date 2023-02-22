@@ -13,22 +13,41 @@ class Ditlantas_polda extends MX_Controller {
 	{ 
         $data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
+
+        // menu navbar
+			$getStakeholder = guzzle_request('GET', 'stackholder', []);
+			$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+			$getpublikasi = guzzle_request('GET', 'publikasi', [
+				// 'headers' => $headers
+			]);
+			$data['publikasi'] = $getpublikasi;
+
+			$getSatker = guzzle_request('GET', 'fungsisatker', [
+				// 'headers' => $headers
+			]);
+			$data['satker'] = $getSatker;
+
+            $getLainnya = guzzle_request('GET', 'fungsilain', [
+				// 'headers' => $headers
+			]);
+			$data['lainnya'] = $getLainnya;
+		// end menu navbar
         
 
         $url = 'polda_front/getId/' . $id;
         $getPolda = guzzle_request('GET', $url, [
         ]);
-		$getStakeholder = guzzle_request('GET', 'stackholder', []);
         $getPolda = $getPolda['data']['data'];
 		
-
+        
 		$data['breadcrumb'] = "Ditlantas Polda ".$getPolda['name_polda'];
 		$data['headline'] = "Ditlantas Polda ".$getPolda['name_polda'];
-
+        
 		$data['title'] = "Ditlantas Polda ".$getPolda['name_polda']." | K3I Korlantas";
 		$data['polda'] = $getPolda;
-
-		$data['getStakeholder'] = $getStakeholder['data']['data'];
+        
+		
 
         $getPolres = guzzle_request('GET' , 'polres?serverSide=true$start=1&length=10&order=id&orderDorection=desc&filter[]=polda_id&filterSearch[]='.$getPolda['polda_id'], []);
         $data['getPolres'] = $getPolres['data']['data'];

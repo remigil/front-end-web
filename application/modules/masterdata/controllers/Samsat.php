@@ -53,9 +53,9 @@ class Samsat extends MY_Controller
 
     public function store()
     {
-        $headers = [
-            'Authorization' => $this->session->userdata['token'],
-        ];
+        $headers = [ 
+            'Authorization' => $this->session->userdata['token'],  
+        ]; 
         $input      = $this->input->post();
 
         $dummy = [
@@ -87,10 +87,6 @@ class Samsat extends MY_Controller
                 'name' => 'polda_id',
                 'contents' => $input['polda_id'],
             ],
-            [
-                'name' => 'polres_id',
-                'contents' => $input['polres_id'],
-            ]
 
         ];
 
@@ -98,6 +94,8 @@ class Samsat extends MY_Controller
             'multipart' => $dummy,
             'headers' => $headers
         ]);
+        // echo json_encode($data);
+        // die;
 
         if ($data['isSuccess'] == true) {
             $res = array(
@@ -123,10 +121,12 @@ class Samsat extends MY_Controller
 
         $id = $this->input->post('id_samsat');
 
-        $getDetail = guzzle_request('GET', 'samsat/getId/' . $id . '', [
+        $getDetail = guzzle_request('GET', 'samsat/getId/VTJGc2RHVmtYMStDMy9SMDh3Q09mNUVta1VqN2h3MmZ4Zm1HTWIvY0YwVT0', [
             'headers' => $headers
         ]);
+        var_dump($getDetail);die;
         $data['getDetail'] = $getDetail['data']['data'];
+        // var_dump($data);die;
 
         echo json_encode($data['getDetail']);
     }
@@ -204,10 +204,6 @@ class Samsat extends MY_Controller
                 'name' => 'polda_id',
                 'contents' => $input['polda_id'],
             ],
-            [
-                'name' => 'polres_id',
-                'contents' => $input['polres_id'],
-            ]
 
         ];
         $data = guzzle_request('PUT', 'samsat/edit/' . $input['id'] . '', [

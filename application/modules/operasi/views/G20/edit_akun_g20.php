@@ -112,7 +112,7 @@
                     <?php $no++?>
                 <?php endforeach; ?>
 
-                <div class="row" style="margin-top:-20px">
+                <!-- <div class="row" style="margin-top:-20px">
                     <div class="col-md-5">
                         <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
                             <select name="officers[]" class="form-select" style="width:100%" id="select<?= count($data['getDetail']['data']['officers']) + 1;?>" onchange="getvalue(<?= count($data['getDetail']['data']['officers']) + 1;?>)" onclick="getOption(<?= count($data['getDetail']['data']['officers']) + 1;?>)">
@@ -144,7 +144,7 @@
                             <button class=" btn btn-success" type="button" id="addId" onclick="education_fields();"> + </button>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div id="education_fields"></div>
                 <div class="clear"></div>
                 <div class="col-md-12 mt-2">

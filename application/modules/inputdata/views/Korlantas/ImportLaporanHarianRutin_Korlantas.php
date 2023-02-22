@@ -200,6 +200,7 @@
                     <option value="">Pilih</option>
                     <option value="5">Dikmaslantas</option>
                     <option value="6">Penyebaran / Pemasangan</option>
+                    <option value="11">Rekalantas</option>
                 `)
         } else if (jenis_satker == 3) {
             $('#jenis_laporan')

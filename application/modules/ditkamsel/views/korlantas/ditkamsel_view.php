@@ -38,22 +38,30 @@
                                 Struktur Organisasi
                             </button>
                         </div>
-                        <!-- <div class="col-md-2 text-end align-self-center" style="margin-left: -4%;">
-                            <div class="btn-group">
-                                <button type="button" class="btn dropdown-toggle btn-outline-primary" data-bs-toggle="dropdown" aria-expanded="false" style="width: 200px; border-color:#007DD8;">
-                                    Pilih Laporan <i class="fas fa-caret-down"></i>
-                                </button>
-
-                               
-                                <div class="dropdown-menu" style="width: 200px; background-color:#D9D9D9">
-                                    <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
-                                    <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=weeks&date=<?= date('Y-m-d'); ?>">Mingguan</a>
-                                    <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=month&date=<?= date('m'); ?>">Bulanan</a>
-                                    <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=triwulan&date=<?= date('m'); ?>">Triwulan</a>
-                                    <a class="dropdown-item" target="_blank" download href="<?= ApiUrl() ?>laporan_harian/anev_ditkamsel?type=years&date=<?= date('Y'); ?>">Tahunan</a>
+                        <div class="row">
+                            <div class="col-md-2 text-end align-self-center">
+                                <div class="form-group">
+                                    <select class="form-control form-select" id="type">
+                                        <option>Pilih Laporan</option>
+                                        <option value="day">Harian</option>
+                                        <option value="weeks">Mingguan</option>
+                                        <option value="month">Bulanan</option>
+                                        <option value="triwulan">Triwulan</option>
+                                        <option value="years">Tahunan</option>
+                                    </select>
                                 </div>
                             </div>
-                        </div> -->
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <input type="date" class="form-control" id="type_date">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-primary" id="btn_export_laporan">
+                                    Export Laporan
+                                </button>
+                            </div>
+                        </div>
                     <?php } ?>
                 </div>
 
@@ -404,6 +412,7 @@
                     </div>
                 </div>
             </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.3/apexcharts.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
             <script>
@@ -411,7 +420,9 @@
                 var year = new Date();
                 var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
                 var lastDay = new Date(date.getFullYear(), 11, 31).toLocaleDateString("en-GB").split('/').reverse().join('-');
-                var today = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
+                var today = moment().add(1, 'days').format('YYYY-MM-DD');
+
+                console.log(today)
 
                 date.setDate(date.getDate() - 6);
                 var seven_daysAgo = date.toLocaleDateString("en-GB").split('/').reverse().join('-');
@@ -2637,6 +2648,40 @@
                             var ditkamseldikmaslantasyear = new ApexCharts(document.querySelector("#chartyear"), ditkamseldikmaslantasyear);
                             ditkamseldikmaslantasyear.render();
                         }
+                    })
+
+                    $('#type').on('change', function() {
+                        console.log($('#type').val())
+                        let type = $('#type').val()
+                        if (type == 'day') {
+                            $('#type_date').attr('type', 'date')
+                        } else if (type == 'weeks') {
+                            $('#type_date').attr('type', 'date')
+                        } else if (type == 'month') {
+                            $('#type_date').attr('type', 'month')
+                        } else if (type == 'triwulan') {
+                            $('#type_date').attr('type', 'month')
+                        } else if (type == 'years') {
+                            $('#type_date').attr('type', 'month')
+                        }
+                    })
+
+                    $('#btn_export_laporan').on('click', function(e) {
+                        e.preventDefault()
+                        let = '';
+                        let type = $('#type').val()
+                        let date = $('#type_date').val();
+                        let url = `laporan_harian/anev_ditkamsel?date=${date}&type=${type}`
+
+                        if (type == 'month') {
+                            console.log(date)
+                        }
+
+                        window.open(
+                            `<?= ApiUrl() ?>${url}`,
+                            '_blank' // <- This is what makes it open in a new window.
+                        );
+
                     })
                 }
             </script>

@@ -147,7 +147,6 @@
               <li><a href="<?= base_url() ?>profil/profil_pejabat">Profil Pejabat</a></li>
               <li><a href="<?= base_url() ?>profil/visi_misi">Visi dan Misi</a></li>
               <li><a href="<?= base_url() ?>profil/tugas_fungsi">Tugas dan Fungsi</a></li>
-              <!-- <li><a href="<?= base_url() ?>organisasi_tatakerja">Organisasi dan Tata Kerja</a></li> -->
               <li><a href="<?= base_url() ?>profil/sejarah">Sejarah POLANTAS</a></li>
             </ul>
           </li>
@@ -156,23 +155,17 @@
               <li>
                 <h5>Korlantas</h5>
                 <hr width="80%">
-                <a href="<?= base_url() ?>satker/ditgakkum">DITGAKKUM</a>
-                <a href="<?= base_url() ?>satker/ditregident">DITREGIDENT</a>
-                <a href="<?= base_url() ?>satker/ditkamsel">DITKAMSEL</a>
-                <a href="<?= base_url() ?>satker/bagrenmin">BAGRENMIN</a>
-                <a href="<?= base_url() ?>satker/bagops">BAGOPS</a>
-                <a href="<?= base_url() ?>satker/bagtik">BAGTIK</a>
+                <?php foreach ($satker['data']['rows'] as $data) : ?>
+                  <a href="<?= base_url('satker/detailSatker/' . $data['id']) ?>"><?= $data['name_satker']; ?></a>
+                <?php endforeach ?>
               </li>
               <li>
 
                 <h5>Fungsi Lainnya</h5>
                 <hr width="80%">
-                <a href="<?= base_url() ?>satker/baharkam">BAHARKAM</a>
-                <a href="<?= base_url() ?>satker/asops">ASOPS</a>
-                <a href="<?= base_url() ?>satker/divtik">DIVTIK</a>
-                <a href="<?= base_url() ?>satker/bareskrim">BARESKRIM</a>
-                <a href="<?= base_url() ?>satker/divhumas">DIVHUMAS</a>
-                <a href="<?= base_url() ?>satker/itwasum">ITWASUM</a>
+                <?php foreach ($lainnya['data']['rows'] as $data) : ?>
+                  <a href="<?= base_url('satker/detailLainnya/' . $data['id']) ?>"><?= $data['name_fungsi']; ?></a>
+                <?php endforeach ?>
               </li>
 
             </ul>
@@ -212,10 +205,9 @@
 
           <li class="dropdown"><a href="#"><span class="fw-bold">Publikasi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="<?= base_url() ?>publikasi/konferensi_pers">Konfersi Pers</a></li>
-              <li><a href="<?= base_url() ?>publikasi/kegiatan_kakor">Kegiatan Kakorlantas</a></li>
-              <!-- <li><a href="<?= base_url() ?>riset_media">Riset Media Center NTMC</a></li> -->
-              <li><a href="<?= base_url() ?>publikasi/kegiatan_khusus">Kegiatan Khusus (PAM PPKM)</a></li>
+              <?php foreach ($publikasi['data']['rows'] as $data) : ?>
+                <li><a href="<?= base_url('publikasi/detail/' . $data['id']) ?>"><?= $data['name_publikasi']; ?></a></li>
+              <?php endforeach ?>
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span class="fw-bold">informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
@@ -315,10 +307,10 @@
           <div class="col-md-2 footer-links">
             <h4>Tentang korlantas</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>profil/struktur_organisasi">Struktur Organisasi</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>profil/profil_pejabat">Profil Pejabat</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>profil/visi_misi">Visi dan Misi</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url()?>profil/sejarah">Sejarah POLANTAS</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>profil/struktur_organisasi">Struktur Organisasi</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>profil/profil_pejabat">Profil Pejabat</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>profil/visi_misi">Visi dan Misi</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>profil/sejarah">Sejarah POLANTAS</a></li>
               <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">Sitemap</a></li> -->
             </ul>
           </div>

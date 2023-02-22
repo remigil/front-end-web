@@ -10,8 +10,7 @@ class Cctv_streaming extends MX_Controller {
  
 	public function index()
 	{ 
-		$getStakeholder = guzzle_request('GET', 'stackholder', []);
-		$headers = [
+        $headers = [
             // 'Authorization' => $this->session->userdata['token']
         ];
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
@@ -19,8 +18,26 @@ class Cctv_streaming extends MX_Controller {
 		$data['title'] = "CCTV Streaming | K3I Korlantas";
 		$data['breadcrumb'] = "cctv";
 		$data['headline'] = "CCTV STREAMING";
+        
+        // menu navbar
+			$getStakeholder = guzzle_request('GET', 'stackholder', []);
+			$data['getStakeholder'] = $getStakeholder['data']['data'];
 
-		$data['getStakeholder'] = $getStakeholder['data']['data'];
+			$getpublikasi = guzzle_request('GET', 'publikasi', [
+				// 'headers' => $headers
+			]);
+			$data['publikasi'] = $getpublikasi;
+
+			$getSatker = guzzle_request('GET', 'fungsisatker', [
+				// 'headers' => $headers
+			]);
+			$data['satker'] = $getSatker;
+
+            $getLainnya = guzzle_request('GET', 'fungsilain', [
+				// 'headers' => $headers
+			]);
+			$data['lainnya'] = $getLainnya;
+		// end menu navbar
 
 		$getCCTV = guzzle_request('GET', 'cctv', [
             // 'headers' => $headers

@@ -143,6 +143,7 @@
                     </li>
                     <li class="list-group-item"><button onclick="format(5)" id="btn-format" class="btn btn-xs btn-info">Format Import Dikmaslantas</button></li>
                     <li class="list-group-item"><button onclick="format(6)" id="btn-format" class="btn btn-xs btn-info">Format Import Penyebaran dan Pemasangan</button></li>
+                    <li class="list-group-item"><button onclick="format(11)" id="btn-format" class="btn btn-xs btn-info">Rekalantas</button></li>
                 </ul>
             </div>
         </div>
@@ -218,6 +219,8 @@
                     <option value="">Pilih</option>
                     <option value="5">Dikmaslantas</option>
                     <option value="6">Penyebaran / Pemasangan</option>
+                    <option value="11">Rekalantas</option>
+
                 `)
         }
         $("#jenis_satker_name").val(jenis_satker_name);
@@ -226,7 +229,8 @@
     });
     $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>
                                         <option value="5">Dikmaslantas</option>
-                                        <option value="6">Penyebaran / Pemasangan</option>`)
+                                        <option value="6">Penyebaran / Pemasangan</option>
+                                        <option value="11">Rekalantas</option>`)
 
 
     $('#btn_pilih').on('click', function() {

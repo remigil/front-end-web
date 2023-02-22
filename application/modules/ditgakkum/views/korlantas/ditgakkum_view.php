@@ -29,7 +29,7 @@
                                 <a class="dropdown-item" target="_blank" onclick="downloadLaporan('weeks')" href="">Mingguan</a>
                                 <a class="dropdown-item" target="_blank" onclick="downloadLaporan('month')" href="">Bulanan</a>
                                 <a class="dropdown-item" target="_blank" onclick="downloadLaporan('triwulan')" href="">Triwulan</a>
-                                <a class="dropdown-item" target="_blank" onclick="downloadLaporan('year')" href="">Tahunan</a>
+                                <a class="dropdown-item" target="_blank" onclick="downloadLaporan('years')" href="">Tahunan</a>
                             </div>
                         </div>
                     <?php } else { ?>
@@ -49,7 +49,7 @@
                                         <option value="weeks">Mingguan</option>
                                         <option value="month">Bulanan</option>
                                         <option value="triwulan">Triwulan</option>
-                                        <option value="year">Tahunan</option>
+                                        <option value="years">Tahunan</option>
                                     </select>
                                 </div>
                             </div>
@@ -3338,7 +3338,7 @@
                         $('#type_date').attr('type', 'month')
                     } else if (type == 'triwulan') {
                         $('#type_date').attr('type', 'month')
-                    } else if (type == 'year') {
+                    } else if (type == 'years') {
                         $('#type_date').attr('type', 'month')
                     }
                 })

@@ -1,45 +1,55 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends MX_Controller {
+class Home extends MX_Controller
+{
 
-	public function __construct(){
-		parent::__construct();
-		$this->load->model('m_berita','berita');
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('m_berita', 'berita');
     }
- 
-	public function index()
-	{ 
-		$getStakeholder = guzzle_request('GET', 'stackholder', []);
-		
-		$data['csrf_name'] = $this->security->get_csrf_token_name();
-        $data['csrf_token'] = $this->security->get_csrf_hash(); 
-        $data['title'] = "Home | K3I Korlantas";  
-		$data['getStakeholder'] = $getStakeholder['data']['data'];
-		
-		
-		// $url = 'news?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
-		// $json = json_decode($url);
-		// var_dump($json);
+    public function index()
+    {
+        $getStakeholder = guzzle_request('GET', 'stackholder', []);
+
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+        $data['title'] = "Home | K3I Korlantas";
+        $data['getStakeholder'] = $getStakeholder['data']['data'];
+
+
+        // $url = 'news?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+
+        // $json = json_decode($url);
+        // var_dump($json);
         // $page_content["css"] = '';
         // $page_content["js"] = '';
         // $page_content["title"] = "Berita";
 
-		$getlogopolda = guzzle_request('GET', 'polda_front/get_web', [
+        $getlogopolda = guzzle_request('GET', 'polda_front/get_web', [
             // 'headers' => $headers
         ]);
-		$getlogopolda = $getlogopolda['data']['data'];
+        $getlogopolda = $getlogopolda['data']['data'];
 
-		$getBeritaall = guzzle_request('GET', 'news', [
+        $getBeritaall = guzzle_request('GET', 'news', [
             // 'headers' => $headers
         ]);
 
         $getStakeholder = guzzle_request('GET', 'news/newsbycategory/VTJGc2RHVmtYMStVSWc2N0c2VnU4VmR2OWl3NFlhaGU3VjZHV01WM0xqQT0', [
             // 'headers' => $headers
         ]);
-
-
+        $getPublikasi = guzzle_request('GET', 'publikasi', [
+            // 'headers' => $headers
+        ]);
+        $getSatker = guzzle_request('GET', 'fungsisatker', [
+            // 'headers' => $headers
+        ]);
+        $getLainnya = guzzle_request('GET', 'fungsilain', [
+            // 'headers' => $headers
+        ]);
+        // var_dump($getLainnya);die;
 
 
         $news = array();
@@ -53,16 +63,19 @@ class Home extends MX_Controller {
 
         $data["semuaberita"] = $news;
         $data['beritastakeholder'] = $getStakeholder['data'];
-		$data['logopolda'] = $getlogopolda;
-		// $postData = $this->input->post();   
+        $data['logopolda'] = $getlogopolda;
+        $data['publikasi'] = $getPublikasi;
+        $data['satker'] = $getSatker;
+        $data['lainnya'] = $getLainnya;
+        // $postData = $this->input->post();   
         // $data = $this->berita->get_datatables($postData);  
-		// echo json_encode($data); 
-        $this->template->load('templates/template','home', $data);
-	}
+        // echo json_encode($data); 
+        $this->template->load('templates/template', 'home', $data);
+    }
 
-	public function getPolda()
+    public function getPolda()
     {
-		
+
         // $headers = [
         //     'Authorization' => $this->session->userdata['token']
         // ];
@@ -71,7 +84,7 @@ class Home extends MX_Controller {
         $getPolda = guzzle_request('GET', $url, [
             // 'headers' => $headers
         ]);
-		// var_dump($getPolda);die;
+        // var_dump($getPolda);die;
         $getPolda = $getPolda['data']['data'];
 
 
@@ -84,9 +97,9 @@ class Home extends MX_Controller {
 
         for ($i = 0; $i < count($getDit); $i++) {
             $datadit = [
-                'garlantas' => number_format($getDit[$i]['garlantas'], 0, '', '.') ,
-                'lakalantas' => number_format($getDit[$i]['lakalantas'], 0, '', '.') ,
-                'turjagwali' => number_format($getDit[$i]['turjagwali'], 0, '', '.') ,
+                'garlantas' => number_format($getDit[$i]['garlantas'], 0, '', '.'),
+                'lakalantas' => number_format($getDit[$i]['lakalantas'], 0, '', '.'),
+                'turjagwali' => number_format($getDit[$i]['turjagwali'], 0, '', '.'),
             ];
             $dit[] = array_merge($getPolda[$i], $datadit);
         }
@@ -100,12 +113,12 @@ class Home extends MX_Controller {
 
         for ($i = 0; $i < count($getRanmor); $i++) {
             $dataranmor = [
-                'sepeda_motor' => number_format($getRanmor[$i]['sepeda_motor'], 0, '','.') ,
+                'sepeda_motor' => number_format($getRanmor[$i]['sepeda_motor'], 0, '', '.'),
             ];
             $allData[] = array_merge($dit[$i], $dataranmor);
         }
 
-		
+
 
         $data = $allData;
 
@@ -113,9 +126,9 @@ class Home extends MX_Controller {
         echo json_encode($data);
     }
 
-	public function getStatistik()
+    public function getStatistik()
     {
-        
+
         $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
             // 'headers' => $headers
         ]);
@@ -149,7 +162,7 @@ class Home extends MX_Controller {
         foreach ($getSim['rows'] as $key) {
             $totalsim += $key['baru'] + $key['perpanjangan'] + $key['peningkatan'];
         }
-		// var_dump($getSim);die;
+        // var_dump($getSim);die;
 
         // $totalsim = 0;
         // $totalsim = 9570;
@@ -167,12 +180,12 @@ class Home extends MX_Controller {
         echo json_encode($data);
     }
 
-	public function getBerita()
-	{
-		// $headers = [
+    public function getBerita()
+    {
+        // $headers = [
         //     'Authorization' => $this->session->userdata['token']
         // ];
-		$getBerita = guzzle_request('GET', 'news', [
+        $getBerita = guzzle_request('GET', 'news', [
             // 'headers' => $headers
         ]);
 
@@ -185,30 +198,30 @@ class Home extends MX_Controller {
 
 
         $getBeritaall = $getBerita['data']['datanya'][0]['data'];
-		// var_dump($getBeritaall);die;
+        // var_dump($getBeritaall);die;
 
-		$getTitle = $getBeritaall[0]['title'];
+        $getTitle = $getBeritaall[0]['title'];
 
-		// var_dump($getTitle);die;
-		$data = [
-			'title' => $getTitle,
-		];
+        // var_dump($getTitle);die;
+        $data = [
+            'title' => $getTitle,
+        ];
 
-		
-		
 
-		// $data = [
+
+
+        // $data = [
         //     'garlantas' => number_format($totalgarlantas, 0, '', '.'),
         //     'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
         //     'motor' =>  number_format($totalmotor, 0, '', '.'),
         //     'turjagwali' => number_format($totalturjagwali, 0, '', '.'),
         //     'sim' =>  number_format($totalsim, 0, '', '.'),
         // ];
-		echo json_encode($data);
-	}
+        echo json_encode($data);
+    }
 
-	public function error()
-	{
-		$this->load->view('404_notfound');
-	}
+    public function error()
+    {
+        $this->load->view('404_notfound');
+    }
 }

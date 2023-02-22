@@ -74,6 +74,14 @@
                             <option value="25">BNPB</option>
                             <option value="26">BNPT</option>
                             <option value="27">BPS</option>
+                            <option value="28">POLANTAS DALAM ANGKA</option>
+                            <option value="29">Ditgakkum</option>
+                            <option value="30">Ditkamsel</option>
+                            <option value="31">Ditregident</option>
+                            <option value="32">Bagops</option>
+                            <option value="33">Bagrenmin</option>
+                            <option value="34">Bagtik</option>
+                            <option value="35">Serta Merta</option>
 
                         </select>
                         <label for="kategoriPeraturan">Kategori Peraturan</label>
@@ -139,6 +147,14 @@
                             <option value="25">BNPB</option>
                             <option value="26">BNPT</option>
                             <option value="27">BPS</option>
+                            <option value="28">POLANTAS DALAM ANGKA</option>
+                            <option value="29">Ditgakkum</option>
+                            <option value="30">Ditkamsel</option>
+                            <option value="31">Ditregident</option>
+                            <option value="32">Bagops</option>
+                            <option value="33">Bagrenmin</option>
+                            <option value="34">Bagtik</option>
+                            <option value="35">Serta Merta</option>
 
                         </select>
                         <label for="kategoriPeraturan">Kategori Peraturan</label>
@@ -204,6 +220,14 @@
                             <option value="25">BNPB</option>
                             <option value="26">BNPT</option>
                             <option value="27">BPS</option>
+                            <option value="28">POLANTAS DALAM ANGKA</option>
+                            <option value="29">Ditgakkum</option>
+                            <option value="30">Ditkamsel</option>
+                            <option value="31">Ditregident</option>
+                            <option value="32">Bagops</option>
+                            <option value="33">Bagrenmin</option>
+                            <option value="34">Bagtik</option>
+                            <option value="35">Serta Merta</option>
 
                         </select>
                         <label for="kategoriPeraturan">Kategori Peraturan</label>

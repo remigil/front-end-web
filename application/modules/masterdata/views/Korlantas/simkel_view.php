@@ -43,6 +43,7 @@
                 <div class="row m-3">
                     <div class="col-md-12">
                         <form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="name_sim_keliling" placeholder="Sim Keliling">
                                 <label for="name_sim_keliling">Nama SIM Keliling</label>

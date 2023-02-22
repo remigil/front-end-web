@@ -220,6 +220,8 @@ class ImportLaporanHarian extends MY_Controller
             break;
             case '10':
                 $filename = 'Format-Import-STNK.xlsx';
+            case '11':
+                $filename = 'Format-Import-REKALANTAS.xlsx';
             break;
         }
         
@@ -594,7 +596,26 @@ class ImportLaporanHarian extends MY_Controller
                                     'samolnas_r4' => $P,
                                     
                                 );
+                            } else if ($type == 11) {
+                                /**
+                                 * Rekalantas
+                                 */
 
+                                $url = 'import/rekalantas';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+
+                                $raws[] = array(
+                                    'polda_id' => $B,
+                                    // 'polres_name'=>$B,
+                                    'date' => $tanggal,
+                                    'jalan_nasional' => $C,
+                                    'jalan_provinsi' => $D,
+                                    'lain_lain' => $E,
+                                );
                             }
 						}						
 					}

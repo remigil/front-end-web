@@ -122,15 +122,15 @@
                   <option value="6">Balap Liar</option>
                   <option value="7">Informasi terkait lainnya</option>
                 </select>
-                <input type="text" class="form-control" name="subjek"  placeholder="Subjek" required>
+                <!-- <input type="text" class="form-control" name="subjek"  placeholder="Subjek" required> -->
               </div>
               <div class="form-group mt-3">
                 <textarea class="form-control" name="deskripsi" placeholder="Deskripsi" required></textarea>
               </div>
               
-              <div class="text-center"><button type="submit" class="btn btn-primary mt-4" onclick="submit()">Kirim Pengaduan</button></div>
+              <div class="text-center"><button type="submit" class="btn btn-primary mt-4 mb-2" style="width: 100%;" onclick="submit()">Kirim Pengaduan</button></div>
               <div class="text-center">--- Atau ---</div>
-              <div class="text-center"><button type="submit" class="btn btn-primary mt-4" onclick="submit()">lanjutkan pengaduan ke contact center NTMC</button></div>
+              <div class="text-center"><a href="https://ccntmc.1500669.com/" class="btn btn-outline-primary mt-2" style="width: 100%;">lanjutkan pengaduan ke contact center NTMC</a></div>
             </form>
           </div><!-- End Contact Form -->
 

@@ -188,6 +188,38 @@
       }
     }
   });
+  /**
+   * Clients Slider
+   */
+  new Swiper('.clients-slider1', {
+    spaceBetween: 10,
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+		navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 40
+      },
+
+      1200: {
+        slidesPerView: 4,
+      }
+    }
+  });
 
   /**
    * Skills animation
@@ -300,10 +332,10 @@
 	new Swiper('.slides-3', {
     speed: 600,
     loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
+    // autoplay: {
+    //   delay: 5000,
+    //   disableOnInteraction: false
+    // },
     slidesPerView: 'auto',
     pagination: {
       el: '.swiper-pagination',
@@ -314,6 +346,17 @@
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+    on: {
+      slideChange: function (el) {
+        $('.swiper-slide').each(function () {
+            var youtubePlayer = $(this).find('iframe').get(0);
+            if (youtubePlayer) {
+              youtubePlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            }
+        });
+      },
+    },
+    
     breakpoints: {
       320: {
         slidesPerView: 1,

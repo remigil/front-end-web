@@ -28,15 +28,36 @@ class Pustaka extends MX_Controller {
  
 	public function informasi_setiap_saat()
 	{ 
-		$getStakeholder = guzzle_request('GET', 'stackholder', []);
-
+		
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
 
-		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		// menu navbar
+			$getStakeholder = guzzle_request('GET', 'stackholder', []);
+			$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+			$getpublikasi = guzzle_request('GET', 'publikasi', [
+				// 'headers' => $headers
+			]);
+			$data['publikasi'] = $getpublikasi;
+
+			$getSatker = guzzle_request('GET', 'fungsisatker', [
+				// 'headers' => $headers
+			]);
+			$data['satker'] = $getSatker;
+
+			$getLainnya = guzzle_request('GET', 'fungsilain', [
+				// 'headers' => $headers
+			]);
+			$data['lainnya'] = $getLainnya;
+		// end menu navbar
+
+		
 		$data['title'] = "Informasi Setiap Saat | K3I Korlantas";
 		$data['breadcrumb'] = "informasi setiap saat";
 		$data['headline'] = "INFORMASI SETIAP SAAT";
+		$getdoc = guzzle_request('GET' , 'regulation_doc/bycategory/28',[]);
+		$data['getpp'] = $getdoc['data'];
 
 		
         $this->template->load('templates/template','informasi_publik/informasi_setiap_saat', $data); 
@@ -45,15 +66,50 @@ class Pustaka extends MX_Controller {
 
 	public function informasi_berkala()
 	{ 
-		$getStakeholder = guzzle_request('GET', 'stackholder', []);
+		
 
+		
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
-
+		
+		
+		// menu navbar
+		$getStakeholder = guzzle_request('GET', 'stackholder', []);
 		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		
+		$getpublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getpublikasi;
+		
+		$getSatker = guzzle_request('GET', 'fungsisatker', [
+			// 'headers' => $headers
+		]);
+		$data['satker'] = $getSatker;
+
+		$getLainnya = guzzle_request('GET', 'fungsilain', [
+			// 'headers' => $headers
+		]);
+		$data['lainnya'] = $getLainnya;
+		// end menu navbar
+
+		$kakor = guzzle_request('GET', 'profilepejabat?limit=10&page=1&id_jenis_pejabat=1'.'', []);
+		$direktur = guzzle_request('GET', 'profilepejabat?limit=10&page=1&id_jenis_pejabat=2,3,4'.'', []);
+		$kabag = guzzle_request('GET', 'profilepejabat?limit=10&page=1&id_jenis_pejabat=5,6,7'.'', []);
+		$ditgakkum = guzzle_request('GET', 'profilepejabat?limit=10&page=1&id_jenis_pejabat=8,9,10'.'', []);
+		$ditkamsel = guzzle_request('GET', 'profilepejabat?limit=10&page=1&id_jenis_pejabat=11,12,13'.'', []);
+		$ditregident = guzzle_request('GET', 'profilepejabat?limit=10&page=1&id_jenis_pejabat=14,15,16'.'', []);
+
 		$data['title'] = "Informasi Berkala | K3I Korlantas";
 		$data['breadcrumb'] = "informasi berkala";
 		$data['headline'] = "INFORMASI BERKALA";
+
+		$data['kakor'] = $kakor;
+		$data['direktur'] = $direktur;
+		$data['kabag'] = $kabag;
+		$data['ditgakkum'] = $ditgakkum;
+		$data['ditkamsel'] = $ditkamsel;
+		$data['ditregident'] = $ditregident;
 
 		
         $this->template->load('templates/template','informasi_publik/informasi_berkala', $data); 
@@ -62,15 +118,40 @@ class Pustaka extends MX_Controller {
 
 	public function informasi_serta_merta()
 	{ 
-		$getStakeholder = guzzle_request('GET', 'stackholder', []);
-
+		
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
 
-		$data['getStakeholder'] = $getStakeholder['data']['data'];
+		// menu navbar
+			$getStakeholder = guzzle_request('GET', 'stackholder', []);
+			$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+			$getpublikasi = guzzle_request('GET', 'publikasi', [
+				// 'headers' => $headers
+			]);
+			$data['publikasi'] = $getpublikasi;
+
+			$getSatker = guzzle_request('GET', 'fungsisatker', [
+				// 'headers' => $headers
+			]);
+			$data['satker'] = $getSatker;
+
+			$getLainnya = guzzle_request('GET', 'fungsilain', [
+				// 'headers' => $headers
+			]);
+			$data['lainnya'] = $getLainnya;
+		// end menu navbar
+
+		
 		$data['title'] = "Informasi Serta Merta | K3I Korlantas";
 		$data['breadcrumb'] = "informasi serta merta";
 		$data['headline'] = "INFORMASI SERTA MERTA";
+
+
+		$getdoc = guzzle_request('Get' , 'regulation_doc/bycategory/35',[]);
+		$data['getdoc'] = $getdoc['data'][0];
+
+		// var_dump($data['getdoc']);die;
 
 		
         
@@ -80,6 +161,32 @@ class Pustaka extends MX_Controller {
 
 	public function undang_undang()
 	{ 
+		
+		
+		
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash(); 
+
+		// menu navbar
+			$getStakeholder = guzzle_request('GET', 'stackholder', []);
+			$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+			$getpublikasi = guzzle_request('GET', 'publikasi', [
+				// 'headers' => $headers
+			]);
+			$data['publikasi'] = $getpublikasi;
+
+			$getSatker = guzzle_request('GET', 'fungsisatker', [
+				// 'headers' => $headers
+			]);
+			$data['satker'] = $getSatker;
+
+			$getLainnya = guzzle_request('GET', 'fungsilain', [
+				// 'headers' => $headers
+			]);
+			$data['lainnya'] = $getLainnya;
+		// end menu navbar
+		
 		$getuud = guzzle_request('Get' , 'regulation_doc/bycategory/1',[]);
 		// var_dump($getuud);die;
 		$getpp = guzzle_request('Get' , 'regulation_doc/bycategory/2',[]);
@@ -88,15 +195,7 @@ class Pustaka extends MX_Controller {
 		$getkapolri = guzzle_request('Get' , 'regulation_doc/bycategory/5',[]);
 		$getkakor = guzzle_request('Get' , 'regulation_doc/bycategory/6',[]);
 		$getlain = guzzle_request('Get' , 'regulation_doc/bycategory/7',[]);
-		
-		$getStakeholder = guzzle_request('GET', 'stackholder', []);
-		// $headers = [
-        //     'Authorization' => $this->session->userdata['token']
-        // ];
-		
-		$data['csrf_name'] = $this->security->get_csrf_token_name();
-        $data['csrf_token'] = $this->security->get_csrf_hash(); 
-		$data['getStakeholder'] = $getStakeholder['data']['data'];
+
 		$data['getuud'] = $getuud['data'];
 		$data['getpp'] = $getpp['data'];
 		$data['getperpres'] = $getperpres['data'];
@@ -108,9 +207,7 @@ class Pustaka extends MX_Controller {
 		$data['breadcrumb'] = "uu dan peraturan";  
 		$data['headline'] = "UU DAN PERATURAN"; 
 
-		
-        
-        
+
         $this->template->load('templates/template','informasi_publik/undang_undang', $data); 
         
 	}

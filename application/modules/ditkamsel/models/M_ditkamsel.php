@@ -147,7 +147,7 @@ class M_ditkamsel extends CI_Model
 
     public function getChartBlackspot($filter)
     {
-        $url = 'blackspot/date?type=' . $filter['type']  . '&filter=true'  . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
+        $url = 'blankspot/date?type=' . $filter['type']  . '&filter=true'  . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
 
         $blackspot = guzzle_request('GET', $url, [
             'headers' => [
@@ -179,7 +179,7 @@ class M_ditkamsel extends CI_Model
             }
         }
 
-        foreach ($blackspot['data'] as $key) {
+        foreach ($black as $key) {
             if ($filter['type'] == 'day') {
                 $datee = explode("-", $key['date']);
                 $poldaMonth[] = $datee[2] . "-" . $datee[1] . "-" . $datee[0];
@@ -200,7 +200,8 @@ class M_ditkamsel extends CI_Model
     }
     public function getChartTroublespot($filter)
     {
-        $url = 'blackspot/date?type=' . $filter['type']  . '&filter=true'  . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
+        $url = 'troublespot/date?type=' . $filter['type']  . '&filter=true'  . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
+
 
         $troublespot = guzzle_request('GET', $url, [
             'headers' => [
@@ -208,6 +209,7 @@ class M_ditkamsel extends CI_Model
             ]
         ]);
         $trouble = $troublespot['data'];
+
 
         $poldaMonth = [];
         $troublespot = [];
@@ -232,7 +234,7 @@ class M_ditkamsel extends CI_Model
             }
         }
 
-        foreach ($troublespot['data'] as $key) {
+        foreach ($trouble as $key) {
             if ($filter['type'] == 'day') {
                 $datee = explode("-", $key['date']);
                 $poldaMonth[] = $datee[2] . "-" . $datee[1] . "-" . $datee[0];

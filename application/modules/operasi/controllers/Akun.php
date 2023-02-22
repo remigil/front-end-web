@@ -73,7 +73,7 @@ class Akun extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
         $input = $this->input->post();  
-        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=id&orderDirection=desc&length=500&start='.$input['start'].'&search='.$input['search'].'', [
+        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=id&orderDirection=desc&search='.$input['search'].'', [
             'headers' => $headers
         ]);
         $data = $getOfficer['data']['data'];

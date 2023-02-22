@@ -9,22 +9,37 @@ class Stakeholder extends MX_Controller {
     }
 	public function index($id)
 	{
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
 
-		$getStakeholder = guzzle_request('GET', 'stackholder', [
-        ]);
+		// menu navbar
+			$getStakeholder = guzzle_request('GET', 'stackholder', []);
+			$data['getStakeholder'] = $getStakeholder['data']['data'];
+
+			$getpublikasi = guzzle_request('GET', 'publikasi', [
+				// 'headers' => $headers
+			]);
+			$data['publikasi'] = $getpublikasi;
+
+			$getSatker = guzzle_request('GET', 'fungsisatker', [
+				// 'headers' => $headers
+			]);
+			$data['satker'] = $getSatker;
+
+			$getLainnya = guzzle_request('GET', 'fungsilain', [
+				// 'headers' => $headers
+			]);
+			$data['lainnya'] = $getLainnya;
+		// end menu navbar
+
 		$url = 'stackholder/getId/' . $id;
         $getbyid = guzzle_request('GET', $url, [
         ]);
 		$getbyid = $getbyid['data']['data'];
 
-		// var_dump($getbyid);die;
-		
-		$data['csrf_name'] = $this->security->get_csrf_token_name();
-        $data['csrf_token'] = $this->security->get_csrf_hash();
 		
 		$data['title'] = $getbyid['title']." | K3I Korlantas";
 		$data['stakeholder'] = $getbyid;
-		$data['getStakeholder'] = $getStakeholder['data']['data'];
 		
         $data['breadcrumb'] = $getbyid['title'];
         $data['headline'] = $getbyid['fullname'];
@@ -38,6 +53,11 @@ class Stakeholder extends MX_Controller {
 		$getkemenkeu = guzzle_request('GET' , 'regulation_doc/bycategory/14' , []);
 		$getkemendikbud = guzzle_request('GET' , 'regulation_doc/bycategory/15' , []);
 		$getkemenhan = guzzle_request('GET' , 'regulation_doc/bycategory/16' , []);
+
+		$getPublikasi = guzzle_request('GET', 'publikasi', [
+			// 'headers' => $headers
+		]);
+		$data['publikasi'] = $getPublikasi;
 		// var_dump($getkemendagri);die;
 
 		// var_dump($getbyid['title']);die;

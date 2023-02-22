@@ -186,6 +186,117 @@ class Login extends MX_Controller
         $this->load->view('gpsId');
     }
 
+    public function forgot_password()
+    {
+        $this->load->view('login/forgot_password');
+    }
+
+    public function send_forgot_password()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
+
+        $dummy = [
+            [
+                'name' => 'email',
+                'contents' => $input['email'],
+            ],
+        ];
+
+
+
+
+
+        $data = guzzle_request('POST', 'auth/forgot_password', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Link reset password berhasil dikirim, silahkan cek email',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Email tidak terdaftar',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
+    }
+
+    public function reset_password($id)
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $getDetail = guzzle_request('GET', 'check-user/getId/' . $id . '', [
+            'headers' => $headers
+        ]);
+
+
+        if ($getDetail['isSuccess'] == false) {
+            $this->load->view('404_notfound');
+        } else {
+            $this->load->view('login/reset_password', ['id' => $id]);
+        }
+    }
+
+
+    public function send_reset_password()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
+
+        $dummy = [
+            [
+                'name' => 'id',
+                'contents' => $input['id'],
+            ],
+            [
+                'name' => 'password',
+                'contents' => $input['kata_sandi']
+            ]
+        ];
+
+
+
+
+
+        $data = guzzle_request('POST', 'auth/reset_password', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+
+
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Password berhasil diganti, silahkan login !',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Passowrd gagal diganti',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
+    }
+
     public function logout()
     {
         $this->session->sess_destroy();

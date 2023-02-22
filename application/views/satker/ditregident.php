@@ -110,32 +110,40 @@
 </div>
 		<div class="card">
 			<div class="card-body">
-				<table id="datatable" class="table dt-responsive w-100 table-striped">
-					<thead>
-						<tr>
-							<th width="5%">No</th>
-							<th width="40%">Nama Peraturan</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="table-striped">
-							<td width="5%">1</td>
-							<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/PP-NO-76-THN-2020-TTG-TARIF-PNBP-POLRI.pdf">Peraturan Pemerintah No 76 Tahun 2020 tentang Jenis dan Tarif atas Jenis PNBP yang berlaku pada Polri, dan Lampirannya</a></td>
-						</tr>
-						<tr>
-							<td width="5%">2</td>
-							<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/Perpres-Nomor-5-Tahun-2015-ttg-Samsat-Ranmor.pdf">Peraturan Presiden Nomor 5 Tahun 2015 tentang Penyelenggaraan Samsat Kendaraan Bermotor</a></td>
-						</tr>
-						<tr>
-							<td width="5%">3</td>
-							<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/PERATURAN-KEPOLISIAN-NEGARA-REPUBLIK-INDONESIA-NOMOR-5-TAHUN-2021-TENTANG-PENERBITAN-DAN-PENANDAAN-SURAT-IZIN-MENGEMUDI.pdf">Peraturan Kepolisian Nomor 5 Tahun 2021 tentang Penerbitan dan Penandaan SIM</a></td>
-						</tr>
-						<tr>
-							<td width="5%">4</td>
-							<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/PERATURAN-POLRI-NOMOR-7-TAHUN-2021-TENTANG-REGISTRASI-DAN-IDENTIFIKASI-KENDARAAN-BERMOTOR.pdf">Peraturan Kepolisian Nomor 7 Tahun 2021 tentang Registrasi dan Identifikasi Kendaraan Bermotor</a></td>
-						</tr>
-					</tbody>
-				</table>
+			<table id="category1" class="table table-striped display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th width="5%">No</th>
+                            <!-- <th>Jenis Peraturan</th> -->
+                            <th width="75%">Nama Peraturan</th>
+                            <th>Tahun</th>
+                            <th>Aksi</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $no = 1;
+                        foreach ($getdoc as $doc) :
+                        ?>
+                            <tr>
+                                <td><?= $no++; ?></td>
+                                <td><?= $doc['regulation_name'] ?></td>
+                                <td><?= $doc['year'] ?></td>
+                                <td>
+                                    <a class="btn btn-success" href="<?= url_api() . 'regulation_doc/' . $doc['fileReg'] ?>">
+                                        <i class="bi bi-file-earmark-arrow-down-fill d-flex align-items-center"></i>
+                                    </a>
+
+
+                                </td>
+
+                            </tr>
+                        <?php endforeach; ?>
+
+
+                    </tbody>
+                </table>
 			</div>
 		</div>
 	</div>
@@ -213,4 +221,8 @@
       </div>
     </section><!-- End Gallery Section -->
 
-	
+	<script>
+    $(document).ready(function() {
+      $('#category1').DataTable();
+    });
+  </script>

@@ -36,16 +36,16 @@ class Fasilitasumum extends MY_Controller
             redirect(base_url('404_notfound'));
         }
 
-        // $getCategory = guzzle_request('GET', 'category_fasum', [
-        //     'headers' => $headers
-        // ]);
-        // $data['getCategory'] = $getCategory['data']['data'];
+        $getCategory = guzzle_request('GET', 'category_fasum', [
+            'headers' => $headers
+        ]);
+        $data['getCategory'] = $getCategory['data']['data'];
 
-        // var_dump($getCategory);
+        // var_dump($data['getCategory']);
         // die;
 
-        // $page_content["data"] = $data;
-        $page_content["data"] = '';
+        $page_content["data"] = $data;
+        // $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     }
 

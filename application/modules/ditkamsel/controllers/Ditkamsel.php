@@ -73,42 +73,45 @@ class Ditkamsel extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
         $date = date("Y-m-d");
+        $start_date = date('Y-m-d');
+        $end_date = date("Y-m-d", strtotime("+1 day"));
         $getkamselrekalantas = guzzle_request('GET', 'rekalantas/daily?date=' . $date . '', [
             'headers' => $headers
         ]);
-        $getkamseltroublespot = guzzle_request('GET', 'troublespot/daily?date=' . $date . '', [
+        $getkamseltroublespot = guzzle_request('GET', 'troublespot/daily?filter=true&start_date=' . $start_date . '&end_date=' . $end_date . '', [
             'headers' => $headers
         ]);
-        $getkamselblackspot = guzzle_request('GET', 'blankspot/daily?date=' . $date . '', [
+
+        $getkamselblackspot = guzzle_request('GET', 'blankspot/daily?filter=true&start_date=' . $start_date . '&end_date=' . $end_date . '', [
             'headers' => $headers
         ]);
         $getkamseldikmaslantas = guzzle_request('GET', 'dikmaslantas/daily?date=' . $date . '', [
             'headers' => $headers
         ]);
-        $getkamselrekalantas = $getkamselrekalantas["data"];
-        $getkamseltroublespot = $getkamseltroublespot["data"];
-        $getkamselblackspot = $getkamselblackspot["data"];
-        $getkamseldikmaslantas = $getkamseldikmaslantas["data"];
+       
 
 
         $totalrekalantas = 0;
         $totaltroublespot = 0;
         $totalblackspot = 0;
         $totaldikmaslantas = 0;
-        for ($i = 0; $i < count($getkamselrekalantas); $i++) {
-            $totalrekalantas += $getkamselrekalantas[$i]['total'];
-        }
-        for ($i = 0; $i < count($getkamseltroublespot); $i++) {
-            $totaltroublespot += $totaltroublespot[$i]['total'];
-        }
-        for ($i = 0; $i < count($getkamselblackspot); $i++) {
-            $totalblackspot += $totalblackspot[$i]['total'];
-        }
-        for ($i = 0; $i < count($getkamseldikmaslantas); $i++) {
-            $totaldikmaslantas += $totaldikmaslantas[$i]['total'];
-        }
 
 
+        foreach ($getkamseltroublespot["data"]['rows'] as $key) {
+            $totaltroublespot +=  $key['total'];
+        }
+
+        foreach ($getkamselrekalantas["data"]['rows'] as $key) {
+            $totalrekalantas +=  $key['total'];
+        }
+
+        foreach ($getkamselblackspot["data"]['rows'] as $key) {
+            $totalblackspot +=  $key['total'];
+        }
+
+        foreach ($getkamseldikmaslantas["data"]['rows'] as $key) {
+            $totaldikmaslantas +=  $key['total'];
+        }
 
         $data = [
             'rekalantas' => number_format($totalrekalantas, 0, '', '.'),

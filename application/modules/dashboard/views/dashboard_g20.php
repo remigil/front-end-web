@@ -7154,836 +7154,899 @@
                 dataType: "JSON",
                 success: function(result) {
                     // console.log(result);
+                    if(result['data']){
+                        $("#overlay").fadeOut(300);
+                        var ressTurjawali = result['data']['turjawali'];
+                        var ressPolres = result['data']['polres'];
+                        var ressCctv = result['data']['cctv'];
 
-                    $("#overlay").fadeOut(300);
-                    var ressTurjawali = result['data']['turjawali'];
-                    var ressPolres = result['data']['polres'];
-                    var ressCctv = result['data']['cctv'];
+                        var ressSamsat = result['data']['samsat'];
+                        var ressTroubleSpot = result['data']['trouble_spot'];
+                        var ressBlankSpot = result['data']['blank_spot'];
+                        var ressRestArea = result['data']['rest_area'];
+                        var ressPosPam = result['data']['pos_pam'];
+                        var ressPosYan = result['data']['pos_yan'];
+                        var ressPosTerpadu = result['data']['pos_terpadu'];
+                        var ressPosko = result['data']['posko'];
+                        var ressSatPjr = result['data']['sat_pjr'];
 
-                    var ressSamsat = result['data']['samsat'];
-                    var ressTroubleSpot = result['data']['trouble_spot'];
-                    var ressBlankSpot = result['data']['blank_spot'];
-                    var ressRestArea = result['data']['rest_area'];
-                    var ressPosPam = result['data']['pos_pam'];
-                    var ressPosYan = result['data']['pos_yan'];
-                    var ressPosTerpadu = result['data']['pos_terpadu'];
-                    var ressPosko = result['data']['posko'];
-                    var ressSatPjr = result['data']['sat_pjr'];
+                        var ressSatPas = result['data']['sat_pas'];
 
-                    var ressSatPas = result['data']['sat_pas'];
+                        var ressLAP = result['data']['titik_laporan'];
+                        var ressPanic = result['data']['titik_panicButton'];
+                        var ressFasum = result['data']['fasum'];
+                        // var ressFasumKhusus = result['data']['fasum_khusus'];
+                        ressFasumKhusus = result['data']['fasum_khusus'];
 
-                    var ressLAP = result['data']['titik_laporan'];
-                    var ressPanic = result['data']['titik_panicButton'];
-                    var ressFasum = result['data']['fasum'];
-                    // var ressFasumKhusus = result['data']['fasum_khusus'];
-                    ressFasumKhusus = result['data']['fasum_khusus'];
+                        // console.log(ressFasumKhusus);
 
-                    // console.log(ressFasumKhusus);
+                        var ressRadius = result['data']['radius'];
+                        var ressCluster = result['data']['cluster'];
+                        var ressSchedule = result['data']['jadwal_kegiatan'];
+                        var ressOperasi = result['data']['operasi'];
 
-                    var ressRadius = result['data']['radius'];
-                    var ressCluster = result['data']['cluster'];
-                    var ressSchedule = result['data']['jadwal_kegiatan'];
-                    var ressOperasi = result['data']['operasi'];
-
-                    var ressJalur = result['data']['jalur'];
-                    var ressGerbangtol = result['data']['gerbang_tol'];
-                    // console.log(ressGerbangtol);
+                        var ressJalur = result['data']['jalur'];
+                        var ressGerbangtol = result['data']['gerbang_tol'];
+                        // console.log(ressGerbangtol);
 
 
-                    if (ressTurjawali && ressTurjawali.length > 0) {
-                        var filterTurjawali = ressTurjawali.filter(function(e) {
-                            return e.latitude != null && e.longitude != null;
-                        });
-                    }
+                        if (ressTurjawali && ressTurjawali.length > 0) {
+                            var filterTurjawali = ressTurjawali.filter(function(e) {
+                                return e.latitude != null && e.longitude != null;
+                            });
+                        }
 
-                    if (ressPolres && ressPolres.length > 0) {
-                        var filterpolres = ressPolres.filter(function(e) {
-                            return e.latitude != null && e.longitude != null;
-                        });
+                        if (ressPolres && ressPolres.length > 0) {
+                            var filterpolres = ressPolres.filter(function(e) {
+                                return e.latitude != null && e.longitude != null;
+                            });
 
-                        if (filterpolres.length > 0) {
-                            var logoMarker = '';
-                            var logoBody = '';
+                            if (filterpolres.length > 0) {
+                                var logoMarker = '';
+                                var logoBody = '';
 
-                            $('#openModalPolresDisplay').html(`
-                                <table id="datatablePolresOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Type</th> 
-                                            <th>Nama</th> 
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="isiModalPolresDisplay">
-                                    </tbody>
-                                </table>                     
-                            `);
-                            var countPolresDisplay = 0;
-                            var listPolresDisplay = '';
+                                $('#openModalPolresDisplay').html(`
+                                    <table id="datatablePolresOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Type</th> 
+                                                <th>Nama</th> 
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="isiModalPolresDisplay">
+                                        </tbody>
+                                    </table>                     
+                                `);
+                                var countPolresDisplay = 0;
+                                var listPolresDisplay = '';
 
-                            for (let i = 0; i < filterpolres.length; i++) {
+                                for (let i = 0; i < filterpolres.length; i++) {
 
-                                var latitudePolres = parseFloat(filterpolres[i].latitude);
-                                var longitudePolres = parseFloat(filterpolres[i].longitude);
+                                    var latitudePolres = parseFloat(filterpolres[i].latitude);
+                                    var longitudePolres = parseFloat(filterpolres[i].longitude);
 
-                                markerPolres[i] = L.marker([latitudePolres, longitudePolres], {
-                                    icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: `<img src="<?php echo base_url(); ?>assets/icon/polres.png" style="width: 22px;margin-top: -45px;margin-left: -18.5px;">`,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                    })
-                                }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;"> 
-                                                <div class="row mt-3">
-                                                    <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                                        <div class="avatar-xl me-3">
-                                                            <img src="<?php echo base_url(); ?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                    markerPolres[i] = L.marker([latitudePolres, longitudePolres], {
+                                        icon: L.divIcon({
+                                            // className: 'location-pin',
+                                            html: `<img src="<?php echo base_url(); ?>assets/icon/polres.png" style="width: 22px;margin-top: -45px;margin-left: -18.5px;">`,
+                                            iconSize: [5, 5],
+                                            iconAnchor: [5, 10]
+                                            // iconAnchor: [10, 33]
+                                        })
+                                    }).bindPopup(`
+                                                <div class="text-center" style="width: 300px;"> 
+                                                    <div class="row mt-3">
+                                                        <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                            <div class="avatar-xl me-3">
+                                                                <img src="<?php echo base_url(); ?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                            </div>
                                                         </div>
+                                                        <div class="col-md-12 mt-3">
+                                                            <h5>${filterpolres[i].name_polres}</h5> 
+                                                        </div>
+                                                        <div class="col-md-12 mt-3">
+                                                            <div class="row text-start">
+                                                                <div class="col-md-5 col-6">
+                                                                    <span style="font-size: 12px;font-weight: bold;">Alamat</span>  
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    <span style="font-size: 12px;"> : </span>
+                                                                </div>
+                                                                <div class="col-md-6 col-6">
+                                                                    <span style="font-size: 12px;">${filterpolres[i].address}</span>
+                                                                </div>
+                                                            </div> 
+                                                        </div> 
+                                                        <div class="col-md-12">
+                                                            <div class="row text-start">
+                                                                <div class="col-md-5 col-6">
+                                                                    <span style="font-size: 12px;font-weight: bold;">Kode</span>  
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    <span style="font-size: 12px;"> : </span>
+                                                                </div>
+                                                                <div class="col-md-6 col-6">
+                                                                    <span style="font-size: 12px;">${filterpolres[i].code_satpas}</span>
+                                                                </div>
+                                                            </div> 
+                                                        </div>  
+                                                        <div class="col-md-12" >
+                                                            <div class="row text-start">
+                                                                <div class="col-md-5 col-6">
+                                                                    <span style="font-size: 12px;font-weight: bold;">No Telpon</span>  
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    <span style="font-size: 12px;"> : </span>
+                                                                </div>
+                                                                <div class="col-md-6 col-6">
+                                                                    <span style="font-size: 12px;">${filterpolres[i].phone_polres != null ? filterpolres[i].phone_polres : '-'}</span>
+                                                                </div>
+                                                            </div> 
+                                                        </div>  
+                                                        <div class="col-md-12">
+                                                            <div class="row text-start">
+                                                                <div class="col-md-5 col-6">
+                                                                    <span style="font-size: 12px;font-weight: bold;">Waktu</span>  
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    <span style="font-size: 12px;"> : </span>
+                                                                </div>
+                                                                <div class="col-md-6 col-6">
+                                                                    <span style="font-size: 12px;">${filterpolres[i].open_time != null ? filterpolres[i].open_time : '00:00'} - ${filterpolres[i].close_time != null ? filterpolres[i].close_time : '00:00'} WITA</span>
+                                                                </div>
+                                                            </div> 
+                                                        </div>   
                                                     </div>
-                                                    <div class="col-md-12 mt-3">
-                                                        <h5>${filterpolres[i].name_polres}</h5> 
-                                                    </div>
-                                                    <div class="col-md-12 mt-3">
-                                                        <div class="row text-start">
-                                                            <div class="col-md-5 col-6">
-                                                                <span style="font-size: 12px;font-weight: bold;">Alamat</span>  
-                                                            </div>
-                                                            <div class="col-md-1">
-                                                                <span style="font-size: 12px;"> : </span>
-                                                            </div>
-                                                            <div class="col-md-6 col-6">
-                                                                <span style="font-size: 12px;">${filterpolres[i].address}</span>
-                                                            </div>
-                                                        </div> 
-                                                    </div> 
-                                                    <div class="col-md-12">
-                                                        <div class="row text-start">
-                                                            <div class="col-md-5 col-6">
-                                                                <span style="font-size: 12px;font-weight: bold;">Kode</span>  
-                                                            </div>
-                                                            <div class="col-md-1">
-                                                                <span style="font-size: 12px;"> : </span>
-                                                            </div>
-                                                            <div class="col-md-6 col-6">
-                                                                <span style="font-size: 12px;">${filterpolres[i].code_satpas}</span>
-                                                            </div>
-                                                        </div> 
-                                                    </div>  
-                                                    <div class="col-md-12" >
-                                                        <div class="row text-start">
-                                                            <div class="col-md-5 col-6">
-                                                                <span style="font-size: 12px;font-weight: bold;">No Telpon</span>  
-                                                            </div>
-                                                            <div class="col-md-1">
-                                                                <span style="font-size: 12px;"> : </span>
-                                                            </div>
-                                                            <div class="col-md-6 col-6">
-                                                                <span style="font-size: 12px;">${filterpolres[i].phone_polres != null ? filterpolres[i].phone_polres : '-'}</span>
-                                                            </div>
-                                                        </div> 
-                                                    </div>  
-                                                    <div class="col-md-12">
-                                                        <div class="row text-start">
-                                                            <div class="col-md-5 col-6">
-                                                                <span style="font-size: 12px;font-weight: bold;">Waktu</span>  
-                                                            </div>
-                                                            <div class="col-md-1">
-                                                                <span style="font-size: 12px;"> : </span>
-                                                            </div>
-                                                            <div class="col-md-6 col-6">
-                                                                <span style="font-size: 12px;">${filterpolres[i].open_time != null ? filterpolres[i].open_time : '00:00'} - ${filterpolres[i].close_time != null ? filterpolres[i].close_time : '00:00'} WITA</span>
-                                                            </div>
-                                                        </div> 
-                                                    </div>   
-                                                </div>
-                                            </div> 
-                                    `, {
-                                    minWidth: 100,
-                                    maxWidth: 560,
-                                    width: 400
-                                }).addTo(mapContainer);
+                                                </div> 
+                                        `, {
+                                        minWidth: 100,
+                                        maxWidth: 560,
+                                        width: 400
+                                    }).addTo(mapContainer);
 
-                                countPolresDisplay += 1;
-                                listPolresDisplay += `
+                                    countPolresDisplay += 1;
+                                    listPolresDisplay += `
+                                        <tr>
+                                            <td>${countPolresDisplay}</td>
+                                            <td>${filterpolres[i].name_polres}</td> 
+                                            <td>${filterpolres[i].address}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterPolres${countPolresDisplay}"
+                                                    data-cord="${filterpolres[i].latitude},${filterpolres[i].longitude}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalPolresDisplay').html(listPolresDisplay);
+                                }
+
+                                for (let i = 0; i < countPolresDisplay; i++) {
+                                    // console.log(`${i+1}`);
+                                    $(`#flyToMapFilterPolres${i+1}`).on("click", function(e) {
+                                        var latlong = $(this).data('cord').split(',');
+                                        var latitude = parseFloat(latlong[0]);
+                                        var longitude = parseFloat(latlong[1]);
+                                        mapContainer.flyTo([latitude, longitude], 20);
+                                    });
+                                }
+
+                                $('#datatablePolresOnDisplay').DataTable({
+                                    responsive: true,
+
+                                    scrollX: true,
+
+                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                    buttons: ["excel", "csv", "pdf"],
+                                    processing: true,
+                                    oLanguage: {
+
+                                        sSearch: 'Search:'
+
+                                    },
+                                });
+                            }
+                        }
+
+                        if (ressCctv && ressCctv.length > 0) {
+                            // var filterCctv = ressCctv.filter(function(e) {
+                            //     return e.lat_cctv != null && e.lng_cctv != null;
+                            // });
+
+                            // if (filterCctv.length > 0) {
+                            //     $('#openModalCctvDisplay').html(`
+                            //         <table id="datatableCctvOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                            //             <thead>
+                            //                 <tr>
+                            //                     <th>No</th>
+                            //                     <th>Type</th> 
+                            //                     <th>Nama</th> 
+                            //                     <th>Aksi</th>
+                            //                 </tr>
+                            //             </thead>
+                            //             <tbody id="isiModalCctvDisplay">
+                            //             </tbody>
+                            //         </table>                     
+                            //     `);
+                            //     var countCctvDisplay = 0;
+                            //     var listCctvDisplay = '';
+                            //     $('#totalCctvDisplay').html(filterCctv.length);
+
+                            //     for (let i = 0; i < filterCctv.length; i++) {
+                            //         setTimeout(() => {
+                            //             countCctvDisplay += 1;
+                            //             listCctvDisplay += `
+                            //                 <tr>
+                            //                     <td>${countCctvDisplay}</td>
+                            //                     <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].type_cctv}</a></td> 
+                            //                     <td>${filterCctv[i].vms_cctv}</td> 
+                            //                     <td>
+                            //                         <a class="btn" style="margin-top: -10px;"  
+                            //                             id="flyToMapFilterCctv${countCctvDisplay}"
+                            //                             data-cord="${filterCctv[i].lat_cctv},${filterCctv[i].lng_cctv}" 
+                            //                             href="javascript:void(0)">
+                            //                             <i style="color: #495057;" class="fa fas fa-eye"></i>
+                            //                         </a> 
+                            //                     </td>
+                            //                 </tr>
+                            //             `;
+                            //             $('#isiModalCctvDisplay').html(listCctvDisplay);
+
+
+
+                            //             id = i;
+                            //             var latitudeCCTV = parseFloat(filterCctv[i].lat_cctv);
+                            //             var longitudeCCTV = parseFloat(filterCctv[i].lng_cctv);
+
+                            //             var resource = '';
+                            //             if (filterCctv[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv' || filterCctv[i].merek_cctv == 'video') {
+                            //                 resource = `<iframe id="myIframe" src="${filterCctv[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
+                            //             } else {
+                            //                 resource = `<div>
+                            //                 <img class="cctv-${filterCctv[i].id}" style="width: 300px;" src="${filterCctv[i].link_cctv}" />
+                            //                 </div>`;
+                            //                 window.setInterval(function () {
+                            //                     var d = new Date();
+                            //                     console.log("is refresh")
+                            //                     $(`.cctv-${filterCctv[i].id}`).attr("src", filterCctv[i].link_cctv + d.getTime());
+                            //                 }, 1000);
+                            //             }
+
+                            //             cctvClusterGroup.addLayer(markerCCTV[i] = L.marker([latitudeCCTV, longitudeCCTV], {
+                            //                 icon: L.divIcon({
+                            //                     // className: 'location-pin',
+                            //                     html: `
+                            //                 <div>
+                            //                     <div style="position: relative;">
+                            //                         <img src="<?php echo base_url(); ?>assets/icon/cctv.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                            //                     </div> 
+                            //                     <div style="position: absolute;margin-top: -29px;">
+                            //                         <span class="badge rounded-pill bg-primary" >${filterCctv[i].address_cctv}</span>
+                            //                     </div>
+                            //                 </div>
+                            //                 `,
+                            //                     iconSize: [5, 5],
+                            //                     iconAnchor: [5, 10]
+                            //                     // iconAnchor: [10, 33]
+                            //                 })
+                            //             }).bindPopup(`
+                            //                 <div style="width: 300px;">
+                            //                     <div class="row">
+                            //                         <div class="col-md-12" style="text-align: center;">
+                            //                             <h5>${filterCctv[i].address_cctv}</h5>
+                            //                         </div>
+                            //                         <div class="col-md-12"> 
+                            //                             ${resource}
+                            //                         </div> 
+                            //                     </div>
+                            //                 </div>
+                                                
+                            //                 `, {
+                            //                 minWidth: 100,
+                            //                 maxWidth: 560,
+                            //                 width: 400
+                            //             }));
+                            //         }, i * 500);
+                            //     }
+
+
+                            //     setTimeout(() => {
+                            //         for (let i = 0; i < countCctvDisplay; i++) {
+                            //             // console.log(`${i+1}`);
+                            //             $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
+                            //                 var latlong = $(this).data('cord').split(',');
+                            //                 var latitude = parseFloat(latlong[0]);
+                            //                 var longitude = parseFloat(latlong[1]);
+                            //                 mapContainer.flyTo([latitude, longitude], 20);
+                            //             });
+                            //         }
+                            //         $('#datatableCctvOnDisplay').DataTable({
+                            //             responsive: true,
+
+                            //             scrollX: true,
+
+                            //             sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            //             buttons: ["excel", "csv", "pdf"],
+                            //             processing: true,
+                            //             oLanguage: {
+
+                            //                 sSearch: 'Search:'
+
+                            //             },
+                            //         });
+                            //         mapContainer.addLayer(cctvClusterGroup);
+                            //     }, countCctvDisplay * 500);
+                            // }
+
+                            var geoJsonCctvUrl = `<?php echo base_url(); ?>assets/admin/shp/cctv/cctvJID.json`; 
+
+                            $.ajax({
+                                type: "GET",
+                                url: geoJsonCctvUrl,
+                                // data: {
+                                //     "type": 'point',
+                                //     "map": 'cctv', 
+                                // },
+                                dataType: "JSON",
+                                success: function(result) {
+                                    // console.log(result);
+                                    var filterCctv = result.features;
+
+
+                                    
+
+                                    
+                                    
+                                    var options2 = {
+                                        style: function(feature){
+                                            if(feature.style) return feature.style; 
+                                            else return noStyle;
+                                        },
+                                        pointToLayer: function(feature,latlng){
+                                            var model = feature.name;
+                                            var icon = feature.icon;
+
+                                            var style = '';
+                                            if(feature.style){
+                                                for(var idx in feature.style){
+                                                    style += idx+':'+feature.style[idx]+';';
+                                                }
+                                            }
+                                            var pb = vector[model].multi? 'b':'p';
+                                            var iconMar = `<img src='https://jid.jasamargalive.com/img/icon/cctv-b-24.png'>`;
+                                            var aDiv = L.divIcon({
+                                                html: (vector[model].multi? '<div class="pin" data-layer="'+icon.type.substring(4)
+                                                +'" data-lat="'+latlng.lat+'" data-lng="'+latlng.lng+'" data-scope="'+feature.properties[vector[model].scope]+'">':'')
+                                                +'<div class="icon '+icon.type+'" id="icon-'+icon.type+'-'+feature.id+'"'
+                                                +(style? ' style="'+style+'"': (icon.css? ' style="'+icon.css+'"':''))
+                                                +' title="'+(icon.title? icon.title: icon.type+' #'+feature.id)+'">'+iconMar
+                                                +'</div>'
+                                                +(vector[model].multi? '</div>':'')
+                                                +(icon.label ? '<div class="label"'+(labels?'':' hidden')+'><'+pb+' style="white-space: pre;">'+icon.label+'</'+pb+'></div>' : ''),
+                                                className: '',
+                                            iconSize: (vector[model].multi? [40, 40]: [30, 30]),
+                                            iconAnchor: (vector[model].multi? [20, 50]: [15, 15]),
+                                            popupAnchor:  (vector[model].multi? [0, -50]: [0, -10])
+                                            });
+                                            return L.marker(latlng, {'icon': L.divIcon({
+                                                        // className: 'location-pin',
+                                                        html: `
+                                                        <div>
+                                                            <div style="position: relative;">
+                                                                <img src="<?php echo base_url(); ?>assets/icon/cctv.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                                            </div> 
+                                                            <div style="position: absolute;margin-top: -29px;">
+                                                                <span class="badge rounded-pill bg-primary" >${icon.label}</span>
+                                                            </div>
+                                                        </div>
+                                                        `,
+                                                            iconSize: [5, 5],
+                                                            iconAnchor: [5, 10]
+                                                            // iconAnchor: [10, 33]
+                                                        })
+                                                    });
+                                        },
+                                        onEachFeature: function (feature, layer) {
+                                            
+                                            var icon = feature.icon;
+                                            var properties = feature.properties;
+
+                                            var resource = '';
+                                            var uri = `https://jid.jasamarga.com/cctv2/${properties['key id']}?tx=`;
+                                            
+                                            resource = `<div>
+                                            <img class="cctv-${feature.id}" style="width: 300px;" src="${uri}" />
+                                            </div>`;
+                                            window.setInterval(function () {
+                                                var d = new Date();
+                                                // console.log("is refresh")
+                                                $(`.cctv-${feature.id}`).attr("src", uri + d.getTime());
+                                            }, 1000);
+                                        
+
+                                            layer.bindPopup(` 
+                                                <div style="width: 300px;">
+                                                    <div class="row">
+                                                        <div class="col-md-12" style="text-align: center;">
+                                                            <h5>${icon.label}</h5>
+                                                        </div>
+                                                        <div class="col-md-12"> 
+                                                            ${resource}
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            `);
+                                        }
+                                    }
+                                    geoJsonCctv[0] = L.geoJSON(result,options2).addTo(mapContainer);
+
+
+
+                                    $('#openModalCctvDisplay').html(`
+                                        <table id="datatableCctvOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th> 
+                                                    <th>Type</th> 
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="isiModalCctvDisplay">
+                                            </tbody>
+                                        </table>                     
+                                    `);
+                                    var countCctvDisplay = 0;
+                                    var listCctvDisplay = '';
+                                    $('#totalCctvDisplay').html(filterCctv.length);
+
+                                    for (let i = 0; i < filterCctv.length; i++) {
+                                        // console.log(JSON.stringify(filterCctv[i].geometry.coordinates));
+                                        setTimeout(() => {
+                                            countCctvDisplay += 1;
+                                            listCctvDisplay += `
+                                                <tr>
+                                                    <td>${countCctvDisplay}</td>
+                                                    <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].properties.nama}</a></td> 
+                                                    <td>${filterCctv[i].properties.merk}</td> 
+                                                    <td>
+                                                        <a class="btn" style="margin-top: -10px;"  
+                                                            id="flyToMapFilterCctv${countCctvDisplay}"
+                                                            data-cord="${JSON.stringify(filterCctv[i].geometry.coordinates)}" 
+                                                            href="javascript:void(0)">
+                                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                        </a> 
+                                                    </td>
+                                                </tr>
+                                            `;
+                                            
+                                            $('#isiModalCctvDisplay').html(listCctvDisplay); 
+                                            
+                                        }, i * 500);
+                                    }
+                                    
+
+                                    
+                                    setTimeout(() => {
+                                        for (let i = 0; i < countCctvDisplay; i++) {
+                                            $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
+                                                var latlong = $(this).data('cord').split(',');
+                                                var latitude = parseFloat(latlong[0]);
+                                                var longitude = parseFloat(latlong[1]);
+                                                mapContainer.flyTo([latitude, longitude], 20);
+                                            }); 
+                                            
+                                            
+                                        }
+                                        $('#datatableCctvOnDisplay').DataTable({
+                                            responsive: true,
+
+                                            scrollX: true,
+
+                                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                            buttons: ["excel", "csv", "pdf"],
+                                            processing: true,
+                                            oLanguage: {
+
+                                                sSearch: 'Search:'
+
+                                            },
+                                        });
+                                    }, countCctvDisplay * 500);
+                                    
+
+                                }
+                            });
+                        }
+
+
+                        if (ressSamsat && ressSamsat.length > 0) {
+                            var filterSamsat = ressSamsat.filter(function(e) {
+                                return e.samsat_lat != null && e.samsat_lng != null;
+                            });
+
+                            if (filterSamsat.length > 0) {
+                                $(`#isiPoldaSamsat${polda_id}`).html(`
+                                    <table id="datatableSamsatOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama</th> 
+                                                <th>Alamat</th> 
+                                                <th>Waktu</th> 
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="isiModalSamsatDisplay${polda_id}">
+                                        </tbody>
+                                    </table>                     
+                                `);
+                                var countSamsatDisplay = 0;
+                                var listSamsatDisplay = '';
+                                $('#totalSamsatDisplay').html(filterSamsat.length);
+
+                                for (let i = 0; i < filterSamsat.length; i++) {
+                                    countSamsatDisplay += 1;
+                                    listSamsatDisplay += `
                                     <tr>
-                                        <td>${countPolresDisplay}</td>
-                                        <td>${filterpolres[i].name_polres}</td> 
-                                        <td>${filterpolres[i].address}</td> 
+                                        <td>${countSamsatDisplay}</td>
+                                        <td>${filterSamsat[i].name_samsat}</td> 
+                                        <td>${filterSamsat[i].address}</td> 
+                                        <td>${filterSamsat[i].samsat_open_time} - ${filterSamsat[i].samsat_close_time}</td> 
                                         <td>
                                             <a class="btn" style="margin-top: -10px;"  
-                                                id="flyToMapFilterPolres${countPolresDisplay}"
-                                                data-cord="${filterpolres[i].latitude},${filterpolres[i].longitude}" 
+                                                id="flyToMapFilterSamsat${countSamsatDisplay}"
+                                                data-cord="${filterSamsat[i].samsat_lat},${filterSamsat[i].samsat_lng}" 
                                                 href="javascript:void(0)">
                                                 <i style="color: #495057;" class="fa fas fa-eye"></i>
                                             </a> 
                                         </td>
                                     </tr>
                                 `;
-                                $('#isiModalPolresDisplay').html(listPolresDisplay);
-                            }
-
-                            for (let i = 0; i < countPolresDisplay; i++) {
-                                // console.log(`${i+1}`);
-                                $(`#flyToMapFilterPolres${i+1}`).on("click", function(e) {
-                                    var latlong = $(this).data('cord').split(',');
-                                    var latitude = parseFloat(latlong[0]);
-                                    var longitude = parseFloat(latlong[1]);
-                                    mapContainer.flyTo([latitude, longitude], 20);
-                                });
-                            }
-
-                            $('#datatablePolresOnDisplay').DataTable({
-                                responsive: true,
-
-                                scrollX: true,
-
-                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                                buttons: ["excel", "csv", "pdf"],
-                                processing: true,
-                                oLanguage: {
-
-                                    sSearch: 'Search:'
-
-                                },
-                            });
-                        }
-                    }
-
-                    if (ressCctv && ressCctv.length > 0) {
-                        // var filterCctv = ressCctv.filter(function(e) {
-                        //     return e.lat_cctv != null && e.lng_cctv != null;
-                        // });
-
-                        // if (filterCctv.length > 0) {
-                        //     $('#openModalCctvDisplay').html(`
-                        //         <table id="datatableCctvOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                        //             <thead>
-                        //                 <tr>
-                        //                     <th>No</th>
-                        //                     <th>Type</th> 
-                        //                     <th>Nama</th> 
-                        //                     <th>Aksi</th>
-                        //                 </tr>
-                        //             </thead>
-                        //             <tbody id="isiModalCctvDisplay">
-                        //             </tbody>
-                        //         </table>                     
-                        //     `);
-                        //     var countCctvDisplay = 0;
-                        //     var listCctvDisplay = '';
-                        //     $('#totalCctvDisplay').html(filterCctv.length);
-
-                        //     for (let i = 0; i < filterCctv.length; i++) {
-                        //         setTimeout(() => {
-                        //             countCctvDisplay += 1;
-                        //             listCctvDisplay += `
-                        //                 <tr>
-                        //                     <td>${countCctvDisplay}</td>
-                        //                     <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].type_cctv}</a></td> 
-                        //                     <td>${filterCctv[i].vms_cctv}</td> 
-                        //                     <td>
-                        //                         <a class="btn" style="margin-top: -10px;"  
-                        //                             id="flyToMapFilterCctv${countCctvDisplay}"
-                        //                             data-cord="${filterCctv[i].lat_cctv},${filterCctv[i].lng_cctv}" 
-                        //                             href="javascript:void(0)">
-                        //                             <i style="color: #495057;" class="fa fas fa-eye"></i>
-                        //                         </a> 
-                        //                     </td>
-                        //                 </tr>
-                        //             `;
-                        //             $('#isiModalCctvDisplay').html(listCctvDisplay);
+                                    $(`#isiModalSamsatDisplay${polda_id}`).html(listSamsatDisplay);
 
 
 
-                        //             id = i;
-                        //             var latitudeCCTV = parseFloat(filterCctv[i].lat_cctv);
-                        //             var longitudeCCTV = parseFloat(filterCctv[i].lng_cctv);
-
-                        //             var resource = '';
-                        //             if (filterCctv[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv' || filterCctv[i].merek_cctv == 'video') {
-                        //                 resource = `<iframe id="myIframe" src="${filterCctv[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
-                        //             } else {
-                        //                 resource = `<div>
-                        //                 <img class="cctv-${filterCctv[i].id}" style="width: 300px;" src="${filterCctv[i].link_cctv}" />
-                        //                 </div>`;
-                        //                 window.setInterval(function () {
-                        //                     var d = new Date();
-                        //                     console.log("is refresh")
-                        //                     $(`.cctv-${filterCctv[i].id}`).attr("src", filterCctv[i].link_cctv + d.getTime());
-                        //                 }, 1000);
-                        //             }
-
-                        //             cctvClusterGroup.addLayer(markerCCTV[i] = L.marker([latitudeCCTV, longitudeCCTV], {
-                        //                 icon: L.divIcon({
-                        //                     // className: 'location-pin',
-                        //                     html: `
-                        //                 <div>
-                        //                     <div style="position: relative;">
-                        //                         <img src="<?php echo base_url(); ?>assets/icon/cctv.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                        //                     </div> 
-                        //                     <div style="position: absolute;margin-top: -29px;">
-                        //                         <span class="badge rounded-pill bg-primary" >${filterCctv[i].address_cctv}</span>
-                        //                     </div>
-                        //                 </div>
-                        //                 `,
-                        //                     iconSize: [5, 5],
-                        //                     iconAnchor: [5, 10]
-                        //                     // iconAnchor: [10, 33]
-                        //                 })
-                        //             }).bindPopup(`
-                        //                 <div style="width: 300px;">
-                        //                     <div class="row">
-                        //                         <div class="col-md-12" style="text-align: center;">
-                        //                             <h5>${filterCctv[i].address_cctv}</h5>
-                        //                         </div>
-                        //                         <div class="col-md-12"> 
-                        //                             ${resource}
-                        //                         </div> 
-                        //                     </div>
-                        //                 </div>
-                                            
-                        //                 `, {
-                        //                 minWidth: 100,
-                        //                 maxWidth: 560,
-                        //                 width: 400
-                        //             }));
-                        //         }, i * 500);
-                        //     }
+                                    id = i;
+                                    var latitudeSamsat = parseFloat(filterSamsat[i].samsat_lat);
+                                    var longitudeSamsat = parseFloat(filterSamsat[i].samsat_lng);
 
 
-                        //     setTimeout(() => {
-                        //         for (let i = 0; i < countCctvDisplay; i++) {
-                        //             // console.log(`${i+1}`);
-                        //             $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
-                        //                 var latlong = $(this).data('cord').split(',');
-                        //                 var latitude = parseFloat(latlong[0]);
-                        //                 var longitude = parseFloat(latlong[1]);
-                        //                 mapContainer.flyTo([latitude, longitude], 20);
-                        //             });
-                        //         }
-                        //         $('#datatableCctvOnDisplay').DataTable({
-                        //             responsive: true,
-
-                        //             scrollX: true,
-
-                        //             sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                        //             buttons: ["excel", "csv", "pdf"],
-                        //             processing: true,
-                        //             oLanguage: {
-
-                        //                 sSearch: 'Search:'
-
-                        //             },
-                        //         });
-                        //         mapContainer.addLayer(cctvClusterGroup);
-                        //     }, countCctvDisplay * 500);
-                        // }
-
-                        var geoJsonCctvUrl = `<?php echo base_url(); ?>assets/admin/shp/cctv/cctvJID.json`; 
-
-                        $.ajax({
-                            type: "GET",
-                            url: geoJsonCctvUrl,
-                            // data: {
-                            //     "type": 'point',
-                            //     "map": 'cctv', 
-                            // },
-                            dataType: "JSON",
-                            success: function(result) {
-                                // console.log(result);
-                                var filterCctv = result.features;
-
-
-                                
-
-                                
-                                
-                                var options2 = {
-                                    style: function(feature){
-                                        if(feature.style) return feature.style; 
-                                        else return noStyle;
-                                    },
-                                    pointToLayer: function(feature,latlng){
-                                        var model = feature.name;
-                                        var icon = feature.icon;
-
-                                        var style = '';
-                                        if(feature.style){
-                                            for(var idx in feature.style){
-                                                style += idx+':'+feature.style[idx]+';';
-                                            }
-                                        }
-                                        var pb = vector[model].multi? 'b':'p';
-                                        var iconMar = `<img src='https://jid.jasamargalive.com/img/icon/cctv-b-24.png'>`;
-                                        var aDiv = L.divIcon({
-                                            html: (vector[model].multi? '<div class="pin" data-layer="'+icon.type.substring(4)
-                                            +'" data-lat="'+latlng.lat+'" data-lng="'+latlng.lng+'" data-scope="'+feature.properties[vector[model].scope]+'">':'')
-                                            +'<div class="icon '+icon.type+'" id="icon-'+icon.type+'-'+feature.id+'"'
-                                            +(style? ' style="'+style+'"': (icon.css? ' style="'+icon.css+'"':''))
-                                            +' title="'+(icon.title? icon.title: icon.type+' #'+feature.id)+'">'+iconMar
-                                            +'</div>'
-                                            +(vector[model].multi? '</div>':'')
-                                            +(icon.label ? '<div class="label"'+(labels?'':' hidden')+'><'+pb+' style="white-space: pre;">'+icon.label+'</'+pb+'></div>' : ''),
-                                            className: '',
-                                        iconSize: (vector[model].multi? [40, 40]: [30, 30]),
-                                        iconAnchor: (vector[model].multi? [20, 50]: [15, 15]),
-                                        popupAnchor:  (vector[model].multi? [0, -50]: [0, -10])
-                                        });
-                                        return L.marker(latlng, {'icon': L.divIcon({
-                                                    // className: 'location-pin',
-                                                    html: `
-                                                    <div>
-                                                        <div style="position: relative;">
-                                                            <img src="<?php echo base_url(); ?>assets/icon/cctv.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                                        </div> 
-                                                        <div style="position: absolute;margin-top: -29px;">
-                                                            <span class="badge rounded-pill bg-primary" >${icon.label}</span>
-                                                        </div>
-                                                    </div>
-                                                    `,
-                                                        iconSize: [5, 5],
-                                                        iconAnchor: [5, 10]
-                                                        // iconAnchor: [10, 33]
-                                                    })
-                                                });
-                                    },
-                                    onEachFeature: function (feature, layer) {
-                                        
-                                        var icon = feature.icon;
-                                        var properties = feature.properties;
-
-                                        var resource = '';
-                                        var uri = `https://jid.jasamarga.com/cctv2/${properties['key id']}?tx=`;
-                                        
-                                        resource = `<div>
-                                        <img class="cctv-${feature.id}" style="width: 300px;" src="${uri}" />
-                                        </div>`;
-                                        window.setInterval(function () {
-                                            var d = new Date();
-                                            // console.log("is refresh")
-                                            $(`.cctv-${feature.id}`).attr("src", uri + d.getTime());
-                                        }, 1000);
-                                    
-
-                                        layer.bindPopup(` 
-                                            <div style="width: 300px;">
-                                                <div class="row">
-                                                    <div class="col-md-12" style="text-align: center;">
-                                                        <h5>${icon.label}</h5>
-                                                    </div>
-                                                    <div class="col-md-12"> 
-                                                        ${resource}
-                                                    </div> 
+                                    samsatClusterGroup.addLayer(markerSamsat[i] = L.marker([latitudeSamsat, longitudeSamsat], {
+                                        icon: L.divIcon({
+                                            // className: 'location-pin',
+                                            html: `
+                                            <div>
+                                                <div style="position: relative;">
+                                                    <img src="<?php echo base_url(); ?>assets/icon/lainnya.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                                </div> 
+                                                <div style="position: absolute;margin-top: -29px;">
+                                                    <span class="badge rounded-pill bg-primary" >${filterSamsat[i].name_samsat}</span>
                                                 </div>
                                             </div>
-                                        `);
-                                    }
+                                            `,
+                                            iconSize: [5, 5],
+                                            iconAnchor: [5, 10]
+                                            // iconAnchor: [10, 33]
+                                        })
+                                    }).bindPopup(`
+                                    <div style="width: 300px;">
+                                        <div class="row">
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <h5>${filterSamsat[i].name_samsat}</h5>
+                                            </div>
+                                            <div class="col-md-12"> 
+                                                    
+                                            </div> 
+                                        </div>
+                                    </div>
+                                        
+                                    `, {
+                                        minWidth: 100,
+                                        maxWidth: 560,
+                                        width: 400
+                                    }));
                                 }
-                                geoJsonCctv[0] = L.geoJSON(result,options2).addTo(mapContainer);
 
 
+                                for (let i = 0; i < countSamsatDisplay; i++) {
+                                    // console.log(`${i+1}`);
+                                    $(`#flyToMapFilterSamsat${i+1}`).on("click", function(e) {
+                                        var latlong = $(this).data('cord').split(',');
+                                        var latitude = parseFloat(latlong[0]);
+                                        var longitude = parseFloat(latlong[1]);
+                                        mapContainer.flyTo([latitude, longitude], 20);
+                                    });
+                                }
+                                $(`#datatableSamsatOnDisplay${polda_id}`).DataTable({
+                                    responsive: true,
 
-                                $('#openModalCctvDisplay').html(`
-                                    <table id="datatableCctvOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    scrollX: true,
+
+                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                    buttons: ["excel", "csv", "pdf"],
+                                    processing: true,
+                                    oLanguage: {
+
+                                        sSearch: 'Search:'
+
+                                    },
+                                });
+                                mapContainer.addLayer(samsatClusterGroup);
+                            }
+                        }
+
+
+                        if (ressJalur && ressJalur.length > 0) {
+                            var filterJalur = ressJalur;
+
+                            if (filterJalur.length > 0) {
+
+
+                                var countIsiLegenJalur = 0;
+                                var listIsiLegenJalur = '';
+
+
+                                $('#openModalJalurDisplay').html(`
+                                    <table id="datatableJalurOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama</th> 
-                                                <th>Type</th> 
+                                                <th>Keterangan</th>  
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="isiModalCctvDisplay">
+                                        <tbody id="isiModalJalurDisplay">
                                         </tbody>
                                     </table>                     
                                 `);
-                                var countCctvDisplay = 0;
-                                var listCctvDisplay = '';
-                                $('#totalCctvDisplay').html(filterCctv.length);
 
-                                for (let i = 0; i < filterCctv.length; i++) {
-                                    // console.log(JSON.stringify(filterCctv[i].geometry.coordinates));
-                                    setTimeout(() => {
-                                        countCctvDisplay += 1;
-                                        listCctvDisplay += `
-                                            <tr>
-                                                <td>${countCctvDisplay}</td>
-                                                <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].properties.nama}</a></td> 
-                                                <td>${filterCctv[i].properties.merk}</td> 
-                                                <td>
-                                                    <a class="btn" style="margin-top: -10px;"  
-                                                        id="flyToMapFilterCctv${countCctvDisplay}"
-                                                        data-cord="${JSON.stringify(filterCctv[i].geometry.coordinates)}" 
-                                                        href="javascript:void(0)">
-                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                    </a> 
-                                                </td>
-                                            </tr>
-                                        `;
-                                        
-                                        $('#isiModalCctvDisplay').html(listCctvDisplay); 
-                                        
-                                    }, i * 500);
-                                }
-                                
+                                var countJalurDisplay = 0;
+                                var listJalurDisplay = '';
+                                $('#totalJalurDisplay').html(filterJalur.length);
+                                var countlistJalur = 0;
+                                var checkedJalur1 = [];
 
-                                
-                                setTimeout(() => {
-                                    for (let i = 0; i < countCctvDisplay; i++) {
-                                        $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
-                                            var latlong = $(this).data('cord').split(',');
-                                            var latitude = parseFloat(latlong[0]);
-                                            var longitude = parseFloat(latlong[1]);
-                                            mapContainer.flyTo([latitude, longitude], 20);
-                                        }); 
-                                        
-                                        
-                                    }
-                                    $('#datatableCctvOnDisplay').DataTable({
-                                        responsive: true,
+                                for (let i = 0; i < filterJalur.length; i++) {
+                                    countJalurDisplay += 1;
+                                    countlistJalur += 1;
+                                    id = i;
 
-                                        scrollX: true,
+                                    listJalurDisplay += `
+                                        <tr>
+                                            <td>${countJalurDisplay}</td>
+                                            <td>${filterJalur[i].fasum_name}</td> 
+                                            <td>${filterJalur[i].fasum_description}</td>  
+                                            <td>
+                                                <input type="checkbox" class="form-input checkTs" name="selectTs" 
+                                                id="listJlDisplay${countlistJalur}"  
+                                                data-name="${filterJalur[i]['fasum_name']}" 
+                                                data-warna="${filterJalur[i]['fasum_color']}" 
+                                                data-geojson='${JSON.stringify(filterJalur[i]['fasum_geoJson'])}'
+                                                data-cord='${JSON.stringify(filterJalur[i]['route'])}'> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalJalurDisplay').html(listJalurDisplay);
 
-                                        sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                                        buttons: ["excel", "csv", "pdf"],
-                                        processing: true,
-                                        oLanguage: {
-
-                                            sSearch: 'Search:'
-
-                                        },
+                                    checkedJalur1.push({
+                                        fasum_name: filterJalur[i]['fasum_name'],
+                                        checked: 0,
                                     });
-                                }, countCctvDisplay * 500);
+
+
+
+
+                                    listIsiLegenJalur += `
+                                        <div class="col-md-6">
+                                            <b style="font-size: 14px; text-transform: capitalize;">${filterJalur[i].fasum_name}</b> 
+                                        </div> 
+                                        <div class="col-md-6"> 
+                                            <div style="height: 10px;background-color: ${filterJalur[i].fasum_color}; margin-top: 8px;" ></div>
+                                        </div>
+                                    `;
+                                    $('#isiLegendJalur').html(listIsiLegenJalur);
+
+                                }
+
+                                for (let i = 0; i < countlistJalur; i++) {
+                                    $(`#listJlDisplay${i+1}`).on("change", function(e) {
+
+                                        var cordRute = $(this).data('cord');
+                                        if (cordRute != null && cordRute[0]['latLng'] != null) {
+                                            if ($(this).is(':checked')) {
+                                                routingJalur[i] = null;
+                                                routingJalur[i] = L.Routing.control({
+                                                    show: false,
+                                                    draggableWaypoints: false,
+                                                    addWaypoints: false,
+                                                    waypoints: cordRute,
+                                                    router: new L.Routing.osrmv1({
+                                                        language: 'en',
+                                                        profile: 'car'
+                                                    }),
+                                                    lineOptions: {
+                                                        styles: [{
+                                                            color: `${$(this).data('warna')}`,
+                                                            weight: 5,
+                                                            // className: 'animateRoute'
+                                                        }]
+                                                    },
+                                                    createMarker: function(i, wp, nWps) {
+                                                        if (i === 0 || i === nWps + 1) {
+                                                            // here change the starting and ending icons
+                                                            // return L.marker(wp.latLng);
+                                                        } else if (i === nWps - 1) {
+                                                            // return L.marker(wp.latLng);
+                                                        } else {
+                                                            // here change all the others
+                                                            // var options = {
+                                                            //         draggable: this.draggableWaypoints,
+                                                            //     },
+                                                            //     marker = L.marker(wp.latLng);
+
+                                                            // return marker;
+                                                        }
+                                                    },
+                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                }).addTo(mapContainer);
+                                                // mapContainer.addControl(routingJalur[i]); 
+                                            } else {
+                                                mapContainer.removeControl(routingJalur[i]);
+                                            }
+                                        }
+
+                                        var geoJson = $(this).data('geojson');
+                                        if (geoJson || geoJson != null) {
+                                            if ($(this).is(':checked')) {
+                                                routingJalur[i] = L.geoJSON(geoJson, {
+                                                    style: {
+                                                        fillColor: "yellow",
+                                                        color: "yellow",
+                                                    }
+                                                }).addTo(mapContainer);
+                                            } else {
+                                                mapContainer.removeLayer(routingJalur[i]);
+                                            }
+                                        }
+                                    });
+                                }
+
+
+                                $('#datatableJalurOnDisplay').DataTable({
+                                    responsive: true,
+
+                                    scrollX: true,
+
+                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                    buttons: ["excel", "csv", "pdf"],
+                                    processing: true,
+                                    oLanguage: {
+
+                                        sSearch: 'Search:'
+
+                                    },
+                                });
+
+                            }
+                        }
+
+                        if (ressTroubleSpot && ressTroubleSpot.length > 0) {
+
+
+                            
+                        
+                            var filterTroubleSpot = ressTroubleSpot;
+
+                            if (filterTroubleSpot.length > 0) {
                                 
 
-                            }
-                        });
-                    }
+                                $(`#isiPoldaTroubleSpot${polda_id}`).html(`
+                                    <table id="datatableTroubleSpotOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama</th> 
+                                                <th>Alamat</th> 
+                                                <th>Waktu</th> 
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="isiModalTroubleSpotDisplay${polda_id}">
+                                        </tbody>
+                                    </table>                     
+                                `);
 
+                                var countTroubleSpotDisplay = 0;
+                                var listTroubleSpotDisplay = '';
+                                $('#totalTroubleSpotDisplay').html(filterTroubleSpot.length);
+                                var countlistTroubleSpot = 0;
+                                var checkedTroubleSpot1 = [];
 
-                    if (ressSamsat && ressSamsat.length > 0) {
-                        var filterSamsat = ressSamsat.filter(function(e) {
-                            return e.samsat_lat != null && e.samsat_lng != null;
-                        });
+                                for (let i = 0; i < filterTroubleSpot.length; i++) {
+                                    countTroubleSpotDisplay += 1;
+                                    countlistTroubleSpot += 1;
+                                    id = i;
 
-                        if (filterSamsat.length > 0) {
-                            $(`#isiPoldaSamsat${polda_id}`).html(`
-                                <table id="datatableSamsatOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Alamat</th> 
-                                            <th>Waktu</th> 
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="isiModalSamsatDisplay${polda_id}">
-                                    </tbody>
-                                </table>                     
-                            `);
-                            var countSamsatDisplay = 0;
-                            var listSamsatDisplay = '';
-                            $('#totalSamsatDisplay').html(filterSamsat.length);
+                                    if (filterTroubleSpot[i].route == null) {
+                                        
+                                        var latitudeTroubleSpot = parseFloat(filterTroubleSpot[i].latitude);
+                                        var longitudeTroubleSpot = parseFloat(filterTroubleSpot[i].longitude);
+                                        if(latitudeTroubleSpot && longitudeTroubleSpot){
+                                            listTroubleSpotDisplay += `
+                                                <tr>
+                                                    <td>${countTroubleSpotDisplay}</td>
+                                                    <td>${filterTroubleSpot[i].reporter_name}</td> 
+                                                    <td>${filterTroubleSpot[i].location}</td> 
+                                                    <td>${filterTroubleSpot[i].desc}</td> 
+                                                    <td>
+                                                        <a class="btn" style="margin-top: -10px;"  
+                                                            id="flyToMapFilterTroubleSpot${countTroubleSpotDisplay}"
+                                                            data-cord="${filterTroubleSpot[i].latitude},${filterTroubleSpot[i].longitude}" 
+                                                            href="javascript:void(0)">
+                                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                        </a> 
+                                                    </td>
+                                                </tr>
+                                            `;
+                                            $(`#isiModalTroubleSpotDisplay${polda_id}`).html(listTroubleSpotDisplay);
 
-                            for (let i = 0; i < filterSamsat.length; i++) {
-                                countSamsatDisplay += 1;
-                                listSamsatDisplay += `
-                                <tr>
-                                    <td>${countSamsatDisplay}</td>
-                                    <td>${filterSamsat[i].name_samsat}</td> 
-                                    <td>${filterSamsat[i].address}</td> 
-                                    <td>${filterSamsat[i].samsat_open_time} - ${filterSamsat[i].samsat_close_time}</td> 
-                                    <td>
-                                        <a class="btn" style="margin-top: -10px;"  
-                                            id="flyToMapFilterSamsat${countSamsatDisplay}"
-                                            data-cord="${filterSamsat[i].samsat_lat},${filterSamsat[i].samsat_lng}" 
-                                            href="javascript:void(0)">
-                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                        </a> 
-                                    </td>
-                                </tr>
-                            `;
-                                $(`#isiModalSamsatDisplay${polda_id}`).html(listSamsatDisplay);
-
-
-
-                                id = i;
-                                var latitudeSamsat = parseFloat(filterSamsat[i].samsat_lat);
-                                var longitudeSamsat = parseFloat(filterSamsat[i].samsat_lng);
-
-
-                                samsatClusterGroup.addLayer(markerSamsat[i] = L.marker([latitudeSamsat, longitudeSamsat], {
-                                    icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: `
-                                        <div>
-                                            <div style="position: relative;">
-                                                <img src="<?php echo base_url(); ?>assets/icon/lainnya.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                            </div> 
-                                            <div style="position: absolute;margin-top: -29px;">
-                                                <span class="badge rounded-pill bg-primary" >${filterSamsat[i].name_samsat}</span>
-                                            </div>
-                                        </div>
-                                        `,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                    })
-                                }).bindPopup(`
-                                <div style="width: 300px;">
-                                    <div class="row">
-                                        <div class="col-md-12" style="text-align: center;">
-                                            <h5>${filterSamsat[i].name_samsat}</h5>
-                                        </div>
-                                        <div class="col-md-12"> 
-                                                
-                                        </div> 
-                                    </div>
-                                </div>
-                                    
-                                `, {
-                                    minWidth: 100,
-                                    maxWidth: 560,
-                                    width: 400
-                                }));
-                            }
-
-
-                            for (let i = 0; i < countSamsatDisplay; i++) {
-                                // console.log(`${i+1}`);
-                                $(`#flyToMapFilterSamsat${i+1}`).on("click", function(e) {
-                                    var latlong = $(this).data('cord').split(',');
-                                    var latitude = parseFloat(latlong[0]);
-                                    var longitude = parseFloat(latlong[1]);
-                                    mapContainer.flyTo([latitude, longitude], 20);
-                                });
-                            }
-                            $(`#datatableSamsatOnDisplay${polda_id}`).DataTable({
-                                responsive: true,
-
-                                scrollX: true,
-
-                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                                buttons: ["excel", "csv", "pdf"],
-                                processing: true,
-                                oLanguage: {
-
-                                    sSearch: 'Search:'
-
-                                },
-                            });
-                            mapContainer.addLayer(samsatClusterGroup);
-                        }
-                    }
-
-
-                    if (ressJalur && ressJalur.length > 0) {
-                        var filterJalur = ressJalur;
-
-                        if (filterJalur.length > 0) {
-
-
-                            var countIsiLegenJalur = 0;
-                            var listIsiLegenJalur = '';
-
-
-                            $('#openModalJalurDisplay').html(`
-                                <table id="datatableJalurOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Keterangan</th>  
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="isiModalJalurDisplay">
-                                    </tbody>
-                                </table>                     
-                            `);
-
-                            var countJalurDisplay = 0;
-                            var listJalurDisplay = '';
-                            $('#totalJalurDisplay').html(filterJalur.length);
-                            var countlistJalur = 0;
-                            var checkedJalur1 = [];
-
-                            for (let i = 0; i < filterJalur.length; i++) {
-                                countJalurDisplay += 1;
-                                countlistJalur += 1;
-                                id = i;
-
-                                listJalurDisplay += `
-                                    <tr>
-                                        <td>${countJalurDisplay}</td>
-                                        <td>${filterJalur[i].fasum_name}</td> 
-                                        <td>${filterJalur[i].fasum_description}</td>  
-                                        <td>
-                                            <input type="checkbox" class="form-input checkTs" name="selectTs" 
-                                            id="listJlDisplay${countlistJalur}"  
-                                            data-name="${filterJalur[i]['fasum_name']}" 
-                                            data-warna="${filterJalur[i]['fasum_color']}" 
-                                            data-geojson='${JSON.stringify(filterJalur[i]['fasum_geoJson'])}'
-                                            data-cord='${JSON.stringify(filterJalur[i]['route'])}'> 
-                                        </td>
-                                    </tr>
-                                `;
-                                $('#isiModalJalurDisplay').html(listJalurDisplay);
-
-
-                                checkedJalur1.push({
-                                    fasum_name: filterJalur[i]['fasum_name'],
-                                    checked: 0,
-                                });
-
-
-
-
-                                listIsiLegenJalur += `
-                                    <div class="col-md-6">
-                                        <b style="font-size: 14px; text-transform: capitalize;">${filterJalur[i].fasum_name}</b> 
-                                    </div> 
-                                    <div class="col-md-6"> 
-                                        <div style="height: 10px;background-color: ${filterJalur[i].fasum_color}; margin-top: 8px;" ></div>
-                                    </div>
-                                `;
-                                $('#isiLegendJalur').html(listIsiLegenJalur);
-
-                            }
-
-                            for (let i = 0; i < countlistJalur; i++) {
-                                $(`#listJlDisplay${i+1}`).on("change", function(e) {
-
-                                    var cordRute = $(this).data('cord');
-                                    if (cordRute != null && cordRute[0]['latLng'] != null) {
-                                        if ($(this).is(':checked')) {
-                                            routingJalur[i] = null;
-                                            routingJalur[i] = L.Routing.control({
-                                                show: false,
-                                                draggableWaypoints: false,
-                                                addWaypoints: false,
-                                                waypoints: cordRute,
-                                                router: new L.Routing.osrmv1({
-                                                    language: 'en',
-                                                    profile: 'car'
-                                                }),
-                                                lineOptions: {
-                                                    styles: [{
-                                                        color: `${$(this).data('warna')}`,
-                                                        weight: 5,
-                                                        // className: 'animateRoute'
-                                                    }]
-                                                },
-                                                createMarker: function(i, wp, nWps) {
-                                                    if (i === 0 || i === nWps + 1) {
-                                                        // here change the starting and ending icons
-                                                        // return L.marker(wp.latLng);
-                                                    } else if (i === nWps - 1) {
-                                                        // return L.marker(wp.latLng);
-                                                    } else {
-                                                        // here change all the others
-                                                        // var options = {
-                                                        //         draggable: this.draggableWaypoints,
-                                                        //     },
-                                                        //     marker = L.marker(wp.latLng);
-
-                                                        // return marker;
-                                                    }
-                                                },
-                                                // geocoder: L.Control.Geocoder.nominatim({})
-                                            }).addTo(mapContainer);
-                                            // mapContainer.addControl(routingJalur[i]); 
-                                        } else {
-                                            mapContainer.removeControl(routingJalur[i]);
+                                            troubleSpotClusterGroup.addLayer(markerTroubleSpot[i] = L.marker([latitudeTroubleSpot, longitudeTroubleSpot], {
+                                                icon: L.divIcon({
+                                                    // className: 'location-pin',
+                                                    html: `
+                                                    <div>
+                                                        <div style="position: relative;">
+                                                            <img src="<?php echo base_url(); ?>assets/icon/troublespot.png" style="width: 35px; margin-top: -40px;margin-left: -15.5px;">
+                                                        </div>  
+                                                    </div>
+                                                    `,
+                                                    iconSize: [5, 5],
+                                                    iconAnchor: [5, 10]
+                                                    // iconAnchor: [10, 33]
+                                                })
+                                            }).bindPopup(`
+                                                <div style="width: 300px;">
+                                                    <div class="row">
+                                                        <div class="col-md-12 col-12 mt-3 text-center">
+                                                            <h5>${filterTroubleSpot[i].reporter_name}</h5>  
+                                                        </div>
+                                                        <div class="col-md-12 col-12 text-start">
+                                                            <p style="font-size: 12px;font-weight: bold;">Polda</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polda ? filterTroubleSpot[i].polda.name_polda : '-'}</p>
+                                                        </div> 
+                                                        <div class="col-md-12 col-12 text-start">
+                                                            <p style="font-size: 12px;font-weight: bold;">Polres</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polre ? filterTroubleSpot[i].polre.name_polres : '-'}</p>
+                                                        </div> 
+                                                        <div class="col-md-12 col-12 text-start">
+                                                            <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].problem ? filterTroubleSpot[i].problem.replace(/\n/g, "<br />") : '-'}</p>
+                                                        </div> 
+                                                        <div class="col-md-12 col-12 text-start">
+                                                            <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].location ? filterTroubleSpot[i].location : '-'}</p>
+                                                        </div> 
+                                                    </div>
+                                                </div> 
+                                            `, {
+                                                minWidth: 100,
+                                                maxWidth: 560,
+                                                width: 400
+                                            }));
                                         }
-                                    }
-
-                                    var geoJson = $(this).data('geojson');
-                                    if (geoJson || geoJson != null) {
-                                        if ($(this).is(':checked')) {
-                                            routingJalur[i] = L.geoJSON(geoJson, {
-                                                style: {
-                                                    fillColor: "yellow",
-                                                    color: "yellow",
-                                                }
-                                            }).addTo(mapContainer);
-                                        } else {
-                                            mapContainer.removeLayer(routingJalur[i]);
-                                        }
-                                    }
-                                });
-                            }
-
-
-                            $('#datatableJalurOnDisplay').DataTable({
-                                responsive: true,
-
-                                scrollX: true,
-
-                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                                buttons: ["excel", "csv", "pdf"],
-                                processing: true,
-                                oLanguage: {
-
-                                    sSearch: 'Search:'
-
-                                },
-                            });
-
-                        }
-                    }
-
-                    if (ressTroubleSpot && ressTroubleSpot.length > 0) {
-
-
-                        
-                    
-                        var filterTroubleSpot = ressTroubleSpot;
-
-                        if (filterTroubleSpot.length > 0) {
-                            
-
-                            $(`#isiPoldaTroubleSpot${polda_id}`).html(`
-                                <table id="datatableTroubleSpotOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Alamat</th> 
-                                            <th>Waktu</th> 
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="isiModalTroubleSpotDisplay${polda_id}">
-                                    </tbody>
-                                </table>                     
-                            `);
-
-                            var countTroubleSpotDisplay = 0;
-                            var listTroubleSpotDisplay = '';
-                            $('#totalTroubleSpotDisplay').html(filterTroubleSpot.length);
-                            var countlistTroubleSpot = 0;
-                            var checkedTroubleSpot1 = [];
-
-                            for (let i = 0; i < filterTroubleSpot.length; i++) {
-                                countTroubleSpotDisplay += 1;
-                                countlistTroubleSpot += 1;
-                                id = i;
-
-                                if (filterTroubleSpot[i].route == null) {
-                                    
-                                    var latitudeTroubleSpot = parseFloat(filterTroubleSpot[i].latitude);
-                                    var longitudeTroubleSpot = parseFloat(filterTroubleSpot[i].longitude);
-                                    if(latitudeTroubleSpot && longitudeTroubleSpot){
+                                    } else {
                                         listTroubleSpotDisplay += `
                                             <tr>
                                                 <td>${countTroubleSpotDisplay}</td>
@@ -7991,202 +8054,202 @@
                                                 <td>${filterTroubleSpot[i].location}</td> 
                                                 <td>${filterTroubleSpot[i].desc}</td> 
                                                 <td>
-                                                    <a class="btn" style="margin-top: -10px;"  
-                                                        id="flyToMapFilterTroubleSpot${countTroubleSpotDisplay}"
-                                                        data-cord="${filterTroubleSpot[i].latitude},${filterTroubleSpot[i].longitude}" 
-                                                        href="javascript:void(0)">
-                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                    </a> 
+                                                    <input type="checkbox" class="form-input checkTs" name="selectTs" 
+                                                    id="listTsDisplay${polda_id}${countlistTroubleSpot}"  
+                                                    data-name="${filterTroubleSpot[i]['reporter_name']}" 
+                                                    data-cord='${JSON.stringify(filterTroubleSpot[i]['route'])}'> 
                                                 </td>
                                             </tr>
                                         `;
                                         $(`#isiModalTroubleSpotDisplay${polda_id}`).html(listTroubleSpotDisplay);
 
-                                        troubleSpotClusterGroup.addLayer(markerTroubleSpot[i] = L.marker([latitudeTroubleSpot, longitudeTroubleSpot], {
-                                            icon: L.divIcon({
-                                                // className: 'location-pin',
-                                                html: `
-                                                <div>
-                                                    <div style="position: relative;">
-                                                        <img src="<?php echo base_url(); ?>assets/icon/troublespot.png" style="width: 35px; margin-top: -40px;margin-left: -15.5px;">
-                                                    </div>  
-                                                </div>
-                                                `,
-                                                iconSize: [5, 5],
-                                                iconAnchor: [5, 10]
-                                                // iconAnchor: [10, 33]
-                                            })
-                                        }).bindPopup(`
-                                            <div style="width: 300px;">
-                                                <div class="row">
-                                                    <div class="col-md-12 col-12 mt-3 text-center">
-                                                        <h5>${filterTroubleSpot[i].reporter_name}</h5>  
-                                                    </div>
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Polda</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polda ? filterTroubleSpot[i].polda.name_polda : '-'}</p>
-                                                    </div> 
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Polres</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polre ? filterTroubleSpot[i].polre.name_polres : '-'}</p>
-                                                    </div> 
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].problem ? filterTroubleSpot[i].problem.replace(/\n/g, "<br />") : '-'}</p>
-                                                    </div> 
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].location ? filterTroubleSpot[i].location : '-'}</p>
-                                                    </div> 
-                                                </div>
-                                            </div> 
-                                        `, {
-                                            minWidth: 100,
-                                            maxWidth: 560,
-                                            width: 400
-                                        }));
+
+                                        checkedTroubleSpot1.push({
+                                            reporter_name: filterTroubleSpot[i]['reporter_name'],
+                                            checked: 0,
+                                        });
                                     }
-                                } else {
-                                    listTroubleSpotDisplay += `
-                                        <tr>
-                                            <td>${countTroubleSpotDisplay}</td>
-                                            <td>${filterTroubleSpot[i].reporter_name}</td> 
-                                            <td>${filterTroubleSpot[i].location}</td> 
-                                            <td>${filterTroubleSpot[i].desc}</td> 
-                                            <td>
-                                                <input type="checkbox" class="form-input checkTs" name="selectTs" 
-                                                id="listTsDisplay${polda_id}${countlistTroubleSpot}"  
-                                                data-name="${filterTroubleSpot[i]['reporter_name']}" 
-                                                data-cord='${JSON.stringify(filterTroubleSpot[i]['route'])}'> 
-                                            </td>
-                                        </tr>
-                                    `;
-                                    $(`#isiModalTroubleSpotDisplay${polda_id}`).html(listTroubleSpotDisplay);
+                                }
 
+                                for (let i = 0; i < countlistTroubleSpot; i++) {
+                                    $(`#listTsDisplay${polda_id}${i+1}`).on("change", function(e) {
 
-                                    checkedTroubleSpot1.push({
-                                        reporter_name: filterTroubleSpot[i]['reporter_name'],
-                                        checked: 0,
+                                        var cordRute = $(this).data('cord');
+                                        if (cordRute != null && cordRute[0]['latLng'] != null) {
+                                            if ($(this).is(':checked')) {
+                                                routingTroubleSpot[i] = null;
+                                                routingTroubleSpot[i] = L.Routing.control({
+                                                    show: false,
+                                                    draggableWaypoints: false,
+                                                    addWaypoints: false,
+                                                    waypoints: cordRute,
+                                                    router: new L.Routing.osrmv1({
+                                                        language: 'en',
+                                                        profile: 'car'
+                                                    }),
+                                                    lineOptions: {
+                                                        styles: [{
+                                                            color: "#a50000",
+                                                            weight: 5,
+                                                            // className: 'animateRoute'
+                                                        }]
+                                                    },
+                                                    createMarker: function(i, wp, nWps) {
+                                                        if (i === 0 || i === nWps + 1) {
+                                                            // here change the starting and ending icons
+                                                            // return L.marker(wp.latLng);
+                                                        } else if (i === nWps - 1) {
+                                                            // return L.marker(wp.latLng);
+                                                        } else {
+                                                            // here change all the others
+                                                            // var options = {
+                                                            //         draggable: this.draggableWaypoints,
+                                                            //     },
+                                                            //     marker = L.marker(wp.latLng);
+
+                                                            // return marker;
+                                                        }
+                                                    },
+                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                }).addTo(mapContainer);
+                                                // mapContainer.addControl(routingTroubleSpot[i]); 
+                                            } else {
+                                                mapContainer.removeControl(routingTroubleSpot[i]);
+                                            }
+                                        }
                                     });
                                 }
-                            }
 
-                            for (let i = 0; i < countlistTroubleSpot; i++) {
-                                $(`#listTsDisplay${polda_id}${i+1}`).on("change", function(e) {
+                                for (let i = 0; i < countTroubleSpotDisplay; i++) {
 
-                                    var cordRute = $(this).data('cord');
-                                    if (cordRute != null && cordRute[0]['latLng'] != null) {
-                                        if ($(this).is(':checked')) {
-                                            routingTroubleSpot[i] = null;
-                                            routingTroubleSpot[i] = L.Routing.control({
-                                                show: false,
-                                                draggableWaypoints: false,
-                                                addWaypoints: false,
-                                                waypoints: cordRute,
-                                                router: new L.Routing.osrmv1({
-                                                    language: 'en',
-                                                    profile: 'car'
-                                                }),
-                                                lineOptions: {
-                                                    styles: [{
-                                                        color: "#a50000",
-                                                        weight: 5,
-                                                        // className: 'animateRoute'
-                                                    }]
-                                                },
-                                                createMarker: function(i, wp, nWps) {
-                                                    if (i === 0 || i === nWps + 1) {
-                                                        // here change the starting and ending icons
-                                                        // return L.marker(wp.latLng);
-                                                    } else if (i === nWps - 1) {
-                                                        // return L.marker(wp.latLng);
-                                                    } else {
-                                                        // here change all the others
-                                                        // var options = {
-                                                        //         draggable: this.draggableWaypoints,
-                                                        //     },
-                                                        //     marker = L.marker(wp.latLng);
+                                    $(`#flyToMapFilterTroubleSpot${i+1}`).on("click", function(e) {
+                                        var latlong = $(this).data('cord').split(',');
+                                        var latitude = parseFloat(latlong[0]);
+                                        var longitude = parseFloat(latlong[1]);
+                                        mapContainer.flyTo([latitude, longitude], 20);
+                                    });
+                                }
+                                $(`#datatableTroubleSpotOnDisplay${polda_id}`).DataTable({
+                                    responsive: true,
 
-                                                        // return marker;
-                                                    }
-                                                },
-                                                // geocoder: L.Control.Geocoder.nominatim({})
-                                            }).addTo(mapContainer);
-                                            // mapContainer.addControl(routingTroubleSpot[i]); 
-                                        } else {
-                                            mapContainer.removeControl(routingTroubleSpot[i]);
-                                        }
-                                    }
+                                    scrollX: true,
+
+                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                    buttons: ["excel", "csv", "pdf"],
+                                    processing: true,
+                                    oLanguage: {
+
+                                        sSearch: 'Search:'
+
+                                    },
                                 });
+                                mapContainer.addLayer(troubleSpotClusterGroup);
                             }
-
-                            for (let i = 0; i < countTroubleSpotDisplay; i++) {
-
-                                $(`#flyToMapFilterTroubleSpot${i+1}`).on("click", function(e) {
-                                    var latlong = $(this).data('cord').split(',');
-                                    var latitude = parseFloat(latlong[0]);
-                                    var longitude = parseFloat(latlong[1]);
-                                    mapContainer.flyTo([latitude, longitude], 20);
-                                });
-                            }
-                            $(`#datatableTroubleSpotOnDisplay${polda_id}`).DataTable({
-                                responsive: true,
-
-                                scrollX: true,
-
-                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                                buttons: ["excel", "csv", "pdf"],
-                                processing: true,
-                                oLanguage: {
-
-                                    sSearch: 'Search:'
-
-                                },
-                            });
-                            mapContainer.addLayer(troubleSpotClusterGroup);
                         }
-                    }
 
-                    if (ressBlankSpot && ressBlankSpot.length > 0) {
-                        var filterBlankSpot = ressBlankSpot;
+                        if (ressBlankSpot && ressBlankSpot.length > 0) {
+                            var filterBlankSpot = ressBlankSpot;
 
-                        if (filterBlankSpot.length > 0) {
+                            if (filterBlankSpot.length > 0) {
 
-                            $(`#isiPoldaBlackSpot${polda_id}`).html(`
-                                <table id="datatableBlankSpotOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Alamat</th> 
-                                            <th>Waktu</th> 
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="isiModalBlankSpotDisplay${polda_id}">
-                                    </tbody>
-                                </table>                     
-                            `);
-                             
+                                $(`#isiPoldaBlackSpot${polda_id}`).html(`
+                                    <table id="datatableBlankSpotOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama</th> 
+                                                <th>Alamat</th> 
+                                                <th>Waktu</th> 
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="isiModalBlankSpotDisplay${polda_id}">
+                                        </tbody>
+                                    </table>                     
+                                `);
+                                
 
-                            var countBlankSpotDisplay = 0;
-                            var listBlankSpotDisplay = '';
-                            $('#totalBlankSpotDisplay').html(filterBlankSpot.length);
-                            var countlistBlankSpot = 0;
-                            var checkedBlankSpot1 = [];
+                                var countBlankSpotDisplay = 0;
+                                var listBlankSpotDisplay = '';
+                                $('#totalBlankSpotDisplay').html(filterBlankSpot.length);
+                                var countlistBlankSpot = 0;
+                                var checkedBlankSpot1 = [];
 
-                            for (let i = 0; i < filterBlankSpot.length; i++) {
-                                countBlankSpotDisplay += 1;
-                                countlistBlankSpot += 1;
-                                id = i;
+                                for (let i = 0; i < filterBlankSpot.length; i++) {
+                                    countBlankSpotDisplay += 1;
+                                    countlistBlankSpot += 1;
+                                    id = i;
 
-                                if (filterBlankSpot[i].route == null) {
-                                    
+                                    if (filterBlankSpot[i].route == null) {
+                                        
 
-                                    var latitudeBlankSpot = parseFloat(filterBlankSpot[i].latitude);
-                                    var longitudeBlankSpot = parseFloat(filterBlankSpot[i].longitude);
-                                    if(latitudeBlankSpot && longitudeBlankSpot){
+                                        var latitudeBlankSpot = parseFloat(filterBlankSpot[i].latitude);
+                                        var longitudeBlankSpot = parseFloat(filterBlankSpot[i].longitude);
+                                        if(latitudeBlankSpot && longitudeBlankSpot){
+                                            listBlankSpotDisplay += `
+                                                <tr>
+                                                    <td>${countBlankSpotDisplay}</td>
+                                                    <td>${filterBlankSpot[i].reporter_name}</td> 
+                                                    <td>${filterBlankSpot[i].location}</td> 
+                                                    <td>${filterBlankSpot[i].desc}</td> 
+                                                    <td>
+                                                        <a class="btn" style="margin-top: -10px;"  
+                                                            id="flyToMapFilterBlankSpot${countBlankSpotDisplay}"
+                                                            data-cord="${filterBlankSpot[i].latitude},${filterBlankSpot[i].longitude}" 
+                                                            href="javascript:void(0)">
+                                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                        </a> 
+                                                    </td>
+                                                </tr>
+                                            `;
+                                            $(`#isiModalBlankSpotDisplay${polda_id}`).html(listBlankSpotDisplay);
+                                            blankSpotClusterGroup.addLayer(markerBlankSpot[i] = L.marker([latitudeBlankSpot, longitudeBlankSpot], {
+                                                icon: L.divIcon({
+                                                    // className: 'location-pin',
+                                                    html: `
+                                                    <div>
+                                                        <div style="position: relative;">
+                                                            <img src="<?php echo base_url(); ?>assets/icon/blackspot.png" style="width: 35px; margin-top: -40px;margin-left: -15.5px;">
+                                                        </div>  
+                                                    </div>
+                                                    `,
+                                                    iconSize: [5, 5],
+                                                    iconAnchor: [5, 10]
+                                                    // iconAnchor: [10, 33]
+                                                })
+                                            }).bindPopup(`
+                                                <div style="width: 300px;">
+                                                    <div class="row">
+                                                        <div class="col-md-12 col-12 mt-3 text-center">
+                                                            <h5>${filterBlankSpot[i].reporter_name}</h5>  
+                                                        </div>
+                                                        
+                                                        <div class="col-md-12 col-12 text-start">
+                                                            <p style="font-size: 12px;font-weight: bold;">Polda</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].polda ? filterBlankSpot[i].polda.name_polda : '-'}</p>
+                                                        </div> 
+                                                        <div class="col-md-12 col-12 text-start">
+                                                            <p style="font-size: 12px;font-weight: bold;">Polres</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].polre ? filterBlankSpot[i].polre.name_polres : '-'}</p>
+                                                        </div> 
+                                                        <div class="col-md-12 col-12 text-start">
+                                                            <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].problem ? filterBlankSpot[i].problem.replace(/\n/g, "<br />") : '-'}</p>
+                                                        </div> 
+                                                        <div class="col-md-12 col-12 text-start">
+                                                            <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].location ? filterBlankSpot[i].location : '-'}</p>
+                                                        </div> 
+                                                    </div>
+                                                </div> 
+                                            `, {
+                                                minWidth: 100,
+                                                maxWidth: 560,
+                                                width: 400
+                                            }));
+                                        }
+                                    } else {
                                         listBlankSpotDisplay += `
                                             <tr>
                                                 <td>${countBlankSpotDisplay}</td>
@@ -8194,145 +8257,223 @@
                                                 <td>${filterBlankSpot[i].location}</td> 
                                                 <td>${filterBlankSpot[i].desc}</td> 
                                                 <td>
-                                                    <a class="btn" style="margin-top: -10px;"  
-                                                        id="flyToMapFilterBlankSpot${countBlankSpotDisplay}"
-                                                        data-cord="${filterBlankSpot[i].latitude},${filterBlankSpot[i].longitude}" 
-                                                        href="javascript:void(0)">
-                                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                    </a> 
+                                                    <input type="checkbox" class="form-input checkTs" name="selectTs" 
+                                                    id="listBsDisplay${countlistBlankSpot}"  
+                                                    data-name="${filterBlankSpot[i]['reporter_name']}" 
+                                                    data-cord='${JSON.stringify(filterBlankSpot[i]['route'])}'> 
                                                 </td>
                                             </tr>
                                         `;
                                         $(`#isiModalBlankSpotDisplay${polda_id}`).html(listBlankSpotDisplay);
-                                        blankSpotClusterGroup.addLayer(markerBlankSpot[i] = L.marker([latitudeBlankSpot, longitudeBlankSpot], {
-                                            icon: L.divIcon({
-                                                // className: 'location-pin',
-                                                html: `
-                                                <div>
-                                                    <div style="position: relative;">
-                                                        <img src="<?php echo base_url(); ?>assets/icon/blackspot.png" style="width: 35px; margin-top: -40px;margin-left: -15.5px;">
-                                                    </div>  
-                                                </div>
-                                                `,
-                                                iconSize: [5, 5],
-                                                iconAnchor: [5, 10]
-                                                // iconAnchor: [10, 33]
-                                            })
-                                        }).bindPopup(`
-                                            <div style="width: 300px;">
-                                                <div class="row">
-                                                    <div class="col-md-12 col-12 mt-3 text-center">
-                                                        <h5>${filterBlankSpot[i].reporter_name}</h5>  
-                                                    </div>
-                                                    
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Polda</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].polda ? filterBlankSpot[i].polda.name_polda : '-'}</p>
-                                                    </div> 
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Polres</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].polre ? filterBlankSpot[i].polre.name_polres : '-'}</p>
-                                                    </div> 
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].problem ? filterBlankSpot[i].problem.replace(/\n/g, "<br />") : '-'}</p>
-                                                    </div> 
-                                                    <div class="col-md-12 col-12 text-start">
-                                                        <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>  
-                                                        <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].location ? filterBlankSpot[i].location : '-'}</p>
-                                                    </div> 
-                                                </div>
-                                            </div> 
-                                        `, {
-                                            minWidth: 100,
-                                            maxWidth: 560,
-                                            width: 400
-                                        }));
+
+
+                                        checkedBlankSpot1.push({
+                                            reporter_name: filterBlankSpot[i]['reporter_name'],
+                                            checked: 0,
+                                        });
                                     }
-                                } else {
-                                    listBlankSpotDisplay += `
-                                        <tr>
-                                            <td>${countBlankSpotDisplay}</td>
-                                            <td>${filterBlankSpot[i].reporter_name}</td> 
-                                            <td>${filterBlankSpot[i].location}</td> 
-                                            <td>${filterBlankSpot[i].desc}</td> 
-                                            <td>
-                                                <input type="checkbox" class="form-input checkTs" name="selectTs" 
-                                                id="listBsDisplay${countlistBlankSpot}"  
-                                                data-name="${filterBlankSpot[i]['reporter_name']}" 
-                                                data-cord='${JSON.stringify(filterBlankSpot[i]['route'])}'> 
-                                            </td>
-                                        </tr>
-                                    `;
-                                    $(`#isiModalBlankSpotDisplay${polda_id}`).html(listBlankSpotDisplay);
+                                }
 
+                                for (let i = 0; i < countlistBlankSpot; i++) {
+                                    $(`#listBsDisplay${i+1}`).on("change", function(e) {
 
-                                    checkedBlankSpot1.push({
-                                        reporter_name: filterBlankSpot[i]['reporter_name'],
-                                        checked: 0,
+                                        var cordRute = $(this).data('cord');
+                                        if (cordRute != null && cordRute[0]['latLng'] != null) {
+                                            if ($(this).is(':checked')) {
+                                                routingBlankSpot[i] = null;
+                                                routingBlankSpot[i] = L.Routing.control({
+                                                    show: false,
+                                                    draggableWaypoints: false,
+                                                    addWaypoints: false,
+                                                    waypoints: cordRute,
+                                                    router: new L.Routing.osrmv1({
+                                                        language: 'en',
+                                                        profile: 'car'
+                                                    }),
+                                                    lineOptions: {
+                                                        styles: [{
+                                                            color: "#a50000",
+                                                            weight: 5,
+                                                            // className: 'animateRoute'
+                                                        }]
+                                                    },
+                                                    createMarker: function(i, wp, nWps) {
+                                                        if (i === 0 || i === nWps + 1) {
+                                                            // here change the starting and ending icons
+                                                            // return L.marker(wp.latLng);
+                                                        } else if (i === nWps - 1) {
+                                                            // return L.marker(wp.latLng);
+                                                        } else {
+                                                            // here change all the others
+                                                            // var options = {
+                                                            //         draggable: this.draggableWaypoints,
+                                                            //     },
+                                                            //     marker = L.marker(wp.latLng);
+
+                                                            // return marker;
+                                                        }
+                                                    },
+                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                }).addTo(mapContainer);
+                                                // mapContainer.addControl(routingBlankSpot[i]); 
+                                            } else {
+                                                mapContainer.removeControl(routingBlankSpot[i]);
+                                            }
+                                        }
                                     });
                                 }
-                            }
 
-                            for (let i = 0; i < countlistBlankSpot; i++) {
-                                $(`#listBsDisplay${i+1}`).on("change", function(e) {
+                                for (let i = 0; i < countBlankSpotDisplay; i++) {
 
-                                    var cordRute = $(this).data('cord');
-                                    if (cordRute != null && cordRute[0]['latLng'] != null) {
-                                        if ($(this).is(':checked')) {
-                                            routingBlankSpot[i] = null;
-                                            routingBlankSpot[i] = L.Routing.control({
-                                                show: false,
-                                                draggableWaypoints: false,
-                                                addWaypoints: false,
-                                                waypoints: cordRute,
-                                                router: new L.Routing.osrmv1({
-                                                    language: 'en',
-                                                    profile: 'car'
-                                                }),
-                                                lineOptions: {
-                                                    styles: [{
-                                                        color: "#a50000",
-                                                        weight: 5,
-                                                        // className: 'animateRoute'
-                                                    }]
-                                                },
-                                                createMarker: function(i, wp, nWps) {
-                                                    if (i === 0 || i === nWps + 1) {
-                                                        // here change the starting and ending icons
-                                                        // return L.marker(wp.latLng);
-                                                    } else if (i === nWps - 1) {
-                                                        // return L.marker(wp.latLng);
-                                                    } else {
-                                                        // here change all the others
-                                                        // var options = {
-                                                        //         draggable: this.draggableWaypoints,
-                                                        //     },
-                                                        //     marker = L.marker(wp.latLng);
+                                    $(`#flyToMapFilterBlankSpot${i+1}`).on("click", function(e) {
+                                        var latlong = $(this).data('cord').split(',');
+                                        var latitude = parseFloat(latlong[0]);
+                                        var longitude = parseFloat(latlong[1]);
+                                        mapContainer.flyTo([latitude, longitude], 20);
+                                    });
+                                }
+                                $(`#datatableBlankSpotOnDisplay${polda_id}`).DataTable({
+                                    responsive: true,
 
-                                                        // return marker;
-                                                    }
-                                                },
-                                                // geocoder: L.Control.Geocoder.nominatim({})
-                                            }).addTo(mapContainer);
-                                            // mapContainer.addControl(routingBlankSpot[i]); 
-                                        } else {
-                                            mapContainer.removeControl(routingBlankSpot[i]);
-                                        }
-                                    }
+                                    scrollX: true,
+
+                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                    buttons: ["excel", "csv", "pdf"],
+                                    processing: true,
+                                    oLanguage: {
+
+                                        sSearch: 'Search:'
+
+                                    },
                                 });
+                                mapContainer.addLayer(blankSpotClusterGroup);
+                            }
+                        }
+
+                        if (ressRestArea && ressRestArea.length > 0) {
+                            $('#openModalRestAreaDisplay').html(`
+                                <table id="datatableRestAreaOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Alamat</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalRestAreaDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countRestAreaDisplay = 0;
+                            var listRestAreaDisplay = '';
+                            $('#totalRestAreaDisplay').html(ressRestArea.length);
+
+                            var logoMarker = '';
+                            var logoBody = '';
+                            for (let i = 0; i < ressRestArea.length; i++) {
+                                countRestAreaDisplay += 1;
+                                listRestAreaDisplay += `
+                                    <tr>
+                                        <td>${countRestAreaDisplay}</td>
+                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressRestArea[i].fasum_name}</a></td> 
+                                        <td>${ressRestArea[i].fasum_address}</td> 
+                                        <td>
+                                            <a class="btn" style="margin-top: -10px;"  
+                                                id="flyToMapFilterRestArea${countRestAreaDisplay}"
+                                                data-cord="${ressRestArea[i].fasum_lat},${ressRestArea[i].fasum_lng}" 
+                                                href="javascript:void(0)">
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $('#isiModalRestAreaDisplay').html(listRestAreaDisplay);
+
+
+                                var latitudeFasum = parseFloat(ressRestArea[i].fasum_lat);
+                                var longitudeFasum = parseFloat(ressRestArea[i].fasum_lng);
+                                restAreaClusterGroup.addLayer(markerRestArea[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                    icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `
+                                        <div>
+                                            <div style="position: relative;">
+                                                <img src="<?php echo base_url(); ?>assets/icon/rest_area.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                            </div> 
+                                            <div style="position: absolute;margin-top: -29px;">
+                                                <span class="badge rounded-pill bg-primary" >${ressRestArea[i].fasum_name}</span>
+                                            </div>
+                                        </div>
+                                        `,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                    })
+                                }).bindPopup(`
+                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                                <div class="row mt-3">
+                                                    <div class="col-md-12 col-12" style="margin-bottom: 10px;">
+                                                        <img src="${ressRestArea[i].fasum_logo}" alt="" class="float-center" style="width: 100%;"> 
+                                                    </div>
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <h5>${ressRestArea[i].fasum_name}</h5> 
+                                                        <span>- ${ressRestArea[i].category_fasum.name_category_fasum} -</span>
+                                                    </div>
+                                                    
+
+                                                    <div class="col-md-12 col-12 mt-2">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-12 col-12">
+                                                                <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                                                ${ressRestArea[i].fasum_description != null ? ressRestArea[i].fasum_description.replace(/\n/g, "<br />") : "-"}
+                                                            </div> 
+                                                        </div> 
+                                                    </div>  
+                                                    <div class="col-md-12 col-12 mt-2">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-12 col-12">
+                                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                                <p style="font-size: 12px; margin-top: -15px;">${ressRestArea[i].fasum_address}</p>
+                                                            </div> 
+                                                        </div> 
+                                                    </div>  
+                                                    <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-12 col-12">
+                                                                <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                                <p style="font-size: 12px; margin-top: -15px;">${ressRestArea[i].fasum_phone}</p>
+                                                            </div> 
+                                                        </div> 
+                                                    </div>  
+                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-12 col-12">
+                                                                <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                                <p style="font-size: 12px; margin-top: -15px;">${ressRestArea[i].fasum_open_time != null ? ressRestArea[i].fasum_open_time : '00:00'} - ${ressRestArea[i].fasum_close_time != null ? ressRestArea[i].fasum_close_time : '00:00'} WITA</p>
+                                                            </div> 
+                                                        </div> 
+                                                    </div>   
+                                                </div>
+                                            </div> 
+                                    `, {
+                                    minWidth: 100,
+                                    maxWidth: 900,
+                                    width: 300
+                                }));
                             }
 
-                            for (let i = 0; i < countBlankSpotDisplay; i++) {
 
-                                $(`#flyToMapFilterBlankSpot${i+1}`).on("click", function(e) {
+                            for (let i = 0; i < countRestAreaDisplay; i++) {
+                                $(`#flyToMapFilterRestArea${i+1}`).on("click", function(e) {
                                     var latlong = $(this).data('cord').split(',');
                                     var latitude = parseFloat(latlong[0]);
                                     var longitude = parseFloat(latlong[1]);
-                                    mapContainer.flyTo([latitude, longitude], 20);
+                                    mapContainer.flyTo([latitude, longitude], 17);
                                 });
                             }
-                            $(`#datatableBlankSpotOnDisplay${polda_id}`).DataTable({
+                            $('#datatableRestAreaOnDisplay').DataTable({
                                 responsive: true,
 
                                 scrollX: true,
@@ -8347,1430 +8488,512 @@
 
                                 },
                             });
-                            mapContainer.addLayer(blankSpotClusterGroup);
+                            mapContainer.addLayer(restAreaClusterGroup);
                         }
-                    }
-
-                    if (ressRestArea && ressRestArea.length > 0) {
-                        $('#openModalRestAreaDisplay').html(`
-                            <table id="datatableRestAreaOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Alamat</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalRestAreaDisplay">
-                                </tbody>
-                            </table>                     
-                        `);
-                        var countRestAreaDisplay = 0;
-                        var listRestAreaDisplay = '';
-                        $('#totalRestAreaDisplay').html(ressRestArea.length);
-
-                        var logoMarker = '';
-                        var logoBody = '';
-                        for (let i = 0; i < ressRestArea.length; i++) {
-                            countRestAreaDisplay += 1;
-                            listRestAreaDisplay += `
-                                <tr>
-                                    <td>${countRestAreaDisplay}</td>
-                                    <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressRestArea[i].fasum_name}</a></td> 
-                                    <td>${ressRestArea[i].fasum_address}</td> 
-                                    <td>
-                                        <a class="btn" style="margin-top: -10px;"  
-                                            id="flyToMapFilterRestArea${countRestAreaDisplay}"
-                                            data-cord="${ressRestArea[i].fasum_lat},${ressRestArea[i].fasum_lng}" 
-                                            href="javascript:void(0)">
-                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                        </a> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#isiModalRestAreaDisplay').html(listRestAreaDisplay);
-
-
-                            var latitudeFasum = parseFloat(ressRestArea[i].fasum_lat);
-                            var longitudeFasum = parseFloat(ressRestArea[i].fasum_lng);
-                            restAreaClusterGroup.addLayer(markerRestArea[i] = L.marker([latitudeFasum, longitudeFasum], {
-                                icon: L.divIcon({
-                                    // className: 'location-pin',
-                                    html: `
-                                    <div>
-                                        <div style="position: relative;">
-                                            <img src="<?php echo base_url(); ?>assets/icon/rest_area.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                        </div> 
-                                        <div style="position: absolute;margin-top: -29px;">
-                                            <span class="badge rounded-pill bg-primary" >${ressRestArea[i].fasum_name}</span>
-                                        </div>
-                                    </div>
-                                    `,
-                                    iconSize: [5, 5],
-                                    iconAnchor: [5, 10]
-                                    // iconAnchor: [10, 33]
-                                })
-                            }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row mt-3">
-                                                <div class="col-md-12 col-12" style="margin-bottom: 10px;">
-                                                    <img src="${ressRestArea[i].fasum_logo}" alt="" class="float-center" style="width: 100%;"> 
-                                                </div>
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <h5>${ressRestArea[i].fasum_name}</h5> 
-                                                    <span>- ${ressRestArea[i].category_fasum.name_category_fasum} -</span>
-                                                </div>
-                                                
-
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
-                                                             ${ressRestArea[i].fasum_description != null ? ressRestArea[i].fasum_description.replace(/\n/g, "<br />") : "-"}
-                                                        </div> 
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressRestArea[i].fasum_address}</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12"  style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressRestArea[i].fasum_phone}</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressRestArea[i].fasum_open_time != null ? ressRestArea[i].fasum_open_time : '00:00'} - ${ressRestArea[i].fasum_close_time != null ? ressRestArea[i].fasum_close_time : '00:00'} WITA</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>   
-                                            </div>
-                                        </div> 
-                                `, {
-                                minWidth: 100,
-                                maxWidth: 900,
-                                width: 300
-                            }));
-                        }
-
-
-                        for (let i = 0; i < countRestAreaDisplay; i++) {
-                            $(`#flyToMapFilterRestArea${i+1}`).on("click", function(e) {
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 17);
-                            });
-                        }
-                        $('#datatableRestAreaOnDisplay').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-                        mapContainer.addLayer(restAreaClusterGroup);
-                    }
-                   
-                    if (ressPosPam && ressPosPam.length > 0 && $("#posPamDisplay").is(':checked')) {
-                        $(`#isiPoldaPosPam${polda_id}`).html(`
-                            <table id="datatablePosPamOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Alamat</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalPosPamDisplay${polda_id}">
-                                </tbody>
-                            </table>                     
-                        `);
-                        var countPosPamDisplay = 0;
-                        var listPosPamDisplay = '';
-                        $('#totalPosPamDisplay').html(ressPosPam.length);
-
-                        var logoMarker = '';
-                        var logoBody = '';
-                        $("#overlayMenu").fadeIn(300);
-
-                        listPosPamDisplay = '';
-                        for (let i = 0; i < ressPosPam.length; i++) {
-                            if (ressPosPam[i].coordinate_guarding && ressPosPam[i].coordinate_guarding.lat != null && ressPosPam[i].coordinate_guarding.lng != null) {
-                                // console.log(ressPosPam[i].coordinate_guarding);
-                                // setTimeout(() => {
-                                countPosPamDisplay += 1;
-
-                                if(ressPosPam[i].title_start){
-                                    alamatlokasi = ressPosPam[i].title_start;
-                                }else{
-                                    if(ressPosPam[i].alamat){
-                                        alamatlokasi = ressPosPam[i].alamat.replace(/\n/g, "<br />");
-                                    }else{
-                                        alamatlokasi = "-";
-                                    }
-                                }
-                                listPosPamDisplay += `
+                    
+                        if (ressPosPam && ressPosPam.length > 0 && $("#posPamDisplay").is(':checked')) {
+                            $(`#isiPoldaPosPam${polda_id}`).html(`
+                                <table id="datatablePosPamOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
                                         <tr>
-                                            <td>${countPosPamDisplay}</td>
-                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosPam[i].id}" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
-                                            <td>${alamatlokasi}</td> 
-                                            <td>
-                                                <a class="btn" style="margin-top: -10px; "  
-                                                    id="flyToMapFilterPosPam${polda_id}${countPosPamDisplay}"
-                                                    data-akun="${ressPosPam[i].accounts}"
-                                                    data-cord="${ressPosPam[i].coordinate_guarding.lat},${ressPosPam[i].coordinate_guarding.lng}" 
-                                                    href="javascript:void(0)">
-                                                    <i style="color:${ressPosPam[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
-                                                </a> 
-                                            </td>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Alamat</th> 
+                                            <th>Aksi</th>
                                         </tr>
-                                    `;
-                                $(`#isiModalPosPamDisplay${polda_id}`).html(listPosPamDisplay);
+                                    </thead>
+                                    <tbody id="isiModalPosPamDisplay${polda_id}">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countPosPamDisplay = 0;
+                            var listPosPamDisplay = '';
+                            $('#totalPosPamDisplay').html(ressPosPam.length);
+
+                            var logoMarker = '';
+                            var logoBody = '';
+                            $("#overlayMenu").fadeIn(300);
+
+                            listPosPamDisplay = '';
+                            for (let i = 0; i < ressPosPam.length; i++) {
+                                if (ressPosPam[i].coordinate_guarding && ressPosPam[i].coordinate_guarding.lat != null && ressPosPam[i].coordinate_guarding.lng != null) {
+                                    // console.log(ressPosPam[i].coordinate_guarding);
+                                    // setTimeout(() => {
+                                    countPosPamDisplay += 1;
+
+                                    if(ressPosPam[i].title_start){
+                                        alamatlokasi = ressPosPam[i].title_start;
+                                    }else{
+                                        if(ressPosPam[i].alamat){
+                                            alamatlokasi = ressPosPam[i].alamat.replace(/\n/g, "<br />");
+                                        }else{
+                                            alamatlokasi = "-";
+                                        }
+                                    }
+                                    listPosPamDisplay += `
+                                            <tr>
+                                                <td>${countPosPamDisplay}</td>
+                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosPam[i].id}" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
+                                                <td>${alamatlokasi}</td> 
+                                                <td>
+                                                    <a class="btn" style="margin-top: -10px; "  
+                                                        id="flyToMapFilterPosPam${polda_id}${countPosPamDisplay}"
+                                                        data-akun="${ressPosPam[i].accounts}"
+                                                        data-cord="${ressPosPam[i].coordinate_guarding.lat},${ressPosPam[i].coordinate_guarding.lng}" 
+                                                        href="javascript:void(0)">
+                                                        <i style="color:${ressPosPam[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
+                                                    </a> 
+                                                </td>
+                                            </tr>
+                                        `;
+                                    $(`#isiModalPosPamDisplay${polda_id}`).html(listPosPamDisplay);
 
 
-                                var latitudeFasum = parseFloat(ressPosPam[i].coordinate_guarding.lat);
-                                var longitudeFasum = parseFloat(ressPosPam[i].coordinate_guarding.lng);
-                                posPamClusterGroup.addLayer(markerPosPam[i] = L.marker([latitudeFasum, longitudeFasum], {
-                                    icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: `
-                                        <div>
-                                            <div style="position: relative;">
-                                                <img src="<?php echo base_url(); ?>assets/icon/POSPAM.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                            </div> 
-                                            <div style="position: absolute;margin-top: -29px;">
-                                                <span class="badge rounded-pill bg-primary" >${ressPosPam[i].name_renpam}</span>
+                                    var latitudeFasum = parseFloat(ressPosPam[i].coordinate_guarding.lat);
+                                    var longitudeFasum = parseFloat(ressPosPam[i].coordinate_guarding.lng);
+                                    posPamClusterGroup.addLayer(markerPosPam[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                        icon: L.divIcon({
+                                            // className: 'location-pin',
+                                            html: `
+                                            <div>
+                                                <div style="position: relative;">
+                                                    <img src="<?php echo base_url(); ?>assets/icon/POSPAM.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                                </div> 
+                                                <div style="position: absolute;margin-top: -29px;">
+                                                    <span class="badge rounded-pill bg-primary" >${ressPosPam[i].name_renpam}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        `,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                    })
-                                }).bindPopup(`
+                                            `,
+                                            iconSize: [5, 5],
+                                            iconAnchor: [5, 10]
+                                            // iconAnchor: [10, 33]
+                                        })
+                                    }).bindPopup(`
+                                                <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                                    <div class="row"> 
+                                                        <div class="col-md-12 col-12">
+                                                            <h5>${ressPosPam[i].name_renpam}</h5>  
+                                                        </div> 
+                                                        
+                                                    
+                                                    
+                                                
+                                                        <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
+                                                            
+                                                            <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
+                                                        </div> 
+                                                        
+                                                        <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPospam${ressPosPam[i].id}">
+                                                        
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                        `, {
+                                        minWidth: 100,
+                                        maxWidth: 900,
+                                        width: 300
+                                    }).on("click", function(e) {
+                                        $("#overlayMenu").fadeIn(300);
+                                        var akuns = ressPosPam[i].accounts;
+                                        var dataAkuns = '';
+                                        if (akuns.length > 0) {
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                data: {
+                                                    "id": akuns[0]['id'],
+                                                },
+                                                dataType: "JSON",
+                                                success: function(result) {
+                                                    var ress = result['data'];
+                                                    console.log({
+                                                        a: 'ada',
+                                                        b: ress
+                                                    });
+                                                    // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                    let noTelpF = ress['officer']['phone_officer']; 
+                                                    $(`#isiPospam${ressPosPam[i].id}`).html(`
+                                                                
+                                                                <div style="text-align: center">
+                                                                    ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
+                                                                        <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                        <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                                        <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
+
+                                                                        ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                                    </p>
+                                                                </div>
+
+                                                            `);
+                                                    $("#overlayMenu").fadeOut(300);
+                                                }
+                                            });
+                                        } else {
+                                            console.log({
+                                                a: 'ga ada'
+                                            });
+                                        }
+                                    }));
+                                    // }, i * 200);
+                                }
+                                
+                            }
+
+
+                            for (let i = 0; i < countPosPamDisplay; i++) {
+                                // setTimeout(() => {
+                                $(`#flyToMapFilterPosPam${polda_id}${i+1}`).on("click", function(e) {
+                                    var latlong = $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);
+                                    mapContainer.flyTo([latitude, longitude], 17);
+                                });
+
+                                // }, countPosPamDisplay.length * 200); 
+                            }
+
+                            $(`#datatablePosPamOnDisplay${polda_id}`).DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            }); 
+
+                            $("#overlayMenu").fadeOut(300);
+                            mapContainer.addLayer(posPamClusterGroup);
+                        }
+
+                        if (ressPosYan && ressPosYan.length > 0) {
+                            $(`#isiPoldaPosYan${polda_id}`).html(`
+                                <table id="datatablePosYanOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Alamat</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalPosYanDisplay${polda_id}">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countPosYanDisplay = 0;
+                            var listPosYanDisplay = '';
+                            $('#totalPosYanDisplay').html(ressPosYan.length);
+
+                            var logoMarker = '';
+                            var logoBody = '';
+                            for (let i = 0; i < ressPosYan.length; i++) {
+
+                                if (ressPosYan[i].coordinate_guarding && ressPosYan[i].coordinate_guarding.lat != null && ressPosYan[i].coordinate_guarding.lng != null) {
+                                    // setTimeout(() => {
+
+                                    if(ressPosYan[i].title_start){
+                                        alamatlokasi = ressPosYan[i].title_start;
+                                    }else{
+                                        if(ressPosYan[i].alamat){
+                                            alamatlokasi = ressPosYan[i].alamat.replace(/\n/g, "<br />");
+                                        }else{
+                                            alamatlokasi = "-";
+                                        }
+                                    }
+                                    countPosYanDisplay += 1;
+                                    listPosYanDisplay += `
+                                            <tr>
+                                                <td>${countPosYanDisplay}</td>
+                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosYan[i].id}" target="_blank">${ressPosYan[i].name_renpam}</a></td> 
+                                                <td>${alamatlokasi}</td> 
+                                                <td>
+                                                    <a class="btn" style="margin-top: -10px;"  
+                                                        id="flyToMapFilterPosYan${polda_id}${countPosYanDisplay}"
+                                                        data-akun="${ressPosYan[i].accounts}"
+                                                        data-cord="${ressPosYan[i].coordinate_guarding.lat},${ressPosYan[i].coordinate_guarding.lng}" 
+                                                        href="javascript:void(0)">
+                                                        <i style="color:${ressPosYan[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
+                                                    </a> 
+                                                </td>
+                                            </tr>
+                                        `;
+                                    $(`#isiModalPosYanDisplay${polda_id}`).html(listPosYanDisplay);
+
+
+                                    var latitudeFasum = parseFloat(ressPosYan[i].coordinate_guarding.lat);
+                                    var longitudeFasum = parseFloat(ressPosYan[i].coordinate_guarding.lng);
+                                    posYanClusterGroup.addLayer(markerPosYan[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                        icon: L.divIcon({
+                                            // className: 'location-pin',
+                                            html: `
+                                            <div>
+                                                <div style="position: relative;">
+                                                    <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                                </div> 
+                                                <div style="position: absolute;margin-top: -29px;">
+                                                    <span class="badge rounded-pill bg-primary" >${ressPosYan[i].name_renpam}</span>
+                                                </div>
+                                            </div>
+                                            `,
+                                            iconSize: [5, 5],
+                                            iconAnchor: [5, 10]
+                                            // iconAnchor: [10, 33]
+                                        })
+                                    }).bindPopup(`
                                             <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                                 <div class="row"> 
                                                     <div class="col-md-12 col-12">
-                                                        <h5>${ressPosPam[i].name_renpam}</h5>  
+                                                        <h5>${ressPosYan[i].name_renpam}</h5>  
                                                     </div> 
-                                                    
-                                                  
                                                 
                                             
                                                     <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
-                                                          
-                                                        <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
-                                                    </div> 
-                                                    
-                                                    <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPospam${ressPosPam[i].id}">
-                                                    
-                                                    </div>
-                                                </div>
-                                            </div> 
-                                    `, {
-                                    minWidth: 100,
-                                    maxWidth: 900,
-                                    width: 300
-                                }).on("click", function(e) {
-                                    $("#overlayMenu").fadeIn(300);
-                                    var akuns = ressPosPam[i].accounts;
-                                    var dataAkuns = '';
-                                    if (akuns.length > 0) {
-                                        $.ajax({
-                                            type: "POST",
-                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                            data: {
-                                                "id": akuns[0]['id'],
-                                            },
-                                            dataType: "JSON",
-                                            success: function(result) {
-                                                var ress = result['data'];
-                                                console.log({
-                                                    a: 'ada',
-                                                    b: ress
-                                                });
-                                                // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                let noTelpF = ress['officer']['phone_officer']; 
-                                                $(`#isiPospam${ressPosPam[i].id}`).html(`
-                                                            
-                                                            <div style="text-align: center">
-                                                                ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
-                                                                    <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                                    <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
-                                                                    <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
-
-                                                                    ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
-                                                                </p>
-                                                            </div>
-
-                                                        `);
-                                                $("#overlayMenu").fadeOut(300);
-                                            }
-                                        });
-                                    } else {
-                                        console.log({
-                                            a: 'ga ada'
-                                        });
-                                    }
-                                }));
-                                // }, i * 200);
-                            }
-                            
-                        }
-
-
-                        for (let i = 0; i < countPosPamDisplay; i++) {
-                            // setTimeout(() => {
-                            $(`#flyToMapFilterPosPam${polda_id}${i+1}`).on("click", function(e) {
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 17);
-                            });
-
-                            // }, countPosPamDisplay.length * 200); 
-                        }
-
-                        $(`#datatablePosPamOnDisplay${polda_id}`).DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        }); 
-
-                        $("#overlayMenu").fadeOut(300);
-                        mapContainer.addLayer(posPamClusterGroup);
-                    }
-
-                    if (ressPosYan && ressPosYan.length > 0) {
-                        $(`#isiPoldaPosYan${polda_id}`).html(`
-                            <table id="datatablePosYanOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Alamat</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalPosYanDisplay${polda_id}">
-                                </tbody>
-                            </table>                     
-                        `);
-                        var countPosYanDisplay = 0;
-                        var listPosYanDisplay = '';
-                        $('#totalPosYanDisplay').html(ressPosYan.length);
-
-                        var logoMarker = '';
-                        var logoBody = '';
-                        for (let i = 0; i < ressPosYan.length; i++) {
-
-                            if (ressPosYan[i].coordinate_guarding && ressPosYan[i].coordinate_guarding.lat != null && ressPosYan[i].coordinate_guarding.lng != null) {
-                                // setTimeout(() => {
-
-                                if(ressPosYan[i].title_start){
-                                    alamatlokasi = ressPosYan[i].title_start;
-                                }else{
-                                    if(ressPosYan[i].alamat){
-                                        alamatlokasi = ressPosYan[i].alamat.replace(/\n/g, "<br />");
-                                    }else{
-                                        alamatlokasi = "-";
-                                    }
-                                }
-                                countPosYanDisplay += 1;
-                                listPosYanDisplay += `
-                                        <tr>
-                                            <td>${countPosYanDisplay}</td>
-                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosYan[i].id}" target="_blank">${ressPosYan[i].name_renpam}</a></td> 
-                                            <td>${alamatlokasi}</td> 
-                                            <td>
-                                                <a class="btn" style="margin-top: -10px;"  
-                                                    id="flyToMapFilterPosYan${polda_id}${countPosYanDisplay}"
-                                                    data-akun="${ressPosYan[i].accounts}"
-                                                    data-cord="${ressPosYan[i].coordinate_guarding.lat},${ressPosYan[i].coordinate_guarding.lng}" 
-                                                    href="javascript:void(0)">
-                                                    <i style="color:${ressPosYan[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
-                                                </a> 
-                                            </td>
-                                        </tr>
-                                    `;
-                                $(`#isiModalPosYanDisplay${polda_id}`).html(listPosYanDisplay);
-
-
-                                var latitudeFasum = parseFloat(ressPosYan[i].coordinate_guarding.lat);
-                                var longitudeFasum = parseFloat(ressPosYan[i].coordinate_guarding.lng);
-                                posYanClusterGroup.addLayer(markerPosYan[i] = L.marker([latitudeFasum, longitudeFasum], {
-                                    icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: `
-                                        <div>
-                                            <div style="position: relative;">
-                                                <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                            </div> 
-                                            <div style="position: absolute;margin-top: -29px;">
-                                                <span class="badge rounded-pill bg-primary" >${ressPosYan[i].name_renpam}</span>
-                                            </div>
-                                        </div>
-                                        `,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                    })
-                                }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row"> 
-                                                <div class="col-md-12 col-12">
-                                                    <h5>${ressPosYan[i].name_renpam}</h5>  
-                                                </div> 
-                                            
-                                        
-                                                <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
-                                                      
-                                                    <p style="font-size: 12px;">${alamatlokasi}</p>
-                                                </div> 
-                                                <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPosyan${ressPosYan[i].id}">
-                                                
-                                                </div>
-                                            </div>
-                                        </div> 
-                                `, {
-                                    minWidth: 100,
-                                    maxWidth: 900,
-                                    width: 300
-                                }).on("click", function(e) {
-                                    $("#overlayMenu").fadeIn(300);
-                                    var akuns = ressPosYan[i].accounts;
-                                    var dataAkuns = '';
-                                    if (akuns.length > 0) {
-                                        $.ajax({
-                                            type: "POST",
-                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                            data: {
-                                                "id": akuns[0]['id'],
-                                            },
-                                            dataType: "JSON",
-                                            success: function(result) {
-                                                var ress = result['data'];
-                                                console.log({
-                                                    a: 'ada',
-                                                    b: ress
-                                                });
-                                                // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                let noTelpF = ress['officer']['phone_officer']; 
-
-
-                                                $(`#isiPosyan${ressPosYan[i].id}`).html(`
-                                                            
-                                                            <div style="text-align: center">
-                                                            ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
-                                                                    <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                                    <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
-                                                                    <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
-                                                                    ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
-                                                                </p>
-                                                            </div>
-
-                                                        `);
-                                                $("#overlayMenu").fadeOut(300);
-                                            }
-                                        });
-                                    } else {
-                                        console.log({
-                                            a: 'ga ada'
-                                        });
-                                    }
-                                }));
-                                // }, i * 500);
-                            }
-                        }
-
-
-                        // setTimeout(() => {
-                        for (let i = 0; i < countPosYanDisplay; i++) {
-                            $(`#flyToMapFilterPosYan${polda_id}${i+1}`).on("click", function(e) {
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 17);
-                            });
-                        }
-                        $(`#datatablePosYanOnDisplay${polda_id}`).DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        }); 
-                        mapContainer.addLayer(posYanClusterGroup);
-                        // }, countPosYanDisplay.length * 500);
-                    }
-
-                    if (ressPosTerpadu && ressPosTerpadu.length > 0) {
-                        $(`#isiPoldaPosTerpadu${polda_id}`).html(`
-                            <table id="datatablePosTerpaduOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Alamat</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalPosTerpaduDisplay${polda_id}">
-                                </tbody>
-                            </table>                     
-                        `);
-                        var countPosTerpaduDisplay = 0;
-                        var listPosTerpaduDisplay = '';
-                        $('#totalPosTerpaduDisplay').html(ressPosTerpadu.length);
-
-                        var logoMarker = '';
-                        var logoBody = '';
-                        for (let i = 0; i < ressPosTerpadu.length; i++) {
-
-                            if (ressPosTerpadu[i].coordinate_guarding && ressPosTerpadu[i].coordinate_guarding.lat != null && ressPosTerpadu[i].coordinate_guarding.lng != null) {
-                                // setTimeout(() => {
-                                if(ressPosTerpadu[i].title_start){
-                                    alamatlokasi = ressPosTerpadu[i].title_start;
-                                }else{
-                                    if(ressPosTerpadu[i].alamat){
-                                        alamatlokasi = ressPosTerpadu[i].alamat.replace(/\n/g, "<br />");
-                                    }else{
-                                        alamatlokasi = "-";
-                                    }
-                                }
-                                countPosTerpaduDisplay += 1;
-                                listPosTerpaduDisplay += `
-                                        <tr>
-                                            <td>${countPosTerpaduDisplay}</td>
-                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosTerpadu[i].id}" target="_blank">${ressPosTerpadu[i].name_renpam}</a></td> 
-                                            <td>${alamatlokasi}</td> 
-                                            <td>
-                                                <a class="btn" style="margin-top: -10px;"  
-                                                    id="flyToMapFilterPosTerpadu${polda_id}${countPosTerpaduDisplay}"
-                                                    data-akun="${ressPosTerpadu[i].accounts}"
-                                                    data-cord="${ressPosTerpadu[i].coordinate_guarding.lat},${ressPosTerpadu[i].coordinate_guarding.lng}" 
-                                                    href="javascript:void(0)">
-                                                    <i style="color:${ressPosTerpadu[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
-                                                </a> 
-                                            </td>
-                                        </tr>
-                                    `;
-                                $(`#isiModalPosTerpaduDisplay${polda_id}`).html(listPosTerpaduDisplay);
-
-
-                                var latitudeFasum = parseFloat(ressPosTerpadu[i].coordinate_guarding.lat);
-                                var longitudeFasum = parseFloat(ressPosTerpadu[i].coordinate_guarding.lng);
-                                posTerpaduClusterGroup.addLayer(markerPosTerpadu[i] = L.marker([latitudeFasum, longitudeFasum], {
-                                    icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: `
-                                        <div>
-                                            <div style="position: relative;">
-                                                <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                            </div> 
-                                            <div style="position: absolute;margin-top: -29px;">
-                                                <span class="badge rounded-pill bg-primary" >${ressPosTerpadu[i].name_renpam}</span>
-                                            </div>
-                                        </div>
-                                        `,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                    })
-                                }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row"> 
-                                                <div class="col-md-12 col-12">
-                                                    <h5>${ressPosTerpadu[i].name_renpam}</h5>  
-                                                </div> 
-                                            
-                                        
-                                                <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
-                                                      
-                                                    <p style="font-size: 12px;">${alamatlokasi}</p>
-                                                </div> 
-                                                <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPosTerpadu${ressPosTerpadu[i].id}">
-                                                
-                                                </div>
-                                            </div>
-                                        </div> 
-                                    `, {
-                                    minWidth: 100,
-                                    maxWidth: 900,
-                                    width: 300
-                                }).on("click", function(e) {
-                                    $("#overlayMenu").fadeIn(300);
-                                    var akuns = ressPosTerpadu[i].accounts;
-                                    var dataAkuns = '';
-                                    if (akuns.length > 0) {
-                                        $.ajax({
-                                            type: "POST",
-                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                            data: {
-                                                "id": akuns[0]['id'],
-                                            },
-                                            dataType: "JSON",
-                                            success: function(result) {
-                                                var ress = result['data'];
-                                                console.log({
-                                                    a: 'ada',
-                                                    b: ress
-                                                });
-                                                // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                let noTelpF = ress['officer']['phone_officer']; 
-
-                                                $(`#isiPosTerpadu${ressPosTerpadu[i].id}`).html(`
-                                                     
-                                                    <div style="text-align: center">
-                                                        ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;"data-holder-rendered="true"></br>`}
-                                                            <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                            <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
-                                                            <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
-                                                            ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
-                                                        </p>
-                                                    </div>
-
-                                                `);
-                                                $("#overlayMenu").fadeOut(300);
-                                            }
-                                        });
-                                    } else {
-                                        console.log({
-                                            a: 'ga ada'
-                                        });
-                                    }
-                                }));
-                                // }, i * 500);
-                            }
-                        }
-
-
-                        // setTimeout(() => {
-                        for (let i = 0; i < countPosTerpaduDisplay; i++) {
-                            $(`#flyToMapFilterPosTerpadu${polda_id}${i+1}`).on("click", function(e) {
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 17);
-                            });
-                        }
-                        $(`#datatablePosTerpaduOnDisplay${polda_id}`).DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        }); 
-                        mapContainer.addLayer(posTerpaduClusterGroup);
-                        // }, countPosTerpaduDisplay.length * 500);
-                    }
-
-                    if (ressPosko && ressPosko.length > 0) {
-                        $(`#isiPoldaPosko${polda_id}`).html(`
-                            <table id="datatablePoskoOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Alamat</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalPoskoDisplay${polda_id}">
-                                </tbody>
-                            </table>                     
-                        `);
-                        var countPoskoDisplay = 0;
-                        var listPoskoDisplay = '';
-                        $('#totalPoskoDisplay').html(ressPosko.length);
-
-                        var logoMarker = '';
-                        var logoBody = '';
-                        for (let i = 0; i < ressPosko.length; i++) {
-
-                            if (ressPosko[i].coordinate_guarding && ressPosko[i].coordinate_guarding.lat != null && ressPosko[i].coordinate_guarding.lng != null) {
-                                // setTimeout(() => {
-                                if(ressPosko[i].title_start){
-                                    alamatlokasi = ressPosko[i].title_start;
-                                }else{
-                                    if(ressPosko[i].alamat){
-                                        alamatlokasi = ressPosko[i].alamat.replace(/\n/g, "<br />");
-                                    }else{
-                                        alamatlokasi = "-";
-                                    }
-                                }
-                                countPoskoDisplay += 1;
-                                listPoskoDisplay += `
-                                        <tr>
-                                            <td>${countPoskoDisplay}</td>
-                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosko[i].id}" target="_blank">${ressPosko[i].name_renpam}</a></td> 
-                                            <td>${alamatlokasi}</td> 
-                                            <td>
-                                                <a class="btn" style="margin-top: -10px;"  
-                                                    id="flyToMapFilterPosko${polda_id}${countPoskoDisplay}"
-                                                    data-akun="${ressPosko[i].accounts}"
-                                                    data-cord="${ressPosko[i].coordinate_guarding.lat},${ressPosko[i].coordinate_guarding.lng}" 
-                                                    href="javascript:void(0)">
-                                                    <i style="color:${ressPosko[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
-                                                </a> 
-                                            </td>
-                                        </tr>
-                                    `;
-                                $(`#isiModalPoskoDisplay${polda_id}`).html(listPoskoDisplay);
-
-
-                                var latitudeFasum = parseFloat(ressPosko[i].coordinate_guarding.lat);
-                                var longitudeFasum = parseFloat(ressPosko[i].coordinate_guarding.lng);
-                                poskoClusterGroup.addLayer(markerPosko[i] = L.marker([latitudeFasum, longitudeFasum], {
-                                    icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: `
-                                        <div>
-                                            <div style="position: relative;">
-                                                <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                            </div> 
-                                            <div style="position: absolute;margin-top: -29px;">
-                                                <span class="badge rounded-pill bg-primary" >${ressPosko[i].name_renpam}</span>
-                                            </div>
-                                        </div>
-                                        `,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                    })
-                                }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                        <div class="row">  
-                                            <div class="col-md-12 col-12">
-                                                <h5>${ressPosko[i].name_renpam}</h5>  
-                                            </div> 
-                                            
-                                            <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
-                                                  
-                                                <p style="font-size: 12px;">${alamatlokasi}</p>
-                                            </div>   
-
-                                            <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isi${ressPosko[i].id}">
-                                            
-                                            </div>
-                                                
-                                        </div>
-                                    </div> 
-                                    `, {
-                                    minWidth: 100,
-                                    maxWidth: 900,
-                                    width: 300
-                                })).on("click", function(e) {
-                                    $("#overlayMenu").fadeIn(300);
-                                    var akuns = ressPosko[i].accounts;
-                                    var dataAkuns = '';
-                                    if (akuns.length > 0) {
-                                        $.ajax({
-                                            type: "POST",
-                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                            data: {
-                                                "id": akuns[0]['id'],
-                                            },
-                                            dataType: "JSON",
-                                            success: function(result) {
-                                                var ress = result['data'];
-                                                console.log({
-                                                    a: 'ada',
-                                                    b: ress
-                                                });
-                                                // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                let noTelpF = ress['officer']['phone_officer']; 
-
-                                                $(`#isi${ressPosko[i].id}`).html(`
-                                                            
-                                                            <div style="text-align: center">
-                                                            ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
-                                                                    <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                                    <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
-                                                                    <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
-                                                                    ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
-                                                                </p>
-                                                            </div>
-
-                                                        `);
-                                                $("#overlayMenu").fadeOut(300);
-                                            }
-                                        });
-                                    } else {
-                                        console.log({ a: 'ga ada'  });
-                                    }
-                                });
-                                // }, i * 500);
-                            }
-                        }
-
-
-                        // setTimeout(() => {
-                        for (let i = 0; i < countPoskoDisplay; i++) {
-                            $(`#flyToMapFilterPosko${polda_id}${i+1}`).on("click", function(e) {
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 17);
-                            });
-                        }
-                        $(`#datatablePoskoOnDisplay${polda_id}`).DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        }); 
-                        mapContainer.addLayer(poskoClusterGroup);
-                        // }, countPoskoDisplay.length * 500);
-                    }
-
-                    if (ressSatPjr && ressSatPjr.length > 0) {
-                        $(`#isiPoldaSatPjr${polda_id}`).html(`
-                            <table id="datatableSatPjrOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Alamat</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalSatPjrDisplay${polda_id}">
-                                </tbody>
-                            </table>                     
-                        `);
-                        var countSatPjrDisplay = 0;
-                        var listSatPjrDisplay = '';
-                        $('#totalSatPjrDisplay').html(ressSatPjr.length);
-
-                        var logoMarker = '';
-                        var logoBody = '';
-                        for (let i = 0; i < ressSatPjr.length; i++) {
-
-                            if (ressSatPjr[i].coordinate_guarding && ressSatPjr[i].coordinate_guarding.lat != null && ressSatPjr[i].coordinate_guarding.lng != null) {
-                                // setTimeout(() => {
-
-                                if(ressSatPjr[i].title_start){
-                                    alamatlokasi = ressSatPjr[i].title_start;
-                                }else{
-                                    if(ressSatPjr[i].alamat){
-                                        alamatlokasi = ressSatPjr[i].alamat.replace(/\n/g, "<br />");
-                                    }else{
-                                        alamatlokasi = "-";
-                                    }
-                                }
-                                countSatPjrDisplay += 1;
-                                listSatPjrDisplay += `
-                                        <tr>
-                                            <td>${countSatPjrDisplay}</td>
-                                            <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressSatPjr[i].id}" target="_blank">${ressSatPjr[i].name_renpam}</a></td> 
-                                            <td>${alamatlokasi}</td> 
-                                            <td>
-                                                <a class="btn" style="margin-top: -10px;"  
-                                                    id="flySatPjr${polda_id}${countSatPjrDisplay}"
-                                                    data-akun="${ressSatPjr[i].accounts}"
-                                                    data-cord="${ressSatPjr[i].coordinate_guarding.lat},${ressSatPjr[i].coordinate_guarding.lng}" 
-                                                    href="javascript:void(0)">
-                                                    <i style="color:${ressSatPjr[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
-                                                </a> 
-                                            </td>
-                                        </tr>
-                                    `;
-                                $(`#isiModalSatPjrDisplay${polda_id}`).html(listSatPjrDisplay);
-
-
-                                var latitudeFasum = parseFloat(ressSatPjr[i].coordinate_guarding.lat);
-                                var longitudeFasum = parseFloat(ressSatPjr[i].coordinate_guarding.lng);
-                                satPjrClusterGroup.addLayer(markerSatPjr[i] = L.marker([latitudeFasum, longitudeFasum], {
-                                    icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: `
-                                        <div>
-                                            <div style="position: relative;">
-                                                <img src="<?php echo base_url(); ?>assets/icon/marker_PJR.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                            </div> 
-                                            <div style="position: absolute;margin-top: -29px;">
-                                                <span class="badge rounded-pill bg-primary" ${`style="background-color: #f2d91b !important; color: black;"`}>${ressSatPjr[i].name_renpam}</span>
-                                            </div>
-                                        </div>
-                                        
-                                        `,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                    })
-                                }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: none;"> 
-                                                <div class="row">  
-                                                    <div class="col-md-12 col-12">
-                                                        <h5>${ressSatPjr[i].name_renpam}</h5>  
-                                                    </div> 
-                                                    
-                                                    <div class="col-md-12 col-12 text-start"> 
-                                                        <p style="font-size: 12px;">${alamatlokasi}</p>
-                                                    </div>   
-
-                                                    <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isi${ressSatPjr[i].id}">
-                                                    
-                                                    </div>
                                                         
+                                                        <p style="font-size: 12px;">${alamatlokasi}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPosyan${ressPosYan[i].id}">
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                    `, {
+                                        minWidth: 100,
+                                        maxWidth: 900,
+                                        width: 300
+                                    }).on("click", function(e) {
+                                        $("#overlayMenu").fadeIn(300);
+                                        var akuns = ressPosYan[i].accounts;
+                                        var dataAkuns = '';
+                                        if (akuns.length > 0) {
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                data: {
+                                                    "id": akuns[0]['id'],
+                                                },
+                                                dataType: "JSON",
+                                                success: function(result) {
+                                                    var ress = result['data'];
+                                                    console.log({
+                                                        a: 'ada',
+                                                        b: ress
+                                                    });
+                                                    // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                    let noTelpF = ress['officer']['phone_officer']; 
+
+
+                                                    $(`#isiPosyan${ressPosYan[i].id}`).html(`
+                                                                
+                                                                <div style="text-align: center">
+                                                                ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
+                                                                        <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                        <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                                        <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
+                                                                        ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                                    </p>
+                                                                </div>
+
+                                                            `);
+                                                    $("#overlayMenu").fadeOut(300);
+                                                }
+                                            });
+                                        } else {
+                                            console.log({
+                                                a: 'ga ada'
+                                            });
+                                        }
+                                    }));
+                                    // }, i * 500);
+                                }
+                            }
+
+
+                            // setTimeout(() => {
+                            for (let i = 0; i < countPosYanDisplay; i++) {
+                                $(`#flyToMapFilterPosYan${polda_id}${i+1}`).on("click", function(e) {
+                                    var latlong = $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);
+                                    mapContainer.flyTo([latitude, longitude], 17);
+                                });
+                            }
+                            $(`#datatablePosYanOnDisplay${polda_id}`).DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            }); 
+                            mapContainer.addLayer(posYanClusterGroup);
+                            // }, countPosYanDisplay.length * 500);
+                        }
+
+                        if (ressPosTerpadu && ressPosTerpadu.length > 0) {
+                            $(`#isiPoldaPosTerpadu${polda_id}`).html(`
+                                <table id="datatablePosTerpaduOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Alamat</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalPosTerpaduDisplay${polda_id}">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countPosTerpaduDisplay = 0;
+                            var listPosTerpaduDisplay = '';
+                            $('#totalPosTerpaduDisplay').html(ressPosTerpadu.length);
+
+                            var logoMarker = '';
+                            var logoBody = '';
+                            for (let i = 0; i < ressPosTerpadu.length; i++) {
+
+                                if (ressPosTerpadu[i].coordinate_guarding && ressPosTerpadu[i].coordinate_guarding.lat != null && ressPosTerpadu[i].coordinate_guarding.lng != null) {
+                                    // setTimeout(() => {
+                                    if(ressPosTerpadu[i].title_start){
+                                        alamatlokasi = ressPosTerpadu[i].title_start;
+                                    }else{
+                                        if(ressPosTerpadu[i].alamat){
+                                            alamatlokasi = ressPosTerpadu[i].alamat.replace(/\n/g, "<br />");
+                                        }else{
+                                            alamatlokasi = "-";
+                                        }
+                                    }
+                                    countPosTerpaduDisplay += 1;
+                                    listPosTerpaduDisplay += `
+                                            <tr>
+                                                <td>${countPosTerpaduDisplay}</td>
+                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosTerpadu[i].id}" target="_blank">${ressPosTerpadu[i].name_renpam}</a></td> 
+                                                <td>${alamatlokasi}</td> 
+                                                <td>
+                                                    <a class="btn" style="margin-top: -10px;"  
+                                                        id="flyToMapFilterPosTerpadu${polda_id}${countPosTerpaduDisplay}"
+                                                        data-akun="${ressPosTerpadu[i].accounts}"
+                                                        data-cord="${ressPosTerpadu[i].coordinate_guarding.lat},${ressPosTerpadu[i].coordinate_guarding.lng}" 
+                                                        href="javascript:void(0)">
+                                                        <i style="color:${ressPosTerpadu[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
+                                                    </a> 
+                                                </td>
+                                            </tr>
+                                        `;
+                                    $(`#isiModalPosTerpaduDisplay${polda_id}`).html(listPosTerpaduDisplay);
+
+
+                                    var latitudeFasum = parseFloat(ressPosTerpadu[i].coordinate_guarding.lat);
+                                    var longitudeFasum = parseFloat(ressPosTerpadu[i].coordinate_guarding.lng);
+                                    posTerpaduClusterGroup.addLayer(markerPosTerpadu[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                        icon: L.divIcon({
+                                            // className: 'location-pin',
+                                            html: `
+                                            <div>
+                                                <div style="position: relative;">
+                                                    <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                                </div> 
+                                                <div style="position: absolute;margin-top: -29px;">
+                                                    <span class="badge rounded-pill bg-primary" >${ressPosTerpadu[i].name_renpam}</span>
+                                                </div>
+                                            </div>
+                                            `,
+                                            iconSize: [5, 5],
+                                            iconAnchor: [5, 10]
+                                            // iconAnchor: [10, 33]
+                                        })
+                                    }).bindPopup(`
+                                            <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                                <div class="row"> 
+                                                    <div class="col-md-12 col-12">
+                                                        <h5>${ressPosTerpadu[i].name_renpam}</h5>  
+                                                    </div> 
+                                                
+                                            
+                                                    <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
+                                                        
+                                                        <p style="font-size: 12px;">${alamatlokasi}</p>
+                                                    </div> 
+                                                    <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPosTerpadu${ressPosTerpadu[i].id}">
+                                                    
+                                                    </div>
                                                 </div>
                                             </div> 
                                         `, {
-                                    minWidth: 100,
-                                    maxWidth: 900,
-                                    width: 300
-                                }).on("click", function(e) {
-                                    $("#overlayMenu").fadeIn(300);
-                                    var akuns = ressSatPjr[i].accounts;
-                                    var dataAkuns = '';
-                                    if (akuns.length > 0) {
-                                        $.ajax({
-                                            type: "POST",
-                                            url: "<?php echo base_url(); ?>dashboard/getAkunId",
-                                            data: {
-                                                "id": akuns[0]['id'],
-                                            },
-                                            dataType: "JSON",
-                                            success: function(result) {
-                                                var ress = result['data'];
-                                                console.log({
-                                                    a: 'ada',
-                                                    b: ress
-                                                });
-                                                // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                let noTelpF = ress['officer']['phone_officer']; 
+                                        minWidth: 100,
+                                        maxWidth: 900,
+                                        width: 300
+                                    }).on("click", function(e) {
+                                        $("#overlayMenu").fadeIn(300);
+                                        var akuns = ressPosTerpadu[i].accounts;
+                                        var dataAkuns = '';
+                                        if (akuns.length > 0) {
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                data: {
+                                                    "id": akuns[0]['id'],
+                                                },
+                                                dataType: "JSON",
+                                                success: function(result) {
+                                                    var ress = result['data'];
+                                                    console.log({
+                                                        a: 'ada',
+                                                        b: ress
+                                                    });
+                                                    // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                    let noTelpF = ress['officer']['phone_officer']; 
 
-                                                $(`#isi${ressSatPjr[i].id}`).html(`
-                                                            
-                                                            <div style="text-align: center">
-                                                            ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
-                                                                    <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
-                                                                    <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
-                                                                    <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
-                                                                    ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
-                                                                </p>
-                                                            </div>
+                                                    $(`#isiPosTerpadu${ressPosTerpadu[i].id}`).html(`
+                                                        
+                                                        <div style="text-align: center">
+                                                            ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;"data-holder-rendered="true"></br>`}
+                                                                <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                                <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
+                                                                ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                            </p>
+                                                        </div>
 
-                                                        `);
-                                                $("#overlayMenu").fadeOut(300);
-                                            }
-                                        });
-                                    } else {
-                                        console.log({
-                                            a: 'ga ada'
-                                        });
-                                    }
-                                }));
-                                // }, i * 500);
-                            }
-                        }
-
-
-                        // setTimeout(() => {
-                        for (let i = 0; i < countSatPjrDisplay; i++) {
-                            $(`#flySatPjr${polda_id}${i+1}`).on("click", function(e) {
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 17);
-                            });
-                        }
-                        $(`#datatableSatPjrOnDisplay${polda_id}`).DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        }); 
-                        mapContainer.addLayer(satPjrClusterGroup);
-                        // }, countSatPjrDisplay.length * 500);
-                    }
-
-                    if (ressGerbangtol && ressGerbangtol.length > 0) {
-                        $('#openModalGerbangtolDisplay').html(`
-                            <table id="datatableGerbangtolOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Alamat</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalGerbangtolDisplay">
-                                </tbody>
-                            </table>                     
-                        `);
-                        var countGerbangtolDisplay = 0;
-                        var listGerbangtolDisplay = '';
-                        $('#totalGerbangtolDisplay').html(ressGerbangtol.length);
-
-                        var logoMarker = '';
-                        var logoBody = '';
-                        for (let i = 0; i < ressGerbangtol.length; i++) {
-
-                            if (ressGerbangtol[i].fasum_lat != null && ressGerbangtol[i].fasum_lng != null) {
-                                countGerbangtolDisplay += 1;
-                                listGerbangtolDisplay += `
-                                    <tr>
-                                        <td>${countGerbangtolDisplay}</td>
-                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressGerbangtol[i].fasum_name}</a></td> 
-                                        <td>${ressGerbangtol[i].fasum_description != null ? ressGerbangtol[i].fasum_description.replace(/\n/g, "<br />") : "-"}</td> 
-                                        <td>
-                                            <a class="btn" style="margin-top: -10px;"  
-                                                id="flyToMapFilterGerbangtol${countGerbangtolDisplay}" 
-                                                data-cord="${ressGerbangtol[i].fasum_lat},${ressGerbangtol[i].fasum_lng}" 
-                                                href="javascript:void(0)">
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
-                                        </td>
-                                    </tr>
-                                `;
-                                $('#isiModalGerbangtolDisplay').html(listGerbangtolDisplay);
-
-                                var latitudeGerbang = parseFloat(ressGerbangtol[i].fasum_lat);
-                                var longitudeGerbang = parseFloat(ressGerbangtol[i].fasum_lng);
-                                gerbangTolClusterGroup.addLayer(markerGerbangtol[i] = L.marker([latitudeGerbang, longitudeGerbang], {
-                                    icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: `
-                                    <div>
-                                        <div style="position: relative;">
-                                            <img src="<?php echo base_url(); ?>assets/icon/gerbang tol.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                        </div> 
-                                        <div style="position: absolute;margin-top: -29px;">
-                                            <span class="badge rounded-pill bg-primary">${ressGerbangtol[i].fasum_name}</span>
-                                        </div>
-                                    </div>
-                                    `,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33] 
-                                    })
-                                }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row mt-3"> 
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <h5>${ressGerbangtol[i].fasum_name}</h5> 
-                                                    <span>- Gerbang Tol -</span>
-                                                </div>
-                                                <div class="col-md-12 mt-3">
-                                                    <img src="${ressGerbangtol[i].fasum_logo}" alt="" class="img-fluid d-block" style="width: 100%;">
-                                                </div>
-                                                
-
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Note</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressGerbangtol[i].fasum_description != null ? ressGerbangtol[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>  
-                                            </div>
-                                        </div> 
-                                `, {
-                                    minWidth: 100,
-                                    maxWidth: 900,
-                                    width: 300
-                                }).on("click", function(e) {
-                                    mapContainer.flyTo([e.latlng.lat, e.latlng.lng], 17);
-                                }));
-
-                            }
-                        }
-
-
-                        for (let i = 0; i < countGerbangtolDisplay; i++) {
-                            $(`#flyToMapFilterGerbangtol${i+1}`).on("click", function(e) {
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 17);
-                            });
-                        }
-                        $('#datatableGerbangtolOnDisplay').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-                        mapContainer.addLayer(gerbangTolClusterGroup);
-                    }
-
-                    if (ressSatPas && ressSatPas.length > 0) {
-                        $(`#isiPoldaSatPas${polda_id}`).html(`
-                            <table id="datatableSatPasOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Alamat</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalSatPasDisplay${polda_id}">
-                                </tbody>
-                            </table>                     
-                        `);
-                        var countSatPasDisplay = 0;
-                        var listSatPasDisplay = '';
-                        $('#totalSatPasDisplay').html(ressSatPas.length);
-
-                        var logoMarker = '';
-                        var logoBody = '';
-                        for (let i = 0; i < ressSatPas.length; i++) {
-                            countSatPasDisplay += 1;
-                            listSatPasDisplay += `
-                                <tr>
-                                    <td>${countSatPasDisplay}</td>
-                                    <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressSatPas[i].fasum_name}</a></td> 
-                                    <td>${ressSatPas[i].fasum_address}</td> 
-                                    <td>
-                                        <a class="btn" style="margin-top: -10px;"  
-                                            id="flyToMapFilterSatPas${countSatPasDisplay}"
-                                            data-cord="${ressSatPas[i].fasum_lat},${ressSatPas[i].fasum_lng}" 
-                                            href="javascript:void(0)">
-                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                        </a> 
-                                    </td>
-                                </tr>
-                            `;
-                            $(`#isiModalSatPasDisplay${polda_id}`).html(listSatPasDisplay);
-
-
-                            var latitudeFasum = parseFloat(ressSatPas[i].fasum_lat);
-                            var longitudeFasum = parseFloat(ressSatPas[i].fasum_lng);
-                            satPasClusterGroup.addLayer(markerSatPas[i] = L.marker([latitudeFasum, longitudeFasum], {
-                                icon: L.divIcon({
-                                    // className: 'location-pin',
-                                    html: `
-                                    <div>
-                                        <div style="position: relative;">
-                                            <img src="<?php echo base_url(); ?>assets/pin2.png" style="width: 50px;  margin-top: -35px;margin-left: -15px;">
-                                        </div> 
-                                        <div style="position: absolute;margin-top: -29px;">
-                                            <span class="badge rounded-pill bg-primary" ${`style="background-color: #f2d91b !important"`}>${ressSatPas[i].fasum_name}</span>
-                                        </div>
-                                    </div>
-                                    `,
-                                    iconSize: [5, 5],
-                                    iconAnchor: [5, 10]
-                                    // iconAnchor: [10, 33]
-                                })
-                            }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row mt-3">
-                                                <div class="col-md-12 col-12" style="margin-left: 210px;margin-bottom: 10px;">
-                                                    <div class="avatar-xl me-3">
-                                                    <a href="javascript:void(0);"><img src="<?php echo url_api(); ?>fasum_khusus/${ressSatPas[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;"></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <h5>${ressSatPas[i].fasum_name}</h5> 
-                                                    <span>- ${ressSatPas[i].category_fasum.name_category_fasum} -</span>
-                                                </div>
-                                                
-
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_description != null ? ressSatPas[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_address}</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12"  style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_phone}</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_open_time != null ? ressSatPas[i].fasum_open_time : '00:00'} - ${ressSatPas[i].fasum_close_time != null ? ressSatPas[i].fasum_close_time : '00:00'} WITA</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>   
-                                            </div>
-                                        </div> 
-                                `, {
-                                minWidth: 100,
-                                maxWidth: 900,
-                                width: 300
-                            }));
-                        }
-
-
-                        for (let i = 0; i < countSatPasDisplay; i++) {
-                            $(`#flyToMapFilterSatPas${i+1}`).on("click", function(e) {
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 17);
-                            });
-                        }
-                        $(`#datatableSatPasOnDisplay${polda_id}`).DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-                        mapContainer.addLayer(satPasClusterGroup);
-                    }
-
-                    if (ressLAP && ressLAP.length > 0) {
-                        var filterLaporan = ressLAP.filter(function(e) {
-                            return e.coordinate.latitude != "" && e.coordinate.longitude != "";
-                        });
-
-
-                        if (filterLaporan.length > 0) {
-                            $('#openModalLaporanDisplay').html(`
-                                <table id="datatableLaporanOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Code</th> 
-                                            <th>Nama Petugas</th> 
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="isiModalLaporanDisplay">
-                                    </tbody>
-                                </table>                     
-                            `);
-                            var countLaporanDisplay = 0;
-                            var listLaporanDisplay = '';
-                            $('#totalLaporanDisplay').html(filterLaporan.length);
-
-                            for (let i = 0; i < filterLaporan.length; i++) {
-                                countLaporanDisplay += 1;
-                                listLaporanDisplay += `
-                                    <tr>
-                                        <td>${countLaporanDisplay}</td>
-                                        <td><a href="<?= base_url() ?>laporan/operasi/Detail/${filterLaporan[i].id}" target="_blank">${filterLaporan[i].code}</a></td> 
-                                        <td>${filterLaporan[i].officer.name_officer}</td> 
-                                        <td>
-                                            <a class="btn" style="margin-top: -10px;"  
-                                                id="flyToMapFilterLaporan${countLaporanDisplay}"
-                                                data-cord="${filterLaporan[i].coordinate.latitude},${filterLaporan[i].coordinate.longitude}" 
-                                                href="javascript:void(0)">
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
-                                        </td>
-                                    </tr>
-                                `;
-                                $('#isiModalLaporanDisplay').html(listLaporanDisplay);
-
-                                id = i;
-                                var latitudeLapPnc = parseFloat(filterLaporan[i].coordinate.latitude);
-                                var longitudeLapPnc = parseFloat(filterLaporan[i].coordinate.longitude);
-                                var iconLapPanic;
-
-                                if (filterLaporan[i].status == 0 || filterLaporan[i].status == null) {
-                                    $statusLapPnc = ` 
-                                        <span class="badge rounded-pill bg-danger">Tidak Selesai</span> 
-                                    `;
-
-                                } else {
-                                    $statusLapPnc = ` 
-                                        <span class="badge rounded-pill bg-success">Selesai</span> 
-                                    `;
+                                                    `);
+                                                    $("#overlayMenu").fadeOut(300);
+                                                }
+                                            });
+                                        } else {
+                                            console.log({
+                                                a: 'ga ada'
+                                            });
+                                        }
+                                    }));
+                                    // }, i * 500);
                                 }
-
-                                if (filterLaporan[i].categori == 1) {
-                                    kategoriLaporan = 'Tindakan Kriminal';
-                                    iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kriminal.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
-                                } else if (filterLaporan[i].categori == 2) {
-                                    kategoriLaporan = 'Kecelakaan Lalu Lintas';
-                                    iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
-                                } else if (filterLaporan[i].categori == 3) {
-                                    kategoriLaporan = 'Bencana Alam';
-                                    iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - bencana alam.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
-                                } else if (filterLaporan[i].categori == 4) {
-                                    kategoriLaporan = 'Kemacetan';
-                                    iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
-                                } else if (filterLaporan[i].categori == 99) {
-                                    kategoriLaporan = 'Lainnya';
-                                    iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
-                                } else {
-                                    kategoriLaporan = 'Lainnya Other';
-                                    iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
-                                }
-
-                                console.log('ini laporan');
-
-                                laporanClusterGroup.addLayer(markerLaporan[i] = L.marker([latitudeLapPnc, longitudeLapPnc], {
-                                    icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: `<img src="<?php echo base_url(); ?>assets/icon/laporan penugasan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                    })
-                                }).bindPopup(`
-                                    <div>
-                                        <div class="row">
-                                            <div class="col-md-12" style="text-align: center;">
-                                                <a href="#" onCLick="$('.imagepreview').attr('src', $(this).find('img').attr('src'));$('#imagemodal').modal('show');"><img src="<?php echo url_api() ?>/laporan/${filterLaporan[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
-                                            </div>
-                                            <div class="col-md-12" style="text-align: center;">
-                                                ${call_wa_dan_biasa(filterLaporan[i].officer.phone_officer, filterLaporan[i].officer.id, 'encrypt')}
-                                            </div>
-                                            <div class="col-md-12" style="text-align: center;">
-                                                <h5>${filterLaporan[i].code}</h5>
-                                            </div>
-                                        </div> 
-                                        <div class="row"> 
-                                            <div class="col-md-5">  
-                                                <span style="font-size: 12px;font-weight: bold;"> Nama Petugas</span> 
-                                            </div>  
-                                            <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${filterLaporan[i].officer.name_officer} </span> 
-                                            </div>  
-                                        </div> 
-                                        <div class="row"> 
-                                            <div class="col-md-5">  
-                                                <span style="font-size: 12px;font-weight: bold;"> Kategori</span> 
-                                            </div>  
-                                            <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${kategoriLaporan} </span> 
-                                            </div>  
-                                        </div> 
-                                        <div class="row"> 
-                                            <div class="col-md-5">  
-                                                <span style="font-size: 12px;font-weight: bold;"> Waktu</span> 
-                                            </div>  
-                                            <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${filterLaporan[i].created_at} </span> 
-                                            </div>  
-                                        </div>   
-                                        <div class="row"> 
-                                            <div class="col-md-5">  
-                                                <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span> 
-                                            </div>  
-                                            <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${filterLaporan[i].description.replace(/\n/g, "<br />")} </span> 
-                                            </div>  
-                                        </div> 
-                                      
-                                    </div>
-                                        
-                                `, {
-                                    minWidth: 100,
-                                    maxWidth: 560,
-                                    width: 400
-                                }));
-        
-                             
                             }
 
 
-                            for (let i = 0; i < countLaporanDisplay; i++) {
-                                $(`#flyToMapFilterLaporan${i+1}`).on("click", function(e) {
+                            // setTimeout(() => {
+                            for (let i = 0; i < countPosTerpaduDisplay; i++) {
+                                $(`#flyToMapFilterPosTerpadu${polda_id}${i+1}`).on("click", function(e) {
                                     var latlong = $(this).data('cord').split(',');
                                     var latitude = parseFloat(latlong[0]);
                                     var longitude = parseFloat(latlong[1]);
-                                    mapContainer.flyTo([latitude, longitude], 20);
+                                    mapContainer.flyTo([latitude, longitude], 17);
                                 });
                             }
-                            $('#datatableLaporanOnDisplay').DataTable({
+                            $(`#datatablePosTerpaduOnDisplay${polda_id}`).DataTable({
                                 responsive: true,
 
                                 scrollX: true,
@@ -9784,715 +9007,1037 @@
                                     sSearch: 'Search:'
 
                                 },
-                            });
-                            mapContainer.addLayer(laporanClusterGroup);
+                            }); 
+                            mapContainer.addLayer(posTerpaduClusterGroup);
+                            // }, countPosTerpaduDisplay.length * 500);
                         }
 
-                    }
-
-                    if (ressPanic && ressPanic.length > 0) {
-                        var filterLaporanPanic = ressPanic.filter(function(e) {
-                            return e.coordinate.latitude != "" && e.coordinate.longitude != "";
-                        });
-
-                        if (filterLaporanPanic.length > 0) {
-
-                            $('#openModalPanicDisplay').html(`
-                                <table id="datatablePanicOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                        if (ressPosko && ressPosko.length > 0) {
+                            $(`#isiPoldaPosko${polda_id}`).html(`
+                                <table id="datatablePoskoOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Kode</th> 
-                                            <th>Nama Petugas</th> 
+                                            <th>Nama</th> 
+                                            <th>Alamat</th> 
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="isiModalPanicDisplay">
+                                    <tbody id="isiModalPoskoDisplay${polda_id}">
                                     </tbody>
                                 </table>                     
                             `);
-                            var countPanicDisplay = 0;
-                            var listPanicDisplay = '';
-                            $('#totalPanicDisplay').html(filterLaporanPanic.length);
+                            var countPoskoDisplay = 0;
+                            var listPoskoDisplay = '';
+                            $('#totalPoskoDisplay').html(ressPosko.length);
 
-                            for (let i = 0; i < filterLaporanPanic.length; i++) {
-
-                                countPanicDisplay += 1;
-                                listPanicDisplay += `
-                                    <tr>
-                                        <td>${countPanicDisplay}</td>
-                                        <td><a href="<?= base_url() ?>laporan/panic/Detail/${filterLaporanPanic[i].id}" target="_blank">${filterLaporanPanic[i].code}</a></td> 
-                                        <td>${filterLaporanPanic[i].officer.name_officer}</td> 
-                                        <td>
-                                            <a class="btn" style="margin-top: -10px;"  
-                                                id="flyToMapFilterPanic${countPanicDisplay}"
-                                                data-cord="${filterLaporanPanic[i].coordinate.latitude},${filterLaporanPanic[i].coordinate.longitude}" 
-                                                href="javascript:void(0)">
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
-                                        </td>
-                                    </tr>
-                                `;
-                                $('#isiModalPanicDisplay').html(listPanicDisplay);
-
-                                id = i;
-                                var latitudeLapPnc = parseFloat(filterLaporanPanic[i].coordinate.latitude);
-                                var longitudeLapPnc = parseFloat(filterLaporanPanic[i].coordinate.longitude);
-                                var iconLapPanic;
-
-                                if (filterLaporanPanic[i].categori == 1) {
-                                    kategoriLaporan = 'Tindakan Kriminal';
-                                    iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kriminal.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
-                                } else if (filterLaporanPanic[i].categori == 2) {
-                                    kategoriLaporan = 'Kecelakaan Lalu Lintas';
-                                    iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
-                                } else if (filterLaporanPanic[i].categori == 3) {
-                                    kategoriLaporan = 'Bencana Alam';
-                                    iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - bencana alam.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
-                                } else if (filterLaporanPanic[i].categori == 4) {
-                                    kategoriLaporan = 'Kemacetan';
-                                    iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
-                                } else if (filterLaporanPanic[i].categori == 99) {
-                                    kategoriLaporan = 'Lainnya';
-                                    iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
-                                } else {
-                                    kategoriLaporan = 'Lainnya Other';
-                                    iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
-                                }
-
-                                if (filterLaporanPanic[i].status == 0 || filterLaporanPanic[i].status == null) {
-                                    $statusLapPnc = ` 
-                                        <span class="badge rounded-pill bg-danger">Tidak Selesai</span> 
-                                    `;
-
-                                } else {
-                                    $statusLapPnc = ` 
-                                        <span class="badge rounded-pill bg-success">Selesai</span> 
-                                    `;
-                                }
-
-                                panicClusterGroup.addLayer(markerLaporanPanic[i] = L.marker([latitudeLapPnc, longitudeLapPnc], {
-                                    icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: iconLapPanic,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                    })
-                                }).bindPopup(`
-                                    <div style="width: 300px;">
-                                        <div class="row">
-                                            <div class="col-md-12" style="text-align: center;">
-                                            <a href="javascript:void(0);"><img src="<?php echo url_api() ?>/laporan/${filterLaporanPanic[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
-                                            </div>
-
-                                            <div class="col-md-12" style="text-align: center;">
-                                                ${call_wa_dan_biasa(filterLaporanPanic[i].officer.phone_officer, filterLaporanPanic[i].officer.id, 'encrypt')}
-                                            </div>
-
-                                            <div class="col-md-12" style="text-align: center;">
-                                                <h5>${filterLaporanPanic[i].code}</h5>
-                                            </div>
-                                        </div> 
-                                        <div class="row"> 
-                                            <div class="col-md-5">  
-                                                <span style="font-size: 12px;font-weight: bold;"> Nama Petugas</span> 
-                                            </div>  
-                                            <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${filterLaporanPanic[i].officer.name_officer} </span> 
-                                            </div>  
-                                        </div> 
-                                        <div class="row"> 
-                                            <div class="col-md-5">  
-                                                <span style="font-size: 12px;font-weight: bold;"> Kategori Laporan</span> 
-                                            </div>  
-                                            <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${kategoriLaporan} </span> 
-                                            </div>  
-                                        </div> 
-                                        <div class="row"> 
-                                            <div class="col-md-5">  
-                                                <span style="font-size: 12px;font-weight: bold;"> Waktu Insiden</span> 
-                                            </div>  
-                                            <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${filterLaporanPanic[i].created_at} </span> 
-                                            </div>  
-                                        </div> 
-                                        <div class="row"> 
-                                            <div class="col-md-5">  
-                                                <span style="font-size: 12px;font-weight: bold;"> Status</span> 
-                                            </div>  
-                                            <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${$statusLapPnc} </span> 
-                                            </div>  
-                                        </div>  
-                                        <div class="row"> 
-                                            <div class="col-md-5">  
-                                                <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span> 
-                                            </div>  
-                                            <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${filterLaporanPanic[i].description != null ? filterLaporanPanic[i].description.replace(/\n/g, "<br />") : '-'} </span> 
-                                            </div>  
-                                        </div> 
-                                    </div>
-                                        
-                                `, {
-                                    minWidth: 100,
-                                    maxWidth: 560,
-                                    width: 400
-                                }));
-                            }
-
-
-                            for (let i = 0; i < countPanicDisplay; i++) {
-                                $(`#flyToMapFilterPanic${i+1}`).on("click", function(e) {
-                                    var latlong = $(this).data('cord').split(',');
-                                    var latitude = parseFloat(latlong[0]);
-                                    var longitude = parseFloat(latlong[1]);
-                                    mapContainer.flyTo([latitude, longitude], 20);
-                                });
-                            }
-                            $('#datatablePanicOnDisplay').DataTable({
-                                responsive: true,
-
-                                scrollX: true,
-
-                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                                buttons: ["excel", "csv", "pdf"],
-                                processing: true,
-                                oLanguage: {
-
-                                    sSearch: 'Search:'
-
-                                },
-                            });
-                            mapContainer.addLayer(panicClusterGroup);
-                        }
-
-
-                    }
-
-                    if (ressRadius && ressRadius.length > 0) {
-                        var logoMarker = '';
-                        var logoBody = '';
-                        $('#openModalRadiusDisplay').html(`
-                            <table id="datatableRadiusOnDisplay" class="table dt-responsive w-100">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Radius</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalRadiusDisplay">
-                                </tbody>
-                            </table>                     
-                        `);
-                        var countRadiusDisplay = 0;
-                        var listRadiusDisplay = '';
-                        $('#totalRadiusDisplay').html(ressRadius.length);
-
-                        for (let i = 0; i < ressRadius.length; i++) {
-                            countRadiusDisplay += 1;
-                            listRadiusDisplay += `
-                                <tr>
-                                    <td>${countRadiusDisplay}</td>
-                                    <td><a href="<?= base_url() ?>masterdata/Fasilitasumum/radius" target="_blank">${ressRadius[i].fasum_name}</a></td> 
-                                    <td>${ressRadius[i].fasum_radius} Kilometer</td> 
-                                    <td>
-                                        <a class="btn" style="margin-top: -10px;"  
-                                            id="flyToMapFilterRadius${countRadiusDisplay}"
-                                            data-cord="${ressRadius[i].fasum_lat},${ressRadius[i].fasum_lng}" 
-                                            href="javascript:void(0)">
-                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                        </a> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#isiModalRadiusDisplay').html(listRadiusDisplay);
-
-                            var latitudeRadius = parseFloat(ressRadius[i].fasum_lat);
-                            var longitudeRadius = parseFloat(ressRadius[i].fasum_lng);
-                            var set = ressRadius[i].fasum_radius != null ? ressRadius[i].fasum_radius : 1;
-                            markerRadius[i] = L.circle([latitudeRadius, longitudeRadius], 1000 * set, {
-                                color: 'yellow',
-                                fillColor: '#f03',
-                                weight: 2,
-                                fillOpacity: 0.2
-                            }).bindPopup(`
-                                        <div class="text-center" style="width: 400px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row mt-3"> 
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <h5>${ressRadius[i].fasum_name}</h5> 
-                                                    <span>- ${ressRadius[i].category_fasum.name_category_fasum} : ${set} Kilometer-</span>
-                                                </div>
-                                                
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12 text-start">
-                                                            <p style="font-size: 12px;font-weight: bold;">Akomodasi</p>  
-                                                            <p style="font-size: 12px; margin-top: -13px;">${ressRadius[i].fasum_description.replace(/\n/g, "<br />")}</p>
-                                                        </div>  
-                                                         
-                                                    </div> 
-                                                </div>   
-                                            </div>
-                                        </div> 
-                                `, {
-                                minWidth: 100,
-                                maxWidth: 560,
-                                width: 400
-                            }).addTo(mapContainer);
-                        }
-
-
-                        for (let i = 0; i < countRadiusDisplay; i++) {
-                            $(`#flyToMapFilterRadius${i+1}`).on("click", function(e) {
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 14);
-                            });
-                        }
-                        $('#datatableRadiusOnDisplay').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-                    }
-
-                    if (ressCluster && ressCluster.length > 0) {
-                        var logoMarker = '';
-                        var logoBody = '';
-                        $('#openModalClusterDisplay').html(`
-                            <table id="datatableClusterOnDisplay" class="table dt-responsive w-100">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Radius</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalClusterDisplay">
-                                </tbody>
-                            </table>                     
-                        `);
-                        var countClusterDisplay = 0;
-                        var listClusterDisplay = '';
-                        $('#totalClusterDisplay').html(ressCluster.length);
-
-                        for (let i = 0; i < ressCluster.length; i++) {
-                            countClusterDisplay += 1;
-                            listClusterDisplay += `
-                                <tr>
-                                    <td>${countClusterDisplay}</td>
-                                    <td><a href="<?= base_url() ?>masterdata/Fasilitasumum/radius" target="_blank">${ressCluster[i].fasum_name}</a></td> 
-                                    <td>${ressCluster[i].fasum_radius} Kilometer</td> 
-                                    <td>
-                                        <a class="btn" style="margin-top: -10px;"  
-                                            id="flyToMapFilterCluster${countClusterDisplay}"
-                                            data-cord="${ressCluster[i].fasum_lat},${ressCluster[i].fasum_lng}" 
-                                            href="javascript:void(0)">
-                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                        </a> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#isiModalClusterDisplay').html(listClusterDisplay);
-
-                            var latitudeCluster = parseFloat(ressCluster[i].fasum_lat);
-                            var longitudeCluster = parseFloat(ressCluster[i].fasum_lng);
-                            var set = ressCluster[i].fasum_radius != null ? ressCluster[i].fasum_radius : 1;
-
-                            markerCluster[i] = L.geoJSON(ressCluster[i].fasum_geoJson).addTo(mapContainer);
-                        }
-
-
-                        for (let i = 0; i < countClusterDisplay; i++) {
-                            $(`#flyToMapFilterCluster${i+1}`).on("click", function(e) {
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 9);
-                            });
-                        }
-                        $('#datatableClusterOnDisplay').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-                    }
-
-                    if (ressFasumKhusus && ressFasumKhusus.length > 0) {
-                        var countIsiLegen = 0;
-                        var listIsiLegen = '';
-                        var arrayGroupBy = new Array();
-
-                        const groupByCategory = ressFasumKhusus.reduce((group, product) => {
-                            const {
-                                fasum_type,
-                                fasum_logo
-                            } = product;
-
-                            group[fasum_logo] = group[fasum_logo] ?? [];
-                            group[fasum_logo].push(product);
-
-                            return group;
-                        }, {});
-                        var dataArrayGroup = Object.keys(groupByCategory)
-                        // console.log(dataArrayGroup);
-
-
-                        listIsiLegen += `
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/troublespot.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">trouble spot</b>
-                                </div> 
-                            </div> 
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/blackspot.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">black spot</b>
-                                </div> 
-                            </div> 
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/POSPAM.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">POSPAM</b>
-                                </div> 
-                            </div> 
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">POSYAN</b>
-                                </div> 
-                            </div> 
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/gerbang tol.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">Gerbang Tol</b>
-                                </div> 
-                            </div>  
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/rest_area.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">Rest Area</b>
-                                </div> 
-                            </div> 
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/cctv.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">CCTV</b>
-                                </div> 
-                            </div> 
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/hotel.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">Hotel</b>
-                                </div> 
-                            </div> 
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/gereja.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">Gereja</b>
-                                </div> 
-                            </div> 
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/masjid.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">Masjid</b>
-                                </div> 
-                            </div> 
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/stasiun.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">Stasiun</b>
-                                </div> 
-                            </div> 
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/pelabuhan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">Pelabuhan</b>
-                                </div> 
-                            </div> 
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/pasar.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">Pasar</b>
-                                </div> 
-                            </div> 
-                            <div class="col-md-4">
-                                <div style="display: flex;align-items: center;">
-                                    <img src="<?php echo base_url(); ?>assets/icon/marker_PJR.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                    <b style="font-size: 14px; text-transform: capitalize;">SAT PJR</b>
-                                </div> 
-                            </div> 
-                        `;
-                        for (let i = 0; i < dataArrayGroup.length; i++) {
-                            if (dataArrayGroup[i] != "null") {
-                                countIsiLegen += 1;
-
-                                // listIsiLegen += `
-                                //     <div class="col-md-4">
-                                //         <div style="display: flex;align-items: center;">
-                                //             <img src="<?php echo url_api(); ?>fasum_khusus/${dataArrayGroup[i]}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
-                                //             <b style="font-size: 14px; text-transform: capitalize;">${dataArrayGroup[i].replace('.png', "")}</b>
-                                //         </div> 
-                                //     </div> 
-                                // `;
-                            }
-                        }
-                        $('#isiLegendFasum').html(listIsiLegen);
-
-
-                        $('#openModalFasumKhususDisplay').html(`
-                            <table id="datatableFasumKhususOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Alamat</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalFasumKhususDisplay">
-                                </tbody>
-                            </table>                     
-                        `);
-                        var countFasumKhususDisplay = 0;
-                        var listFasumKhususDisplay = '';
-                        $('#totalFasumKhususDisplay').html(ressFasumKhusus.length);
-
-                        var logoMarker = '';
-                        var logoBody = '';
-                        for (let i = 0; i < ressFasumKhusus.length; i++) {
-
-                            if (ressFasumKhusus[i].fasum_lat != null && ressFasumKhusus[i].fasum_lng != null) {
-                                countFasumKhususDisplay += 1;
-                                listFasumKhususDisplay += `
-                                    <tr>
-                                        <td>${countFasumKhususDisplay}</td>
-                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressFasumKhusus[i].fasum_name}</a></td> 
-                                        <td>${ressFasumKhusus[i].fasum_address}</td> 
-                                        <td>
-                                            <a class="btn" style="margin-top: -10px;"  
-                                                id="flyToMapFilterFasumKhusus${countFasumKhususDisplay}"
-                                                data-cord="${ressFasumKhusus[i].fasum_lat},${ressFasumKhusus[i].fasum_lng}" 
-                                                href="javascript:void(0)">
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
-                                        </td>
-                                    </tr>
-                                `;
-                                $('#isiModalFasumKhususDisplay').html(listFasumKhususDisplay);
-
-                                if (ressFasumKhusus[i].fasum_type == 22) {
-                                    logoMarker = `<?php echo base_url(); ?>assets/icon/gereja.png`;
-                                    logoBody = `<img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_image}" class="img-thumbnail" alt="200x200" width="500" data-holder-rendered="true">`;
-                                } else {
-                                    logoMarker = `<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}`;
-                                    logoBody = `<img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_image}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">`;
-                                }
-
-                                var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
-                                var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng);
-                                fasumKhususClusterGroup.addLayer(markerFasumKhusus[i] = L.marker([latitudeFasum, longitudeFasum], {
-                                    icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: `
-                                    <div>
-                                        <div style="position: relative;">
-                                            <img src="${logoMarker}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                        </div> 
-                                        <div style="position: absolute;margin-top: -29px;">
-                                            <span class="badge rounded-pill bg-primary" >${ressFasumKhusus[i].fasum_name}</span>
-                                        </div>
-                                    </div>
-                                    `,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                    })
-                                }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row mt-3">
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <h5>${ressFasumKhusus[i].fasum_name}</h5> 
-                                                    <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
-                                                </div>
-                                                <div class="col-md-12 col-12 mt-3" style="margin-left: 210px;margin-bottom: 10px;">
-                                                    <div class="avatar-xl me-3">
-                                                        <a href="javascript:void(0);">
-                                                            ${logoBody}
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                
-    
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12 mt-2">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_address}</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12"  style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_phone}</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-12 col-12">
-                                                            <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-                                                            <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
-                                                        </div> 
-                                                    </div> 
-                                                </div>   
-                                            </div>
-                                        </div> 
-                                `, {
-                                    minWidth: 100,
-                                    maxWidth: 900,
-                                    width: 300
-                                }));
-                            }
-                        }
-
-
-                        for (let i = 0; i < countFasumKhususDisplay; i++) {
-                            $(`#flyToMapFilterFasumKhusus${i+1}`).on("click", function(e) {
-                                var latlong = $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]);
-                                mapContainer.flyTo([latitude, longitude], 17);
-                            });
-                        }
-                        $('#datatableFasumKhususOnDisplay').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-                        mapContainer.addLayer(fasumKhususClusterGroup);
-                    }
-
-                    if (ressFasum && ressFasum.length > 0) {
-                        var filterFasum = ressFasum.filter(function(e) {
-                            return e.geometry.location.lat != null && e.geometry.location.lng != null;
-                        });
-
-                        if (filterFasum.length > 0) {
                             var logoMarker = '';
                             var logoBody = '';
-                            for (let i = 0; i < filterFasum.length; i++) {
-                                // if(filterFasum[i].fasum_type == 1){
-                                //     logoMarker = `hotel.png`;
-                                //     logoBody = `hotel.png`;
-                                // }else if(filterFasum[i].fasum_type == 2){
-                                //     logoMarker = `rumah ibadah.png`;
-                                //     logoBody = `rumah ibadah.png`;
-                                // }else if(filterFasum[i].fasum_type == 3){
-                                //     logoMarker = `pom bensin.png`;
-                                //     logoBody = `pom bensin.png`;
-                                // }else if(filterFasum[i].fasum_type == 4){
-                                //     logoMarker = `rest_area.png`;
-                                //     logoBody = `rest_area.png`;
-                                // }else if(filterFasum[i].fasum_type == 5){
-                                //     logoMarker = `rumah makan.png`;
-                                //     logoBody = `rumah makan.png`;
-                                // }else if(filterFasum[i].fasum_type == 6){
-                                //     logoMarker = `wisata.png`;
-                                //     logoBody = `wisata.png`;
-                                // }else if(filterFasum[i].fasum_type == 7){
-                                //     logoMarker = `damkar.png`;
-                                //     logoBody = `damkar.png`;
-                                // }else if(filterFasum[i].fasum_type == 8){
-                                //     logoMarker = `rumah sakit umum.png`;
-                                //     logoBody = `rumah sakit umum.png`;
-                                // }
+                            for (let i = 0; i < ressPosko.length; i++) {
 
-                                var latitudeFasum = parseFloat(filterFasum[i].geometry.location.lat);
-                                var longitudeFasum = parseFloat(filterFasum[i].geometry.location.lng);
-                                markerFasum[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                if (ressPosko[i].coordinate_guarding && ressPosko[i].coordinate_guarding.lat != null && ressPosko[i].coordinate_guarding.lng != null) {
+                                    // setTimeout(() => {
+                                    if(ressPosko[i].title_start){
+                                        alamatlokasi = ressPosko[i].title_start;
+                                    }else{
+                                        if(ressPosko[i].alamat){
+                                            alamatlokasi = ressPosko[i].alamat.replace(/\n/g, "<br />");
+                                        }else{
+                                            alamatlokasi = "-";
+                                        }
+                                    }
+                                    countPoskoDisplay += 1;
+                                    listPoskoDisplay += `
+                                            <tr>
+                                                <td>${countPoskoDisplay}</td>
+                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosko[i].id}" target="_blank">${ressPosko[i].name_renpam}</a></td> 
+                                                <td>${alamatlokasi}</td> 
+                                                <td>
+                                                    <a class="btn" style="margin-top: -10px;"  
+                                                        id="flyToMapFilterPosko${polda_id}${countPoskoDisplay}"
+                                                        data-akun="${ressPosko[i].accounts}"
+                                                        data-cord="${ressPosko[i].coordinate_guarding.lat},${ressPosko[i].coordinate_guarding.lng}" 
+                                                        href="javascript:void(0)">
+                                                        <i style="color:${ressPosko[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
+                                                    </a> 
+                                                </td>
+                                            </tr>
+                                        `;
+                                    $(`#isiModalPoskoDisplay${polda_id}`).html(listPoskoDisplay);
+
+
+                                    var latitudeFasum = parseFloat(ressPosko[i].coordinate_guarding.lat);
+                                    var longitudeFasum = parseFloat(ressPosko[i].coordinate_guarding.lng);
+                                    poskoClusterGroup.addLayer(markerPosko[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                        icon: L.divIcon({
+                                            // className: 'location-pin',
+                                            html: `
+                                            <div>
+                                                <div style="position: relative;">
+                                                    <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                                </div> 
+                                                <div style="position: absolute;margin-top: -29px;">
+                                                    <span class="badge rounded-pill bg-primary" >${ressPosko[i].name_renpam}</span>
+                                                </div>
+                                            </div>
+                                            `,
+                                            iconSize: [5, 5],
+                                            iconAnchor: [5, 10]
+                                            // iconAnchor: [10, 33]
+                                        })
+                                    }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="row">  
+                                                <div class="col-md-12 col-12">
+                                                    <h5>${ressPosko[i].name_renpam}</h5>  
+                                                </div> 
+                                                
+                                                <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
+                                                    
+                                                    <p style="font-size: 12px;">${alamatlokasi}</p>
+                                                </div>   
+
+                                                <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isi${ressPosko[i].id}">
+                                                
+                                                </div>
+                                                    
+                                            </div>
+                                        </div> 
+                                        `, {
+                                        minWidth: 100,
+                                        maxWidth: 900,
+                                        width: 300
+                                    })).on("click", function(e) {
+                                        $("#overlayMenu").fadeIn(300);
+                                        var akuns = ressPosko[i].accounts;
+                                        var dataAkuns = '';
+                                        if (akuns.length > 0) {
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                data: {
+                                                    "id": akuns[0]['id'],
+                                                },
+                                                dataType: "JSON",
+                                                success: function(result) {
+                                                    var ress = result['data'];
+                                                    console.log({
+                                                        a: 'ada',
+                                                        b: ress
+                                                    });
+                                                    // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                    let noTelpF = ress['officer']['phone_officer']; 
+
+                                                    $(`#isi${ressPosko[i].id}`).html(`
+                                                                
+                                                                <div style="text-align: center">
+                                                                ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
+                                                                        <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                        <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                                        <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
+                                                                        ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                                    </p>
+                                                                </div>
+
+                                                            `);
+                                                    $("#overlayMenu").fadeOut(300);
+                                                }
+                                            });
+                                        } else {
+                                            console.log({ a: 'ga ada'  });
+                                        }
+                                    });
+                                    // }, i * 500);
+                                }
+                            }
+
+
+                            // setTimeout(() => {
+                            for (let i = 0; i < countPoskoDisplay; i++) {
+                                $(`#flyToMapFilterPosko${polda_id}${i+1}`).on("click", function(e) {
+                                    var latlong = $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);
+                                    mapContainer.flyTo([latitude, longitude], 17);
+                                });
+                            }
+                            $(`#datatablePoskoOnDisplay${polda_id}`).DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            }); 
+                            mapContainer.addLayer(poskoClusterGroup);
+                            // }, countPoskoDisplay.length * 500);
+                        }
+
+                        if (ressSatPjr && ressSatPjr.length > 0) {
+                            $(`#isiPoldaSatPjr${polda_id}`).html(`
+                                <table id="datatableSatPjrOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Alamat</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalSatPjrDisplay${polda_id}">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countSatPjrDisplay = 0;
+                            var listSatPjrDisplay = '';
+                            $('#totalSatPjrDisplay').html(ressSatPjr.length);
+
+                            var logoMarker = '';
+                            var logoBody = '';
+                            for (let i = 0; i < ressSatPjr.length; i++) {
+
+                                if (ressSatPjr[i].coordinate_guarding && ressSatPjr[i].coordinate_guarding.lat != null && ressSatPjr[i].coordinate_guarding.lng != null) {
+                                    // setTimeout(() => {
+
+                                    if(ressSatPjr[i].title_start){
+                                        alamatlokasi = ressSatPjr[i].title_start;
+                                    }else{
+                                        if(ressSatPjr[i].alamat){
+                                            alamatlokasi = ressSatPjr[i].alamat.replace(/\n/g, "<br />");
+                                        }else{
+                                            alamatlokasi = "-";
+                                        }
+                                    }
+                                    countSatPjrDisplay += 1;
+                                    listSatPjrDisplay += `
+                                            <tr>
+                                                <td>${countSatPjrDisplay}</td>
+                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressSatPjr[i].id}" target="_blank">${ressSatPjr[i].name_renpam}</a></td> 
+                                                <td>${alamatlokasi}</td> 
+                                                <td>
+                                                    <a class="btn" style="margin-top: -10px;"  
+                                                        id="flySatPjr${polda_id}${countSatPjrDisplay}"
+                                                        data-akun="${ressSatPjr[i].accounts}"
+                                                        data-cord="${ressSatPjr[i].coordinate_guarding.lat},${ressSatPjr[i].coordinate_guarding.lng}" 
+                                                        href="javascript:void(0)">
+                                                        <i style="color:${ressSatPjr[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
+                                                    </a> 
+                                                </td>
+                                            </tr>
+                                        `;
+                                    $(`#isiModalSatPjrDisplay${polda_id}`).html(listSatPjrDisplay);
+
+
+                                    var latitudeFasum = parseFloat(ressSatPjr[i].coordinate_guarding.lat);
+                                    var longitudeFasum = parseFloat(ressSatPjr[i].coordinate_guarding.lng);
+                                    satPjrClusterGroup.addLayer(markerSatPjr[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                        icon: L.divIcon({
+                                            // className: 'location-pin',
+                                            html: `
+                                            <div>
+                                                <div style="position: relative;">
+                                                    <img src="<?php echo base_url(); ?>assets/icon/marker_PJR.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                                </div> 
+                                                <div style="position: absolute;margin-top: -29px;">
+                                                    <span class="badge rounded-pill bg-primary" ${`style="background-color: #f2d91b !important; color: black;"`}>${ressSatPjr[i].name_renpam}</span>
+                                                </div>
+                                            </div>
+                                            
+                                            `,
+                                            iconSize: [5, 5],
+                                            iconAnchor: [5, 10]
+                                            // iconAnchor: [10, 33]
+                                        })
+                                    }).bindPopup(`
+                                                <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: none;"> 
+                                                    <div class="row">  
+                                                        <div class="col-md-12 col-12">
+                                                            <h5>${ressSatPjr[i].name_renpam}</h5>  
+                                                        </div> 
+                                                        
+                                                        <div class="col-md-12 col-12 text-start"> 
+                                                            <p style="font-size: 12px;">${alamatlokasi}</p>
+                                                        </div>   
+
+                                                        <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isi${ressSatPjr[i].id}">
+                                                        
+                                                        </div>
+                                                            
+                                                    </div>
+                                                </div> 
+                                            `, {
+                                        minWidth: 100,
+                                        maxWidth: 900,
+                                        width: 300
+                                    }).on("click", function(e) {
+                                        $("#overlayMenu").fadeIn(300);
+                                        var akuns = ressSatPjr[i].accounts;
+                                        var dataAkuns = '';
+                                        if (akuns.length > 0) {
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "<?php echo base_url(); ?>dashboard/getAkunId",
+                                                data: {
+                                                    "id": akuns[0]['id'],
+                                                },
+                                                dataType: "JSON",
+                                                success: function(result) {
+                                                    var ress = result['data'];
+                                                    console.log({
+                                                        a: 'ada',
+                                                        b: ress
+                                                    });
+                                                    // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
+                                                    let noTelpF = ress['officer']['phone_officer']; 
+
+                                                    $(`#isi${ressSatPjr[i].id}`).html(`
+                                                                
+                                                                <div style="text-align: center">
+                                                                ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
+                                                                        <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
+                                                                        <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
+                                                                        <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
+                                                                        ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                                    </p>
+                                                                </div>
+
+                                                            `);
+                                                    $("#overlayMenu").fadeOut(300);
+                                                }
+                                            });
+                                        } else {
+                                            console.log({
+                                                a: 'ga ada'
+                                            });
+                                        }
+                                    }));
+                                    // }, i * 500);
+                                }
+                            }
+
+
+                            // setTimeout(() => {
+                            for (let i = 0; i < countSatPjrDisplay; i++) {
+                                $(`#flySatPjr${polda_id}${i+1}`).on("click", function(e) {
+                                    var latlong = $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);
+                                    mapContainer.flyTo([latitude, longitude], 17);
+                                });
+                            }
+                            $(`#datatableSatPjrOnDisplay${polda_id}`).DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            }); 
+                            mapContainer.addLayer(satPjrClusterGroup);
+                            // }, countSatPjrDisplay.length * 500);
+                        }
+
+                        if (ressGerbangtol && ressGerbangtol.length > 0) {
+                            $('#openModalGerbangtolDisplay').html(`
+                                <table id="datatableGerbangtolOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Alamat</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalGerbangtolDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countGerbangtolDisplay = 0;
+                            var listGerbangtolDisplay = '';
+                            $('#totalGerbangtolDisplay').html(ressGerbangtol.length);
+
+                            var logoMarker = '';
+                            var logoBody = '';
+                            for (let i = 0; i < ressGerbangtol.length; i++) {
+
+                                if (ressGerbangtol[i].fasum_lat != null && ressGerbangtol[i].fasum_lng != null) {
+                                    countGerbangtolDisplay += 1;
+                                    listGerbangtolDisplay += `
+                                        <tr>
+                                            <td>${countGerbangtolDisplay}</td>
+                                            <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressGerbangtol[i].fasum_name}</a></td> 
+                                            <td>${ressGerbangtol[i].fasum_description != null ? ressGerbangtol[i].fasum_description.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterGerbangtol${countGerbangtolDisplay}" 
+                                                    data-cord="${ressGerbangtol[i].fasum_lat},${ressGerbangtol[i].fasum_lng}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalGerbangtolDisplay').html(listGerbangtolDisplay);
+
+                                    var latitudeGerbang = parseFloat(ressGerbangtol[i].fasum_lat);
+                                    var longitudeGerbang = parseFloat(ressGerbangtol[i].fasum_lng);
+                                    gerbangTolClusterGroup.addLayer(markerGerbangtol[i] = L.marker([latitudeGerbang, longitudeGerbang], {
+                                        icon: L.divIcon({
+                                            // className: 'location-pin',
+                                            html: `
+                                        <div>
+                                            <div style="position: relative;">
+                                                <img src="<?php echo base_url(); ?>assets/icon/gerbang tol.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                            </div> 
+                                            <div style="position: absolute;margin-top: -29px;">
+                                                <span class="badge rounded-pill bg-primary">${ressGerbangtol[i].fasum_name}</span>
+                                            </div>
+                                        </div>
+                                        `,
+                                            iconSize: [5, 5],
+                                            iconAnchor: [5, 10]
+                                            // iconAnchor: [10, 33] 
+                                        })
+                                    }).bindPopup(`
+                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                                <div class="row mt-3"> 
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <h5>${ressGerbangtol[i].fasum_name}</h5> 
+                                                        <span>- Gerbang Tol -</span>
+                                                    </div>
+                                                    <div class="col-md-12 mt-3">
+                                                        <img src="${ressGerbangtol[i].fasum_logo}" alt="" class="img-fluid d-block" style="width: 100%;">
+                                                    </div>
+                                                    
+
+                                                    <div class="col-md-12 col-12 mt-2">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-12 col-12">
+                                                                <p style="font-size: 12px;font-weight: bold;">Note</p>  
+                                                                <p style="font-size: 12px; margin-top: -15px;">${ressGerbangtol[i].fasum_description != null ? ressGerbangtol[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
+                                                            </div> 
+                                                        </div> 
+                                                    </div>  
+                                                </div>
+                                            </div> 
+                                    `, {
+                                        minWidth: 100,
+                                        maxWidth: 900,
+                                        width: 300
+                                    }).on("click", function(e) {
+                                        mapContainer.flyTo([e.latlng.lat, e.latlng.lng], 17);
+                                    }));
+
+                                }
+                            }
+
+
+                            for (let i = 0; i < countGerbangtolDisplay; i++) {
+                                $(`#flyToMapFilterGerbangtol${i+1}`).on("click", function(e) {
+                                    var latlong = $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);
+                                    mapContainer.flyTo([latitude, longitude], 17);
+                                });
+                            }
+                            $('#datatableGerbangtolOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            });
+                            mapContainer.addLayer(gerbangTolClusterGroup);
+                        }
+
+                        if (ressSatPas && ressSatPas.length > 0) {
+                            $(`#isiPoldaSatPas${polda_id}`).html(`
+                                <table id="datatableSatPasOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Alamat</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalSatPasDisplay${polda_id}">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countSatPasDisplay = 0;
+                            var listSatPasDisplay = '';
+                            $('#totalSatPasDisplay').html(ressSatPas.length);
+
+                            var logoMarker = '';
+                            var logoBody = '';
+                            for (let i = 0; i < ressSatPas.length; i++) {
+                                countSatPasDisplay += 1;
+                                listSatPasDisplay += `
+                                    <tr>
+                                        <td>${countSatPasDisplay}</td>
+                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressSatPas[i].fasum_name}</a></td> 
+                                        <td>${ressSatPas[i].fasum_address}</td> 
+                                        <td>
+                                            <a class="btn" style="margin-top: -10px;"  
+                                                id="flyToMapFilterSatPas${countSatPasDisplay}"
+                                                data-cord="${ressSatPas[i].fasum_lat},${ressSatPas[i].fasum_lng}" 
+                                                href="javascript:void(0)">
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $(`#isiModalSatPasDisplay${polda_id}`).html(listSatPasDisplay);
+
+
+                                var latitudeFasum = parseFloat(ressSatPas[i].fasum_lat);
+                                var longitudeFasum = parseFloat(ressSatPas[i].fasum_lng);
+                                satPasClusterGroup.addLayer(markerSatPas[i] = L.marker([latitudeFasum, longitudeFasum], {
                                     icon: L.divIcon({
-                                        className: 'location-pin',
-                                        html: `<img style="background-color:${filterFasum[i].icon_background_color};" src="${filterFasum[i].icon}"><div class="pin" style="background-color:${filterFasum[i].icon_background_color}"></div>`,
+                                        // className: 'location-pin',
+                                        html: `
+                                        <div>
+                                            <div style="position: relative;">
+                                                <img src="<?php echo base_url(); ?>assets/pin2.png" style="width: 50px;  margin-top: -35px;margin-left: -15px;">
+                                            </div> 
+                                            <div style="position: absolute;margin-top: -29px;">
+                                                <span class="badge rounded-pill bg-primary" ${`style="background-color: #f2d91b !important"`}>${ressSatPas[i].fasum_name}</span>
+                                            </div>
+                                        </div>
+                                        `,
                                         iconSize: [5, 5],
-                                        //iconAnchor: [18, 30]
                                         iconAnchor: [5, 10]
-
+                                        // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;"> 
+                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                                 <div class="row mt-3">
-                                                    <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                    <div class="col-md-12 col-12" style="margin-left: 210px;margin-bottom: 10px;">
                                                         <div class="avatar-xl me-3">
-                                                            <img src="${filterFasum[i].icon}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                        <a href="javascript:void(0);"><img src="<?php echo url_api(); ?>fasum_khusus/${ressSatPas[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;"></a>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 col-12 mt-3">
-                                                        <h5>Fasilitas Umum</h5>
-                                                        <span style="font-size: 14px;">- ${filterFasum[i].name} -</span>
+                                                        <h5>${ressSatPas[i].fasum_name}</h5> 
+                                                        <span>- ${ressSatPas[i].category_fasum.name_category_fasum} -</span>
                                                     </div>
-                                                    <div class="col-md-12 col-12 mt-3">
+                                                    
+
+                                                    <div class="col-md-12 col-12 mt-2">
                                                         <div class="row text-start">
-                                                            <div class="col-md-5 col-6">
-                                                                <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
-                                                            </div>
-                                                            <div class="col-md-1">
-                                                                <p style="font-size: 12px;"> : </p>
-                                                            </div>
-                                                            <div class="col-md-6 col-6">
-                                                                <p style="font-size: 12px;">${filterFasum[i].name}</p>
-                                                            </div>
+                                                            <div class="col-md-12 col-12">
+                                                                <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                                                <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_description != null ? ressSatPas[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
+                                                            </div> 
                                                         </div> 
-                                                    </div>     
+                                                    </div>  
+                                                    <div class="col-md-12 col-12 mt-2">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-12 col-12">
+                                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                                <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_address}</p>
+                                                            </div> 
+                                                        </div> 
+                                                    </div>  
+                                                    <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-12 col-12">
+                                                                <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                                <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_phone}</p>
+                                                            </div> 
+                                                        </div> 
+                                                    </div>  
+                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-12 col-12">
+                                                                <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                                <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_open_time != null ? ressSatPas[i].fasum_open_time : '00:00'} - ${ressSatPas[i].fasum_close_time != null ? ressSatPas[i].fasum_close_time : '00:00'} WITA</p>
+                                                            </div> 
+                                                        </div> 
+                                                    </div>   
+                                                </div>
+                                            </div> 
+                                    `, {
+                                    minWidth: 100,
+                                    maxWidth: 900,
+                                    width: 300
+                                }));
+                            }
+
+
+                            for (let i = 0; i < countSatPasDisplay; i++) {
+                                $(`#flyToMapFilterSatPas${i+1}`).on("click", function(e) {
+                                    var latlong = $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);
+                                    mapContainer.flyTo([latitude, longitude], 17);
+                                });
+                            }
+                            $(`#datatableSatPasOnDisplay${polda_id}`).DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            });
+                            mapContainer.addLayer(satPasClusterGroup);
+                        }
+
+                        if (ressLAP && ressLAP.length > 0) {
+                            var filterLaporan = ressLAP.filter(function(e) {
+                                return e.coordinate.latitude != "" && e.coordinate.longitude != "";
+                            });
+
+
+                            if (filterLaporan.length > 0) {
+                                $('#openModalLaporanDisplay').html(`
+                                    <table id="datatableLaporanOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Code</th> 
+                                                <th>Nama Petugas</th> 
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="isiModalLaporanDisplay">
+                                        </tbody>
+                                    </table>                     
+                                `);
+                                var countLaporanDisplay = 0;
+                                var listLaporanDisplay = '';
+                                $('#totalLaporanDisplay').html(filterLaporan.length);
+
+                                for (let i = 0; i < filterLaporan.length; i++) {
+                                    countLaporanDisplay += 1;
+                                    listLaporanDisplay += `
+                                        <tr>
+                                            <td>${countLaporanDisplay}</td>
+                                            <td><a href="<?= base_url() ?>laporan/operasi/Detail/${filterLaporan[i].id}" target="_blank">${filterLaporan[i].code}</a></td> 
+                                            <td>${filterLaporan[i].officer.name_officer}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterLaporan${countLaporanDisplay}"
+                                                    data-cord="${filterLaporan[i].coordinate.latitude},${filterLaporan[i].coordinate.longitude}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalLaporanDisplay').html(listLaporanDisplay);
+
+                                    id = i;
+                                    var latitudeLapPnc = parseFloat(filterLaporan[i].coordinate.latitude);
+                                    var longitudeLapPnc = parseFloat(filterLaporan[i].coordinate.longitude);
+                                    var iconLapPanic;
+
+                                    if (filterLaporan[i].status == 0 || filterLaporan[i].status == null) {
+                                        $statusLapPnc = ` 
+                                            <span class="badge rounded-pill bg-danger">Tidak Selesai</span> 
+                                        `;
+
+                                    } else {
+                                        $statusLapPnc = ` 
+                                            <span class="badge rounded-pill bg-success">Selesai</span> 
+                                        `;
+                                    }
+
+                                    if (filterLaporan[i].categori == 1) {
+                                        kategoriLaporan = 'Tindakan Kriminal';
+                                        iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kriminal.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    } else if (filterLaporan[i].categori == 2) {
+                                        kategoriLaporan = 'Kecelakaan Lalu Lintas';
+                                        iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    } else if (filterLaporan[i].categori == 3) {
+                                        kategoriLaporan = 'Bencana Alam';
+                                        iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - bencana alam.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    } else if (filterLaporan[i].categori == 4) {
+                                        kategoriLaporan = 'Kemacetan';
+                                        iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    } else if (filterLaporan[i].categori == 99) {
+                                        kategoriLaporan = 'Lainnya';
+                                        iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    } else {
+                                        kategoriLaporan = 'Lainnya Other';
+                                        iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    }
+
+                                    console.log('ini laporan');
+
+                                    laporanClusterGroup.addLayer(markerLaporan[i] = L.marker([latitudeLapPnc, longitudeLapPnc], {
+                                        icon: L.divIcon({
+                                            // className: 'location-pin',
+                                            html: `<img src="<?php echo base_url(); ?>assets/icon/laporan penugasan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`,
+                                            iconSize: [5, 5],
+                                            iconAnchor: [5, 10]
+                                            // iconAnchor: [10, 33]
+                                        })
+                                    }).bindPopup(`
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <a href="#" onCLick="$('.imagepreview').attr('src', $(this).find('img').attr('src'));$('#imagemodal').modal('show');"><img src="<?php echo url_api() ?>/laporan/${filterLaporan[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
+                                                </div>
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    ${call_wa_dan_biasa(filterLaporan[i].officer.phone_officer, filterLaporan[i].officer.id, 'encrypt')}
+                                                </div>
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <h5>${filterLaporan[i].code}</h5>
+                                                </div>
+                                            </div> 
+                                            <div class="row"> 
+                                                <div class="col-md-5">  
+                                                    <span style="font-size: 12px;font-weight: bold;"> Nama Petugas</span> 
+                                                </div>  
+                                                <div class="col-md-7">  
+                                                    <span style="font-size: 12px;"> : ${filterLaporan[i].officer.name_officer} </span> 
+                                                </div>  
+                                            </div> 
+                                            <div class="row"> 
+                                                <div class="col-md-5">  
+                                                    <span style="font-size: 12px;font-weight: bold;"> Kategori</span> 
+                                                </div>  
+                                                <div class="col-md-7">  
+                                                    <span style="font-size: 12px;"> : ${kategoriLaporan} </span> 
+                                                </div>  
+                                            </div> 
+                                            <div class="row"> 
+                                                <div class="col-md-5">  
+                                                    <span style="font-size: 12px;font-weight: bold;"> Waktu</span> 
+                                                </div>  
+                                                <div class="col-md-7">  
+                                                    <span style="font-size: 12px;"> : ${filterLaporan[i].created_at} </span> 
+                                                </div>  
+                                            </div>   
+                                            <div class="row"> 
+                                                <div class="col-md-5">  
+                                                    <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span> 
+                                                </div>  
+                                                <div class="col-md-7">  
+                                                    <span style="font-size: 12px;"> : ${filterLaporan[i].description.replace(/\n/g, "<br />")} </span> 
+                                                </div>  
+                                            </div> 
+                                        
+                                        </div>
+                                            
+                                    `, {
+                                        minWidth: 100,
+                                        maxWidth: 560,
+                                        width: 400
+                                    }));
+            
+                                
+                                }
+
+
+                                for (let i = 0; i < countLaporanDisplay; i++) {
+                                    $(`#flyToMapFilterLaporan${i+1}`).on("click", function(e) {
+                                        var latlong = $(this).data('cord').split(',');
+                                        var latitude = parseFloat(latlong[0]);
+                                        var longitude = parseFloat(latlong[1]);
+                                        mapContainer.flyTo([latitude, longitude], 20);
+                                    });
+                                }
+                                $('#datatableLaporanOnDisplay').DataTable({
+                                    responsive: true,
+
+                                    scrollX: true,
+
+                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                    buttons: ["excel", "csv", "pdf"],
+                                    processing: true,
+                                    oLanguage: {
+
+                                        sSearch: 'Search:'
+
+                                    },
+                                });
+                                mapContainer.addLayer(laporanClusterGroup);
+                            }
+
+                        }
+
+                        if (ressPanic && ressPanic.length > 0) {
+                            var filterLaporanPanic = ressPanic.filter(function(e) {
+                                return e.coordinate.latitude != "" && e.coordinate.longitude != "";
+                            });
+
+                            if (filterLaporanPanic.length > 0) {
+
+                                $('#openModalPanicDisplay').html(`
+                                    <table id="datatablePanicOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Kode</th> 
+                                                <th>Nama Petugas</th> 
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="isiModalPanicDisplay">
+                                        </tbody>
+                                    </table>                     
+                                `);
+                                var countPanicDisplay = 0;
+                                var listPanicDisplay = '';
+                                $('#totalPanicDisplay').html(filterLaporanPanic.length);
+
+                                for (let i = 0; i < filterLaporanPanic.length; i++) {
+
+                                    countPanicDisplay += 1;
+                                    listPanicDisplay += `
+                                        <tr>
+                                            <td>${countPanicDisplay}</td>
+                                            <td><a href="<?= base_url() ?>laporan/panic/Detail/${filterLaporanPanic[i].id}" target="_blank">${filterLaporanPanic[i].code}</a></td> 
+                                            <td>${filterLaporanPanic[i].officer.name_officer}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterPanic${countPanicDisplay}"
+                                                    data-cord="${filterLaporanPanic[i].coordinate.latitude},${filterLaporanPanic[i].coordinate.longitude}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalPanicDisplay').html(listPanicDisplay);
+
+                                    id = i;
+                                    var latitudeLapPnc = parseFloat(filterLaporanPanic[i].coordinate.latitude);
+                                    var longitudeLapPnc = parseFloat(filterLaporanPanic[i].coordinate.longitude);
+                                    var iconLapPanic;
+
+                                    if (filterLaporanPanic[i].categori == 1) {
+                                        kategoriLaporan = 'Tindakan Kriminal';
+                                        iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kriminal.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    } else if (filterLaporanPanic[i].categori == 2) {
+                                        kategoriLaporan = 'Kecelakaan Lalu Lintas';
+                                        iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    } else if (filterLaporanPanic[i].categori == 3) {
+                                        kategoriLaporan = 'Bencana Alam';
+                                        iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - bencana alam.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    } else if (filterLaporanPanic[i].categori == 4) {
+                                        kategoriLaporan = 'Kemacetan';
+                                        iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    } else if (filterLaporanPanic[i].categori == 99) {
+                                        kategoriLaporan = 'Lainnya';
+                                        iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    } else {
+                                        kategoriLaporan = 'Lainnya Other';
+                                        iconLapPanic = `<img src="<?php echo base_url(); ?>assets/icon/panic button - kecelakaan.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    }
+
+                                    if (filterLaporanPanic[i].status == 0 || filterLaporanPanic[i].status == null) {
+                                        $statusLapPnc = ` 
+                                            <span class="badge rounded-pill bg-danger">Tidak Selesai</span> 
+                                        `;
+
+                                    } else {
+                                        $statusLapPnc = ` 
+                                            <span class="badge rounded-pill bg-success">Selesai</span> 
+                                        `;
+                                    }
+
+                                    panicClusterGroup.addLayer(markerLaporanPanic[i] = L.marker([latitudeLapPnc, longitudeLapPnc], {
+                                        icon: L.divIcon({
+                                            // className: 'location-pin',
+                                            html: iconLapPanic,
+                                            iconSize: [5, 5],
+                                            iconAnchor: [5, 10]
+                                            // iconAnchor: [10, 33]
+                                        })
+                                    }).bindPopup(`
+                                        <div style="width: 300px;">
+                                            <div class="row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                <a href="javascript:void(0);"><img src="<?php echo url_api() ?>/laporan/${filterLaporanPanic[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
+                                                </div>
+
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    ${call_wa_dan_biasa(filterLaporanPanic[i].officer.phone_officer, filterLaporanPanic[i].officer.id, 'encrypt')}
+                                                </div>
+
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <h5>${filterLaporanPanic[i].code}</h5>
+                                                </div>
+                                            </div> 
+                                            <div class="row"> 
+                                                <div class="col-md-5">  
+                                                    <span style="font-size: 12px;font-weight: bold;"> Nama Petugas</span> 
+                                                </div>  
+                                                <div class="col-md-7">  
+                                                    <span style="font-size: 12px;"> : ${filterLaporanPanic[i].officer.name_officer} </span> 
+                                                </div>  
+                                            </div> 
+                                            <div class="row"> 
+                                                <div class="col-md-5">  
+                                                    <span style="font-size: 12px;font-weight: bold;"> Kategori Laporan</span> 
+                                                </div>  
+                                                <div class="col-md-7">  
+                                                    <span style="font-size: 12px;"> : ${kategoriLaporan} </span> 
+                                                </div>  
+                                            </div> 
+                                            <div class="row"> 
+                                                <div class="col-md-5">  
+                                                    <span style="font-size: 12px;font-weight: bold;"> Waktu Insiden</span> 
+                                                </div>  
+                                                <div class="col-md-7">  
+                                                    <span style="font-size: 12px;"> : ${filterLaporanPanic[i].created_at} </span> 
+                                                </div>  
+                                            </div> 
+                                            <div class="row"> 
+                                                <div class="col-md-5">  
+                                                    <span style="font-size: 12px;font-weight: bold;"> Status</span> 
+                                                </div>  
+                                                <div class="col-md-7">  
+                                                    <span style="font-size: 12px;"> : ${$statusLapPnc} </span> 
+                                                </div>  
+                                            </div>  
+                                            <div class="row"> 
+                                                <div class="col-md-5">  
+                                                    <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span> 
+                                                </div>  
+                                                <div class="col-md-7">  
+                                                    <span style="font-size: 12px;"> : ${filterLaporanPanic[i].description != null ? filterLaporanPanic[i].description.replace(/\n/g, "<br />") : '-'} </span> 
+                                                </div>  
+                                            </div> 
+                                        </div>
+                                            
+                                    `, {
+                                        minWidth: 100,
+                                        maxWidth: 560,
+                                        width: 400
+                                    }));
+                                }
+
+
+                                for (let i = 0; i < countPanicDisplay; i++) {
+                                    $(`#flyToMapFilterPanic${i+1}`).on("click", function(e) {
+                                        var latlong = $(this).data('cord').split(',');
+                                        var latitude = parseFloat(latlong[0]);
+                                        var longitude = parseFloat(latlong[1]);
+                                        mapContainer.flyTo([latitude, longitude], 20);
+                                    });
+                                }
+                                $('#datatablePanicOnDisplay').DataTable({
+                                    responsive: true,
+
+                                    scrollX: true,
+
+                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                    buttons: ["excel", "csv", "pdf"],
+                                    processing: true,
+                                    oLanguage: {
+
+                                        sSearch: 'Search:'
+
+                                    },
+                                });
+                                mapContainer.addLayer(panicClusterGroup);
+                            }
+
+
+                        }
+
+                        if (ressRadius && ressRadius.length > 0) {
+                            var logoMarker = '';
+                            var logoBody = '';
+                            $('#openModalRadiusDisplay').html(`
+                                <table id="datatableRadiusOnDisplay" class="table dt-responsive w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Radius</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalRadiusDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countRadiusDisplay = 0;
+                            var listRadiusDisplay = '';
+                            $('#totalRadiusDisplay').html(ressRadius.length);
+
+                            for (let i = 0; i < ressRadius.length; i++) {
+                                countRadiusDisplay += 1;
+                                listRadiusDisplay += `
+                                    <tr>
+                                        <td>${countRadiusDisplay}</td>
+                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum/radius" target="_blank">${ressRadius[i].fasum_name}</a></td> 
+                                        <td>${ressRadius[i].fasum_radius} Kilometer</td> 
+                                        <td>
+                                            <a class="btn" style="margin-top: -10px;"  
+                                                id="flyToMapFilterRadius${countRadiusDisplay}"
+                                                data-cord="${ressRadius[i].fasum_lat},${ressRadius[i].fasum_lng}" 
+                                                href="javascript:void(0)">
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $('#isiModalRadiusDisplay').html(listRadiusDisplay);
+
+                                var latitudeRadius = parseFloat(ressRadius[i].fasum_lat);
+                                var longitudeRadius = parseFloat(ressRadius[i].fasum_lng);
+                                var set = ressRadius[i].fasum_radius != null ? ressRadius[i].fasum_radius : 1;
+                                markerRadius[i] = L.circle([latitudeRadius, longitudeRadius], 1000 * set, {
+                                    color: 'yellow',
+                                    fillColor: '#f03',
+                                    weight: 2,
+                                    fillOpacity: 0.2
+                                }).bindPopup(`
+                                            <div class="text-center" style="width: 400px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                                <div class="row mt-3"> 
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <h5>${ressRadius[i].fasum_name}</h5> 
+                                                        <span>- ${ressRadius[i].category_fasum.name_category_fasum} : ${set} Kilometer-</span>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-12 col-12 mt-2">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-12 col-12 text-start">
+                                                                <p style="font-size: 12px;font-weight: bold;">Akomodasi</p>  
+                                                                <p style="font-size: 12px; margin-top: -13px;">${ressRadius[i].fasum_description.replace(/\n/g, "<br />")}</p>
+                                                            </div>  
+                                                            
+                                                        </div> 
+                                                    </div>   
                                                 </div>
                                             </div> 
                                     `, {
@@ -10500,158 +10045,18 @@
                                     maxWidth: 560,
                                     width: 400
                                 }).addTo(mapContainer);
-
-                            }
-                        }
-                    }
-
-                    if (ressSchedule && ressSchedule.length > 0) {
-                        var filterSchedule = ressSchedule.filter(function(e) {
-                            return e.coordinate_schedule != null;
-                        });
-                        // console.log(filterSchedule); 
-                        if (filterSchedule.length > 0) {
-                            $('#openModalJadwalDisplay').html(`
-                            <table id="datatableJadwalOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th> 
-                                        <th>Tanggal</th> 
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="isiModalJadwalDisplay">
-                                </tbody>
-                            </table>                     
-                        `);
-                            var countJadwalDisplay = 0;
-                            var listJadwalDisplay = '';
-                            $('#totalJadwalDisplay').html(ressSchedule.length);
-
-                            for (var i = 0; i < filterSchedule.length; i++) {
-                                countJadwalDisplay += 1;
-                                listJadwalDisplay += `
-                                    <tr>
-                                        <td>${countJadwalDisplay}</td>
-                                        <td><a href="<?= base_url() ?>operasi/Kegiatan/Detail/${filterSchedule[i].id}" target="_blank">${filterSchedule[i].activity}</a></td> 
-                                        <td>${filterSchedule[i].date_schedule}</td> 
-                                        <td>
-                                            <a class="btn" style="margin-top: -10px;"  
-                                                id="flyToMapFilterJadwal${countJadwalDisplay}"
-                                                data-cord="${filterSchedule[i].coordinate_schedule}" 
-                                                href="javascript:void(0)">
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
-                                        </td>
-                                    </tr>
-                                `;
-                                $('#isiModalJadwalDisplay').html(listJadwalDisplay);
-
-                                var cordinateJadwal = filterSchedule[i].coordinate_schedule;
-                                var latlongJadwal = cordinateJadwal.split(',');
-                                var latitudeJadwal = parseFloat(latlongJadwal[0]);
-                                var longitudeJadwal = parseFloat(latlongJadwal[1]);
-                                var iconJadwal = '';
-
-                                if (filterSchedule[i].id_category_schedule == '4') {
-                                    iconJadwal = `<img src="<?php echo url_api(); ?>schedule/${filterSchedule[i].photo_schedule}" style="width: 30px;margin-top: -35px;margin-left: -13.5px;">`;
-                                } else {
-                                    iconJadwal = `<img src="<?php echo url_api(); ?>schedule/${filterSchedule[i].photo_schedule}" style="width: 22px;margin-top: -45px;margin-left: -9.5px;">`;
-                                }
-
-                                jadwalClusterGroup.addLayer(markerJadwal[i] = L.marker([latitudeJadwal, longitudeJadwal], {
-                                    icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: iconJadwal,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                    })
-                                }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;"> 
-                                                <div class="row mt-3"> 
-                                                    <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                                        <div class="avatar-xl me-3">
-                                                            <a href="javascript:void(0);">
-                                                            <img src="<?php echo url_api(); ?>schedule/${filterSchedule[i].photo_schedule}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 col-12 mt-3">
-                                                        <h5>Jadwal Kegiatan</h5> 
-                                                    </div>
-                                                    <div class="col-md-12 col-12 mt-1">
-                                                        <div class="row text-start">
-                                                            <div class="col-md-5">
-                                                                <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
-                                                            </div>
-                                                            <div class="col-md-1">
-                                                                <p style="font-size: 12px;"> : </p>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <p style="font-size: 12px;">${filterSchedule[i].activity}</p>
-                                                            </div>
-                                                        </div> 
-                                                    </div> 
-                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                        <div class="row text-start">
-                                                            <div class="col-md-5">
-                                                                <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
-                                                            </div>
-                                                            <div class="col-md-1">
-                                                                <p style="font-size: 12px;"> : </p>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <p style="font-size: 12px;">${filterSchedule[i].date_schedule.substr(0, 10)}</p>
-                                                            </div>
-                                                        </div> 
-                                                    </div>  
-                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                        <div class="row text-start">
-                                                            <div class="col-md-5">
-                                                                <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-                                                            </div>
-                                                            <div class="col-md-1">
-                                                                <p style="font-size: 12px;"> : </p>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <p style="font-size: 12px;">${filterSchedule[i].start_time.substr(0, 5)} - ${filterSchedule[i].end_time.substr(0, 5)} WITA</p>
-                                                            </div>
-                                                        </div> 
-                                                    </div>  
-                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                        <div class="row text-start">
-                                                            <div class="col-md-5">
-                                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                            </div>
-                                                            <div class="col-md-1">
-                                                                <p style="font-size: 12px;"> : </p>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <p style="font-size: 12px;">${filterSchedule[i].address_schedule}</p>
-                                                            </div>
-                                                        </div> 
-                                                    </div>   
-                                                </div>
-                                            </div>
-                                    `, {
-                                    minWidth: 100,
-                                    maxWidth: 560,
-                                    width: 400
-                                }));
                             }
 
 
-                            for (let i = 0; i < countJadwalDisplay; i++) {
-                                $(`#flyToMapFilterJadwal${i+1}`).on("click", function(e) {
+                            for (let i = 0; i < countRadiusDisplay; i++) {
+                                $(`#flyToMapFilterRadius${i+1}`).on("click", function(e) {
                                     var latlong = $(this).data('cord').split(',');
                                     var latitude = parseFloat(latlong[0]);
                                     var longitude = parseFloat(latlong[1]);
-                                    mapContainer.flyTo([latitude, longitude], 20);
+                                    mapContainer.flyTo([latitude, longitude], 14);
                                 });
                             }
-                            $('#datatableJadwalOnDisplay').DataTable({
+                            $('#datatableRadiusOnDisplay').DataTable({
                                 responsive: true,
 
                                 scrollX: true,
@@ -10666,16 +10071,613 @@
 
                                 },
                             });
-                            mapContainer.addLayer(jadwalClusterGroup);
                         }
-                    }
 
-                    if (ressOperasi && ressOperasi.length > 0) {
-                        var filterOperasi = ressOperasi.filter(function(e) {
-                            return e.lat_cctv != null && e.lng_cctv != null;
-                        });
-                    }
+                        if (ressCluster && ressCluster.length > 0) {
+                            var logoMarker = '';
+                            var logoBody = '';
+                            $('#openModalClusterDisplay').html(`
+                                <table id="datatableClusterOnDisplay" class="table dt-responsive w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Radius</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalClusterDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countClusterDisplay = 0;
+                            var listClusterDisplay = '';
+                            $('#totalClusterDisplay').html(ressCluster.length);
 
+                            for (let i = 0; i < ressCluster.length; i++) {
+                                countClusterDisplay += 1;
+                                listClusterDisplay += `
+                                    <tr>
+                                        <td>${countClusterDisplay}</td>
+                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum/radius" target="_blank">${ressCluster[i].fasum_name}</a></td> 
+                                        <td>${ressCluster[i].fasum_radius} Kilometer</td> 
+                                        <td>
+                                            <a class="btn" style="margin-top: -10px;"  
+                                                id="flyToMapFilterCluster${countClusterDisplay}"
+                                                data-cord="${ressCluster[i].fasum_lat},${ressCluster[i].fasum_lng}" 
+                                                href="javascript:void(0)">
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $('#isiModalClusterDisplay').html(listClusterDisplay);
+
+                                var latitudeCluster = parseFloat(ressCluster[i].fasum_lat);
+                                var longitudeCluster = parseFloat(ressCluster[i].fasum_lng);
+                                var set = ressCluster[i].fasum_radius != null ? ressCluster[i].fasum_radius : 1;
+
+                                markerCluster[i] = L.geoJSON(ressCluster[i].fasum_geoJson).addTo(mapContainer);
+                            }
+
+
+                            for (let i = 0; i < countClusterDisplay; i++) {
+                                $(`#flyToMapFilterCluster${i+1}`).on("click", function(e) {
+                                    var latlong = $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);
+                                    mapContainer.flyTo([latitude, longitude], 9);
+                                });
+                            }
+                            $('#datatableClusterOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            });
+                        }
+
+                        if (ressFasumKhusus && ressFasumKhusus.length > 0) {
+                            var countIsiLegen = 0;
+                            var listIsiLegen = '';
+                            var arrayGroupBy = new Array();
+
+                            const groupByCategory = ressFasumKhusus.reduce((group, product) => {
+                                const {
+                                    fasum_type,
+                                    fasum_logo
+                                } = product;
+
+                                group[fasum_logo] = group[fasum_logo] ?? [];
+                                group[fasum_logo].push(product);
+
+                                return group;
+                            }, {});
+                            var dataArrayGroup = Object.keys(groupByCategory)
+                            // console.log(dataArrayGroup);
+
+
+                            listIsiLegen += `
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/troublespot.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">trouble spot</b>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/blackspot.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">black spot</b>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/POSPAM.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">POSPAM</b>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">POSYAN</b>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/gerbang tol.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">Gerbang Tol</b>
+                                    </div> 
+                                </div>  
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/rest_area.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">Rest Area</b>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/cctv.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">CCTV</b>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/hotel.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">Hotel</b>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/gereja.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">Gereja</b>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/masjid.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">Masjid</b>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/stasiun.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">Stasiun</b>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/pelabuhan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">Pelabuhan</b>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/pasar.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">Pasar</b>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-4">
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="<?php echo base_url(); ?>assets/icon/marker_PJR.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                        <b style="font-size: 14px; text-transform: capitalize;">SAT PJR</b>
+                                    </div> 
+                                </div> 
+                            `;
+                            for (let i = 0; i < dataArrayGroup.length; i++) {
+                                if (dataArrayGroup[i] != "null") {
+                                    countIsiLegen += 1;
+
+                                    // listIsiLegen += `
+                                    //     <div class="col-md-4">
+                                    //         <div style="display: flex;align-items: center;">
+                                    //             <img src="<?php echo url_api(); ?>fasum_khusus/${dataArrayGroup[i]}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
+                                    //             <b style="font-size: 14px; text-transform: capitalize;">${dataArrayGroup[i].replace('.png', "")}</b>
+                                    //         </div> 
+                                    //     </div> 
+                                    // `;
+                                }
+                            }
+                            $('#isiLegendFasum').html(listIsiLegen);
+
+
+                            $('#openModalFasumKhususDisplay').html(`
+                                <table id="datatableFasumKhususOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Alamat</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalFasumKhususDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countFasumKhususDisplay = 0;
+                            var listFasumKhususDisplay = '';
+                            $('#totalFasumKhususDisplay').html(ressFasumKhusus.length);
+
+                            var logoMarker = '';
+                            var logoBody = '';
+                            for (let i = 0; i < ressFasumKhusus.length; i++) {
+
+                                if (ressFasumKhusus[i].fasum_lat != null && ressFasumKhusus[i].fasum_lng != null) {
+                                    countFasumKhususDisplay += 1;
+                                    listFasumKhususDisplay += `
+                                        <tr>
+                                            <td>${countFasumKhususDisplay}</td>
+                                            <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressFasumKhusus[i].fasum_name}</a></td> 
+                                            <td>${ressFasumKhusus[i].fasum_address}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterFasumKhusus${countFasumKhususDisplay}"
+                                                    data-cord="${ressFasumKhusus[i].fasum_lat},${ressFasumKhusus[i].fasum_lng}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalFasumKhususDisplay').html(listFasumKhususDisplay);
+
+                                    if (ressFasumKhusus[i].fasum_type == 22) {
+                                        logoMarker = `<?php echo base_url(); ?>assets/icon/gereja.png`;
+                                        logoBody = `<img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_image}" class="img-thumbnail" alt="200x200" width="500" data-holder-rendered="true">`;
+                                    } else {
+                                        logoMarker = `<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}`;
+                                        logoBody = `<img src="<?php echo url_api(); ?>fasum_khusus/${ressFasumKhusus[i].fasum_image}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">`;
+                                    }
+
+                                    var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
+                                    var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng);
+                                    fasumKhususClusterGroup.addLayer(markerFasumKhusus[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                        icon: L.divIcon({
+                                            // className: 'location-pin',
+                                            html: `
+                                        <div>
+                                            <div style="position: relative;">
+                                                <img src="${logoMarker}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
+                                            </div> 
+                                            <div style="position: absolute;margin-top: -29px;">
+                                                <span class="badge rounded-pill bg-primary" >${ressFasumKhusus[i].fasum_name}</span>
+                                            </div>
+                                        </div>
+                                        `,
+                                            iconSize: [5, 5],
+                                            iconAnchor: [5, 10]
+                                            // iconAnchor: [10, 33]
+                                        })
+                                    }).bindPopup(`
+                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                                <div class="row mt-3">
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                                        <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
+                                                    </div>
+                                                    <div class="col-md-12 col-12 mt-3" style="margin-left: 210px;margin-bottom: 10px;">
+                                                        <div class="avatar-xl me-3">
+                                                            <a href="javascript:void(0);">
+                                                                ${logoBody}
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    
+        
+                                                    <div class="col-md-12 col-12 mt-2">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-12 col-12">
+                                                                <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                                                <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
+                                                            </div> 
+                                                        </div> 
+                                                    </div>  
+                                                    <div class="col-md-12 col-12 mt-2">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-12 col-12">
+                                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                                <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_address}</p>
+                                                            </div> 
+                                                        </div> 
+                                                    </div>  
+                                                    <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-12 col-12">
+                                                                <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                                <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_phone}</p>
+                                                            </div> 
+                                                        </div> 
+                                                    </div>  
+                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-12 col-12">
+                                                                <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                                <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
+                                                            </div> 
+                                                        </div> 
+                                                    </div>   
+                                                </div>
+                                            </div> 
+                                    `, {
+                                        minWidth: 100,
+                                        maxWidth: 900,
+                                        width: 300
+                                    }));
+                                }
+                            }
+
+
+                            for (let i = 0; i < countFasumKhususDisplay; i++) {
+                                $(`#flyToMapFilterFasumKhusus${i+1}`).on("click", function(e) {
+                                    var latlong = $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);
+                                    mapContainer.flyTo([latitude, longitude], 17);
+                                });
+                            }
+                            $('#datatableFasumKhususOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            });
+                            mapContainer.addLayer(fasumKhususClusterGroup);
+                        }
+
+                        if (ressFasum && ressFasum.length > 0) {
+                            var filterFasum = ressFasum.filter(function(e) {
+                                return e.geometry.location.lat != null && e.geometry.location.lng != null;
+                            });
+
+                            if (filterFasum.length > 0) {
+                                var logoMarker = '';
+                                var logoBody = '';
+                                for (let i = 0; i < filterFasum.length; i++) {
+                                    // if(filterFasum[i].fasum_type == 1){
+                                    //     logoMarker = `hotel.png`;
+                                    //     logoBody = `hotel.png`;
+                                    // }else if(filterFasum[i].fasum_type == 2){
+                                    //     logoMarker = `rumah ibadah.png`;
+                                    //     logoBody = `rumah ibadah.png`;
+                                    // }else if(filterFasum[i].fasum_type == 3){
+                                    //     logoMarker = `pom bensin.png`;
+                                    //     logoBody = `pom bensin.png`;
+                                    // }else if(filterFasum[i].fasum_type == 4){
+                                    //     logoMarker = `rest_area.png`;
+                                    //     logoBody = `rest_area.png`;
+                                    // }else if(filterFasum[i].fasum_type == 5){
+                                    //     logoMarker = `rumah makan.png`;
+                                    //     logoBody = `rumah makan.png`;
+                                    // }else if(filterFasum[i].fasum_type == 6){
+                                    //     logoMarker = `wisata.png`;
+                                    //     logoBody = `wisata.png`;
+                                    // }else if(filterFasum[i].fasum_type == 7){
+                                    //     logoMarker = `damkar.png`;
+                                    //     logoBody = `damkar.png`;
+                                    // }else if(filterFasum[i].fasum_type == 8){
+                                    //     logoMarker = `rumah sakit umum.png`;
+                                    //     logoBody = `rumah sakit umum.png`;
+                                    // }
+
+                                    var latitudeFasum = parseFloat(filterFasum[i].geometry.location.lat);
+                                    var longitudeFasum = parseFloat(filterFasum[i].geometry.location.lng);
+                                    markerFasum[i] = L.marker([latitudeFasum, longitudeFasum], {
+                                        icon: L.divIcon({
+                                            className: 'location-pin',
+                                            html: `<img style="background-color:${filterFasum[i].icon_background_color};" src="${filterFasum[i].icon}"><div class="pin" style="background-color:${filterFasum[i].icon_background_color}"></div>`,
+                                            iconSize: [5, 5],
+                                            //iconAnchor: [18, 30]
+                                            iconAnchor: [5, 10]
+
+                                        })
+                                    }).bindPopup(`
+                                                <div class="text-center" style="width: 300px;"> 
+                                                    <div class="row mt-3">
+                                                        <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                            <div class="avatar-xl me-3">
+                                                                <img src="${filterFasum[i].icon}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 col-12 mt-3">
+                                                            <h5>Fasilitas Umum</h5>
+                                                            <span style="font-size: 14px;">- ${filterFasum[i].name} -</span>
+                                                        </div>
+                                                        <div class="col-md-12 col-12 mt-3">
+                                                            <div class="row text-start">
+                                                                <div class="col-md-5 col-6">
+                                                                    <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    <p style="font-size: 12px;"> : </p>
+                                                                </div>
+                                                                <div class="col-md-6 col-6">
+                                                                    <p style="font-size: 12px;">${filterFasum[i].name}</p>
+                                                                </div>
+                                                            </div> 
+                                                        </div>     
+                                                    </div>
+                                                </div> 
+                                        `, {
+                                        minWidth: 100,
+                                        maxWidth: 560,
+                                        width: 400
+                                    }).addTo(mapContainer);
+
+                                }
+                            }
+                        }
+
+                        if (ressSchedule && ressSchedule.length > 0) {
+                            var filterSchedule = ressSchedule.filter(function(e) {
+                                return e.coordinate_schedule != null;
+                            });
+                            // console.log(filterSchedule); 
+                            if (filterSchedule.length > 0) {
+                                $('#openModalJadwalDisplay').html(`
+                                <table id="datatableJadwalOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Tanggal</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalJadwalDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+                                var countJadwalDisplay = 0;
+                                var listJadwalDisplay = '';
+                                $('#totalJadwalDisplay').html(ressSchedule.length);
+
+                                for (var i = 0; i < filterSchedule.length; i++) {
+                                    countJadwalDisplay += 1;
+                                    listJadwalDisplay += `
+                                        <tr>
+                                            <td>${countJadwalDisplay}</td>
+                                            <td><a href="<?= base_url() ?>operasi/Kegiatan/Detail/${filterSchedule[i].id}" target="_blank">${filterSchedule[i].activity}</a></td> 
+                                            <td>${filterSchedule[i].date_schedule}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterJadwal${countJadwalDisplay}"
+                                                    data-cord="${filterSchedule[i].coordinate_schedule}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalJadwalDisplay').html(listJadwalDisplay);
+
+                                    var cordinateJadwal = filterSchedule[i].coordinate_schedule;
+                                    var latlongJadwal = cordinateJadwal.split(',');
+                                    var latitudeJadwal = parseFloat(latlongJadwal[0]);
+                                    var longitudeJadwal = parseFloat(latlongJadwal[1]);
+                                    var iconJadwal = '';
+
+                                    if (filterSchedule[i].id_category_schedule == '4') {
+                                        iconJadwal = `<img src="<?php echo url_api(); ?>schedule/${filterSchedule[i].photo_schedule}" style="width: 30px;margin-top: -35px;margin-left: -13.5px;">`;
+                                    } else {
+                                        iconJadwal = `<img src="<?php echo url_api(); ?>schedule/${filterSchedule[i].photo_schedule}" style="width: 22px;margin-top: -45px;margin-left: -9.5px;">`;
+                                    }
+
+                                    jadwalClusterGroup.addLayer(markerJadwal[i] = L.marker([latitudeJadwal, longitudeJadwal], {
+                                        icon: L.divIcon({
+                                            // className: 'location-pin',
+                                            html: iconJadwal,
+                                            iconSize: [5, 5],
+                                            iconAnchor: [5, 10]
+                                            // iconAnchor: [10, 33]
+                                        })
+                                    }).bindPopup(`
+                                                <div class="text-center" style="width: 300px;"> 
+                                                    <div class="row mt-3"> 
+                                                        <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                            <div class="avatar-xl me-3">
+                                                                <a href="javascript:void(0);">
+                                                                <img src="<?php echo url_api(); ?>schedule/${filterSchedule[i].photo_schedule}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 col-12 mt-3">
+                                                            <h5>Jadwal Kegiatan</h5> 
+                                                        </div>
+                                                        <div class="col-md-12 col-12 mt-1">
+                                                            <div class="row text-start">
+                                                                <div class="col-md-5">
+                                                                    <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    <p style="font-size: 12px;"> : </p>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p style="font-size: 12px;">${filterSchedule[i].activity}</p>
+                                                                </div>
+                                                            </div> 
+                                                        </div> 
+                                                        <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                            <div class="row text-start">
+                                                                <div class="col-md-5">
+                                                                    <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    <p style="font-size: 12px;"> : </p>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p style="font-size: 12px;">${filterSchedule[i].date_schedule.substr(0, 10)}</p>
+                                                                </div>
+                                                            </div> 
+                                                        </div>  
+                                                        <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                            <div class="row text-start">
+                                                                <div class="col-md-5">
+                                                                    <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    <p style="font-size: 12px;"> : </p>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p style="font-size: 12px;">${filterSchedule[i].start_time.substr(0, 5)} - ${filterSchedule[i].end_time.substr(0, 5)} WITA</p>
+                                                                </div>
+                                                            </div> 
+                                                        </div>  
+                                                        <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                            <div class="row text-start">
+                                                                <div class="col-md-5">
+                                                                    <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    <p style="font-size: 12px;"> : </p>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p style="font-size: 12px;">${filterSchedule[i].address_schedule}</p>
+                                                                </div>
+                                                            </div> 
+                                                        </div>   
+                                                    </div>
+                                                </div>
+                                        `, {
+                                        minWidth: 100,
+                                        maxWidth: 560,
+                                        width: 400
+                                    }));
+                                }
+
+
+                                for (let i = 0; i < countJadwalDisplay; i++) {
+                                    $(`#flyToMapFilterJadwal${i+1}`).on("click", function(e) {
+                                        var latlong = $(this).data('cord').split(',');
+                                        var latitude = parseFloat(latlong[0]);
+                                        var longitude = parseFloat(latlong[1]);
+                                        mapContainer.flyTo([latitude, longitude], 20);
+                                    });
+                                }
+                                $('#datatableJadwalOnDisplay').DataTable({
+                                    responsive: true,
+
+                                    scrollX: true,
+
+                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                    buttons: ["excel", "csv", "pdf"],
+                                    processing: true,
+                                    oLanguage: {
+
+                                        sSearch: 'Search:'
+
+                                    },
+                                });
+                                mapContainer.addLayer(jadwalClusterGroup);
+                            }
+                        }
+
+                        if (ressOperasi && ressOperasi.length > 0) {
+                            var filterOperasi = ressOperasi.filter(function(e) {
+                                return e.lat_cctv != null && e.lng_cctv != null;
+                            });
+                        }
+
+                    }
+                    
 
 
 
@@ -11570,6 +11572,8 @@
                                                 });
                                                 for (let i = 0; i < sortUrutanRenpam.length; i++) {
                                                     // console.log({a: sortUrutanRenpam[i]['name_renpam'],b:sortUrutanRenpam[i]['order_renpam']});
+
+                                                    
                                                     countlistRenpam += 1;
 
                                                     checkedRenpam1.push({
@@ -11595,16 +11599,18 @@
                                                     dummyNameRenpam.push(sortUrutanRenpam[i]['name_renpam']);
                                                     nameRenpam[countlist] = dummyNameRenpam;
 
-                                                    dummyTitik.push(sortUrutanRenpam[i]['coordinate_guarding']);
-
+                                                    
                                                     dummy.push(sortUrutanRenpam[i]['route']);
                                                     dummy1.push(sortUrutanRenpam[i]['route_alternatif_1']);
                                                     dummy2.push(sortUrutanRenpam[i]['route_alternatif_2']);
                                                     dummy3.push(sortUrutanRenpam[i]['route_masyarakat']);
                                                     dummy4.push(sortUrutanRenpam[i]['route_umum']);
-
-
-                                                    dummyJadwalRenpamTitik[countlist] = dummyTitik;
+                                                    
+                                                    
+                                                    if(sortUrutanRenpam[i]['coordinate_guarding'] != null){
+                                                        dummyTitik.push(sortUrutanRenpam[i]['coordinate_guarding']);
+                                                        dummyJadwalRenpamTitik[countlist] = dummyTitik;
+                                                    }
 
                                                     dummyJadwalRenpam[countlist] = dummy;
                                                     dummyJadwalRenpamAlter[countlist] = dummy1;
@@ -11631,6 +11637,7 @@
                                                     }
 
                                                     if (sortUrutanRenpam[i]['type_renpam'] == '3') {
+                                                        if(sortUrutanRenpam[i]['coordinate_guarding'] != null){
                                                         ruteKondisi = `
                                                                 <td>
                                                                     <button class="btn" style="margin-left: -13px;margin-top: -13px;"
@@ -11641,6 +11648,10 @@
                                                                     </button>
                                                                 </td>
                                                             `;
+                                                        }else{
+                                                            ruteKondisi = `
+                                                                <td></td>`;
+                                                        }
                                                     } else {
                                                         ruteKondisi = `
                                                                 <td>
@@ -11698,6 +11709,7 @@
                                                             data-totaldata="${sortUrutanRenpam.length}"
                                                             >
                                                         `;
+
                                                 }
 
                                             } else {

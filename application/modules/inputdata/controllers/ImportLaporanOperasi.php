@@ -34,6 +34,8 @@ class ImportLaporanOperasi extends MY_Controller
                 'headers' => ['Authorization' => $this->session->userdata['token']]
             ]);
 
+
+
             $data['getPolda'] = isset($getPolda['data']['data'])?$getPolda['data']['data']:'';
             $data['getOperasi'] = isset($getOperasi['data']['data'])?$getOperasi['data']['data']:'';
             $page_content["page"] = "inputdata/Korlantas/ImportLaporanOperasiKhusus_Korlantas";
