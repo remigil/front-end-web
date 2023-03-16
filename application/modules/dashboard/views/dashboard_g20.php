@@ -544,7 +544,7 @@
         </div>
     </div>
 
-    <!-- <div class="col-md-12 mt-3"> 
+    <!-- <div class="col-md-12 mt-3">
         <div class="card">
             <div class="card-body">
                 <table id="datatable" class="table dt-responsive w-100">
@@ -552,14 +552,14 @@
                         <tr>
                             <th>No</th>
                             <th>Tanggal</th>
-                            <th>Waktu Mulai</th> 
+                            <th>Waktu Mulai</th>
                             <th>Unit Pengawalan</th>
                             <th>Penugasan</th>
                             <th>Delegasi</th>
-                            <th>Subjek</th> 
-                            <th>Jarak Tempuh</th> 
+                            <th>Subjek</th>
+                            <th>Jarak Tempuh</th>
                             <th>Waktu Tempuh</th>
-                            
+
                         </tr>
                     </thead>
                 </table>
@@ -586,7 +586,7 @@
                 <!-- <div id="overlayMenuFilter" style="height: 9.5%;top: 64px;">
                     <div class="loading" style="display: flex;">
                         <div class="spinner" ></div>
-                        <p style="color: white; font-size: 15px; margin-left: 3px;">Mohon Tunggu </br> Fitur Akan Aktif Segera</p> 
+                        <p style="color: white; font-size: 15px; margin-left: 3px;">Mohon Tunggu </br> Fitur Akan Aktif Segera</p>
                     </div>
                 </div> -->
                 <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -765,7 +765,7 @@
                         </div>
                         <!-- <div class="col-md-6">
                             <div class="material-textfield mb-3">
-                                <input required type="text" name="endTime" class="form-control" id="endTime" value="<?php echo date('H:i') ?>" data-default="<?php echo date('H:i') ?>"> 
+                                <input required type="text" name="endTime" class="form-control" id="endTime" value="<?php echo date('H:i') ?>" data-default="<?php echo date('H:i') ?>">
                                 <label class="labelmui">Waktu Selesai</label>
                             </div>
                         </div> -->
@@ -1052,7 +1052,7 @@
 
             </div>
             <div class="modal-body" id="openModalPetugasDisplay" style="width: 550px;">
-                 
+
             </div>
         </div>
     </div>
@@ -1179,7 +1179,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 <div class="modal right fade" id="myModalBlackSpotDisplayPolda" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelBlackSpotDisplayPolda" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -1378,7 +1378,7 @@
 
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">              
+    <div class="modal-content">
       <div class="modal-body">
       <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
       	<!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
@@ -1393,15 +1393,15 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script> -->
 
 <!-- <script>
-      
+
         var socket = io('<?= ENV_SOCKET_IO_HTTP ?>', {
         // transports: ["websocket",],
         // path:'/socket.io/',
         query: {
-        
+
             username: "Kakor",
             password: "a",
-            
+
             type: "Admin"
         }
     });
@@ -1437,8 +1437,8 @@
             // console.log(socket.id);
             console.log(resSocket);
             console.log('from server');
-        }); 
-        }) 
+        });
+        })
       </script> -->
 
 
@@ -1447,8 +1447,8 @@
                         $('.pop').on('click', function() {
                                     console.log("oke")
 			$('.imagepreview').attr('src', $(this).find('img').attr('src'));
-			$('#imagemodal').modal('show');   
-		});		
+			$('#imagemodal').modal('show');
+		});
 
 
     let app_url = '<%-app_url%>'
@@ -1538,7 +1538,7 @@
     var routingRenpam3 = new Array();
     var routingRenpam4 = new Array();
 
-    var arrayFilterPetugas = []; 
+    var arrayFilterPetugas = [];
 
     var arrayFilter = [];
     var arrayFilterFasumKategori = [];
@@ -1922,7 +1922,7 @@
         // socket.emit("trackingUser", {
         //     lat: 1234,
         //     lon: 1234234
-        // }) 
+        // })
 
         function client() {
             $(".goPetugas").on("click", function(event) {
@@ -1945,7 +1945,7 @@
                 ress.forEach(el => {
                     countlist += 1;
                     list += `<a class="list-group-item" style="width: 300px;"
-                    id="list${countlist}"   
+                    id="list${countlist}"
                     data-alamat="${el.display_name}"
                     data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
                     $('#listAddress').html(list);
@@ -2038,75 +2038,75 @@
                                     // iconAnchor: [10, 33]
                                 })
                             }).bindPopup(`
-                                <div class="text-center" style="width: 300px;">  
-                                    <div class="row mt-3"> 
+                                <div class="text-center" style="width: 300px;">
+                                    <div class="row mt-3">
                                         <div class="col-md-12" id="benderaForGpsId${el.VehicleId}">
-                                        
-                                        </div> 
+
+                                        </div>
                                     </div>
                                     <div class="row text-start mt-3">
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Nomor Polisi</span>  
+                                            <span style="font-size: 12px;font-weight: bold;">Nomor Polisi</span>
                                         </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.VehicleNumber}</span>
-                                        </div>  
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>
+                                        </div>
                                         <div class="col-md-8">
-                                            : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${el.Car_Status}</span> 
-                                        </div>  
+                                            : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${el.Car_Status}</span>
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Kecepatan</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Kecepatan</span>
+                                        </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Speed}</span>
-                                        </div>    
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Odometer</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Odometer</span>
+                                        </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Odometer}</span>
-                                        </div>   
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Status Engine</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Status Engine</span>
+                                        </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Engine}</span>
-                                        </div>  
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Petugas 1</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Petugas 1</span>
+                                        </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Petugas1}</span>
-                                        </div>  
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Petugas 2</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Petugas 2</span>
+                                        </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Petugas2}</span>
-                                        </div>  
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>
+                                        </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;" id="namaDelegasiGpsId${el.VehicleId}"></span>
-                                        </div>  
+                                        </div>
 
                                         <div class="col-md-12 text-center  mt-3">
-                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>  
+                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>
                                             <p style="font-size: 12px;">${el.GpsLocation}</p>
-                                        </div> 
-                                    </div> 
-                                        
+                                        </div>
+                                    </div>
+
                                 </div>
                             `).update().on('click', function(e) {
                                 // console.log('click marker');
@@ -2135,76 +2135,76 @@
                                     // iconAnchor: [10, 33]
                                 })
                             }).bindPopup(`
-                                <div class="text-center" style="width: 300px;">  
-                                    <div class="row mt-3"> 
+                                <div class="text-center" style="width: 300px;">
+                                    <div class="row mt-3">
                                         <div class="col-md-12"  id="benderaForGpsId${el.VehicleId}">
-                                    
-                                        </div> 
+
+                                        </div>
                                     </div>
-                                    
+
                                     <div class="row text-start mt-3">
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>
                                         </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.VehicleNumber}</span>
-                                        </div>   
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>
+                                        </div>
                                         <div class="col-md-8">
-                                            : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${el.Car_Status}</span> 
-                                        </div>  
+                                            : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${el.Car_Status}</span>
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Kecepatan</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Kecepatan</span>
+                                        </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Speed}</span>
-                                        </div>    
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Odometer</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Odometer</span>
+                                        </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Odometer}</span>
-                                        </div>   
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Status Engine</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Status Engine</span>
+                                        </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Engine}</span>
-                                        </div> 
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Petugas 1</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Petugas 1</span>
+                                        </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Petugas1}</span>
-                                        </div>  
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Petugas 2</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Petugas 2</span>
+                                        </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Petugas2}</span>
-                                        </div>  
+                                        </div>
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                        </div> 
+                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>
+                                        </div>
                                         <div class="col-md-8">
                                             <span style="font-size: 12px;" id="namaDelegasiGpsId${el.VehicleId}"></span>
-                                        </div>   
+                                        </div>
 
                                         <div class="col-md-12 text-center  mt-3">
-                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>  
+                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>
                                             <p style="font-size: 12px;">${el.GpsLocation}</p>
-                                        </div> 
-                                    </div> 
-                                        
+                                        </div>
+                                    </div>
+
                                 </div>
                             `).addTo(mapContainer).on('click', function(e) {
                                 // console.log('click marker');
@@ -2283,75 +2283,75 @@
                                 // iconAnchor: [10, 33]
                             })
                         }).bindPopup(`
-                        <div class="text-center" style="width: 300px;">  
-                            <div class="row mt-3"> 
+                        <div class="text-center" style="width: 300px;">
+                            <div class="row mt-3">
                                 <div class="col-md-12" id="benderaForGpsId${ress[0].VehicleId}">
-                                   
-                                </div> 
+
+                                </div>
                             </div>
                             <div class="row text-start mt-3">
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Nomor Polisi</span>  
+                                    <span style="font-size: 12px;font-weight: bold;">Nomor Polisi</span>
                                 </div>
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].VehicleNumber}</span>
-                                </div>  
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>
+                                </div>
                                 <div class="col-md-8">
-                                    : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${ress[0].Car_Status}</span> 
-                                </div>  
+                                    : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${ress[0].Car_Status}</span>
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Kecepatan</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Kecepatan</span>
+                                </div>
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Speed}</span>
-                                </div>    
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Odometer</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Odometer</span>
+                                </div>
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Odometer}</span>
-                                </div>   
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Status Engine</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Status Engine</span>
+                                </div>
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Engine}</span>
-                                </div>  
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Petugas 1</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Petugas 1</span>
+                                </div>
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Petugas1}</span>
-                                </div>  
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Petugas 2</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Petugas 2</span>
+                                </div>
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Petugas2}</span>
-                                </div>  
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>
+                                </div>
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;" id="namaDelegasiGpsId${ress[0].VehicleId}"></span>
-                                </div>  
+                                </div>
 
                                 <div class="col-md-12 text-center  mt-3">
-                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>  
+                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>
                                     <p style="font-size: 12px;">${ress[0].GpsLocation}</p>
-                                </div> 
-                            </div> 
-                                
+                                </div>
+                            </div>
+
                         </div>
                     `).update().on('click', function(e) {
                             $.ajax({
@@ -2379,76 +2379,76 @@
                                 // iconAnchor: [10, 33]
                             })
                         }).bindPopup(`
-                        <div class="text-center" style="width: 300px;">  
-                            <div class="row mt-3"> 
+                        <div class="text-center" style="width: 300px;">
+                            <div class="row mt-3">
                                 <div class="col-md-12"  id="benderaForGpsId${ress[0].VehicleId}">
-                             
-                                </div> 
+
+                                </div>
                             </div>
-                            
+
                             <div class="row text-start mt-3">
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>
                                 </div>
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].VehicleNumber}</span>
-                                </div>   
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>
+                                </div>
                                 <div class="col-md-8">
-                                    : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${ress[0].Car_Status}</span> 
-                                </div>  
+                                    : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${ress[0].Car_Status}</span>
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Kecepatan</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Kecepatan</span>
+                                </div>
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Speed}</span>
-                                </div>    
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Odometer</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Odometer</span>
+                                </div>
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Odometer}</span>
-                                </div>   
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Status Engine</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Status Engine</span>
+                                </div>
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Engine}</span>
-                                </div> 
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Petugas 1</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Petugas 1</span>
+                                </div>
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Petugas1}</span>
-                                </div>  
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Petugas 2</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Petugas 2</span>
+                                </div>
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Petugas2}</span>
-                                </div>  
+                                </div>
 
                                 <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                </div> 
+                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>
+                                </div>
                                 <div class="col-md-8">
                                 <span style="font-size: 12px;" id="namaDelegasiGpsId${ress[0].VehicleId}"></span>
-                                </div>   
+                                </div>
 
                                 <div class="col-md-12 text-center  mt-3">
-                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>  
+                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>
                                     <p style="font-size: 12px;">${ress[0].GpsLocation}</p>
-                                </div> 
-                            </div> 
-                                
+                                </div>
+                            </div>
+
                         </div>
                     `).addTo(mapContainer).on('click', function(e) {
                             $.ajax({
@@ -2542,8 +2542,8 @@
                     var listPosTerpaduPoldaDisplay = '';
                     var listPoskoPoldaDisplay = '';
                     var listSatPjrPoldaDisplay = '';
- 
-                    
+
+
                     for (let i = 0; i < ressData.length; i++) {
 
                         if (ressData[i].latitude && ressData[i].longitude) {
@@ -2582,13 +2582,13 @@
                                                     </div>
                                                     <div class="col-md-3">
                                                         <span class="fs-6">Total <b>Turjagwali</b></span>
-                                                    </div>    
+                                                    </div>
                                                     <div class="col-md-3">
                                                         <span class="fs-6">Total <b>Kendaraan Bermotor</b></span>
                                                     </div>
-                                                </div>    
+                                                </div>
                                             </div>
-                                            
+
                                             <div class="col-md-12 mt-3 text-center">
                                                 <div class="row">
                                                     <div class="col-md-3">
@@ -2599,15 +2599,15 @@
                                                     </div>
                                                     <div class="col-md-3">
                                                     <span class="fs-3"> <b>${ressData[i].turjagwali}</b></span>
-                                                    </div>    
+                                                    </div>
                                                     <div class="col-md-3">
                                                         <span class="fs-3"> <b>${ressData[i].sepeda_motor}</b></span>
                                                     </div>
-                                                </div>    
-                                            </div> 
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                            
+
                                     `, {
                                     minWidth: 100,
                                     maxWidth: 560,
@@ -2615,7 +2615,7 @@
                                 }).on("click", function(e) {
                                 // console.log(e.latlng.lat);
                                 mapContainer.flyTo([e.latlng.lat, e.latlng.lng], 8);
-                            }).addTo(mapContainer); 
+                            }).addTo(mapContainer);
 
                             listPoldaDisplay += `
                                 <tr>
@@ -2623,15 +2623,15 @@
                                     <td>${ressData[i].name_polda}</td>
                                     <td>
                                         <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                            id="flyToMapFilterPolda${countPoldaDisplay}"    
+                                            id="flyToMapFilterPolda${countPoldaDisplay}"
                                             data-cord=${latitude},${longitude}" >
                                             <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                        </button> 
+                                        </button>
                                     </td>
                                 </tr>
-                            `; 
+                            `;
 
-                            listTroubleSpotPoldaDisplay += ` 
+                            listTroubleSpotPoldaDisplay += `
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingTroubleSpot${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
                                         <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTroubleSpot${countPoldaDisplay}" aria-expanded="false" aria-controls="collapseTroubleSpot${countPoldaDisplay}">
@@ -2640,15 +2640,15 @@
                                     </h2>
                                     <div id="collapseTroubleSpot${countPoldaDisplay}" class="accordion-collapse multi-collapse collapse" aria-labelledby="headingTroubleSpot${countPoldaDisplay}" data-bs-parent="#openModalTroubleSpotDisplayPolda">
                                         <div class="accordion-body">
-                                            <div class="text-muted" id="isiPoldaTroubleSpot${ressData[i].id}"> 
-                                                
+                                            <div class="text-muted" id="isiPoldaTroubleSpot${ressData[i].id}">
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
 
-                            listBlackSpotPoldaDisplay += ` 
+                            listBlackSpotPoldaDisplay += `
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingBlackSpot${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
                                         <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBlackSpot${countPoldaDisplay}" aria-expanded="false" aria-controls="collapseBlackSpot${countPoldaDisplay}">
@@ -2657,15 +2657,15 @@
                                     </h2>
                                     <div id="collapseBlackSpot${countPoldaDisplay}" class="accordion-collapse multi-collapse collapse" aria-labelledby="headingBlackSpot${countPoldaDisplay}" data-bs-parent="#openModalBlackSpotDisplayPolda">
                                         <div class="accordion-body">
-                                            <div class="text-muted" id="isiPoldaBlackSpot${ressData[i].id}"> 
-                                                
+                                            <div class="text-muted" id="isiPoldaBlackSpot${ressData[i].id}">
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
 
-                            listSamsatPoldaDisplay += ` 
+                            listSamsatPoldaDisplay += `
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingSamsat${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
                                         <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSamsat${countPoldaDisplay}" aria-expanded="false" aria-controls="collapseSamsat${countPoldaDisplay}">
@@ -2674,15 +2674,15 @@
                                     </h2>
                                     <div id="collapseSamsat${countPoldaDisplay}" class="accordion-collapse multi-collapse collapse" aria-labelledby="headingSamsat${countPoldaDisplay}" data-bs-parent="#openModalSamsatDisplay">
                                         <div class="accordion-body">
-                                            <div class="text-muted" id="isiPoldaSamsat${ressData[i].id}"> 
-                                                
+                                            <div class="text-muted" id="isiPoldaSamsat${ressData[i].id}">
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
 
-                            listSatPasPoldaDisplay += ` 
+                            listSatPasPoldaDisplay += `
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingSatPas${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
                                         <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSatPas${countPoldaDisplay}" aria-expanded="false" aria-controls="collapseSatPas${countPoldaDisplay}">
@@ -2691,15 +2691,15 @@
                                     </h2>
                                     <div id="collapseSatPas${countPoldaDisplay}" class="accordion-collapse multi-collapse collapse" aria-labelledby="headingSatPas${countPoldaDisplay}" data-bs-parent="#openModalSatPasDisplay">
                                         <div class="accordion-body">
-                                            <div class="text-muted" id="isiPoldaSatPas${ressData[i].id}"> 
-                                                
+                                            <div class="text-muted" id="isiPoldaSatPas${ressData[i].id}">
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
 
-                            listLIPoldaDisplay += ` 
+                            listLIPoldaDisplay += `
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
                                         <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${countPoldaDisplay}" aria-expanded="false" aria-controls="collapse${countPoldaDisplay}">
@@ -2708,14 +2708,14 @@
                                     </h2>
                                     <div id="collapse${countPoldaDisplay}" class="accordion-collapse multi-collapse collapse" aria-labelledby="heading${countPoldaDisplay}" data-bs-parent="#openModalPosPamDisplay">
                                         <div class="accordion-body">
-                                            <div class="text-muted" id="isiPoldaPosPam${ressData[i].id}"> 
-                                                
+                                            <div class="text-muted" id="isiPoldaPosPam${ressData[i].id}">
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
-                            listPosYanPoldaDisplay += ` 
+                            listPosYanPoldaDisplay += `
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingPosYan${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
                                         <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePosYan${countPoldaDisplay}" aria-expanded="false" aria-controls="collapsePosYan${countPoldaDisplay}">
@@ -2724,14 +2724,14 @@
                                     </h2>
                                     <div id="collapsePosYan${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="headingPosYan${countPoldaDisplay}" data-bs-parent="#openModalPosYanDisplay">
                                         <div class="accordion-body">
-                                            <div class="text-muted" id="isiPoldaPosYan${ressData[i].id}"> 
-                                                
+                                            <div class="text-muted" id="isiPoldaPosYan${ressData[i].id}">
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
-                            listPosTerpaduPoldaDisplay += ` 
+                            listPosTerpaduPoldaDisplay += `
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingPosTerpadu${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
                                         <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePosTerpadu${countPoldaDisplay}" aria-expanded="false" aria-controls="collapsePosTerpadu${countPoldaDisplay}">
@@ -2740,14 +2740,14 @@
                                     </h2>
                                     <div id="collapsePosTerpadu${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="headingPosTerpadu${countPoldaDisplay}" data-bs-parent="#openModalPosTerpaduDisplay">
                                         <div class="accordion-body">
-                                            <div class="text-muted" id="isiPoldaPosTerpadu${ressData[i].id}"> 
-                                                
+                                            <div class="text-muted" id="isiPoldaPosTerpadu${ressData[i].id}">
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
-                            listPoskoPoldaDisplay += ` 
+                            listPoskoPoldaDisplay += `
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingPosko${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
                                         <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePosko${countPoldaDisplay}" aria-expanded="false" aria-controls="collapsePosko${countPoldaDisplay}">
@@ -2756,14 +2756,14 @@
                                     </h2>
                                     <div id="collapsePosko${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="headingPosko${countPoldaDisplay}" data-bs-parent="#openModalPoskoDisplay">
                                         <div class="accordion-body">
-                                            <div class="text-muted" id="isiPoldaPosko${ressData[i].id}"> 
-                                                
+                                            <div class="text-muted" id="isiPoldaPosko${ressData[i].id}">
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `;
-                            listSatPjrPoldaDisplay += ` 
+                            listSatPjrPoldaDisplay += `
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingSatPjr${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].id}">
                                         <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSatPjr${countPoldaDisplay}" aria-expanded="false" aria-controls="collapseSatPjr${countPoldaDisplay}">
@@ -2772,8 +2772,8 @@
                                     </h2>
                                     <div id="collapseSatPjr${countPoldaDisplay}" class="accordion-collapse collapse" aria-labelledby="headingSatPjr${countPoldaDisplay}" data-bs-parent="#openModalSatPjrDisplay">
                                         <div class="accordion-body">
-                                            <div class="text-muted" id="isiPoldaSatPjr${ressData[i].id}"> 
-                                                
+                                            <div class="text-muted" id="isiPoldaSatPjr${ressData[i].id}">
+
                                             </div>
                                         </div>
                                     </div>
@@ -2787,15 +2787,15 @@
                                         <div class="btn-group" style="width:100%;">
                                             <label>
                                                 <input type="checkbox" value="${ressData[i].polda_id}" name="poldaPetugas" id="listIsiPoldaPetugas${countPoldaDisplay}" data-nama="${ressData[i].name_polda}" data-poldaid="${ressData[i].polda_id}">
-                                                <span>${ressData[i].name_polda} &nbsp;&nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasPolda${ressData[i].polda_id}"></span></span> 
+                                                <span>${ressData[i].name_polda} &nbsp;&nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasPolda${ressData[i].polda_id}"></span></span>
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                             `;
                             $('#openModalPoldaPetugasDisplay').html(listPoldaPetugasDisplay);
-                            
-                            
+
+
                             $('#openModalTroubleSpotDisplayPolda').html(listTroubleSpotPoldaDisplay);
                             $('#openModalBlackSpotDisplayPolda').html(listBlackSpotPoldaDisplay);
 
@@ -2826,8 +2826,8 @@
                             if ($(this).is(':checked')) {
                                 serverSideGet();
                             } else {
-                                
-                            } 
+
+                            }
                         });
 
 
@@ -2886,7 +2886,7 @@
 
 
 
-        
+
         function serverSideGet() {
             $("#overlay").fadeIn(300);
 
@@ -2918,11 +2918,11 @@
 
 
             arrayFilterPetugas = [];
-            
+
             $("input:checkbox[name=poldaPetugas]:checked").each(function() {
                 arrayFilterPetugas.push($(this).val());
             });
-            
+
             $("#overlay").fadeOut(300);
             // console.log({a:arrayFilterPetugas ,b:arrayFilterPetugas.toString()});
 
@@ -2945,12 +2945,12 @@
                             if (markerArray[dummyGetTracking[i].id_officer] != null) {
                                 mapContainer.addLayer(markerArray[dummyGetTracking[i].id_officer]);
                             }
-                        }                    
+                        }
                     }
 
-                    
-                    
-                    // LOAD LOOPING PERPAGE GETTRACKING 
+
+
+                    // LOAD LOOPING PERPAGE GETTRACKING
                     for (let ix = 0; ix < totalPages+1; ix++) {
                         setTimeout(() => {
                             console.log({a:`looping detik ${ix * 100000}`, b:totalDocs});
@@ -2966,63 +2966,63 @@
                                 success: function(result) {
                                     // console.log({a:'data TRACKING' b:result});
                                     $("#overlay").fadeOut(300);
- 
+
                                     if(result['data']['docs'].length > 0){
-                                        result['data']['docs'].forEach(el => { 
+                                        result['data']['docs'].forEach(el => {
                                             dummyGetTracking.push(el);
-                                        }); 
-                                        
+                                        });
+
                                         jenis = '';
                                         bendera = '';
                                         $('#openModalPetugasDisplay').html(`
                                             <div id="overlayMenuDisplay">
                                                 <div class="loading">
                                                     <div class="spinner" style="margin-left: 55px;margin-bottom: 10px;"></div>
-                                                    <p style="color: white; font-size: 15px; margin-left: 3px; text-align: center;">Mohon Tunggu </br> Fitur Akan Aktif Segera </br></br> <button class="btn btn-success btn-rounded waves-effect" id="refreshPetugasFungsi">Selesai</button></p> 
+                                                    <p style="color: white; font-size: 15px; margin-left: 3px; text-align: center;">Mohon Tunggu </br> Fitur Akan Aktif Segera </br></br> <button class="btn btn-success btn-rounded waves-effect" id="refreshPetugasFungsi">Selesai</button></p>
                                                 </div>
                                             </div>
                                             <table id="datatablePetugasOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                                 <thead>
                                                     <tr>
                                                         <th>No</th>
-                                                        <th>Nama</th> 
-                                                        
+                                                        <th>Nama</th>
+
                                                         <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="isiModalPetugasDisplay">
                                                 </tbody>
-                                            </table>                     
+                                            </table>
                                         `);
                                         $('#totalPetugasDisplay').html(totalDocs);
                                         $("#overlayMenuDisplay").fadeIn(300);
                                         $('#refreshPetugasFungsi').hide();
-                    
-                    
+
+
                                         if (dummyGetTracking.length > 0) {
-                    
+
                                             var latBounds = [-300, -1];
                                             var lngBounds = [30, 200];
                                             for (let i = 0; i < dummyGetTracking.length; i++) {
                                                 setTimeout(() => {
-                    
-                    
+
+
                                                     var cordLat = parseFloat(dummyGetTracking[i].latitude);
                                                     var corLong = parseFloat(dummyGetTracking[i].longitude);
-                    
+
                                                     if (dummyGetTracking[i].bawa_penumpang == 1) {
                                                         // iconflagVip = `<img src="${dummyGetTracking[i].photo_country != '-' ? dummyGetTracking[i].photo_country : '<?php echo base_url(); ?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;">
                                                         //     <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
                                                         //         <span class="badge rounded-pill" style="background-color: black; color: white;">${dummyGetTracking[i].name_country}</span>
-                                                        //     </div>`;  
+                                                        //     </div>`;
                                                         iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
                                                     } else {
                                                         iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
                                                     }
-                    
+
                                                     jenis = '';
                                                     if (dummyGetTracking[i].type_vehicle == 'Sepeda Motor' && dummyGetTracking[i].fuel_vehicle == "Fosil") {
-                    
+
                                                         jenis = `
                                                             <div>
                                                                 <div style="position: relative;">
@@ -3048,14 +3048,14 @@
 
                                                         jenisNoPol = `
                                                             <div class="col-md-4">
-                                                                <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>  
+                                                                <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>
                                                             </div>
                                                             <div class="col-md-1">
                                                                 :
                                                             </div>
                                                             <div class="col-md-7">
                                                                 <span style="font-size: 12px;">${dummyGetTracking[i].no_vehicle} / ${dummyGetTracking[i].back_number_vehicle}</span>
-                                                            </div> 
+                                                            </div>
                                                         `;
                                                     } else if (dummyGetTracking[i].type_vehicle == 'Sepeda Motor' && dummyGetTracking[i].fuel_vehicle == "Listrik") {
                                                         jenis = `
@@ -3082,12 +3082,12 @@
                                                         </div>`;
                                                         jenisNoPol = ``;
                                                     } else {
-                    
+
                                                         jenis = `
                                                         <div>
                                                             <div style="position: relative;">
                                                                 <img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                                            </div> 
+                                                            </div>
                                                             <div style="position: absolute;margin-top: -29px;">
                                                                 <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${dummyGetTracking[i].name_officer}</span>
                                                             </div>
@@ -3095,32 +3095,32 @@
 
                                                         jenisNoPol = ``;
                                                     }
-                    
+
                                                     if (dummyGetTracking[i].photo_officer || dummyGetTracking[i].photo_officer != null) {
                                                         fotoPetugas = `<img src="<?php echo url_api(); ?>officer/${dummyGetTracking[i].photo_officer}" alt="" class="img-fluid rounded-circle d-block  float-center">`;
                                                     } else {
                                                         fotoPetugas = `<img src="<?php echo base_url(); ?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
                                                     }
-                    
+
                                                     if (dummyGetTracking[i].name_country || dummyGetTracking[i].name_country != '-' || dummyGetTracking[i].name_country != null) {
                                                         bendera = `${dummyGetTracking[i].name_country}`;
                                                     } else {
                                                         bendera = `-`;
                                                     }
-                    
+
                                                     if (dummyGetTracking[i].photo_country || dummyGetTracking[i].photo_country != '-' || dummyGetTracking[i].photo_country != null) {
                                                         fotoBendera = `<img src="${dummyGetTracking[i].photo_country}" alt="" style="width: 20%;margin-bottom: 10px;">`;
                                                     } else {
                                                         fotoBendera = ``;
                                                     }
-                    
-                    
+
+
                                                     // var Rlat = Math.random() * (latBounds[1] - latBounds[0] + 1) + latBounds[0];
                                                     // var Rlng = Math.random() * (lngBounds[1] - lngBounds[0] + 1) + lngBounds[0];
                                                     // if(dummyGetTracking[i].status_login == 1){
                                                     if (markerArray[dummyGetTracking[i].id_officer] != null) {
                                                         var fotoPetugas = "";
-                    
+
                                                         markerArray[dummyGetTracking[i].id_officer].remove();
                                                         markerArray[dummyGetTracking[i].id_officer] = L.marker([cordLat, corLong], {
                                                             renderer: myRenderer,
@@ -3132,63 +3132,63 @@
                                                                 // iconAnchor: [10, 33]
                                                             })
                                                         }).bindPopup(`
-                                                                <div class="text-center" style="width: 300px;"> 
-                                                                    <div class="row mt-3"> 
+                                                                <div class="text-center" style="width: 300px;">
+                                                                    <div class="row mt-3">
                                                                         <div class="col-md-12">
                                                                             ${fotoBendera}
                                                                         </div>
                                                                         ${call_wa_dan_biasa(dummyGetTracking[i].handphone, dummyGetTracking[i].id_officer, 'no-encrypt')}
                                                                     </div>
-                                        
-                                        
+
+
                                                                         <div class="row text-start mt-3">
                                                                             <div class="col-md-4">
-                                                                                <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                                                                <span style="font-size: 12px;font-weight: bold;">Nama</span>
                                                                             </div>
                                                                             <div class="col-md-1">
                                                                                 :
                                                                             </div>
                                                                             <div class="col-md-7">
                                                                                 <span style="font-size: 12px;">${dummyGetTracking[i].rank_officer} - ${dummyGetTracking[i].name_officer}</span>
-                                                                            </div> 
-                                    
+                                                                            </div>
+
                                                                             <div class="col-md-4">
-                                                                                <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                                                                <span style="font-size: 12px;font-weight: bold;">PAM</span>
                                                                             </div>
                                                                             <div class="col-md-1">
                                                                                 :
                                                                             </div>
                                                                             <div class="col-md-7">
                                                                                 <span style="font-size: 12px;">${dummyGetTracking[i].pam_officer != null ? dummyGetTracking[i].pam_officer : '-'}</span>
-                                                                            </div> 
+                                                                            </div>
                                                                             <div class="col-md-4">
-                                                                                <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                                                                <span style="font-size: 12px;font-weight: bold;">Delegasi</span>
                                                                             </div>
                                                                             <div class="col-md-1">
                                                                                 :
                                                                             </div>
                                                                             <div class="col-md-7">
                                                                                 <span style="font-size: 12px;">${bendera}</span>
-                                                                            </div> 
+                                                                            </div>
 
                                                                             ${jenisNoPol}
-                                    
+
                                                                             <div class="col-md-4">
-                                                                                <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                                                                <span style="font-size: 12px;font-weight: bold;">Status Login</span>
                                                                             </div>
                                                                             <div class="col-md-1">
                                                                                 :
                                                                             </div>
                                                                             <div class="col-md-7">
                                                                                 ${dummyGetTracking[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                                                            </div> 
-                                            
+                                                                            </div>
+
                                                                             <div class="col-md-12 text-center  mt-3">
-                                                                                <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                                                <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>
                                                                                 <p style="font-size: 12px;" id="lokasiMarker${dummyGetTracking[i].id_officer}"></p>
-                                                                            </div> 
-                                                                        </div>  
-                                                                    
+                                                                            </div>
+                                                                        </div>
+
                                                                 </div>
                                                             `).addTo(mapContainer).on('click', function(e) {
                                                             // console.log(e.latlng);
@@ -3217,63 +3217,63 @@
                                                                 // iconAnchor: [10, 33]
                                                             })
                                                         }).bindPopup(`
-                                                                <div class="text-center" style="width: 300px;"> 
-                                                                    <div class="row mt-3"> 
+                                                                <div class="text-center" style="width: 300px;">
+                                                                    <div class="row mt-3">
                                                                         <div class="col-md-12">
                                                                             ${fotoBendera}
                                                                         </div>
                                                                         ${call_wa_dan_biasa(dummyGetTracking[i].handphone, dummyGetTracking[i].id_officer, 'no-encrypt')}
                                                                     </div>
-                    
-                                                                    
+
+
                                                                     <div class="row text-start mt-3">
                                                                         <div class="col-md-4">
-                                                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>
                                                                         </div>
                                                                         <div class="col-md-1">
                                                                             :
                                                                         </div>
                                                                         <div class="col-md-7">
                                                                             <span style="font-size: 12px;">${dummyGetTracking[i].rank_officer} - ${dummyGetTracking[i].name_officer}</span>
-                                                                        </div>  
-                                                                    
+                                                                        </div>
+
                                                                         <div class="col-md-4">
-                                                                            <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                                                        </div> 
+                                                                            <span style="font-size: 12px;font-weight: bold;">PAM</span>
+                                                                        </div>
                                                                         <div class="col-md-1">
                                                                             :
                                                                         </div>
                                                                         <div class="col-md-7">
                                                                             <span style="font-size: 12px;">${dummyGetTracking[i].pam_officer != null ? dummyGetTracking[i].pam_officer : '-'}</span>
-                                                                        </div>  
+                                                                        </div>
                                                                         <div class="col-md-4">
-                                                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                                                        </div> 
+                                                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>
+                                                                        </div>
                                                                         <div class="col-md-1">
                                                                             :
                                                                         </div>
                                                                         <div class="col-md-7">
                                                                             <span style="font-size: 12px;">${bendera}</span>
-                                                                        </div> 
+                                                                        </div>
 
                                                                         ${jenisNoPol}
-                    
+
                                                                         <div class="col-md-4">
-                                                                            <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                                                            <span style="font-size: 12px;font-weight: bold;">Status Login</span>
                                                                         </div>
                                                                         <div class="col-md-1">
                                                                             :
                                                                         </div>
                                                                         <div class="col-md-7">
                                                                         ${dummyGetTracking[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                                                        </div> 
-                    
+                                                                        </div>
+
                                                                         <div class="col-md-12 text-center  mt-3">
-                                                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>
                                                                             <p style="font-size: 12px;" id="lokasiMarker${dummyGetTracking[i].id_officer}"></p>
-                                                                        </div> 
-                                                                    </div> 
-                                                                    
+                                                                        </div>
+                                                                    </div>
+
                                                                 </div>
                                                             `).addTo(mapContainer).on('click', function(e) {
                                                             // console.log(e.latlng);
@@ -3293,9 +3293,9 @@
                                                         });
                                                     }
                                                     // }
-                    
-                    
-                    
+
+
+
                                                     var iniNomor;
                                                     if (dummyGetTracking[i].handphone != null && dummyGetTracking[i].handphone != '0') {
                                                         let nomorDepan1 = dummyGetTracking[i].handphone.substring(0, 2);
@@ -3311,43 +3311,43 @@
                                                     } else {
                                                         iniNomor = 0;
                                                     }
-                    
+
                                                     countlistDisplay += 1;
-                                                    listDisplay += `  
+                                                    listDisplay += `
                                                         <tr>
                                                             <td> ${dummyGetTracking[i].status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistDisplay}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistDisplay}</span>`} </td>
                                                             <td><a href="<?php echo base_url() ?>operasi/Petugas" target="_blank">${dummyGetTracking[i].rank_officer ? dummyGetTracking[i].rank_officer : '' } - ${dummyGetTracking[i].name_officer}</a></td>
-                                                             
-                                                            <td> 
+
+                                                            <td>
                                                                 ${dummyGetTracking[i].status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
                                                                 <div style="display: flex;">
-                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${iniNomor}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${iniNomor}" target="_blank"><i class="fa fas fa-phone "></i></a>
                                                                     <a href="https://t.me/+${iniNomor}" target="_blank" style="margin-right: 10px;font-size: 17px;">
                                                                     <i class="fab fa-telegram"></i>
                                                                     </a>
-                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${dummyGetTracking[i].id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${dummyGetTracking[i].id_officer}')"><i class="fa  fas fa-video "></i></a>
                                                                     <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                                        id="listPetugasClickDisplay${countlistDisplay}"   
+                                                                        id="listPetugasClickDisplay${countlistDisplay}"
                                                                         data-id="${dummyGetTracking[i].id_officer}"
-                                                                        data-nama="${dummyGetTracking[i].name_team}"  
-                                                                        data-akun="${dummyGetTracking[i].name_account}" 
+                                                                        data-nama="${dummyGetTracking[i].name_team}"
+                                                                        data-akun="${dummyGetTracking[i].name_account}"
                                                                         data-nrp="${dummyGetTracking[i].nrp_user}"
                                                                         data-telp="${iniNomor}"
                                                                         data-cord="${dummyGetTracking[i].latitude},${dummyGetTracking[i].longitude}" >
                                                                         <i style="color: #495057;" class="fa fas fa-eye"></i>
                                                                     </button>
                                                                     <div class="switch" style="margin-left: -11px;">
-                                                                        <input class="flag" type="checkbox" id="flagDisplay${countlistDisplay}" 
-                                                                        data-id="${dummyGetTracking[i].id_officer}"  
-                                                                        data-nama="${dummyGetTracking[i].name_team}"  
-                                                                        data-akun="${dummyGetTracking[i].name_account}" 
+                                                                        <input class="flag" type="checkbox" id="flagDisplay${countlistDisplay}"
+                                                                        data-id="${dummyGetTracking[i].id_officer}"
+                                                                        data-nama="${dummyGetTracking[i].name_team}"
+                                                                        data-akun="${dummyGetTracking[i].name_account}"
                                                                         data-nrp="${dummyGetTracking[i].nrp_user}"
                                                                         data-telp="${iniNomor}"
                                                                         data-cord="${dummyGetTracking[i].latitude},${dummyGetTracking[i].longitude}"
-                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg">
                                                                         <label for="flagDisplay${countlistDisplay}"></label>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </td>
                                                         </tr>
                                                     `;
@@ -3357,8 +3357,8 @@
                                                     // $("#overlay").fadeIn(300);
                                                     $('#refreshPetugasFungsi').hide();
                                                 }, i * 500);
-                                            } 
-                                             
+                                            }
+
 
                                             setTimeout(() => {
                                                 $('#refreshPetugasFungsi').show();
@@ -3368,16 +3368,16 @@
                                                 // alert('ente kadang2');
                                                 var filterDataTidakAktif = dummyGetTracking.filter(function(val) {
                                                     return val.status_login == 0;
-                                                }); 
-                    
+                                                });
+
                                                 $('#totalPetugasAktif').html(dummyGetTracking.length - filterDataTidakAktif.length);
                                                 $('#totalPetugasTidakAktif').html(filterDataTidakAktif.length);
-                    
+
                                                 $('#totalPetugasAktifDisplay').html(dummyGetTracking.length - filterDataTidakAktif.length);
                                                 $('#totalPetugasTidakAktifDisplay').html(filterDataTidakAktif.length);
-                    
-                    
-                    
+
+
+
                                                 $("#gaturDisplay").prop('disabled', true);
                                                 $("#r2ListrikDisplay").prop('disabled', true);
                                                 $("#r4ListrikDisplay").prop('disabled', true);
@@ -3388,8 +3388,8 @@
                                                 $("#loadR4ListrikDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R4 Listrik`);
                                                 $("#loadR2FosilDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R2 Fosil`);
                                                 $("#loadR4FosilDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R4 Fosil`);
-                    
-                    
+
+
                                                 tablePutugasTrack = `
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="flush-headingPetugasGetTrackBikeListrik">
@@ -3402,23 +3402,23 @@
                                                         <div id="flush-collapsePetugasGetTrackBikeListrik" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackBikeListrik"
                                                             data-bs-parent="#accordionFlushExampleBikeListrik">
                                                             <div class="accordion-body text-muted">
-                    
+
                                                                 <table id="datatablePetugasGetTrackBikeListrik" class="table dt-responsive w-100">
                                                                     <thead>
                                                                         <tr>
                                                                             <th>No</th>
-                                                                            <th>Nama</th> 
-                                                                        
+                                                                            <th>Nama</th>
+
                                                                             <th></th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody id="listPetugasGetTrackBikeListrik">
                                                                     </tbody>
-                                                                </table> 
-                                                                
+                                                                </table>
+
                                                             </div>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="flush-headingPetugasGetTrackCarListrik">
                                                             <button id="openPetugasGetTrackCarListrik" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
@@ -3430,24 +3430,24 @@
                                                         <div id="flush-collapsePetugasGetTrackCarListrik" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackCarListrik"
                                                             data-bs-parent="#accordionFlushExampleCarListrik">
                                                             <div class="accordion-body text-muted">
-                    
+
                                                                 <table id="datatablePetugasGetTrackCarListrik" class="table dt-responsive w-100">
                                                                     <thead>
                                                                         <tr>
                                                                             <th>No</th>
-                                                                            <th>Nama</th> 
-                                                                        
+                                                                            <th>Nama</th>
+
                                                                             <th></th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody id="listPetugasGetTrackCarListrik">
                                                                     </tbody>
-                                                                </table> 
-                                                                
+                                                                </table>
+
                                                             </div>
                                                         </div>
-                                                    </div> 
-                    
+                                                    </div>
+
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="flush-headingPetugasGetTrackBikeFosil">
                                                             <button id="openPetugasGetTrackBikeFosil" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
@@ -3459,23 +3459,23 @@
                                                         <div id="flush-collapsePetugasGetTrackBikeFosil" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackBikeFosil"
                                                             data-bs-parent="#accordionFlushExampleBikeFosil">
                                                             <div class="accordion-body text-muted">
-                    
+
                                                                 <table id="datatablePetugasGetTrackBikeFosil" class="table dt-responsive w-100">
                                                                     <thead>
                                                                         <tr>
                                                                             <th>No</th>
-                                                                            <th>Nama</th> 
-                                                                        
+                                                                            <th>Nama</th>
+
                                                                             <th></th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody id="listPetugasGetTrackBikeFosil">
                                                                     </tbody>
-                                                                </table> 
-                                                                
+                                                                </table>
+
                                                             </div>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="flush-headingPetugasGetTrackCarFosil">
                                                             <button id="openPetugasGetTrackCarFosil" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
@@ -3487,25 +3487,25 @@
                                                         <div id="flush-collapsePetugasGetTrackCarFosil" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackCarFosil"
                                                             data-bs-parent="#accordionFlushExampleCarFosil">
                                                             <div class="accordion-body text-muted">
-                    
+
                                                                 <table id="datatablePetugasGetTrackCarFosil" class="table dt-responsive w-100">
                                                                     <thead>
                                                                         <tr>
                                                                             <th>No</th>
-                                                                            <th>Nama</th> 
-                                                                        
+                                                                            <th>Nama</th>
+
                                                                             <th></th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody id="listPetugasGetTrackCarFosil">
                                                                     </tbody>
-                                                                </table> 
-                                                                
+                                                                </table>
+
                                                             </div>
                                                         </div>
-                                                    </div> 
-                                                    
-                    
+                                                    </div>
+
+
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="flush-headingPetugasGetTrackNon">
                                                             <button id="openPetugasGetTrackNon" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
@@ -3517,38 +3517,38 @@
                                                         <div id="flush-collapsePetugasGetTrackNon" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackNon"
                                                             data-bs-parent="#accordionFlushExampleNon">
                                                             <div class="accordion-body text-muted">
-                    
+
                                                                 <table id="datatablePetugasGetTrackNon" class="table dt-responsive w-100">
                                                                     <thead>
                                                                         <tr>
                                                                             <th>No</th>
-                                                                            <th>Nama</th> 
-                                                                            
+                                                                            <th>Nama</th>
+
                                                                             <th></th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody id="listPetugasGetTrackNon">
                                                                     </tbody>
-                                                                </table> 
-                                                                
+                                                                </table>
+
                                                             </div>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                 `;
                                                 $("#dataPetugasTrack").html(tablePutugasTrack);
-                    
-                    
+
+
                                                 $("#allPetugasCarListrik").prop('disabled', true);
                                                 $("#allPetugasBikeListrik").prop('disabled', true);
                                                 $("#allPetugasCarFosil").prop('disabled', true);
                                                 $("#allPetugasBikeFosil").prop('disabled', true);
                                                 $("#allPetugasNon").prop('disabled', true);
-                    
-                    
+
+
                                                 countlist = 0;
                                                 list = "";
                                                 sortRess = dummyGetTracking.sort((a, b) => a.name_officer + b.name_officer);
-                    
+
                                                 var filterPetugasCarListrik = sortRess.filter(function(e) {
                                                     return e.type_vehicle == 'Mobil' && e.fuel_vehicle == 'Listrik';
                                                 });
@@ -3561,30 +3561,30 @@
                                                 var filterPetugasBikeFosil = sortRess.filter(function(e) {
                                                     return e.type_vehicle == 'Sepeda Motor' && e.fuel_vehicle == 'Fosil';
                                                 });
-                    
-                    
+
+
                                                 var filterPetugasNon = sortRess.filter(function(e) {
                                                     return e.no_vehicle == 'Pengaturan' && e.type_vehicle == 'Tanpa Kendaraan' && e.fuel_vehicle == 'Fosil';
                                                 });
-                    
-                    
+
+
                                                 $("#totalPetugasOn").html(`${sortRess.length}`);
                                                 $("#totalPetugasGetTrackCarListrik").html(`${filterPetugasCarListrik.length}`);
                                                 $("#totalPetugasGetTrackBikeListrik").html(`${filterPetugasBikeListrik.length}`);
                                                 $("#totalPetugasGetTrackCarFosil").html(`${filterPetugasCarFosil.length}`);
                                                 $("#totalPetugasGetTrackBikeFosil").html(`${filterPetugasBikeFosil.length}`);
                                                 $("#totalPetugasGetTrackNon").html(`${filterPetugasNon.length}`);
-                    
+
                                                 $("#totalPetugasCarListrikDisplay").html(`${filterPetugasCarListrik.length}`);
                                                 $("#totalPetugasBikeListrikDisplay").html(`${filterPetugasBikeListrik.length}`);
                                                 $("#totalPetugasCarFosilDisplay").html(`${filterPetugasCarFosil.length}`);
                                                 $("#totalPetugasBikeFosilDisplay").html(`${filterPetugasBikeFosil.length}`);
                                                 $("#totalPetugasNonDisplay").html(`${filterPetugasNon.length}`);
-                    
+
                                                 // storeEditDayReport
                                                 // $.ajax({
                                                 //     type : "POST",
-                                                //     url : "<?php echo base_url(); ?>dashboard/storeEditDayReport", 
+                                                //     url : "<?php echo base_url(); ?>dashboard/storeEditDayReport",
                                                 //     data : {
                                                 //         "t_officer_active" : sortRess.length,
                                                 //         "t_officer_active_car" : filterPetugasCarListrik.length + filterPetugasCarFosil.length,
@@ -3594,9 +3594,9 @@
                                                 //         "t_officer_active_bikeListrik" : filterPetugasBikeListrik.length,
                                                 //         "t_officer_active_bikeFosil" : filterPetugasBikeFosil.length,
                                                 //         "t_officer_active_not_driving" : filterPetugasNon.length,
-                                                //     }, 
+                                                //     },
                                                 //     dataType : "JSON",
-                                                //     success : function(result){ 
+                                                //     success : function(result){
                                                 //         if(result['status'] == true){
                                                 //             console.log('update petugas aktif day report');
                                                 //         }else{
@@ -3604,7 +3604,7 @@
                                                 //         }
                                                 //     }
                                                 // });
-                    
+
                                                 filterPetugasCarListrik.forEach(el => {
                                                     if (el.handphone != null && el.handphone != '0') {
                                                         let nomorDepan = el.handphone.substring(0, 2);
@@ -3620,51 +3620,51 @@
                                                     } else {
                                                         el.handphone = 0;
                                                     }
-                    
-                    
-                    
+
+
+
                                                     countlistCarListrik += 1;
-                                                    listCarListrik += `  
+                                                    listCarListrik += `
                                                         <tr>
                                                             <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistCarListrik}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistCarListrik}</span>`}</td>
                                                             <td><a href="<?php echo base_url() ?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
-                                                            
-                                                            <td> 
+
+                                                            <td>
                                                                 ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
                                                                 <div style="display: flex;">
-                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a>
                                                                     <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
                                                                     <i class="fab fa-telegram"></i>
                                                                     </a>
-                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a>
                                                                     <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                                        id="listPetugasClickCarListrik${countlistCarListrik}"  
-                                                                        data-id="${el.id_officer}"  
-                                                                        data-nama="${el.name_team}"  
-                                                                        data-akun="${el.name_account}" 
+                                                                        id="listPetugasClickCarListrik${countlistCarListrik}"
+                                                                        data-id="${el.id_officer}"
+                                                                        data-nama="${el.name_team}"
+                                                                        data-akun="${el.name_account}"
                                                                         data-nrp="${el.nrp_user}"
                                                                         data-telp="${el.handphone}"
                                                                         data-cord="${el.latitude},${el.longitude}" >
                                                                         <i style="color: #495057;" class="fa fas fa-eye"></i>
                                                                     </button>
                                                                     <div class="switch" style="margin-left: -11px;">
-                                                                        <input class="flag" type="checkbox" id="flagCarListrik${countlistCarListrik}" 
-                                                                        data-id="${el.id_officer}"  
-                                                                        data-nama="${el.name_team}"  
-                                                                        data-akun="${el.name_account}" 
+                                                                        <input class="flag" type="checkbox" id="flagCarListrik${countlistCarListrik}"
+                                                                        data-id="${el.id_officer}"
+                                                                        data-nama="${el.name_team}"
+                                                                        data-akun="${el.name_account}"
                                                                         data-nrp="${el.nrp_user}"
                                                                         data-telp="${el.handphone}"
                                                                         data-cord="${el.latitude},${el.longitude}"
-                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg">
                                                                         <label for="flagCarListrik${countlistCarListrik}"></label>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </td>
                                                         </tr>
                                                     `;
                                                     $('#listPetugasGetTrackCarListrik').html(listCarListrik);
                                                 });
-                    
+
                                                 $(`#allPetugasCarListrik`).on('change', function(e) {
                                                     if ($(`#allPetugasCarListrik`).is(':checked')) {
                                                         $("#r4ListrikDisplay").prop('checked', true);
@@ -3682,7 +3682,7 @@
                                                         }
                                                     }
                                                 });
-                    
+
                                                 $("#r4ListrikDisplay").on("change", function(e) {
                                                     if ($(this).is(':checked')) {
                                                         $("#allPetugasCarListrik").prop('checked', true);
@@ -3701,7 +3701,7 @@
                                                         }
                                                     }
                                                 });
-                    
+
                                                 for (let i = 0; i < countlistCarListrik; i++) {
                                                     $(`#listPetugasClickCarListrik${i+1}`).click(function() {
                                                         // console.log('masuk');
@@ -3711,7 +3711,7 @@
                                                         mapContainer.flyTo([latitude, longitude], 20);
                                                         markerArray[$(this).data('id')].openPopup();
                                                     });
-                    
+
                                                     $(`#flagCarListrik${i+1}`).on("change", function(e) {
                                                         // alert($(this).data('id'));
                                                         if ($(`#flagCarListrik${i+1}`).is(':checked')) {
@@ -3722,26 +3722,26 @@
                                                             $(`#listPetugasClickCarListrik${i+1}`).show();
                                                         }
                                                     });
-                    
+
                                                 }
                                                 $('#datatablePetugasGetTrackCarListrik').DataTable({
                                                     responsive: true,
-                    
+
                                                     scrollX: true,
-                    
+
                                                     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-                    
+
                                                     buttons: ["excel", "csv", "pdf"],
                                                     processing: true,
                                                     oLanguage: {
-                    
+
                                                         sSearch: 'Search:'
-                    
+
                                                     },
                                                 });
-                    
-                    
-                    
+
+
+
                                                 filterPetugasBikeListrik.forEach(el => {
                                                     if (el.handphone != null && el.handphone != '0') {
                                                         let nomorDepan = el.handphone.substring(0, 2);
@@ -3757,53 +3757,53 @@
                                                     } else {
                                                         el.handphone = 0;
                                                     }
-                    
-                    
-                    
+
+
+
                                                     countlistBikeListrik += 1;
-                                                    listBikeListrik += `  
+                                                    listBikeListrik += `
                                                         <tr>
                                                             <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistBikeListrik}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistBikeListrik}</span>`}</td>
                                                             <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
-                                                            
-                                                            <td> 
+
+                                                            <td>
                                                                 ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
                                                                 <div style="display: flex;">
-                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a>
                                                                     <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
                                                                         <i class="fab fa-telegram"></i>
                                                                     </a>
-                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a>
                                                                     <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                                        id="listPetugasClickBikeListrik${countlistBikeListrik}"   
-                                                                        data-id="${el.id_officer}"  
-                                                                        data-nama="${el.name_team}"  
-                                                                        data-akun="${el.name_account}" 
+                                                                        id="listPetugasClickBikeListrik${countlistBikeListrik}"
+                                                                        data-id="${el.id_officer}"
+                                                                        data-nama="${el.name_team}"
+                                                                        data-akun="${el.name_account}"
                                                                         data-nrp="${el.nrp_user}"
                                                                         data-telp="${el.handphone}"
                                                                         data-cord="${el.latitude},${el.longitude}" >
                                                                         <i style="color: #495057;" class="fa fas fa-eye"></i>
                                                                     </button>
                                                                     <div class="switch" style="margin-left: -11px;">
-                                                                        <input class="flag" type="checkbox" id="flagBikeListrik${countlistBikeListrik}" 
-                                                                        data-id="${el.id_officer}"  
-                                                                        data-nama="${el.name_team}"  
-                                                                        data-akun="${el.name_account}" 
+                                                                        <input class="flag" type="checkbox" id="flagBikeListrik${countlistBikeListrik}"
+                                                                        data-id="${el.id_officer}"
+                                                                        data-nama="${el.name_team}"
+                                                                        data-akun="${el.name_account}"
                                                                         data-nrp="${el.nrp_user}"
                                                                         data-telp="${el.handphone}"
                                                                         data-cord="${el.latitude},${el.longitude}"
-                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg">
                                                                         <label for="flagBikeListrik${countlistBikeListrik}"></label>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </td>
                                                         </tr>
                                                     `;
                                                     $('#listPetugasGetTrackBikeListrik').html(listBikeListrik);
                                                 });
-                    
-                    
-                    
+
+
+
                                                 $(`#allPetugasBikeListrik`).on('change', function(e) {
                                                     if ($(`#allPetugasBikeListrik`).is(':checked')) {
                                                         $("#r2ListrikDisplay").prop('checked', true);
@@ -3821,7 +3821,7 @@
                                                         }
                                                     }
                                                 });
-                    
+
                                                 $("#r2ListrikDisplay").on("change", function(e) {
                                                     if ($(this).is(':checked')) {
                                                         $("#allPetugasBikeListrik").prop('checked', true);
@@ -3840,7 +3840,7 @@
                                                         }
                                                     }
                                                 });
-                    
+
                                                 for (let i = 0; i < countlistBikeListrik; i++) {
                                                     $(`#listPetugasClickBikeListrik${i+1}`).click(function() {
                                                         // console.log($(this).data('id'));
@@ -3850,7 +3850,7 @@
                                                         mapContainer.flyTo([latitude, longitude], 20);
                                                         markerArray[$(this).data('id')].openPopup();
                                                     });
-                    
+
                                                     $(`#flagBikeListrik${i+1}`).on("change", function(e) {
                                                         // alert($(this).data('id'));
                                                         if ($(`#flagBikeListrik${i+1}`).is(':checked')) {
@@ -3861,26 +3861,26 @@
                                                             $(`#listPetugasClickBikeListrik${i+1}`).show();
                                                         }
                                                     });
-                    
+
                                                 }
                                                 $('#datatablePetugasGetTrackBikeListrik').DataTable({
                                                     responsive: true,
-                    
+
                                                     scrollX: true,
-                    
+
                                                     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-                    
+
                                                     buttons: ["excel", "csv", "pdf"],
                                                     processing: true,
                                                     oLanguage: {
-                    
+
                                                         sSearch: 'Search:'
-                    
+
                                                     },
                                                 });
-                    
-                    
-                    
+
+
+
                                                 filterPetugasCarFosil.forEach(el => {
                                                     if (el.handphone != null && el.handphone != '0') {
                                                         let nomorDepan = el.handphone.substring(0, 2);
@@ -3896,51 +3896,51 @@
                                                     } else {
                                                         el.handphone = 0;
                                                     }
-                    
-                    
-                    
+
+
+
                                                     countlistCarFosil += 1;
-                                                    listCarFosil += `  
+                                                    listCarFosil += `
                                                         <tr>
                                                             <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistCarFosil}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistCarFosil}</span>`}</td>
                                                             <td><a href="<?php echo base_url() ?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
-                                                            
-                                                            <td> 
+
+                                                            <td>
                                                                 ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
                                                                 <div style="display: flex;">
-                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a>
                                                                     <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
                                                                     <i class="fab fa-telegram"></i>
                                                                     </a>
-                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a>
                                                                     <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                                        id="listPetugasClickCarFosil${countlistCarFosil}"  
-                                                                        data-id="${el.id_officer}"  
-                                                                        data-nama="${el.name_team}"  
-                                                                        data-akun="${el.name_account}" 
+                                                                        id="listPetugasClickCarFosil${countlistCarFosil}"
+                                                                        data-id="${el.id_officer}"
+                                                                        data-nama="${el.name_team}"
+                                                                        data-akun="${el.name_account}"
                                                                         data-nrp="${el.nrp_user}"
                                                                         data-telp="${el.handphone}"
                                                                         data-cord="${el.latitude},${el.longitude}" >
                                                                         <i style="color: #495057;" class="fa fas fa-eye"></i>
                                                                     </button>
                                                                     <div class="switch" style="margin-left: -11px;">
-                                                                        <input class="flag" type="checkbox" id="flagCarFosil${countlistCarFosil}" 
-                                                                        data-id="${el.id_officer}"  
-                                                                        data-nama="${el.name_team}"  
-                                                                        data-akun="${el.name_account}" 
+                                                                        <input class="flag" type="checkbox" id="flagCarFosil${countlistCarFosil}"
+                                                                        data-id="${el.id_officer}"
+                                                                        data-nama="${el.name_team}"
+                                                                        data-akun="${el.name_account}"
                                                                         data-nrp="${el.nrp_user}"
                                                                         data-telp="${el.handphone}"
                                                                         data-cord="${el.latitude},${el.longitude}"
-                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg">
                                                                         <label for="flagCarFosil${countlistCarFosil}"></label>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </td>
                                                         </tr>
                                                     `;
                                                     $('#listPetugasGetTrackCarFosil').html(listCarFosil);
                                                 });
-                    
+
                                                 $(`#allPetugasCarFosil`).on('change', function(e) {
                                                     if ($(`#allPetugasCarFosil`).is(':checked')) {
                                                         $("#r4FosilDisplay").prop('checked', true);
@@ -3958,7 +3958,7 @@
                                                         }
                                                     }
                                                 });
-                    
+
                                                 $("#r4FosilDisplay").on("change", function(e) {
                                                     if ($(this).is(':checked')) {
                                                         $("#allPetugasCarFosil").prop('checked', true);
@@ -3977,7 +3977,7 @@
                                                         }
                                                     }
                                                 });
-                    
+
                                                 for (let i = 0; i < countlistCarFosil; i++) {
                                                     $(`#listPetugasClickCarFosil${i+1}`).click(function() {
                                                         // console.log('masuk');
@@ -3987,7 +3987,7 @@
                                                         mapContainer.flyTo([latitude, longitude], 20);
                                                         markerArray[$(this).data('id')].openPopup();
                                                     });
-                    
+
                                                     $(`#flagCarFosil${i+1}`).on("change", function(e) {
                                                         // alert($(this).data('id'));
                                                         if ($(`#flagCarFosil${i+1}`).is(':checked')) {
@@ -3998,26 +3998,26 @@
                                                             $(`#listPetugasClickCarFosil${i+1}`).show();
                                                         }
                                                     });
-                    
+
                                                 }
                                                 $('#datatablePetugasGetTrackCarFosil').DataTable({
                                                     responsive: true,
-                    
+
                                                     scrollX: true,
-                    
+
                                                     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-                    
+
                                                     buttons: ["excel", "csv", "pdf"],
                                                     processing: true,
                                                     oLanguage: {
-                    
+
                                                         sSearch: 'Search:'
-                    
+
                                                     },
                                                 });
-                    
-                    
-                    
+
+
+
                                                 filterPetugasBikeFosil.forEach(el => {
                                                     if (el.handphone != null && el.handphone != '0') {
                                                         let nomorDepan = el.handphone.substring(0, 2);
@@ -4033,53 +4033,53 @@
                                                     } else {
                                                         el.handphone = 0;
                                                     }
-                    
-                    
-                    
+
+
+
                                                     countlistBikeFosil += 1;
-                                                    listBikeFosil += `  
+                                                    listBikeFosil += `
                                                         <tr>
                                                             <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistBikeFosil}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistBikeFosil}</span>`}</td>
                                                             <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
-                                                        
-                                                            <td> 
+
+                                                            <td>
                                                                 ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
                                                                 <div style="display: flex;">
-                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a>
                                                                     <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
                                                                         <i class="fab fa-telegram"></i>
                                                                     </a>
-                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a>
                                                                     <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                                        id="listPetugasClickBikeFosil${countlistBikeFosil}"   
-                                                                        data-id="${el.id_officer}"  
-                                                                        data-nama="${el.name_team}"  
-                                                                        data-akun="${el.name_account}" 
+                                                                        id="listPetugasClickBikeFosil${countlistBikeFosil}"
+                                                                        data-id="${el.id_officer}"
+                                                                        data-nama="${el.name_team}"
+                                                                        data-akun="${el.name_account}"
                                                                         data-nrp="${el.nrp_user}"
                                                                         data-telp="${el.handphone}"
                                                                         data-cord="${el.latitude},${el.longitude}" >
                                                                         <i style="color: #495057;" class="fa fas fa-eye"></i>
                                                                     </button>
                                                                     <div class="switch" style="margin-left: -11px;">
-                                                                        <input class="flag" type="checkbox" id="flagBikeFosil${countlistBikeFosil}" 
-                                                                        data-id="${el.id_officer}"  
-                                                                        data-nama="${el.name_team}"  
-                                                                        data-akun="${el.name_account}" 
+                                                                        <input class="flag" type="checkbox" id="flagBikeFosil${countlistBikeFosil}"
+                                                                        data-id="${el.id_officer}"
+                                                                        data-nama="${el.name_team}"
+                                                                        data-akun="${el.name_account}"
                                                                         data-nrp="${el.nrp_user}"
                                                                         data-telp="${el.handphone}"
                                                                         data-cord="${el.latitude},${el.longitude}"
-                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg">
                                                                         <label for="flagBikeFosil${countlistBikeFosil}"></label>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </td>
                                                         </tr>
                                                     `;
                                                     $('#listPetugasGetTrackBikeFosil').html(listBikeFosil);
                                                 });
-                    
-                    
-                    
+
+
+
                                                 $(`#allPetugasBikeFosil`).on('change', function(e) {
                                                     if ($(`#allPetugasBikeFosil`).is(':checked')) {
                                                         $("#r2FosilDisplay").prop('checked', true);
@@ -4097,7 +4097,7 @@
                                                         }
                                                     }
                                                 });
-                    
+
                                                 $("#r2FosilDisplay").on("change", function(e) {
                                                     if ($(this).is(':checked')) {
                                                         $("#allPetugasBikeFosil").prop('checked', true);
@@ -4116,7 +4116,7 @@
                                                         }
                                                     }
                                                 });
-                    
+
                                                 for (let i = 0; i < countlistBikeFosil; i++) {
                                                     $(`#listPetugasClickBikeFosil${i+1}`).click(function() {
                                                         // console.log($(this).data('id'));
@@ -4126,7 +4126,7 @@
                                                         mapContainer.flyTo([latitude, longitude], 20);
                                                         markerArray[$(this).data('id')].openPopup();
                                                     });
-                    
+
                                                     $(`#flagBikeFosil${i+1}`).on("change", function(e) {
                                                         // alert($(this).data('id'));
                                                         if ($(`#flagBikeFosil${i+1}`).is(':checked')) {
@@ -4137,25 +4137,25 @@
                                                             $(`#listPetugasClickBikeFosil${i+1}`).show();
                                                         }
                                                     });
-                    
+
                                                 }
                                                 $('#datatablePetugasGetTrackBikeFosil').DataTable({
                                                     responsive: true,
-                    
+
                                                     scrollX: true,
-                    
+
                                                     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-                    
+
                                                     buttons: ["excel", "csv", "pdf"],
                                                     processing: true,
                                                     oLanguage: {
-                    
+
                                                         sSearch: 'Search:'
-                    
+
                                                     },
                                                 });
-                    
-                    
+
+
                                                 filterPetugasNon.forEach(el => {
                                                     if (el.handphone != null) {
                                                         let nomorDepan = el.handphone.substring(0, 2);
@@ -4171,43 +4171,43 @@
                                                     } else {
                                                         el.handphone = 0;
                                                     }
-                    
+
                                                     countlistNon += 1;
-                                                    listNon += `  
+                                                    listNon += `
                                                         <tr>
                                                             <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistNon}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistNon}</span>`}</td>
                                                             <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
-                                                            
-                                                            <td> 
+
+                                                            <td>
                                                                 ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
                                                                 <div style="display: flex;">
-                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a>
                                                                     <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
                                                                     <i class="fab fa-telegram"></i>
                                                                     </a>
-                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a>
                                                                     <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                                        id="listPetugasClickNon${countlistNon}"  
-                                                                        data-id="${el.id_officer}"   
-                                                                        data-nama="${el.name_team}"  
-                                                                        data-akun="${el.name_account}" 
+                                                                        id="listPetugasClickNon${countlistNon}"
+                                                                        data-id="${el.id_officer}"
+                                                                        data-nama="${el.name_team}"
+                                                                        data-akun="${el.name_account}"
                                                                         data-nrp="${el.nrp_user}"
                                                                         data-telp="${el.handphone}"
                                                                         data-cord="${el.latitude},${el.longitude}" >
                                                                         <i style="color: #495057;" class="fa fas fa-eye"></i>
                                                                     </button>
                                                                     <div class="switch" style="margin-left: -11px;">
-                                                                        <input class="flag" type="checkbox" id="flagNon${countlistNon}" 
-                                                                        data-id="${el.id_officer}"  
-                                                                        data-nama="${el.name_team}"  
-                                                                        data-akun="${el.name_account}" 
+                                                                        <input class="flag" type="checkbox" id="flagNon${countlistNon}"
+                                                                        data-id="${el.id_officer}"
+                                                                        data-nama="${el.name_team}"
+                                                                        data-akun="${el.name_account}"
                                                                         data-nrp="${el.nrp_user}"
                                                                         data-telp="${el.handphone}"
                                                                         data-cord="${el.latitude},${el.longitude}"
-                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg">
                                                                         <label for="flagNon${countlistNon}"></label>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </td>
                                                         </tr>
                                                     `;
@@ -4258,7 +4258,7 @@
                                                         markerArray[$(this).data('id')].openPopup();
 
                                                     });
-                    
+
                                                     $(`#flagNon${i+1}`).on("change", function(e) {
                                                         // alert($(this).data('id'));
                                                         if ($(`#flagNon${i+1}`).is(':checked')) {
@@ -4269,26 +4269,26 @@
                                                             $(`#listPetugasClickNon${i+1}`).show();
                                                         }
                                                     });
-                    
+
                                                 }
                                                 $('#datatablePetugasGetTrackNon').DataTable({
                                                     responsive: true,
-                    
+
                                                     scrollX: true,
-                    
+
                                                     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-                    
+
                                                     buttons: ["excel", "csv", "pdf"],
                                                     processing: true,
                                                     oLanguage: {
-                    
+
                                                         sSearch: 'Search:'
-                    
+
                                                     },
                                                 });
-                    
+
                                                 for (let i = 0; i < dummyGetTracking.length; i++) {
-                    
+
                                                     $(`#listPetugasClickDisplay${i+1}`).click(function() {
                                                         // console.log('masuk');
                                                         var latlong = $(this).data('cord').split(',');
@@ -4297,7 +4297,7 @@
                                                         mapContainer.flyTo([latitude, longitude], 20);
                                                         markerArray[$(this).data('id')].openPopup();
                                                     });
-                    
+
                                                     $(`#flagDisplay${i+1}`).on("change", function(e) {
                                                         // alert($(this).data('id'));
                                                         if ($(`#flagDisplay${i+1}`).is(':checked')) {
@@ -4308,23 +4308,23 @@
                                                             $(`#listPetugasClickDisplay${i+1}`).show();
                                                         }
                                                     });
-                    
+
                                                 }
                                                 $('#datatablePetugasOnDisplay').DataTable({
                                                     responsive: true,
-                    
+
                                                     scrollX: true,
-                    
+
                                                     sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-                    
+
                                                     buttons: ["excel", "csv", "pdf"],
                                                     processing: true,
                                                     oLanguage: {
                                                         sSearch: 'Search:'
                                                     },
                                                 });
-                    
-                    
+
+
                                                 $("#gaturDisplay").prop('disabled', false);
                                                 $("#r2ListrikDisplay").prop('disabled', false);
                                                 $("#r4ListrikDisplay").prop('disabled', false);
@@ -4335,36 +4335,36 @@
                                                 $("#loadR4ListrikDisplay").html(`R4 Listrik`);
                                                 $("#loadR2FosilDisplay").html(`R2 Fosil`);
                                                 $("#loadR4FosilDisplay").html(`R4 Fosil`);
-                    
 
-                                                
+
+
                                                 $("#overlayMenuDisplay").fadeOut(300);
-                    
-                    
+
+
                                                 $("#allPetugasCarListrik").prop('disabled', false);
                                                 $("#allPetugasBikeListrik").prop('disabled', false);
                                                 $("#allPetugasCarFosil").prop('disabled', false);
                                                 $("#allPetugasBikeFosil").prop('disabled', false);
                                                 $("#allPetugasNon").prop('disabled', false);
-                    
-                    
-                    
+
+
+
                                                 // Swal.fire(
                                                 //     `Fitur Sudah Dapat Di Gunakan`,
                                                 //     'Terimakasih sudah Menunggu',
                                                 //     'success'
                                                 // ).then(function() {
-                    
+
                                                 // });
                                                 $("#overlay").fadeOut(300);
                                                 startSocket();
                                                 autoGetLogout = setInterval(getLogout, 5000);
                                             });
-                    
+
                                         } else {
                                             $("#overlay").fadeOut(300);
                                         }
-                                    } 
+                                    }
                                 },
                                 error: function() {
                                     $("#overlay").fadeOut(300);
@@ -4373,13 +4373,13 @@
                             });
                         }, ix * 100000);
                     }
- 
-                    
+
+
                 }
             });
 
 
-            
+
         }
 
 
@@ -4407,7 +4407,7 @@
                 }
 
 
-                return `  
+                return `
                     <div class="text-center">
                         <a href="https://api.whatsapp.com/send?phone=${noTelp}" target="_blank">
                             <img src="https://img.icons8.com/3d-fluency/100/000000/whatsapp.png" style="width: 35px;height: 35px"/>
@@ -4420,15 +4420,15 @@
                         </a>
                         <a class="btn" style="color: #495057;" href="https://bit.ly/k3izoom" ${sendNotifZ} target="_blank">
                             <i class="fa  fas fa-video "></i>
-                        </a> 
+                        </a>
                     </div>
                 `
             } else {
-                return `  
-                    <div class="text-center"> 
+                return `
+                    <div class="text-center">
                         <a class="btn" style="color: #495057;" href="https://bit.ly/k3izoom" ${sendNotifZ} target="_blank">
                             <i class="fa  fas fa-video "></i>
-                        </a> 
+                        </a>
                     </div>
                 `
             }
@@ -4447,16 +4447,16 @@
 
 
 
-        
+
 
         function startSocket() {
             socket.on('sendToAdminMobile', function(ress) {
 
-                // console.log(ress);  
+                // console.log(ress);
                 var flagVip = '';
 
 
-                // console.log(result); 
+                // console.log(result);
 
                 var cordLat = parseFloat(ress.latitude);
                 var corLong = parseFloat(ress.longitude);
@@ -4468,7 +4468,7 @@
 
 
 
-                // for (let i = 0; i < ress.length; i++) {  
+                // for (let i = 0; i < ress.length; i++) {
 
 
                 // if(ress.type_vehicle == 'Sepeda Motor'){
@@ -4479,7 +4479,7 @@
                 // }else{
                 //     // jenis = `<img src="<?php echo base_url(); ?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
                 //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
-                // } 
+                // }
 
 
 
@@ -4487,7 +4487,7 @@
                     // iconflagVip = `<img src="${ress.photo_country != '-' ? ress.photo_country : '<?php echo base_url(); ?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;">
                     //             <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
                     //                 <span class="badge rounded-pill" style="background-color: black; color: white;">${ress.name_country}</span>
-                    //             </div>`;  
+                    //             </div>`;
                     iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
                 } else {
                     iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
@@ -4527,7 +4527,7 @@
 
                     jenisNoPol = `
                         <div class="col-md-4">
-                            <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>  
+                            <span style="font-size: 12px;font-weight: bold;">No.Pol / Lambung</span>
                         </div>
                         <div class="col-md-1">
                             :
@@ -4574,7 +4574,7 @@
                             <div>
                                 <div style="position: relative;">
                                     <img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                </div> 
+                                </div>
                                 <div style="position: absolute;margin-top: -29px;">
                                     <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
                                 </div>
@@ -4603,20 +4603,20 @@
 
                 // if(ress.status_login == 1){
 
-                
+
 
                 var iniHasilCariArray = arrayFilterPetugas.find(cariValArray);
                 function cariValArray(x) {
                     return x == ress.polda_id;
-                }  
-                
-                
+                }
+
+
                 console.log({a:iniHasilCariArray, b:arrayFilterPetugas, c:ress.polda_id, d:ress});
                 if(iniHasilCariArray || ress.polda_id == null){
                     if (markerArray[ress.id_officer] != null) {
                         console.log(`UPDATE Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle} - ST.PENUMPANG: ${ress.bawa_penumpang}`);
-    
-    
+
+
                         markerArray[ress.id_officer].remove();
                         markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
                             renderer: myRenderer,
@@ -4628,8 +4628,8 @@
                                 // iconAnchor: [10, 33]
                             })
                         }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;"> 
-                                            <div class="row mt-3"> 
+                                        <div class="text-center" style="width: 300px;">
+                                            <div class="row mt-3">
                                                 <div class="col-md-12">
                                                     <a href="javascript:void(0);">
                                                     ${fotoBendera}
@@ -4637,56 +4637,56 @@
                                                 </div>
                                                 ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
                                             </div>
-                
-                
+
+
                                                 <div class="row text-start mt-3">
                                                     <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                                        <span style="font-size: 12px;font-weight: bold;">Nama</span>
                                                     </div>
                                                     <div class="col-md-1">
                                                         :
                                                     </div>
                                                     <div class="col-md-7">
                                                         <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-                                                    </div> 
-            
+                                                    </div>
+
                                                     <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                                        <span style="font-size: 12px;font-weight: bold;">PAM</span>
                                                     </div>
                                                     <div class="col-md-1">
                                                         :
                                                     </div>
                                                     <div class="col-md-7">
                                                         <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                                    </div> 
+                                                    </div>
                                                     <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                                        <span style="font-size: 12px;font-weight: bold;">Delegasi</span>
                                                     </div>
                                                     <div class="col-md-1">
                                                         :
                                                     </div>
                                                     <div class="col-md-7">
                                                         <span style="font-size: 12px;">${bendera}</span>
-                                                    </div> 
+                                                    </div>
 
                                                     ${jenisNoPol}
-            
+
                                                     <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                                        <span style="font-size: 12px;font-weight: bold;">Status Login</span>
                                                     </div>
                                                     <div class="col-md-1">
                                                         :
                                                     </div>
                                                     <div class="col-md-7">
                                                         ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                                    </div> 
-                    
+                                                    </div>
+
                                                     <div class="col-md-12 text-center  mt-3">
-                                                        <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                        <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>
                                                         <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-                                                    </div> 
-                                                </div>  
-                                            
+                                                    </div>
+                                                </div>
+
                                         </div>
                                     `).addTo(mapContainer).on('click', function(e) {
                             // console.log(e.latlng);
@@ -4706,7 +4706,7 @@
                         });
                     } else {
                         console.log(`NEW Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
-                        
+
                         markerArray[ress.id_officer] = L.marker([ress.latitude, ress.longitude], {
                             renderer: myRenderer,
                             icon: L.divIcon({
@@ -4717,63 +4717,63 @@
                                 // iconAnchor: [10, 33]
                             })
                         }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;"> 
-                                            <div class="row mt-3"> 
+                                        <div class="text-center" style="width: 300px;">
+                                            <div class="row mt-3">
                                                 <div class="col-md-12">
                                                     ${fotoBendera}
                                                 </div>
                                                 ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
                                             </div>
-                
-                
+
+
                                                 <div class="row text-start mt-3">
                                                     <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                                        <span style="font-size: 12px;font-weight: bold;">Nama</span>
                                                     </div>
                                                     <div class="col-md-1">
                                                         :
                                                     </div>
                                                     <div class="col-md-7">
                                                         <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-                                                    </div> 
-            
+                                                    </div>
+
                                                     <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                                        <span style="font-size: 12px;font-weight: bold;">PAM</span>
                                                     </div>
                                                     <div class="col-md-1">
                                                         :
                                                     </div>
                                                     <div class="col-md-7">
                                                         <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                                    </div> 
+                                                    </div>
                                                     <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                                        <span style="font-size: 12px;font-weight: bold;">Delegasi</span>
                                                     </div>
                                                     <div class="col-md-1">
                                                         :
                                                     </div>
                                                     <div class="col-md-7">
                                                         <span style="font-size: 12px;">${bendera}</span>
-                                                    </div> 
+                                                    </div>
 
                                                     ${jenisNoPol}
-            
+
                                                     <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                                        <span style="font-size: 12px;font-weight: bold;">Status Login</span>
                                                     </div>
                                                     <div class="col-md-1">
                                                         :
                                                     </div>
                                                     <div class="col-md-7">
                                                         ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                                    </div> 
-                    
+                                                    </div>
+
                                                     <div class="col-md-12 text-center  mt-3">
-                                                        <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                        <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>
                                                         <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-                                                    </div> 
-                                                </div>  
-                                            
+                                                    </div>
+                                                </div>
+
                                         </div>
                                     `).addTo(mapContainer).on('click', function(e) {
                             // console.log(e.latlng);
@@ -4796,7 +4796,7 @@
                 // }
 
 
-                // } 
+                // }
 
 
             });
@@ -4807,11 +4807,11 @@
 
             // socketKe2.on('sendToAdminMobile', function(ress) {
             //     console.log(`get Track Nama Petugas: A. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
-            //     // console.log(ress); 
+            //     // console.log(ress);
             //     var flagVip = '';
             //     var iconflagVip = '';
 
-            //     // console.log(result); 
+            //     // console.log(result);
 
             //     var cordLat = parseFloat(ress.latitude);
             //     var corLong = parseFloat(ress.longitude);
@@ -4822,7 +4822,7 @@
 
 
 
-            //     // for (let i = 0; i < ress.length; i++) {  
+            //     // for (let i = 0; i < ress.length; i++) {
 
 
             //     // if(ress.type_vehicle == 'Sepeda Motor'){
@@ -4833,14 +4833,14 @@
             //     // }else{
             //     //     // jenis = `<img src="<?php echo base_url(); ?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
             //     //     jenis = `<img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
-            //     // } 
+            //     // }
 
 
             //     if (ress.bawa_penumpang == 1) {
             //         // iconflagVip = `<a href="javascript:void(0);"><img src="${ress.photo_country != '-' ? ress.photo_country : '<?php echo base_url(); ?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;"></a>
             //         //             <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
             //         //                 <span class="badge rounded-pill" style="background-color: black; color: white;">${ress.name_country}</span>
-            //         //             </div>`;  
+            //         //             </div>`;
             //         iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
             //     } else {
             //         iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
@@ -4911,7 +4911,7 @@
             //                 <div>
             //                     <div style="position: relative;">
             //                         <img src="<?php echo base_url(); ?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-            //                     </div> 
+            //                     </div>
             //                     <div style="position: absolute;margin-top: -29px;">
             //                         <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
             //                     </div>
@@ -4949,8 +4949,8 @@
             //                 // iconAnchor: [10, 33]
             //             })
             //         }).bindPopup(`
-            //                         <div class="text-center" style="width: 300px;"> 
-            //                             <div class="row mt-3"> 
+            //                         <div class="text-center" style="width: 300px;">
+            //                             <div class="row mt-3">
             //                                 <div class="col-md-12">
             //                                     <a href="javascript:void(0);">
             //                                     ${fotoBendera}
@@ -4958,54 +4958,54 @@
             //                                 </div>
             //                                 ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
             //                             </div>
-            
-            
+
+
             //                                 <div class="row text-start mt-3">
             //                                     <div class="col-md-4">
-            //                                         <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+            //                                         <span style="font-size: 12px;font-weight: bold;">Nama</span>
             //                                     </div>
             //                                     <div class="col-md-1">
             //                                         :
             //                                     </div>
             //                                     <div class="col-md-7">
             //                                         <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-            //                                     </div> 
-        
+            //                                     </div>
+
             //                                     <div class="col-md-4">
-            //                                         <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+            //                                         <span style="font-size: 12px;font-weight: bold;">PAM</span>
             //                                     </div>
             //                                     <div class="col-md-1">
             //                                         :
             //                                     </div>
             //                                     <div class="col-md-7">
             //                                         <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-            //                                     </div> 
+            //                                     </div>
             //                                     <div class="col-md-4">
-            //                                         <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+            //                                         <span style="font-size: 12px;font-weight: bold;">Delegasi</span>
             //                                     </div>
             //                                     <div class="col-md-1">
             //                                         :
             //                                     </div>
             //                                     <div class="col-md-7">
             //                                         <span style="font-size: 12px;">${bendera}</span>
-            //                                     </div> 
-        
+            //                                     </div>
+
             //                                     <div class="col-md-4">
-            //                                         <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+            //                                         <span style="font-size: 12px;font-weight: bold;">Status Login</span>
             //                                     </div>
             //                                     <div class="col-md-1">
             //                                         :
             //                                     </div>
             //                                     <div class="col-md-7">
             //                                         ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-            //                                     </div> 
-                
+            //                                     </div>
+
             //                                     <div class="col-md-12 text-center  mt-3">
-            //                                         <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+            //                                         <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>
             //                                         <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-            //                                     </div> 
-            //                                 </div>  
-                                        
+            //                                     </div>
+            //                                 </div>
+
             //                         </div>
             //                     `).addTo(mapContainer).on('click', function(e) {
             //             // console.log(e.latlng);
@@ -5034,51 +5034,51 @@
             //                 // iconAnchor: [10, 33]
             //             })
             //         }).bindPopup(`
-            //                         <div class="text-center" style="width: 300px;"> 
-            //                             <div class="row mt-3"> 
+            //                         <div class="text-center" style="width: 300px;">
+            //                             <div class="row mt-3">
             //                                 <div class="col-md-12">
             //                                     ${fotoBendera}
             //                                 </div>
             //                                 ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
             //                             </div>
-            
-            
+
+
             //                                 <div class="row text-start mt-3">
             //                                     <div class="col-md-4">
-            //                                         <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+            //                                         <span style="font-size: 12px;font-weight: bold;">Nama</span>
             //                                     </div>
             //                                     <div class="col-md-1">
             //                                         :
             //                                     </div>
             //                                     <div class="col-md-7">
             //                                         <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-            //                                     </div> 
+            //                                     </div>
 
             //                                     <div class="col-md-4">
-            //                                         <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+            //                                         <span style="font-size: 12px;font-weight: bold;">PAM</span>
             //                                     </div>
             //                                     <div class="col-md-1">
             //                                         :
             //                                     </div>
             //                                     <div class="col-md-7">
             //                                         <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-            //                                     </div> 
+            //                                     </div>
             //                                     <div class="col-md-4">
-            //                                         <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+            //                                         <span style="font-size: 12px;font-weight: bold;">Delegasi</span>
             //                                     </div>
             //                                     <div class="col-md-1">
             //                                         :
             //                                     </div>
             //                                     <div class="col-md-7">
             //                                         <span style="font-size: 12px;">${bendera}</span>
-            //                                     </div> 
-                
+            //                                     </div>
+
             //                                     <div class="col-md-12 text-center  mt-3">
-            //                                         <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+            //                                         <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>
             //                                         <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-            //                                     </div> 
-            //                                 </div>  
-                                        
+            //                                     </div>
+            //                                 </div>
+
             //                         </div>
             //                     `).addTo(mapContainer).on('click', function(e) {
             //             // console.log(e.latlng);
@@ -5100,7 +5100,7 @@
             //     // }
 
 
-            //     // } 
+            //     // }
 
 
             // });
@@ -5244,37 +5244,37 @@
                                     dummyRenpam += `
                                         <tr>
                                             <td>
-                                                <input type="checkbox" class="form-input checkRenpam" name="selectRenpam" 
-                                                id="listRenpamDisplay${ress['id_category_schedule']}${countlistRenpam}"  
-                                                data-name="${sortUrutanRenpam[i]['name_renpam']}" 
-                                                data-cord='${JSON.stringify(sortUrutanRenpam[i]['route'])}' 
-                                                data-cord1='${JSON.stringify(sortUrutanRenpam[i]['route_alternatif_1'])}' 
-                                                data-cord2='${JSON.stringify(sortUrutanRenpam[i]['route_alternatif_2'])}' 
-                                                data-cord3='${JSON.stringify(sortUrutanRenpam[i]['route_masyarakat'])}' 
-                                                data-cord4='${JSON.stringify(sortUrutanRenpam[i]['route_umum'])}' 
-                                                data-type="${sortUrutanRenpam[i]['type_renpam']}" 
-                                                data-warna="${sortUrutanRenpam[i]['warnaRoute_renpam']}" 
-                                                data-jadwal="${sortUrutanRenpam[i]['schedule'] != null ? sortUrutanRenpam[i]['schedule']['activity'] : '' }" 
-                                                data-awal="${sortUrutanRenpam[i]['title_start']}" 
-                                                data-akhir="${sortUrutanRenpam[i]['title_end']}"> 
-                                                
+                                                <input type="checkbox" class="form-input checkRenpam" name="selectRenpam"
+                                                id="listRenpamDisplay${ress['id_category_schedule']}${countlistRenpam}"
+                                                data-name="${sortUrutanRenpam[i]['name_renpam']}"
+                                                data-cord='${JSON.stringify(sortUrutanRenpam[i]['route'])}'
+                                                data-cord1='${JSON.stringify(sortUrutanRenpam[i]['route_alternatif_1'])}'
+                                                data-cord2='${JSON.stringify(sortUrutanRenpam[i]['route_alternatif_2'])}'
+                                                data-cord3='${JSON.stringify(sortUrutanRenpam[i]['route_masyarakat'])}'
+                                                data-cord4='${JSON.stringify(sortUrutanRenpam[i]['route_umum'])}'
+                                                data-type="${sortUrutanRenpam[i]['type_renpam']}"
+                                                data-warna="${sortUrutanRenpam[i]['warnaRoute_renpam']}"
+                                                data-jadwal="${sortUrutanRenpam[i]['schedule'] != null ? sortUrutanRenpam[i]['schedule']['activity'] : '' }"
+                                                data-awal="${sortUrutanRenpam[i]['title_start']}"
+                                                data-akhir="${sortUrutanRenpam[i]['title_end']}">
+
                                             </td>
-                                            <td>${i+1}</td> 
+                                            <td>${i+1}</td>
                                             <td>${dataVIP}</td>
                                             <td><a href="<?= base_url() ?>operasi/Renpam/edit/${sortUrutanRenpam[i]['id']}" target="_blank">${sortUrutanRenpam[i]['title_start']} Ke ${sortUrutanRenpam[i]['title_end']}</a></td>
-                                            <td>${sortUrutanRenpam[i]['start_time'] != null ? sortUrutanRenpam[i]['start_time'].substr(0, 5) : '-'}</td> 
+                                            <td>${sortUrutanRenpam[i]['start_time'] != null ? sortUrutanRenpam[i]['start_time'].substr(0, 5) : '-'}</td>
                                             <td>
-                                                <a class="btn" 
+                                                <a class="btn"
                                                     data-accounts='${JSON.stringify(dataAccounts)}'
                                                     title="Petugas" data-bs-toggle="modal" data-bs-target="#myModalPetugas"
                                                     href="javascript:void(0)">
                                                     <i style="color: #495057;" class="fa fas fa-user-shield"></i>
                                                 </a>
                                             </td>
-                                            <td> 
+                                            <td>
                                                 <a class="btn" href="javascripte:void(0);"
-                                                    style="font-size: 16px;"  
-                                                    data-idnote="${sortUrutanRenpam[i]['id']}" 
+                                                    style="font-size: 16px;"
+                                                    data-idnote="${sortUrutanRenpam[i]['id']}"
                                                     data-note="${sortUrutanRenpam[i]['note_kakor']}"
                                                     data-status="${sortUrutanRenpam[i]['status_renpam']}"
                                                     data-accounts='${JSON.stringify(dataAccounts)}'
@@ -5286,8 +5286,8 @@
                                     `;
                                 }
                                 checkboxJadwal = `
-                                    <input type="checkbox" class="form-input" name="selectJadwalRenpam" 
-                                    id="listJadwalRenpamClickDisplay"   
+                                    <input type="checkbox" class="form-input" name="selectJadwalRenpam"
+                                    id="listJadwalRenpamClickDisplay"
                                     data-totaldata="${sortUrutanRenpam.length}"
                                     >
                                 `;
@@ -5303,11 +5303,11 @@
                                             <th>No</th>
                                             <th>Negara</th>
                                             <th>Lokasi</th>
-                                            <th>Berangkat</th> 
+                                            <th>Berangkat</th>
                                             <th>Petugas</th>
                                             <th>Catatan</th>
                                         </tr>
-                                    </thead> 
+                                    </thead>
                                     <tbody>
                                         ${dummyRenpam}
                                     </tbody>
@@ -5351,7 +5351,7 @@
                                                 weight: 5,
                                                 className: 'animateRoute'
                                             }];
-                                        } else if (typeRenpam == 4) { //pengaturan 
+                                        } else if (typeRenpam == 4) { //pengaturan
                                             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
                                             markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                             markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
@@ -5361,7 +5361,7 @@
                                                 weight: 5,
                                                 className: 'animateRoute'
                                             }];
-                                        } else if (typeRenpam == 5) { //penutupan 
+                                        } else if (typeRenpam == 5) { //penutupan
                                             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
                                             markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                             markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
@@ -5424,17 +5424,17 @@
                                                                 <div id="overlayMenu">
                                                                     <div class="loading">
                                                                         <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
+
                                                                     </div>
                                                                 </div>
-                                                                <div class="text-center"> 
+                                                                <div class="text-center">
                                                                     <h5>${titikAwal}</h5>
                                                                     <div style="text-align: left;">
                                                                         <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}">
                                                                         <ul>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             `).on("click", function(e) {
                                                                 $("#overlayMenu").fadeIn(300);
                                                                 var akuns = petugasRenpam[countlist][ii];
@@ -5470,17 +5470,17 @@
                                                                 <div id="overlayMenu">
                                                                     <div class="loading">
                                                                         <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
+
                                                                     </div>
                                                                 </div>
-                                                                <div class="text-center"> 
+                                                                <div class="text-center">
                                                                     <h5>${titikAkhir}</h5>
                                                                     <div style="text-align: left;">
                                                                         <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}">
                                                                         <ul>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             `).on("click", function(e) {
                                                                 $("#overlayMenu").fadeIn(300);
                                                                 var akuns = petugasRenpam[countlist][ii];
@@ -5523,7 +5523,7 @@
                                                     },
                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                 }).addTo(mapContainer);
-                                                // mapContainer.addControl(routingJadwalRenpam[`${countlist}${ii}`]);  
+                                                // mapContainer.addControl(routingJadwalRenpam[`${countlist}${ii}`]);
                                                 console.log('kebuka');
                                             } else {
                                                 mapContainer.removeControl(routingJadwalRenpam[`${countlist}${ii}`]);
@@ -5568,17 +5568,17 @@
                                                                 <div id="overlayMenu">
                                                                     <div class="loading">
                                                                         <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
+
                                                                     </div>
                                                                 </div>
-                                                                <div class="text-center"> 
+                                                                <div class="text-center">
                                                                     <h5>${titikAwal}</h5>
                                                                     <div style="text-align: left;">
                                                                         <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}">
                                                                         <ul>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             `).on("click", function(e) {
                                                                 $("#overlayMenu").fadeIn(300);
                                                                 var akuns = petugasRenpam[countlist][ii];
@@ -5614,17 +5614,17 @@
                                                                 <div id="overlayMenu">
                                                                     <div class="loading">
                                                                         <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
+
                                                                     </div>
                                                                 </div>
-                                                                <div class="text-center"> 
+                                                                <div class="text-center">
                                                                     <h5>${titikAkhir}</h5>
                                                                     <div style="text-align: left;">
                                                                         <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}">
                                                                         <ul>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             `).on("click", function(e) {
                                                                 $("#overlayMenu").fadeIn(300);
                                                                 var akuns = petugasRenpam[countlist][ii];
@@ -5667,7 +5667,7 @@
                                                     },
                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                 }).addTo(mapContainer);
-                                                // mapContainer.addControl(routingJadwalRenpam1[`${countlist}${ii}`]);  
+                                                // mapContainer.addControl(routingJadwalRenpam1[`${countlist}${ii}`]);
                                             } else {
                                                 mapContainer.removeControl(routingJadwalRenpam1[`${countlist}${ii}`]);
                                             }
@@ -5712,17 +5712,17 @@
                                                                 <div id="overlayMenu">
                                                                     <div class="loading">
                                                                         <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
+
                                                                     </div>
                                                                 </div>
-                                                                <div class="text-center"> 
+                                                                <div class="text-center">
                                                                     <h5>${titikAwal}</h5>
                                                                     <div style="text-align: left;">
                                                                         <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}">
                                                                         <ul>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             `).on("click", function(e) {
                                                                 $("#overlayMenu").fadeIn(300);
                                                                 var akuns = petugasRenpam[countlist][ii];
@@ -5758,17 +5758,17 @@
                                                                 <div id="overlayMenu">
                                                                     <div class="loading">
                                                                         <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
+
                                                                     </div>
                                                                 </div>
-                                                                <div class="text-center"> 
+                                                                <div class="text-center">
                                                                     <h5>${titikAkhir}</h5>
                                                                     <div style="text-align: left;">
                                                                         <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}">
                                                                         <ul>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             `).on("click", function(e) {
                                                                 $("#overlayMenu").fadeIn(300);
                                                                 var akuns = petugasRenpam[countlist][ii];
@@ -5811,7 +5811,7 @@
                                                     },
                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                 }).addTo(mapContainer);
-                                                // mapContainer.addControl(routingJadwalRenpam2[`${countlist}${ii}`]);  
+                                                // mapContainer.addControl(routingJadwalRenpam2[`${countlist}${ii}`]);
                                             } else {
                                                 mapContainer.removeControl(routingJadwalRenpam2[`${countlist}${ii}`]);
                                             }
@@ -5856,17 +5856,17 @@
                                                                 <div id="overlayMenu">
                                                                     <div class="loading">
                                                                         <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
+
                                                                     </div>
                                                                 </div>
-                                                                <div class="text-center"> 
+                                                                <div class="text-center">
                                                                     <h5>${titikAwal}</h5>
                                                                     <div style="text-align: left;">
                                                                         <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}">
                                                                         <ul>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             `).on("click", function(e) {
                                                                 $("#overlayMenu").fadeIn(300);
                                                                 var akuns = petugasRenpam[countlist][ii];
@@ -5902,17 +5902,17 @@
                                                                 <div id="overlayMenu">
                                                                     <div class="loading">
                                                                         <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
+
                                                                     </div>
                                                                 </div>
-                                                                <div class="text-center"> 
+                                                                <div class="text-center">
                                                                     <h5>${titikAkhir}</h5>
                                                                     <div style="text-align: left;">
                                                                         <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}">
                                                                         <ul>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             `).on("click", function(e) {
                                                                 $("#overlayMenu").fadeIn(300);
                                                                 var akuns = petugasRenpam[countlist][ii];
@@ -5955,7 +5955,7 @@
                                                     },
                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                 }).addTo(mapContainer);
-                                                // mapContainer.addControl(routingJadwalRenpam3[`${countlist}${ii}`]);  
+                                                // mapContainer.addControl(routingJadwalRenpam3[`${countlist}${ii}`]);
                                             } else {
                                                 mapContainer.removeControl(routingJadwalRenpam3[`${countlist}${ii}`]);
                                             }
@@ -6000,17 +6000,17 @@
                                                                 <div id="overlayMenu">
                                                                     <div class="loading">
                                                                         <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
+
                                                                     </div>
                                                                 </div>
-                                                                <div class="text-center"> 
+                                                                <div class="text-center">
                                                                     <h5>${titikAwal}</h5>
                                                                     <div style="text-align: left;">
                                                                         <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}">
                                                                         <ul>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             `).on("click", function(e) {
                                                                 $("#overlayMenu").fadeIn(300);
                                                                 var akuns = petugasRenpam[countlist][ii];
@@ -6046,17 +6046,17 @@
                                                                 <div id="overlayMenu">
                                                                     <div class="loading">
                                                                         <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-                                                                        
+
                                                                     </div>
                                                                 </div>
-                                                                <div class="text-center"> 
+                                                                <div class="text-center">
                                                                     <h5>${titikAkhir}</h5>
                                                                     <div style="text-align: left;">
                                                                         <span class="text-start">Padal :</span>
-                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}">
                                                                         <ul>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             `).on("click", function(e) {
                                                                 $("#overlayMenu").fadeIn(300);
                                                                 var akuns = petugasRenpam[countlist][ii];
@@ -6099,7 +6099,7 @@
                                                     },
                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                 }).addTo(mapContainer);
-                                                // mapContainer.addControl(routingJadwalRenpam4[`${countlist}${ii}`]);  
+                                                // mapContainer.addControl(routingJadwalRenpam4[`${countlist}${ii}`]);
                                             } else {
                                                 mapContainer.removeControl(routingJadwalRenpam4[`${countlist}${ii}`]);
                                             }
@@ -6114,8 +6114,8 @@
 
                             for (let i = 0; i < countlistRenpam; i++) {
                                 $(`#listRenpamDisplay${ress['id_category_schedule']}${i+1}`).on("change", function(e) {
-                                    // console.log(checkedRenpam1);  
-                                    //Find index of specific object using findIndex method.    
+                                    // console.log(checkedRenpam1);
+                                    //Find index of specific object using findIndex method.
                                     objIndex = checkedRenpam1.findIndex((obj => obj.name_renpam == $(this).data('name')));
                                     // console.log(objIndex);
 
@@ -6158,7 +6158,7 @@
                                             weight: 5,
                                             className: 'animateRoute'
                                         }];
-                                    } else if (typeRenpam == 4) { //pengaturan 
+                                    } else if (typeRenpam == 4) { //pengaturan
                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
                                         markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                         markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
@@ -6168,7 +6168,7 @@
                                             weight: 5,
                                             className: 'animateRoute'
                                         }];
-                                    } else if (typeRenpam == 5) { //penutupan 
+                                    } else if (typeRenpam == 5) { //penutupan
                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
                                         markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                         markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
@@ -6232,9 +6232,9 @@
                                                             }),
                                                             draggable: this.draggableWaypoints,
                                                         }).bindPopup(`
-                                                            <div class="text-center"> 
+                                                            <div class="text-center">
                                                                 <h5>${titikAwal}</h5>
-                                                            </div> 
+                                                            </div>
                                                         `);
                                                     } else if (i === nWps - 1) {
                                                         return L.marker(wp.latLng, {
@@ -6247,9 +6247,9 @@
                                                             }),
                                                             draggable: this.draggableWaypoints,
                                                         }).bindPopup(`
-                                                            <div class="text-center"> 
+                                                            <div class="text-center">
                                                                 <h5>${titikAkhir}</h5>
-                                                            </div> 
+                                                            </div>
                                                         `);
                                                     } else {
                                                         // here change all the others
@@ -6272,7 +6272,7 @@
                                                 },
                                                 // geocoder: L.Control.Geocoder.nominatim({})
                                             }).addTo(mapContainer);
-                                            // mapContainer.addControl(routingRenpam1[i]); 
+                                            // mapContainer.addControl(routingRenpam1[i]);
                                         } else {
                                             mapContainer.removeControl(routingRenpam1[i]);
                                         }
@@ -6313,9 +6313,9 @@
                                                             }),
                                                             draggable: this.draggableWaypoints,
                                                         }).bindPopup(`
-                                                            <div class="text-center"> 
+                                                            <div class="text-center">
                                                                 <h5>${titikAwal}</h5>
-                                                            </div> 
+                                                            </div>
                                                         `);
                                                     } else if (i === nWps - 1) {
                                                         return L.marker(wp.latLng, {
@@ -6328,9 +6328,9 @@
                                                             }),
                                                             draggable: this.draggableWaypoints,
                                                         }).bindPopup(`
-                                                            <div class="text-center"> 
+                                                            <div class="text-center">
                                                                 <h5>${titikAkhir}</h5>
-                                                            </div> 
+                                                            </div>
                                                         `);
                                                     } else {
                                                         // here change all the others
@@ -6353,7 +6353,7 @@
                                                 },
                                                 // geocoder: L.Control.Geocoder.nominatim({})
                                             }).addTo(mapContainer);
-                                            // mapContainer.addControl(routingRenpam2[i]); 
+                                            // mapContainer.addControl(routingRenpam2[i]);
                                         } else {
                                             mapContainer.removeControl(routingRenpam2[i]);
                                         }
@@ -6394,9 +6394,9 @@
                                                             }),
                                                             draggable: this.draggableWaypoints,
                                                         }).bindPopup(`
-                                                            <div class="text-center"> 
+                                                            <div class="text-center">
                                                                 <h5>${titikAwal}</h5>
-                                                            </div> 
+                                                            </div>
                                                         `);
                                                     } else if (i === nWps - 1) {
                                                         return L.marker(wp.latLng, {
@@ -6409,9 +6409,9 @@
                                                             }),
                                                             draggable: this.draggableWaypoints,
                                                         }).bindPopup(`
-                                                            <div class="text-center"> 
+                                                            <div class="text-center">
                                                                 <h5>${titikAkhir}</h5>
-                                                            </div> 
+                                                            </div>
                                                         `);
                                                     } else {
                                                         // here change all the others
@@ -6434,7 +6434,7 @@
                                                 },
                                                 // geocoder: L.Control.Geocoder.nominatim({})
                                             }).addTo(mapContainer);
-                                            // mapContainer.addControl(routingRenpam3[i]); 
+                                            // mapContainer.addControl(routingRenpam3[i]);
                                         } else {
                                             mapContainer.removeControl(routingRenpam3[i]);
                                         }
@@ -6475,9 +6475,9 @@
                                                             }),
                                                             draggable: this.draggableWaypoints,
                                                         }).bindPopup(`
-                                                            <div class="text-center"> 
+                                                            <div class="text-center">
                                                                 <h5>${titikAwal}</h5>
-                                                            </div> 
+                                                            </div>
                                                         `);
                                                     } else if (i === nWps - 1) {
                                                         return L.marker(wp.latLng, {
@@ -6490,9 +6490,9 @@
                                                             }),
                                                             draggable: this.draggableWaypoints,
                                                         }).bindPopup(`
-                                                            <div class="text-center"> 
+                                                            <div class="text-center">
                                                                 <h5>${titikAkhir}</h5>
-                                                            </div> 
+                                                            </div>
                                                         `);
                                                     } else {
                                                         // here change all the others
@@ -6515,7 +6515,7 @@
                                                 },
                                                 // geocoder: L.Control.Geocoder.nominatim({})
                                             }).addTo(mapContainer);
-                                            // mapContainer.addControl(routingRenpam4[i]); 
+                                            // mapContainer.addControl(routingRenpam4[i]);
                                         } else {
                                             mapContainer.removeControl(routingRenpam4[i]);
                                         }
@@ -6552,9 +6552,9 @@
                                                             }),
                                                             draggable: this.draggableWaypoints,
                                                         }).bindPopup(`
-                                                            <div class="text-center"> 
+                                                            <div class="text-center">
                                                                 <h5>${titikAwal}</h5>
-                                                            </div> 
+                                                            </div>
                                                         `);
                                                     } else if (i === nWps - 1) {
                                                         return L.marker(wp.latLng, {
@@ -6567,9 +6567,9 @@
                                                             }),
                                                             draggable: this.draggableWaypoints,
                                                         }).bindPopup(`
-                                                            <div class="text-center"> 
+                                                            <div class="text-center">
                                                                 <h5>${titikAkhir}</h5>
-                                                            </div> 
+                                                            </div>
                                                         `);
                                                     } else {
                                                         // here change all the others
@@ -6592,7 +6592,7 @@
                                                 },
                                                 // geocoder: L.Control.Geocoder.nominatim({})
                                             }).addTo(mapContainer);
-                                            // mapContainer.addControl(routingRenpam[i]); 
+                                            // mapContainer.addControl(routingRenpam[i]);
                                         } else {
                                             mapContainer.removeControl(routingRenpam[i]);
                                         }
@@ -6602,7 +6602,7 @@
                                 });
                             }
 
-                            // $("#listJadwalRenpamClickDisplay").prop('checked', true);  
+                            // $("#listJadwalRenpamClickDisplay").prop('checked', true);
 
                             $(`#datatableByCateg${ress['id_category_schedule']}${countlist}`).DataTable({
                                 responsive: true,
@@ -6662,7 +6662,7 @@
             });
 
         }
-        
+
 
 
 
@@ -6860,7 +6860,7 @@
             }
         });
 
- 
+
 
 
 
@@ -6903,7 +6903,7 @@
             // $("#cctvDisplay").on("change", function(e) {
             //     if ($(this).is(':checked')) {
 
-            //     }else{ 
+            //     }else{
             for (let i = 0; i < markerCCTV.length; i++) {
                 // mapContainer.removeLayer(markerCCTV[i]);
                 if (markerCCTV[i]) {
@@ -6918,7 +6918,7 @@
             // $("#samsatDisplay").on("change", function(e) {
             //     if ($(this).is(':checked')) {
 
-            //     }else{ 
+            //     }else{
             for (let i = 0; i < markerSamsat.length; i++) {
                 // mapContainer.removeLayer(markerSamsat[i]);
                 if (markerSamsat[i]) {
@@ -6933,7 +6933,7 @@
             // $("#samsatDisplay").on("change", function(e) {
             //     if ($(this).is(':checked')) {
 
-            //     }else{  
+            //     }else{
             for (let i = 0; i < markerTroubleSpot.length; i++) {
                 // mapContainer.removeLayer(markerTroubleSpot[i]);
                 if (markerTroubleSpot[i]) {
@@ -6948,7 +6948,7 @@
             // $("#blank_spotDisplay").on("change", function(e) {
             //     if ($(this).is(':checked')) {
 
-            //     }else{ 
+            //     }else{
             for (let i = 0; i < markerBlankSpot.length; i++) {
                 // mapContainer.removeLayer(markerBlankSpot[i]);
                 if (markerBlankSpot[i]) {
@@ -6957,7 +6957,7 @@
             }
             markerBlankSpot = new Array();
             //     }
-            // });  
+            // });
 
 
             // $("#restAreaDisplay").on("change", function(e) {
@@ -6972,7 +6972,7 @@
             }
             markerRestArea = new Array();
             //     }
-            // }); 
+            // });
 
             for (let i = 0; i < markerPosPam.length; i++) {
                 // mapContainer.removeLayer(markerPosPam[i]);
@@ -6980,7 +6980,7 @@
                     posPamClusterGroup.removeLayer(markerPosPam[i]);
                 }
             }
-            markerPosPam = new Array(); 
+            markerPosPam = new Array();
 
             for (let i = 0; i < markerPosYan.length; i++) {
                 // mapContainer.removeLayer(markerPosYan[i]);
@@ -7135,7 +7135,7 @@
 
 
 
-            // console.log(`${centerLat},${centerLng}`);  
+            // console.log(`${centerLat},${centerLng}`);
 
             var idPolda = polda_id;
 
@@ -7149,7 +7149,7 @@
                     "type": arrayFilterFasumKategori.toString(),
                     "startdate": $("#startdate").val(),
                     "enddate": $("#enddate").val(),
-                    "polda_id": polda_id ? polda_id : null, 
+                    "polda_id": polda_id ? polda_id : null,
                 },
                 dataType: "JSON",
                 success: function(result) {
@@ -7210,14 +7210,14 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Type</th> 
-                                                <th>Nama</th> 
+                                                <th>Type</th>
+                                                <th>Nama</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody id="isiModalPolresDisplay">
                                         </tbody>
-                                    </table>                     
+                                    </table>
                                 `);
                                 var countPolresDisplay = 0;
                                 var listPolresDisplay = '';
@@ -7236,7 +7236,7 @@
                                             // iconAnchor: [10, 33]
                                         })
                                     }).bindPopup(`
-                                                <div class="text-center" style="width: 300px;"> 
+                                                <div class="text-center" style="width: 300px;">
                                                     <div class="row mt-3">
                                                         <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                                             <div class="avatar-xl me-3">
@@ -7244,12 +7244,12 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 mt-3">
-                                                            <h5>${filterpolres[i].name_polres}</h5> 
+                                                            <h5>${filterpolres[i].name_polres}</h5>
                                                         </div>
                                                         <div class="col-md-12 mt-3">
                                                             <div class="row text-start">
                                                                 <div class="col-md-5 col-6">
-                                                                    <span style="font-size: 12px;font-weight: bold;">Alamat</span>  
+                                                                    <span style="font-size: 12px;font-weight: bold;">Alamat</span>
                                                                 </div>
                                                                 <div class="col-md-1">
                                                                     <span style="font-size: 12px;"> : </span>
@@ -7257,12 +7257,12 @@
                                                                 <div class="col-md-6 col-6">
                                                                     <span style="font-size: 12px;">${filterpolres[i].address}</span>
                                                                 </div>
-                                                            </div> 
-                                                        </div> 
+                                                            </div>
+                                                        </div>
                                                         <div class="col-md-12">
                                                             <div class="row text-start">
                                                                 <div class="col-md-5 col-6">
-                                                                    <span style="font-size: 12px;font-weight: bold;">Kode</span>  
+                                                                    <span style="font-size: 12px;font-weight: bold;">Kode</span>
                                                                 </div>
                                                                 <div class="col-md-1">
                                                                     <span style="font-size: 12px;"> : </span>
@@ -7270,12 +7270,12 @@
                                                                 <div class="col-md-6 col-6">
                                                                     <span style="font-size: 12px;">${filterpolres[i].code_satpas}</span>
                                                                 </div>
-                                                            </div> 
-                                                        </div>  
+                                                            </div>
+                                                        </div>
                                                         <div class="col-md-12" >
                                                             <div class="row text-start">
                                                                 <div class="col-md-5 col-6">
-                                                                    <span style="font-size: 12px;font-weight: bold;">No Telpon</span>  
+                                                                    <span style="font-size: 12px;font-weight: bold;">No Telpon</span>
                                                                 </div>
                                                                 <div class="col-md-1">
                                                                     <span style="font-size: 12px;"> : </span>
@@ -7283,12 +7283,12 @@
                                                                 <div class="col-md-6 col-6">
                                                                     <span style="font-size: 12px;">${filterpolres[i].phone_polres != null ? filterpolres[i].phone_polres : '-'}</span>
                                                                 </div>
-                                                            </div> 
-                                                        </div>  
+                                                            </div>
+                                                        </div>
                                                         <div class="col-md-12">
                                                             <div class="row text-start">
                                                                 <div class="col-md-5 col-6">
-                                                                    <span style="font-size: 12px;font-weight: bold;">Waktu</span>  
+                                                                    <span style="font-size: 12px;font-weight: bold;">Waktu</span>
                                                                 </div>
                                                                 <div class="col-md-1">
                                                                     <span style="font-size: 12px;"> : </span>
@@ -7296,10 +7296,10 @@
                                                                 <div class="col-md-6 col-6">
                                                                     <span style="font-size: 12px;">${filterpolres[i].open_time != null ? filterpolres[i].open_time : '00:00'} - ${filterpolres[i].close_time != null ? filterpolres[i].close_time : '00:00'} WITA</span>
                                                                 </div>
-                                                            </div> 
-                                                        </div>   
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div> 
+                                                </div>
                                         `, {
                                         minWidth: 100,
                                         maxWidth: 560,
@@ -7310,15 +7310,15 @@
                                     listPolresDisplay += `
                                         <tr>
                                             <td>${countPolresDisplay}</td>
-                                            <td>${filterpolres[i].name_polres}</td> 
-                                            <td>${filterpolres[i].address}</td> 
+                                            <td>${filterpolres[i].name_polres}</td>
+                                            <td>${filterpolres[i].address}</td>
                                             <td>
-                                                <a class="btn" style="margin-top: -10px;"  
+                                                <a class="btn" style="margin-top: -10px;"
                                                     id="flyToMapFilterPolres${countPolresDisplay}"
-                                                    data-cord="${filterpolres[i].latitude},${filterpolres[i].longitude}" 
+                                                    data-cord="${filterpolres[i].latitude},${filterpolres[i].longitude}"
                                                     href="javascript:void(0)">
                                                     <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </a> 
+                                                </a>
                                             </td>
                                         </tr>
                                     `;
@@ -7364,14 +7364,14 @@
                             //             <thead>
                             //                 <tr>
                             //                     <th>No</th>
-                            //                     <th>Type</th> 
-                            //                     <th>Nama</th> 
+                            //                     <th>Type</th>
+                            //                     <th>Nama</th>
                             //                     <th>Aksi</th>
                             //                 </tr>
                             //             </thead>
                             //             <tbody id="isiModalCctvDisplay">
                             //             </tbody>
-                            //         </table>                     
+                            //         </table>
                             //     `);
                             //     var countCctvDisplay = 0;
                             //     var listCctvDisplay = '';
@@ -7383,15 +7383,15 @@
                             //             listCctvDisplay += `
                             //                 <tr>
                             //                     <td>${countCctvDisplay}</td>
-                            //                     <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].type_cctv}</a></td> 
-                            //                     <td>${filterCctv[i].vms_cctv}</td> 
+                            //                     <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].type_cctv}</a></td>
+                            //                     <td>${filterCctv[i].vms_cctv}</td>
                             //                     <td>
-                            //                         <a class="btn" style="margin-top: -10px;"  
+                            //                         <a class="btn" style="margin-top: -10px;"
                             //                             id="flyToMapFilterCctv${countCctvDisplay}"
-                            //                             data-cord="${filterCctv[i].lat_cctv},${filterCctv[i].lng_cctv}" 
+                            //                             data-cord="${filterCctv[i].lat_cctv},${filterCctv[i].lng_cctv}"
                             //                             href="javascript:void(0)">
                             //                             <i style="color: #495057;" class="fa fas fa-eye"></i>
-                            //                         </a> 
+                            //                         </a>
                             //                     </td>
                             //                 </tr>
                             //             `;
@@ -7424,7 +7424,7 @@
                             //                 <div>
                             //                     <div style="position: relative;">
                             //                         <img src="<?php echo base_url(); ?>assets/icon/cctv.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                            //                     </div> 
+                            //                     </div>
                             //                     <div style="position: absolute;margin-top: -29px;">
                             //                         <span class="badge rounded-pill bg-primary" >${filterCctv[i].address_cctv}</span>
                             //                     </div>
@@ -7440,12 +7440,12 @@
                             //                         <div class="col-md-12" style="text-align: center;">
                             //                             <h5>${filterCctv[i].address_cctv}</h5>
                             //                         </div>
-                            //                         <div class="col-md-12"> 
+                            //                         <div class="col-md-12">
                             //                             ${resource}
-                            //                         </div> 
+                            //                         </div>
                             //                     </div>
                             //                 </div>
-                                                
+
                             //                 `, {
                             //                 minWidth: 100,
                             //                 maxWidth: 560,
@@ -7484,14 +7484,14 @@
                             //     }, countCctvDisplay * 500);
                             // }
 
-                            var geoJsonCctvUrl = `<?php echo base_url(); ?>assets/admin/shp/cctv/cctvJID.json`; 
+                            var geoJsonCctvUrl = `<?php echo base_url(); ?>assets/admin/shp/cctv/cctvJID.json`;
 
                             $.ajax({
                                 type: "GET",
                                 url: geoJsonCctvUrl,
                                 // data: {
                                 //     "type": 'point',
-                                //     "map": 'cctv', 
+                                //     "map": 'cctv',
                                 // },
                                 dataType: "JSON",
                                 success: function(result) {
@@ -7499,13 +7499,13 @@
                                     var filterCctv = result.features;
 
 
-                                    
 
-                                    
-                                    
+
+
+
                                     var options2 = {
                                         style: function(feature){
-                                            if(feature.style) return feature.style; 
+                                            if(feature.style) return feature.style;
                                             else return noStyle;
                                         },
                                         pointToLayer: function(feature,latlng){
@@ -7540,7 +7540,7 @@
                                                         <div>
                                                             <div style="position: relative;">
                                                                 <img src="<?php echo base_url(); ?>assets/icon/cctv.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                                            </div> 
+                                                            </div>
                                                             <div style="position: absolute;margin-top: -29px;">
                                                                 <span class="badge rounded-pill bg-primary" >${icon.label}</span>
                                                             </div>
@@ -7553,13 +7553,13 @@
                                                     });
                                         },
                                         onEachFeature: function (feature, layer) {
-                                            
+
                                             var icon = feature.icon;
                                             var properties = feature.properties;
 
                                             var resource = '';
                                             var uri = `https://jid.jasamarga.com/cctv2/${properties['key id']}?tx=`;
-                                            
+
                                             resource = `<div>
                                             <img class="cctv-${feature.id}" style="width: 300px;" src="${uri}" />
                                             </div>`;
@@ -7568,17 +7568,17 @@
                                                 // console.log("is refresh")
                                                 $(`.cctv-${feature.id}`).attr("src", uri + d.getTime());
                                             }, 1000);
-                                        
 
-                                            layer.bindPopup(` 
+
+                                            layer.bindPopup(`
                                                 <div style="width: 300px;">
                                                     <div class="row">
                                                         <div class="col-md-12" style="text-align: center;">
                                                             <h5>${icon.label}</h5>
                                                         </div>
-                                                        <div class="col-md-12"> 
+                                                        <div class="col-md-12">
                                                             ${resource}
-                                                        </div> 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             `);
@@ -7593,14 +7593,14 @@
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
-                                                    <th>Nama</th> 
-                                                    <th>Type</th> 
+                                                    <th>Nama</th>
+                                                    <th>Type</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="isiModalCctvDisplay">
                                             </tbody>
-                                        </table>                     
+                                        </table>
                                     `);
                                     var countCctvDisplay = 0;
                                     var listCctvDisplay = '';
@@ -7613,26 +7613,26 @@
                                             listCctvDisplay += `
                                                 <tr>
                                                     <td>${countCctvDisplay}</td>
-                                                    <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].properties.nama}</a></td> 
-                                                    <td>${filterCctv[i].properties.merk}</td> 
+                                                    <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].properties.nama}</a></td>
+                                                    <td>${filterCctv[i].properties.merk}</td>
                                                     <td>
-                                                        <a class="btn" style="margin-top: -10px;"  
+                                                        <a class="btn" style="margin-top: -10px;"
                                                             id="flyToMapFilterCctv${countCctvDisplay}"
-                                                            data-cord="${JSON.stringify(filterCctv[i].geometry.coordinates)}" 
+                                                            data-cord="${JSON.stringify(filterCctv[i].geometry.coordinates)}"
                                                             href="javascript:void(0)">
                                                             <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                        </a> 
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             `;
-                                            
-                                            $('#isiModalCctvDisplay').html(listCctvDisplay); 
-                                            
+
+                                            $('#isiModalCctvDisplay').html(listCctvDisplay);
+
                                         }, i * 500);
                                     }
-                                    
 
-                                    
+
+
                                     setTimeout(() => {
                                         for (let i = 0; i < countCctvDisplay; i++) {
                                             $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
@@ -7640,9 +7640,9 @@
                                                 var latitude = parseFloat(latlong[0]);
                                                 var longitude = parseFloat(latlong[1]);
                                                 mapContainer.flyTo([latitude, longitude], 20);
-                                            }); 
-                                            
-                                            
+                                            });
+
+
                                         }
                                         $('#datatableCctvOnDisplay').DataTable({
                                             responsive: true,
@@ -7660,7 +7660,7 @@
                                             },
                                         });
                                     }, countCctvDisplay * 500);
-                                    
+
 
                                 }
                             });
@@ -7678,15 +7678,15 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama</th> 
-                                                <th>Alamat</th> 
-                                                <th>Waktu</th> 
+                                                <th>Nama</th>
+                                                <th>Alamat</th>
+                                                <th>Waktu</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody id="isiModalSamsatDisplay${polda_id}">
                                         </tbody>
-                                    </table>                     
+                                    </table>
                                 `);
                                 var countSamsatDisplay = 0;
                                 var listSamsatDisplay = '';
@@ -7697,16 +7697,16 @@
                                     listSamsatDisplay += `
                                     <tr>
                                         <td>${countSamsatDisplay}</td>
-                                        <td>${filterSamsat[i].name_samsat}</td> 
-                                        <td>${filterSamsat[i].address}</td> 
-                                        <td>${filterSamsat[i].samsat_open_time} - ${filterSamsat[i].samsat_close_time}</td> 
+                                        <td>${filterSamsat[i].name_samsat}</td>
+                                        <td>${filterSamsat[i].address}</td>
+                                        <td>${filterSamsat[i].samsat_open_time} - ${filterSamsat[i].samsat_close_time}</td>
                                         <td>
-                                            <a class="btn" style="margin-top: -10px;"  
+                                            <a class="btn" style="margin-top: -10px;"
                                                 id="flyToMapFilterSamsat${countSamsatDisplay}"
-                                                data-cord="${filterSamsat[i].samsat_lat},${filterSamsat[i].samsat_lng}" 
+                                                data-cord="${filterSamsat[i].samsat_lat},${filterSamsat[i].samsat_lng}"
                                                 href="javascript:void(0)">
                                                 <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
+                                            </a>
                                         </td>
                                     </tr>
                                 `;
@@ -7726,7 +7726,7 @@
                                             <div>
                                                 <div style="position: relative;">
                                                     <img src="<?php echo base_url(); ?>assets/icon/lainnya.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                                </div> 
+                                                </div>
                                                 <div style="position: absolute;margin-top: -29px;">
                                                     <span class="badge rounded-pill bg-primary" >${filterSamsat[i].name_samsat}</span>
                                                 </div>
@@ -7742,12 +7742,12 @@
                                             <div class="col-md-12" style="text-align: center;">
                                                 <h5>${filterSamsat[i].name_samsat}</h5>
                                             </div>
-                                            <div class="col-md-12"> 
-                                                    
-                                            </div> 
+                                            <div class="col-md-12">
+
+                                            </div>
                                         </div>
                                     </div>
-                                        
+
                                     `, {
                                         minWidth: 100,
                                         maxWidth: 560,
@@ -7800,14 +7800,14 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama</th> 
-                                                <th>Keterangan</th>  
+                                                <th>Nama</th>
+                                                <th>Keterangan</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody id="isiModalJalurDisplay">
                                         </tbody>
-                                    </table>                     
+                                    </table>
                                 `);
 
                                 var countJalurDisplay = 0;
@@ -7824,15 +7824,15 @@
                                     listJalurDisplay += `
                                         <tr>
                                             <td>${countJalurDisplay}</td>
-                                            <td>${filterJalur[i].fasum_name}</td> 
-                                            <td>${filterJalur[i].fasum_description}</td>  
+                                            <td>${filterJalur[i].fasum_name}</td>
+                                            <td>${filterJalur[i].fasum_description}</td>
                                             <td>
-                                                <input type="checkbox" class="form-input checkTs" name="selectTs" 
-                                                id="listJlDisplay${countlistJalur}"  
-                                                data-name="${filterJalur[i]['fasum_name']}" 
-                                                data-warna="${filterJalur[i]['fasum_color']}" 
+                                                <input type="checkbox" class="form-input checkTs" name="selectTs"
+                                                id="listJlDisplay${countlistJalur}"
+                                                data-name="${filterJalur[i]['fasum_name']}"
+                                                data-warna="${filterJalur[i]['fasum_color']}"
                                                 data-geojson='${JSON.stringify(filterJalur[i]['fasum_geoJson'])}'
-                                                data-cord='${JSON.stringify(filterJalur[i]['route'])}'> 
+                                                data-cord='${JSON.stringify(filterJalur[i]['route'])}'>
                                             </td>
                                         </tr>
                                     `;
@@ -7849,9 +7849,9 @@
 
                                     listIsiLegenJalur += `
                                         <div class="col-md-6">
-                                            <b style="font-size: 14px; text-transform: capitalize;">${filterJalur[i].fasum_name}</b> 
-                                        </div> 
-                                        <div class="col-md-6"> 
+                                            <b style="font-size: 14px; text-transform: capitalize;">${filterJalur[i].fasum_name}</b>
+                                        </div>
+                                        <div class="col-md-6">
                                             <div style="height: 10px;background-color: ${filterJalur[i].fasum_color}; margin-top: 8px;" ></div>
                                         </div>
                                     `;
@@ -7900,7 +7900,7 @@
                                                     },
                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                 }).addTo(mapContainer);
-                                                // mapContainer.addControl(routingJalur[i]); 
+                                                // mapContainer.addControl(routingJalur[i]);
                                             } else {
                                                 mapContainer.removeControl(routingJalur[i]);
                                             }
@@ -7945,27 +7945,27 @@
                         if (ressTroubleSpot && ressTroubleSpot.length > 0) {
 
 
-                            
-                        
+
+
                             var filterTroubleSpot = ressTroubleSpot;
 
                             if (filterTroubleSpot.length > 0) {
-                                
+
 
                                 $(`#isiPoldaTroubleSpot${polda_id}`).html(`
                                     <table id="datatableTroubleSpotOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama</th> 
-                                                <th>Alamat</th> 
-                                                <th>Waktu</th> 
+                                                <th>Nama</th>
+                                                <th>Alamat</th>
+                                                <th>Waktu</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody id="isiModalTroubleSpotDisplay${polda_id}">
                                         </tbody>
-                                    </table>                     
+                                    </table>
                                 `);
 
                                 var countTroubleSpotDisplay = 0;
@@ -7980,23 +7980,23 @@
                                     id = i;
 
                                     if (filterTroubleSpot[i].route == null) {
-                                        
+
                                         var latitudeTroubleSpot = parseFloat(filterTroubleSpot[i].latitude);
                                         var longitudeTroubleSpot = parseFloat(filterTroubleSpot[i].longitude);
                                         if(latitudeTroubleSpot && longitudeTroubleSpot){
                                             listTroubleSpotDisplay += `
                                                 <tr>
                                                     <td>${countTroubleSpotDisplay}</td>
-                                                    <td>${filterTroubleSpot[i].reporter_name}</td> 
-                                                    <td>${filterTroubleSpot[i].location}</td> 
-                                                    <td>${filterTroubleSpot[i].desc}</td> 
+                                                    <td>${filterTroubleSpot[i].reporter_name}</td>
+                                                    <td>${filterTroubleSpot[i].location}</td>
+                                                    <td>${filterTroubleSpot[i].desc}</td>
                                                     <td>
-                                                        <a class="btn" style="margin-top: -10px;"  
+                                                        <a class="btn" style="margin-top: -10px;"
                                                             id="flyToMapFilterTroubleSpot${countTroubleSpotDisplay}"
-                                                            data-cord="${filterTroubleSpot[i].latitude},${filterTroubleSpot[i].longitude}" 
+                                                            data-cord="${filterTroubleSpot[i].latitude},${filterTroubleSpot[i].longitude}"
                                                             href="javascript:void(0)">
                                                             <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                        </a> 
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             `;
@@ -8009,7 +8009,7 @@
                                                     <div>
                                                         <div style="position: relative;">
                                                             <img src="<?php echo base_url(); ?>assets/icon/troublespot.png" style="width: 35px; margin-top: -40px;margin-left: -15.5px;">
-                                                        </div>  
+                                                        </div>
                                                     </div>
                                                     `,
                                                     iconSize: [5, 5],
@@ -8020,26 +8020,26 @@
                                                 <div style="width: 300px;">
                                                     <div class="row">
                                                         <div class="col-md-12 col-12 mt-3 text-center">
-                                                            <h5>${filterTroubleSpot[i].reporter_name}</h5>  
+                                                            <h5>${filterTroubleSpot[i].reporter_name}</h5>
                                                         </div>
                                                         <div class="col-md-12 col-12 text-start">
-                                                            <p style="font-size: 12px;font-weight: bold;">Polda</p>  
+                                                            <p style="font-size: 12px;font-weight: bold;">Polda</p>
                                                             <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polda ? filterTroubleSpot[i].polda.name_polda : '-'}</p>
-                                                        </div> 
+                                                        </div>
                                                         <div class="col-md-12 col-12 text-start">
-                                                            <p style="font-size: 12px;font-weight: bold;">Polres</p>  
+                                                            <p style="font-size: 12px;font-weight: bold;">Polres</p>
                                                             <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].polre ? filterTroubleSpot[i].polre.name_polres : '-'}</p>
-                                                        </div> 
+                                                        </div>
                                                         <div class="col-md-12 col-12 text-start">
-                                                            <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>  
+                                                            <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>
                                                             <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].problem ? filterTroubleSpot[i].problem.replace(/\n/g, "<br />") : '-'}</p>
-                                                        </div> 
+                                                        </div>
                                                         <div class="col-md-12 col-12 text-start">
-                                                            <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>  
+                                                            <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>
                                                             <p style="font-size: 12px; margin-top: -15px;">${filterTroubleSpot[i].location ? filterTroubleSpot[i].location : '-'}</p>
-                                                        </div> 
+                                                        </div>
                                                     </div>
-                                                </div> 
+                                                </div>
                                             `, {
                                                 minWidth: 100,
                                                 maxWidth: 560,
@@ -8050,14 +8050,14 @@
                                         listTroubleSpotDisplay += `
                                             <tr>
                                                 <td>${countTroubleSpotDisplay}</td>
-                                                <td>${filterTroubleSpot[i].reporter_name}</td> 
-                                                <td>${filterTroubleSpot[i].location}</td> 
-                                                <td>${filterTroubleSpot[i].desc}</td> 
+                                                <td>${filterTroubleSpot[i].reporter_name}</td>
+                                                <td>${filterTroubleSpot[i].location}</td>
+                                                <td>${filterTroubleSpot[i].desc}</td>
                                                 <td>
-                                                    <input type="checkbox" class="form-input checkTs" name="selectTs" 
-                                                    id="listTsDisplay${polda_id}${countlistTroubleSpot}"  
-                                                    data-name="${filterTroubleSpot[i]['reporter_name']}" 
-                                                    data-cord='${JSON.stringify(filterTroubleSpot[i]['route'])}'> 
+                                                    <input type="checkbox" class="form-input checkTs" name="selectTs"
+                                                    id="listTsDisplay${polda_id}${countlistTroubleSpot}"
+                                                    data-name="${filterTroubleSpot[i]['reporter_name']}"
+                                                    data-cord='${JSON.stringify(filterTroubleSpot[i]['route'])}'>
                                                 </td>
                                             </tr>
                                         `;
@@ -8112,7 +8112,7 @@
                                                     },
                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                 }).addTo(mapContainer);
-                                                // mapContainer.addControl(routingTroubleSpot[i]); 
+                                                // mapContainer.addControl(routingTroubleSpot[i]);
                                             } else {
                                                 mapContainer.removeControl(routingTroubleSpot[i]);
                                             }
@@ -8158,17 +8158,17 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama</th> 
-                                                <th>Alamat</th> 
-                                                <th>Waktu</th> 
+                                                <th>Nama</th>
+                                                <th>Alamat</th>
+                                                <th>Waktu</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody id="isiModalBlankSpotDisplay${polda_id}">
                                         </tbody>
-                                    </table>                     
+                                    </table>
                                 `);
-                                
+
 
                                 var countBlankSpotDisplay = 0;
                                 var listBlankSpotDisplay = '';
@@ -8182,7 +8182,7 @@
                                     id = i;
 
                                     if (filterBlankSpot[i].route == null) {
-                                        
+
 
                                         var latitudeBlankSpot = parseFloat(filterBlankSpot[i].latitude);
                                         var longitudeBlankSpot = parseFloat(filterBlankSpot[i].longitude);
@@ -8190,16 +8190,16 @@
                                             listBlankSpotDisplay += `
                                                 <tr>
                                                     <td>${countBlankSpotDisplay}</td>
-                                                    <td>${filterBlankSpot[i].reporter_name}</td> 
-                                                    <td>${filterBlankSpot[i].location}</td> 
-                                                    <td>${filterBlankSpot[i].desc}</td> 
+                                                    <td>${filterBlankSpot[i].reporter_name}</td>
+                                                    <td>${filterBlankSpot[i].location}</td>
+                                                    <td>${filterBlankSpot[i].desc}</td>
                                                     <td>
-                                                        <a class="btn" style="margin-top: -10px;"  
+                                                        <a class="btn" style="margin-top: -10px;"
                                                             id="flyToMapFilterBlankSpot${countBlankSpotDisplay}"
-                                                            data-cord="${filterBlankSpot[i].latitude},${filterBlankSpot[i].longitude}" 
+                                                            data-cord="${filterBlankSpot[i].latitude},${filterBlankSpot[i].longitude}"
                                                             href="javascript:void(0)">
                                                             <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                        </a> 
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             `;
@@ -8211,7 +8211,7 @@
                                                     <div>
                                                         <div style="position: relative;">
                                                             <img src="<?php echo base_url(); ?>assets/icon/blackspot.png" style="width: 35px; margin-top: -40px;margin-left: -15.5px;">
-                                                        </div>  
+                                                        </div>
                                                     </div>
                                                     `,
                                                     iconSize: [5, 5],
@@ -8222,27 +8222,27 @@
                                                 <div style="width: 300px;">
                                                     <div class="row">
                                                         <div class="col-md-12 col-12 mt-3 text-center">
-                                                            <h5>${filterBlankSpot[i].reporter_name}</h5>  
+                                                            <h5>${filterBlankSpot[i].reporter_name}</h5>
                                                         </div>
-                                                        
+
                                                         <div class="col-md-12 col-12 text-start">
-                                                            <p style="font-size: 12px;font-weight: bold;">Polda</p>  
+                                                            <p style="font-size: 12px;font-weight: bold;">Polda</p>
                                                             <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].polda ? filterBlankSpot[i].polda.name_polda : '-'}</p>
-                                                        </div> 
+                                                        </div>
                                                         <div class="col-md-12 col-12 text-start">
-                                                            <p style="font-size: 12px;font-weight: bold;">Polres</p>  
+                                                            <p style="font-size: 12px;font-weight: bold;">Polres</p>
                                                             <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].polre ? filterBlankSpot[i].polre.name_polres : '-'}</p>
-                                                        </div> 
+                                                        </div>
                                                         <div class="col-md-12 col-12 text-start">
-                                                            <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>  
+                                                            <p style="font-size: 12px;font-weight: bold;">Penyebab Kemacetan</p>
                                                             <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].problem ? filterBlankSpot[i].problem.replace(/\n/g, "<br />") : '-'}</p>
-                                                        </div> 
+                                                        </div>
                                                         <div class="col-md-12 col-12 text-start">
-                                                            <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>  
+                                                            <p style="font-size: 12px;font-weight: bold;">Lokasi Kejadian</p>
                                                             <p style="font-size: 12px; margin-top: -15px;">${filterBlankSpot[i].location ? filterBlankSpot[i].location : '-'}</p>
-                                                        </div> 
+                                                        </div>
                                                     </div>
-                                                </div> 
+                                                </div>
                                             `, {
                                                 minWidth: 100,
                                                 maxWidth: 560,
@@ -8253,14 +8253,14 @@
                                         listBlankSpotDisplay += `
                                             <tr>
                                                 <td>${countBlankSpotDisplay}</td>
-                                                <td>${filterBlankSpot[i].reporter_name}</td> 
-                                                <td>${filterBlankSpot[i].location}</td> 
-                                                <td>${filterBlankSpot[i].desc}</td> 
+                                                <td>${filterBlankSpot[i].reporter_name}</td>
+                                                <td>${filterBlankSpot[i].location}</td>
+                                                <td>${filterBlankSpot[i].desc}</td>
                                                 <td>
-                                                    <input type="checkbox" class="form-input checkTs" name="selectTs" 
-                                                    id="listBsDisplay${countlistBlankSpot}"  
-                                                    data-name="${filterBlankSpot[i]['reporter_name']}" 
-                                                    data-cord='${JSON.stringify(filterBlankSpot[i]['route'])}'> 
+                                                    <input type="checkbox" class="form-input checkTs" name="selectTs"
+                                                    id="listBsDisplay${countlistBlankSpot}"
+                                                    data-name="${filterBlankSpot[i]['reporter_name']}"
+                                                    data-cord='${JSON.stringify(filterBlankSpot[i]['route'])}'>
                                                 </td>
                                             </tr>
                                         `;
@@ -8315,7 +8315,7 @@
                                                     },
                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                 }).addTo(mapContainer);
-                                                // mapContainer.addControl(routingBlankSpot[i]); 
+                                                // mapContainer.addControl(routingBlankSpot[i]);
                                             } else {
                                                 mapContainer.removeControl(routingBlankSpot[i]);
                                             }
@@ -8357,14 +8357,14 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Alamat</th> 
+                                            <th>Nama</th>
+                                            <th>Alamat</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="isiModalRestAreaDisplay">
                                     </tbody>
-                                </table>                     
+                                </table>
                             `);
                             var countRestAreaDisplay = 0;
                             var listRestAreaDisplay = '';
@@ -8377,15 +8377,15 @@
                                 listRestAreaDisplay += `
                                     <tr>
                                         <td>${countRestAreaDisplay}</td>
-                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressRestArea[i].fasum_name}</a></td> 
-                                        <td>${ressRestArea[i].fasum_address}</td> 
+                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressRestArea[i].fasum_name}</a></td>
+                                        <td>${ressRestArea[i].fasum_address}</td>
                                         <td>
-                                            <a class="btn" style="margin-top: -10px;"  
+                                            <a class="btn" style="margin-top: -10px;"
                                                 id="flyToMapFilterRestArea${countRestAreaDisplay}"
-                                                data-cord="${ressRestArea[i].fasum_lat},${ressRestArea[i].fasum_lng}" 
+                                                data-cord="${ressRestArea[i].fasum_lat},${ressRestArea[i].fasum_lng}"
                                                 href="javascript:void(0)">
                                                 <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
+                                            </a>
                                         </td>
                                     </tr>
                                 `;
@@ -8401,7 +8401,7 @@
                                         <div>
                                             <div style="position: relative;">
                                                 <img src="<?php echo base_url(); ?>assets/icon/rest_area.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                            </div> 
+                                            </div>
                                             <div style="position: absolute;margin-top: -29px;">
                                                 <span class="badge rounded-pill bg-primary" >${ressRestArea[i].fasum_name}</span>
                                             </div>
@@ -8412,51 +8412,51 @@
                                         // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;">
                                                 <div class="row mt-3">
                                                     <div class="col-md-12 col-12" style="margin-bottom: 10px;">
-                                                        <img src="${ressRestArea[i].fasum_logo}" alt="" class="float-center" style="width: 100%;"> 
+                                                        <img src="${ressRestArea[i].fasum_logo}" alt="" class="float-center" style="width: 100%;">
                                                     </div>
                                                     <div class="col-md-12 col-12 mt-3">
-                                                        <h5>${ressRestArea[i].fasum_name}</h5> 
+                                                        <h5>${ressRestArea[i].fasum_name}</h5>
                                                         <span>- ${ressRestArea[i].category_fasum.name_category_fasum} -</span>
                                                     </div>
-                                                    
+
 
                                                     <div class="col-md-12 col-12 mt-2">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12">
-                                                                <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">Keterangan</p>
                                                                 ${ressRestArea[i].fasum_description != null ? ressRestArea[i].fasum_description.replace(/\n/g, "<br />") : "-"}
-                                                            </div> 
-                                                        </div> 
-                                                    </div>  
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-md-12 col-12 mt-2">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12">
-                                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>
                                                                 <p style="font-size: 12px; margin-top: -15px;">${ressRestArea[i].fasum_address}</p>
-                                                            </div> 
-                                                        </div> 
-                                                    </div>  
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-md-12 col-12"  style="margin-top: -30px;">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12">
-                                                                <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">No Telpon</p>
                                                                 <p style="font-size: 12px; margin-top: -15px;">${ressRestArea[i].fasum_phone}</p>
-                                                            </div> 
-                                                        </div> 
-                                                    </div>  
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-md-12 col-12" style="margin-top: -30px;">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12">
-                                                                <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">Waktu</p>
                                                                 <p style="font-size: 12px; margin-top: -15px;">${ressRestArea[i].fasum_open_time != null ? ressRestArea[i].fasum_open_time : '00:00'} - ${ressRestArea[i].fasum_close_time != null ? ressRestArea[i].fasum_close_time : '00:00'} WITA</p>
-                                                            </div> 
-                                                        </div> 
-                                                    </div>   
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                     `, {
                                     minWidth: 100,
                                     maxWidth: 900,
@@ -8490,21 +8490,21 @@
                             });
                             mapContainer.addLayer(restAreaClusterGroup);
                         }
-                    
+
                         if (ressPosPam && ressPosPam.length > 0 && $("#posPamDisplay").is(':checked')) {
                             $(`#isiPoldaPosPam${polda_id}`).html(`
                                 <table id="datatablePosPamOnDisplay${polda_id}" class="table dt-responsive w-100" style="font-size: 12px;">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Alamat</th> 
+                                            <th>Nama</th>
+                                            <th>Alamat</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="isiModalPosPamDisplay${polda_id}">
                                     </tbody>
-                                </table>                     
+                                </table>
                             `);
                             var countPosPamDisplay = 0;
                             var listPosPamDisplay = '';
@@ -8533,16 +8533,16 @@
                                     listPosPamDisplay += `
                                             <tr>
                                                 <td>${countPosPamDisplay}</td>
-                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosPam[i].id}" target="_blank">${ressPosPam[i].name_renpam}</a></td> 
-                                                <td>${alamatlokasi}</td> 
+                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosPam[i].id}" target="_blank">${ressPosPam[i].name_renpam}</a></td>
+                                                <td>${alamatlokasi}</td>
                                                 <td>
-                                                    <a class="btn" style="margin-top: -10px; "  
+                                                    <a class="btn" style="margin-top: -10px; "
                                                         id="flyToMapFilterPosPam${polda_id}${countPosPamDisplay}"
                                                         data-akun="${ressPosPam[i].accounts}"
-                                                        data-cord="${ressPosPam[i].coordinate_guarding.lat},${ressPosPam[i].coordinate_guarding.lng}" 
+                                                        data-cord="${ressPosPam[i].coordinate_guarding.lat},${ressPosPam[i].coordinate_guarding.lng}"
                                                         href="javascript:void(0)">
                                                         <i style="color:${ressPosPam[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
-                                                    </a> 
+                                                    </a>
                                                 </td>
                                             </tr>
                                         `;
@@ -8558,7 +8558,7 @@
                                             <div>
                                                 <div style="position: relative;">
                                                     <img src="<?php echo base_url(); ?>assets/icon/POSPAM.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                                </div> 
+                                                </div>
                                                 <div style="position: absolute;margin-top: -29px;">
                                                     <span class="badge rounded-pill bg-primary" >${ressPosPam[i].name_renpam}</span>
                                                 </div>
@@ -8569,25 +8569,25 @@
                                             // iconAnchor: [10, 33]
                                         })
                                     }).bindPopup(`
-                                                <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                                    <div class="row"> 
+                                                <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;">
+                                                    <div class="row">
                                                         <div class="col-md-12 col-12">
-                                                            <h5>${ressPosPam[i].name_renpam}</h5>  
-                                                        </div> 
-                                                        
-                                                    
-                                                    
-                                                
+                                                            <h5>${ressPosPam[i].name_renpam}</h5>
+                                                        </div>
+
+
+
+
                                                         <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
-                                                            
+
                                                             <p style="font-size: 12px; margin-top: -15px;">${alamatlokasi}</p>
-                                                        </div> 
-                                                        
+                                                        </div>
+
                                                         <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPospam${ressPosPam[i].id}">
-                                                        
+
                                                         </div>
                                                     </div>
-                                                </div> 
+                                                </div>
                                         `, {
                                         minWidth: 100,
                                         maxWidth: 900,
@@ -8611,16 +8611,16 @@
                                                         b: ress
                                                     });
                                                     // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                    let noTelpF = ress['officer']['phone_officer']; 
+                                                    let noTelpF = ress['officer']['phone_officer'];
                                                     $(`#isiPospam${ressPosPam[i].id}`).html(`
-                                                                
+
                                                                 <div style="text-align: center">
                                                                     ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
                                                                         <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
                                                                         <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
                                                                         <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
 
-                                                                        ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                                        ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}
                                                                     </p>
                                                                 </div>
 
@@ -8636,7 +8636,7 @@
                                     }));
                                     // }, i * 200);
                                 }
-                                
+
                             }
 
 
@@ -8649,7 +8649,7 @@
                                     mapContainer.flyTo([latitude, longitude], 17);
                                 });
 
-                                // }, countPosPamDisplay.length * 200); 
+                                // }, countPosPamDisplay.length * 200);
                             }
 
                             $(`#datatablePosPamOnDisplay${polda_id}`).DataTable({
@@ -8666,7 +8666,7 @@
                                     sSearch: 'Search:'
 
                                 },
-                            }); 
+                            });
 
                             $("#overlayMenu").fadeOut(300);
                             mapContainer.addLayer(posPamClusterGroup);
@@ -8678,14 +8678,14 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Alamat</th> 
+                                            <th>Nama</th>
+                                            <th>Alamat</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="isiModalPosYanDisplay${polda_id}">
                                     </tbody>
-                                </table>                     
+                                </table>
                             `);
                             var countPosYanDisplay = 0;
                             var listPosYanDisplay = '';
@@ -8711,16 +8711,16 @@
                                     listPosYanDisplay += `
                                             <tr>
                                                 <td>${countPosYanDisplay}</td>
-                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosYan[i].id}" target="_blank">${ressPosYan[i].name_renpam}</a></td> 
-                                                <td>${alamatlokasi}</td> 
+                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosYan[i].id}" target="_blank">${ressPosYan[i].name_renpam}</a></td>
+                                                <td>${alamatlokasi}</td>
                                                 <td>
-                                                    <a class="btn" style="margin-top: -10px;"  
+                                                    <a class="btn" style="margin-top: -10px;"
                                                         id="flyToMapFilterPosYan${polda_id}${countPosYanDisplay}"
                                                         data-akun="${ressPosYan[i].accounts}"
-                                                        data-cord="${ressPosYan[i].coordinate_guarding.lat},${ressPosYan[i].coordinate_guarding.lng}" 
+                                                        data-cord="${ressPosYan[i].coordinate_guarding.lat},${ressPosYan[i].coordinate_guarding.lng}"
                                                         href="javascript:void(0)">
                                                         <i style="color:${ressPosYan[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
-                                                    </a> 
+                                                    </a>
                                                 </td>
                                             </tr>
                                         `;
@@ -8736,7 +8736,7 @@
                                             <div>
                                                 <div style="position: relative;">
                                                     <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                                </div> 
+                                                </div>
                                                 <div style="position: absolute;margin-top: -29px;">
                                                     <span class="badge rounded-pill bg-primary" >${ressPosYan[i].name_renpam}</span>
                                                 </div>
@@ -8747,22 +8747,22 @@
                                             // iconAnchor: [10, 33]
                                         })
                                     }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                                <div class="row"> 
+                                            <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;">
+                                                <div class="row">
                                                     <div class="col-md-12 col-12">
-                                                        <h5>${ressPosYan[i].name_renpam}</h5>  
-                                                    </div> 
-                                                
-                                            
+                                                        <h5>${ressPosYan[i].name_renpam}</h5>
+                                                    </div>
+
+
                                                     <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
-                                                        
+
                                                         <p style="font-size: 12px;">${alamatlokasi}</p>
-                                                    </div> 
+                                                    </div>
                                                     <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPosyan${ressPosYan[i].id}">
-                                                    
+
                                                     </div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                     `, {
                                         minWidth: 100,
                                         maxWidth: 900,
@@ -8786,17 +8786,17 @@
                                                         b: ress
                                                     });
                                                     // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                    let noTelpF = ress['officer']['phone_officer']; 
+                                                    let noTelpF = ress['officer']['phone_officer'];
 
 
                                                     $(`#isiPosyan${ressPosYan[i].id}`).html(`
-                                                                
+
                                                                 <div style="text-align: center">
                                                                 ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
                                                                         <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
                                                                         <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
                                                                         <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
-                                                                        ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                                        ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}
                                                                     </p>
                                                                 </div>
 
@@ -8838,7 +8838,7 @@
                                     sSearch: 'Search:'
 
                                 },
-                            }); 
+                            });
                             mapContainer.addLayer(posYanClusterGroup);
                             // }, countPosYanDisplay.length * 500);
                         }
@@ -8849,14 +8849,14 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Alamat</th> 
+                                            <th>Nama</th>
+                                            <th>Alamat</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="isiModalPosTerpaduDisplay${polda_id}">
                                     </tbody>
-                                </table>                     
+                                </table>
                             `);
                             var countPosTerpaduDisplay = 0;
                             var listPosTerpaduDisplay = '';
@@ -8881,16 +8881,16 @@
                                     listPosTerpaduDisplay += `
                                             <tr>
                                                 <td>${countPosTerpaduDisplay}</td>
-                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosTerpadu[i].id}" target="_blank">${ressPosTerpadu[i].name_renpam}</a></td> 
-                                                <td>${alamatlokasi}</td> 
+                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosTerpadu[i].id}" target="_blank">${ressPosTerpadu[i].name_renpam}</a></td>
+                                                <td>${alamatlokasi}</td>
                                                 <td>
-                                                    <a class="btn" style="margin-top: -10px;"  
+                                                    <a class="btn" style="margin-top: -10px;"
                                                         id="flyToMapFilterPosTerpadu${polda_id}${countPosTerpaduDisplay}"
                                                         data-akun="${ressPosTerpadu[i].accounts}"
-                                                        data-cord="${ressPosTerpadu[i].coordinate_guarding.lat},${ressPosTerpadu[i].coordinate_guarding.lng}" 
+                                                        data-cord="${ressPosTerpadu[i].coordinate_guarding.lat},${ressPosTerpadu[i].coordinate_guarding.lng}"
                                                         href="javascript:void(0)">
                                                         <i style="color:${ressPosTerpadu[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
-                                                    </a> 
+                                                    </a>
                                                 </td>
                                             </tr>
                                         `;
@@ -8906,7 +8906,7 @@
                                             <div>
                                                 <div style="position: relative;">
                                                     <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                                </div> 
+                                                </div>
                                                 <div style="position: absolute;margin-top: -29px;">
                                                     <span class="badge rounded-pill bg-primary" >${ressPosTerpadu[i].name_renpam}</span>
                                                 </div>
@@ -8917,22 +8917,22 @@
                                             // iconAnchor: [10, 33]
                                         })
                                     }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                                <div class="row"> 
+                                            <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;">
+                                                <div class="row">
                                                     <div class="col-md-12 col-12">
-                                                        <h5>${ressPosTerpadu[i].name_renpam}</h5>  
-                                                    </div> 
-                                                
-                                            
+                                                        <h5>${ressPosTerpadu[i].name_renpam}</h5>
+                                                    </div>
+
+
                                                     <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
-                                                        
+
                                                         <p style="font-size: 12px;">${alamatlokasi}</p>
-                                                    </div> 
+                                                    </div>
                                                     <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isiPosTerpadu${ressPosTerpadu[i].id}">
-                                                    
+
                                                     </div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                         `, {
                                         minWidth: 100,
                                         maxWidth: 900,
@@ -8956,16 +8956,16 @@
                                                         b: ress
                                                     });
                                                     // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                    let noTelpF = ress['officer']['phone_officer']; 
+                                                    let noTelpF = ress['officer']['phone_officer'];
 
                                                     $(`#isiPosTerpadu${ressPosTerpadu[i].id}`).html(`
-                                                        
+
                                                         <div style="text-align: center">
                                                             ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;"data-holder-rendered="true"></br>`}
                                                                 <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
                                                                 <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
                                                                 <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
-                                                                ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                                ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}
                                                             </p>
                                                         </div>
 
@@ -9007,7 +9007,7 @@
                                     sSearch: 'Search:'
 
                                 },
-                            }); 
+                            });
                             mapContainer.addLayer(posTerpaduClusterGroup);
                             // }, countPosTerpaduDisplay.length * 500);
                         }
@@ -9018,14 +9018,14 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Alamat</th> 
+                                            <th>Nama</th>
+                                            <th>Alamat</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="isiModalPoskoDisplay${polda_id}">
                                     </tbody>
-                                </table>                     
+                                </table>
                             `);
                             var countPoskoDisplay = 0;
                             var listPoskoDisplay = '';
@@ -9050,16 +9050,16 @@
                                     listPoskoDisplay += `
                                             <tr>
                                                 <td>${countPoskoDisplay}</td>
-                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosko[i].id}" target="_blank">${ressPosko[i].name_renpam}</a></td> 
-                                                <td>${alamatlokasi}</td> 
+                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressPosko[i].id}" target="_blank">${ressPosko[i].name_renpam}</a></td>
+                                                <td>${alamatlokasi}</td>
                                                 <td>
-                                                    <a class="btn" style="margin-top: -10px;"  
+                                                    <a class="btn" style="margin-top: -10px;"
                                                         id="flyToMapFilterPosko${polda_id}${countPoskoDisplay}"
                                                         data-akun="${ressPosko[i].accounts}"
-                                                        data-cord="${ressPosko[i].coordinate_guarding.lat},${ressPosko[i].coordinate_guarding.lng}" 
+                                                        data-cord="${ressPosko[i].coordinate_guarding.lat},${ressPosko[i].coordinate_guarding.lng}"
                                                         href="javascript:void(0)">
                                                         <i style="color:${ressPosko[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
-                                                    </a> 
+                                                    </a>
                                                 </td>
                                             </tr>
                                         `;
@@ -9075,7 +9075,7 @@
                                             <div>
                                                 <div style="position: relative;">
                                                     <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                                </div> 
+                                                </div>
                                                 <div style="position: absolute;margin-top: -29px;">
                                                     <span class="badge rounded-pill bg-primary" >${ressPosko[i].name_renpam}</span>
                                                 </div>
@@ -9086,23 +9086,23 @@
                                             // iconAnchor: [10, 33]
                                         })
                                     }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                            <div class="row">  
+                                        <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;">
+                                            <div class="row">
                                                 <div class="col-md-12 col-12">
-                                                    <h5>${ressPosko[i].name_renpam}</h5>  
-                                                </div> 
-                                                
+                                                    <h5>${ressPosko[i].name_renpam}</h5>
+                                                </div>
+
                                                 <div style="margin-top: -10px;" class="col-md-12 col-12 text-start">
-                                                    
+
                                                     <p style="font-size: 12px;">${alamatlokasi}</p>
-                                                </div>   
+                                                </div>
 
                                                 <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isi${ressPosko[i].id}">
-                                                
+
                                                 </div>
-                                                    
+
                                             </div>
-                                        </div> 
+                                        </div>
                                         `, {
                                         minWidth: 100,
                                         maxWidth: 900,
@@ -9126,16 +9126,16 @@
                                                         b: ress
                                                     });
                                                     // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                    let noTelpF = ress['officer']['phone_officer']; 
+                                                    let noTelpF = ress['officer']['phone_officer'];
 
                                                     $(`#isi${ressPosko[i].id}`).html(`
-                                                                
+
                                                                 <div style="text-align: center">
                                                                 ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
                                                                         <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
                                                                         <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
                                                                         <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
-                                                                        ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                                        ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}
                                                                     </p>
                                                                 </div>
 
@@ -9175,7 +9175,7 @@
                                     sSearch: 'Search:'
 
                                 },
-                            }); 
+                            });
                             mapContainer.addLayer(poskoClusterGroup);
                             // }, countPoskoDisplay.length * 500);
                         }
@@ -9186,14 +9186,14 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Alamat</th> 
+                                            <th>Nama</th>
+                                            <th>Alamat</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="isiModalSatPjrDisplay${polda_id}">
                                     </tbody>
-                                </table>                     
+                                </table>
                             `);
                             var countSatPjrDisplay = 0;
                             var listSatPjrDisplay = '';
@@ -9219,16 +9219,16 @@
                                     listSatPjrDisplay += `
                                             <tr>
                                                 <td>${countSatPjrDisplay}</td>
-                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressSatPjr[i].id}" target="_blank">${ressSatPjr[i].name_renpam}</a></td> 
-                                                <td>${alamatlokasi}</td> 
+                                                <td><a href="<?= base_url() ?>operasi/renpam/Edit/${ressSatPjr[i].id}" target="_blank">${ressSatPjr[i].name_renpam}</a></td>
+                                                <td>${alamatlokasi}</td>
                                                 <td>
-                                                    <a class="btn" style="margin-top: -10px;"  
+                                                    <a class="btn" style="margin-top: -10px;"
                                                         id="flySatPjr${polda_id}${countSatPjrDisplay}"
                                                         data-akun="${ressSatPjr[i].accounts}"
-                                                        data-cord="${ressSatPjr[i].coordinate_guarding.lat},${ressSatPjr[i].coordinate_guarding.lng}" 
+                                                        data-cord="${ressSatPjr[i].coordinate_guarding.lat},${ressSatPjr[i].coordinate_guarding.lng}"
                                                         href="javascript:void(0)">
                                                         <i style="color:${ressSatPjr[i].accounts.length > 0 ? 'green' : '#495057'};" class="fa fas fa-eye"></i>
-                                                    </a> 
+                                                    </a>
                                                 </td>
                                             </tr>
                                         `;
@@ -9244,34 +9244,34 @@
                                             <div>
                                                 <div style="position: relative;">
                                                     <img src="<?php echo base_url(); ?>assets/icon/marker_PJR.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                                </div> 
+                                                </div>
                                                 <div style="position: absolute;margin-top: -29px;">
                                                     <span class="badge rounded-pill bg-primary" ${`style="background-color: #f2d91b !important; color: black;"`}>${ressSatPjr[i].name_renpam}</span>
                                                 </div>
                                             </div>
-                                            
+
                                             `,
                                             iconSize: [5, 5],
                                             iconAnchor: [5, 10]
                                             // iconAnchor: [10, 33]
                                         })
                                     }).bindPopup(`
-                                                <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: none;"> 
-                                                    <div class="row">  
+                                                <div class="text-center" style="width: 300px;height: 420px;overflow-x: hidden;scrollbar-width: thin;overflow-y: none;">
+                                                    <div class="row">
                                                         <div class="col-md-12 col-12">
-                                                            <h5>${ressSatPjr[i].name_renpam}</h5>  
-                                                        </div> 
-                                                        
-                                                        <div class="col-md-12 col-12 text-start"> 
+                                                            <h5>${ressSatPjr[i].name_renpam}</h5>
+                                                        </div>
+
+                                                        <div class="col-md-12 col-12 text-start">
                                                             <p style="font-size: 12px;">${alamatlokasi}</p>
-                                                        </div>   
+                                                        </div>
 
                                                         <div class="col-md-12 col-12 text-start" style="margin-top: -15px;" id="isi${ressSatPjr[i].id}">
-                                                        
+
                                                         </div>
-                                                            
+
                                                     </div>
-                                                </div> 
+                                                </div>
                                             `, {
                                         minWidth: 100,
                                         maxWidth: 900,
@@ -9295,16 +9295,16 @@
                                                         b: ress
                                                     });
                                                     // dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
-                                                    let noTelpF = ress['officer']['phone_officer']; 
+                                                    let noTelpF = ress['officer']['phone_officer'];
 
                                                     $(`#isi${ressSatPjr[i].id}`).html(`
-                                                                
+
                                                                 <div style="text-align: center">
                                                                 ${ress['officer']['photo_officer'] ? `<img src="<?php echo url_api(); ?>officer/${ress['officer']['photo_officer']}" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>` : `<img src="<?= base_url() ?>/assets/defaultPhoto.jpeg" class="img-thumbnail" width="100" style="width: 140px; height:180px;" data-holder-rendered="true"></br>`}
                                                                         <p class="mt-3" style="font-size: 12px; margin-top: -15px;">
                                                                         <b> ${ress['officer']['rank_officer'] ? `${ress['officer']['rank_officer']} -` : ''} ${ress['officer']['name_officer']}</b> </br>${ress['officer']['structural_officer'] ? `<span>${ress['officer']['structural_officer']}</span></br>` : ''}
                                                                         <b>Hp : </b> ${ress['officer']['phone_officer']} </br>
-                                                                        ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}  
+                                                                        ${call_wa_dan_biasa(noTelpF, ress['officer']['id'], 'encrypt')}
                                                                     </p>
                                                                 </div>
 
@@ -9346,7 +9346,7 @@
                                     sSearch: 'Search:'
 
                                 },
-                            }); 
+                            });
                             mapContainer.addLayer(satPjrClusterGroup);
                             // }, countSatPjrDisplay.length * 500);
                         }
@@ -9357,14 +9357,14 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Alamat</th> 
+                                            <th>Nama</th>
+                                            <th>Alamat</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="isiModalGerbangtolDisplay">
                                     </tbody>
-                                </table>                     
+                                </table>
                             `);
                             var countGerbangtolDisplay = 0;
                             var listGerbangtolDisplay = '';
@@ -9379,15 +9379,15 @@
                                     listGerbangtolDisplay += `
                                         <tr>
                                             <td>${countGerbangtolDisplay}</td>
-                                            <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressGerbangtol[i].fasum_name}</a></td> 
-                                            <td>${ressGerbangtol[i].fasum_description != null ? ressGerbangtol[i].fasum_description.replace(/\n/g, "<br />") : "-"}</td> 
+                                            <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressGerbangtol[i].fasum_name}</a></td>
+                                            <td>${ressGerbangtol[i].fasum_description != null ? ressGerbangtol[i].fasum_description.replace(/\n/g, "<br />") : "-"}</td>
                                             <td>
-                                                <a class="btn" style="margin-top: -10px;"  
-                                                    id="flyToMapFilterGerbangtol${countGerbangtolDisplay}" 
-                                                    data-cord="${ressGerbangtol[i].fasum_lat},${ressGerbangtol[i].fasum_lng}" 
+                                                <a class="btn" style="margin-top: -10px;"
+                                                    id="flyToMapFilterGerbangtol${countGerbangtolDisplay}"
+                                                    data-cord="${ressGerbangtol[i].fasum_lat},${ressGerbangtol[i].fasum_lng}"
                                                     href="javascript:void(0)">
                                                     <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </a> 
+                                                </a>
                                             </td>
                                         </tr>
                                     `;
@@ -9402,7 +9402,7 @@
                                         <div>
                                             <div style="position: relative;">
                                                 <img src="<?php echo base_url(); ?>assets/icon/gerbang tol.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                            </div> 
+                                            </div>
                                             <div style="position: absolute;margin-top: -29px;">
                                                 <span class="badge rounded-pill bg-primary">${ressGerbangtol[i].fasum_name}</span>
                                             </div>
@@ -9410,30 +9410,30 @@
                                         `,
                                             iconSize: [5, 5],
                                             iconAnchor: [5, 10]
-                                            // iconAnchor: [10, 33] 
+                                            // iconAnchor: [10, 33]
                                         })
                                     }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                                <div class="row mt-3"> 
+                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;">
+                                                <div class="row mt-3">
                                                     <div class="col-md-12 col-12 mt-3">
-                                                        <h5>${ressGerbangtol[i].fasum_name}</h5> 
+                                                        <h5>${ressGerbangtol[i].fasum_name}</h5>
                                                         <span>- Gerbang Tol -</span>
                                                     </div>
                                                     <div class="col-md-12 mt-3">
                                                         <img src="${ressGerbangtol[i].fasum_logo}" alt="" class="img-fluid d-block" style="width: 100%;">
                                                     </div>
-                                                    
+
 
                                                     <div class="col-md-12 col-12 mt-2">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12">
-                                                                <p style="font-size: 12px;font-weight: bold;">Note</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">Note</p>
                                                                 <p style="font-size: 12px; margin-top: -15px;">${ressGerbangtol[i].fasum_description != null ? ressGerbangtol[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
-                                                            </div> 
-                                                        </div> 
-                                                    </div>  
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                     `, {
                                         minWidth: 100,
                                         maxWidth: 900,
@@ -9478,14 +9478,14 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Alamat</th> 
+                                            <th>Nama</th>
+                                            <th>Alamat</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="isiModalSatPasDisplay${polda_id}">
                                     </tbody>
-                                </table>                     
+                                </table>
                             `);
                             var countSatPasDisplay = 0;
                             var listSatPasDisplay = '';
@@ -9498,15 +9498,15 @@
                                 listSatPasDisplay += `
                                     <tr>
                                         <td>${countSatPasDisplay}</td>
-                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressSatPas[i].fasum_name}</a></td> 
-                                        <td>${ressSatPas[i].fasum_address}</td> 
+                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressSatPas[i].fasum_name}</a></td>
+                                        <td>${ressSatPas[i].fasum_address}</td>
                                         <td>
-                                            <a class="btn" style="margin-top: -10px;"  
+                                            <a class="btn" style="margin-top: -10px;"
                                                 id="flyToMapFilterSatPas${countSatPasDisplay}"
-                                                data-cord="${ressSatPas[i].fasum_lat},${ressSatPas[i].fasum_lng}" 
+                                                data-cord="${ressSatPas[i].fasum_lat},${ressSatPas[i].fasum_lng}"
                                                 href="javascript:void(0)">
                                                 <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
+                                            </a>
                                         </td>
                                     </tr>
                                 `;
@@ -9522,7 +9522,7 @@
                                         <div>
                                             <div style="position: relative;">
                                                 <img src="<?php echo base_url(); ?>assets/pin2.png" style="width: 50px;  margin-top: -35px;margin-left: -15px;">
-                                            </div> 
+                                            </div>
                                             <div style="position: absolute;margin-top: -29px;">
                                                 <span class="badge rounded-pill bg-primary" ${`style="background-color: #f2d91b !important"`}>${ressSatPas[i].fasum_name}</span>
                                             </div>
@@ -9533,7 +9533,7 @@
                                         // iconAnchor: [10, 33]
                                     })
                                 }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;">
                                                 <div class="row mt-3">
                                                     <div class="col-md-12 col-12" style="margin-left: 210px;margin-bottom: 10px;">
                                                         <div class="avatar-xl me-3">
@@ -9541,45 +9541,45 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 col-12 mt-3">
-                                                        <h5>${ressSatPas[i].fasum_name}</h5> 
+                                                        <h5>${ressSatPas[i].fasum_name}</h5>
                                                         <span>- ${ressSatPas[i].category_fasum.name_category_fasum} -</span>
                                                     </div>
-                                                    
+
 
                                                     <div class="col-md-12 col-12 mt-2">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12">
-                                                                <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>
                                                                 <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_description != null ? ressSatPas[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
-                                                            </div> 
-                                                        </div> 
-                                                    </div>  
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-md-12 col-12 mt-2">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12">
-                                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>
                                                                 <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_address}</p>
-                                                            </div> 
-                                                        </div> 
-                                                    </div>  
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-md-12 col-12"  style="margin-top: -30px;">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12">
-                                                                <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">No Telpon</p>
                                                                 <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_phone}</p>
-                                                            </div> 
-                                                        </div> 
-                                                    </div>  
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-md-12 col-12" style="margin-top: -30px;">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12">
-                                                                <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">Waktu</p>
                                                                 <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_open_time != null ? ressSatPas[i].fasum_open_time : '00:00'} - ${ressSatPas[i].fasum_close_time != null ? ressSatPas[i].fasum_close_time : '00:00'} WITA</p>
-                                                            </div> 
-                                                        </div> 
-                                                    </div>   
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                     `, {
                                     minWidth: 100,
                                     maxWidth: 900,
@@ -9626,14 +9626,14 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Code</th> 
-                                                <th>Nama Petugas</th> 
+                                                <th>Code</th>
+                                                <th>Nama Petugas</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody id="isiModalLaporanDisplay">
                                         </tbody>
-                                    </table>                     
+                                    </table>
                                 `);
                                 var countLaporanDisplay = 0;
                                 var listLaporanDisplay = '';
@@ -9644,15 +9644,15 @@
                                     listLaporanDisplay += `
                                         <tr>
                                             <td>${countLaporanDisplay}</td>
-                                            <td><a href="<?= base_url() ?>laporan/operasi/Detail/${filterLaporan[i].id}" target="_blank">${filterLaporan[i].code}</a></td> 
-                                            <td>${filterLaporan[i].officer.name_officer}</td> 
+                                            <td><a href="<?= base_url() ?>laporan/operasi/Detail/${filterLaporan[i].id}" target="_blank">${filterLaporan[i].code}</a></td>
+                                            <td>${filterLaporan[i].officer.name_officer}</td>
                                             <td>
-                                                <a class="btn" style="margin-top: -10px;"  
+                                                <a class="btn" style="margin-top: -10px;"
                                                     id="flyToMapFilterLaporan${countLaporanDisplay}"
-                                                    data-cord="${filterLaporan[i].coordinate.latitude},${filterLaporan[i].coordinate.longitude}" 
+                                                    data-cord="${filterLaporan[i].coordinate.latitude},${filterLaporan[i].coordinate.longitude}"
                                                     href="javascript:void(0)">
                                                     <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </a> 
+                                                </a>
                                             </td>
                                         </tr>
                                     `;
@@ -9664,13 +9664,13 @@
                                     var iconLapPanic;
 
                                     if (filterLaporan[i].status == 0 || filterLaporan[i].status == null) {
-                                        $statusLapPnc = ` 
-                                            <span class="badge rounded-pill bg-danger">Tidak Selesai</span> 
+                                        $statusLapPnc = `
+                                            <span class="badge rounded-pill bg-danger">Tidak Selesai</span>
                                         `;
 
                                     } else {
-                                        $statusLapPnc = ` 
-                                            <span class="badge rounded-pill bg-success">Selesai</span> 
+                                        $statusLapPnc = `
+                                            <span class="badge rounded-pill bg-success">Selesai</span>
                                         `;
                                     }
 
@@ -9716,49 +9716,49 @@
                                                 <div class="col-md-12" style="text-align: center;">
                                                     <h5>${filterLaporan[i].code}</h5>
                                                 </div>
-                                            </div> 
-                                            <div class="row"> 
-                                                <div class="col-md-5">  
-                                                    <span style="font-size: 12px;font-weight: bold;"> Nama Petugas</span> 
-                                                </div>  
-                                                <div class="col-md-7">  
-                                                    <span style="font-size: 12px;"> : ${filterLaporan[i].officer.name_officer} </span> 
-                                                </div>  
-                                            </div> 
-                                            <div class="row"> 
-                                                <div class="col-md-5">  
-                                                    <span style="font-size: 12px;font-weight: bold;"> Kategori</span> 
-                                                </div>  
-                                                <div class="col-md-7">  
-                                                    <span style="font-size: 12px;"> : ${kategoriLaporan} </span> 
-                                                </div>  
-                                            </div> 
-                                            <div class="row"> 
-                                                <div class="col-md-5">  
-                                                    <span style="font-size: 12px;font-weight: bold;"> Waktu</span> 
-                                                </div>  
-                                                <div class="col-md-7">  
-                                                    <span style="font-size: 12px;"> : ${filterLaporan[i].created_at} </span> 
-                                                </div>  
-                                            </div>   
-                                            <div class="row"> 
-                                                <div class="col-md-5">  
-                                                    <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span> 
-                                                </div>  
-                                                <div class="col-md-7">  
-                                                    <span style="font-size: 12px;"> : ${filterLaporan[i].description.replace(/\n/g, "<br />")} </span> 
-                                                </div>  
-                                            </div> 
-                                        
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <span style="font-size: 12px;font-weight: bold;"> Nama Petugas</span>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;"> : ${filterLaporan[i].officer.name_officer} </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <span style="font-size: 12px;font-weight: bold;"> Kategori</span>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;"> : ${kategoriLaporan} </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <span style="font-size: 12px;font-weight: bold;"> Waktu</span>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;"> : ${filterLaporan[i].created_at} </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;"> : ${filterLaporan[i].description.replace(/\n/g, "<br />")} </span>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                            
+
                                     `, {
                                         minWidth: 100,
                                         maxWidth: 560,
                                         width: 400
                                     }));
-            
-                                
+
+
                                 }
 
 
@@ -9802,14 +9802,14 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Kode</th> 
-                                                <th>Nama Petugas</th> 
+                                                <th>Kode</th>
+                                                <th>Nama Petugas</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody id="isiModalPanicDisplay">
                                         </tbody>
-                                    </table>                     
+                                    </table>
                                 `);
                                 var countPanicDisplay = 0;
                                 var listPanicDisplay = '';
@@ -9821,15 +9821,15 @@
                                     listPanicDisplay += `
                                         <tr>
                                             <td>${countPanicDisplay}</td>
-                                            <td><a href="<?= base_url() ?>laporan/panic/Detail/${filterLaporanPanic[i].id}" target="_blank">${filterLaporanPanic[i].code}</a></td> 
-                                            <td>${filterLaporanPanic[i].officer.name_officer}</td> 
+                                            <td><a href="<?= base_url() ?>laporan/panic/Detail/${filterLaporanPanic[i].id}" target="_blank">${filterLaporanPanic[i].code}</a></td>
+                                            <td>${filterLaporanPanic[i].officer.name_officer}</td>
                                             <td>
-                                                <a class="btn" style="margin-top: -10px;"  
+                                                <a class="btn" style="margin-top: -10px;"
                                                     id="flyToMapFilterPanic${countPanicDisplay}"
-                                                    data-cord="${filterLaporanPanic[i].coordinate.latitude},${filterLaporanPanic[i].coordinate.longitude}" 
+                                                    data-cord="${filterLaporanPanic[i].coordinate.latitude},${filterLaporanPanic[i].coordinate.longitude}"
                                                     href="javascript:void(0)">
                                                     <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </a> 
+                                                </a>
                                             </td>
                                         </tr>
                                     `;
@@ -9861,13 +9861,13 @@
                                     }
 
                                     if (filterLaporanPanic[i].status == 0 || filterLaporanPanic[i].status == null) {
-                                        $statusLapPnc = ` 
-                                            <span class="badge rounded-pill bg-danger">Tidak Selesai</span> 
+                                        $statusLapPnc = `
+                                            <span class="badge rounded-pill bg-danger">Tidak Selesai</span>
                                         `;
 
                                     } else {
-                                        $statusLapPnc = ` 
-                                            <span class="badge rounded-pill bg-success">Selesai</span> 
+                                        $statusLapPnc = `
+                                            <span class="badge rounded-pill bg-success">Selesai</span>
                                         `;
                                     }
 
@@ -9893,49 +9893,49 @@
                                                 <div class="col-md-12" style="text-align: center;">
                                                     <h5>${filterLaporanPanic[i].code}</h5>
                                                 </div>
-                                            </div> 
-                                            <div class="row"> 
-                                                <div class="col-md-5">  
-                                                    <span style="font-size: 12px;font-weight: bold;"> Nama Petugas</span> 
-                                                </div>  
-                                                <div class="col-md-7">  
-                                                    <span style="font-size: 12px;"> : ${filterLaporanPanic[i].officer.name_officer} </span> 
-                                                </div>  
-                                            </div> 
-                                            <div class="row"> 
-                                                <div class="col-md-5">  
-                                                    <span style="font-size: 12px;font-weight: bold;"> Kategori Laporan</span> 
-                                                </div>  
-                                                <div class="col-md-7">  
-                                                    <span style="font-size: 12px;"> : ${kategoriLaporan} </span> 
-                                                </div>  
-                                            </div> 
-                                            <div class="row"> 
-                                                <div class="col-md-5">  
-                                                    <span style="font-size: 12px;font-weight: bold;"> Waktu Insiden</span> 
-                                                </div>  
-                                                <div class="col-md-7">  
-                                                    <span style="font-size: 12px;"> : ${filterLaporanPanic[i].created_at} </span> 
-                                                </div>  
-                                            </div> 
-                                            <div class="row"> 
-                                                <div class="col-md-5">  
-                                                    <span style="font-size: 12px;font-weight: bold;"> Status</span> 
-                                                </div>  
-                                                <div class="col-md-7">  
-                                                    <span style="font-size: 12px;"> : ${$statusLapPnc} </span> 
-                                                </div>  
-                                            </div>  
-                                            <div class="row"> 
-                                                <div class="col-md-5">  
-                                                    <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span> 
-                                                </div>  
-                                                <div class="col-md-7">  
-                                                    <span style="font-size: 12px;"> : ${filterLaporanPanic[i].description != null ? filterLaporanPanic[i].description.replace(/\n/g, "<br />") : '-'} </span> 
-                                                </div>  
-                                            </div> 
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <span style="font-size: 12px;font-weight: bold;"> Nama Petugas</span>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;"> : ${filterLaporanPanic[i].officer.name_officer} </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <span style="font-size: 12px;font-weight: bold;"> Kategori Laporan</span>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;"> : ${kategoriLaporan} </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <span style="font-size: 12px;font-weight: bold;"> Waktu Insiden</span>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;"> : ${filterLaporanPanic[i].created_at} </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <span style="font-size: 12px;font-weight: bold;"> Status</span>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;"> : ${$statusLapPnc} </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;"> : ${filterLaporanPanic[i].description != null ? filterLaporanPanic[i].description.replace(/\n/g, "<br />") : '-'} </span>
+                                                </div>
+                                            </div>
                                         </div>
-                                            
+
                                     `, {
                                         minWidth: 100,
                                         maxWidth: 560,
@@ -9981,14 +9981,14 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Radius</th> 
+                                            <th>Nama</th>
+                                            <th>Radius</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="isiModalRadiusDisplay">
                                     </tbody>
-                                </table>                     
+                                </table>
                             `);
                             var countRadiusDisplay = 0;
                             var listRadiusDisplay = '';
@@ -9999,15 +9999,15 @@
                                 listRadiusDisplay += `
                                     <tr>
                                         <td>${countRadiusDisplay}</td>
-                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum/radius" target="_blank">${ressRadius[i].fasum_name}</a></td> 
-                                        <td>${ressRadius[i].fasum_radius} Kilometer</td> 
+                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum/radius" target="_blank">${ressRadius[i].fasum_name}</a></td>
+                                        <td>${ressRadius[i].fasum_radius} Kilometer</td>
                                         <td>
-                                            <a class="btn" style="margin-top: -10px;"  
+                                            <a class="btn" style="margin-top: -10px;"
                                                 id="flyToMapFilterRadius${countRadiusDisplay}"
-                                                data-cord="${ressRadius[i].fasum_lat},${ressRadius[i].fasum_lng}" 
+                                                data-cord="${ressRadius[i].fasum_lat},${ressRadius[i].fasum_lng}"
                                                 href="javascript:void(0)">
                                                 <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
+                                            </a>
                                         </td>
                                     </tr>
                                 `;
@@ -10022,24 +10022,24 @@
                                     weight: 2,
                                     fillOpacity: 0.2
                                 }).bindPopup(`
-                                            <div class="text-center" style="width: 400px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
-                                                <div class="row mt-3"> 
+                                            <div class="text-center" style="width: 400px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;">
+                                                <div class="row mt-3">
                                                     <div class="col-md-12 col-12 mt-3">
-                                                        <h5>${ressRadius[i].fasum_name}</h5> 
+                                                        <h5>${ressRadius[i].fasum_name}</h5>
                                                         <span>- ${ressRadius[i].category_fasum.name_category_fasum} : ${set} Kilometer-</span>
                                                     </div>
-                                                    
+
                                                     <div class="col-md-12 col-12 mt-2">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12 text-start">
-                                                                <p style="font-size: 12px;font-weight: bold;">Akomodasi</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">Akomodasi</p>
                                                                 <p style="font-size: 12px; margin-top: -13px;">${ressRadius[i].fasum_description.replace(/\n/g, "<br />")}</p>
-                                                            </div>  
-                                                            
-                                                        </div> 
-                                                    </div>   
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                     `, {
                                     minWidth: 100,
                                     maxWidth: 560,
@@ -10081,14 +10081,14 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Radius</th> 
+                                            <th>Nama</th>
+                                            <th>Radius</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="isiModalClusterDisplay">
                                     </tbody>
-                                </table>                     
+                                </table>
                             `);
                             var countClusterDisplay = 0;
                             var listClusterDisplay = '';
@@ -10099,15 +10099,15 @@
                                 listClusterDisplay += `
                                     <tr>
                                         <td>${countClusterDisplay}</td>
-                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum/radius" target="_blank">${ressCluster[i].fasum_name}</a></td> 
-                                        <td>${ressCluster[i].fasum_radius} Kilometer</td> 
+                                        <td><a href="<?= base_url() ?>masterdata/Fasilitasumum/radius" target="_blank">${ressCluster[i].fasum_name}</a></td>
+                                        <td>${ressCluster[i].fasum_radius} Kilometer</td>
                                         <td>
-                                            <a class="btn" style="margin-top: -10px;"  
+                                            <a class="btn" style="margin-top: -10px;"
                                                 id="flyToMapFilterCluster${countClusterDisplay}"
-                                                data-cord="${ressCluster[i].fasum_lat},${ressCluster[i].fasum_lng}" 
+                                                data-cord="${ressCluster[i].fasum_lat},${ressCluster[i].fasum_lng}"
                                                 href="javascript:void(0)">
                                                 <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
+                                            </a>
                                         </td>
                                     </tr>
                                 `;
@@ -10171,86 +10171,86 @@
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/troublespot.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">trouble spot</b>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/blackspot.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">black spot</b>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/POSPAM.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">POSPAM</b>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/POSYAN.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">POSYAN</b>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/gerbang tol.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">Gerbang Tol</b>
-                                    </div> 
-                                </div>  
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/rest_area.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">Rest Area</b>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/cctv.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">CCTV</b>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/hotel.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">Hotel</b>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/gereja.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">Gereja</b>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/masjid.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">Masjid</b>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/stasiun.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">Stasiun</b>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/pelabuhan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">Pelabuhan</b>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/pasar.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">Pasar</b>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div style="display: flex;align-items: center;">
                                         <img src="<?php echo base_url(); ?>assets/icon/marker_PJR.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                         <b style="font-size: 14px; text-transform: capitalize;">SAT PJR</b>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                             `;
                             for (let i = 0; i < dataArrayGroup.length; i++) {
                                 if (dataArrayGroup[i] != "null") {
@@ -10261,8 +10261,8 @@
                                     //         <div style="display: flex;align-items: center;">
                                     //             <img src="<?php echo url_api(); ?>fasum_khusus/${dataArrayGroup[i]}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 20%;">
                                     //             <b style="font-size: 14px; text-transform: capitalize;">${dataArrayGroup[i].replace('.png', "")}</b>
-                                    //         </div> 
-                                    //     </div> 
+                                    //         </div>
+                                    //     </div>
                                     // `;
                                 }
                             }
@@ -10274,14 +10274,14 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Alamat</th> 
+                                            <th>Nama</th>
+                                            <th>Alamat</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="isiModalFasumKhususDisplay">
                                     </tbody>
-                                </table>                     
+                                </table>
                             `);
                             var countFasumKhususDisplay = 0;
                             var listFasumKhususDisplay = '';
@@ -10296,15 +10296,15 @@
                                     listFasumKhususDisplay += `
                                         <tr>
                                             <td>${countFasumKhususDisplay}</td>
-                                            <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressFasumKhusus[i].fasum_name}</a></td> 
-                                            <td>${ressFasumKhusus[i].fasum_address}</td> 
+                                            <td><a href="<?= base_url() ?>masterdata/Fasilitasumum" target="_blank">${ressFasumKhusus[i].fasum_name}</a></td>
+                                            <td>${ressFasumKhusus[i].fasum_address}</td>
                                             <td>
-                                                <a class="btn" style="margin-top: -10px;"  
+                                                <a class="btn" style="margin-top: -10px;"
                                                     id="flyToMapFilterFasumKhusus${countFasumKhususDisplay}"
-                                                    data-cord="${ressFasumKhusus[i].fasum_lat},${ressFasumKhusus[i].fasum_lng}" 
+                                                    data-cord="${ressFasumKhusus[i].fasum_lat},${ressFasumKhusus[i].fasum_lng}"
                                                     href="javascript:void(0)">
                                                     <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </a> 
+                                                </a>
                                             </td>
                                         </tr>
                                     `;
@@ -10327,7 +10327,7 @@
                                         <div>
                                             <div style="position: relative;">
                                                 <img src="${logoMarker}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">
-                                            </div> 
+                                            </div>
                                             <div style="position: absolute;margin-top: -29px;">
                                                 <span class="badge rounded-pill bg-primary" >${ressFasumKhusus[i].fasum_name}</span>
                                             </div>
@@ -10338,10 +10338,10 @@
                                             // iconAnchor: [10, 33]
                                         })
                                     }).bindPopup(`
-                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="text-center" style="width: 300px;height: 250px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;">
                                                 <div class="row mt-3">
                                                     <div class="col-md-12 col-12 mt-3">
-                                                        <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                                        <h5>${ressFasumKhusus[i].fasum_name}</h5>
                                                         <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                                                     </div>
                                                     <div class="col-md-12 col-12 mt-3" style="margin-left: 210px;margin-bottom: 10px;">
@@ -10351,42 +10351,42 @@
                                                             </a>
                                                         </div>
                                                     </div>
-                                                    
-        
+
+
                                                     <div class="col-md-12 col-12 mt-2">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12">
-                                                                <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>
                                                                 <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
-                                                            </div> 
-                                                        </div> 
-                                                    </div>  
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-md-12 col-12 mt-2">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12">
-                                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>
                                                                 <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_address}</p>
-                                                            </div> 
-                                                        </div> 
-                                                    </div>  
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-md-12 col-12"  style="margin-top: -30px;">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12">
-                                                                <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">No Telpon</p>
                                                                 <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_phone}</p>
-                                                            </div> 
-                                                        </div> 
-                                                    </div>  
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-md-12 col-12" style="margin-top: -30px;">
                                                         <div class="row text-start">
                                                             <div class="col-md-12 col-12">
-                                                                <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                                <p style="font-size: 12px;font-weight: bold;">Waktu</p>
                                                                 <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
-                                                            </div> 
-                                                        </div> 
-                                                    </div>   
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                     `, {
                                         minWidth: 100,
                                         maxWidth: 900,
@@ -10469,7 +10469,7 @@
 
                                         })
                                     }).bindPopup(`
-                                                <div class="text-center" style="width: 300px;"> 
+                                                <div class="text-center" style="width: 300px;">
                                                     <div class="row mt-3">
                                                         <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                                             <div class="avatar-xl me-3">
@@ -10483,7 +10483,7 @@
                                                         <div class="col-md-12 col-12 mt-3">
                                                             <div class="row text-start">
                                                                 <div class="col-md-5 col-6">
-                                                                    <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
+                                                                    <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>
                                                                 </div>
                                                                 <div class="col-md-1">
                                                                     <p style="font-size: 12px;"> : </p>
@@ -10491,10 +10491,10 @@
                                                                 <div class="col-md-6 col-6">
                                                                     <p style="font-size: 12px;">${filterFasum[i].name}</p>
                                                                 </div>
-                                                            </div> 
-                                                        </div>     
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div> 
+                                                </div>
                                         `, {
                                         minWidth: 100,
                                         maxWidth: 560,
@@ -10509,21 +10509,21 @@
                             var filterSchedule = ressSchedule.filter(function(e) {
                                 return e.coordinate_schedule != null;
                             });
-                            // console.log(filterSchedule); 
+                            // console.log(filterSchedule);
                             if (filterSchedule.length > 0) {
                                 $('#openModalJadwalDisplay').html(`
                                 <table id="datatableJadwalOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th> 
-                                            <th>Tanggal</th> 
+                                            <th>Nama</th>
+                                            <th>Tanggal</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="isiModalJadwalDisplay">
                                     </tbody>
-                                </table>                     
+                                </table>
                             `);
                                 var countJadwalDisplay = 0;
                                 var listJadwalDisplay = '';
@@ -10534,15 +10534,15 @@
                                     listJadwalDisplay += `
                                         <tr>
                                             <td>${countJadwalDisplay}</td>
-                                            <td><a href="<?= base_url() ?>operasi/Kegiatan/Detail/${filterSchedule[i].id}" target="_blank">${filterSchedule[i].activity}</a></td> 
-                                            <td>${filterSchedule[i].date_schedule}</td> 
+                                            <td><a href="<?= base_url() ?>operasi/Kegiatan/Detail/${filterSchedule[i].id}" target="_blank">${filterSchedule[i].activity}</a></td>
+                                            <td>${filterSchedule[i].date_schedule}</td>
                                             <td>
-                                                <a class="btn" style="margin-top: -10px;"  
+                                                <a class="btn" style="margin-top: -10px;"
                                                     id="flyToMapFilterJadwal${countJadwalDisplay}"
-                                                    data-cord="${filterSchedule[i].coordinate_schedule}" 
+                                                    data-cord="${filterSchedule[i].coordinate_schedule}"
                                                     href="javascript:void(0)">
                                                     <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </a> 
+                                                </a>
                                             </td>
                                         </tr>
                                     `;
@@ -10569,8 +10569,8 @@
                                             // iconAnchor: [10, 33]
                                         })
                                     }).bindPopup(`
-                                                <div class="text-center" style="width: 300px;"> 
-                                                    <div class="row mt-3"> 
+                                                <div class="text-center" style="width: 300px;">
+                                                    <div class="row mt-3">
                                                         <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                                             <div class="avatar-xl me-3">
                                                                 <a href="javascript:void(0);">
@@ -10579,12 +10579,12 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 col-12 mt-3">
-                                                            <h5>Jadwal Kegiatan</h5> 
+                                                            <h5>Jadwal Kegiatan</h5>
                                                         </div>
                                                         <div class="col-md-12 col-12 mt-1">
                                                             <div class="row text-start">
                                                                 <div class="col-md-5">
-                                                                    <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                                                    <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>
                                                                 </div>
                                                                 <div class="col-md-1">
                                                                     <p style="font-size: 12px;"> : </p>
@@ -10592,12 +10592,12 @@
                                                                 <div class="col-md-6">
                                                                     <p style="font-size: 12px;">${filterSchedule[i].activity}</p>
                                                                 </div>
-                                                            </div> 
-                                                        </div> 
+                                                            </div>
+                                                        </div>
                                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
                                                             <div class="row text-start">
                                                                 <div class="col-md-5">
-                                                                    <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
+                                                                    <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>
                                                                 </div>
                                                                 <div class="col-md-1">
                                                                     <p style="font-size: 12px;"> : </p>
@@ -10605,12 +10605,12 @@
                                                                 <div class="col-md-6">
                                                                     <p style="font-size: 12px;">${filterSchedule[i].date_schedule.substr(0, 10)}</p>
                                                                 </div>
-                                                            </div> 
-                                                        </div>  
+                                                            </div>
+                                                        </div>
                                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
                                                             <div class="row text-start">
                                                                 <div class="col-md-5">
-                                                                    <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                                    <p style="font-size: 12px;font-weight: bold;">Waktu</p>
                                                                 </div>
                                                                 <div class="col-md-1">
                                                                     <p style="font-size: 12px;"> : </p>
@@ -10618,12 +10618,12 @@
                                                                 <div class="col-md-6">
                                                                     <p style="font-size: 12px;">${filterSchedule[i].start_time.substr(0, 5)} - ${filterSchedule[i].end_time.substr(0, 5)} WITA</p>
                                                                 </div>
-                                                            </div> 
-                                                        </div>  
+                                                            </div>
+                                                        </div>
                                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
                                                             <div class="row text-start">
                                                                 <div class="col-md-5">
-                                                                    <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                                    <p style="font-size: 12px;font-weight: bold;">Alamat</p>
                                                                 </div>
                                                                 <div class="col-md-1">
                                                                     <p style="font-size: 12px;"> : </p>
@@ -10631,8 +10631,8 @@
                                                                 <div class="col-md-6">
                                                                     <p style="font-size: 12px;">${filterSchedule[i].address_schedule}</p>
                                                                 </div>
-                                                            </div> 
-                                                        </div>   
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                         `, {
@@ -10677,7 +10677,7 @@
                         }
 
                     }
-                    
+
 
 
 
@@ -10989,7 +10989,7 @@
                 openDisplay = this.value;
                 $("#pos_pam").prop('checked', true);
                 $("#myModalPosPamDisplay").modal('show');
-                if(markerPosPam.length > 0){ 
+                if(markerPosPam.length > 0){
                     for (let i = 0; i < markerPosPam.length; i++) {
                         // mapContainer.removeLayer(markerPosPam[i]);
                         if (markerPosPam[i]) {
@@ -11009,7 +11009,7 @@
                         posPamClusterGroup.removeLayer(markerPosPam[i]);
                     }
                 }
-                // markerPosPam = new Array(); 
+                // markerPosPam = new Array();
             }
             // serverSideFilter();
         });
@@ -11020,7 +11020,7 @@
                 $("#pos_yan").prop('checked', true);
                 $("#myModalPosYanDisplay").modal('show');
 
-                if(markerPosYan.length > 0){ 
+                if(markerPosYan.length > 0){
                     for (let i = 0; i < markerPosYan.length; i++) {
                         // mapContainer.removeLayer(markerPosYan[i]);
                         if (markerPosYan[i]) {
@@ -11040,7 +11040,7 @@
                         posYanClusterGroup.removeLayer(markerPosYan[i]);
                     }
                 }
-                // markerPosYan = new Array(); 
+                // markerPosYan = new Array();
             }
             // serverSideFilter();
         });
@@ -11051,7 +11051,7 @@
                 $("#pos_terpadu").prop('checked', true);
                 $("#myModalPosTerpaduDisplay").modal('show');
 
-                if(markerPosTerpadu.length > 0){ 
+                if(markerPosTerpadu.length > 0){
                     for (let i = 0; i < markerPosTerpadu.length; i++) {
                         // mapContainer.removeLayer(markerPosTerpadu[i]);
                         if (markerPosTerpadu[i]) {
@@ -11081,7 +11081,7 @@
                 $("#posko").prop('checked', true);
                 $("#myModalPoskoDisplay").modal('show');
 
-                if(markerPosko.length > 0){ 
+                if(markerPosko.length > 0){
                     for (let i = 0; i < markerPosko.length; i++) {
                         // mapContainer.removeLayer(markerPosko[i]);
                         if (markerPosko[i]) {
@@ -11111,7 +11111,7 @@
                 $("#satPjr").prop('checked', true);
                 $("#myModalSatPjrDisplay").modal('show');
 
-                if(markerSatPjr.length > 0){ 
+                if(markerSatPjr.length > 0){
                     for (let i = 0; i < markerSatPjr.length; i++) {
                         // mapContainer.removeLayer(markerSatPjr[i]);
                         if (markerSatPjr[i]) {
@@ -11389,7 +11389,7 @@
                     dataType: "JSON",
                     success: function(result) {
                         let ress = result['data'];
-                        // console.log(ress); 
+                        // console.log(ress);
 
                         countlistCategori = 0;
                         listCategori = "";
@@ -11397,7 +11397,7 @@
 
                         for (let i = 0; i < ress.length; i++) {
                             countlistCategori += 1;
-                            listCategori += `  
+                            listCategori += `
                                 <div class="accordion-item" >
                                     <h2 class="accordion-header" id="flush-heading${ress[i]['id']}">
                                         <button id="openCateg${ress[i]['id']}" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
@@ -11411,13 +11411,13 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="accordion accordion-flush listJadwalbyCateg${ress[i]['id']}" id="accordionFlushExampleByCateg${ress[i]['id']}">
-                            
-                                                    </div> 
-                                                </div> 
+
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>      
+                                </div>
                             `;
                             $(".listCategoriSchedule").html(listCategori);
 
@@ -11573,7 +11573,7 @@
                                                 for (let i = 0; i < sortUrutanRenpam.length; i++) {
                                                     // console.log({a: sortUrutanRenpam[i]['name_renpam'],b:sortUrutanRenpam[i]['order_renpam']});
 
-                                                    
+
                                                     countlistRenpam += 1;
 
                                                     checkedRenpam1.push({
@@ -11599,14 +11599,14 @@
                                                     dummyNameRenpam.push(sortUrutanRenpam[i]['name_renpam']);
                                                     nameRenpam[countlist] = dummyNameRenpam;
 
-                                                    
+
                                                     dummy.push(sortUrutanRenpam[i]['route']);
                                                     dummy1.push(sortUrutanRenpam[i]['route_alternatif_1']);
                                                     dummy2.push(sortUrutanRenpam[i]['route_alternatif_2']);
                                                     dummy3.push(sortUrutanRenpam[i]['route_masyarakat']);
                                                     dummy4.push(sortUrutanRenpam[i]['route_umum']);
-                                                    
-                                                    
+
+
                                                     if(sortUrutanRenpam[i]['coordinate_guarding'] != null){
                                                         dummyTitik.push(sortUrutanRenpam[i]['coordinate_guarding']);
                                                         dummyJadwalRenpamTitik[countlist] = dummyTitik;
@@ -11641,8 +11641,8 @@
                                                         ruteKondisi = `
                                                                 <td>
                                                                     <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                                        id="clickTitikPenjagaan${ress[m]['id']}${countlistRenpam}"   
-                                                                        data-name="${sortUrutanRenpam[i]['name_renpam']}" 
+                                                                        id="clickTitikPenjagaan${ress[m]['id']}${countlistRenpam}"
+                                                                        data-name="${sortUrutanRenpam[i]['name_renpam']}"
                                                                         data-cord="${sortUrutanRenpam[i]['coordinate_guarding']['lat']},${sortUrutanRenpam[i]['coordinate_guarding']['lng']}" >
                                                                         <i style="color: #495057;" class="fa fas fa-eye"></i>
                                                                     </button>
@@ -11655,20 +11655,20 @@
                                                     } else {
                                                         ruteKondisi = `
                                                                 <td>
-                                                                    <input type="checkbox" class="form-input checkRenpam" name="selectRenpam" 
-                                                                    id="listRenpamModalClick${ress[m]['id']}${countlistRenpam}"  
-                                                                    data-name="${sortUrutanRenpam[i]['name_renpam']}" 
-                                                                    data-cord='${JSON.stringify(sortUrutanRenpam[i]['route'])}' 
-                                                                    data-cord1='${JSON.stringify(sortUrutanRenpam[i]['route_alternatif_1'])}' 
-                                                                    data-cord2='${JSON.stringify(sortUrutanRenpam[i]['route_alternatif_2'])}' 
-                                                                    data-cord3='${JSON.stringify(sortUrutanRenpam[i]['route_masyarakat'])}' 
-                                                                    data-cord4='${JSON.stringify(sortUrutanRenpam[i]['route_umum'])}' 
-                                                                    data-type="${sortUrutanRenpam[i]['type_renpam']}" 
-                                                                    data-warna="${sortUrutanRenpam[i]['warnaRoute_renpam']}" 
-                                                                    data-jadwal="${sortUrutanRenpam[i]['schedule'] != null ? sortUrutanRenpam[i]['schedule']['activity'] : '' }" 
-                                                                    data-awal="${sortUrutanRenpam[i]['title_start']}" 
-                                                                    data-akhir="${sortUrutanRenpam[i]['title_end']}"> 
-                                                                   
+                                                                    <input type="checkbox" class="form-input checkRenpam" name="selectRenpam"
+                                                                    id="listRenpamModalClick${ress[m]['id']}${countlistRenpam}"
+                                                                    data-name="${sortUrutanRenpam[i]['name_renpam']}"
+                                                                    data-cord='${JSON.stringify(sortUrutanRenpam[i]['route'])}'
+                                                                    data-cord1='${JSON.stringify(sortUrutanRenpam[i]['route_alternatif_1'])}'
+                                                                    data-cord2='${JSON.stringify(sortUrutanRenpam[i]['route_alternatif_2'])}'
+                                                                    data-cord3='${JSON.stringify(sortUrutanRenpam[i]['route_masyarakat'])}'
+                                                                    data-cord4='${JSON.stringify(sortUrutanRenpam[i]['route_umum'])}'
+                                                                    data-type="${sortUrutanRenpam[i]['type_renpam']}"
+                                                                    data-warna="${sortUrutanRenpam[i]['warnaRoute_renpam']}"
+                                                                    data-jadwal="${sortUrutanRenpam[i]['schedule'] != null ? sortUrutanRenpam[i]['schedule']['activity'] : '' }"
+                                                                    data-awal="${sortUrutanRenpam[i]['title_start']}"
+                                                                    data-akhir="${sortUrutanRenpam[i]['title_end']}">
+
                                                                 </td>
                                                             `;
                                                     }
@@ -11676,22 +11676,22 @@
                                                     dummyRenpam += `
                                                             <tr>
                                                                 ${ruteKondisi}
-                                                                <td>${i+1}</td> 
+                                                                <td>${i+1}</td>
                                                                 <td>${dataVIP}</td>
                                                                 <td><a href="<?= base_url() ?>operasi/Renpam/edit/${sortUrutanRenpam[i]['id']}" target="_blank">${sortUrutanRenpam[i]['title_start']} Ke ${sortUrutanRenpam[i]['title_end']}</a></td>
-                                                                <td>${sortUrutanRenpam[i]['start_time'] != null ? sortUrutanRenpam[i]['start_time'].substr(0, 5) : '-'}</td> 
+                                                                <td>${sortUrutanRenpam[i]['start_time'] != null ? sortUrutanRenpam[i]['start_time'].substr(0, 5) : '-'}</td>
                                                                 <td>
-                                                                    <a class="btn" 
+                                                                    <a class="btn"
                                                                         data-accounts='${JSON.stringify(dataAccounts)}'
                                                                         title="Petugas" data-bs-toggle="modal" data-bs-target="#myModalPetugas"
                                                                         href="javascript:void(0)">
                                                                         <i style="color: #495057;" class="fa fas fa-user-shield"></i>
                                                                     </a>
                                                                 </td>
-                                                                <td> 
+                                                                <td>
                                                                     <a class="btn" href="javascripte:void(0);"
-                                                                        style="font-size: 16px;"  
-                                                                        data-idnote="${sortUrutanRenpam[i]['id']}" 
+                                                                        style="font-size: 16px;"
+                                                                        data-idnote="${sortUrutanRenpam[i]['id']}"
                                                                         data-note="${sortUrutanRenpam[i]['note_kakor']}"
                                                                         data-status="${sortUrutanRenpam[i]['status_renpam']}"
                                                                         data-accounts='${JSON.stringify(dataAccounts)}'
@@ -11703,9 +11703,9 @@
                                                         `;
 
                                                     checkboxJadwal = `
-                                                            <input type="checkbox" class="form-input" name="selectJadwalRenpam" 
-                                                            id="listJadwalRenpamClick${ress[m]['id']}${countlistCategoriByCateg}"  
-                                                              
+                                                            <input type="checkbox" class="form-input" name="selectJadwalRenpam"
+                                                            id="listJadwalRenpamClick${ress[m]['id']}${countlistCategoriByCateg}"
+
                                                             data-totaldata="${sortUrutanRenpam.length}"
                                                             >
                                                         `;
@@ -11718,32 +11718,32 @@
 
 
 
-                                            list += `  
+                                            list += `
                                                     <div class="accordion-item" id="openCategByCateg${ress[m]['id']}${countlistCategoriByCateg}">
                                                         <h2 class="accordion-header" id="flush-headingByCateg${ress[m]['id']}${countlistCategoriByCateg}">
                                                             <button id="openCategByCateg${ress[m]['id']}${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                                                 data-bs-target="#flush-collapseByCateg${ress[m]['id']}${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${ress[m]['id']}${countlistCategoriByCateg}">
-                                                                    
+
                                                                     <div  style="display: flex; font-size: 12px; position: absolute;">
                                                                         ${checkboxJadwal}
-                                                                    
+
                                                                         <a class="btn" style="display: flex;margin-top: 2px;"
-                                                                            id="listJadwalClick${ress[m]['id']}${countlist}"   
-                                                                            data-alamat="${el.address_schedule}"  
+                                                                            id="listJadwalClick${ress[m]['id']}${countlist}"
+                                                                            data-alamat="${el.address_schedule}"
                                                                             data-cord="${el.coordinate_schedule}"
                                                                             href="javascript:void(0)"><i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                                        </a>  
+                                                                        </a>
                                                                         <a style="margin-top: 1px;" target="_blank" href="<?= base_url() ?>operasi/Kegiatan/edit/${el.id}">${el.activity}</br>${el.date_schedule} - ${el.start_time.substr(0, 5)} s/d ${el.end_time.substr(0, 5)}</a>
                                                                         <div style="margin-left: 5px;">
                                                                             <span class="badge bg-danger rounded-pill">${totalJadwalRenpam}</span>
-                                                                        </div> 
+                                                                        </div>
                                                                     </div>
                                                             </button>
                                                         </h2>
                                                         <div id="flush-collapseByCateg${ress[m]['id']}${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${ress[m]['id']}${countlistCategoriByCateg}"
                                                             data-bs-parent="#accordionFlushExampleByCateg${ress[m]['id']}">
                                                             <div class="accordion-body text-muted">
-                                                                
+
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <table style="font-size: 10px" id="datatableByCateg${ress[m]['id']}${countlist}" class="table dt-responsive w-100">
@@ -11753,21 +11753,21 @@
                                                                                     <th>No</th>
                                                                                     <th>Negara</th>
                                                                                     <th>Lokasi</th>
-                                                                                    <th>Berangkat</th> 
+                                                                                    <th>Berangkat</th>
                                                                                     <th>Petugas</th>
                                                                                     <th>Catatan</th>
                                                                                 </tr>
-                                                                            </thead> 
+                                                                            </thead>
                                                                             <tbody>
                                                                                 ${dummyRenpam}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
-                                                                        
+
                                                             </div>
                                                         </div>
-                                                    </div>   
+                                                    </div>
                                                 `;
                                             $(`.listJadwalbyCateg${ress[m]['id']}`).html(list);
 
@@ -11788,8 +11788,8 @@
                                             });
 
                                             $(`#listRenpamModalClick${ress[m]['id']}${i+1}`).on("change", function(e) {
-                                                // console.log(checkedRenpam1);  
-                                                //Find index of specific object using findIndex method.    
+                                                // console.log(checkedRenpam1);
+                                                //Find index of specific object using findIndex method.
                                                 objIndex = checkedRenpam1.findIndex((obj => obj.name_renpam == $(this).data('name')));
                                                 // console.log(objIndex);
 
@@ -11830,7 +11830,7 @@
                                                         weight: 5,
                                                         className: 'animateRoute'
                                                     }];
-                                                } else if (typeRenpam == 4) { //pengaturan 
+                                                } else if (typeRenpam == 4) { //pengaturan
                                                     iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
                                                     markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                                     markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
@@ -11840,7 +11840,7 @@
                                                         weight: 5,
                                                         className: 'animateRoute'
                                                     }];
-                                                } else if (typeRenpam == 5) { //penutupan 
+                                                } else if (typeRenpam == 5) { //penutupan
                                                     iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
                                                     markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                                     markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
@@ -11904,9 +11904,9 @@
                                                                         }),
                                                                         draggable: this.draggableWaypoints,
                                                                     }).bindPopup(`
-                                                                            <div class="text-center"> 
+                                                                            <div class="text-center">
                                                                                 <h5>${titikAwal}</h5>
-                                                                            </div> 
+                                                                            </div>
                                                                         `);
                                                                 } else if (i === nWps - 1) {
                                                                     return L.marker(wp.latLng, {
@@ -11919,9 +11919,9 @@
                                                                         }),
                                                                         draggable: this.draggableWaypoints,
                                                                     }).bindPopup(`
-                                                                            <div class="text-center"> 
+                                                                            <div class="text-center">
                                                                                 <h5>${titikAkhir}</h5>
-                                                                            </div> 
+                                                                            </div>
                                                                         `);
                                                                 } else {
                                                                     // here change all the others
@@ -11944,7 +11944,7 @@
                                                             },
                                                             // geocoder: L.Control.Geocoder.nominatim({})
                                                         }).addTo(mapContainer);
-                                                        // mapContainer.addControl(routingRenpam1[i]); 
+                                                        // mapContainer.addControl(routingRenpam1[i]);
                                                     } else {
                                                         mapContainer.removeControl(routingRenpam1[i]);
                                                     }
@@ -11985,9 +11985,9 @@
                                                                         }),
                                                                         draggable: this.draggableWaypoints,
                                                                     }).bindPopup(`
-                                                                            <div class="text-center"> 
+                                                                            <div class="text-center">
                                                                                 <h5>${titikAwal}</h5>
-                                                                            </div> 
+                                                                            </div>
                                                                         `);
                                                                 } else if (i === nWps - 1) {
                                                                     return L.marker(wp.latLng, {
@@ -12000,9 +12000,9 @@
                                                                         }),
                                                                         draggable: this.draggableWaypoints,
                                                                     }).bindPopup(`
-                                                                            <div class="text-center"> 
+                                                                            <div class="text-center">
                                                                                 <h5>${titikAkhir}</h5>
-                                                                            </div> 
+                                                                            </div>
                                                                         `);
                                                                 } else {
                                                                     // here change all the others
@@ -12025,7 +12025,7 @@
                                                             },
                                                             // geocoder: L.Control.Geocoder.nominatim({})
                                                         }).addTo(mapContainer);
-                                                        // mapContainer.addControl(routingRenpam2[i]); 
+                                                        // mapContainer.addControl(routingRenpam2[i]);
                                                     } else {
                                                         mapContainer.removeControl(routingRenpam2[i]);
                                                     }
@@ -12066,9 +12066,9 @@
                                                                         }),
                                                                         draggable: this.draggableWaypoints,
                                                                     }).bindPopup(`
-                                                                            <div class="text-center"> 
+                                                                            <div class="text-center">
                                                                                 <h5>${titikAwal}</h5>
-                                                                            </div> 
+                                                                            </div>
                                                                         `);
                                                                 } else if (i === nWps - 1) {
                                                                     return L.marker(wp.latLng, {
@@ -12081,9 +12081,9 @@
                                                                         }),
                                                                         draggable: this.draggableWaypoints,
                                                                     }).bindPopup(`
-                                                                            <div class="text-center"> 
+                                                                            <div class="text-center">
                                                                                 <h5>${titikAkhir}</h5>
-                                                                            </div> 
+                                                                            </div>
                                                                         `);
                                                                 } else {
                                                                     // here change all the others
@@ -12106,7 +12106,7 @@
                                                             },
                                                             // geocoder: L.Control.Geocoder.nominatim({})
                                                         }).addTo(mapContainer);
-                                                        // mapContainer.addControl(routingRenpam3[i]); 
+                                                        // mapContainer.addControl(routingRenpam3[i]);
                                                     } else {
                                                         mapContainer.removeControl(routingRenpam3[i]);
                                                     }
@@ -12147,9 +12147,9 @@
                                                                         }),
                                                                         draggable: this.draggableWaypoints,
                                                                     }).bindPopup(`
-                                                                            <div class="text-center"> 
+                                                                            <div class="text-center">
                                                                                 <h5>${titikAwal}</h5>
-                                                                            </div> 
+                                                                            </div>
                                                                         `);
                                                                 } else if (i === nWps - 1) {
                                                                     return L.marker(wp.latLng, {
@@ -12162,9 +12162,9 @@
                                                                         }),
                                                                         draggable: this.draggableWaypoints,
                                                                     }).bindPopup(`
-                                                                            <div class="text-center"> 
+                                                                            <div class="text-center">
                                                                                 <h5>${titikAkhir}</h5>
-                                                                            </div> 
+                                                                            </div>
                                                                         `);
                                                                 } else {
                                                                     // here change all the others
@@ -12187,7 +12187,7 @@
                                                             },
                                                             // geocoder: L.Control.Geocoder.nominatim({})
                                                         }).addTo(mapContainer);
-                                                        // mapContainer.addControl(routingRenpam4[i]); 
+                                                        // mapContainer.addControl(routingRenpam4[i]);
                                                     } else {
                                                         mapContainer.removeControl(routingRenpam4[i]);
                                                     }
@@ -12224,9 +12224,9 @@
                                                                         }),
                                                                         draggable: this.draggableWaypoints,
                                                                     }).bindPopup(`
-                                                                            <div class="text-center"> 
+                                                                            <div class="text-center">
                                                                                 <h5>${titikAwal}</h5>
-                                                                            </div> 
+                                                                            </div>
                                                                         `);
                                                                 } else if (i === nWps - 1) {
                                                                     return L.marker(wp.latLng, {
@@ -12239,9 +12239,9 @@
                                                                         }),
                                                                         draggable: this.draggableWaypoints,
                                                                     }).bindPopup(`
-                                                                            <div class="text-center"> 
+                                                                            <div class="text-center">
                                                                                 <h5>${titikAkhir}</h5>
-                                                                            </div> 
+                                                                            </div>
                                                                         `);
                                                                 } else {
                                                                     // here change all the others
@@ -12264,7 +12264,7 @@
                                                             },
                                                             // geocoder: L.Control.Geocoder.nominatim({})
                                                         }).addTo(mapContainer);
-                                                        // mapContainer.addControl(routingRenpam[i]); 
+                                                        // mapContainer.addControl(routingRenpam[i]);
                                                     } else {
                                                         mapContainer.removeControl(routingRenpam[i]);
                                                     }
@@ -12277,7 +12277,7 @@
                                         }
 
                                         for (let i = 0; i < ressJadwalId.length; i++) {
-                                            // console.log(`listJadwalRenpamClick${ress[m]['id']}${i+1}`); 
+                                            // console.log(`listJadwalRenpamClick${ress[m]['id']}${i+1}`);
                                             $(`.checkAll${ress[m]['id']}${i+1}`).on("change", function(e) {
                                                 var checkboxes = $(`.checkRenpam`);
                                                 if ($(this).is(':checked')) {
@@ -12299,7 +12299,7 @@
                                             $(`#listJadwalRenpamClick${ress[m]['id']}${i+1}`).on("change", function(e) {
 
                                                 for (let ii = 0; ii < nameJadwalRenpam[i + 1].length; ii++) {
-                                                    //Find index of specific object using findIndex method.    
+                                                    //Find index of specific object using findIndex method.
                                                     objIndex = checkedRoutJadwal.findIndex((obj => obj.activity == ressJadwalId[i]['activity']));
                                                     // console.log(objIndex);
 
@@ -12349,7 +12349,7 @@
                                                         }];
 
 
-                                                    } else if (typeRenpam == 4) { //pengaturan 
+                                                    } else if (typeRenpam == 4) { //pengaturan
                                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
                                                         markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                                         markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
@@ -12361,7 +12361,7 @@
                                                         }];
 
 
-                                                    } else if (typeRenpam == 5) { //penutupan 
+                                                    } else if (typeRenpam == 5) { //penutupan
                                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
                                                         markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                                         markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
@@ -12448,9 +12448,9 @@
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
-                                                                                    <div class="text-center"> 
+                                                                                    <div class="text-center">
                                                                                         <h5>${titikAwal}</h5>
-                                                                                    </div> 
+                                                                                    </div>
                                                                                 `);
                                                                         } else if (i === nWps - 1) {
                                                                             return L.marker(wp.latLng, {
@@ -12463,9 +12463,9 @@
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
-                                                                                    <div class="text-center"> 
+                                                                                    <div class="text-center">
                                                                                         <h5>${titikAkhir}</h5>
-                                                                                    </div> 
+                                                                                    </div>
                                                                                 `);
                                                                         } else {
                                                                             // here change all the others
@@ -12488,7 +12488,7 @@
                                                                     },
                                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer);
-                                                                // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
+                                                                // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);
                                                                 console.log('kebuka');
                                                             } else {
                                                                 mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);
@@ -12530,9 +12530,9 @@
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
-                                                                                    <div class="text-center"> 
+                                                                                    <div class="text-center">
                                                                                         <h5>${titikAwal}</h5>
-                                                                                    </div> 
+                                                                                    </div>
                                                                                 `);
                                                                         } else if (i === nWps - 1) {
                                                                             return L.marker(wp.latLng, {
@@ -12545,9 +12545,9 @@
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
-                                                                                    <div class="text-center"> 
+                                                                                    <div class="text-center">
                                                                                         <h5>${titikAkhir}</h5>
-                                                                                    </div> 
+                                                                                    </div>
                                                                                 `);
                                                                         } else {
                                                                             // here change all the others
@@ -12570,7 +12570,7 @@
                                                                     },
                                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer);
-                                                                // mapContainer.addControl(routingJadwalRenpam1[`${i+1}${ii}`]);  
+                                                                // mapContainer.addControl(routingJadwalRenpam1[`${i+1}${ii}`]);
                                                             } else {
                                                                 mapContainer.removeControl(routingJadwalRenpam1[`${i+1}${ii}`]);
                                                             }
@@ -12612,9 +12612,9 @@
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
-                                                                                    <div class="text-center"> 
+                                                                                    <div class="text-center">
                                                                                         <h5>${titikAwal}</h5>
-                                                                                    </div> 
+                                                                                    </div>
                                                                                 `);
                                                                         } else if (i === nWps - 1) {
                                                                             return L.marker(wp.latLng, {
@@ -12627,9 +12627,9 @@
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
-                                                                                    <div class="text-center"> 
+                                                                                    <div class="text-center">
                                                                                         <h5>${titikAkhir}</h5>
-                                                                                    </div> 
+                                                                                    </div>
                                                                                 `);
                                                                         } else {
                                                                             // here change all the others
@@ -12652,7 +12652,7 @@
                                                                     },
                                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer);
-                                                                // mapContainer.addControl(routingJadwalRenpam2[`${i+1}${ii}`]);  
+                                                                // mapContainer.addControl(routingJadwalRenpam2[`${i+1}${ii}`]);
                                                             } else {
                                                                 mapContainer.removeControl(routingJadwalRenpam2[`${i+1}${ii}`]);
                                                             }
@@ -12694,9 +12694,9 @@
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
-                                                                                    <div class="text-center"> 
+                                                                                    <div class="text-center">
                                                                                         <h5>${titikAwal}</h5>
-                                                                                    </div> 
+                                                                                    </div>
                                                                                 `);
                                                                         } else if (i === nWps - 1) {
                                                                             return L.marker(wp.latLng, {
@@ -12709,9 +12709,9 @@
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
-                                                                                    <div class="text-center"> 
+                                                                                    <div class="text-center">
                                                                                         <h5>${titikAkhir}</h5>
-                                                                                    </div> 
+                                                                                    </div>
                                                                                 `);
                                                                         } else {
                                                                             // here change all the others
@@ -12734,7 +12734,7 @@
                                                                     },
                                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer);
-                                                                // mapContainer.addControl(routingJadwalRenpam3[`${i+1}${ii}`]);  
+                                                                // mapContainer.addControl(routingJadwalRenpam3[`${i+1}${ii}`]);
                                                             } else {
                                                                 mapContainer.removeControl(routingJadwalRenpam3[`${i+1}${ii}`]);
                                                             }
@@ -12776,9 +12776,9 @@
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
-                                                                                    <div class="text-center"> 
+                                                                                    <div class="text-center">
                                                                                         <h5>${titikAwal}</h5>
-                                                                                    </div> 
+                                                                                    </div>
                                                                                 `);
                                                                         } else if (i === nWps - 1) {
                                                                             return L.marker(wp.latLng, {
@@ -12791,9 +12791,9 @@
                                                                                 }),
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
-                                                                                    <div class="text-center"> 
+                                                                                    <div class="text-center">
                                                                                         <h5>${titikAkhir}</h5>
-                                                                                    </div> 
+                                                                                    </div>
                                                                                 `);
                                                                         } else {
                                                                             // here change all the others
@@ -12816,7 +12816,7 @@
                                                                     },
                                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer);
-                                                                // mapContainer.addControl(routingJadwalRenpam4[`${i+1}${ii}`]);  
+                                                                // mapContainer.addControl(routingJadwalRenpam4[`${i+1}${ii}`]);
                                                             } else {
                                                                 mapContainer.removeControl(routingJadwalRenpam4[`${i+1}${ii}`]);
                                                             }
@@ -12910,39 +12910,39 @@
                                         listNonRenpam += `
                                             <tr>
                                                 <td>
-                                                    <input type="checkbox" class="form-input" name="selectRenpam" 
-                                                    id="listNonRenpamModalClick${countlistNonRenpam}"  
-                                                    data-name="${el.name_renpam}" 
-                                                    data-cord='${JSON.stringify(el.route)}' 
-                                                    data-cord1='${JSON.stringify(el.route_alternatif_1)}' 
-                                                    data-cord2='${JSON.stringify(el.route_alternatif_2)}' 
-                                                    data-cord3='${JSON.stringify(el.route_masyarakat)}' 
-                                                    data-cord4='${JSON.stringify(el.route_umum)}' 
-                                                    data-type="${el.type_renpam}" 
-                                                    data-warna="${el.warnaRoute_renpam}" 
+                                                    <input type="checkbox" class="form-input" name="selectRenpam"
+                                                    id="listNonRenpamModalClick${countlistNonRenpam}"
+                                                    data-name="${el.name_renpam}"
+                                                    data-cord='${JSON.stringify(el.route)}'
+                                                    data-cord1='${JSON.stringify(el.route_alternatif_1)}'
+                                                    data-cord2='${JSON.stringify(el.route_alternatif_2)}'
+                                                    data-cord3='${JSON.stringify(el.route_masyarakat)}'
+                                                    data-cord4='${JSON.stringify(el.route_umum)}'
+                                                    data-type="${el.type_renpam}"
+                                                    data-warna="${el.warnaRoute_renpam}"
                                                     data-jadwal="${el.schedule != null ? el.schedule.activity : '' }"
-                                                    data-awal="${el.title_start}" 
-                                                    data-akhir="${el.title_end}"> 
+                                                    data-awal="${el.title_start}"
+                                                    data-akhir="${el.title_end}">
                                                 </td>
-                                                <td>${countlistNonRenpam}</td> 
+                                                <td>${countlistNonRenpam}</td>
                                                 <td>${dataNonRenpamVIP}</td>
                                                 <td><a href="<?= base_url() ?>operasi/Renpam/edit/${el.id}" target="_blank">${el.title_start} Ke ${el.title_end}</a></td>
-                                                <td>${el.start_time != null ? el.start_time.substr(0, 5) : '-'}</td> 
+                                                <td>${el.start_time != null ? el.start_time.substr(0, 5) : '-'}</td>
                                                 <td>
                                                     <div>
-                                                        <a class="btn" 
+                                                        <a class="btn"
                                                             data-accounts='${JSON.stringify(dataNonRenpamAccounts)}'
                                                             title="Petugas" data-bs-toggle="modal" data-bs-target="#myModalPetugas"
                                                             href="javascript:void(0)">
                                                             <i style="color: #495057;" class="fa fas fa-user-shield"></i>
                                                         </a>
-                                              
+
                                                     </div>
                                                 </td>
-                                                <td> 
+                                                <td>
                                                     <a class="btn" href="javascripte:void(0);"
-                                                        style="font-size: 16px;"  
-                                                        data-idnote="${el.id}" 
+                                                        style="font-size: 16px;"
+                                                        data-idnote="${el.id}"
                                                         data-note="${el.note_kakor}"
                                                         data-status="${el.status_renpam}"
                                                         data-accounts='${JSON.stringify(dataNonRenpamAccounts)}'
@@ -12959,7 +12959,7 @@
                                     for (let i = 0; i < countlistNonRenpam; i++) {
                                         $(`#listNonRenpamModalClick${i+1}`).on("change", function(e) {
                                             console.log(checkedNonRenpam);
-                                            //Find index of specific object using findIndex method.    
+                                            //Find index of specific object using findIndex method.
                                             objIndex = checkedNonRenpam.findIndex((obj => obj.name_renpam == $(this).data('name')));
                                             // console.log(objIndex);
 
@@ -12997,7 +12997,7 @@
                                                     weight: 5,
                                                     className: 'animateRoute'
                                                 }];
-                                            } else if (typeRenpam == 4) { //pengaturan 
+                                            } else if (typeRenpam == 4) { //pengaturan
                                                 iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
                                                 markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                                 markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
@@ -13007,7 +13007,7 @@
                                                     weight: 5,
                                                     className: 'animateRoute'
                                                 }];
-                                            } else if (typeRenpam == 5) { //penutupan 
+                                            } else if (typeRenpam == 5) { //penutupan
                                                 iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
                                                 markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                                 markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
@@ -13070,9 +13070,9 @@
                                                                     }),
                                                                     draggable: this.draggableWaypoints,
                                                                 }).bindPopup(`
-                                                                    <div class="text-center"> 
+                                                                    <div class="text-center">
                                                                         <h5>${titikAwal}</h5>
-                                                                    </div> 
+                                                                    </div>
                                                                 `);
                                                             } else if (i === nWps - 1) {
                                                                 return L.marker(wp.latLng, {
@@ -13085,9 +13085,9 @@
                                                                     }),
                                                                     draggable: this.draggableWaypoints,
                                                                 }).bindPopup(`
-                                                                    <div class="text-center"> 
+                                                                    <div class="text-center">
                                                                         <h5>${titikAkhir}</h5>
-                                                                    </div> 
+                                                                    </div>
                                                                 `);
                                                             } else {
                                                                 // here change all the others
@@ -13110,7 +13110,7 @@
                                                         },
                                                         // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);
-                                                    // mapContainer.addControl(routingRenpam1[i]); 
+                                                    // mapContainer.addControl(routingRenpam1[i]);
                                                 } else {
                                                     mapContainer.removeControl(routingRenpam1[i]);
                                                 }
@@ -13151,9 +13151,9 @@
                                                                     }),
                                                                     draggable: this.draggableWaypoints,
                                                                 }).bindPopup(`
-                                                                    <div class="text-center"> 
+                                                                    <div class="text-center">
                                                                         <h5>${titikAwal}</h5>
-                                                                    </div> 
+                                                                    </div>
                                                                 `);
                                                             } else if (i === nWps - 1) {
                                                                 return L.marker(wp.latLng, {
@@ -13166,9 +13166,9 @@
                                                                     }),
                                                                     draggable: this.draggableWaypoints,
                                                                 }).bindPopup(`
-                                                                    <div class="text-center"> 
+                                                                    <div class="text-center">
                                                                         <h5>${titikAkhir}</h5>
-                                                                    </div> 
+                                                                    </div>
                                                                 `);
                                                             } else {
                                                                 // here change all the others
@@ -13191,7 +13191,7 @@
                                                         },
                                                         // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);
-                                                    // mapContainer.addControl(routingRenpam2[i]); 
+                                                    // mapContainer.addControl(routingRenpam2[i]);
                                                 } else {
                                                     mapContainer.removeControl(routingRenpam2[i]);
                                                 }
@@ -13232,9 +13232,9 @@
                                                                     }),
                                                                     draggable: this.draggableWaypoints,
                                                                 }).bindPopup(`
-                                                                    <div class="text-center"> 
+                                                                    <div class="text-center">
                                                                         <h5>${titikAwal}</h5>
-                                                                    </div> 
+                                                                    </div>
                                                                 `);
                                                             } else if (i === nWps - 1) {
                                                                 return L.marker(wp.latLng, {
@@ -13247,9 +13247,9 @@
                                                                     }),
                                                                     draggable: this.draggableWaypoints,
                                                                 }).bindPopup(`
-                                                                    <div class="text-center"> 
+                                                                    <div class="text-center">
                                                                         <h5>${titikAkhir}</h5>
-                                                                    </div> 
+                                                                    </div>
                                                                 `);
                                                             } else {
                                                                 // here change all the others
@@ -13272,7 +13272,7 @@
                                                         },
                                                         // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);
-                                                    // mapContainer.addControl(routingRenpam3[i]); 
+                                                    // mapContainer.addControl(routingRenpam3[i]);
                                                 } else {
                                                     mapContainer.removeControl(routingRenpam3[i]);
                                                 }
@@ -13313,9 +13313,9 @@
                                                                     }),
                                                                     draggable: this.draggableWaypoints,
                                                                 }).bindPopup(`
-                                                                    <div class="text-center"> 
+                                                                    <div class="text-center">
                                                                         <h5>${titikAwal}</h5>
-                                                                    </div> 
+                                                                    </div>
                                                                 `);
                                                             } else if (i === nWps - 1) {
                                                                 return L.marker(wp.latLng, {
@@ -13328,9 +13328,9 @@
                                                                     }),
                                                                     draggable: this.draggableWaypoints,
                                                                 }).bindPopup(`
-                                                                    <div class="text-center"> 
+                                                                    <div class="text-center">
                                                                         <h5>${titikAkhir}</h5>
-                                                                    </div> 
+                                                                    </div>
                                                                 `);
                                                             } else {
                                                                 // here change all the others
@@ -13353,7 +13353,7 @@
                                                         },
                                                         // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);
-                                                    // mapContainer.addControl(routingRenpam4[i]); 
+                                                    // mapContainer.addControl(routingRenpam4[i]);
                                                 } else {
                                                     mapContainer.removeControl(routingRenpam4[i]);
                                                 }
@@ -13390,9 +13390,9 @@
                                                                     }),
                                                                     draggable: this.draggableWaypoints,
                                                                 }).bindPopup(`
-                                                                    <div class="text-center"> 
+                                                                    <div class="text-center">
                                                                         <h5>${titikAwal}</h5>
-                                                                    </div> 
+                                                                    </div>
                                                                 `);
                                                             } else if (i === nWps - 1) {
                                                                 return L.marker(wp.latLng, {
@@ -13405,9 +13405,9 @@
                                                                     }),
                                                                     draggable: this.draggableWaypoints,
                                                                 }).bindPopup(`
-                                                                    <div class="text-center"> 
+                                                                    <div class="text-center">
                                                                         <h5>${titikAkhir}</h5>
-                                                                    </div> 
+                                                                    </div>
                                                                 `);
                                                             } else {
                                                                 // here change all the others
@@ -13430,7 +13430,7 @@
                                                         },
                                                         // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);
-                                                    // mapContainer.addControl(routingRenpam[i]); 
+                                                    // mapContainer.addControl(routingRenpam[i]);
                                                 } else {
                                                     mapContainer.removeControl(routingRenpam[i]);
                                                 }
@@ -13492,16 +13492,16 @@
                                         if (result1['data'] != null) {
                                             var trackPetugas = result1['data'];
                                             getIdTracking = `
-                                                <a class="btn" style="margin-top: -10px;" 
-                                                    id="listPetugasClickModal${trackPetugas['nrp_user']}"    
-                                                    data-nama="${trackPetugas['name_team']}"  
-                                                    data-akun="${trackPetugas['name_account']}" 
+                                                <a class="btn" style="margin-top: -10px;"
+                                                    id="listPetugasClickModal${trackPetugas['nrp_user']}"
+                                                    data-nama="${trackPetugas['name_team']}"
+                                                    data-akun="${trackPetugas['name_account']}"
                                                     data-nrp="${trackPetugas['nrp_user']}"
                                                     data-telp="${trackPetugas['handphone']}"
-                                                    data-cord="${trackPetugas['latitude']},${trackPetugas['longitude']}" 
+                                                    data-cord="${trackPetugas['latitude']},${trackPetugas['longitude']}"
                                                     href="javascript:void(0)">
                                                     <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </a> 
+                                                </a>
                                             `;
                                             console.log('ada');
                                         } else {
@@ -13518,8 +13518,8 @@
                                                 <td>${ress['officers'][ii]['nrp_officer']}</td>
                                                 <td>
                                                     ${getIdTracking}
-                                                    <a class="btn" style="margin-top: -13px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officers'][ii]['phone_officer']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
-                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officers'][ii]['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
+                                                    <a class="btn" style="margin-top: -13px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officers'][ii]['phone_officer']}" target="_blank"><i class="fa fas fa-phone "></i></a>
+                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officers'][ii]['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a>
                                                 </td>
                                             </tr>
                                         `;
@@ -13531,9 +13531,9 @@
                                                         <th>Pangkat</th>
                                                         <th>Nama</th>
                                                         <th>NRP</th>
-                                                        <th></th> 
+                                                        <th></th>
                                                     </tr>
-                                                </thead> 
+                                                </thead>
                                                 <tbody>
                                                     ${isiTable}
                                                 </tbody>
@@ -13573,9 +13573,9 @@
                                 <th>Pangkat</th>
                                 <th>Nama</th>
                                 <th>NRP</th>
-                                <th></th> 
+                                <th></th>
                             </tr>
-                        </thead> 
+                        </thead>
                         <tbody>
                             <tr>
                                 <td></td>
@@ -13671,8 +13671,8 @@
                                     </div>
                                     <div class="col-md-3" style="display: flex;align-items: center;">
                                         <a class="btn" href="javascripte:void(0);"
-                                        style="font-size: 16px;"  
-                                        data-idnote="${el.id}" 
+                                        style="font-size: 16px;"
+                                        data-idnote="${el.id}"
                                         data-note="${el.note_kakor}"
                                         data-accounts='${JSON.stringify(el.accounts)}'
                                         title="Catatan Uraian Kegiatan" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
@@ -13707,7 +13707,7 @@
                         //                     clearTimeout(search.timeoutID);
                         //                     search.timeoutID = setTimeout(function() {
                         //                         getListItem().addClass("dx-state-focused");
-                        //                     }); 
+                        //                     });
                         //                 });
 
                         //                 search.registerKeyHandler("upArrow", function() {
@@ -13722,7 +13722,7 @@
                         //             }
                         //         },
                         //         itemTemplate: function(data) {
-                        //             var countList = 0;  
+                        //             var countList = 0;
                         //             console.log(countList + 1);
 
                         //             if(data.status_renpam == 1){
@@ -13737,7 +13737,7 @@
                         //                 </div>
                         //                 `;
                         //             }
-                        //             var dummyList = ` 
+                        //             var dummyList = `
                         //                     <div class="row">
                         //                         <div class="col-md-2" style="display: flex;align-items: center;">
                         //                             ${status}
@@ -13747,21 +13747,21 @@
                         //                         </div>
                         //                         <div class="col-md-3" style="display: flex;align-items: center;">
                         //                             <a class="btn" href="javascripte:void(0);"
-                        //                             style="font-size: 16px;"  
-                        //                             data-idnote="${data.id}" 
+                        //                             style="font-size: 16px;"
+                        //                             data-idnote="${data.id}"
                         //                             data-note="${data.note_kakor}"
                         //                             title="Catatan Uraian Kegiatan" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
                         //                                 <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
                         //                             </a>
                         //                             <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${data.id}"  data-name="${data.name_renpam}" data-cord=${JSON.stringify(data.route)} data-type="${data.type_renpam}" >
                         //                         </div>
-                        //                     </div>  
+                        //                     </div>
                         //             `;
 
                         //             return dummyList;
                         //             // return $("div").text(data.name_renpam);
                         //         },
-                        //         onSelectionClick: function(e){ 
+                        //         onSelectionClick: function(e){
                         //             // if (e.jQueryEvent.target.closest('.dx-treelist-icon-container')) {
                         //             //     console.log('expand button');
                         //             // }
@@ -13770,14 +13770,14 @@
                         //             console.log(e);
                         //         }
                         //     }).dxList("instance");
-                        // }); 
+                        // });
 
 
                         for (let i = 0; i < ress.length; i++) {
                             $(`#listRenpamClick${i+1}`).on("change", function(e) {
 
                                 console.log(checkedRenpam);
-                                //Find index of specific object using findIndex method.    
+                                //Find index of specific object using findIndex method.
                                 objIndex = checkedRenpam.findIndex((obj => obj.name_renpam == $(this).data('name')));
                                 console.log(objIndex);
 
@@ -13815,7 +13815,7 @@
                                         weight: 5,
                                         className: 'animateRoute'
                                     }];
-                                } else if (typeRenpam == 4) { //pengaturan 
+                                } else if (typeRenpam == 4) { //pengaturan
                                     iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
                                     markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                     markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
@@ -13825,7 +13825,7 @@
                                         weight: 5,
                                         className: 'animateRoute'
                                     }];
-                                } else if (typeRenpam == 5) { //penutupan 
+                                } else if (typeRenpam == 5) { //penutupan
                                     iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
                                     markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                     markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
@@ -13885,9 +13885,9 @@
                                                         }),
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
-                                                        <div class="text-center"> 
+                                                        <div class="text-center">
                                                             <h5>${titikAwal}</h5>
-                                                        </div> 
+                                                        </div>
                                                     `);
                                                 } else if (i === nWps - 1) {
                                                     return L.marker(wp.latLng, {
@@ -13900,9 +13900,9 @@
                                                         }),
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
-                                                        <div class="text-center"> 
+                                                        <div class="text-center">
                                                             <h5>${titikAkhir}</h5>
-                                                        </div> 
+                                                        </div>
                                                     `);
                                                 } else {
                                                     // here change all the others
@@ -13925,16 +13925,16 @@
                                             },
                                             // geocoder: L.Control.Geocoder.nominatim({})
                                         }).addTo(mapContainer);
-                                        // mapContainer.addControl(routingRenpam1[i]);  
+                                        // mapContainer.addControl(routingRenpam1[i]);
                                     } else {
                                         mapContainer.removeControl(routingRenpam1[i]);
                                     }
                                 } else {
                                     // Swal.fire(
-                                    // `Route Alternative tidak ada, atau belum di daftarkan!`, 
+                                    // `Route Alternative tidak ada, atau belum di daftarkan!`,
                                     // '',
                                     // 'warning'
-                                    // ).then(function() { 
+                                    // ).then(function() {
                                     // });
                                 }
 
@@ -13972,9 +13972,9 @@
                                                         }),
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
-                                                        <div class="text-center"> 
+                                                        <div class="text-center">
                                                             <h5>${titikAwal}</h5>
-                                                        </div> 
+                                                        </div>
                                                     `);
                                                 } else if (i === nWps - 1) {
                                                     return L.marker(wp.latLng, {
@@ -13987,9 +13987,9 @@
                                                         }),
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
-                                                        <div class="text-center"> 
+                                                        <div class="text-center">
                                                             <h5>${titikAkhir}</h5>
-                                                        </div> 
+                                                        </div>
                                                     `);
                                                 } else {
                                                     // here change all the others
@@ -14012,16 +14012,16 @@
                                             },
                                             // geocoder: L.Control.Geocoder.nominatim({})
                                         }).addTo(mapContainer);
-                                        // mapContainer.addControl(routingRenpam1[i]); 
+                                        // mapContainer.addControl(routingRenpam1[i]);
                                     } else {
                                         mapContainer.removeControl(routingRenpam2[i]);
                                     }
                                 } else {
                                     // Swal.fire(
-                                    // `Route Escape tidak ada, atau belum di daftarkan!`, 
+                                    // `Route Escape tidak ada, atau belum di daftarkan!`,
                                     // '',
                                     // 'warning'
-                                    // ).then(function() { 
+                                    // ).then(function() {
                                     // });
                                 }
 
@@ -14058,9 +14058,9 @@
                                                         }),
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
-                                                        <div class="text-center"> 
+                                                        <div class="text-center">
                                                             <h5>${titikAwal}</h5>
-                                                        </div> 
+                                                        </div>
                                                     `);
                                                 } else if (i === nWps - 1) {
                                                     return L.marker(wp.latLng, {
@@ -14073,9 +14073,9 @@
                                                         }),
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
-                                                        <div class="text-center"> 
+                                                        <div class="text-center">
                                                             <h5>${titikAkhir}</h5>
-                                                        </div> 
+                                                        </div>
                                                     `);
                                                 } else {
                                                     // here change all the others
@@ -14098,16 +14098,16 @@
                                             },
                                             // geocoder: L.Control.Geocoder.nominatim({})
                                         }).addTo(mapContainer);
-                                        // mapContainer.addControl(routingRenpam1[i]); 
+                                        // mapContainer.addControl(routingRenpam1[i]);
                                     } else {
                                         mapContainer.removeControl(routingRenpam3[i]);
                                     }
                                 } else {
                                     // Swal.fire(
-                                    // `Route Escape tidak ada, atau belum di daftarkan!`, 
+                                    // `Route Escape tidak ada, atau belum di daftarkan!`,
                                     // '',
                                     // 'warning'
-                                    // ).then(function() { 
+                                    // ).then(function() {
                                     // });
                                 }
 
@@ -14145,9 +14145,9 @@
                                                         }),
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
-                                                        <div class="text-center"> 
+                                                        <div class="text-center">
                                                             <h5>${titikAwal}</h5>
-                                                        </div> 
+                                                        </div>
                                                     `);
                                                 } else if (i === nWps - 1) {
                                                     return L.marker(wp.latLng, {
@@ -14160,9 +14160,9 @@
                                                         }),
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
-                                                        <div class="text-center"> 
+                                                        <div class="text-center">
                                                             <h5>${titikAkhir}</h5>
-                                                        </div> 
+                                                        </div>
                                                     `);
                                                 } else {
                                                     // here change all the others
@@ -14185,16 +14185,16 @@
                                             },
                                             // geocoder: L.Control.Geocoder.nominatim({})
                                         }).addTo(mapContainer);
-                                        // mapContainer.addControl(routingRenpam1[i]); 
+                                        // mapContainer.addControl(routingRenpam1[i]);
                                     } else {
                                         mapContainer.removeControl(routingRenpam4[i]);
                                     }
                                 } else {
                                     // Swal.fire(
-                                    // `Route Escape tidak ada, atau belum di daftarkan!`, 
+                                    // `Route Escape tidak ada, atau belum di daftarkan!`,
                                     // '',
                                     // 'warning'
-                                    // ).then(function() { 
+                                    // ).then(function() {
                                     // });
                                 }
 
@@ -14233,9 +14233,9 @@
                                                         }),
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
-                                                        <div class="text-center"> 
+                                                        <div class="text-center">
                                                             <h5>${titikAwal}</h5>
-                                                        </div> 
+                                                        </div>
                                                     `);
                                                 } else if (i === nWps - 1) {
                                                     return L.marker(wp.latLng, {
@@ -14248,9 +14248,9 @@
                                                         }),
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
-                                                        <div class="text-center"> 
+                                                        <div class="text-center">
                                                             <h5>${titikAkhir}</h5>
-                                                        </div> 
+                                                        </div>
                                                     `);
                                                 } else {
                                                     // here change all the others
@@ -14273,7 +14273,7 @@
                                             },
                                             // geocoder: L.Control.Geocoder.nominatim({})
                                         }).addTo(mapContainer);
-                                        // mapContainer.addControl(routingRenpam[i]); 
+                                        // mapContainer.addControl(routingRenpam[i]);
                                     } else {
                                         mapContainer.removeControl(routingRenpam[i]);
                                     }
@@ -14281,10 +14281,10 @@
 
                                 } else {
                                     // Swal.fire(
-                                    // `Route tidak ada, atau belum di daftarkan!`, 
+                                    // `Route tidak ada, atau belum di daftarkan!`,
                                     // '',
                                     // 'error'
-                                    // ).then(function() { 
+                                    // ).then(function() {
                                     // });
                                 }
                                 // console.log(routingRenpam);
@@ -14303,8 +14303,8 @@
 
         $('#filterTypeRenpam').on('change', function(e) {
             openModalFilter = true;
-            // $("#overlay").fadeIn(300); 
-            // getRenpam(); 
+            // $("#overlay").fadeIn(300);
+            // getRenpam();
         });
 
         $('#searchRenpam').on('change', function(e) {
@@ -14388,7 +14388,7 @@
 
         // var routeArray = new Array();
         // routeArray = control.getWaypoints();
-        // $('#ruteawal').val(JSON.stringify(routeArray)); 
+        // $('#ruteawal').val(JSON.stringify(routeArray));
 
         var formData = new FormData($('.formR')[0]);
         $.ajax({
@@ -14407,7 +14407,7 @@
                         'success'
                     ).then(function() {
                         $("#myModal").modal('hide');
-                        // userDataTable.draw(); 
+                        // userDataTable.draw();
                     });
                 } else {
                     Swal.fire(
@@ -14508,7 +14508,7 @@
                     // iconAnchor: [10, 33]
                 })
             }).bindPopup(`
-                    <div class="text-center" style="width: 300px;"> 
+                    <div class="text-center" style="width: 300px;">
                         <div class="row mt-3">
                             <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                 <div class="avatar-xl me-3">
@@ -14518,15 +14518,15 @@
                                 </div>
                             </div>
                             <div class="col-md-12 col-12 mt-3">
-                                <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                <h5>${ressFasumKhusus[i].fasum_name}</h5>
                                 <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                             </div>
-                            
+
 
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -14534,12 +14534,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -14547,12 +14547,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_address}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12"  style="margin-top: -30px;">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -14560,12 +14560,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_phone}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12" style="margin-top: -30px;">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -14573,10 +14573,10 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
                                     </div>
-                                </div> 
-                            </div>   
+                                </div>
+                            </div>
                         </div>
-                    </div> 
+                    </div>
             `, {
                 minWidth: 100,
                 maxWidth: 560,
@@ -14697,7 +14697,7 @@
                     // iconAnchor: [10, 33]
                 })
             }).bindPopup(`
-                    <div class="text-center" style="width: 300px;"> 
+                    <div class="text-center" style="width: 300px;">
                         <div class="row mt-3">
                             <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                 <div class="avatar-xl me-3">
@@ -14707,16 +14707,16 @@
                                 </div>
                             </div>
                             <div class="col-md-12 col-12 mt-3">
-                                <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                <h5>${ressFasumKhusus[i].fasum_name}</h5>
                                 <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                             </div>
-                            
+
 
 
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -14724,12 +14724,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -14737,12 +14737,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_address}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12"  style="margin-top: -30px;">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -14750,12 +14750,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_phone}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12" style="margin-top: -30px;">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -14763,10 +14763,10 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
                                     </div>
-                                </div> 
-                            </div>   
+                                </div>
+                            </div>
                         </div>
-                    </div> 
+                    </div>
             `, {
                 minWidth: 100,
                 maxWidth: 560,
@@ -14886,7 +14886,7 @@
                     // iconAnchor: [10, 33]
                 })
             }).bindPopup(`
-                    <div class="text-center" style="width: 300px;"> 
+                    <div class="text-center" style="width: 300px;">
                         <div class="row mt-3">
                             <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                 <div class="avatar-xl me-3">
@@ -14896,15 +14896,15 @@
                                 </div>
                             </div>
                             <div class="col-md-12 col-12 mt-3">
-                                <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                <h5>${ressFasumKhusus[i].fasum_name}</h5>
                                 <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                             </div>
-                            
+
 
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -14912,12 +14912,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -14925,12 +14925,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_address}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12"  style="margin-top: -30px;">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -14938,12 +14938,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_phone}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12" style="margin-top: -30px;">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -14951,10 +14951,10 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
                                     </div>
-                                </div> 
-                            </div>   
+                                </div>
+                            </div>
                         </div>
-                    </div> 
+                    </div>
             `, {
                 minWidth: 100,
                 maxWidth: 560,
@@ -15073,7 +15073,7 @@
                     // iconAnchor: [10, 33]
                 })
             }).bindPopup(`
-                    <div class="text-center" style="width: 300px;"> 
+                    <div class="text-center" style="width: 300px;">
                         <div class="row mt-3">
                             <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                 <div class="avatar-xl me-3">
@@ -15083,15 +15083,15 @@
                                 </div>
                             </div>
                             <div class="col-md-12 col-12 mt-3">
-                                <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                <h5>${ressFasumKhusus[i].fasum_name}</h5>
                                 <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                             </div>
-                            
+
 
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -15099,12 +15099,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -15112,12 +15112,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_address}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12"  style="margin-top: -30px;">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -15125,12 +15125,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_phone}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12" style="margin-top: -30px;">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -15138,10 +15138,10 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
                                     </div>
-                                </div> 
-                            </div>   
+                                </div>
+                            </div>
                         </div>
-                    </div> 
+                    </div>
             `, {
                 minWidth: 100,
                 maxWidth: 560,
@@ -15261,7 +15261,7 @@
                     // iconAnchor: [10, 33]
                 })
             }).bindPopup(`
-                    <div class="text-center" style="width: 300px;"> 
+                    <div class="text-center" style="width: 300px;">
                         <div class="row mt-3">
                             <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                 <div class="avatar-xl me-3">
@@ -15271,15 +15271,15 @@
                                 </div>
                             </div>
                             <div class="col-md-12 col-12 mt-3">
-                                <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                <h5>${ressFasumKhusus[i].fasum_name}</h5>
                                 <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                             </div>
-                            
+
 
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -15287,12 +15287,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -15300,12 +15300,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_address}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12"  style="margin-top: -30px;">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -15313,12 +15313,12 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_phone}</p>
                                     </div>
-                                </div> 
-                            </div>  
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12" style="margin-top: -30px;">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -15326,10 +15326,10 @@
                                     <div class="col-md-6 col-6">
                                         <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
                                     </div>
-                                </div> 
-                            </div>   
+                                </div>
+                            </div>
                         </div>
-                    </div> 
+                    </div>
             `, {
                 minWidth: 100,
                 maxWidth: 560,
@@ -15430,7 +15430,7 @@
 
         // var routeArray = new Array();
         // routeArray = control.getWaypoints();
-        // $('#ruteawal').val(JSON.stringify(routeArray)); 
+        // $('#ruteawal').val(JSON.stringify(routeArray));
 
         var formData = new FormData($('.formNoteKakor')[0]);
         $.ajax({
@@ -15479,7 +15479,7 @@
                         'success'
                     ).then(function() {
                         // $(".TambahPetugas").modal('hide');
-                        // userDataTable.draw(); 
+                        // userDataTable.draw();
                     });
                 } else {
                     Swal.fire(
@@ -15509,7 +15509,7 @@
                         'success'
                     ).then(function() {
                         // $(".TambahPetugas").modal('hide');
-                        // userDataTable.draw(); 
+                        // userDataTable.draw();
                     });
                 } else {
                     Swal.fire(
@@ -15523,7 +15523,7 @@
 
     }
 
-    
+
     function openNav() {
         document.getElementById("mySidenav").style.width = "50%";
     }

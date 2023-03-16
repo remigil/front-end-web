@@ -1105,9 +1105,9 @@
 
         <!-- ========== Left Sidebar Start ========== -->
         <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagOps') { ?>
-                <div class="vertical-menu" style="color: #fff; background: url(<?php echo base_url() ?>assets/background-sidebar.png), linear-gradient(175.42deg, #0033EA 11.63%, #013F9F 101.04%); background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
+                <div class="vertical-menu" style="color: #fff;  background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
             <?php } else { ?>
-                    <div class="vertical-menu" style="color: #fff; background: url(<?php echo base_url() ?>assets/background-sidebar.png), linear-gradient(175.42deg, #0033EA 11.63%, #013F9F 101.04%); background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
+                    <div class="vertical-menu" style="color: #fff;  background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
                 <?php } ?>
 
                 <div data-simplebar class="h-100">
@@ -1625,9 +1625,9 @@
                             <?php } elseif ($this->session->userdata['role'] == 'Kakorlantas') { ?>
                                     <li>
                                         <a href="<?php echo base_url(); ?>dashboard">
-                                            <img src="<?= base_url('assets/sidebar/icon_beranda.png') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <img src="<?= base_url('assets/sidebar/menu.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <!-- <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
-                                            <span data-key="t-dashboard" style="color: white;">Beranda</span>
+                                            <span data-key="t-dashboard" style="color: #01796f;">Beranda</span>
                                         </a>
                                     </li>
                                     <!-- <li>
@@ -1842,7 +1842,7 @@
                                             <li>
                                                 <a href="<?= base_url('tripon') ?>" data-key="t-login">
                                                     <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                    <span data-key="t-dashboard" style="color: white;">TripOn</span>
+                                                    <span data-key="t-dashboard" style="color: white;">Monitoring</span>
                                                 </a>
                                             </li>
                                         </ul>

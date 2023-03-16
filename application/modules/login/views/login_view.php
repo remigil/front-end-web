@@ -161,7 +161,7 @@
       messaging.getToken()
         .then(function(refreshedToken) {
           console.log('Token refreshed.');
-          // Indicate that the new Instance ID token has not yet been sent 
+          // Indicate that the new Instance ID token has not yet been sent
           // to the app server.
           setTokenSentToServer(false);
           // Send Instance ID token to app server.
@@ -297,7 +297,7 @@
       return keyFunction(event);
     }
 
-    //Disable right click script 
+    //Disable right click script
     var message = "Sorry, right-click has been disabled";
 
     function clickIE() {
