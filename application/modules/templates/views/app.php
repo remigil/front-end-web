@@ -15,7 +15,7 @@
             <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
     <?php } else { ?>
             <!-- App favicon -->
-            <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
+            <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/main-logo-sb.png">
     <?php } ?>
 
     <!-- twitter-bootstrap-wizard css -->
@@ -974,14 +974,14 @@
                                 <?php $mobile = detect_mobile();
                                 if ($mobile === true) { ?>
                                         <p style="font-size:10px; margin-bottom: 0px;margin-top: 10px;">Selamat Datang Di</p>
-                                        <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:10px; margin-top:2px;" class="text-uppercase">BOGOR NGAWAS &nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
+                                        <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #01796f; font-family:MortendBold; font-size:10px; margin-top:2px;" class="text-uppercase">BOGOR NGAWAS &nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
                                 <?php } else { ?>
                                         <?php if ($this->session->userdata['role'] == 'G20') { ?>
                                                 <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Operasi</p>
                                         <?php } else { ?>
                                                 <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Selamat Datang Di</p>
                                         <?php } ?>
-                                        <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:red; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">BOGOR NGAWAS &nbsp; <span style="color:#007DD8 ;">
+                                        <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:#01796f; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">BOGOR NGAWAS &nbsp; <span style="color:#007DD8 ;">
                                                 <?php if ($this->session->userdata['role'] == 'G20') { ?>
                                                         - <span>Operasi <?= $this->session->userdata['name_operation'] ?></span>
                                                 <?php } ?>
@@ -1068,7 +1068,7 @@
                         <button type="button" class="btn header-item bg-soft-light border-start border-end" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel' || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri') { ?>
                                     <!-- <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile-emas.svg" alt="Header Avatar"> -->
-                                    <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
+                                    <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/main-logo-sb.png" alt="Header Avatar" style="background-color: #fff;">
                                     <span class="d-none d-xl-inline-block ms-1 fw-medium">Hi, &nbsp;<?php echo $this->session->userdata['full_name']; ?></span>
                             <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                                         <!-- <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar"> -->

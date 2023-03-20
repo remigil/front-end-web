@@ -220,7 +220,7 @@
 
               <div>
                    <img src="<?php echo base_url(); ?>assets/main-logo-5.png" height="100"> <br><br>
-                   <span class="fw-bolder" style="color:#01796f">SELAMAT DATANG KEMBALI</span><br>
+                   <span class="fw-bolder" style="color:#01796f">SELAMAT DATANG 🫡</span><br>
               </div>
 
               <div class="clearfix"></div>
@@ -230,12 +230,12 @@
                 <textarea hidden name="token" id="tokenNotif" cols="5" rows="5"></textarea>
 
                 <div class="material-textfield mt-5 mb-3">
-                  <input style="width: 100%;" name="username" placeholder="Nama pengguna atau Akun" type="text">
-                  <label class="labelmui">Nama pengguna atau Akun</label>
+                  <input style="width: 100%;" name="username" placeholder="Username" type="text">
+                  <label class="labelmui">Username</label>
                 </div>
                 <div class="material-textfield">
-                  <input style="width: 100%;" placeholder="Sandi" name="password" id="password" type="password">
-                  <label class="labelmui">Sandi</label>
+                  <input style="width: 100%;" placeholder="Password" name="password" id="password" type="password">
+                  <label class="labelmui">Password</label>
                   <span><i class="fa-solid fa-eye" id="eye"></i></span>
                 </div>
 

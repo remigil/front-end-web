@@ -475,18 +475,12 @@
                                             <a href="javascript:void(0);" class="btn btn-primary" id="filterCari" style="width: 100%">Search</a>
                                         </div>
                                     </div>
-                                    <!-- <div class="dropdown-divider"></div> -->
 
-                                    <!-- <div class="material-textfield">
-                                        <input style="width: 100%;" placeholder="Pilih Tanggal" name="password" type="password">
-                                        <label class="labelmui">Tanggal</label>
-                                    </div> -->
                                 </div>
 
                             </form>
                         </div>
                     </div>
-                    <!-- item-->
                 </div>
 
 
