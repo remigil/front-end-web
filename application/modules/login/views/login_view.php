@@ -11,7 +11,7 @@
   <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/login/fonts/flaticon/font/flaticon.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <!-- Favicon icon -->
-  <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/main-logo-sb.png" type="image/x-icon">
 
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
@@ -25,6 +25,8 @@
     .material-textfield {
       position: relative;
     }
+
+
 
     .labelmui {
       position: absolute;
@@ -52,11 +54,11 @@
     }
 
     .material-textfield input:focus {
-      border-color: #6200EE;
+      border-color: #01796f;
     }
 
     .material-textfield input:focus+.labelmui {
-      color: #6200EE;
+      color: #01796f;
       top: 0;
       transform: translateY(-50%) scale(.9);
     }
@@ -201,7 +203,7 @@
   <div class="page_loader"></div>
 
   <!-- Login 2 start -->
-  <div class="login-2 login-background" style="background-image: url(<?php echo base_url() ?>assets/bg-login.png)">
+  <div class="login-2 login-background" style="background-image: url(<?php echo base_url() ?>assets/-----.svg)">
     <?php if ($this->session->flashdata('error')) { ?>
       <div class="alert dark alert-warning alert-dismissible" role="alert">
         <button type="button" class="close btn" data-dismiss="alert" aria-label="Close">
@@ -213,29 +215,21 @@
     <div class="login-2-inner">
       <div class="container">
         <div class="row login-box">
-          <div class="col-lg-8 align-self-center pad-0 form-info">
+          <div class="col-lg-12 align-self-center  form-info">
             <div class="form-section align-self-center">
-              <!-- <div class="logo-2 logo">
-                            <a href="login-2.html">
-                                <img src="<?php echo base_url(); ?>assets/login/img/logos/logo-2.png">
-                            </a>
-                        </div> -->
+
               <div>
-                <span class="fw-bolder" style="color:#003A91">DASHBOARD EXECUTIVE</span><br>
-                <!-- <span class="fw-bold"> </span><br> -->
-                <img src="<?php echo base_url(); ?>assets/logo-main.png">
+                   <img src="<?php echo base_url(); ?>assets/main-logo-5.png" height="100"> <br><br>
+                   <span class="fw-bolder" style="color:#01796f">SELAMAT DATANG KEMBALI</span><br>
               </div>
-              <!-- <div class="btn-section clearfix">
-                            <a href="login-2.html" class="link-btn active btn-1 active-bg">Login</a>
-                            <a href="register-2.html" class="link-btn btn-2 default-bg">Register</a>
-                        </div> -->
+
               <div class="clearfix"></div>
               <form method="post" action="<?php echo base_url(); ?>login/auth" autocomplete="off">
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
 
                 <textarea hidden name="token" id="tokenNotif" cols="5" rows="5"></textarea>
 
-                <div class="material-textfield mb-3">
+                <div class="material-textfield mt-5 mb-3">
                   <input style="width: 100%;" name="username" placeholder="Nama pengguna atau Akun" type="text">
                   <label class="labelmui">Nama pengguna atau Akun</label>
                 </div>
@@ -250,19 +244,20 @@
                   <label for="remember" style="margin-left: 5px;">Ingat saya</label>
                 </div>
                 <div style="display: grid;">
-                  <button type="submit" class="btn btn-lg btn-primary btn-theme mb-3" style="border-radius: 10px; font-size: 16px; background-color: #003A91">Masuk / Login</button>
+                  <button type="submit" class="btn btn-lg btn-primary btn-theme mb-3" style="border-radius: 10px; font-size: 16px; background-color: #01796f">Login</button>
                   <a href="<?= base_url() ?>login/forgot_password" style="font-size: 12px;">Lupa sandi ?</a>
                 </div>
               </form>
             </div>
           </div>
-          <div class="col-lg-4 align-self-center pad-0 bg-img">
-            <img style="border-radius: 0px 25px 25px 0px;margin-left: 24px;" src="<?php echo base_url() ?>assets/bg-login-dashboard.png" alt="sideImage">
-          </div>
+          <!-- <div class="col-lg-4 align-self-center pad-0 bg-img">
+            <img style="border-radius: 0px 25px 25px 0px;margin-left: 24px;" src="<?php echo base_url() ?>assets/----" alt="sideImage" >
+          </div> -->
         </div>
       </div>
     </div>
   </div>
+
   <!-- Login 2 end -->
 
   <!-- External JS libraries -->

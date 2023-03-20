@@ -11,7 +11,7 @@
 
     <div class="row align-items-center justify-content-between mb-2">
         <div class="col-md-4">
-            <h3>Filter Data Trip On</h3>
+            <h3>Filter Data Monitoring</h3>
             <div class="cat" style="padding: 0;margin:0">
                 <label>
                     <input checked type="radio" value="now" name="filter" id="nowDisplay"><span> Saat ini</span>
@@ -140,7 +140,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
-                    <h5>DATA KEBERANGKATAN PER PROVINSI</h5>
+                    <h5>DATA KEBERANGKATAN PER KECAMATAN</h5>
                     <div class="row align-items-center">
                         <div class="col-md-2">
                             <select class="form-control" id="limit_showData">
@@ -169,7 +169,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
-                    <h5>DATA KEDATANGAN PER PROVINSI</h5>
+                    <h5>DATA KEDATANGAN PER KECAMATAN</h5>
                 </div>
                 <div class="card-body m-0 p-0">
                     <div class="main-chart">
@@ -184,7 +184,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
-                    <h5>DATA TRIPON</h5>
+                    <h5>DATA MONITORING</h5>
                     <p class="fw-bold" style="text-transform:capitalize">Per Jenis Kendaraan</p>
                 </div>
                 <div class="card-body m-0 p-0">
@@ -197,7 +197,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
-                    <h5>DATA TRIPON</h5>
+                    <h5>DATA MONOTORING</h5>
                     <p class="fw-bold" style="text-transform:capitalize">Per Model Kendaraan</p>
                 </div>
                 <div class="card-body m-0 p-0">
@@ -690,7 +690,7 @@
                     series: [{
                         name: 'Keberangkatan',
                         data: results.keberangkatan,
-                        color: "#003A91",
+                        color: "#176646",
                     }],
                     chart: {
                         type: 'bar',
@@ -759,7 +759,7 @@
                     series: [{
                         name: 'Kedatangan',
                         data: results.kedatangan,
-                        color: "#CB2D3E",
+                        color: "#176646",
                     }],
                     chart: {
                         type: 'bar',

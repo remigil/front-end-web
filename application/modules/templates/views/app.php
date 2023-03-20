@@ -93,6 +93,8 @@
 
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 
+     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
     <style>
         @font-face {
             font-family: 'MortendBold';
@@ -935,19 +937,19 @@
                         <?php } else { ?>
                                 <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
                                     <span class="logo-sm">
-                                        <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
+                                        <img src="<?php echo base_url(); ?>assets/main-logo-sb.png" alt="" style="margin-left: -9px;" height="30">
                                     </span>
                                     <span class="logo-lg">
-                                        <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
+                                        <img src="<?php echo base_url(); ?>assets/main-logo-5.png" alt="" style="margin-left: 22px;" height="75">
                                     </span>
                                 </a>
 
                                 <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
                                     <span class="logo-sm">
-                                        <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
+                                        <img src="<?php echo base_url(); ?>assets/main-logo-sb.png" alt="" style="margin-left: -9px;" height="40">
                                     </span>
                                     <span class="logo-lg">
-                                        <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
+                                        <img src="<?php echo base_url(); ?>assets/main-logo-5.png" alt="" style="margin-left: 22px;" height="65">
                                     </span>
                                 </a>
                         <?php } ?>
@@ -971,15 +973,15 @@
                             <div>
                                 <?php $mobile = detect_mobile();
                                 if ($mobile === true) { ?>
-                                        <p style="font-size:10px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                                        <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:10px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
+                                        <p style="font-size:10px; margin-bottom: 0px;margin-top: 10px;">Selamat Datang Di</p>
+                                        <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:10px; margin-top:2px;" class="text-uppercase">BOGOR NGAWAS &nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
                                 <?php } else { ?>
                                         <?php if ($this->session->userdata['role'] == 'G20') { ?>
                                                 <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Operasi</p>
                                         <?php } else { ?>
-                                                <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
+                                                <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Selamat Datang Di</p>
                                         <?php } ?>
-                                        <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:red; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> K3I KORLANTAS POLRI
+                                        <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:red; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">BOGOR NGAWAS &nbsp; <span style="color:#007DD8 ;">
                                                 <?php if ($this->session->userdata['role'] == 'G20') { ?>
                                                         - <span>Operasi <?= $this->session->userdata['name_operation'] ?></span>
                                                 <?php } ?>
@@ -1627,7 +1629,7 @@
                                         <a href="<?php echo base_url(); ?>dashboard">
                                             <img src="<?= base_url('assets/sidebar/menu.png') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <!-- <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
-                                            <span data-key="t-dashboard" style="color: #01796f;">Beranda</span>
+                                            <span data-key="t-dashboard">Beranda</span>
                                         </a>
                                     </li>
                                     <!-- <li>
@@ -1836,7 +1838,7 @@
                                     <li>
                                         <a href="javascript: void(0);" class="has-arrow">
                                             <img src="<?= base_url('assets/sidebar/icon_masyarakat.png') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-authentication" style="color: white;">Masyarakat</span>
+                                            <span data-key="t-authentication" ;">Masyarakat</span>
                                         </a>
                                         <ul class="sub-menu" aria-expanded="false">
                                             <li>
@@ -2173,6 +2175,7 @@
                                         <a href="<?php echo base_url(); ?>dashboard">
                                             <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <span data-key="t-dashboard">Beranda</span>
+                                            <box-icon name="rocket"></box-icon>
                                         </a>
                                     </li>
                                     <li>

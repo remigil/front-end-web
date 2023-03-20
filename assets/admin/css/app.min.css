@@ -1,15 +1,15 @@
 @import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&amp;display=swap);
 :root {
-  --bs-sidebar-bg: #000dda;
+  --bs-sidebar-bg: #ffffff;
   --bs-sidebar-menu-item-color: #fff;
   --bs-sidebar-menu-sub-item-color: #fff;
   --bs-sidebar-menu-item-icon-color: #fff;
   --bs-sidebar-menu-item-icon-effact-color: rgba(84, 90, 109, 0.2);
-  --bs-sidebar-menu-item-hover-color: #003A91;
+  --bs-sidebar-menu-item-hover-color: #01796f;
   --bs-sidebar-menu-item-hover-effact-color: rgba(81, 86, 190, 0.2);
-  --bs-sidebar-menu-item-active-color: #003A91;
+  --bs-sidebar-menu-item-active-color: #01796f;
   --bs-sidebar-menu-item-active-effact-color: rgba(190, 152, 81, 0.2);
-  --bs-sidebar-border-color: transparent
+  --bs-sidebar-border-color: transparent;
   --bs-sidebar-menu-item-active-bg-color: #f3f8fb;
   --bs-sidebar-menu-item-active-bg-color-dark: #293552;
   --bs-sidebar-alert: rgba(81, 86, 190, 0.1);
@@ -728,6 +728,7 @@ body[data-layout="horizontal"] .footer {
 #sidebar-menu .mm-active > .has-arrow:after {
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
+
 }
 #sidebar-menu .has-arrow:after {
   content: "\f0142";
@@ -745,12 +746,13 @@ body[data-layout="horizontal"] .footer {
 #sidebar-menu ul li a {
   display: block;
   padding: 0.62rem 1.5rem;
-  color: var(--bs-sidebar-menu-item-color);
+  /* color: var(--bs-sidebar-menu-item-color); */
   position: relative;
   font-size: 0.9rem;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
   font-weight: 500;
+  color: #01796f;
 }
 #sidebar-menu ul li a i {
   display: inline-block;
@@ -759,7 +761,7 @@ body[data-layout="horizontal"] .footer {
   font-size: 1.25rem;
   line-height: 1.40625rem;
   vertical-align: middle;
-  color: var(--bs-sidebar-menu-item-icon-color);
+  color: #fff;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
@@ -773,9 +775,11 @@ body[data-layout="horizontal"] .footer {
 }
 #sidebar-menu ul li a:hover {
     background: var(--bs-sidebar-menu-item-hover-color);
+    color: #fff;
 }
 #sidebar-menu ul li a:hover i {
     background: var(--bs-sidebar-menu-item-hover-color);
+
 }
 #sidebar-menu ul li a:hover svg {
     background: var(--bs-sidebar-menu-item-hover-color);
@@ -786,6 +790,7 @@ body[data-layout="horizontal"] .footer {
 }
 #sidebar-menu ul li ul.sub-menu {
   padding: 0;
+  background: #01796f;
 }
 #sidebar-menu ul li ul.sub-menu li a {
   padding: 0.4rem 1.5rem 0.4rem 3.3rem;
