@@ -1384,6 +1384,8 @@
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 
 <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/fe/js/batasWilayah.js"></script>
+<script src="<?php echo base_url(); ?>assets/fe/js/bataswilayah2.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script> -->
 
 <!-- <script>
@@ -1787,8 +1789,20 @@
 
     $(document).ready(function() {
 
-        var initialCenter = [<?= $this->session->userdata['latlng_center'] ?>];
-        var initialZoom = <?= $this->session->userdata['zoom_level'] ?>;
+         //    var initialCenter = [<?= $this->session->userdata['latlng_center'] ?>];
+         //    var initialZoom = <?= $this->session->userdata['zoom_level'] ?>;
+
+         var initialCenter = [-6.5955609,106.8091342];
+         var initialZoom = 12.59;
+
+     //     var batasWilayahBgr = L.geoJson(bataswilayahbgr).addTo(mapContainer);
+
+          // var batasWilayah2 = L.polygon([
+          //      [51.509, -0.08],
+          //      [51.503, -0.06],
+          //      [51.51, -0.047]
+          // ]).addTo(map);
+
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
@@ -1864,16 +1878,19 @@
 
         // StART MAP SECTION
         var mapContainer = L.map('mapG20Dashboard', {
-            maxZoom: 20,
-            minZoom: 1,
-            zoomSnap: 0.25,
-            zoomControl: false,
-            layers: [googleStreet]
-        }).setView(initialCenter, initialZoom);
+             maxZoom: 20,
+             minZoom: 1,
+             zoomSnap: 0.25,
+             zoomControl: false,
+             layers: [googleStreet]
+          }).setView(initialCenter, initialZoom);
+
+          var batasWilayahBgr = L.geoJson(bataswilayahbgr).addTo(mapContainer);
+
 
         var myRenderer = L.canvas({
-            padding: 0.5
-        });
+             padding: 0.5
+          });
 
         var markerClusterGroup = L.markerClusterGroup();
         var icon = L.icon({
@@ -14428,8 +14445,10 @@
 
     $('#myModalUtama').on('shown.bs.modal', function() {
 
-        var initialCenter = [-0.8458708, 118.8661073];
-        var initialZoom = 4.5;
+     //    var initialCenter = [-0.8458708, 118.8661073];
+     //    var initialZoom = 4.5;
+          var initialCenter = [-6.5950181, 106.721852];
+     var initialZoom = 12;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -14617,8 +14636,10 @@
 
     $('#myModal1').on('shown.bs.modal', function() {
 
-        var initialCenter = [-0.8458708, 118.8661073];
-        var initialZoom = 4.5;
+     //    var initialCenter = [-0.8458708, 118.8661073];
+     //    var initialZoom = 4.5;
+          var initialCenter = [-6.5950181, 106.721852];
+     var initialZoom = 12;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -14806,8 +14827,10 @@
 
     $('#myModal2').on('shown.bs.modal', function() {
 
-        var initialCenter = [-0.8458708, 118.8661073];
-        var initialZoom = 4.5;
+     //    var initialCenter = [-0.8458708, 118.8661073];
+     //    var initialZoom = 4.5;
+          var initialCenter = [-6.5950181, 106.721852];
+     var initialZoom = 12;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -14993,8 +15016,10 @@
 
     $('#myModal3').on('shown.bs.modal', function() {
 
-        var initialCenter = [-0.8458708, 118.8661073];
-        var initialZoom = 4.5;
+     //    var initialCenter = [-0.8458708, 118.8661073];
+     //    var initialZoom = 4.5;
+          var initialCenter = [-6.5950181, 106.721852];
+     var initialZoom = 12;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -15181,8 +15206,10 @@
 
     $('#myModal4').on('shown.bs.modal', function() {
 
-        var initialCenter = [-0.8458708, 118.8661073];
-        var initialZoom = 4.5;
+     //    var initialCenter = [-0.8458708, 118.8661073];
+     // var initialZoom = 4.5;
+     var initialCenter = [-6.5950181, 106.721852];
+     var initialZoom = 12;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],

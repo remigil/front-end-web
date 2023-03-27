@@ -137,7 +137,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
                     <h5>DATA KEBERANGKATAN PER KECAMATAN</h5>
@@ -164,9 +164,21 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
+                    <h5 class="mb-5">DATA KEDATANGAN PER KECAMATAN</h5>
+                </div>
+                <div class="card-body m-0 p-0">
+                    <div class="main-chart">
+                        <div id="chart5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <!-- <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
                     <h5>DATA KEDATANGAN PER KECAMATAN</h5>
@@ -177,7 +189,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="row">
@@ -759,7 +771,7 @@
                     series: [{
                         name: 'Kedatangan',
                         data: results.kedatangan,
-                        color: "#176646",
+                        color: "#01796f",
                     }],
                     chart: {
                         type: 'bar',

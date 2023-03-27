@@ -93,7 +93,7 @@
 
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 
-     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <style>
         @font-face {
@@ -1061,7 +1061,7 @@
                     <!-- <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item right-bar-toggle me-2">
                                 <i data-feather="settings" class="icon-lg"></i>
-                            </button>
+                            </button>kKO
                         </div> -->
 
                     <div class="dropdown d-inline-block">

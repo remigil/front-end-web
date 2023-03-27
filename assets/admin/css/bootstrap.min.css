@@ -3604,14 +3604,14 @@ fieldset:disabled .btn {
 
 .btn-primary {
 	color: #fff;
-	background-color: #176646;
+	background-color: #01796f;
 	border-color: #003A91;
 }
 
 .btn-primary:hover {
 	color: #fff;
-	background-color: #004dc0;
-	border-color: #003A91;
+	background-color: #06554e;
+	border-color: #01796f;
 }
 
 .btn-check:focus+.btn-primary,

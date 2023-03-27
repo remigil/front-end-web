@@ -167,8 +167,13 @@ class Dashboard extends MY_Controller
 
             $mobile = detect_mobile();
             if ($mobile === true) {
-                redirect('statistik_nasional');
-                die;
+               //  redirect('statistik_nasional');
+               //  die;
+               $data["title"] = "Dashboard Executive";
+                $page_content["page"] = "dashboard/dashboard_eksekutif";
+
+                $page_content["data"] = $data;
+ 
             } else {
                 $data["title"] = "Dashboard Executive";
                 $page_content["page"] = "dashboard/dashboard_eksekutif";
@@ -491,7 +496,7 @@ class Dashboard extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
 
-        // $input = $this->input->post(); 
+        // $input = $this->input->post();
 
 
         $url = 'cctv';
@@ -509,7 +514,7 @@ class Dashboard extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
 
-        // $input = $this->input->post(); 
+        // $input = $this->input->post();
 
         $dummy = array();
         $dummy['username'] = 'siwalpjr';
@@ -550,7 +555,7 @@ class Dashboard extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
 
-        // $input = $this->input->post(); 
+        // $input = $this->input->post();
 
 
         $url = 'fasum';
@@ -598,7 +603,7 @@ class Dashboard extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
 
-        // $input = $this->input->post(); 
+        // $input = $this->input->post();
 
 
         $url = 'polres';
@@ -616,7 +621,7 @@ class Dashboard extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
 
-        // $input = $this->input->post(); 
+        // $input = $this->input->post();
 
 
         $url = 'category_schedule?serverSide=true&order=order_category_schedule&orderDirection=asc&length=1000&start=1&filter[]=status_category_schedule&filterSearch[]=1';
@@ -776,7 +781,7 @@ class Dashboard extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
 
-        // $input = $this->input->post(); 
+        // $input = $this->input->post();
 
 
         $url = 'schedule';
@@ -800,7 +805,7 @@ class Dashboard extends MY_Controller
         //     $search = '&search=' . $input['search'] . '';
         // } else {
         //     $search = '';
-        // } 
+        // }
         if ($input['schedule_id']) {
             $schedule_id = '&schedule_id=' . $input['schedule_id'] . '';
         } else {
@@ -810,7 +815,7 @@ class Dashboard extends MY_Controller
         //     $page = ''.$input['page'].'';
         // }else{
         //     $page = '1';
-        // } 
+        // }
 
         $url = 'renpam?serverSide=True&order=id&orderDirection=desc&length=1000&start=1' . $schedule_id . '';
         $getRenpam = guzzle_request('GET', $url, [
