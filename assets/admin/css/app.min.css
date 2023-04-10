@@ -746,6 +746,8 @@ body[data-layout="horizontal"] .footer {
 #sidebar-menu ul li a {
   display: block;
   padding: 0.62rem 1.5rem;
+  margin: 1rem;
+  border-radius: 10px;
   /* color: var(--bs-sidebar-menu-item-color); */
   position: relative;
   font-size: 0.9rem;
@@ -761,10 +763,12 @@ body[data-layout="horizontal"] .footer {
   font-size: 1.25rem;
   line-height: 1.40625rem;
   vertical-align: middle;
-  color: #fff;
+  color: #01796f;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
+
+
 #sidebar-menu ul li a svg {
   height: 16px;
   width: 16px;
@@ -778,7 +782,8 @@ body[data-layout="horizontal"] .footer {
     color: #fff;
 }
 #sidebar-menu ul li a:hover i {
-    background: var(--bs-sidebar-menu-item-hover-color);
+    /* background: var(--bs-sidebar-menu-item-hover-color); */
+    color: #fff !important;
 
 }
 #sidebar-menu ul li a:hover svg {
@@ -819,7 +824,8 @@ body[data-layout="horizontal"] .footer {
   background: var(--bs-sidebar-menu-item-active-color) !important;
 }
 .mm-active > a i {
-  background: var(--bs-sidebar-menu-item-active-color) !important;
+  /* background: var(--bs-sidebar-menu-item-active-color) !important; */
+
 }
 .mm-active > a svg {
   background: var(--bs-sidebar-menu-item-active-color) !important;
@@ -827,9 +833,11 @@ body[data-layout="horizontal"] .footer {
 }
 .mm-active .active {
   background: var(--bs-sidebar-menu-item-active-color) !important;
+  color: white !important;
 }
 .mm-active .active i {
-  background: var(--bs-sidebar-menu-item-active-color) !important;
+  /* background: var(--bs-sidebar-menu-item-active-color) !important; */
+  color: #fff !important;
 }
 .mm-active .active svg {
   background: var(--bs-sidebar-menu-item-active-color) !important;

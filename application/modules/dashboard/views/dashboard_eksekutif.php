@@ -1,7 +1,7 @@
 <!-- <button onClick="hitungGpsId()">cek marker tracking</button> -->
-<div id="openLastDisplay" style="cursor: pointer; width: 23px;height: 45px;background-color: rgba(0, 13, 218, 0.79);border: 1px solid rgba(255, 255, 255, 0.39);border-radius: 5px 0px 0px 5px;position: fixed;right: 20px;z-index: 401;top: 400px;font-size: 25px;padding-left: 4px;color: white;padding-top: 3px;">
+<!-- <div id="openLastDisplay" style="cursor: pointer; width: 23px;height: 45px;background-color: rgba(0, 13, 218, 0.79);border: 1px solid rgba(255, 255, 255, 0.39);border-radius: 5px 0px 0px 5px;position: fixed;right: 20px;z-index: 401;top: 400px;font-size: 25px;padding-left: 4px;color: white;padding-top: 3px;">
     <i class="fa fas fa-chevron-left"></i>
-</div>
+</div> -->
 <div class="row">
     <div class="col-md-12">
 
@@ -1014,7 +1014,7 @@
     </div>
 </div>
 
-<div class="modal right fade" id="myModalPetugasDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPetugasDisplay" aria-hidden="true" data-backdrop="false">
+<!-- <div class="modal right fade" id="myModalPetugasDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPetugasDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
@@ -1050,7 +1050,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="modal right fade" id="myModalFasumKhususDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelFasumKhususDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -1385,7 +1385,8 @@
 
 <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/fe/js/batasWilayah.js"></script>
-<script src="<?php echo base_url(); ?>assets/fe/js/bataswilayah2.js"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/fe/js/bataswilayah2.js"></script> -->
+<script src="<?php echo base_url(); ?>assets/fe/js/kotabogor_polygon.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script> -->
 
 <!-- <script>
@@ -1885,7 +1886,7 @@
              layers: [googleStreet]
           }).setView(initialCenter, initialZoom);
 
-          var batasWilayahBgr = L.geoJson(bataswilayahbgr).addTo(mapContainer);
+          var kotaBogorPol = L.geoJson(kotabogorpol).addTo(mapContainer);
 
 
         var myRenderer = L.canvas({

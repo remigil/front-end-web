@@ -20,7 +20,7 @@ class Tripon extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "TripOn";
+        $page_content["title"] = "Monitoring";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
@@ -65,6 +65,22 @@ class Tripon extends MY_Controller
         // $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     }
+
+    public function ngawas()
+    {
+     $headers = [
+            'Token' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Monitoring";
+           $page_content["page"] = "tripon/Kakor/ngawas";
+
+            $page_content["data"] = '';
+        // $page_content["data"] = '';
+        $this->templates->loadTemplate($page_content);
+    }
     public function serverSideTable()
     {
         $postData = $this->input->post();
@@ -99,9 +115,9 @@ class Tripon extends MY_Controller
             'headers' => $headers
         ]);
 
-       
+
         $data['getDetail'] = $getDetail['data'];
-       
+
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);

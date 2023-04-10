@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title><?php echo $title; ?> | K3I</title>
+    <title><?php echo $title; ?> | Ngawas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -93,7 +93,10 @@
 
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 
-     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+     <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet"> -->
+     <script src="https://kit.fontawesome.com/8500d0a795.js" crossorigin="anonymous"></script>
+
 
     <style>
         @font-face {
@@ -657,9 +660,9 @@
             color: white;
         }
 
-        <?php if ($this->session->userdata['role'] != 'G20' || $this->session->userdata['role'] != 'Kakor' || $this->session->userdata['role'] != 'PJU' || $this->session->userdata['role'] != 'Operator') { ?>.mm-active .active {
-                background: #1d1d1d !important;
-            }
+        /* <?php if ($this->session->userdata['role'] != 'G20' || $this->session->userdata['role'] != 'Kakor' || $this->session->userdata['role'] != 'PJU' || $this->session->userdata['role'] != 'Operator') { ?>.mm-active .active {
+                background: #01796f !important;
+            } */
 
         <?php } ?>
         /* @import "compass/css3"; */
@@ -1626,10 +1629,12 @@
                                     </li>
                             <?php } elseif ($this->session->userdata['role'] == 'Kakorlantas') { ?>
                                     <li>
-                                        <a href="<?php echo base_url(); ?>dashboard">
-                                            <img src="<?= base_url('assets/sidebar/menu.png') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <!-- <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
+                                         <a href="<?php echo base_url(); ?>dashboard">
+                                             <!-- <img src="<?= base_url('assets/sidebar/menu.png') ?>" alt="" style="width: 20px; margin-right:10px"> -->
+                                             <!-- <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
+                                             <i class="fas fa-house" ></i>
                                             <span data-key="t-dashboard">Beranda</span>
+
                                         </a>
                                     </li>
                                     <!-- <li>
@@ -1835,20 +1840,21 @@
                                             </a>
                                         </li> -->
                                     <!-- Ini nanti dilanjut -->
-                                    <li>
-                                        <a href="javascript: void(0);" class="has-arrow">
-                                            <img src="<?= base_url('assets/sidebar/icon_masyarakat.png') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-authentication" ;">Masyarakat</span>
-                                        </a>
-                                        <ul class="sub-menu" aria-expanded="false">
+
                                             <li>
                                                 <a href="<?= base_url('tripon') ?>" data-key="t-login">
-                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                    <span data-key="t-dashboard" style="color: white;">Monitoring</span>
+                                                    <!-- <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px"> -->
+                                                    <i class="fas fa-chart-line" style="color: #01796f;"></i>
+                                                    <span data-key="t-dashboard" >Monitoring</span>
                                                 </a>
                                             </li>
-                                        </ul>
-                                    </li>
+                                            <li>
+                                                <a href="<?= base_url('tripon/ngawas') ?>" data-key="t-login">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">Ngawas</span>
+                                                </a>
+                                            </li>
+
 
                                     <!-- Ini nanti dilanjut -->
                                     <!-- <div class="" style="height:2px; width:90%; background-color:white; margin:auto;"></div>
