@@ -1842,10 +1842,10 @@
                                     <!-- Ini nanti dilanjut -->
 
                                             <li>
-                                                <a href="<?= base_url('tripon') ?>" data-key="t-login">
+                                                <a href="<?= base_url('ngawas') ?>" data-key="t-login">
                                                     <!-- <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px"> -->
-                                                    <i class="fas fa-chart-line" style="color: #01796f;"></i>
-                                                    <span data-key="t-dashboard" >Monitoring</span>
+                                                    <i class="fas fa-users-viewfinder" style="color: #01796f;"></i>
+                                                    <span data-key="t-dashboard" >Pengawasan</span>
                                                 </a>
                                             </li>
                                             <li>

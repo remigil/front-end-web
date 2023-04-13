@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <!-- <p class="fs-4 fw-bold">DETAIL DATA TRIPON <?php echo $data['getDetail']['data']['vehicle_id']; ?></p> -->
-                    <p class="fs-4 fw-bold">DETAIL DATA TRIPON <?php echo $data['getDetail']['data']['public_vehicle']['no_vehicle']; ?></p>
+                    <p class="fs-4 fw-bold">DETAIL DATA NGAWAS <?php echo $data['getDetail']['data']['public_vehicle']['no_vehicle']; ?></p>
                 </div>
                 <div class="col-md-7">
                     <!-- ini belum -->
@@ -24,7 +24,7 @@
                             <span> | <?php echo $data['getDetail']['data']['code']; ?></span>
                             <span style=" height: 500px; border-left: 6px solid green;" class="ms-2 me-2"></span>
                             <span class="text-primary">Jumlah Penumpang </span>
-                            <?php $jumlah = $data['getDetail']['data']['passenger_trip_ons']; ?>
+                            <?php $jumlah = $data['getDetail']['data']['penumpangs']; ?>
                             <span>| <?= count($jumlah); ?></span>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                                 </thead>
                                 <tbody>
                                     <?php $no = 1;
-                                    foreach ($data['getDetail']['data']['passenger_trip_ons'] as $row) : ?>
+                                    foreach ($data['getDetail']['data']['penumpangs'] as $row) : ?>
                                         <tr>
                                             <td> <?php echo $no++ ?> </td>
                                             <td><?php echo $row['name']; ?></td>
@@ -160,7 +160,7 @@
                     </div>
                 </div>
             </div>
-            <a href="<?= base_url('tripon'); ?>"> <button class="btn btn-primary waves-effect float-end mt-3" style="width: 25%;">Kembali</button></a>
+            <a href="<?= base_url('ngawas'); ?>"> <button class="btn btn-primary waves-effect float-end mt-3" style="width: 25%;">Kembali</button></a>
         </div>
     </div>
 
@@ -215,7 +215,7 @@
             var endCordLat = '<?php echo $data['getDetail']['data']['end_coordinate']['latitude']; ?>';
             var endCordLng = '<?php echo $data['getDetail']['data']['end_coordinate']['longitude']; ?>';
 
-            // console.log(parseFloat(startCordLat)); 
+            // console.log(parseFloat(startCordLat));
 
 
             L.Routing.control({

@@ -745,7 +745,7 @@ body[data-layout="horizontal"] .footer {
 }
 #sidebar-menu ul li a {
   display: block;
-  padding: 0.62rem 1.5rem;
+  padding: 0.8rem 1.5rem;
   margin: 1rem;
   border-radius: 10px;
   /* color: var(--bs-sidebar-menu-item-color); */

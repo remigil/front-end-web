@@ -173,7 +173,7 @@ class Dashboard extends MY_Controller
                 $page_content["page"] = "dashboard/dashboard_eksekutif";
 
                 $page_content["data"] = $data;
- 
+
             } else {
                 $data["title"] = "Dashboard Executive";
                 $page_content["page"] = "dashboard/dashboard_eksekutif";
@@ -873,8 +873,8 @@ class Dashboard extends MY_Controller
     }
     public function Dashboardeksekutif()
     {
-        // $data['csrf_name'] = $this->security->get_csrf_token_name();
-        // $data['csrf_token'] = $this->security->get_csrf_hash();
+     //    $data['csrf_name'] = $this->security->get_csrf_token_name();
+     //    $data['csrf_token'] = $this->security->get_csrf_hash();
         // $data["title"] = "Dashboard Executive";
         // $data["page"] = "dashboard/dashboard_eksekutif";
         // $this->load->view('dashboard/dashboard_eksekutif', $data);
