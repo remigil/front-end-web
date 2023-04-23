@@ -196,9 +196,9 @@ class Ngawas extends MY_Controller
 
 
         if ($time == 'true') {
-            $url = 'count_ngawas/prov_ngawas?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '&limit=' . $limit . '&topNgawas=true';
+            $url = 'count_ngawas/kec_ngawas?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '&limit=' . $limit . '&topNgawas=true';
         } else {
-            $url = 'count_ngawas/prov_ngawas?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&limit=' . $limit . '&topNgawas=true';
+            $url = 'count_ngawas/kec_ngawas?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&limit=' . $limit . '&topNgawas=true';
         }
 
 

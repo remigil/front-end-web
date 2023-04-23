@@ -801,26 +801,7 @@
                     </div>
                </div>
           </div>
-          <div class="col-xl-3 col-lg-6">
-               <div class="card card-stats mb-4 mb-xl-0">
-                    <div class="card-body">
-                         <div class="row">
-                              <div class="col">
-                                   <h5 class="card-title text-uppercase text-muted mb-0">JUMLAH PENUMPANG
-                                   </h5>
-                                   <h2 class="h2 font-weight-bold mb-0 mt-3" id="jml_penumpang"></h2>
-                              </div>
-                              <div class="col-auto">
-                                   <div
-                                        class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                        <i class="fas fa-users"></i>
-                                   </div>
-                              </div>
-                         </div>
 
-                    </div>
-               </div>
-          </div>
           <div class="col-xl-3 col-lg-6">
                <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
@@ -831,8 +812,28 @@
                               </div>
                               <div class="col-auto">
                                    <div
-                                        class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                                        <i class="fas fa-car"></i>
+                                   class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                                   <i class="fas fa-car"></i>
+                              </div>
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </div>
+     <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+                    <div class="card-body">
+                         <div class="row">
+                              <div class="col">
+                                   <h5 class="card-title text-uppercase text-muted mb-0">JUMLAH KEBERANGKATAN
+                                   </h5>
+                                   <h2 class="h2 font-weight-bold mb-0 mt-3" id="jml_keberangkatan">%</h2>
+                              </div>
+                              <div class="col-auto">
+                                   <div
+                                        class="icon icon-shape bg-info text-white rounded-circle shadow">
+                                        <i class="fas fa-location-arrow"></i>
                                    </div>
                               </div>
                          </div>
@@ -840,14 +841,15 @@
                     </div>
                </div>
           </div>
+
           <div class="col-xl-3 col-lg-6">
                <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                          <div class="row">
                               <div class="col">
-                                   <h5 class="card-title text-uppercase text-muted mb-0">JUMLAH KEBERANGKATAN
+                                   <h5 class="card-title text-uppercase text-muted mb-0">JUMLAH KEDATANGAN
                                    </h5>
-                                   <h2 class="h2 font-weight-bold mb-0 mt-3" id="jml_keberangkatan">%</h2>
+                                   <h2 class="h2 font-weight-bold mb-0 mt-3" id="jml_kedatangan">%</h2>
                               </div>
                               <div class="col-auto">
                                    <div
@@ -1090,7 +1092,7 @@
 
             oLanguage: {
 
-               Search: 'Search:'
+               sSearch: 'Search:'
 
             },
 

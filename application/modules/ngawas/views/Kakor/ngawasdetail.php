@@ -1,6 +1,58 @@
 <!-- Page -->
 <!-- <div class="kotak" style="border-style:solid ;"> -->
+<style>
 
+.card {
+    border: 1;
+    border-radius: 10px
+}
+
+.c-details span {
+    font-weight: 300;
+    font-size: 13px
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #eee;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 39px
+}
+
+.badge span {
+    background-color: #fffbec;
+    width: 60px;
+    height: 25px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    display: flex;
+    color: #fed85d;
+    justify-content: center;
+    align-items: center
+}
+
+.progress {
+    height: 10px;
+    border-radius: 10px
+}
+
+.progress div {
+    background-color: red
+}
+
+.text1 {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.text2 {
+    color: #a5aec0
+}
+</style>
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
@@ -13,14 +65,12 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-5">
-                    <!-- <p class="fs-4 fw-bold">DETAIL DATA TRIPON <?php echo $data['getDetail']['data']['vehicle_id']; ?></p> -->
                     <p class="fs-4 fw-bold">DETAIL DATA NGAWAS <?php echo $data['getDetail']['data']['public_vehicle']['no_vehicle']; ?></p>
                 </div>
                 <div class="col-md-7">
-                    <!-- ini belum -->
                     <div class="border fw-bold rounded">
                         <div class="ms-3 mt-2 mb-2">
-                            <span class="text-primary"> No TRP </span>
+                            <span class="text-primary"> No BNG </span>
                             <span> | <?php echo $data['getDetail']['data']['code']; ?></span>
                             <span style=" height: 500px; border-left: 6px solid green;" class="ms-2 me-2"></span>
                             <span class="text-primary">Jumlah Penumpang </span>
@@ -30,83 +80,81 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-8">
                     <div class="border rounded" style="height:7vh;background-color:#D5D5D4;">
                         <div class="mt-2 mb-2 ">
-                            <div style="border:1px solid #003A91; margin-top:3%"></div>
-                            <span class=" fw-bolder text-primary" style="position:absolute; height:15px; left:37px; top: 2%;background:#D5D5D4; padding:0 15px 0 15px;">IDENTITAS PENGENDARA</span>
+                            <span class=" fw-bolder text-primary" style="position:absolute; height:15px; left:37px; top: 2%;background:#D5D5D4;">RUTE PERJALANAN</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="border rounded" style="height:7vh;background-color:#B7D9EC ;">
                         <div class="mt-2 mb-2 text-center">
-                            <div style="border:1px solid #003A91; margin-top:6.47%"></div>
-                            <span class="fw-bolder  text-primary" style="position:absolute; height:15px; left:25%; top: 2%;background:#B7D9EC; padding:0 15px 0 15px;">RUTE PENGENDARA</span>
+                            <span class="fw-bolder  text-primary" style="position:absolute;">PENGENDARA</span>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="row">
-                <div class="col-md-8 mt-3">
-                    <div class="row d-flex">
-                        <div class="col-md-3">
-                            <div class="rounded" style="height:24vh ; width:90%; background-color:grey;"></div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="row">
-                                <div class="border rounded d-flex" style="height:24vh; font-family: 'Open Sans'; margin-left:-1.7vh;">
-                                    <div class="col-md-4">
-                                        <p class=" fw-bold text-primary mt-3">NAMA LENGKAP</p>
-                                        <p class=" fw-bold text-primary">NIK</p>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <p class=" fw-bold text-primary mt-3">:</p>
-                                        <p class=" fw-bold text-primary">:</p>
-                                        <p class=" fw-bold text-primary">:</p>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <p class=" fw-bold text-primary mt-3"><?php echo $data['getDetail']['data']['society']['person_name']; ?></p>
-                                        <p class=" fw-bold text-primary"><?php echo $data['getDetail']['data']['society']['nik']; ?></p>
-                                    </div>
-                                </div>
+               <div class="col-md-8 mt-3">
+                    <div class="rounded" id="mapG20Dashboard" style="height:100%;"></div>
+               </div>
+                    <div class="col-md-4 mt-3">
+                        <div class="row d-flex">
+                            <div class="col-md-12">
+                                   <div class="row">
+                                        <div class="card">
+
+                                             <div class="card-body">
+                                                  <!-- <h5 class="card-title"><?php echo $data['getDetail']['data']['society']['person_name']; ?></h5>
+                                                  <p class="card-text">Nik. <?php echo $data['getDetail']['data']['society']['nik']; ?></p> -->
+                                                  <div class="d-flex justify-content-between">
+                                                       <div class="d-flex flex-row align-items-center">
+                                                       <div class="icon"> <i class="bx bx-user"></i> </div>
+                                                       <div class="ms-2 c-details">
+                                                            <h3 class="mb-0"><?php echo $data['getDetail']['data']['society']['person_name']; ?></h3> <span>Nik. <?php echo $data['getDetail']['data']['society']['nik']; ?></span>
+                                                       </div>
+                                                       </div>
+                                                       <div class="badge"> <span>Design</span> </div>
+                                                  </div>
+
+                                             </div>
+                                        </div>
+
+                                   </div>
+                            </div>
+                            <div class="col-md-12 mt-4">
+                                <div style="border:1px solid #003A91;"></div>
+                                <span class=" fw-bolder ms-3 text-primary" style="position:absolute; left:20px; top:-9px;background:white; padding:0 15px 0 15px;">IDENTITAS PENUMPANG</span>
+                            </div>
+                            <div class="col-md-12 mt-4">
+                                <table class="table table-bordered ">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>NAMA LENGKAP</th>
+                                            <th>NIK</th>
+                                            <!-- <th>KEBANGSAAN</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $no = 1;
+                                        foreach ($data['getDetail']['data']['penumpangs'] as $row) : ?>
+                                            <tr>
+                                                <td> <?php echo $no++ ?> </td>
+                                                <td><?php echo $row['name']; ?></td>
+                                                <td><?php echo $row['nik']; ?></td>
+                                                <!-- <td><?php echo $row['nationality']; ?></td> -->
+                                            </tr>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <div class="col-md-12 mt-4">
-                            <div style="border:1px solid #003A91;"></div>
-                            <span class=" fw-bolder ms-3 text-primary" style="position:absolute; left:20px; top:-9px;background:white; padding:0 15px 0 15px;">IDENTITAS PENUMPANG</span>
-                        </div>
-                        <div class="col-md-12 mt-4">
-                            <table class="table table-bordered ">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>NAMA LENGKAP</th>
-                                        <th>NIK</th>
-                                        <th>KEBANGSAAN</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no = 1;
-                                    foreach ($data['getDetail']['data']['penumpangs'] as $row) : ?>
-                                        <tr>
-                                            <td> <?php echo $no++ ?> </td>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['nik']; ?></td>
-                                            <td><?php echo $row['nationality']; ?></td>
-                                        </tr>
-                                    <?php endforeach ?>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
-                </div>
-                <div class="col-md-4 mt-3">
-                    <div class="rounded" id="mapG20Dashboard" style="height:96.7%;"></div>
-                </div>
-            </div>
+               </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="border rounded" style="height:7vh;background-color:#D5D5D4;">
@@ -232,7 +280,7 @@
                 }),
                 lineOptions: {
                     styles: [{
-                        color: "red",
+                        color: "#01796f",
                         className: 'animateRoute'
                     }]
                 },
