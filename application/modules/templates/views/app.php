@@ -99,6 +99,9 @@
 
 
     <style>
+
+          @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
         @font-face {
             font-family: 'MortendBold';
             src: url("<?= base_url('assets/fe/font/MortendBold.otf'); ?>");
@@ -977,14 +980,14 @@
                                 <?php $mobile = detect_mobile();
                                 if ($mobile === true) { ?>
                                         <p style="font-size:10px; margin-bottom: 0px;margin-top: 10px;">Selamat Datang Di</p>
-                                        <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #01796f; font-family:MortendBold; font-size:10px; margin-top:2px;" class="text-uppercase">BOGOR NGAWAS &nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
+                                        <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #01796f; font-family:Righteous; font-size:10px; margin-top:2px;" class="text-uppercase">BOGOR NGAWAS &nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
                                 <?php } else { ?>
                                         <?php if ($this->session->userdata['role'] == 'G20') { ?>
                                                 <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Operasi</p>
                                         <?php } else { ?>
                                                 <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Selamat Datang Di</p>
                                         <?php } ?>
-                                        <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:#01796f; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">BOGOR NGAWAS &nbsp; <span style="color:#007DD8 ;">
+                                        <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:#01796f; font-family:Righteous; font-size:18px; margin-top:2px;" class="text-uppercase">BOGOR NGAWAS &nbsp; <span style="color:#007DD8 ;">
                                                 <?php if ($this->session->userdata['role'] == 'G20') { ?>
                                                         - <span>Operasi <?= $this->session->userdata['name_operation'] ?></span>
                                                 <?php } ?>

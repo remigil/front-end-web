@@ -124,6 +124,7 @@ class Ngawas extends MY_Controller
 
 
         $data['getDetail'] = $getDetail['data'];
+     //    var_dump($getDetail);die;
 
 
         $page_content["data"] = $data;

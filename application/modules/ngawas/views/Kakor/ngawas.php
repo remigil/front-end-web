@@ -697,7 +697,68 @@
      }
 
 
+.card {
+    border: none;
+    border-radius: 10px !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;;
+}
+
+
+.c-details span {
+    font-weight: 300;
+    font-size: 15px
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #eee;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 39px
+}
+
+.icon2{
+     background-color: #01796f !important;
+
+}
+
+.icon2 i{
+     color: #fff !important;
+}
+
+.icon i{
+     font-size: 27px;
+     color: #01796f;
+}
+
+.badge span {
+    background-color: #01796f;
+    width: 70px;
+    height: 25px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    display: flex;
+    color: #fff;
+    justify-content: center;
+    align-items: center
+}
+
+.badag{
+     color: #01796f;
+
+
+}
+
+.penumpang{
+     min-height: 35vh;
+}
+
+
 </style>
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" /> -->
 
 
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
@@ -781,7 +842,76 @@
 
 <div class="header-body">
      <div class="row">
-          <div class="col-xl-3 col-lg-6">
+          <div class="col-md-3 ">
+                              <div class="card ">
+                                   <div class="card-body">
+                                        <!-- <h5 class="card-title"><?php echo $data['getDetail']['data']['society']['person_name']; ?></h5>
+                                        <p class="card-text">Nik. <?php echo $data['getDetail']['data']['society']['nik']; ?></p> -->
+                                        <div class="d-flex justify-content-between">
+                                             <div class="d-flex flex-row align-items-center">
+                                             <div class="icon icon2"> <i class="fa-solid fa-user"></i> </div>
+                                             <div class="ms-2 c-details">
+                                                  <span >Jumlah Pengguna</span>
+                                                  <h4 class="mb-0" id="jml_tripon"></h4>
+                                             </div>
+                                             </div>
+                                        </div>
+
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-md-3 ">
+                              <div class="card ">
+                                   <div class="card-body">
+
+                                        <div class="d-flex justify-content-between">
+                                             <div class="d-flex flex-row align-items-center">
+                                             <div class="icon icon2"> <i class="fa-solid fa-car"></i> </div>
+                                             <div class="ms-2 c-details">
+                                                  <span> Jumlah Kendaraan</span>
+                                                  <h4 class="mb-0" id="jml_kendaraan"></h4>
+                                             </div>
+                                             </div>
+                                        </div>
+
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-md-3 ">
+                              <div class="card ">
+                                   <div class="card-body">
+
+                                        <div class="d-flex justify-content-between">
+                                             <div class="d-flex flex-row align-items-center">
+                                             <div class="icon icon2"> <i class="fa-solid fa-location-arrow"></i> </div>
+                                             <div class="ms-2 c-details">
+                                                  <span> Jumlah Keberangkatan</span>
+                                                  <h4 class="mb-0" id="jml_keberangkatan"></h4>
+                                             </div>
+                                             </div>
+                                        </div>
+
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-md-3 ">
+                              <div class="card ">
+                                   <div class="card-body">
+
+                                        <div class="d-flex justify-content-between">
+                                             <div class="d-flex flex-row align-items-center">
+                                             <div class="icon icon2"> <i class="fa-solid fa-map-pin"></i> </div>
+                                             <div class="ms-2 c-details">
+                                                  <span> Jumlah Kedatangan</span>
+                                                  <h4 class="mb-0" id="jml_kedatangan"></h4>
+                                             </div>
+                                             </div>
+                                        </div>
+
+                                   </div>
+                              </div>
+                         </div>
+          <!-- <div class="col-xl-3 col-lg-6">
                <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                          <div class="row ">
@@ -861,7 +991,7 @@
 
                     </div>
                </div>
-          </div>
+          </div> -->
      </div>
 </div>
 <br>
@@ -1072,6 +1202,36 @@
         </div>
     </div>
 </div>
+
+                         <!-- <table id="table" class="table table-striped align-middle" style="width:100%">
+ 						<div id="Filter">
+ 							<h5><img src="<?php echo base_url(); ?>assets/images/filter.jpg" alt=""> Filter</h5>
+ 						</div>
+ 						<br><br>
+ 						<thead>
+ 							<tr class="text-center ">
+ 								<th>No</th>
+ 								<th>Tanggal Perjalanan</th>
+ 								<th>Nama Pengemudi</th>
+ 								<th>Nomor Registrasi</th>
+ 								<th>Jumlah Penumpang</th>
+ 								<th>Jenis Kendaraan</th>
+ 								<th>Lokasi Asal</th>
+ 								<th>Lokasi Tujuan</th>
+ 								<th>Detail</th>
+ 							</tr>
+ 						</thead>
+ 						<tbody>
+
+
+
+ 						</tbody>
+
+
+ 					</table> -->
+
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
 <!-- End Page -->
 
 

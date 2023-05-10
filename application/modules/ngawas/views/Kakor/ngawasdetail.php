@@ -211,7 +211,7 @@
                                         <p class="card-text">Nik. <?php echo $data['getDetail']['data']['society']['nik']; ?></p> -->
                                         <div class="d-flex justify-content-between">
                                              <div class="d-flex flex-row align-items-center">
-                                             <div class="icon icon2" style="color: "> <i class="fa-solid fa-car"></i> </div>
+                                             <div class="icon icon2"> <i class="fa-solid fa-car"></i> </div>
                                              <div class="ms-2 c-details">
                                                   <span> Tipe Kendaraan</span>
                                                   <h5 class="mb-0"><?php echo $data['getDetail']['data']['type_vehicle']['type_name']; ?></h5>
@@ -228,7 +228,7 @@
 
                                         <div class="d-flex justify-content-between">
                                              <div class="d-flex flex-row align-items-center">
-                                             <div class="icon icon2" style="color: "> <i class="fa-solid fa-helicopter-symbol"></i> </div>
+                                             <div class="icon icon2"> <i class="fa-solid fa-helicopter-symbol"></i> </div>
                                              <div class="ms-2 c-details">
                                                   <span> Merek Kendaraan</span>
                                                   <h5 class="mb-0"><?php echo $data['getDetail']['data']['brand_vehicle']['brand_name']; ?></h5>
@@ -245,7 +245,7 @@
 
                                         <div class="d-flex justify-content-between">
                                              <div class="d-flex flex-row align-items-center">
-                                             <div class="icon icon2" style="color: "> <i class="fa-solid fa-calendar-week"></i> </div>
+                                             <div class="icon icon2"> <i class="fa-solid fa-calendar-week"></i> </div>
                                              <div class="ms-2 c-details">
                                                   <span> Waktu Pengisian Data</span>
                                                   <h5 class="mb-0"><?php echo date('H:i, d-m-Y', strtotime($data['getDetail']['data']['created_at'])); ?></h5>
@@ -262,7 +262,7 @@
 
                                         <div class="d-flex justify-content-between">
                                              <div class="d-flex flex-row align-items-center">
-                                             <div class="icon icon2" style="color: "> <i class="fa-solid fa-magnifying-glass-location"></i> </div>
+                                             <div class="icon icon2"> <i class="fa-solid fa-magnifying-glass-location"></i> </div>
                                              <div class="ms-2 c-details">
                                                   <span> Waktu Keberangkatan</span>
                                                   <h5 class="mb-0"><?php echo date('H:i', strtotime($data['getDetail']['data']['departure_time'])); ?>, <?php echo date('d-m-Y', strtotime($data['getDetail']['data']['departure_date'])); ?></h5>
@@ -285,10 +285,10 @@
 
                                              <div class="d-flex justify-content-between ">
                                                   <div class="d-flex flex-row align-items-center">
-                                                       <div class="icon icon2" style="color: "> <i class="fa-solid fa-location-arrow"></i></div>
+                                                       <div class="icon icon2"> <i class="fa-solid fa-location-arrow"></i></div>
                                                        <div class="ms-2 c-details">
                                                             <span> Lokasi Awal</span>
-                                                            <h5 class="mb-0">Kota Bogor</h5>
+                                                            <h5 class="mb-0"><?= $data['getDetail']['data']['district_start']?></h5>
                                                        </div>
                                                   </div>
                                              </div>
@@ -307,10 +307,10 @@
                                         <div class="card-body">
                                               <div class="d-flex justify-content-between ">
                                                   <div class="d-flex flex-row align-items-center">
-                                                       <div class="icon icon2" style="color: "> <i class="fa-solid fa-map-pin"></i>  </div>
+                                                       <div class="icon icon2"> <i class="fa-solid fa-map-pin"></i>  </div>
                                                        <div class="ms-2 c-details">
                                                             <span> Lokasi Tujuan</span>
-                                                            <h5 class="mb-0">Bandung</h5>
+                                                            <h5 class="mb-0"><?= $data['getDetail']['data']['district_end']?></h5>
                                                        </div>
                                                   </div>
                                              </div>
