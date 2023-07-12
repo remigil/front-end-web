@@ -621,7 +621,7 @@ body {
     text-align: center;
     padding: 70px 90px;
     background: #fff;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px;
 }
 
 .login-2 .form-section p{
@@ -836,11 +836,11 @@ body {
     right: 0;
     content: "";
     border-radius: 7px;
-    transform: perspective(200px) scaleX(0.1) rotateX(90deg) translateZ(-10px);
+    transform: perspective(200px) scaleX(0) rotateX(0deg) translateZ(10px);
     transform-origin: bottom center;
-    transition: transform 0.4s linear, transform 0.4s linear;
+    transition: transform 0.1s linear, transform 0.1s linear;
     z-index: -1;
-    background: #f8c92c;
+    background: #00554e;
 }
 
 .login-2 .btn-info:after {

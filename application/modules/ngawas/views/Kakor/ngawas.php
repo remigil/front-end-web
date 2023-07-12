@@ -1,8 +1,8 @@
 <!-- Page -->
 <!-- <div class="kotak" style="border-style:solid ;"> -->
 
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet"> -->
 
 <style>
           :root {
@@ -773,14 +773,14 @@
     <div class="row align-items-center justify-content-between mb-2">
         <div class="col-md-4">
             <h3>Filter Data Monitoring</h3>
-            <div class="cat" style="padding: 0;margin:0">
+            <!-- <div class="cat" style="padding: 0;margin:0">
                 <label>
                     <input checked type="radio" value="now" name="filter" id="nowDisplay"><span> Saat ini</span>
                 </label>
-            </div>
+            </div> -->
             <div class="cat" style="padding: 0;margin:0">
                 <label>
-                    <input type="radio" value="today" name="filter" id="todayDisplay"><span> Hari ini</span>
+                    <input checked type="radio" value="today" name="filter" id="todayDisplay"><span> Hari ini</span>
                 </label>
             </div>
             <div class="cat" style="padding: 0;margin:0">
@@ -851,7 +851,7 @@
                                              <div class="d-flex flex-row align-items-center">
                                              <div class="icon icon2"> <i class="fa-solid fa-user"></i> </div>
                                              <div class="ms-2 c-details">
-                                                  <span >Jumlah Pengguna</span>
+                                                  <span >Jumlah Perjalanan</span>
                                                   <h4 class="mb-0" id="jml_tripon"></h4>
                                              </div>
                                              </div>
@@ -911,6 +911,25 @@
                                    </div>
                               </div>
                          </div>
+                         <!-- <div class="col-md-3 ">
+                              <div class="card ">
+                                   <div class="card-body">
+
+                                        <div class="d-flex justify-content-between">
+                                             <div class="d-flex flex-row align-items-center">
+                                             <div class="icon icon2"> <i class="fa-solid fa-map-pin"></i> </div>
+                                             <div class="ms-2 c-details">
+                                                  <span> Jumlah penumpang</span>
+                                                  <h4 class="mb-0" id="jml_penumpang"></h4>
+                                             </div>
+                                             </div>
+                                        </div>
+
+                                   </div>
+                              </div>
+                         </div> -->
+
+
           <!-- <div class="col-xl-3 col-lg-6">
                <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
@@ -1130,7 +1149,7 @@
             <div class="card">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0 pb-2">
                     <h5>DATA MONOTORING</h5>
-                    <p class="fw-bold" style="text-transform:capitalize">Per Model Kendaraan</p>
+                    <p class="fw-bold" style="text-transform:capitalize">Per Merek Kendaraan</p>
                 </div>
                 <div class="card-body m-0 p-0">
                     <div class="main-chart">
@@ -1185,12 +1204,12 @@
                         <th>Tanggal Perjalanan</th>
                         <th>Waktu Perjalanan</th>
                         <th>Jarak (KM)</th>
-                        <th>Durasi Perjalanan</th>
+                        <!-- <th>Durasi Perjalanan</th> -->
                         <th>Nama Pengemudi</th>
                         <th>Nomor Registrasi</th>
-                        <th>Jumlah Penumpang</th>
+                        <!-- <th>Jumlah Penumpang</th> -->
                         <th>Jenis Kendaraan</th>
-                        <th>Model Kendaraan</th>
+                        <!-- <th>Model Kendaraan</th> -->
                         <th>Lokasi Asal</th>
                         <th>Lokasi Tujuan</th>
                         <th>Informasi Lebih Lanjut</th>
@@ -1230,7 +1249,7 @@
 
  					</table> -->
 
-<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+<!-- <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script> -->
 
 <!-- End Page -->
 
@@ -1239,156 +1258,21 @@
 <script>
     $(document).ready(function() {
         $('.dropify').dropify();
-        $("#overlay").fadeIn(300);
-        userDataTable = $('#dataTable').DataTable({
-
-            responsive: true,
-
-            scrollX: true,
-
-            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-            // buttons: ["excel", "csv", "pdf"],
-
-            oLanguage: {
-
-               sSearch: 'Search:'
-
-            },
-
-            initComplete: function(settings, json) {},
-
-            retrieve: true,
-
-            processing: true,
-
-            serverSide: true,
-
-            serverMethod: 'POST',
-
-            ajax: {
-
-                dataType: 'json',
-
-                url: '<?php echo base_url(); ?>ngawas/Ngawas/serverSideTable',
-
-                data: function(data) {
-
-                    $("#overlay").fadeIn(300);
-
-                    // console.log(data);
-
-                    // data.filterTgl = $('[name=event_date]').val();
-
-                    // data.filterTgl2 = $('[name=event_date_to]').val();
-
-                    // data.filterStatus = $('[name=status]').val();
-
-                    // data.filterName = $('[name=group_name]').val();
-
-                    // data.filterPocName = $('[name=group_poc_name]').val();
-
-                    // data.filterPhone = $('[name=poc_phone]').val();
-
-                    // data.filterThreat = $('[name=threat_level]').val();
-
-                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
-
-                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
-
-                    data.page = Number(data.start / data.length) + 1
-
-                },
-
-                beforeSend: function(xhr, settings) {
-
-                },
-
-                "dataSrc": function(result) {
-
-                    result.iTotalRecords = result.iTotalRecords;
-
-                    result.iTotalDisplayRecords = result.iTotalRecords;
-
-                    return result.aaData;
-
+        // $("#overlay").fadeIn(300);
+        var fetchData = fetch("<?= base_url()?>ngawas/Ngawas/serverSideTable").then(
+            response => response.json()
+        ).then(
+            data => {
+                if(!data.length){
+                    return
                 }
+                // console.log(data)
 
-            },
-
-            columns: [
-
-                {
-                    data: 'id',
-                    "width": '2%'
-                },
-                {
-                    data: 'date_departure',
-                    "width": '2%'
-                },
-                {
-                    data: 'time_departure',
-                    "width": '2%'
-                },
-                {
-                    data: 'distance',
-                    "width": '5%'
-                },
-                {
-                    data: 'duration',
-                    "width": '5%'
-                },
-                {
-                    data: 'person_name',
-                    "width": '5%'
-                },
-                {
-                    data: 'no_vehicle',
-                    "width": '5%'
-                },
-                {
-                    data: 'penumpang',
-                    "width": '2%'
-                },
-                {
-                    data: 'type_vehicle',
-                    "width": '5%'
-                },
-                {
-                    data: 'brand_vehicle',
-                    "width": '5%'
-                },
-                {
-                    data: 'location_start',
-                    "width": '5%'
-                },
-                {
-                    data: 'location_end',
-                    "width": '5%'
-                },
-
-                // {
-                //     data: 'passenger'
-                // },
-                {
-                    data: 'action',
-                    orderable: false
-                }
-
-            ],
-
-            order: [
-                [0, "DESC"]
-            ],
-
-            drawCallback: function(settings) {
-
-                $("#overlay").fadeOut(300);
-
+                var table = new DataTable('#dataTable', {
+                    data : data.map(item => Object.values(item))
+                })
             }
-
-
-        });
+        )
 
         let filter = true;
         let time = true;
@@ -1398,16 +1282,19 @@
         let end_time = moment().add(3, 'hours').format('H:00:00')
         let start_date = moment().format('YYYY-MM-DD');
         let end_date = moment().format('YYYY-MM-DD');
+
         $('#start_date').attr('type', 'time')
         $('#end_date').attr('type', 'time')
-
         getPieNgawas(filter, time, start_time, end_time, start_date, end_date);
         getChartProv(filter, time, start_time, end_time, start_date, end_date, limit);
-        getStatistikNgawas(filter, time, start_time, end_time, start_date, end_date)
-        getModelKendaraan(filter, time, start_time, end_time, start_date, end_date)
+        getStatistikNgawas(filter, time, start_time, end_time, start_date, end_date);
+        getStatistikNgawas2(filter, time, start_time, end_time, start_date, end_date);
+        getModelKendaraan(filter, time, start_time, end_time, start_date, end_date);
+         
 
 
     });
+
 
 
     $("[name=filter]").on("change", function(e) {
@@ -1435,20 +1322,23 @@
         let start_year = moment().startOf('year').format('YYYY-MM-DD')
         let end_year = moment().endOf('year').format('YYYY-MM-DD');
 
-        if (this.value == 'now') {
-            $('#start_date').attr('type', 'time')
-            $('#end_date').attr('type', 'time')
-            getChartProv(filter, time, start_time, end_time, today, today, limit);
-            getPieNgawas(filter, time, start_time, end_time, today, today);
-            getStatistikNgawas(filter, time, start_time, end_time, today, today);
-            getModelKendaraan(filter, time, start_time, end_time, today, today);
+        // if (this.value == 'now') {
+        //     $('#start_date').attr('type', 'time')
+        //     $('#end_date').attr('type', 'time')
+        //     getChartProv(filter, time, start_time, end_time, today, today, limit);
+        //     getPieNgawas(filter, time, start_time, end_time, today, today);
+        //     getStatistikNgawas(filter, time, start_time, end_time, today, today);
+        //     getStatistikNgawas2(filter, time, start_time, end_time, today, today);
+        //     getModelKendaraan(filter, time, start_time, end_time, today, today);
 
-        } else if (this.value == 'today') {
+        // } else if (this.value == 'today') {
+        if (this.value == 'today') {
             $('#start_date').attr('type', 'date')
             $('#end_date').attr('type', 'date')
             getChartProv(filter, time = false, start_time = null, end_time = null, today, today, limit);
             getPieNgawas(filter, time = false, start_time = null, end_time = null, today, today);
             getStatistikNgawas(filter, time = false, start_time = null, end_time = null, today, today);
+            getStatistikNgawas2(filter, time = false, start_time = null, end_time = null, today, today);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, today, today);
 
 
@@ -1458,6 +1348,7 @@
             getChartProv(filter, time = false, start_time = null, end_time = null, start_week, end_week, limit);
             getPieNgawas(filter, time = false, start_time = null, end_time = null, start_week, end_week);
             getStatistikNgawas(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+            getStatistikNgawas2(filter, time = false, start_time = null, end_time = null, start_week, end_week);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_week, end_week);
 
 
@@ -1467,6 +1358,7 @@
             getChartProv(filter, time = false, start_time = null, end_time = null, start_month, end_month, limit);
             getPieNgawas(filter, time = false, start_time = null, end_time = null, start_month, end_month);
             getStatistikNgawas(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+            getStatistikNgawas2(filter, time = false, start_time = null, end_time = null, start_month, end_month);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_month, end_month);
 
 
@@ -1475,9 +1367,9 @@
             $('#start_date').attr('type', 'month')
             $('#end_date').attr('type', 'month')
             getPieNgawas(filter, time = false, start_time = null, end_time = null, start_year, end_year);
-            getStatistikNgawas(filter, time = false, start_time = null, end_time = null, start_year, end_year);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_year, end_year);
-
+            getStatistikNgawas(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+            getStatistikNgawas(filter, time = false, start_time = null, end_time = null, start_year, end_year);
             getChartProv(filter, time = false, start_time = null, end_time = null, start_year, end_year, limit);
         }
         // //  console.log(tanggal);
@@ -1493,20 +1385,24 @@
         let time = true;
         let limit = $('#limit_showData').val()
 
-        if (type_filter == 'now') {
-            let start_time = $('#start_date').val();
-            let end_time = $('#end_date').val();
-            let today = moment().format('YYYY-MM-DD');
-            getChartProv(filter, time, start_time, end_time, today, today, limit);
-            getPieNgawas(filter, time, start_time, end_time, today, today);
-            getStatistikNgawas(filter, time, start_time, end_time, today, today);
-            getModelKendaraan(filter, time, start_time, end_time, today, today);
-        } else if (type_filter == 'today') {
+        // if (type_filter == 'now') {
+        //     let start_time = $('#start_date').val();
+        //     let end_time = $('#end_date').val();
+        //     let today = moment().format('YYYY-MM-DD');
+        //     getChartProv(filter, time, start_time, end_time, today, today, limit);
+        //     getPieNgawas(filter, time, start_time, end_time, today, today);
+        //     getStatistikNgawas(filter, time, start_time, end_time, today, today);
+        //     getStatistikNgawas2(filter, time, start_time, end_time, today, today);
+        //     getModelKendaraan(filter, time, start_time, end_time, today, today);
+        // } else if (type_filter == 'today') {
+        if (type_filter == 'today') {
             let start_date = $('#start_date').val();
             let end_date = $('#end_date').val();
+            let today = moment().format('YYYY-MM-DD');
             getChartProv(filter, time = false, start_time = null, end_time = null, start_date, end_date, limit);
             getPieNgawas(filter, time = false, start_time = null, end_time = null, today, today);
             getStatistikNgawas(filter, time = false, start_time = null, end_time = null, today, today);
+            getStatistikNgawas2(filter, time = false, start_time = null, end_time = null, today, today);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, today, today);
         } else if (type_filter == 'week') {
             let start_week = $('#start_date').val();
@@ -1514,6 +1410,7 @@
             getChartProv(filter, time = false, start_time = null, end_time = null, start_week, end_week, limit);
             getPieNgawas(filter, time = false, start_time = null, end_time = null, start_week, end_week);
             getStatistikNgawas(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+            getStatistikNgawas2(filter, time = false, start_time = null, end_time = null, start_week, end_week);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_week, end_week);
         } else if (type_filter == 'month') {
             let start_month = $('#start_date').val();
@@ -1521,6 +1418,7 @@
             getChartProv(filter, time = false, start_time = null, end_time = null, start_month, end_month, limit);
             getPieNgawas(filter, time = false, start_time = null, end_time = null, start_month, end_month);
             getStatistikNgawas(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+            getStatistikNgawas2(filter, time = false, start_time = null, end_time = null, start_month, end_month);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_month, end_month);
         } else if (type_filter == 'year') {
             let start_year = $('#start_date').val();
@@ -1528,6 +1426,7 @@
             getChartProv(filter, time = false, start_time = null, end_time = null, start_year, end_year, limit);
             getPieNgawas(filter, time = false, start_time = null, end_time = null, start_year, end_year);
             getStatistikNgawas(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+            getStatistikNgawas2(filter, time = false, start_time = null, end_time = null, start_year, end_year);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_year, end_year);
         }
     })
@@ -1554,30 +1453,36 @@
         let start_year = moment().startOf('year').format('YYYY-MM-DD')
         let end_year = moment().endOf('year').format('YYYY-MM-DD');
 
-        if (type_filter == 'now') {
-            getChartProv(filter, time, start_time, end_time, today, today, limit);
-            getPieNgawas(filter, time, start_time, end_time, today, today);
-            getStatistikNgawas(filter, time, start_time, end_time, today, today);
-            getModelKendaraan(filter, time, start_time, end_time, today, today);
-        } else if (type_filter == 'today') {
+        // if (type_filter == 'now') {
+        //     getChartProv(filter, time, start_time, end_time, today, today, limit);
+        //     getPieNgawas(filter, time, start_time, end_time, today, today);
+        //     getStatistikNgawas(filter, time, start_time, end_time, today, today);
+        //     getStatistikNgawas2(filter, time, start_time, end_time, today, today);
+        //     getModelKendaraan(filter, time, start_time, end_time, today, today);
+        // } else if (type_filter == 'today') {
+        if (type_filter == 'today') {
             getChartProv(filter, time = false, start_time = null, end_time = null, today, today, limit);
             getPieNgawas(filter, time = false, start_time = null, end_time = null, today, today);
             getStatistikNgawas(filter, time = false, start_time = null, end_time = null, today, today);
+            getStatistikNgawas22(filter, time = false, start_time = null, end_time = null, today, today);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, today, today);
         } else if (type_filter == 'week') {
             getChartProv(filter, time = false, start_time = null, end_time = null, start_week, end_week, limit);
             getPieNgawas(filter, time = false, start_time = null, end_time = null, start_week, end_week);
             getStatistikNgawas(filter, time = false, start_time = null, end_time = null, start_week, end_week);
+            getStatistikNgawas2(filter, time = false, start_time = null, end_time = null, start_week, end_week);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_week, end_week);
         } else if (type_filter == 'month') {
             getChartProv(filter, time = false, start_time = null, end_time = null, start_month, end_month, limit);
             getPieNgawas(filter, time = false, start_time = null, end_time = null, start_month, end_month);
             getStatistikNgawas(filter, time = false, start_time = null, end_time = null, start_month, end_month);
+            getStatistikNgawas2(filter, time = false, start_time = null, end_time = null, start_month, end_month);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_month, end_month);
         } else if (type_filter == 'year') {
             getChartProv(filter, time = false, start_time = null, end_time = null, start_year, end_year, limit);
             getPieNgawas(filter, time = false, start_time = null, end_time = null, start_year, end_year);
             getStatistikNgawas(filter, time = false, start_time = null, end_time = null, start_year, end_year);
+            getStatistikNgawas2(filter, time = false, start_time = null, end_time = null, start_year, end_year);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_year, end_year);
         }
 
@@ -1646,6 +1551,7 @@
             },
             dataType: "JSON",
             success: function(results) {
+                // console.log(time)
                 $("#chart4").html(`<div id="keberangkatan"></div>`);
                 $("#chart5").html(`<div id="kedatangan"></div>`);
                 var keberangkatan = {
@@ -1721,6 +1627,7 @@
                     series: [{
                         name: 'Kedatangan',
                         data: results.kedatangan,
+                        
                         color: "#01796f",
                     }],
                     chart: {
@@ -1832,6 +1739,51 @@
 
     function getStatistikNgawas(filter = null, time = null, start_time = null, end_time = null, start_date = null, end_date = null) {
         $.ajax({
+            url: "<?= base_url() ?>ngawas/ngawas_datang",
+            type: 'POST',
+            data: {
+                filter,
+                time,
+                start_date,
+                end_date,
+                start_time,
+                end_time
+            },
+            dataType: "JSON",
+            success: function(results) {
+                // console.log(end_date);
+                var kedatangan = results.kedatangan
+                var jumlah_kedatangan = kedatangan.reduce((a,b)=> a+b, 0)
+                // console.log(jumlah_kedatangan);
+                var keberangkatan = results.keberangkatan
+                var jumlah_keberangkatan = keberangkatan.reduce((a,b)=> a+b, 0)
+                // console.log(jumlah_keberangkatan);
+                
+                // var tripon = results.keberangkatan + results.kedatangan
+                // var jumlah_tripon = keberangkatan.reduce((a,b)=> a+b, 0)
+
+                // var total = results.keberangkatan + results.kedatangan;
+                // var tripon = [total];
+                // var jumlah_tripon = tripon.reduce((a, b) => a + b, 0);
+                // console.log(jumlah_tripon)
+
+                
+
+                // console.log(jumlah_keberangkatan);
+
+                // $('#jml_kedatangan').text(`0`)
+                // $('#jml_keberangkatan').text(`0`)
+                $('#jml_kedatangan').text(`${jumlah_kedatangan}`)
+                $('#jml_keberangkatan').text(`${jumlah_keberangkatan}`)
+                // $('#jml_tripon').text(`${jumlah_tripon}`)
+
+
+                
+            }
+        })
+    }
+    function getStatistikNgawas2(filter = null, time = null, start_time = null, end_time = null, start_date = null, end_date = null) {
+        $.ajax({
             url: "<?= base_url() ?>ngawas/getStatistik",
             type: 'POST',
             data: {
@@ -1845,14 +1797,16 @@
             dataType: "JSON",
             success: function(results) {
                 $('#jml_tripon').text(`${results.jumlah_tripon}`)
-                $('#jml_penumpang').text(`${results.jumlah_penumpang}`)
                 $('#jml_kendaraan').text(`${results.jumlah_kendaraan}`)
-                $('#jml_kedatangan').text(`${results.jumlah_kedatangan}`)
-                $('#jml_keberangkatan').text(`${results.jumlah_keberangkatan}`)
-               //  $('#jml_keberangkatan').text(`keberangkatan : ${results.jumlah_keberangkatan}`)
+                
+                // $('#jml_penumpang').text(`${results.jumlah_penumpang}`)
+                // $('#jml_keberangkatan').text(`keberangkatan : ${results.jumlah_keberangkatan}`)
+                
             }
         })
     }
+
+    
 
 
     function getModelKendaraan(filter = null, time = null, start_time = null, end_time = null, start_date = null, end_date = null) {

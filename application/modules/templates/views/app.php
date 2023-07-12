@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html> -->
 <html lang="en">
 
 <head>
@@ -43,7 +43,7 @@
     <!-- DataTables -->
     <link href="<?php echo base_url(); ?>assets/admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
     <!-- Responsive datatable examples -->
     <link href="<?php echo base_url(); ?>assets/admin/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
@@ -92,9 +92,12 @@
 
 
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    
+    
 
      <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
-     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet"> -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
      <script src="https://kit.fontawesome.com/8500d0a795.js" crossorigin="anonymous"></script>
 
 
@@ -1848,13 +1851,19 @@
                                                 <a href="<?= base_url('ngawas') ?>" data-key="t-login">
                                                     <!-- <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px"> -->
                                                     <i class="fas fa-users-viewfinder" style="color: #01796f;"></i>
-                                                    <span data-key="t-dashboard" >Pengawasan</span>
+                                                    <span data-key="t-dashboard" >Monitoring</span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="<?= base_url('tripon/ngawas') ?>" data-key="t-login">
-                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                    <span data-key="t-dashboard" style="color: white;">Ngawas</span>
+                                                <a href="<?= base_url('ngawas/tambah_model') ?>" data-key="t-login">
+                                                    <i class="fas fa-car" style="color: #01796f;"></i>
+                                                    <span data-key="t-dashboard" >Kendaraan</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?= base_url('ngawas/dashboard2') ?>" data-key="t-login">
+                                                    <i class="fas fa-map" style="color: #01796f;"></i>
+                                                    <span data-key="t-dashboard" >Maps</span>
                                                 </a>
                                             </li>
 
@@ -2983,8 +2992,11 @@
             <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/lightbox.init.js"></script> -->
 
             <!-- Required datatable js -->
-            <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+            <!-- <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net/js/jquery.dataTables.min.js"></script> -->
+            <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+            
             <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
 
             <!-- Buttons examples -->
             <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>

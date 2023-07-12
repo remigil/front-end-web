@@ -213,7 +213,7 @@
         <div class="login-2-inner">
             <div class="container">
                 <div class="row login-box">
-                    <div class="col-lg-8 align-self-center pad-0 form-info">
+                    <div class="col-lg-12 align-self-center pad-0 form-info">
                         <div class="form-section align-self-center">
                             <!-- <div class="logo-2 logo">
                             <a href="login-2.html">
@@ -221,9 +221,10 @@
                             </a>
                         </div> -->
                             <div>
-                                <span class="fw-bolder" style="color:#003A91">Lupa kata sandi</span><br>
+                                <img src="<?php echo base_url(); ?>assets/main-logo-5.png" height="100"> <br><br>
+                                <span class="fw-bolder" style="color:#01796f">Lupa kata sandi</span><br><br>
                                 <!-- <span class="fw-bold"> </span><br> -->
-                                <img src="<?php echo base_url(); ?>assets/logo-main.png">
+                                <!-- <img src="<?php echo base_url(); ?>assets/logo-main.png"> -->
                             </div>
                             <!-- <div class="btn-section clearfix">
                             <a href="login-2.html" class="link-btn active btn-1 active-bg">Login</a>
@@ -239,15 +240,13 @@
                                     <label class="labelmui">Masukan Email pengguna</label>
                                 </div>
                                 <div style="display: grid;">
-                                    <button type="button" class="btn btn-lg btn-primary btn-theme mb-3" style="border-radius: 10px; font-size: 16px; background-color: #003A91" id="send_email">Kirim</button>
+                                    <button type="button" class="btn btn-lg btn-primary btn-theme mb-3" style="border-radius: 10px; font-size: 16px; background-color: #01796f" id="send_email">Kirim</button>
                                     <a href="<?= base_url() ?>login" style="font-size: 12px;">Kembali</a>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-4 align-self-center pad-0 bg-img">
-                        <img style="border-radius: 0px 25px 25px 0px;margin-left: 24px;" src="<?php echo base_url() ?>assets/bg-login-dashboard.png" alt="sideImage">
-                    </div>
+                   
                 </div>
             </div>
         </div>

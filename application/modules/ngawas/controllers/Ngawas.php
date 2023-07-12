@@ -8,6 +8,8 @@ class Ngawas extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
+        $this->load->model("ngawas/m_ngawas2");
+        $this->load->model("ngawas/m_ngawas3");
         $this->load->model("ngawas/m_ngawas");
     }
 
@@ -62,7 +64,7 @@ class Ngawas extends MY_Controller
 
         $data['getVehicle'] = $getVehicle['data']['data'];
      //    echo "<pre>";
-     //    var_dump($data['ngawas']);
+        // var_dump($data['ngawas']);
      //    die;
 
 
@@ -91,8 +93,88 @@ class Ngawas extends MY_Controller
     public function serverSideTable()
     {
         $postData = $this->input->post();
-        $data = $this->m_ngawas->get_datatables($postData);
+        $data = $this->m_ngawas2->get_datatables($postData);
         echo json_encode($data);
+    }
+
+    public function ServerSideModel()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_ngawas3->get_datatables($postData);
+        echo json_encode($data);
+    }
+
+    public function tambah() 
+    {  
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post(); 
+
+        $dummy = [
+            [
+                'name' => 'brand_name',
+                'contents' => $input['brand'],
+            ],
+        ];
+
+        $data = guzzle_request('POST', 'brand_vehicle/add', [ 
+            'multipart' => $dummy, 
+            'headers' => $headers 
+        ]);
+
+        if($data['isSuccess'] == true){  
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil tambah data.',
+                'data' => $data
+            );
+        }else{
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+        
+        echo json_encode($res);
+
+    }
+    public function delete()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $id = $this->input->post('id');
+
+        $dummy = [
+            [
+                'name' => 'id',
+                'contents' => $id,
+            ]
+        ];
+
+        $data = guzzle_request('DELETE', 'brand_vehicle/delete', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+
+
+        if ($data['isSuccess'] == true) {
+            $results = array(
+                'status' => true,
+                'message' => 'Berhasil hapus data.',
+                'data' => $data
+            );
+        } else {
+            $results = array(
+                'status' => false,
+                'message' => 'Gagal hapus data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($results);
     }
 
 
@@ -103,7 +185,7 @@ class Ngawas extends MY_Controller
         ];
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Ngawas";
+        $page_content["title"] = "Detail";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
@@ -124,7 +206,8 @@ class Ngawas extends MY_Controller
 
 
         $data['getDetail'] = $getDetail['data'];
-     //    var_dump($getDetail);die;
+        // echo "<pre>";
+        // var_dump($getDetail);die;
 
 
         $page_content["data"] = $data;
@@ -221,6 +304,65 @@ class Ngawas extends MY_Controller
         ];
 
         echo json_encode($data['ngawas']);
+        
+    }
+
+    public function ngawas_datang()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        // $data['lakalantas'] = '123';
+
+        $filter = $this->input->post('filter');
+        $time = $this->input->post('time');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+
+        $start_time = $this->input->post('start_time');
+        $end_time = $this->input->post('end_time');
+
+        $start_prov = $this->input->post('start_prov');
+        $end_prov =  $this->input->post('end_prov');
+
+        // $url_test = 'count_ngawas/kec_ngawas?filter='.'&topNgawas=true&time=true';
+        
+        if ($time == 'true') {
+            $url = 'count_ngawas/kec_ngawas?start_prov=' . $start_prov . '&end_prov=' . $end_prov . '&start_date=' . $start_date . '&end_date=' . $end_date . '&filter=' . $filter . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '';
+        } else {
+            // $url = 'count_ngawas/kec_ngawas?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&limit=' . $limit . '&topNgawas=true';
+            $url = 'count_ngawas/kec_ngawas?start_prov=' . $start_prov . '&end_prov=' . $end_prov . '&start_date=' . $start_date . '&end_date=' . $end_date . '&filter=' . $filter . '';
+        }
+
+
+        $getTripon = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+    //    echo "<pre>";
+    //    var_dump($getTripon['data'][0]['kedatangan']);die;
+
+        foreach ($getTripon['data'] as $key) {
+            $kedatangan[] = $key['kedatangan'];
+            $keberangkatan[] = $key['keberangkatan'];
+            $provinsi[] = $key['nama'];
+        }
+
+        // $jumlah_kedatangan = 0;
+        
+            
+
+        $data['ngawas'] = [
+            'kedatangan' => $kedatangan,
+            'keberangkatan' => $keberangkatan,
+            'provinsi' => $provinsi
+        ];
+
+
+        echo json_encode($data['ngawas']);
+        
+        
     }
 
     public function getStatistik()
@@ -252,16 +394,21 @@ class Ngawas extends MY_Controller
         $getTripon = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
+        echo "<pre>";
+           var_dump($getTripon);die;
+        
 
         $jumlah_tripon = count($getTripon['data']);
         $jumlah_kendaraan = count($getTripon['data']);
         $jumlah_kedatangan = count($getTripon['data']);
         $jumlah_keberangkatan = count($getTripon['data']);
-
+        
+        
         $jumlah_penumpang = 0;
         foreach ($getTripon['data'] as $key) {
             $jumlah_penumpang += count($key['penumpangs']);
         }
+        
 
         echo json_encode([
             'jumlah_tripon' => $jumlah_tripon,
@@ -270,6 +417,10 @@ class Ngawas extends MY_Controller
             'jumlah_keberangkatan' => $jumlah_keberangkatan,
             'jumlah_penumpang' => $jumlah_penumpang
         ]);
+
+        // echo "<pre>";
+        // var_dump($getTripon['data']);die;
+        
     }
 
     public function getModelKendaraan()
@@ -292,14 +443,16 @@ class Ngawas extends MY_Controller
 
 
         if ($time == 'true') {
-            $url = 'count_ngawas/model_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '';
+            $url = 'count_ngawas/merk_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '';
         } else {
-            $url = 'count_ngawas/model_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '';
+            $url = 'count_ngawas/merk_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '';
         }
 
         $getTripon = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
+    //     echo "<pre>";
+    //    var_dump($getTripon);die;
 
         $jumlah = array();
 
@@ -315,4 +468,79 @@ class Ngawas extends MY_Controller
 
         echo json_encode($data['ngawas']);
     }
+
+    public function tambah_model()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Kelola";
+
+        if ($this->session->userdata['role'] == 'G20') {
+            $page_content["page"] = "dashboard/dashboard_g20";
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $page_content["page"] = "tripon/Korlantas/tripondetail";
+        } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
+            $page_content["page"] = "tripon/Kapolda/tripondetail";
+        } else if ($this->session->userdata['role'] == 'Polres' || $this->session->userdata['role'] == 'OperatorPolres') {
+            $page_content["page"] = "tripon/Polres/tripondetail";
+        } else if ($this->session->userdata['role'] == 'Kakorlantas') {
+            $page_content["page"] = "ngawas/Kakor/tambah_model";
+        } else if ($this->session->userdata['role'] == 'Ditkamsel') {
+            $page_content["page"] = "tripon/Ditkamsel/tripondetail";
+        }
+
+        $getBrand = guzzle_request('GET', 'brand_vehicle', [
+            'headers' => [
+                'Authorization' => $headers
+            ]
+        ]);
+       
+
+        $data['getBrand'] = $getBrand['data']['data'];
+
+
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function dashboard2()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "asuu";
+
+        if ($this->session->userdata['role'] == 'G20') {
+            $page_content["page"] = "dashboard/dashboard_g20";
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $page_content["page"] = "tripon/Korlantas/tripondetail";
+        } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
+            $page_content["page"] = "tripon/Kapolda/tripondetail";
+        } else if ($this->session->userdata['role'] == 'Polres' || $this->session->userdata['role'] == 'OperatorPolres') {
+            $page_content["page"] = "tripon/Polres/tripondetail";
+        } else if ($this->session->userdata['role'] == 'Kakorlantas') {
+            $page_content["page"] = "ngawas/Kakor/dashboard2";
+        } else if ($this->session->userdata['role'] == 'Ditkamsel') {
+            $page_content["page"] = "tripon/Ditkamsel/tripondetail";
+        }
+
+        // $getBrand = guzzle_request('GET', 'brand_vehicle', [
+        //     'headers' => [
+        //         'Authorization' => $headers
+        //     ]
+        // ]);
+       
+
+        // $data['getBrand'] = $getBrand['data']['data'];
+
+
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
 }
+

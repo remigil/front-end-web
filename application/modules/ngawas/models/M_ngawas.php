@@ -103,8 +103,8 @@ class M_ngawas extends CI_Model {
                   ]
                ]);
 
-     //    echo "<pre>";
-     //    var_dump($result['data']['rows']);die;
+        // echo "<pre>";
+        // var_dump($result['data']['rows']);die;
 
 
         $no=1;
@@ -130,6 +130,7 @@ class M_ngawas extends CI_Model {
             $row['action']         = '
 
             <a href="'.base_url().'ngawas/Ngawas/detail/'.$field['id'].'"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
+            <a href="'.base_url().'ngawas/delete/'.$field['id'].'"><button class="btn btn-sm btn-danger" type="button" id="delete">Delete</button></a>
 
             ';
 

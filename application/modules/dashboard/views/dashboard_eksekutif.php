@@ -8,7 +8,7 @@
         <!-- <a href='#' id='export'>Export Features</a> -->
 
         <div style="display:flex;z-index: 999;position: absolute;">
-            <!-- <div class="dropdown d-inline-block">
+            <div class="dropdown d-inline-block">
                 <div style="cursor: pointer; display:flex; width:260px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div>
                         <div class="row" style="margin-left: 0px;">
@@ -28,7 +28,7 @@
 
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
 
                     <div class="col-md-9" style="left: 330px;top: -53px;width: 80%;">
 
@@ -315,7 +315,7 @@
 
                     </div>
 
-                </div>
+                </div> -->
 
                 <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none; ">
                     <div style="width: 308px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: -80px;">
@@ -491,7 +491,7 @@
 
 
 
-            </div> -->
+            </div>
 
         </div>
         <div id="mapG20Dashboard">

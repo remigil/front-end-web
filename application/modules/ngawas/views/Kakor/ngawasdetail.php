@@ -64,7 +64,7 @@
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item active fw-bold" aria-current="page">Detail Data <?= $title; ?></li>
+        <li class="breadcrumb-item active fw-bold" aria-current="page"> Data <?= $title; ?></li>
     </ol>
 </nav>
 <!-- </div> -->
@@ -122,7 +122,7 @@
                                                        <div class="d-flex flex-row align-items-center">
                                                        <div class="icon"> <i class="bx bx-user"></i> </div>
                                                        <div class="ms-2 c-details">
-                                                            <h3 class="mb-0"><?php echo $data['getDetail']['data']['society']['person_name']; ?></h3> <span>NIK. <?php echo $data['getDetail']['data']['society']['nik']; ?></span>
+                                                            <h3 class="mb-0"><?php echo $data['getDetail']['data']['society']['person_name']; ?></h3> <span>No telp. <?php echo $data['getDetail']['data']['society']['no_hp']; ?></span>
                                                        </div>
                                                        </div>
                                                        <div class="badge"> <span>Pengendara</span> </div>
@@ -148,7 +148,7 @@
                                                             <div class="d-flex flex-row align-items-center">
                                                             <div class="icon"> <i class="bx bxs-face"></i> </div>
                                                             <div class="ms-2 c-details">
-                                                                 <h5 class="mb-0"><?php echo $row['name']?></h5> <span>NIK. <?php echo $row['nik']; ?></span>
+                                                                 <h5 class="mb-0"><?php echo $row['name']?></h5> <span>No telp. <?php echo $row['no_hp']; ?></span>
                                                             </div>
                                                             </div>
                                                             <div class="badge"> <span>Penumpang</span> </div>
@@ -288,7 +288,7 @@
                                                        <div class="icon icon2"> <i class="fa-solid fa-location-arrow"></i></div>
                                                        <div class="ms-2 c-details">
                                                             <span> Lokasi Awal</span>
-                                                            <h5 class="mb-0"><?= $data['getDetail']['data']['district_start']?></h5>
+                                                            <h5 class="mb-0"><?= $data['getDetail']['data']['district_start']?></h5><h5 class="mb-0"><?= $data['getDetail']['data']['subdistrict_start']?></h5>
                                                        </div>
                                                   </div>
                                              </div>
@@ -310,7 +310,7 @@
                                                        <div class="icon icon2"> <i class="fa-solid fa-map-pin"></i>  </div>
                                                        <div class="ms-2 c-details">
                                                             <span> Lokasi Tujuan</span>
-                                                            <h5 class="mb-0"><?= $data['getDetail']['data']['district_end']?></h5>
+                                                            <h5 class="mb-0"><?= $data['getDetail']['data']['district_end']?></h5><h5 class="mb-0"><?= $data['getDetail']['data']['subdistrict_end']?></h5>
                                                        </div>
                                                   </div>
                                              </div>
@@ -366,7 +366,8 @@
                     </div>
                 </div> -->
             </div>
-            <a href="<?= base_url('ngawas'); ?>"> <button class="btn btn-primary waves-effect float-end mt-3" style="width: 25%;">Kembali</button></a>
+            
+            <a href="<?= base_url('ngawas'); ?>"> <button class="btn btn-primary waves-effect float-end mt-3 " style="width: 25%;">Kembali</button></a>
         </div>
     </div>
 
@@ -405,13 +406,17 @@
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
                 attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
             });
+            var gl = L.mapboxGL({
+            accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
+            style: 'mapbox://styles/mapbox/traffic-day-v2'
+        });
 
             // StART MAP SECTION
             var mapContainer = L.map('mapG20Dashboard', {
                 maxZoom: 19,
                 minZoom: 1,
                 zoomControl: false,
-                layers: [googleStreet]
+                layers: [gl]
             }).setView(initialCenter, initialZoom);
 
 
@@ -422,6 +427,112 @@
             var endCordLng = '<?php echo $data['getDetail']['data']['end_coordinate']['longitude']; ?>';
 
             // console.log(parseFloat(startCordLat));
+
+            //getBatasWilayah
+          $.getJSON("<?php echo base_url('assets/fe/js/BogorSelatan.geojson') ?>", function(data){
+            geoLayer = L.geoJson(data, {
+                style : function(feature) {
+                    return {
+                        fillColor: 'white',
+                        color: 'grey',
+                        opacity: 10
+                    }
+                },
+
+            }).addTo(mapContainer);
+
+            geoLayer.eachLayer(function(layer) {
+                layer.bindPopup("Kecamatan Bogor Selatan");
+            });
+          });
+
+
+          $.getJSON("<?php echo base_url('assets/fe/js/BogorTengah.geojson') ?>", function(data){
+            geoLayer = L.geoJson(data, {
+                style : function(feature) {
+                    return {
+                        fillColor: 'white',
+                        color: 'grey',
+                        opacity: 10
+                    }
+                },
+
+            }).addTo(mapContainer);
+
+            geoLayer.eachLayer(function(layer) {
+                layer.bindPopup("Kecamatan Bogor Tengah");
+            });
+          });
+
+
+          $.getJSON("<?php echo base_url('assets/fe/js/BogorTimur.geojson') ?>", function(data){
+            geoLayer = L.geoJson(data, {
+                style : function(feature) {
+                    return {
+                        fillColor: 'white',
+                        color: 'grey',
+                        opacity: 10
+                    }
+                },
+
+            }).addTo(mapContainer);
+
+            geoLayer.eachLayer(function(layer) {
+                layer.bindPopup("Kecamatan Bogor Timur");
+            });
+          });
+
+
+          $.getJSON("<?php echo base_url('assets/fe/js/BogorUtara.geojson') ?>", function(data){
+            geoLayer = L.geoJson(data, {
+                style : function(feature) {
+                    return {
+                        fillColor: 'white',
+                        color: 'grey',
+                        opacity: 10
+                    }
+                },
+
+            }).addTo(mapContainer);
+
+            geoLayer.eachLayer(function(layer) {
+                layer.bindPopup("Kecamatan Bogor Utara");
+            });
+          });
+
+          $.getJSON("<?php echo base_url('assets/fe/js/TanahSereal.geojson') ?>", function(data){
+            geoLayer = L.geoJson(data, {
+                style : function(feature) {
+                    return {
+                        fillColor: 'white',
+                        color: 'grey',
+                        opacity: 10
+                    }
+                },
+
+            }).addTo(mapContainer);
+
+            geoLayer.eachLayer(function(layer) {
+                layer.bindPopup("Kecamatan Tanah Sereal");
+            });
+          });
+
+          $.getJSON("<?php echo base_url('assets/fe/js/bogor-barat.json') ?>", function(data){
+            geoLayer = L.geoJson(data, {
+                style : function(feature) {
+                    return {
+                        fillColor: 'white',
+                        color: 'grey',
+                        opacity: 10
+                    }
+                },
+
+            }).addTo(mapContainer);
+
+            geoLayer.eachLayer(function(layer) {
+                layer.bindPopup("Kecamatan Tanah Sereal");
+            });
+          });
 
 
             L.Routing.control({
@@ -438,7 +549,7 @@
                 }),
                 lineOptions: {
                     styles: [{
-                        color: "#01796f",
+                        color: 'blue',
                         className: 'animateRoute'
                     }]
                 },
