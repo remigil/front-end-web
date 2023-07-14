@@ -146,7 +146,7 @@
                                                        <div class="d-flex justify-content-between mb-3">
 
                                                             <div class="d-flex flex-row align-items-center">
-                                                            <div class="icon"> <i class="bx bxs-face"></i> </div>
+                                                            <div class="icon"> <i class="bx bx-user"></i> </div>
                                                             <div class="ms-2 c-details">
                                                                  <h5 class="mb-0"><?php echo $row['name']?></h5> <span>No telp. <?php echo $row['no_hp']; ?></span>
                                                             </div>

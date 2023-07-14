@@ -100,6 +100,14 @@
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
      <script src="https://kit.fontawesome.com/8500d0a795.js" crossorigin="anonymous"></script>
 
+     <!-- markercluster -->
+     <link rel="stylesheet" href="<?php echo base_url(); ?>assets\fe\js\Leaflet.markercluster-1.4.1\dist\MarkerCluster.css">
+     <link rel="stylesheet" href="<?php echo base_url(); ?>assets\fe\js\Leaflet.markercluster-1.4.1\dist\MarkerClusterDefault.css">
+     <script src="<?php echo base_url(); ?>assets\fe\js\Leaflet.markercluster-1.4.1\dist\leaflet.markercluster-src.js"></script>
+     <script src="<?php echo base_url(); ?>assets\fe\js\Leaflet.markercluster-1.4.1\src\MarkerCluster.js"></script>
+
+
+
 
     <style>
 
@@ -3069,6 +3077,7 @@
 
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEY9jbE_zL8SV7c6meCf7-lV3JLcbKnlY" async defer></script>
             <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script>
+            
 
             <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/leaflet.rotatedMarker.js"></script>
             <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/leaflet.pattern.js"></script>

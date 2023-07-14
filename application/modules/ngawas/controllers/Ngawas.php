@@ -513,17 +513,10 @@ class Ngawas extends MY_Controller
         ];
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "asuu";
+        $page_content["title"] = "Dashboard";
 
-        if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "dashboard/dashboard_g20";
-        } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "tripon/Korlantas/tripondetail";
-        } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
-            $page_content["page"] = "tripon/Kapolda/tripondetail";
-        } else if ($this->session->userdata['role'] == 'Polres' || $this->session->userdata['role'] == 'OperatorPolres') {
-            $page_content["page"] = "tripon/Polres/tripondetail";
-        } else if ($this->session->userdata['role'] == 'Kakorlantas') {
+       
+        if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["page"] = "ngawas/Kakor/dashboard2";
         } else if ($this->session->userdata['role'] == 'Ditkamsel') {
             $page_content["page"] = "tripon/Ditkamsel/tripondetail";
@@ -541,6 +534,21 @@ class Ngawas extends MY_Controller
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
+    }
+
+    public function sebaran(){
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        $url = 'ngawas';
+        $getTripon = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        $data = $getTripon['data']['rows'];
+        // echo "<pre>";
+        // var_dump($data);die;
+        echo json_encode($data);
     }
 }
 
