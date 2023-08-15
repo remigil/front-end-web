@@ -41,14 +41,19 @@ class M_ngawas3 extends CI_Model {
             $row = array();
 			// $row ['id']	=  $field['id'];
             $row['id']	=  $no++;
+            $row['type_vehicle'] = $field['type_vehicle']['type_name'];
             $row['brand_name'] = $field['brand_name'];
           
 
             $row['action']  = '
+            <button class="btn btn-sm btn-warning" id="Edit" data-bs-toggle="modal" data-bs-target="#editModal" onclick="editDetail(`' . $field['id'] . '`)">
+                <h5 class="text-white"><i class="fas fa-pen "></i></h5>
+            </button>
             <button class="btn btn-sm btn-danger" id="Hapus" onclick="hapus(`' . $field['id'] . '`)">
                 <h5 class="text-white"><i class="fas fa-trash "></i></h5>
             </button>
             ';
+
 
             $data[] = $row;
 

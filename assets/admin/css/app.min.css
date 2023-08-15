@@ -343,7 +343,7 @@
   align-items: center;
   margin: 0 auto;
   height: 70px;
-  padding: 0 20px 0 0;
+  padding: 0  20px 0 0;
   background: #fff !important;
 }
 .navbar-header .dropdown .show.header-item {

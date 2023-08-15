@@ -245,7 +245,7 @@
                 </div>
                 <div style="display: grid;">
                   <button type="submit" class="btn btn-lg btn-primary btn-theme mb-3" style="border-radius: 10px; font-size: 16px; background-color: #01796f">Login</button>
-                  <a href="<?= base_url() ?>login/forgot_password" style="font-size: 12px;">Lupa sandi ?</a>
+                  <!-- <a href="<?= base_url() ?>login/forgot_password" style="font-size: 12px;">Lupa sandi ?</a> -->
                 </div>
               </form>
             </div>

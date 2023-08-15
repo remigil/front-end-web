@@ -88,7 +88,7 @@ label {
 
 </style>
 
-<button title="Filter" id="button" style="background: transparent;height:40px;border:none;margin-top:-3px" onclick="changeData()">
+<button title="Filter" id="button" onclick="changeData()" style="background: transparent;height:40px;border:none;margin-top:-3px">
                 Filter
             </button>
 
@@ -108,75 +108,41 @@ label {
 
     // console.log('hello')
 
-    $(document).ready(function() {
-        var data = '<?= base_url()?>ngawas/sebaran';
+    
+    var map = L.map('mapG20Dashboard', {
+        center: [-6.588710080503552, 106.79743511461204],
+        zoomControl: false,
+        zoom: 10.5
+    })
+
+    let osm = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/streets-v11'
+    });
+    map.addLayer(osm)
+    L.control.zoom({
+        position: 'bottomright'
+    }).addTo(map)
         // console.log(data);
         
         
 
-         var initialCenter = [-6.6035992,106.8092627];
-         var initialZoom = 12.66;
-        //  var initialZoom = 11;
-
-        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-        });
-        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var gl = L.mapboxGL({
-            accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
-            style: 'mapbox://styles/mapbox/traffic-day-v2'
-        });
-
-        var trafficMutant = L.gridLayer.googleMutant({
-            maxZoom: 24,
-            type: "hybrid",
-        }).addGoogleLayer("TrafficLayer");
-
-        var trafficMutantRoad = L.gridLayer.googleMutant({
-            maxZoom: 24,
-            type: "roadmap",
-        }).addGoogleLayer("TrafficLayer");
-
-
-        // StART MAP SECTION
-        var map = L.map('mapG20Dashboard', {
-             maxZoom: 20,
-             minZoom: 1,
-             zoomSnap: 0.25,
-             zoomControl: false,
-             layers: [gl]
-          }).setView(initialCenter, initialZoom);
-        //   var kotaBogorPol = L.geoJson(kotabogorpol).addTo(map);
-
-
+        
           //getBatasWilayah
         
-        function addGeoJsonLayer(url, popupText) {
-        $.getJSON(url, function(data) {
-            var geoLayer = L.geoJson(data, {
+        // function addGeoJsonLayer(url, popupText) {
+        // $.getJSON(url, function(data) {
+        //     var geoLayer = L.geoJson(data, {
             
-            }).addTo(map);
+        //     }).addTo(map);
 
-            geoLayer.eachLayer(function(layer) {
-            layer.bindPopup(popupText);
-            });
-        });
-        }
+        //     geoLayer.eachLayer(function(layer) {
+        //     layer.bindPopup(popupText);
+        //     });
+        // });
+        // }
 
 
         function getColor(d) {
@@ -225,13 +191,11 @@ let GeoJson = [
       
 
    let changeData = async () => {
-        udata = '<?= base_url()?>ngawas/sebaran'
-let get = await fetch(udata);
-let json = await get.json()
-console.log(json);
-   }
+        var url = '<?= base_url()?>ngawas/sebaran'
+       console.log(url);
 
         
+   }
 
         var iconOtw = L.icon({
             // iconUrl :'https://leafletjs.com/examples/custom-icons/leaf-green.png',
@@ -362,8 +326,8 @@ console.log(json);
 
         var baseMaps = {
             "MappBox Traffic": gl,
-            "Google Map Street": googleStreet,
-            "Google Map Satelite": googleSatelite,
+            // "Google Map Street": googleStreet,
+            // "Google Map Satelite": googleSatelite,
             // "Google Map Hybrid": googleHybrid,
             // "Google Map Terrain": googleTerrain,
             // "Google Map Street Traffic": trafficMutantRoad,
@@ -398,7 +362,7 @@ console.log(json);
         var centerMap = map.getCenter();
         var centerLat = centerMap['lat'];
         var centerLng = centerMap['lng'];
-    });
+
 
     
 

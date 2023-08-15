@@ -78,8 +78,8 @@
                 <div class="col-md-7">
                     <div class="border fw-bold rounded">
                         <div class="ms-3 mt-2 mb-2">
-                            <span class="badag"> No BNG </span>
-                            <span> | <?php echo $data['getDetail']['data']['code']; ?></span>
+                            <!-- <span class="badag"> No BNG </span> -->
+                            <!-- <span> | <?php echo $data['getDetail']['data']['code']; ?></span> -->
                             <span style=" height: 500px; border-left: 6px solid green;" class="ms-2 me-2"></span>
                             <span class="badag">Jumlah Penumpang </span>
                             <?php $jumlah = $data['getDetail']['data']['penumpangs']; ?>
