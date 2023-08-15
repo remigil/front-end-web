@@ -1868,12 +1868,12 @@
                                         <span data-key="t-dashboard">Kendaraan</span>
                                     </a>
                                 </li>
-                                <!-- <li>
-                                                <a href="<?= base_url('ngawas/dashboard2') ?>" data-key="t-login">
-                                                    <i class="fas fa-chart-simple" style="color: #01796f;"></i>
-                                                    <span data-key="t-dashboard" >E-chart</span>
-                                                </a>
-                                            </li> -->
+                                <li>
+                                    <a href="<?= base_url('ngawas/dashboard2') ?>" data-key="t-login">
+                                        <i class="fas fa-chart-simple" style="color: #01796f;"></i>
+                                        <span data-key="t-dashboard">E-chart</span>
+                                    </a>
+                                </li>
 
 
                                 <!-- Ini nanti dilanjut -->

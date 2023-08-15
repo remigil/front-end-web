@@ -99,7 +99,7 @@
 
 
 
-<script src="<?php echo base_url(); ?>assets/fe/js/kabbogor_polygon.js"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/fe/js/kabbogor_polygon.js"></script> -->
 
 <script>
     // console.log('hello')
@@ -154,7 +154,7 @@
             layers: [gl]
         }).setView(initialCenter, initialZoom);
 
-        var kabbogor_polygon = L.geoJson(kabbogorpol).addTo(map);
+        // var kabbogor_polygon = L.geoJson(kabbogorpol).addTo(map);
 
 
         //getBatasWilayah
@@ -247,7 +247,7 @@
         let loadJsonData
 
         function style(feature) {
-            totaldata = 0
+            totaldata = 2000
             for (i in loadJsonData) {
                 if (loadJsonData[i].kode === feature.properties.kode) {
                     totaldata = loadJsonData[i].total
