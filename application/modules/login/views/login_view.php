@@ -219,8 +219,8 @@
             <div class="form-section align-self-center">
 
               <div>
-                   <img src="<?php echo base_url(); ?>assets/main-logo-5.png" height="100"> <br><br>
-                   <span class="fw-bolder" style="color:#01796f">SELAMAT DATANG 🫡</span><br>
+                <img src="<?php echo base_url(); ?>assets/main-logo-5.png" height="100"> <br><br>
+                <span class="fw-bolder" style="color:#01796f">SELAMAT DATANG 🫡</span><br>
               </div>
 
               <div class="clearfix"></div>
@@ -243,6 +243,15 @@
                   <input type="checkbox" name="remember" id="remember">
                   <label for="remember" style="margin-left: 5px;">Ingat saya</label>
                 </div>
+
+                <div class="mb-3 ">
+                  <div class="g-recaptcha" data-sitekey="6Ld4alwgAAAAACTfPfbmT3prEztN4zO7TR_bFA98" data-theme="light" data-type="image" data-callback="" >
+                    <?= $captcha ?>
+                    <?= $script_captcha ?>
+                  </div>
+                </div>
+
+
                 <div style="display: grid;">
                   <button type="submit" class="btn btn-lg btn-primary btn-theme mb-3" style="border-radius: 10px; font-size: 16px; background-color: #01796f">Login</button>
                   <!-- <a href="<?= base_url() ?>login/forgot_password" style="font-size: 12px;">Lupa sandi ?</a> -->
@@ -265,6 +274,7 @@
   <script src="<?php echo base_url(); ?>assets/login/js/bootstrap.bundle.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/login/js/jquery.validate.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/login/js/app.js"></script>
+  <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=onload&hl=en" async defer></script>
 
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
   <!-- Custom JS Script -->

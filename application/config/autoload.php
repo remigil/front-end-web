@@ -58,8 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('Template','session','email');
-
+$autoload['libraries'] = array('Template','session','email', 'recaptcha');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Drivers
@@ -103,7 +102,7 @@ $autoload['helper'] = array('url','tanggal','token','form');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array();
+$autoload['config'] = array('recaptcha');
 
 /*
 | -------------------------------------------------------------------

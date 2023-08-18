@@ -15,6 +15,8 @@ class Login extends MX_Controller
         if (isset($this->session->userdata['logged'])) {
             redirect('/dashboard');
         } else {
+            $data['captcha'] = $this->recaptcha->getWidget();
+            $data['script_captcha'] = $this->recaptcha->getScriptTag();
             $this->load->view('login_view');
         }
     }
@@ -33,9 +35,17 @@ class Login extends MX_Controller
         $password = $this->input->post('password');
         $tokenNotif = $this->input->post('token');
 
+        $recaptcha = $this->input->post('g-recaptcha-response');
+        $recaptcha = $this->recaptcha->verifyResponse($recaptcha);
+        if (!isset($recaptcha['success']) || $recaptcha['success'] <> true) {
+            $this->index();
+        } else {
+            $response = $this->m_login->auth($username, $password);
+        }
 
 
-        $response = $this->m_login->auth($username, $password);
+
+        
         // print_r($response);
         // die;
         if ($response['user']['isSuccess'] == true) {
