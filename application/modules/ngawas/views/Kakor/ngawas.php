@@ -385,11 +385,11 @@
 
 
         function getColor(d) {
-            return d > 50 ? '#800026' :
-                d > 30 ? '#BD0026' :
-                d > 20 ? '#E31A1C' :
-                d > 10 ? '#FC4E2A' :
-                d > 5 ? '#FD8D3C' :
+            return d > 30 ? '#800026' :
+                d > 20 ? '#BD0026' :
+                d > 10 ? '#E31A1C' :
+                d > 5 ? '#FC4E2A' :
+                d > 3 ? '#FD8D3C' :
                 d > 0 ? '#FED976' :
                 d === 0 ? '#707071' :
                 '#fff'
@@ -471,7 +471,7 @@
 
             // console.log(jumlahTitik + '  KEDATANGAN')
             // return totaldata;
-            var style = {
+            var layerStyle = {
                 color: 'white',
                 fillColor: getColor(totaldata1),
                 weight: 2,
@@ -479,8 +479,30 @@
                 fillOpacity: 0.7,
                 dashArray: 3
             }
-            // var koordinat = feature.properties.koordinat;
-            return style;
+
+            var koordinat = feature.properties.koordinat;
+
+            if (totaldata1 > 5) {
+                // Membuat popup dengan nama kecamatan
+                var popupContent = `
+                <div class="popup-warning text-center">
+                    <h3><strong>PERHATIAN!</strong></h3>
+                    <h5>Terdapat ${totaldata1}  Titik Keberangkatan di <span class="kecamatan-name">
+                        ${feature.properties.KECAMATAN}
+                    </span></h5>
+                </div>`;
+
+                var popup = L.popup({
+                        autoClose: false,
+                        className: 'custom-popup'
+                    })
+
+                    .setLatLng(koordinat)
+                    .setContent(popupContent)
+                    .openOn(map);
+            }
+
+            return layerStyle;
         }
 
 
@@ -561,8 +583,8 @@
             if (totaldata2 > 5) {
                 // Membuat popup dengan nama kecamatan
                 var popupContent = `
-                <div class="popup-warning text-center">
-                    <h3><strong>PERINGATAN!</strong></h3>
+                <div class="popup-warning text-center text-danger">
+                    <h3><strong>PERHATIAN!</strong></h3>
                     <h5>Terdapat ${totaldata2}  Titik Keberangkatan di <span class="kecamatan-name">
                         ${feature.properties.KECAMATAN}
                     </span></h5>
@@ -636,7 +658,7 @@
         legend.onAdd = function(map) {
 
             var div = L.DomUtil.create('div', 'info legend');
-            var grades = [0, 1, 5, 10, 20, 30, 50];
+            var grades = [0, 1, 3, 5, 10, 20, 30];
             var labels = [];
             var from, to;
             var legendTitle = 'Jumlah Titik Perjalanan'; // Ganti dengan judul yang diinginkan
