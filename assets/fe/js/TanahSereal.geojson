@@ -8777,7 +8777,8 @@
         "fill-opacity": 0.1,
         "KABUPATEN": "KOTA BOGOR",
         "KECAMATAN": "KEC. TANAH SAREAL",
-        "description": "Kecamatan: Tanah Sareal "
+        "description": "Kecamatan: Tanah Sareal ",
+        "koordinat" : [-6.536336, 106.781995]
       }
     }
   ]

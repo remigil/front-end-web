@@ -168,6 +168,71 @@
         z-index: 100;
         border-radius: 10px !important;
     }
+
+    /* Gaya untuk popup */
+
+
+    .custom-popup {
+        background: yellow !important;
+        border: solid 3px red;
+        color: red;
+        font-size: 14;
+        border-radius: 10px;
+    }
+
+    .custom-popup::before {
+        content: "";
+        position: absolute;
+        border: 3px solid red;
+        width: calc(90% + 40px);
+        height: calc(80% + 40px);
+        animation: pulse 0.6s linear infinite;
+        border-radius: 10px;
+        left: 0%;
+        /* Center horizontally */
+        top: 0%;
+        /* Center vertically */
+        transform: translate(-50%, -50%);
+        /* Center the element */
+        transition: all 0.6s ease-in-out;
+    }
+
+    .custom-popup::after {
+        content: "";
+        /* display: block; */
+        position: absolute;
+        border: 3px solid #eb5e60;
+        width: calc(90% + 40px);
+        height: calc(80% + 40px);
+        animation: pulse 0.56s linear infinite;
+        /* padding: 5px; */
+        border-radius: 10px;
+        left: 0%;
+        top: 0%;
+        transform: translate(-50%, -50%);
+        transition: all 0.6s ease-in-out;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.5);
+            opacity: 0
+        }
+
+        50% {
+            transform: scale(1);
+            opacity: 1
+        }
+
+        100% {
+            transform: scale(1.3);
+            opacity: 0
+        }
+    }
+
+    /* .leaflet-popup-tip-container {
+        display: none;
+    } */
 </style>
 <!-- 
 <button title="Filter" id="button" style="background: transparent;height:40px;border:none;margin-top:-3px" onclick="changeData()">
@@ -250,102 +315,7 @@
 
     $(document).ready(function() {
 
-        // changedata = function() {
-        //     var tanggalawal = $('#start_date').val()
-        //     var tanggalakhir = $('#end_date').val()
 
-
-
-        //     $.ajax({
-        //         url: '108.136.137.131:3001/v1/ngawas?filter=true&start_date=' + tanggalawal + '&end_date=' + tanggalakhir,
-        //         type: 'GET',
-        //         dataType: 'JSON',
-        //         success: async function(result) {
-        //             var ressData = result;
-        //             console.log(ressData);
-        //             pushRespon = ressData;
-        //             var dataJSON = GeoJson;
-        //             var fetchPromises = [];
-        //         }
-        //     });
-
-        // }
-
-        //     $("[name=filter]").on("change", function(e) {
-
-        //         var tanggal;
-        //         var isitype = 'day';
-        //         let filter = true;
-        //         let time = true;
-
-        //         const date = new Date();
-        //         let today = moment().format('YYYY-MM-DD');
-        //         let start_time = moment().format('H:00:00');
-        //         let end_time = moment().add(3, 'hours').format('H:00:00')
-
-        //         let start_week = moment().clone().startOf('week').format('YYYY-MM-DD')
-        //         let end_week = moment().clone().endOf('week').format('YYYY-MM-DD')
-
-
-        //         let start_month = moment().startOf('month').format('YYYY-MM-DD')
-        //         let end_month = moment().endOf('month').format('YYYY-MM-DD');
-
-        //         let start_year = moment().startOf('year').format('YYYY-MM-DD')
-        //         let end_year = moment().endOf('year').format('YYYY-MM-DD');
-
-        //         if (this.value == 'today') {
-        //             $('#start_date').attr('type', 'date')
-        //             $('#end_date').attr('type', 'date')
-        //             getChartProv(filter, time = false, start_time = null, end_time = null, today, today, limit);
-
-        //         } else if (this.value == 'week') {
-        //             $('#start_date').attr('type', 'date')
-        //             $('#end_date').attr('type', 'date')
-        //             getChartProv(filter, time = false, start_time = null, end_time = null, start_week, end_week, limit);
-
-        //         } else if (this.value == 'month') {
-        //             $('#start_date').attr('type', 'date')
-        //             $('#end_date').attr('type', 'date')
-        //             getChartProv(filter, time = false, start_time = null, end_time = null, start_month, end_month, limit);
-
-        //         } else if (this.value == 'year') {
-        //             $('#start_date').attr('type', 'date')
-        //             $('#end_date').attr('type', 'date')
-        //             getChartProv(filter, time = false, start_time = null, end_time = null, start_year, end_year);
-        //         }
-        //     });
-
-
-        //     $('#btn_pilih').on('click', function(e) {
-        //         e.preventDefault();
-        //         var type_filter = $("[name=filter]:checked").val();
-        //         let filter = true;
-        //         let time = true;
-        //         let limit = $('#limit_showData').val()
-
-        //         if (type_filter == 'today') {
-        //             let start_date = $('#start_date').val();
-        //             let end_date = $('#end_date').val();
-        //             let today = moment().format('YYYY-MM-DD');
-        //             getChartProv(filter, time = false, start_time = null, end_time = null, start_date, end_date, limit);
-
-        //         } else if (type_filter == 'week') {
-        //             let start_week = $('#start_date').val();
-        //             let end_week = $('#end_date').val();
-        //             getChartProv(filter, time = false, start_time = null, end_time = null, start_week, end_week, limit);
-
-        //         } else if (type_filter == 'month') {
-        //             let start_month = $('#start_date').val();
-        //             let end_month = $('#end_date').val();
-        //             getChartProv(filter, time = false, start_time = null, end_time = null, start_month, end_month, limit);
-
-        //         } else if (type_filter == 'year') {
-        //             let start_year = $('#start_date').val();
-        //             let end_year = $('#end_date').val();
-        //             getChartProv(filter, time = false, start_time = null, end_time = null, start_year, end_year, limit);
-
-        //         }
-        //     })
 
 
 
@@ -460,14 +430,13 @@
                     var fetchPromise = fetch(url).then(response => response.json());
                     fetchPromises.push(fetchPromise);
                 }
-
                 // Menunggu semua permintaan fetch selesai
                 var fetchedJsons = await Promise.all(fetchPromises);
 
                 // Membuat lapisan GeoJSON dari setiap hasil fetch
                 for (var i in fetchedJsons) {
                     var json = fetchedJsons[i];
-                    // console.log(json);
+                    console.log(json);
 
                     var geojson = L.geoJson(json, {
                         style: warna1,
@@ -502,7 +471,7 @@
 
             // console.log(jumlahTitik + '  KEDATANGAN')
             // return totaldata;
-            return {
+            var style = {
                 color: 'white',
                 fillColor: getColor(totaldata1),
                 weight: 2,
@@ -510,6 +479,8 @@
                 fillOpacity: 0.7,
                 dashArray: 3
             }
+            // var koordinat = feature.properties.koordinat;
+            return style;
         }
 
 
@@ -574,9 +545,9 @@
                 // console.log(totaldata2)
 
             }
-            console.log(totaldata2 + '  KEBERANGKATAN')
+            // console.log(totaldata2 + '  KEBERANGKATAN')
             // return totaldata;
-            return {
+            var layerStyle = {
                 color: 'white',
                 fillColor: getColor(totaldata2),
                 weight: 2,
@@ -584,7 +555,36 @@
                 fillOpacity: 0.7,
                 dashArray: 3
             }
+
+            var koordinat = feature.properties.koordinat;
+
+            if (totaldata2 > 5) {
+                // Membuat popup dengan nama kecamatan
+                var popupContent = `
+                <div class="popup-warning text-center">
+                    <h3><strong>PERINGATAN!</strong></h3>
+                    <h5>Terdapat ${totaldata2}  Titik Keberangkatan di <span class="kecamatan-name">
+                        ${feature.properties.KECAMATAN}
+                    </span></h5>
+                </div>`;
+
+                var popup = L.popup({
+                        autoClose: false,
+                        className: 'custom-popup'
+                    })
+
+                    .setLatLng(koordinat)
+                    .setContent(popupContent)
+                    .openOn(map);
+            }
+
+            return layerStyle;
+
+
+
         }
+
+
 
         function highlightFeature(e) {
             var layer = e.target;
@@ -741,6 +741,7 @@
             // iconAnchor: [22, 94],
             popupAnchor: [-0, -16]
         })
+
         var markergrup_kedatangan = L.markerClusterGroup();
         var marker_kedatangan = [];
         $.ajax({
@@ -804,7 +805,7 @@
         //     "Google Map Satelite": googleSatelite,
 
         // };
-        
+
 
         var baseMaps = {
             "Keberangkatan": markergrup_keberangkatan,

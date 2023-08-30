@@ -2495,7 +2495,8 @@
         "fill-opacity": 0.1,
         "KABUPATEN": "KOTA BOGOR",
         "KECAMATAN": "KEC. BOGOR TIMUR",
-        "description": "Kecamatan: Bogor Timur"
+        "description": "Kecamatan: Bogor Timur",
+        "koordinat" : [-6.624900, 106.830832]
       }
     }
   ]

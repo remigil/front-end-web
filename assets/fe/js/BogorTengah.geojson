@@ -6335,7 +6335,8 @@
         "fill-opacity": 0.1,
         "KABUPATEN": "KOTA BOGOR",
         "KECAMATAN": "KEC. BOGOR TENGAH",
-        "description": "Kecamatan: Bogor Tengah"
+        "description": "Kecamatan: Bogor Tengah",
+        "koordinat" : [-6.597205, 106.799308]
       }
     }
   ]

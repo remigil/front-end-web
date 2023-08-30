@@ -7691,7 +7691,8 @@
         "fill-opacity": 0.1,
         "KABUPATEN": "KOTA BOGOR",
         "KECAMATAN": "KEC. BOGOR UTARA",
-        "description": "Kecamatan: Bogor Utara"
+        "description": "Kecamatan: Bogor Utara",
+        "koordinat" : [-6.558327, 106.820035]
       }
     }
   ]

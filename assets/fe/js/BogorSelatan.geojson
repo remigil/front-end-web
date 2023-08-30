@@ -7507,7 +7507,8 @@
         "fill-opacity": 0.1,
         "KABUPATEN": "KOTA BOGOR",
         "KECAMATAN": "KEC. BOGOR SELATAN",
-        "description": "Kecamatan:Bogor Selatan"
+        "description": "Kecamatan:Bogor Selatan",
+        "koordinat" : [-6.658500, 106.829620]
       }
     }
   ]

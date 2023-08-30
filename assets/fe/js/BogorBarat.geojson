@@ -23,7 +23,8 @@
                 "fill-opacity": 0.1,
                 "KABUPATEN": "KOTA BOGOR",
                 "KECAMATAN": "KEC. BOGOR BARAT",
-                "description": "Kecamatan:Bogor Barat"
+                "description": "Kecamatan:Bogor Barat",
+                "koordinat" : [-6.570653, 106.764693]
             }
         }
     ]
