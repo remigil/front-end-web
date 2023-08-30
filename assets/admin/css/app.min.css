@@ -216,7 +216,7 @@
     }
 
     .card {
-        border-radius: 10px 10px 0px 0px !important;
+        border-radius: 10px 10px 10px 10px !important;
     }
 
     .item-card {
@@ -342,7 +342,7 @@
   -ms-flex-align: center;
   align-items: center;
   margin: 0 auto;
-  height: 70px;
+  height: 87px;
   padding: 0  20px 0 0;
   background: #fff !important;
 }

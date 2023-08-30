@@ -22,29 +22,21 @@ class Ngawas extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Monitoring";
+        $page_content["title"] = "Bogor Ngawas";
 
-        if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "dashboard/dashboard_g20";
-        } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "tripon/Korlantas/tripon";
-        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagOps') {
+        // if ($this->session->userdata['role'] == 'G20') {
+        //     $page_content["page"] = "dashboard/dashboard_g20";
+        // } else if ($this->session->userdata['role'] == 'Korlantas') {
+        //     $page_content["page"] = "tripon/Korlantas/tripon";
+        // } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagOps') {
+        //     $page_content["page"] = "ngawas/Kakor/ngawas";
+
+        // }
+
+        if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["page"] = "ngawas/Kakor/ngawas";
-        } else if ($this->session->userdata['role'] == 'Ditkamsel') {
-            $page_content["page"] = "tripon/Ditkamsel/tripon";
-        } else if ($this->session->userdata['role'] == 'Ditgakkum') {
-            $page_content["page"] = "tripon/Ditgakkum/tripon";
-        } else if ($this->session->userdata['role'] == 'Ditregident') {
-            $page_content["page"] = "tripon/Ditregident/tripon";
-        } else if ($this->session->userdata['role'] == 'KaBagRenmin') {
-            $page_content["page"] = "tripon/Bagrenmin/tripon";
-        } else if ($this->session->userdata['role'] == 'KaBagTIK') {
-            $page_content["page"] = "tripon/Bagtik/tripon";
-        } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
-            $page_content["page"] = "tripon/Kapolda/tripon";
-        } else if ($this->session->userdata['role'] == 'Kapolres' || $this->session->userdata['role'] == 'OperatorPolres') {
-            $page_content["page"] = "tripon/Kapolres/tripon";
         }
+
 
         $getVehicle = guzzle_request('GET', 'type_vehicle', [
             'headers' => [
@@ -101,6 +93,7 @@ class Ngawas extends MY_Controller
     {
         $postData = $this->input->post();
         $data = $this->m_ngawas3->get_datatables($postData);
+        // var_dump($data);
         echo json_encode($data);
     }
 
@@ -304,7 +297,7 @@ class Ngawas extends MY_Controller
 
 
         if ($time == 'true') {
-            $url = 'count_ngawas/jenis_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '';
+            $url = 'count_ngawas/jenis_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date  . '';
         } else {
             $url = 'count_ngawas/jenis_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '';
         }
@@ -515,8 +508,6 @@ class Ngawas extends MY_Controller
         $end_time = $this->input->post('end_time');
 
 
-
-
         if ($time == 'true') {
             $url = 'count_ngawas/merk_kendaraan?filter=' . $filter . '&start_date=' . $start_date . '&end_date=' . $end_date . '&time=' . $time . '&start_time=' . $start_time . '&end_time=' . $end_time . '';
         } else {
@@ -614,23 +605,27 @@ class Ngawas extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
-        $url = 'ngawas';
+
+
+        $url = 'ngawas/getPerMonth';
         $getTripon = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
 
         $data = $getTripon['data']['rows'];
         // echo "<pre>";
-        // var_dump($data);die;
+        // var_dump($data);
+        // die;
         echo json_encode($data);
     }
+
 
     public function choropleth()
     {
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
-        $url = 'count_ngawas/kec_ngawas_penumpang';
+        $url = 'count_ngawas/kec_ngawas_month';
         $getTripon = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);

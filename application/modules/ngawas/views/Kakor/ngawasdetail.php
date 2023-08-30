@@ -1,65 +1,65 @@
 <!-- Page -->
 <!-- <div class="kotak" style="border-style:solid ;"> -->
 <style>
-
-.card {
-    border: none;
-    border-radius: 10px !important;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;;
-}
-
-
-.c-details span {
-    font-weight: 300;
-    font-size: 15px
-}
-
-.icon {
-    width: 50px;
-    height: 50px;
-    background-color: #eee;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 39px
-}
-
-.icon2{
-     background-color: #01796f !important;
-
-}
-
-.icon2 i{
-     color: #fff !important;
-}
-
-.icon i{
-     font-size: 27px;
-     color: #01796f;
-}
-
-.badge span {
-    background-color: #01796f;
-    width: 70px;
-    height: 25px;
-    padding-bottom: 3px;
-    border-radius: 5px;
-    display: flex;
-    color: #fff;
-    justify-content: center;
-    align-items: center
-}
-
-.badag{
-     color: #01796f;
+    .card {
+        border: none;
+        border-radius: 10px !important;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+        ;
+    }
 
 
-}
+    .c-details span {
+        font-weight: 300;
+        font-size: 15px
+    }
 
-.penumpang{
-     min-height: 35vh;
-}
+    .icon {
+        width: 50px;
+        height: 50px;
+        background-color: #eee;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 39px
+    }
+
+    .icon2 {
+        background-color: #01796f !important;
+
+    }
+
+    .icon2 i {
+        color: #fff !important;
+    }
+
+    .icon i {
+        font-size: 27px;
+        color: #01796f;
+    }
+
+    .badge span {
+        background-color: #01796f;
+        width: 70px;
+        height: 25px;
+        padding-bottom: 3px;
+        border-radius: 5px;
+        display: flex;
+        color: #fff;
+        justify-content: center;
+        align-items: center
+    }
+
+    .badag {
+        color: #01796f;
+
+
+    }
+
+    .penumpang {
+        min-height: 35vh;
+    }
 </style>
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
@@ -106,65 +106,65 @@
             </div> -->
 
             <div class="row">
-               <div class="col-md-8 mt-3">
+                <div class="col-md-8 mt-3">
                     <div class="rounded" id="mapG20Dashboard" style="height:100%;"></div>
-               </div>
-                    <div class="col-md-4 mt-3 ps-4">
-                        <div class="row d-flex">
-                            <div class="col-md-12">
-                                   <div class="row">
-                                        <div class="card pt-4 pb-4">
+                </div>
+                <div class="col-md-4 mt-3 ps-4">
+                    <div class="row d-flex">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="card pt-4 pb-4">
 
-                                             <div class="card-body">
-                                                  <!-- <h5 class="card-title"><?php echo $data['getDetail']['data']['society']['person_name']; ?></h5>
+                                    <div class="card-body">
+                                        <!-- <h5 class="card-title"><?php echo $data['getDetail']['data']['society']['person_name']; ?></h5>
                                                   <p class="card-text">Nik. <?php echo $data['getDetail']['data']['society']['nik']; ?></p> -->
-                                                  <div class="d-flex justify-content-between">
-                                                       <div class="d-flex flex-row align-items-center">
-                                                       <div class="icon"> <i class="bx bx-user"></i> </div>
-                                                       <div class="ms-2 c-details">
-                                                            <h3 class="mb-0"><?php echo $data['getDetail']['data']['society']['person_name']; ?></h3> <span>No telp. <?php echo $data['getDetail']['data']['society']['no_hp']; ?></span>
-                                                       </div>
-                                                       </div>
-                                                       <div class="badge"> <span>Pengendara</span> </div>
-                                                  </div>
-
-                                             </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex flex-row align-items-center">
+                                                <div class="icon"> <i class="bx bx-user"></i> </div>
+                                                <div class="ms-2 c-details">
+                                                    <h3 class="mb-0"><?php echo $data['getDetail']['data']['society']['person_name']; ?></h3> <span>No telp. <?php echo $data['getDetail']['data']['society']['no_hp']; ?></span>
+                                                </div>
+                                            </div>
+                                            <div class="badge"> <span>Pengendara</span> </div>
                                         </div>
 
-                                   </div>
+                                    </div>
+                                </div>
+
                             </div>
+                        </div>
 
-                            <hr><br><br>
+                        <hr><br><br>
 
-                            <div class="col-md-12 penumpang">
-                                   <div class="row">
-                                        <div class="card">
-                                             <div class="card-body">
-                                                  <!-- <h5 class="card-title"><?php echo $data['getDetail']['data']['society']['person_name']; ?></h5>
+                        <div class="col-md-12 penumpang">
+                            <div class="row">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!-- <h5 class="card-title"><?php echo $data['getDetail']['data']['society']['person_name']; ?></h5>
                                                   <p class="card-text">Nik. <?php echo $data['getDetail']['data']['society']['nik']; ?></p> -->
-                                                  <?php foreach ($data['getDetail']['data']['penumpangs'] as $row) : ?>
-                                                       <div class="d-flex justify-content-between mb-3">
+                                        <?php foreach ($data['getDetail']['data']['penumpangs'] as $row) : ?>
+                                            <div class="d-flex justify-content-between mb-3">
 
-                                                            <div class="d-flex flex-row align-items-center">
-                                                            <div class="icon"> <i class="bx bx-user"></i> </div>
-                                                            <div class="ms-2 c-details">
-                                                                 <h5 class="mb-0"><?php echo $row['name']?></h5> <span>No telp. <?php echo $row['no_hp']; ?></span>
-                                                            </div>
-                                                            </div>
-                                                            <div class="badge"> <span>Penumpang</span> </div>
+                                                <div class="d-flex flex-row align-items-center">
+                                                    <div class="icon"> <i class="bx bx-user"></i> </div>
+                                                    <div class="ms-2 c-details">
+                                                        <h5 class="mb-0"><?php echo $row['name'] ?></h5> <span>No telp. <?php echo $row['no_hp']; ?></span>
+                                                    </div>
+                                                </div>
+                                                <div class="badge"> <span>Penumpang</span> </div>
 
-                                                       </div>
-                                                  <?php endforeach ?>
+                                            </div>
+                                        <?php endforeach ?>
 
-                                             </div>
-                                        </div>
+                                    </div>
+                                </div>
 
-                                   </div>
                             </div>
-                            <!-- <div class="col-md-12 mt-4">
+                        </div>
+                        <!-- <div class="col-md-12 mt-4">
                                 <div style="border:1px solid #003A91;"></div>
                             </div> -->
-                            <!-- <div class="col-md-12 mt-4">
+                        <!-- <div class="col-md-12 mt-4">
                                 <table class="table table-bordered ">
                                     <thead>
                                         <tr>
@@ -187,9 +187,9 @@
                                     </tbody>
                                 </table>
                             </div> -->
-                        </div>
                     </div>
-               </div>
+                </div>
+            </div>
             <!-- <div class="row">
                 <div class="col-md-12">
                     <div class="border rounded" style="height:7vh;background-color:#D5D5D4;">
@@ -201,128 +201,130 @@
                 </div>
             </div> -->
             <div class="row  mt-4">
-               <div class="col-md-6">
+                <div class="col-md-6">
                     <div class="row">
 
-                         <div class="col-md-6 ">
-                              <div class="card ">
-                                   <div class="card-body">
-                                        <!-- <h5 class="card-title"><?php echo $data['getDetail']['data']['society']['person_name']; ?></h5>
+                        <div class="col-md-6 ">
+                            <div class="card ">
+                                <div class="card-body">
+                                    <!-- <h5 class="card-title"><?php echo $data['getDetail']['data']['society']['person_name']; ?></h5>
                                         <p class="card-text">Nik. <?php echo $data['getDetail']['data']['society']['nik']; ?></p> -->
-                                        <div class="d-flex justify-content-between">
-                                             <div class="d-flex flex-row align-items-center">
-                                             <div class="icon icon2"> <i class="fa-solid fa-car"></i> </div>
-                                             <div class="ms-2 c-details">
-                                                  <span> Tipe Kendaraan</span>
-                                                  <h5 class="mb-0"><?php echo $data['getDetail']['data']['type_vehicle']['type_name']; ?></h5>
-                                             </div>
-                                             </div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <div class="icon icon2"> <i class="fa-solid fa-car"></i> </div>
+                                            <div class="ms-2 c-details">
+                                                <span> Tipe Kendaraan</span>
+                                                <h5 class="mb-0"><?php echo $data['getDetail']['data']['type_vehicle']['type_name']; ?></h5>
+                                            </div>
                                         </div>
+                                    </div>
 
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-md-6 ">
-                              <div class="card ">
-                                   <div class="card-body">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="card ">
+                                <div class="card-body">
 
-                                        <div class="d-flex justify-content-between">
-                                             <div class="d-flex flex-row align-items-center">
-                                             <div class="icon icon2"> <i class="fa-solid fa-helicopter-symbol"></i> </div>
-                                             <div class="ms-2 c-details">
-                                                  <span> Merek Kendaraan</span>
-                                                  <h5 class="mb-0"><?php echo $data['getDetail']['data']['brand_vehicle']['brand_name']; ?></h5>
-                                             </div>
-                                             </div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <div class="icon icon2"> <i class="fa-solid fa-helicopter-symbol"></i> </div>
+                                            <div class="ms-2 c-details">
+                                                <span> Merek Kendaraan</span>
+                                                <h5 class="mb-0"><?php echo $data['getDetail']['data']['brand_vehicle']['brand_name']; ?></h5>
+                                            </div>
                                         </div>
+                                    </div>
 
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-md-6 ">
-                              <div class="card ">
-                                   <div class="card-body">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="card ">
+                                <div class="card-body">
 
-                                        <div class="d-flex justify-content-between">
-                                             <div class="d-flex flex-row align-items-center">
-                                             <div class="icon icon2"> <i class="fa-solid fa-calendar-week"></i> </div>
-                                             <div class="ms-2 c-details">
-                                                  <span> Waktu Pengisian Data</span>
-                                                  <h5 class="mb-0"><?php echo date('H:i, d-m-Y', strtotime($data['getDetail']['data']['created_at'])); ?></h5>
-                                             </div>
-                                             </div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <div class="icon icon2"> <i class="fa-solid fa-calendar-week"></i> </div>
+                                            <div class="ms-2 c-details">
+                                                <span> Waktu Pengisian Data</span>
+                                                <h5 class="mb-0"><?php echo date('H:i, d-m-Y', strtotime($data['getDetail']['data']['created_at'])); ?></h5>
+                                            </div>
                                         </div>
+                                    </div>
 
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-md-6 ">
-                              <div class="card ">
-                                   <div class="card-body">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="card ">
+                                <div class="card-body">
 
-                                        <div class="d-flex justify-content-between">
-                                             <div class="d-flex flex-row align-items-center">
-                                             <div class="icon icon2"> <i class="fa-solid fa-magnifying-glass-location"></i> </div>
-                                             <div class="ms-2 c-details">
-                                                  <span> Waktu Keberangkatan</span>
-                                                  <h5 class="mb-0"><?php echo date('H:i', strtotime($data['getDetail']['data']['departure_time'])); ?>, <?php echo date('d-m-Y', strtotime($data['getDetail']['data']['departure_date'])); ?></h5>
-                                             </div>
-                                             </div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <div class="icon icon2"> <i class="fa-solid fa-magnifying-glass-location"></i> </div>
+                                            <div class="ms-2 c-details">
+                                                <span> Waktu Keberangkatan</span>
+                                                <h5 class="mb-0"><?php echo date('H:i', strtotime($data['getDetail']['data']['departure_time'])); ?>, <?php echo date('d-m-Y', strtotime($data['getDetail']['data']['departure_date'])); ?></h5>
+                                            </div>
                                         </div>
+                                    </div>
 
-                                   </div>
-                              </div>
-                         </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
-               </div>
+                </div>
 
-               <div class="col-md-6">
+                <div class="col-md-6">
                     <div class="row mt-3">
-                         <div class="col-md-6 mt-4">
-                                   <div class="card">
-                                        <div class="card-body">
+                        <div class="col-md-6 mt-4">
+                            <div class="card">
+                                <div class="card-body">
 
-                                             <div class="d-flex justify-content-between ">
-                                                  <div class="d-flex flex-row align-items-center">
-                                                       <div class="icon icon2"> <i class="fa-solid fa-location-arrow"></i></div>
-                                                       <div class="ms-2 c-details">
-                                                            <span> Lokasi Awal</span>
-                                                            <h5 class="mb-0"><?= $data['getDetail']['data']['district_start']?></h5><h5 class="mb-0"><?= $data['getDetail']['data']['subdistrict_start']?></h5>
-                                                       </div>
-                                                  </div>
-                                             </div>
-
-                                             <div class="ms-2 c-details ps-5 mt-2">
-                                                  <span> Koordinat</span>
-                                                  <h5 class="mb-0"><?php echo $data['getDetail']['data']['start_coordinate']['latitude']; ?>, <?php echo $data['getDetail']['data']['start_coordinate']['longitude']; ?></h5>
-                                             </div>
-
-
+                                    <div class="d-flex justify-content-between ">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <div class="icon icon2"> <i class="fa-solid fa-location-arrow"></i></div>
+                                            <div class="ms-2 c-details">
+                                                <span> Lokasi Awal</span>
+                                                <h5 class="mb-0"><?= $data['getDetail']['data']['district_start'] ?></h5>
+                                                <h5 class="mb-0"><?= $data['getDetail']['data']['subdistrict_start'] ?></h5>
+                                            </div>
                                         </div>
-                                   </div>
-                              </div>
-                              <div class="col-md-6 mt-4 ">
-                                   <div class="card">
-                                        <div class="card-body">
-                                              <div class="d-flex justify-content-between ">
-                                                  <div class="d-flex flex-row align-items-center">
-                                                       <div class="icon icon2"> <i class="fa-solid fa-map-pin"></i>  </div>
-                                                       <div class="ms-2 c-details">
-                                                            <span> Lokasi Tujuan</span>
-                                                            <h5 class="mb-0"><?= $data['getDetail']['data']['district_end']?></h5><h5 class="mb-0"><?= $data['getDetail']['data']['subdistrict_end']?></h5>
-                                                       </div>
-                                                  </div>
-                                             </div>
-                                             <div class="ms-2 c-details ps-5 mt-2">
-                                                  <span> Koordinat</span>
-                                                  <h5 class="mb-0"><?php echo $data['getDetail']['data']['end_coordinate']['latitude']; ?>, <?php echo $data['getDetail']['data']['end_coordinate']['longitude']; ?></h5>
-                                             </div>
+                                    </div>
+
+                                    <div class="ms-2 c-details ps-5 mt-2">
+                                        <span> Koordinat</span>
+                                        <h5 class="mb-0"><?php echo $data['getDetail']['data']['start_coordinate']['latitude']; ?>, <?php echo $data['getDetail']['data']['start_coordinate']['longitude']; ?></h5>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-4 ">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between ">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <div class="icon icon2"> <i class="fa-solid fa-map-pin"></i> </div>
+                                            <div class="ms-2 c-details">
+                                                <span> Lokasi Tujuan</span>
+                                                <h5 class="mb-0"><?= $data['getDetail']['data']['district_end'] ?></h5>
+                                                <h5 class="mb-0"><?= $data['getDetail']['data']['subdistrict_end'] ?></h5>
+                                            </div>
                                         </div>
-                                   </div>
-                              </div>
+                                    </div>
+                                    <div class="ms-2 c-details ps-5 mt-2">
+                                        <span> Koordinat</span>
+                                        <h5 class="mb-0"><?php echo $data['getDetail']['data']['end_coordinate']['latitude']; ?>, <?php echo $data['getDetail']['data']['end_coordinate']['longitude']; ?></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-               </div>
+                </div>
 
                 <!-- <div class="col-md-12 mt-4 ">
                     <div class="border rounded d-flex" style=" font-family: 'Open Sans'; margin-left:-1.7vh;">
@@ -366,7 +368,7 @@
                     </div>
                 </div> -->
             </div>
-            
+
             <a href="<?= base_url('ngawas'); ?>"> <button class="btn btn-primary waves-effect float-end mt-3 " style="width: 25%;">Kembali</button></a>
         </div>
     </div>
@@ -407,9 +409,9 @@
                 attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
             });
             var gl = L.mapboxGL({
-            accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
-            style: 'mapbox://styles/mapbox/traffic-day-v2'
-        });
+                accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
+                style: 'mapbox://styles/mapbox/traffic-day-v2'
+            });
 
             // StART MAP SECTION
             var mapContainer = L.map('mapG20Dashboard', {
@@ -429,110 +431,33 @@
             // console.log(parseFloat(startCordLat));
 
             //getBatasWilayah
-          $.getJSON("<?php echo base_url('assets/fe/js/BogorSelatan.geojson') ?>", function(data){
-            geoLayer = L.geoJson(data, {
-                style : function(feature) {
-                    return {
-                        fillColor: 'white',
-                        color: 'grey',
-                        opacity: 10
-                    }
-                },
+            function addGeoJsonLayer(filename, popupText) {
+                $.getJSON("<?php echo base_url('assets/fe/js/" + filename + "') ?>", function(data) {
+                    geoLayer = L.geoJson(data, {
+                        style: function(feature) {
+                            return {
+                                fillColor: 'grey',
+                                color: 'black',
+                                opacity: 0.6 // Changed opacity value to 0.1
+                            };
+                        },
+                    }).addTo(mapContainer);
 
-            }).addTo(mapContainer);
+                    geoLayer.eachLayer(function(layer) {
+                        layer.bindPopup(popupText);
+                    });
+                });
+            }
 
-            geoLayer.eachLayer(function(layer) {
-                layer.bindPopup("Kecamatan Bogor Selatan");
-            });
-          });
+            addGeoJsonLayer("BogorSelatan.geojson", "Kecamatan Bogor Selatan");
+            addGeoJsonLayer("BogorTengah.geojson", "Kecamatan Bogor Tengah");
+            addGeoJsonLayer("BogorTimur.geojson", "Kecamatan Bogor Timur");
+            addGeoJsonLayer("BogorUtara.geojson", "Kecamatan Bogor Utara");
+            addGeoJsonLayer("TanahSereal.geojson", "Kecamatan Tanah Sereal");
+            addGeoJsonLayer("bogor-barat.json", "Kecamatan Bogor Barat");
 
+            
 
-          $.getJSON("<?php echo base_url('assets/fe/js/BogorTengah.geojson') ?>", function(data){
-            geoLayer = L.geoJson(data, {
-                style : function(feature) {
-                    return {
-                        fillColor: 'white',
-                        color: 'grey',
-                        opacity: 10
-                    }
-                },
-
-            }).addTo(mapContainer);
-
-            geoLayer.eachLayer(function(layer) {
-                layer.bindPopup("Kecamatan Bogor Tengah");
-            });
-          });
-
-
-          $.getJSON("<?php echo base_url('assets/fe/js/BogorTimur.geojson') ?>", function(data){
-            geoLayer = L.geoJson(data, {
-                style : function(feature) {
-                    return {
-                        fillColor: 'white',
-                        color: 'grey',
-                        opacity: 10
-                    }
-                },
-
-            }).addTo(mapContainer);
-
-            geoLayer.eachLayer(function(layer) {
-                layer.bindPopup("Kecamatan Bogor Timur");
-            });
-          });
-
-
-          $.getJSON("<?php echo base_url('assets/fe/js/BogorUtara.geojson') ?>", function(data){
-            geoLayer = L.geoJson(data, {
-                style : function(feature) {
-                    return {
-                        fillColor: 'white',
-                        color: 'grey',
-                        opacity: 10
-                    }
-                },
-
-            }).addTo(mapContainer);
-
-            geoLayer.eachLayer(function(layer) {
-                layer.bindPopup("Kecamatan Bogor Utara");
-            });
-          });
-
-          $.getJSON("<?php echo base_url('assets/fe/js/TanahSereal.geojson') ?>", function(data){
-            geoLayer = L.geoJson(data, {
-                style : function(feature) {
-                    return {
-                        fillColor: 'white',
-                        color: 'grey',
-                        opacity: 10
-                    }
-                },
-
-            }).addTo(mapContainer);
-
-            geoLayer.eachLayer(function(layer) {
-                layer.bindPopup("Kecamatan Tanah Sereal");
-            });
-          });
-
-          $.getJSON("<?php echo base_url('assets/fe/js/bogor-barat.json') ?>", function(data){
-            geoLayer = L.geoJson(data, {
-                style : function(feature) {
-                    return {
-                        fillColor: 'white',
-                        color: 'grey',
-                        opacity: 10
-                    }
-                },
-
-            }).addTo(mapContainer);
-
-            geoLayer.eachLayer(function(layer) {
-                layer.bindPopup("Kecamatan Tanah Sereal");
-            });
-          });
 
 
             L.Routing.control({

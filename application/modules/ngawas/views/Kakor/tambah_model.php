@@ -125,7 +125,7 @@
                 if (!data.length) {
                     return
                 }
-                // console.log(data)
+                // console.log(data)    
 
                 var table = new DataTable('#dataTable', {
                     data: data.map(item => Object.values(item))

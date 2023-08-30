@@ -1154,7 +1154,7 @@
                 if (!data.length) {
                     return
                 }
-                // console.log(data)
+                console.log(data)
 
                 var table = new DataTable('#dataTable', {
                     data: data.map(item => Object.values(item))
@@ -1317,53 +1317,6 @@
             getStatistikNgawas2(filter, time = false, start_time = null, end_time = null, start_year, end_year);
             getModelKendaraan(filter, time = false, start_time = null, end_time = null, start_year, end_year);
         }
-    })
-
-    $('#btn_filter').on('click', function(e) {
-        e.preventDefault()
-        let limit = $('#limit_showData').val()
-
-        let start_prov = $('#kode_prov_start').val();
-        let end_prov = $('#kode_prov_end').val();
-
-        let start_date = $('#start_date').val();
-        let end_date = $('#end_date').val();
-
-        let start_time = $('#start_time').val();
-        let end_time = $('#end_time').val();
-
-        let time = false;
-        let filter = false;
-
-        if ((start_date != '' && end_date == '') || (start_date == '' && end_date != '')) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Waktu mulai dan waktu akhir harus terisi!',
-            })
-        } else if (start_date > end_date) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Waktu mulai tidak boleh melewati waktu akhir!',
-            })
-        }
-        // $.ajax({
-        //     url: "<?= base_url() ?>tripon/getFilter",
-        //     type: 'POST',
-        //     data: {
-        //         limit,
-        //         filter,
-        //         time,
-        //         start_date,
-        //         end_date,
-        //         start_time,
-        //         end_time
-        //     },
-        //     dataType: 'JSON',
-        //     success: function(result) {
-
-        //     }
-        // })
-
     })
 
 

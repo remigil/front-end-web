@@ -142,7 +142,7 @@
         }
 
         #mapG20Dashboard {
-            height: 1015px;
+            height: 80vh;
             width: 100%
         }
 
@@ -870,6 +870,16 @@
             color: #1967d2;
             text-shadow: 0 0 6px rgba(44, 16, 245, 0.66);
         }
+
+        .dropdown span:hover {
+            color: #000;
+
+        }
+
+        .dropdown span::after,
+        .dropdown span::before {
+            color: #000;
+        }
     </style>
 
     <!-- JAVASCRIPT -->
@@ -990,18 +1000,18 @@
                             <?php $mobile = detect_mobile();
                             if ($mobile === true) { ?>
                                 <p style="font-size:10px; margin-bottom: 0px;margin-top: 10px;">Selamat Datang Di</p>
-                                <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #01796f; font-family:Righteous; font-size:10px; margin-top:2px;" class="text-uppercase">BOGOR NGAWAS &nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
+                                <h1 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #01796f; font-family:Righteous; font-size:10px; margin-top:2px;" class="text-uppercase">BOGOR sssNGAWAS &nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h1>
                             <?php } else { ?>
                                 <?php if ($this->session->userdata['role'] == 'G20') { ?>
                                     <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Operasi</p>
                                 <?php } else { ?>
                                     <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Selamat Datang Di</p>
                                 <?php } ?>
-                                <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:#01796f; font-family:Righteous; font-size:18px; margin-top:2px;" class="text-uppercase">BOGOR NGAWAS &nbsp; <span style="color:#007DD8 ;">
+                                <h1 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:#01796f; font-family:Righteous; font-size:26px; margin-top:2px;" class="text-uppercase">BOGOR NGAWAS &nbsp; <span style="color:#007DD8 ;">
                                         <?php if ($this->session->userdata['role'] == 'G20') { ?>
                                             - <span>Operasi <?= $this->session->userdata['name_operation'] ?></span>
                                         <?php } ?>
-                                    </span> </h4>
+                                    </span> </h1>
 
                             <?php } ?>
                         </div>
@@ -1029,11 +1039,11 @@
 
                     <?php $mobile = detect_mobile();
                     if ($mobile === false) { ?>
-                        <p style="text-align: end;position: relative;top: 12px;">
-                            <b style="text-transform: uppercase;font-size: 12px;">
+                        <p style="text-align: end;position: relative;top: 15px;">
+                            <b style="text-transform: uppercase;font-size: 15px;">
                                 <?php echo format_indoHari(date('Y-m-d')) ?>
                             </b></br>
-                            <span id="jam" style="font-size:10px;font-weight: bold;"></span>
+                            <span id="jam" style="font-size:15px;font-weight: bold;"></span>
                         </p>
                     <?php } ?>
                     <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
@@ -1041,7 +1051,7 @@
                             <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel' || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri') { ?>
                                     <!-- <img src="<?= base_url('assets/sidebar/lonceng-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
-                                    <i data-feather="bell" class="icon-lg"></i>
+                                    <!-- <i data-feather="bell" class="icon-lg"></i> -->
                                 <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                                     <i data-feather="bell" class="icon-lg"></i>
 
@@ -1868,12 +1878,12 @@
                                         <span data-key="t-dashboard">Kendaraan</span>
                                     </a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="<?= base_url('ngawas/dashboard2') ?>" data-key="t-login">
                                         <i class="fas fa-chart-simple" style="color: #01796f;"></i>
                                         <span data-key="t-dashboard">E-chart</span>
                                     </a>
-                                </li>
+                                </li> -->
 
 
                                 <!-- Ini nanti dilanjut -->

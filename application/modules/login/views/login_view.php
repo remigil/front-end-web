@@ -244,7 +244,7 @@
                   <label for="remember" style="margin-left: 5px;">Ingat saya</label>
                 </div>
 
-                <div class="mb-3 ">
+                <div class="mb-3 d-flex justify-content-center">
                   <div class="g-recaptcha" data-sitekey="6Ld4alwgAAAAACTfPfbmT3prEztN4zO7TR_bFA98" data-theme="light" data-type="image" data-callback="" >
                     <?= $captcha ?>
                     <?= $script_captcha ?>

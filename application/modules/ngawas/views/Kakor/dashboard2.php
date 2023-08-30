@@ -83,11 +83,43 @@
         margin-right: 10px;
         font-weight: bold;
     }
+
+    .legend {
+        background-color: #fff;
+        padding: 10px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .legend-item img {
+        width: 24px;
+        height: 30px;
+        margin-right: 5px;
+    }
+
+    .legend-title {
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .info.legend.leaflet-control {
+        width: 200;
+    }
 </style>
-<!-- 
-<button title="Filter" id="button" style="background: transparent;height:40px;border:none;margin-top:-3px" onclick="changeData()">
-                Filter
-            </button> -->
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- <h1>Peta Sebara Titik Ke</h1> -->
+    </div>
+</div>
+
 
 <div class="row">
     <div class="col-md-12">
@@ -99,12 +131,13 @@
 
 
 
-<!-- <script src="<?php echo base_url(); ?>assets/fe/js/kabbogor_polygon.js"></script> -->
+<script src="<?php echo base_url(); ?>assets/fe/js/kabbogor_polygon.js"></script>
 
 <script>
-    // console.log('hello')
-
     $(document).ready(function() {
+        var data = '<?= base_url() ?>ngawas/sebaran';
+        // console.log(data)
+
 
         var initialCenter = [-6.6035992, 106.8092627];
         var initialZoom = 12.66;
@@ -153,214 +186,74 @@
             zoomControl: false,
             layers: [gl]
         }).setView(initialCenter, initialZoom);
+        // Buat objek gaya (style) untuk layer GeoJSON
+        var customStyle = {
+            fillColor: 'grey',
+            weight: 2,
+            opacity: 1,
+            color: 'none',
+            // dashArray: '3',
+            // fillOpacity: 0.5
+        };
 
-        // var kabbogor_polygon = L.geoJson(kabbogorpol).addTo(map);
+        // Buat layer GeoJSON dengan gaya khusus
+        var kabbogor_polygon = L.geoJSON(kabbogorpol, {
+            style: customStyle
+        }).addTo(map);
+
 
 
         //getBatasWilayah
 
-        // function addGeoJsonLayer(url, popupText) {
-        // $.getJSON(url, function(data) {
-        //     var geoLayer = L.geoJson(data, {
+        function addGeoJsonLayer(url, popupText) {
+            $.getJSON(url, function(data) {
+                var geoLayer = L.geoJson(data, {
+                    style: function(feature) {
+                        return {
+                            fillColor: 'white',
+                            opacity: '1',
+                            weight: 3.5,
+                            color: 'black',
+                            dashArray: '2',
+                        }
+                    },
+                }).addTo(map);
 
-        //     }).addTo(map);
-
-        //     geoLayer.eachLayer(function(layer) {
-        //     layer.bindPopup(popupText);
-        //     });
-        // });
-        // }
-
-
-        // function getColor(d) {
-        //     return d > 40 ? '#900C3F' :
-        //         d > 20 ? '#D92027' :
-        //         d > 10 ? '#FF9234' :
-        //         d > 5 ? '#FFCD3C' :
-        //         d > 0 ? '#35D0BA' :
-        //         '#686869';
-        // }
-        function getColor(d) {
-            return d > 50 ? '#800026' :
-                d > 30 ? '#BD0026' :
-                d > 20 ? '#E31A1C' :
-                d > 10 ? '#FC4E2A' :
-                d > 5 ? '#FD8D3C' :
-                d > 0 ? '#FED976' :
-                '#FFEDA0';
-        }
-
-
-        let GeoJson = [
-            'BogorSelatan.geojson',
-            'BogorTengah.geojson',
-            'BogorTimur.geojson',
-            'BogorUtara.geojson',
-            'TanahSereal.geojson',
-            'BogorBarat.geojson'
-        ]
-
-
-        // console.log(GeoJson);
-
-
-
-
-        // getGeoJson = async () => {
-        //     for (i in GeoJson) {
-        //         var data = GeoJson[i]
-
-        //         url = `<?= base_url() ?>assets/fe/js/` + data
-        //         let get = await fetch(url)
-        //         let json = await get.json();
-        //         // console.log(json);
-        //         geojson = L.geoJson(json, {
-        //             // onEachFeature: onEachFeature,
-        //             style: style
-
-        //         }).addTo(kecamatanGroup)
-        //     }
-        // }
-        // getGeoJson().then(() => {
-        //     kecamatanGroup.addTo(map)
-        // })
-
-        let kecamatanGroup1 = L.layerGroup();
-        let kecamatanGroup2 = L.layerGroup();
-
-        let pushRespon = [];
-        $.ajax({
-            url: '<?= base_url() ?>ngawas/choropleth',
-            type: 'POST',
-            dataType: 'JSON',
-            success: async function(result) {
-                var ressData = result;
-                pushRespon = ressData;
-                var dataJSON = GeoJson;
-                var fetchPromises = [];
-
-                for (var i in GeoJson) {
-                    var data = GeoJson[i];
-                    var url = `<?= base_url() ?>assets/fe/js/` + data;
-                    var fetchPromise = fetch(url).then(response => response.json());
-                    fetchPromises.push(fetchPromise);
-                }
-
-                // Menunggu semua permintaan fetch selesai
-                var fetchedJsons = await Promise.all(fetchPromises);
-
-                // Membuat lapisan GeoJSON dari setiap hasil fetch
-                for (var i in fetchedJsons) {
-                    var json = fetchedJsons[i];
-                    // console.log(json);
-
-                    var geojson = L.geoJson(json, {
-                        style: warna1
-                    }).addTo(kecamatanGroup1);
-
-                }
-
-                // Menambahkan LayerGroup ke peta setelah semua lapisan GeoJSON dibuat
-                markergrup_kedatangan.addLayer(kecamatanGroup1);
-
-                // console.log(ressData);
-                // let pushRespon = ressData.push
-            }
-        });
-
-
-
-
-        var warna1 = function style(feature) {
-            let totaldata = null;
-            for (i in pushRespon) {
-                if (pushRespon[i].kode === feature.properties.kode) {
-                    totaldata = pushRespon[i].kedatangan;
-                    break;
-                }
-
-            }
-            console.log(totaldata)
-            // return totaldata;
-            return {
-                color: 'white',
-                fillColor: getColor(totaldata),
-                weight: 2,
-                opacity: 1,
-                fillOpacity: 0.7,
-                dashArray: 3
-            }
-        }
-
-
-        $.ajax({
-            url: '<?= base_url() ?>ngawas/choropleth',
-            type: 'POST',
-            dataType: 'JSON',
-            success: async function(result) {
-                var ressData = result;
-                pushRespon = ressData;
-                var dataJSON = GeoJson;
-                var fetchPromises = [];
-
-                for (var i in GeoJson) {
-                    var data = GeoJson[i];
-                    var url = `<?= base_url() ?>assets/fe/js/` + data;
-                    var fetchPromise = fetch(url).then(response => response.json());
-                    fetchPromises.push(fetchPromise);
-                }
-
-                // Menunggu semua permintaan fetch selesai
-                var fetchedJsons = await Promise.all(fetchPromises);
-
-                // Membuat lapisan GeoJSON dari setiap hasil fetch
-                for (var i in fetchedJsons) {
-                    var json = fetchedJsons[i];
-                    // console.log(json);
-
-                    var geojson = L.geoJson(json, {
-                        style: warna2
-                    }).addTo(kecamatanGroup2);
-
-                }
-
-                // Menambahkan LayerGroup ke peta setelah semua lapisan GeoJSON dibuat
-                markergrup_keberangkatan.addLayer(kecamatanGroup2);
-
-                // console.log(ressData);
-                // let pushRespon = ressData.push
-            }
-        });
-
-
-
-
-        var warna2 = function style(feature) {
-            let totaldata = null;
-            for (i in pushRespon) {
-                if (pushRespon[i].kode === feature.properties.kode) {
-                    totaldata = pushRespon[i].keberangkatan;
-                    break;
-                }
-
-            }
-            console.log(totaldata)
-            // return totaldata;
-            return {
-                color: 'white',
-                fillColor: getColor(totaldata),
-                weight: 2,
-                opacity: 1,
-                fillOpacity: 0.7,
-                dashArray: 3
-            }
+                geoLayer.eachLayer(function(layer) {
+                    layer.bindPopup(popupText);
+                });
+            });
         }
 
 
 
+        addGeoJsonLayer("<?php echo base_url('assets/fe/js/BogorSelatan.geojson') ?>", "Kecamatan Bogor Selatan");
+        addGeoJsonLayer("<?php echo base_url('assets/fe/js/BogorTengah.geojson') ?>", "Kecamatan Bogor Tengah");
+        addGeoJsonLayer("<?php echo base_url('assets/fe/js/BogorTimur.geojson') ?>", "Kecamatan Bogor Timur");
+        addGeoJsonLayer("<?php echo base_url('assets/fe/js/BogorUtara.geojson') ?>", "Kecamatan Bogor Utara");
+        addGeoJsonLayer("<?php echo base_url('assets/fe/js/TanahSereal.geojson') ?>", "Kecamatan Tanah Sereal");
+        addGeoJsonLayer("<?php echo base_url('assets/fe/js/bogor-barat.json') ?>", "Kecamatan Bogor Barat");
 
 
+        // array
+        // var markers = L.markerClusterGroup();
+        // var marker_array = [
+        // ["Bogor Selatan", -6.637869, 106.813483],
+        // ["Bogor Timur", -6.617142, 106.825682],
+        // ["Bogor Utara", -6.573078, 106.822610],
+        // ["Bogor Tengah", -6.598313, 106.799308],
+        // ["Tanah Sereal", -6.547166, 106.785686],
+        // ["Bogor Barat", -6.573392, 106.766256]
+        // ];
 
+        // for (var i = 0; i < marker_array.length; i++) {
+        // var marker = new L.marker([marker_array[i][1], marker_array[i][2]]).bindPopup(marker_array[i][0]);
+        // markers.addLayer(marker);
+        // }
+
+        // map.addLayer(markers);
+
+        // keberangkatan 
         var iconOtw = L.icon({
             // iconUrl :'https://leafletjs.com/examples/custom-icons/leaf-green.png',
             iconUrl: '<?= base_url() ?>assets/fe/otw.png',
@@ -377,13 +270,14 @@
             type: 'POST',
             dataType: 'JSON',
             success: function(result) {
-                ressData = result;
+                let ressData = result;
+                // console.log(result);
 
                 for (var i = 0; i < ressData.length; i++) {
                     if (ressData[i].kode_kec_start != "") {
                         var lat_keberangkatan = parseFloat(ressData[i].start_coordinate.latitude)
                         var lng_keberangkatan = parseFloat(ressData[i].start_coordinate.longitude)
-
+                        // console.log(lng_keberangkatan);
                         var nama = ressData[i].society.person_name
                         var type_vehicle = ressData[i].type_vehicle.type_name
                         var loc_start = ressData[i].subdistrict_start
@@ -412,20 +306,10 @@
                     }
                 }
 
-            }
 
+            }
         })
         map.addLayer(markergrup_keberangkatan)
-
-
-        //     function style(feature) {
-        //     totaldata = 0
-
-
-        // }
-        // style();
-
-
 
         // kedatangan 
         var iconDatang = L.icon({
@@ -485,28 +369,29 @@
 
 
 
+
+
+
+
         var myRenderer = L.canvas({
             padding: 0.5
         });
 
 
 
-        // var baseMaps = {
-        //     "MappBox Traffic": gl,
-        //     "Google Map Street": googleStreet,
-        //     "Google Map Satelite": googleSatelite,
-
-        // };
-
         var baseMaps = {
-            "Keberangkatan": markergrup_keberangkatan,
-            "Kedatangan": markergrup_kedatangan,
-
+            "MappBox Traffic": gl,
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            // "Google Map Hybrid": googleHybrid,
+            // "Google Map Terrain": googleTerrain,
+            // "Google Map Street Traffic": trafficMutantRoad,
+            // "Google Map Hybrid Traffic": trafficMutant,
         };
 
         var overlayMaps = {
-            // "Keberangkatan": markergrup_keberangkatan,
-            // "Kedatangan": markergrup_kedatangan,
+            "Keberangkatan": markergrup_keberangkatan,
+            "Kedatangan": markergrup_kedatangan,
         };
 
 
@@ -515,8 +400,6 @@
             position: 'topright',
             collapsed: false
         }).addTo(map);
-
-        addOverlay(markergrup_keberangkatan, '<label for="overlay1">Keberangkatans</label>', 'overlay1');
 
         // Atur properti CSS untuk menambahkan lebar
         var controlContainer = layerControl.getContainer();
@@ -534,5 +417,38 @@
         var centerMap = map.getCenter();
         var centerLat = centerMap['lat'];
         var centerLng = centerMap['lng'];
+
+        // console.log('hello');
+
+
+        var legend = L.control({
+            position: "bottomleft"
+        });
+
+        legend.onAdd = function(map) {
+            var div = L.DomUtil.create("div", "info legend");
+            var labels = ["Kedatangan", "Keberangkatan"];
+            var title = "Legend"
+            var icons = [
+                '<?= base_url() ?>assets/fe/datang.png',
+                '<?= base_url() ?>assets/fe/otw.png'
+            ];
+
+            // Tambahkan judul pada legenda
+            div.innerHTML = '<div class="legend-title">' + title + '</div>';
+
+            // Loop through the labels and icons to create the legend items
+            for (var i = 0; i < labels.length; i++) {
+                div.innerHTML +=
+                    '<div class="legend-item"><img class="mb-3" src="' + icons[i] + '" alt="' + labels[i] + '"/> ' + labels[i] + '</div>';
+            }
+
+            return div;
+        };
+
+        legend.addTo(map);
+
+
+
     });
 </script>

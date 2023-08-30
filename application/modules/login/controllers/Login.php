@@ -60,99 +60,16 @@ class Login extends MX_Controller
                 $data_session['tokenFcm']       = $tokenNotif;
                 $data_session['logged']       = 1;
 
+
                 
-                $headers = [
-                    'Authorization' => $response['token'],
-                ];
-                $operationProfile = guzzle_request('GET', 'operation-profile/mobile', [
-                    'headers' => $headers
-                ]); 
-
-                if($response['user']['data']['user_role']['name'] == 'G20' && $operationProfile['isSuccess'] == true){
-                    $data_session['id_operation']       = $operationProfile['data']['id_operation'];
-                    $data_session['banner']       = $operationProfile['data']['banner'];
-                    $data_session['name_operation']       = $operationProfile['data']['name_operation'] ? $operationProfile['data']['name_operation'] : 'Tidak Ada';
-                    $data_session['document_sprint']       = $operationProfile['data']['document_sprint'];
-                    $data_session['background_image']       = $operationProfile['data']['background_image'];
-                    $data_session['logo']       = $operationProfile['data']['logo'];
-                    $data_session['latlng_center']       = $operationProfile['data']['latlng_center'] ? $operationProfile['data']['latlng_center'] : '-0.21973, 117.91602';
-                    $data_session['zoom_level']       = $operationProfile['data']['zoom_level'] ? $operationProfile['data']['zoom_level'] : 5.5;
-                    $data_session['date_start_operation']       = $operationProfile['data']['date_start_operation'];
-                    $data_session['date_end_operation']       = $operationProfile['data']['date_end_operation'];  
-                }else{
-                    $data_session['id_operation']       = null;
-                    $data_session['banner']       = null;
-                    $data_session['name_operation']       = 'Tidak Ada';
-                    $data_session['document_sprint']       = null;
-                    $data_session['background_image']       = null;
-                    $data_session['logo']       = null;
-                    $data_session['latlng_center']       = '-0.21973, 117.91602';
-                    $data_session['zoom_level']       = 5.5;
-                    $data_session['date_start_operation']       = null;
-                    $data_session['date_end_operation']       = null;  
-                }
-
-                 
-
-                if ($response['user']['data']['user_role']['name'] == 'OperatorPolda' || $response['user']['data']['user_role']['name'] == 'Kapolda') {
-                    $data_session['polda']       = $response['user']['data']['polda_profile']['polda']['name_polda'];
-
-                    $data_session['polda_id'] = $response['user']['data']['polda_profile']['polda']['id'];
-                    $data_session['id_polda'] = $response['user']['data']['polda_profile']['polda_id'];
-
-
-                    if ($response['user']['data']['polda_profile'] == null || $response['user']['data']['polda_profile'] == null) {
-                        $this->session->set_flashdata('error', 'Mohon untuk hubungi admin karna Polda Belum di Daftarkan');
-                        redirect('login');
-                        die;
-                    }
-                }
-
-                if ($response['user']['data']['user_role']['name'] == 'OperatorPolres' || $response['user']['data']['user_role']['name'] == 'Kapolres') {
-                    $data_session['polres_id'] = $response['user']['data']['polres_profile']['polres']['id'];
-                    $data_session['id_polres'] = $response['user']['data']['polres_profile']['polres_id'];
-                    $data_session['polres']       = $response['user']['data']['polres_profile']['polres']['name_polres'];
-                    $data_session['polda_id']       = $response['user']['data']['polres_profile']['polres']['polda']['id'];
-                    // $data_session['polda_id'] = $response['user']['data']['polda_profile']['poldaid'];
-                    if ($response['user']['data']['polres_profile'] == null || $response['user']['data']['polres_profile'] == null) {
-                        $this->session->set_flashdata('error', 'Mohon untuk hubungi admin karna Polres Belum di Daftarkan');
-                        redirect('login');
-                        die;
-                    }
-                }
-
                 $this->session->set_userdata($data_session);
-
-                $headers = [
-                    'Authorization' => $response['token'],
-                ];
-                $dummy = [
-                    [
-                        'name' => 'token_notif',
-                        'contents' => $tokenNotif,
-                    ],
-                ];
-                // $data = guzzle_request('PUT', 'user/edit/' . $response['user']['data']['id'] . '', [
-                //     'multipart' => $dummy,
-                //     'headers' => $headers
-                // ]);
 
 
                 // if ($data['isSuccess'] == true) {
-                    if ($response['user']['data']['user_role']['name'] == "Kakor" || $response['user']['data']['user_role']['name'] == "PJU") {
-                        redirect(base_url('dashboard?start_date=' . date("Y-m-d") . '&end_date=' . date("Y-m-d") . ''));
-                    } else if ($response['user']['data']['user_role']['name'] == "OperatorPolda" || $response['user']['data']['user_role']['name'] == "OperatorPolres" || $response['user']['data']['user_role']['name'] == "OperatorKorlantas" || $response['user']['data']['user_role']['name'] == "Korlantas") {
-                        redirect(base_url('inputdata/LaporanHarian'));
-                    } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') {
+                   if ($this->session->userdata['role'] == 'Kakorlantas') {
                         redirect(base_url('dashboard')); 
-                    } else {
-                        redirect(base_url('dashboard'));
                     }
-                // } else {
-                //     $this->session->set_flashdata('error', 'Mohon untuk periksa kembali jaringan anda!');
-                //     redirect('login');
-                //     die;
-                // }
+
             } else { 
                 $this->session->set_flashdata('error', 'Mohon untuk verifikasi akun anda!');
                 redirect('login');

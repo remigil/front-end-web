@@ -20,6 +20,7 @@ if (!function_exists('guzzle_request')) {
             // $request = $client->request($method, 'http://localhost:3001/v1/' . $uri, $body); 
             $request = $client->request($method, ENV_API_BASE_URL . 'v1/' . $uri, $body);
             // $request = $client->request($method, 'http://34.143.227.90:3019/v1/' . $uri, $body); 
+            // var_dump($request->getBody());
             $response = $request->getBody()->getContents();
             $data = json_decode($response, true);
 
